@@ -1,0 +1,40 @@
+# External.CMakeLists.txt.in
+#
+# Template to generate a CMAKE project in the build tree that will download config build and install
+# an external project dependency to CMAKE_INSTALL_PREFIX using ExternalProject_Add
+#
+cmake_minimum_required(VERSION 2.8.2)
+
+project(@ExtProjectName@-External NONE)
+
+include(ExternalProject)
+
+set(CMAKE_ARGS -DCMAKE_CXX_COMPILER=@CMAKE_CXX_COMPILER@
+               -DCMAKE_INSTALL_PREFIX=@CMAKE_INSTALL_PREFIX@
+               -DCMAKE_TOOLCHAIN_FILE=@CMAKE_TOOLCHAIN_FILE@)
+set(NUM_PROCS 8)
+set(INSTALL_COMMAND  @CMAKE_COMMAND@ --build . --target install -- -j${NUM_PROCS})
+
+ExternalProject_Add(@ExtProjectName@Debug
+    GIT_REPOSITORY @ExtProjectURL@
+    GIT_TAG master
+    GIT_SHALLOW 1
+    GIT_PROGRESS 0
+    SOURCE_DIR @ExtProjectDir@/Debug/source
+    BINARY_DIR @ExtProjectDir@/Debug/build
+    INSTALL_DIR @CMAKE_INSTALL_PREFIX@
+    CMAKE_ARGS ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Debug
+    INSTALL_COMMAND ${INSTALL_COMMAND}
+    )
+
+ExternalProject_Add(@ExtProjectName@Release
+    GIT_REPOSITORY @ExtProjectURL@
+    GIT_TAG master
+    GIT_SHALLOW 1
+    GIT_PROGRESS 0
+    SOURCE_DIR @ExtProjectDir@/Release/source
+    BINARY_DIR @ExtProjectDir@/Release/build
+    INSTALL_DIR @CMAKE_INSTALL_PREFIX@
+    CMAKE_ARGS ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release
+    INSTALL_COMMAND ${INSTALL_COMMAND}
+    )
