@@ -19,7 +19,7 @@ namespace prior_hessian {
  * 
  * 
  */
-template<class RngT = parallel_rng::DefaultParallelRngT>
+template<class RngT>
 class CompositeDist
 {
 public:

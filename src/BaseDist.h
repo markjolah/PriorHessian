@@ -17,8 +17,8 @@
 #include<vector>
 #include<utility>
 #include<algorithm>
-#include <typeindex>
-#include "MexIFaceError.h"
+#include<typeindex>
+#include <BacktraceException/BacktraceException.h>
 
 namespace prior_hessian {
  
@@ -29,7 +29,7 @@ using MatT = arma::Mat<double>;
 using StringVecT = std::vector<std::string>; 
 using TypeInfoVecT = std::vector<std::type_index>;
 
-class PriorHessianError : public MexIFaceError {};
+using PriorHessianError = backtrace_exception::BacktraceException;
 
 template<class T>
 T square(T t) 

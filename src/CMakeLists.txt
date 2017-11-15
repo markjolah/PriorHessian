@@ -3,24 +3,20 @@
 #
 # Parallel log-likelihood gradient and hessian calculations for composite prior distributions
 
-file(GLOB PRIOR_HESSIAN_HDRS  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h)
-message(STATUS "PRIOR_HESSIAN_HDRS: ${PRIOR_HESSIAN_HDRS}")
-add_library(prior_hessian STATIC ${PRIOR_HESSIAN_HDRS})
-set_target_properties(prior_hessian PROPERTIES LINKER_LANGUAGE CXX)
-target_include_directories(prior_hessian INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..> )
-target_link_libraries(prior_hessian INTERFACE parallel_rng) #Parallel random number generation
-set_target_properties(prior_hessian PROPERTIES PUBLIC_HEADER "${PRIOR_HESSIAN_HDRS}")
-target_compile_features(prior_hessian PUBLIC cxx_std_11) #Declare C++11 required for building
+file(GLOB HDRS  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h)
+add_library(PriorHessian INTERFACE)
+target_include_directories(PriorHessian INTERFACE $<INSTALL_INTERFACE:include>)
+target_link_libraries(PriorHessian INTERFACE BacktraceException)
+target_compile_features(PriorHessian INTERFACE cxx_std_14) #Declare C++14 required for building
 
 
-get_property(_VAR TARGET prior_hessian PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
-message(STATUS "prior_hessian INTERFACE_INCLUDE_DIRECTORIES: ${_VAR}")
-get_property(_VAR TARGET prior_hessian PROPERTY INTERFACE_LINK_LIBRARIES)
-message(STATUS "prior_hessian INTERFACE_LINK_LIBRARIES: ${_VAR}")
-get_property(_VAR TARGET prior_hessian PROPERTY INCLUDE_DIRECTORIES)
-message(STATUS "prior_hessian INCLUDE_DIRECTORIES: ${_VAR}")
+get_property(_VAR TARGET ${PROJECT_NAME} PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
+message(STATUS "${PROJECT_NAME} INTERFACE_INCLUDE_DIRECTORIES: ${_VAR}")
+get_property(_VAR TARGET ${PROJECT_NAME} PROPERTY INTERFACE_LINK_LIBRARIES)
+message(STATUS "${PROJECT_NAME} INTERFACE_LINK_LIBRARIES: ${_VAR}")
+get_property(_VAR TARGET ${PROJECT_NAME} PROPERTY INTERFACE_COMPILE_FEATURES)
+message(STATUS "${PROJECT_NAME} INTERFACE_COMPILE_FEATURES: ${_VAR}")
 
 
-install(TARGETS prior_hessian EXPORT ${EXPORT_TARGETS_NAME}
-        ARCHIVE DESTINATION lib  COMPONENT Development
-        PUBLIC_HEADER DESTINATION include/${PROJECT_NAME} COMPONENT Development)
+install(TARGETS PriorHessian EXPORT ${EXPORT_TARGETS_NAME})
+install(FILES ${HDRS} DESTINATION include/${PROJECT_NAME})
