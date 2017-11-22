@@ -3,7 +3,7 @@
 INSTALL_PATH=_install
 BUILD_PATH=_build
 
-#rm -rf $INSTALL_PATH $BUILD_PATH
+rm -rf $INSTALL_PATH $BUILD_PATH
 
 set -e
 

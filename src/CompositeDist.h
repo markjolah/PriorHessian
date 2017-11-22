@@ -65,7 +65,7 @@ public:
 
     /* Distribution Parameter Descriptions (names) */
     StringVecT params_desc() const;
-    void set_params_desc(const StringVecT &params);
+    void set_params_desc(const StringVecT &desc);
     
     //Functions mapped over underlying distributions
     double cdf(const VecT &u) const;
@@ -115,7 +115,7 @@ protected:
         
         virtual void set_params(const VecT &params) = 0;
         virtual StringVecT params_desc() const = 0;
-        virtual void set_params_desc(const StringVecT &params) = 0;
+        virtual void set_params_desc(const StringVecT &desc) = 0;
 
         virtual double cdf(const VecT &u) const = 0;
         virtual double pdf(const VecT &u) const = 0;
@@ -150,9 +150,9 @@ protected:
         constexpr IdxT num_dists() const override;
         constexpr IdxT num_dim() const override;
         constexpr IdxT num_params() const override;
-        constexpr UVecT components_num_dim() const override;
-        constexpr UVecT components_num_params() const override;   
-        constexpr TypeInfoVecT types() const override;        
+        UVecT components_num_dim() const override;
+        UVecT components_num_params() const override;   
+        TypeInfoVecT types() const override;        
 
         StringVecT dim_variables() const override;
         void set_dim_variables(const StringVecT &vars) override;
@@ -350,8 +350,8 @@ StringVecT CompositeDist<RngT>::params_desc() const
 { return handle->params_desc(); }
 
 template<class RngT>
-void CompositeDist<RngT>::set_params_desc(const StringVecT &params) 
-{ handle->set_params_desc(); }
+void CompositeDist<RngT>::set_params_desc(const StringVecT &desc) 
+{ handle->set_params_desc(desc); }
 
 //Functions mapped over underlying distributions
 template<class RngT>
@@ -447,7 +447,7 @@ constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dists() const
 
 template<class RngT>
 template<class... Ts>
-constexpr TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::types() const
+TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::types() const
 { 
     return {std::type_index(typeid(Ts))...}; 
 }
@@ -461,7 +461,7 @@ constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dim() const
 
 template<class RngT>
 template<class... Ts>
-constexpr UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_dim() const
+UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_dim() const
 {
     return {Ts::num_dim()...};
 }
@@ -486,7 +486,7 @@ template<class RngT>
 template<class... Ts>
 VecT CompositeDist<RngT>::DistTuple<Ts...>::lbound() const
 {
-    VecT lb(_num_params);
+    VecT lb(_num_dim);
     insert_lbound(lb.begin(),IndexT());
     return lb;
 }
@@ -495,7 +495,7 @@ template<class RngT>
 template<class... Ts>
 VecT CompositeDist<RngT>::DistTuple<Ts...>::ubound() const
 {
-    VecT ub(_num_params);
+    VecT ub(_num_dim);
     insert_ubound(ub.begin(),IndexT());
     return ub;
 }
@@ -507,7 +507,7 @@ constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_params() const
 
 template<class RngT>
 template<class... Ts>
-constexpr UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_params() const
+UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_params() const
 { return {Ts::num_params()...}; }        
 
 template<class RngT>

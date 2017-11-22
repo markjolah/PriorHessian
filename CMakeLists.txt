@@ -8,6 +8,8 @@
 
 cmake_minimum_required( VERSION 3.3 )
 project(PriorHessian VERSION 0.1 LANGUAGES CXX)
+cmake_policy(SET CMP0054 NEW) #Don't derrefernce in if() statements
+cmake_policy(SET CMP0022 NEW) #LINK_INTERFACE_LIBRARIES fix
 
 #Add to modules path
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules 
