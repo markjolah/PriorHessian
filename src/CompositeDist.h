@@ -90,6 +90,10 @@ public:
     
     VecT sample(RngT &rng);
     MatT sample(RngT &rng, IdxT num_samples);
+
+    /* Per-component values for debugging and plotting purposes */
+    VecT llh_components(const VecT &u) const;
+    VecT rllh_components(const VecT &u) const;    
 protected:
     
     /** @brief Model interface
@@ -122,6 +126,7 @@ protected:
         virtual double llh(const VecT &u) const = 0;
         virtual double rllh(const VecT &u) const = 0;
         
+        
         virtual void grad_accumulate(const VecT &u, VecT &grad) const = 0;
         virtual void grad2_accumulate(const VecT &u, VecT &grad2) const = 0;
         virtual void hess_accumulate(const VecT &u, MatT &hess) const = 0;
@@ -130,6 +135,9 @@ protected:
         
         virtual VecT sample(RngT &rng) = 0;
         virtual MatT sample(RngT &rng, IdxT nSamples) = 0;
+
+        virtual VecT llh_components(const VecT &u) const = 0;
+        virtual VecT rllh_components(const VecT &u) const = 0;
     };
     
     template<class... Ts>
@@ -166,6 +174,8 @@ protected:
         double pdf(const VecT &u) const override;
         double llh(const VecT &u) const override;
         double rllh(const VecT &u) const override;
+        
+
         void grad_accumulate(const VecT &u, VecT &g) const override;
         void grad2_accumulate(const VecT &u, VecT &g2) const override; 
         void hess_accumulate(const VecT &u, MatT &h) const override;
@@ -174,6 +184,8 @@ protected:
         VecT sample(RngT &rng) override;
         MatT sample(RngT &rng, IdxT nSamples) override;
 
+        VecT llh_components(const VecT &u) const override;
+        VecT rllh_components(const VecT &u) const override;
     private:
         std::tuple<Ts...> dists;
         
@@ -212,7 +224,7 @@ protected:
         
         template<class IterT, std::size_t... I> 
         double rllh(IterT u,std::index_sequence<I...>) const;
-        
+                        
         template<std::size_t... I> 
         void grad_accumulate(const VecT &u, VecT &g,std::index_sequence<I...>) const;
         
@@ -233,6 +245,12 @@ protected:
 
         template<class IterT, std::size_t... I> 
         void sample(RngT &rng, IterT s, IdxT nSamples, std::index_sequence<I...>);
+        
+        template<class IterT, std::size_t... I> 
+        VecT llh_components(IterT theta, std::index_sequence<I...>) const;
+        
+        template<class IterT, std::size_t... I> 
+        VecT rllh_components(IterT theta, std::index_sequence<I...>) const;
     };
 
     /* Protected methods */
@@ -395,24 +413,24 @@ MatT CompositeDist<RngT>::hess(const VecT &u) const
 }
     
 template<class RngT>
-void CompositeDist<RngT>::grad_accumulate(const VecT &u, VecT &grad) const 
-{ return handle->grad_accumulate(u,grad); }
+void CompositeDist<RngT>::grad_accumulate(const VecT &theta, VecT &grad) const 
+{ return handle->grad_accumulate(theta,grad); }
 
 template<class RngT>
-void CompositeDist<RngT>::grad2_accumulate(const VecT &u, VecT &grad2) const 
-{ return handle->grad2_accumulate(u,grad2); }
+void CompositeDist<RngT>::grad2_accumulate(const VecT &theta, VecT &grad2) const 
+{ return handle->grad2_accumulate(theta,grad2); }
 
 template<class RngT>
-void CompositeDist<RngT>::hess_accumulate(const VecT &u, MatT &hess) const 
-{ return handle->hess_accumulate(u,hess); }
+void CompositeDist<RngT>::hess_accumulate(const VecT &theta, MatT &hess) const 
+{ return handle->hess_accumulate(theta,hess); }
 
 template<class RngT>
-void CompositeDist<RngT>::grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const 
-{ return handle->grad2_accumulate(u,grad,grad2); }
+void CompositeDist<RngT>::grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const 
+{ return handle->grad2_accumulate(theta,grad,grad2); }
 
 template<class RngT>
-void CompositeDist<RngT>::grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const 
-{ return handle->hess_accumulate(u,grad,hess); }
+void CompositeDist<RngT>::grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const 
+{ return handle->hess_accumulate(theta,grad,hess); }
 
 template<class RngT>
 VecT CompositeDist<RngT>::sample(RngT &rng) 
@@ -421,6 +439,15 @@ VecT CompositeDist<RngT>::sample(RngT &rng)
 template<class RngT>
 MatT CompositeDist<RngT>::sample(RngT &rng, IdxT num_samples) 
 { return handle->sample(rng,num_samples); }
+
+template<class RngT>
+VecT CompositeDist<RngT>::llh_components(const VecT &u) const 
+{ return handle->llh_components(u); }
+
+template<class RngT>
+VecT CompositeDist<RngT>::rllh_components(const VecT &u) const 
+{ return handle->rllh_components(u); }
+
 
 template<class RngT>
 void CompositeDist<RngT>::update_bounds()
@@ -576,12 +603,12 @@ void CompositeDist<RngT>::DistTuple<Ts...>::hess_accumulate(const VecT &u, MatT 
 template<class RngT>
 template<class... Ts>
 void CompositeDist<RngT>::DistTuple<Ts...>::grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const
-{grad_grad2_accumulate(u,g,g2,IndexT()); }
+{ grad_grad2_accumulate(u,g,g2,IndexT()); }
 
 template<class RngT>
 template<class... Ts>
 void CompositeDist<RngT>::DistTuple<Ts...>::grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const
-{grad_hess_accumulate(u,g,h);}
+{ grad_hess_accumulate(u,g,h); }
 
 template<class RngT>
 template<class... Ts>
@@ -600,6 +627,16 @@ MatT CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IdxT nSamples)
     sample(rng, s.begin(), nSamples, IndexT());
     return s;
 }
+
+template<class RngT>
+template<class... Ts>
+VecT CompositeDist<RngT>::DistTuple<Ts...>::llh_components(const VecT &theta) const
+{ return llh_components(theta.begin(), IndexT());}
+
+template<class RngT>
+template<class... Ts>
+VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(const VecT &theta) const
+{ return rllh_components(theta.begin(), IndexT());}
 
 /* CompositeDist<RngT>::DistTuple<Ts...> private template methods
  * These are variadic templates over the indexes and do the actual calls to the component dists
@@ -762,6 +799,23 @@ void CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IterT s, IdxT nSam
 {
     for(IdxT n=0; n<nSamples; n++) 
         meta::call_in_order( {(std::get<I>(dists).insert_sample(rng,s),0)...} );
+}
+
+
+template<class RngT>
+template<class... Ts>
+template<class IterT, std::size_t... I> 
+VecT CompositeDist<RngT>::DistTuple<Ts...>::llh_components(IterT theta,std::index_sequence<I...>) const 
+{ 
+    return VecT{std::get<I>(dists).llh_from_iter(u)...}; 
+}
+
+template<class RngT>
+template<class... Ts>
+template<class IterT, std::size_t... I> 
+VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(IterT theta,std::index_sequence<I...>) const 
+{ 
+    return VecT{std::get<I>(dists).rllh_from_iter(u)...}; 
 }
 
 /* Storage declaration for constexpr static member variables */
