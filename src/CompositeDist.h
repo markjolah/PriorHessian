@@ -44,6 +44,7 @@ public:
     template<class... Ts>
     void initialize(std::tuple<Ts...>&& dist_tuple);
     
+    IdxT num_component_dists() const; 
     TypeInfoVecT types() const;
     
     /* Dimensionality and variable names */
@@ -150,7 +151,7 @@ protected:
         using StaticSizeArrayT = std::array<IdxT,_num_dists>;
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
-    public:   
+    public:  
         DistTuple(std::tuple<Ts...>&& dists);
         DistTuple(DistTuple&&) = default;
         DistTuple(const DistTuple&) = delete;
@@ -314,6 +315,11 @@ template<class RngT>
 TypeInfoVecT CompositeDist<RngT>::types() const 
 { return handle->types(); }
 
+
+template<class RngT>
+IdxT CompositeDist<RngT>::num_component_dists() const
+{return handle->num_dists();}
+
 template<class RngT>
 IdxT CompositeDist<RngT>::num_dim() const 
 {return _num_dim;}
@@ -426,11 +432,11 @@ void CompositeDist<RngT>::hess_accumulate(const VecT &theta, MatT &hess) const
 
 template<class RngT>
 void CompositeDist<RngT>::grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const 
-{ return handle->grad2_accumulate(theta,grad,grad2); }
+{ return handle->grad_grad2_accumulate(theta,grad,grad2); }
 
 template<class RngT>
 void CompositeDist<RngT>::grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const 
-{ return handle->hess_accumulate(theta,grad,hess); }
+{ return handle->grad_hess_accumulate(theta,grad,hess); }
 
 template<class RngT>
 VecT CompositeDist<RngT>::sample(RngT &rng) 
@@ -807,7 +813,7 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 VecT CompositeDist<RngT>::DistTuple<Ts...>::llh_components(IterT theta,std::index_sequence<I...>) const 
 { 
-    return VecT{std::get<I>(dists).llh_from_iter(u)...}; 
+    return VecT{std::get<I>(dists).llh_from_iter(theta)...}; 
 }
 
 template<class RngT>
@@ -815,32 +821,35 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(IterT theta,std::index_sequence<I...>) const 
 { 
-    return VecT{std::get<I>(dists).rllh_from_iter(u)...}; 
+    return VecT{std::get<I>(dists).rllh_from_iter(theta)...}; 
 }
 
-/* Storage declaration for constexpr static member variables */
-// template<class RngT>
-// template<class... Ts>
-// constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::_num_dists;
-// 
-// template<class RngT>
-// template<class... Ts>
-// constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::_num_dim;
-// 
-// template<class RngT>
-// template<class... Ts>
-// constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::_num_params;
-// 
-// template<class RngT>
-// template<class... Ts>
-// constexpr typename CompositeDist<RngT>::template DistTuple<Ts...>::StaticSizeArrayT 
-// CompositeDist<RngT>::DistTuple<Ts...>::_component_num_dim;
-// 
-// template<class RngT>
-// template<class... Ts>
-// constexpr typename CompositeDist<RngT>::template DistTuple<Ts...>::StaticSizeArrayT 
-// CompositeDist<RngT>::DistTuple<Ts...>::_component_num_params;
 
+
+template<class RngT>
+std::ostream& operator<<(std::ostream &out,const CompositeDist<RngT> &comp_dist)
+{
+    out<<"[CompositeDist]:\n";
+    out<<"  NumComponentDists:"<<comp_dist.num_component_dists()<<"\n";
+    out<<"  NumDim:"<<comp_dist.num_dim()<<"\n";
+    out<<"  ComponentNumDim:"<<comp_dist.components_num_dim().t();
+    out<<"  LBound:"<<comp_dist.lbound().t();
+    out<<"  UBound:"<<comp_dist.ubound().t();
+    auto vars=comp_dist.dim_variables();
+    out<<"  Vars:[";
+    for(auto v: vars) out<<v<<",";
+    out<<"]\n";
+
+    out<<"  NumParams:"<<comp_dist.num_params()<<"\n";
+    out<<"  ComponentNumParams:"<<comp_dist.components_num_params().t();
+    out<<"  Params:"<<comp_dist.params().t();
+    auto param_desc=comp_dist.params_desc();
+    out<<"  ParamDesc:[";
+    for(auto &v: param_desc) out<<v<<",";
+    out<<"]\n";
+    
+    return out;
+}
 
 
 } /* namespace prior_hessian */

@@ -6,8 +6,8 @@
  */
 #ifndef _PRIOR_HESSIAN_SYMMETRICBETADIST_H
 #define _PRIOR_HESSIAN_SYMMETRICBETADIST_H
-#include <trng/beta_dist.hpp>
 #include "UnivariateDist.h"
+#include "rng/symmetric_beta_dist.h"
 namespace prior_hessian {
 
 /** @brief Single parameter beta distribution where \alpha = \beta, leading to symmetric bounded distribution.  
@@ -40,8 +40,8 @@ public:
     template<class RngT> double sample(RngT &rng);
 protected:
     double convert_to_unitary_coords(double x) const;
-
-    using RNGDistT = trng::beta_dist<double>;
+    double convert_from_unitary_coords(double u) const;
+    using RNGDistT = rng::symmetric_beta_dist<double>;
     double beta; //symmetric shape parameter
     RNGDistT dist;
     double llh_const; //Constant term of log-likelihood
@@ -52,7 +52,7 @@ inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name) :
         UnivariateDist<SymmetricBetaDist>(0,1,var_name,make_default_param_desc(var_name)),
         beta(beta),
-        dist(beta,beta),
+        dist(beta),
         llh_const(compute_llh_const(beta)),
         bound_dist(1)
 {
@@ -62,7 +62,7 @@ inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name) :
         UnivariateDist<SymmetricBetaDist>(lbound,ubound,var_name,make_default_param_desc(var_name)),
         beta(beta),
-        dist(beta,beta),
+        dist(beta),
         llh_const(compute_llh_const(beta)),
         bound_dist(ubound-lbound)
 {
@@ -73,7 +73,7 @@ SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound,
                                      std::string var_name, StringVecT&& param_desc) :
         UnivariateDist<SymmetricBetaDist>(lbound,ubound,var_name,std::move(param_desc)),
         beta(beta),
-        dist(beta,beta),
+        dist(beta),
         llh_const(compute_llh_const(beta)),
         bound_dist(ubound-lbound)
 {
@@ -151,6 +151,12 @@ double SymmetricBetaDist::convert_to_unitary_coords(double x) const
     return (x-_lbound)/bound_dist;
 }
 
+inline
+double SymmetricBetaDist::convert_from_unitary_coords(double u) const
+{
+    return _lbound + u*bound_dist;
+}
+
 /* Templated method definitions */
 
 template<class IterT>
@@ -163,14 +169,14 @@ template<class IterT>
 void SymmetricBetaDist::set_params(IterT& p) 
 { 
     beta = *p++;
-    dist = RNGDistT(beta,beta);
+    dist = RNGDistT(beta);
     llh_const = compute_llh_const(beta);
 }     
 
 template<class RngT> 
 double SymmetricBetaDist::sample(RngT &rng) 
 { 
-    return dist(rng);
+    return convert_from_unitary_coords(dist(rng));
 }
     
 } /* namespace prior_hessian */

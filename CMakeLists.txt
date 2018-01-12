@@ -26,6 +26,10 @@ if(${CMAKE_BUILD_TYPE} MATCHES Debug)
     add_definitions(-DARMA_PRINT_ERRORS)
 endif()
 
+#Boost configure
+find_package(Boost REQUIRED COMPONENTS iostreams)
+
+#RNG with TRNG
 find_library(TRNG_LIBRARY trng4)
 
 #External dependencies

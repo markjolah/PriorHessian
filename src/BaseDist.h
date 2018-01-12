@@ -93,7 +93,9 @@ IdxT BaseDist::num_params() const
 
 template<class IterT>
 void BaseDist::insert_params_desc(IterT& p) const 
-{ std::copy(_params_desc.cbegin(),_params_desc.cend(),p); } 
+{ 
+    p = std::copy(_params_desc.cbegin(),_params_desc.cend(),p); //Make sure to update p to new position
+} 
 
 inline
 void BaseDist::set_params_desc(const StringVecT& desc) 
