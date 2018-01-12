@@ -614,7 +614,7 @@ void CompositeDist<RngT>::DistTuple<Ts...>::grad_grad2_accumulate(const VecT &u,
 template<class RngT>
 template<class... Ts>
 void CompositeDist<RngT>::DistTuple<Ts...>::grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const
-{ grad_hess_accumulate(u,g,h); }
+{ grad_hess_accumulate(u,g,h,IndexT()); }
 
 template<class RngT>
 template<class... Ts>
