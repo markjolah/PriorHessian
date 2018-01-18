@@ -43,9 +43,9 @@ class BaseDist
 {
 public:
     BaseDist(StringVecT &&params_desc);
-    const StringVecT& params_desc() const;
+    const StringVecT& get_params_desc() const;
     IdxT num_params() const;    
-    template<class IterT> void insert_params_desc(IterT& p) const;
+    template<class IterT> void append_params_desc(IterT& p) const;
     void set_params_desc(const StringVecT& desc); 
     template<class IterT> void set_params_desc(IterT& d); 
 protected:
@@ -84,7 +84,7 @@ BaseDist::BaseDist(StringVecT &&params_desc) :
 { }
 
 inline
-const StringVecT& BaseDist::params_desc() const 
+const StringVecT& BaseDist::get_params_desc() const 
 { return _params_desc; }
 
 inline
@@ -92,7 +92,7 @@ IdxT BaseDist::num_params() const
 { return _params_desc.size(); }
 
 template<class IterT>
-void BaseDist::insert_params_desc(IterT& p) const 
+void BaseDist::append_params_desc(IterT& p) const 
 { 
     p = std::copy(_params_desc.cbegin(),_params_desc.cend(),p); //Make sure to update p to new position
 } 

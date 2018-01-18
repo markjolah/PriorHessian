@@ -1,8 +1,10 @@
 #include <iostream>
 #include <random>
-#include "CompositeDist.h"
-#include "SymmetricBetaDist.h"
-#include "GammaDist.h"
+#include "PriorHessian/CompositeDist.h"
+#include "PriorHessian/GammaDist.h"
+#include "PriorHessian/ParetoDist.h"
+#include "PriorHessian/NormalDist.h"
+#include "PriorHessian/SymmetricBetaDist.h"
 using namespace prior_hessian;
 
 //using ParallelRngT = trng::lcg64_shift;
@@ -11,9 +13,13 @@ using RngT = std::mt19937_64;
 int main()
 {
     
-    CompositeDist<RngT> dist(SymmetricBetaDist(3,0,8,"x"),
-                                     GammaDist(100, 3,"I"),
-                                     GammaDist(3, 3,"bg"));
+    CompositeDist<RngT> dist(SymmetricBetaDist(3,0,8,"X"),
+                             GammaDist(100, 3,"I"),
+                             NormalDist(3, 1, 0,INFINITY, "bg"),
+                             ParetoDist(2, 1, 3,"sigmax"),
+                             ParetoDist(2, 1, 3,"sigmay")
+                            );
+    dist.set_bounds(VecT{0,0,2,1,1},VecT{7,INFINITY,30,3,3});
     std::cout<<"Dist: "<<dist<<std::endl;
     int N=10;
     std::cout<<" pdf: "<<dist.pdf(VecT{1,10,10})<<std::endl;
@@ -42,7 +48,7 @@ int main()
         grad.zeros();
         dist.grad_hess_accumulate(s,grad,hess);
         std::cout<<"GRAD: "<<grad.t();
-        std::cout<<"Hess: "<<hess;
+        std::cout<<"HESS: "<<hess;
         
         if(n>1){
             std::cout<<"LLH_delta: "<<dist.llh(s)-dist.llh(last_s)<<"\n";

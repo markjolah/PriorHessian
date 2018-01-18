@@ -6,7 +6,7 @@
 # https://www.apache.org/licenses/LICENSE-2.0
 # See: LICENCE file
 
-cmake_minimum_required( VERSION 3.3 )
+cmake_minimum_required( VERSION 3.8 )
 project(PriorHessian VERSION 0.1 LANGUAGES CXX)
 cmake_policy(SET CMP0054 NEW) #Don't derrefernce in if() statements
 cmake_policy(SET CMP0022 NEW) #LINK_INTERFACE_LIBRARIES fix
@@ -27,10 +27,7 @@ if(${CMAKE_BUILD_TYPE} MATCHES Debug)
 endif()
 
 #Boost configure
-find_package(Boost REQUIRED COMPONENTS iostreams)
-
-#RNG with TRNG
-find_library(TRNG_LIBRARY trng4)
+find_package(Boost)
 
 #External dependencies
 include(AddExternalDependency)
@@ -59,4 +56,6 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-ggdb -O3")
 
 include(PackageConfig) #Configure Package-Config and associated files for cmake exports
 
-add_subdirectory(src)
+add_subdirectory(src/PriorHessian)
+add_subdirectory(src/test)
+

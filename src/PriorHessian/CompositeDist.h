@@ -12,6 +12,8 @@
 #include<memory>
 #include<armadillo>
 #include "BaseDist.h"
+#include "UnivariateDist.h"
+
 
 namespace prior_hessian {
 
@@ -57,6 +59,9 @@ public:
     const VecT& lbound() const;
     const VecT& ubound() const;
     bool in_bounds(const VecT &u) const;
+    void set_lbound(const VecT &hew_bound);
+    void set_ubound(const VecT &hew_bound);
+    void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound);
 
     /* Distribution Parameters */
     IdxT num_params() const; 
@@ -113,7 +118,8 @@ protected:
 
         virtual VecT lbound() const = 0;
         virtual VecT ubound() const = 0;
-
+        virtual void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) = 0;
+    
         virtual IdxT num_params() const = 0;
         virtual UVecT components_num_params() const = 0;
         virtual VecT params() const = 0;
@@ -156,6 +162,7 @@ protected:
         DistTuple(DistTuple&&) = default;
         DistTuple(const DistTuple&) = delete;
         
+        
         constexpr IdxT num_dists() const override;
         constexpr IdxT num_dim() const override;
         constexpr IdxT num_params() const override;
@@ -167,6 +174,8 @@ protected:
         void set_dim_variables(const StringVecT &vars) override;
         VecT lbound() const override;
         VecT ubound() const override;
+        void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) override;
+
         VecT params() const override;
         void set_params(const VecT &params) override;
         StringVecT params_desc() const override;
@@ -191,25 +200,28 @@ protected:
         std::tuple<Ts...> dists;
         
         template<class IterT, std::size_t... I> 
-        void insert_dim_variables(IterT v, std::index_sequence<I...>) const;
+        void append_dim_variables(IterT v, std::index_sequence<I...>) const;
 
         template<class IterT, std::size_t... I> 
         void set_dim_variables(IterT v,std::index_sequence<I...>);
                 
         template<class IterT, std::size_t... I> 
-        void insert_lbound(IterT p, std::index_sequence<I...>) const;
+        void append_lbound(IterT p, std::index_sequence<I...>) const;
         
         template<class IterT, std::size_t... I> 
-        void insert_ubound(IterT p, std::index_sequence<I...>) const;
+        void append_ubound(IterT p, std::index_sequence<I...>) const;
         
         template<class IterT, std::size_t... I> 
-        void insert_params(IterT p, std::index_sequence<I...>) const;
+        void set_bounds(IterT lb, IterT ub, std::index_sequence<I...>);
+
+        template<class IterT, std::size_t... I> 
+        void append_params(IterT p, std::index_sequence<I...>) const;
 
         template<class IterT, std::size_t... I> 
         void set_params(IterT p,std::index_sequence<I...>);
         
         template<class IterT, std::size_t... I> 
-        void insert_params_desc(IterT p, std::index_sequence<I...>) const;
+        void append_params_desc(IterT p, std::index_sequence<I...>) const;
 
         template<class IterT, std::size_t... I> 
         void set_params_desc(IterT p,std::index_sequence<I...>);
@@ -345,6 +357,22 @@ template<class RngT>
 const VecT& CompositeDist<RngT>::ubound() const 
 { return _ubound; }
 
+template<class RngT>
+void CompositeDist<RngT>::set_lbound(const VecT &new_bound)
+{ handle->set_bounds(new_bound, ubound()); }
+
+template<class RngT>
+void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
+{ handle->set_bounds(lbound(), new_bound); }
+
+template<class RngT>
+void CompositeDist<RngT>::set_bounds(const VecT &new_lbound,const VecT &new_ubound)
+{ 
+  handle->set_bounds(new_lbound, new_ubound); 
+  update_bounds(); //Bounds may have changed with parameters
+}
+
+
 /** @brief Strict bounds check for u withing the lbound and ubound */
 template<class RngT>
 bool CompositeDist<RngT>::in_bounds(const VecT &u) const
@@ -366,7 +394,6 @@ template<class RngT>
 void CompositeDist<RngT>::set_params(const VecT &params) 
 {
     handle->set_params(params);
-    update_bounds(); //Bounds may have changed with parameters
 }    
 
 template<class RngT>
@@ -504,7 +531,7 @@ template<class... Ts>
 StringVecT CompositeDist<RngT>::DistTuple<Ts...>::dim_variables() const
 {
     StringVecT vars(_num_dim);
-    insert_dim_variables(vars.begin(),IndexT());
+    append_dim_variables(vars.begin(),IndexT());
     return vars;
 }
 
@@ -520,7 +547,7 @@ template<class... Ts>
 VecT CompositeDist<RngT>::DistTuple<Ts...>::lbound() const
 {
     VecT lb(_num_dim);
-    insert_lbound(lb.begin(),IndexT());
+    append_lbound(lb.begin(),IndexT());
     return lb;
 }
 
@@ -529,9 +556,14 @@ template<class... Ts>
 VecT CompositeDist<RngT>::DistTuple<Ts...>::ubound() const
 {
     VecT ub(_num_dim);
-    insert_ubound(ub.begin(),IndexT());
+    append_ubound(ub.begin(),IndexT());
     return ub;
 }
+
+template<class RngT>
+template<class... Ts>
+void CompositeDist<RngT>::DistTuple<Ts...>::set_bounds(const VecT &new_lbound, const VecT &new_ubound)
+{ set_bounds(new_lbound.begin(),new_ubound.begin(),IndexT()); }
 
 template<class RngT>
 template<class... Ts>
@@ -548,7 +580,7 @@ template<class... Ts>
 VecT CompositeDist<RngT>::DistTuple<Ts...>::params() const
 {
     VecT params(_num_params);
-    insert_params(params.begin(),IndexT());
+    append_params(params.begin(),IndexT());
     return params;
 }
 
@@ -562,7 +594,7 @@ template<class... Ts>
 StringVecT CompositeDist<RngT>::DistTuple<Ts...>::params_desc() const
 {
     StringVecT desc(_num_params);
-    insert_params_desc(desc.begin(),IndexT());
+    append_params_desc(desc.begin(),IndexT());
     return desc;
 }
 
@@ -652,9 +684,9 @@ VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(const VecT &theta) c
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::insert_dim_variables(IterT v, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::append_dim_variables(IterT v, std::index_sequence<I...>) const
 { 
-    meta::call_in_order( {(std::get<I>(dists).insert_var_name(v),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).append_var_name(v),0)...} ); 
 }
 
 template<class RngT>
@@ -668,25 +700,34 @@ void CompositeDist<RngT>::DistTuple<Ts...>::set_dim_variables(IterT v,std::index
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::insert_lbound(IterT p, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::append_lbound(IterT p, std::index_sequence<I...>) const
 { 
-    meta::call_in_order( {(std::get<I>(dists).insert_lbound(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).append_lbound(p),0)...} ); 
+}
+
+
+template<class RngT>
+template<class... Ts>
+template<class IterT, std::size_t... I> 
+void CompositeDist<RngT>::DistTuple<Ts...>::append_ubound(IterT p, std::index_sequence<I...>) const
+{ 
+    meta::call_in_order( {(std::get<I>(dists).append_ubound(p),0)...} ); 
 }
 
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::insert_ubound(IterT p, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::set_bounds(IterT lb, IterT ub,std::index_sequence<I...>)
 { 
-    meta::call_in_order( {(std::get<I>(dists).insert_ubound(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).set_bounds_from_iter(lb,ub),0)...} ); 
 }
 
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::insert_params(IterT p, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::append_params(IterT p, std::index_sequence<I...>) const
 { 
-    meta::call_in_order( {(std::get<I>(dists).insert_params(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).append_params(p),0)...} ); 
 }
 
 template<class RngT>
@@ -700,9 +741,9 @@ void CompositeDist<RngT>::DistTuple<Ts...>::set_params(IterT p,std::index_sequen
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::insert_params_desc(IterT p, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::append_params_desc(IterT p, std::index_sequence<I...>) const
 { 
-    meta::call_in_order( {(std::get<I>(dists).insert_params_desc(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).append_params_desc(p),0)...} ); 
 }
 
 template<class RngT>
@@ -795,7 +836,7 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 void CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IterT s, std::index_sequence<I...>)
 {
-    meta::call_in_order( {(std::get<I>(dists).insert_sample(rng,s),0)...} );
+    meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
 }
 
 template<class RngT>
@@ -804,7 +845,7 @@ template<class IterT, std::size_t... I>
 void CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IterT s, IdxT nSamples,std::index_sequence<I...>)
 {
     for(IdxT n=0; n<nSamples; n++) 
-        meta::call_in_order( {(std::get<I>(dists).insert_sample(rng,s),0)...} );
+        meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
 }
 
 
