@@ -15,16 +15,11 @@ int main()
     
     CompositeDist<RngT> dist(SymmetricBetaDist(3,0,8,"X"),
                              GammaDist(100, 3,"I"),
-                             NormalDist(3, 1, 0,INFINITY, "bg"),
-                             ParetoDist(2, 1, 3,"sigmax"),
-                             ParetoDist(2, 1, 3,"sigmay")
-                            );
-    dist.set_bounds(VecT{0,0,2,1,1},VecT{7,INFINITY,30,3,3});
+                             GammaDist(30, 3,"bg")
+                             );
     std::cout<<"Dist: "<<dist<<std::endl;
-    int N=10;
-    std::cout<<" pdf: "<<dist.pdf(VecT{1,10,10})<<std::endl;
+    int N=3;
     
-//     CompositeDist<RngT> dist2=dist;
     
     RngT rngT(0ULL);
     std::cout<<"Sample ["<<N<<"]\n";

@@ -33,7 +33,7 @@ public:
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
     
-    double compute_unscaled_llh_const() const;
+    double compute_llh_const() const;
     double unscaled_cdf(double x) const;
     double unscaled_icdf(double u) const;
     double unscaled_pdf(double x) const;
@@ -48,28 +48,36 @@ SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name) :
         ScaledFiniteDist<SymmetricBetaDist>(var_name,make_default_param_desc(var_name)),
         beta(beta),
         dist(beta,beta)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name, StringVecT&& param_desc) :
         ScaledFiniteDist<SymmetricBetaDist>(var_name,std::move(param_desc)),
         beta(beta),
         dist(beta,beta)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name) :
         ScaledFiniteDist<SymmetricBetaDist>(lbound, ubound, var_name,make_default_param_desc(var_name)),
         beta(beta),
         dist(beta,beta)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         ScaledFiniteDist<SymmetricBetaDist>(lbound, ubound, var_name,std::move(param_desc)),
         beta(beta),
         dist(beta,beta)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 
 
@@ -109,23 +117,23 @@ double SymmetricBetaDist::unscaled_pdf(double x) const
 }
 
 inline
-double SymmetricBetaDist::compute_unscaled_llh_const() const
+double SymmetricBetaDist::compute_llh_const() const
 {
-    return -2*lgamma(beta)-lgamma(2*beta);//log(1/Beta(beta,beta))
+    return -2*lgamma(beta) - lgamma(2*beta);//log(1/Beta(beta,beta))
 }
 
 inline
 double SymmetricBetaDist::rllh(double x) const
 {
     double z = this->convert_to_unitary_coords(x); //Normalized to [0,1]
-    return (beta-1)*log(z*(1-z));
+    return (beta-1) * log(z*(1-z));
 }
 
 inline
 double SymmetricBetaDist::grad(double x) const
 {
     double z = this->convert_to_unitary_coords(x); //Normalized to [0,1]
-    return (beta-1)*(1/z-1/(1-z));
+    return (beta-1) * (1/z-1/(1-z));
 }
 
 inline
@@ -133,7 +141,7 @@ double SymmetricBetaDist::grad2(double x) const
 {
     double z = this->convert_to_unitary_coords(x); //Normalized to [0,1]
     double v= 1/(1-z);
-    return (beta-1)*(v*v - 1/(z*z));
+    return (beta-1) * (v*v - 1/(z*z));
 }
 
 inline

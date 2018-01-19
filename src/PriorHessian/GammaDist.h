@@ -43,7 +43,7 @@ public:
 
     friend class TruncatingDist<GammaDist>;
 
-    double compute_unbounded_llh_const() const;
+    double compute_llh_const() const;
     double unbounded_cdf(double x) const;
     double unbounded_icdf(double u) const;
     double unbounded_pdf(double x) const;
@@ -60,9 +60,10 @@ GammaDist::GammaDist(double mean, double kappa, std::string var_name) :
         SemiInfiniteDist<GammaDist>(var_name,make_default_param_desc(var_name)),
         mean(mean),
         kappa(kappa),
-        dist(kappa,mean/kappa)
-{ }
-
+        dist(kappa,mean/kappa)        
+{
+    this->llh_const = compute_llh_const();
+}
 
 inline
 GammaDist::GammaDist(double mean, double kappa, std::string var_name, StringVecT&& param_desc) :
@@ -70,7 +71,9 @@ GammaDist::GammaDist(double mean, double kappa, std::string var_name, StringVecT
         mean(mean),
         kappa(kappa),
         dist(kappa,mean/kappa)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name) :
@@ -78,7 +81,9 @@ GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, st
         mean(mean),
         kappa(kappa),
         dist(kappa,mean/kappa)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
@@ -86,7 +91,9 @@ GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, st
         mean(mean),
         kappa(kappa),
         dist(kappa,mean/kappa)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 constexpr
 IdxT GammaDist::num_params()
@@ -119,9 +126,10 @@ double GammaDist::unbounded_pdf(double x) const
 }
 
 inline
-double GammaDist::compute_unbounded_llh_const() const
+double GammaDist::compute_llh_const() const
 {
-    return kappa*(log(kappa/mean))-lgamma(kappa);
+//     std::cout<<"ComputeLLHConst: kappa:"<<kappa<<" mean:"<<mean<<" lgamma(kappa):"<<lgamma(kappa)<<"\n";
+    return -kappa*log(mean/kappa)-lgamma(kappa);
 }
 
 inline

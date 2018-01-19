@@ -33,7 +33,7 @@ public:
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
 
-    double compute_unbounded_llh_const() const;
+    double compute_llh_const() const;
     double unbounded_cdf(double x) const;
     double unbounded_icdf(double u) const;
     double unbounded_pdf(double x) const;
@@ -46,25 +46,33 @@ inline
 ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name) :
         PositiveSemiInfiniteDist<ParetoDist>(lbound, INFINITY, var_name,make_default_param_desc(var_name)),
         alpha(alpha)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc) :
         PositiveSemiInfiniteDist<ParetoDist>(lbound, INFINITY, var_name,std::move(param_desc)),
         alpha(alpha)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name) :
         PositiveSemiInfiniteDist<ParetoDist>(lbound, ubound, var_name,make_default_param_desc(var_name)),
         alpha(alpha)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         PositiveSemiInfiniteDist<ParetoDist>(lbound, ubound, var_name,std::move(param_desc)),
         alpha(alpha)
-{ }
+{     
+    this->llh_const = compute_llh_const();
+}
 
 
 constexpr
@@ -98,9 +106,9 @@ double ParetoDist::unbounded_pdf(double x) const
 }
 
 inline
-double ParetoDist::compute_unbounded_llh_const() const
+double ParetoDist::compute_llh_const() const
 {
-    return log(alpha)+alpha*log(get_lbound());
+    return log(alpha) + alpha*log(get_lbound());
 }
 
 inline

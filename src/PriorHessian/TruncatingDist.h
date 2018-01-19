@@ -20,20 +20,22 @@ namespace prior_hessian {
 template<class Derived>
 class TruncatingDist : public UnivariateDist<Derived>
 {
-public:
+protected:
     TruncatingDist(std::string var_name, StringVecT&& param_desc);
+public:
     
     double cdf(double x) const;
     double pdf(double x) const;
     double icdf(double u) const;
+    double llh(double x) const;
 
 protected:
     bool truncated=false;
    
     double lbound_cdf; // cdf(_lbound)
     double bounds_cdf_delta; // (cdf(_ubound) - cdf(_lbound))
-    
-    double compute_llh_const() const;
+    double llh_truncation_const;
+    double compute_llh_truncation_const() const;
 };
 
 template<class Derived>
@@ -96,11 +98,16 @@ double TruncatingDist<Derived>::pdf(double x) const
 }
 
 template<class Derived>
-double TruncatingDist<Derived>::compute_llh_const() const
+double TruncatingDist<Derived>::llh(double x) const
 {
-    double val = static_cast<Derived const*>(this)->compute_unbounded_llh_const();
-    if(truncated) val -= log(bounds_cdf_delta);
-    return val;
+    return static_cast<Derived const*>(this)->rllh(x) + this->llh_const + llh_truncation_const;
+}
+
+
+template<class Derived>
+double TruncatingDist<Derived>::compute_llh_truncation_const() const
+{
+    return truncated ? 0 : -log(bounds_cdf_delta);
 }
 
 
@@ -123,28 +130,20 @@ InfiniteDist<Derived>::InfiniteDist(double lbound, double ubound, std::string va
 template<class Derived>
 void InfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 {
-    if(lbound>=ubound) {
-        std::ostringstream msg;
-        msg<<"lbound must be smaller than ubound. Got: L:"<<lbound<<" U:"<<ubound;
-        throw PriorHessianError("BoundsError",msg.str());
-    }
-    TruncatingDist<Derived>::truncated = (-INFINITY<lbound || ubound<INFINITY); //This tells Base dist if the bounds are truncating or not.
+    UnivariateDist<Derived>::set_bounds(lbound,ubound); //Set top-level bounds
     
-    if(lbound==-INFINITY){
-        TruncatingDist<Derived>::lbound_cdf=0;
+    this->truncated = (-INFINITY<lbound || ubound<INFINITY); //This tells Base dist if the bounds are truncating or not.
+    if(lbound == -INFINITY) {
+        this->lbound_cdf = 0;
     } else {
-        TruncatingDist<Derived>::lbound_cdf = static_cast<Derived const*>(this)->unbounded_cdf(lbound); //F(lb)
+        this->lbound_cdf = static_cast<Derived const*>(this)->unbounded_cdf(lbound); //F(lb)
     }
-    if(ubound==INFINITY) {
-        TruncatingDist<Derived>::bounds_cdf_delta = 1-TruncatingDist<Derived>::lbound_cdf;
+    if(ubound == INFINITY) {
+        this->bounds_cdf_delta = 1-this->lbound_cdf;
     } else {
-        TruncatingDist<Derived>::bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound) 
-                                                        - TruncatingDist<Derived>::lbound_cdf; // F(ub)-F(lb)
+        this->bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound) - this->lbound_cdf; // F(ub)-F(lb)
     }
-    
-    UnivariateDist<Derived>::llh_const = TruncatingDist<Derived>::compute_llh_const(); //Truncation terms.
-    UnivariateDist<Derived>::_lbound = lbound;
-    UnivariateDist<Derived>::_ubound = ubound;
+    this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
 
@@ -169,29 +168,23 @@ void SemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
         std::ostringstream msg;
         msg<<"SemiInfinite: lbound must be positive. Got:"<<lbound;
         throw PriorHessianError("BoundsError",msg.str());
-    } else if(lbound>=ubound) {
-        std::ostringstream msg;
-        msg<<"lbound must be smaller than ubound. Got: L:"<<lbound<<" U:"<<ubound;
-        throw PriorHessianError("BoundsError",msg.str());
-    }
+    } 
+    UnivariateDist<Derived>::set_bounds(lbound,ubound); //Set top-level bounds
     
-    TruncatingDist<Derived>::truncated = (lbound>0 || ubound<INFINITY); //This tells Base dist if the bounds are truncating or not.
+    this->truncated = (lbound>0 || ubound<INFINITY); //This tells Base dist if the bounds are truncating or not.
     
     if(lbound==0){
-        TruncatingDist<Derived>::lbound_cdf = 0;
+        this->lbound_cdf = 0;
     } else {
-        TruncatingDist<Derived>::lbound_cdf = static_cast<Derived const*>(this)->unbounded_cdf(lbound); //F(lb)
+        this->lbound_cdf = static_cast<Derived const*>(this)->unbounded_cdf(lbound); //F(lb)
     }
     
     if(ubound==INFINITY) {
-        TruncatingDist<Derived>::bounds_cdf_delta = 1-TruncatingDist<Derived>::lbound_cdf;
+        this->bounds_cdf_delta = 1-this->lbound_cdf;
     } else {
-        TruncatingDist<Derived>::bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound) - TruncatingDist<Derived>::lbound_cdf; // F(ub)-F(lb)
+        this->bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound) - this->lbound_cdf; // F(ub)-F(lb)
     }
-    
-    UnivariateDist<Derived>::llh_const = TruncatingDist<Derived>::compute_llh_const(); //Truncation terms.
-    UnivariateDist<Derived>::_lbound = lbound;
-    UnivariateDist<Derived>::_ubound = ubound;
+    this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
 
@@ -216,24 +209,19 @@ void PositiveSemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
         std::ostringstream msg;
         msg<<"PositiveDist: lbound must be positive and non-zero. Got:"<<lbound;
         throw PriorHessianError("BoundsError",msg.str());
-    } else if(lbound>=ubound) {
-        std::ostringstream msg;
-        msg<<"lbound must be smaller than ubound. Got: L:"<<lbound<<" U:"<<ubound;
-        throw PriorHessianError("BoundsError",msg.str());
-    }
+    } 
+
+    UnivariateDist<Derived>::set_bounds(lbound,ubound); //Set top-level bounds
     
-    TruncatingDist<Derived>::truncated = ubound<INFINITY; //This tells Base dist if the bounds are truncating or not.
-    TruncatingDist<Derived>::lbound_cdf = 0; //F(lb)=0 by definition for Positive distributions like the Pareto
+    this->truncated = ubound<INFINITY; //This tells Base dist if the bounds are truncating or not.
+    this->lbound_cdf = 0; //F(lb)=0 by definition for Positive distributions like the Pareto
     
     if(ubound==INFINITY) {
-        TruncatingDist<Derived>::bounds_cdf_delta = 1;
+        this->bounds_cdf_delta = 1;
     } else {
-        TruncatingDist<Derived>::bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound); // F(ub)
+        this->bounds_cdf_delta = static_cast<Derived const*>(this)->unbounded_cdf(ubound); // F(ub)
     }
-    
-    UnivariateDist<Derived>::llh_const = TruncatingDist<Derived>::compute_llh_const(); //Truncation terms.
-    UnivariateDist<Derived>::_lbound = lbound;
-    UnivariateDist<Derived>::_ubound = ubound;
+    this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
 

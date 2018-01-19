@@ -30,8 +30,6 @@ public:
     VecT get_params() const;
     void set_params(const VecT& p);
     
-    double llh(double x) const;
-
     template<class RngT> double sample(RngT &rng);
 
     /* Helper methods for use by CompositeDist */
@@ -59,9 +57,7 @@ protected:
     std::string _var_name;
     double _lbound;
     double _ubound;
-
-    double llh_const=0; //Constant term of log-likelihood
-    
+    double llh_const;
     void set_bounds(double lbound, double ubound);
 };
 
@@ -130,16 +126,20 @@ template<class Derived>
 template<class IterT>
 void UnivariateDist<Derived>::set_bounds_from_iter(IterT& lbound, IterT& ubound)
 {
-    return static_cast<Derived*>(this)->set_bounds(*lbound++, *ubound++);
+    return static_cast<Derived*>(this)->set_bounds(*lbound++, *ubound++); //call top-level set_bounds first
 }
-
 
 template<class Derived>
-double UnivariateDist<Derived>::llh(double x) const
+void UnivariateDist<Derived>::set_bounds(double lbound, double ubound)
 {
-    return static_cast<Derived const*>(this)->rllh(x) + llh_const;
+    if(lbound>=ubound) {
+        std::ostringstream msg;
+        msg<<"UnivariateDist: lbound must be smaller than ubound. Got: L:"<<lbound<<" U:"<<ubound;
+        throw PriorHessianError("BoundsError",msg.str());
+    }
+    _lbound = lbound;
+    _ubound = ubound;
 }
-
 
 template<class Derived>
 template<class RngT> 

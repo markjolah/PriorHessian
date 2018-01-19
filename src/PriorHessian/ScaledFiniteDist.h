@@ -23,12 +23,13 @@ public:
    double cdf(double x) const;
    double pdf(double x) const;
    double icdf(double u) const;
+   double llh(double x) const;
 
    void set_bounds(double lbound, double ubound);
 protected:
-
+    double llh_scaling_const;
     double bounds_delta; //_ubound-_lbound
-    double compute_llh_const() const;
+    double compute_llh_scaling_const() const;
     double convert_to_unitary_coords(double x) const;
     double convert_from_unitary_coords(double u) const;
 };
@@ -61,23 +62,23 @@ void ScaledFiniteDist<Derived>::set_bounds(double lbound, double ubound)
         std::ostringstream msg;
         msg<<"ScaledFiniteDist: ubound must be finite. Got:"<<lbound;
         throw PriorHessianError("BoundsError",msg.str());
-    } else if(lbound >= ubound) {
-        std::ostringstream msg;
-        msg<<"lbound must be smaller than ubound. Got: L:"<<lbound<<" U:"<<ubound;
-        throw PriorHessianError("BoundsError",msg.str());
     }
-    this->_lbound = lbound;
-    this->_ubound = ubound;
+    UnivariateDist<Derived>::set_bounds(lbound,ubound); //Set top-level bounds
+    
     bounds_delta = ubound-lbound;
-    this->llh_const = compute_llh_const(); //Truncation terms.
+    llh_scaling_const = compute_llh_scaling_const(); //Truncation terms.
 }
 
 template<class Derived>
-double ScaledFiniteDist<Derived>::compute_llh_const() const
+double ScaledFiniteDist<Derived>::compute_llh_scaling_const() const
 {
-    double llh = static_cast<Derived const*>(this)->compute_unscaled_llh_const();
-    if(bounds_delta!=1) llh -= log(bounds_delta); // -log(ubound-lbound) correction
-    return llh;
+    return (bounds_delta==1) ? 0 : -log(bounds_delta);
+}
+
+template<class Derived>
+double ScaledFiniteDist<Derived>::llh(double x) const
+{
+    return static_cast<Derived const*>(this)->rllh(x) + this->llh_const + llh_scaling_const;
 }
 
 template<class Derived>
