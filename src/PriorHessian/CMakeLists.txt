@@ -6,7 +6,8 @@
 
 file(GLOB HDRS  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h)
 add_library(PriorHessian INTERFACE)
-target_include_directories(PriorHessian INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..> $<INSTALL_INTERFACE:include>)
+#target_include_directories(PriorHessian INTERFACE $<INSTALL_INTERFACE:include>)
+target_include_directories(PriorHessian INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..>)
 target_link_libraries(PriorHessian INTERFACE BacktraceException)
 target_compile_features(PriorHessian INTERFACE cxx_std_14) #C++14 required for variadic templates support.
 

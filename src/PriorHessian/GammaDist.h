@@ -53,6 +53,8 @@ protected:
     double mean; //distribution mean
     double kappa; //distribution shape
     DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf    
+    
+    static void check_params(double mean_val, double kappa_val);
 };
 
 inline
@@ -168,11 +170,30 @@ void GammaDist::append_params(IterT& p) const
 template<class IterT>
 void GammaDist::set_params(IterT& p) 
 { 
-    mean = *p++;
-    kappa = *p++;
+    double mean_val = *p++;
+    double kappa_val = *p++;
+    check_params(mean_val,kappa_val);
+    mean = mean_val;
+    kappa = kappa_val;
+    dist = DistT(kappa,mean/kappa);
     llh_const = compute_llh_const();
 }     
-    
+
+inline
+void GammaDist::check_params(double mean_val, double kappa_val) 
+{ 
+    if(mean_val<=0 || !std::isfinite(mean_val)) {
+        std::ostringstream msg;
+        msg<<"GammaDist::set_params: got bad mean value:"<<mean_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+    if(kappa_val<=0 || !std::isfinite(kappa_val)) {
+        std::ostringstream msg;
+        msg<<"GammaDist::set_params: got bad kappa value:"<<kappa_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+}
+
 } /* namespace prior_hessian */
 
 #endif /* _PRIOR_HESSIAN_GAMMADIST_H */

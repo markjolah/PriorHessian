@@ -40,7 +40,9 @@ public:
 protected:
     using DistT = boost::math::beta_distribution<double>;
     double beta; //symmetric shape parameter
-    DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf    
+    DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf
+
+    static void check_params(double beta_val);
 };
 
 inline
@@ -163,10 +165,22 @@ void SymmetricBetaDist::append_params(IterT& p) const
 template<class IterT>
 void SymmetricBetaDist::set_params(IterT& p) 
 { 
-    beta = *p++;
+    double beta_val = *p++;
+    check_params(beta_val);
+    beta = beta_val;
     dist = DistT(beta,beta);  //Reset internal boost dist
     llh_const = compute_llh_const(); //Recompute constants
-}     
+}
+
+inline
+void SymmetricBetaDist::check_params(double beta_val) 
+{ 
+    if(beta_val<=0 || !std::isfinite(beta_val)) {
+        std::ostringstream msg;
+        msg<<"SymmetricBetaDist::set_params: got bad beta value:"<<beta_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+}
         
 } /* namespace prior_hessian */
 

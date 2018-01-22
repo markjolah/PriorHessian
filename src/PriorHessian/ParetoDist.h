@@ -40,6 +40,8 @@ public:
 
 protected:
     double alpha; //distribution shape
+    
+    static void check_params(double alpha_val); 
 };
 
 inline
@@ -146,10 +148,21 @@ void ParetoDist::append_params(IterT& p) const
 template<class IterT>
 void ParetoDist::set_params(IterT& p) 
 { 
-    alpha = *p++;
+    double alpha_val = *p++;
+    check_params(alpha_val);
+    alpha = alpha_val;
     llh_const = compute_llh_const();
 }     
-    
+
+inline
+void ParetoDist::check_params(double alpha_val) 
+{ 
+    if(alpha_val<=0 || !std::isfinite(alpha_val)) {
+        std::ostringstream msg;
+        msg<<"ParetoDist::set_params: got bad alpha value:"<<alpha_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+}
     
 } /* namespace prior_hessian */
 

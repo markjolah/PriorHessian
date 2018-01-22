@@ -368,8 +368,18 @@ void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
 template<class RngT>
 void CompositeDist<RngT>::set_bounds(const VecT &new_lbound,const VecT &new_ubound)
 { 
-  handle->set_bounds(new_lbound, new_ubound); 
-  update_bounds(); //Bounds may have changed with parameters
+    if(new_lbound.n_elem != num_dim()) {
+        std::ostringstream msg;
+        msg<<"Got bad lbound vector size:"<<new_lbound.n_elem<<" expected:"<<num_dim();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    if(new_ubound.n_elem != num_dim()) {
+        std::ostringstream msg;
+        msg<<"Got bad ubound vector size:"<<new_ubound.n_elem<<" expected:"<<num_dim();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_bounds(new_lbound, new_ubound); 
+    update_bounds(); //Bounds may have changed with parameters
 }
 
 
@@ -391,9 +401,14 @@ VecT CompositeDist<RngT>::params() const
 { return handle->params(); } 
 
 template<class RngT>
-void CompositeDist<RngT>::set_params(const VecT &params) 
+void CompositeDist<RngT>::set_params(const VecT &new_params) 
 {
-    handle->set_params(params);
+    if(new_params.n_elem != num_params()) {
+        std::ostringstream msg;
+        msg<<"Got bad params vector size:"<<new_params.n_elem<<" expected:"<<num_params();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_params(new_params);
 }    
 
 template<class RngT>
@@ -401,8 +416,15 @@ StringVecT CompositeDist<RngT>::params_desc() const
 { return handle->params_desc(); }
 
 template<class RngT>
-void CompositeDist<RngT>::set_params_desc(const StringVecT &desc) 
-{ handle->set_params_desc(desc); }
+void CompositeDist<RngT>::set_params_desc(const StringVecT &new_desc) 
+{ 
+    if(new_desc.size() != num_params()) {
+        std::ostringstream msg;
+        msg<<"Got bad params desc vector size:"<<new_desc.size()<<" expected:"<<num_params();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_params_desc(new_desc); 
+}
 
 //Functions mapped over underlying distributions
 template<class RngT>

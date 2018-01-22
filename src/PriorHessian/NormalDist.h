@@ -49,6 +49,8 @@ protected:
     
     double mean; //distribution mean
     double sigma; //distribution shape
+    
+    static void check_params(double mean_val, double sigma_val);
 };
 
  
@@ -159,10 +161,29 @@ void NormalDist::append_params(IterT& p) const
 template<class IterT>
 void NormalDist::set_params(IterT& p) 
 { 
-    mean = *p++;
-    sigma = *p++;
+    double mean_val = *p++;
+    double sigma_val = *p++;
+    check_params(mean_val, sigma_val);
+    mean = mean_val;
+    sigma = sigma_val;
     llh_const = compute_llh_const();
 }     
+    
+inline
+void NormalDist::check_params(double mean_val, double sigma_val) 
+{ 
+    if(!std::isfinite(mean_val)) {
+        std::ostringstream msg;
+        msg<<"NormalDist::set_params: got bad mean value:"<<mean_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+    if(sigma_val<=0 || !std::isfinite(sigma_val)) {
+        std::ostringstream msg;
+        msg<<"GammaDist::set_params: got bad sigma value:"<<sigma_val;
+        throw PriorHessianError("BadParameter",msg.str());
+    }
+}
+
     
 } /* namespace prior_hessian */
 
