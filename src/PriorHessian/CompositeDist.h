@@ -347,7 +347,14 @@ StringVecT CompositeDist<RngT>::dim_variables() const
 
 template<class RngT>
 void CompositeDist<RngT>::set_dim_variables(const StringVecT &vars) 
-{ handle->set_dim_variables(vars); }
+{ 
+    if(vars.size() != num_dim()){
+        std::ostringstream msg;
+        msg<<"Got bad dim variables vector size:"<<vars.size()<<" expected:"<<num_dim();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_dim_variables(vars); 
+}
 
 template<class RngT>
 const VecT& CompositeDist<RngT>::lbound() const 
@@ -359,11 +366,25 @@ const VecT& CompositeDist<RngT>::ubound() const
 
 template<class RngT>
 void CompositeDist<RngT>::set_lbound(const VecT &new_bound)
-{ handle->set_bounds(new_bound, ubound()); }
+{ 
+    if(new_bound.n_elem != num_dim()) {
+        std::ostringstream msg;
+        msg<<"Got bad lbound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_bounds(new_bound, ubound()); 
+}
 
 template<class RngT>
 void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
-{ handle->set_bounds(lbound(), new_bound); }
+{ 
+    if(new_bound.n_elem != num_dim()) {
+        std::ostringstream msg;
+        msg<<"Got bad ubound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
+        throw PriorHessianError("ParameterError",msg.str());
+    }
+    handle->set_bounds(lbound(), new_bound); 
+}
 
 template<class RngT>
 void CompositeDist<RngT>::set_bounds(const VecT &new_lbound,const VecT &new_ubound)
