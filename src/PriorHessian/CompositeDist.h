@@ -373,6 +373,7 @@ void CompositeDist<RngT>::set_lbound(const VecT &new_bound)
         throw PriorHessianError("ParameterError",msg.str());
     }
     handle->set_bounds(new_bound, ubound()); 
+    update_bounds(); //Bounds may have changed with parameters
 }
 
 template<class RngT>
@@ -384,6 +385,7 @@ void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
         throw PriorHessianError("ParameterError",msg.str());
     }
     handle->set_bounds(lbound(), new_bound); 
+    update_bounds(); //Bounds may have changed with parameters
 }
 
 template<class RngT>
