@@ -56,37 +56,29 @@ protected:
  
 inline
 NormalDist::NormalDist(double mean, double sigma, std::string var_name) :
-        InfiniteDist<NormalDist>(var_name,make_default_param_desc(var_name)),
-        mean(mean),
-        sigma(sigma)
-{     
-    this->llh_const = compute_llh_const();
-}
+    NormalDist(mean,sigma,-INFINITY,INFINITY,var_name,make_default_param_desc(var_name))
+{ }
 
 inline
 NormalDist::NormalDist(double mean, double sigma, std::string var_name, StringVecT&& param_desc) :
-        InfiniteDist<NormalDist>(var_name,std::move(param_desc)),
-        mean(mean),
-        sigma(sigma)
-{     
-    this->llh_const = compute_llh_const();
-}
+    NormalDist(mean,sigma,-INFINITY,INFINITY,var_name,std::move(param_desc))
+{ }
+
 inline
 NormalDist::NormalDist(double mean, double sigma, double lbound, double ubound, std::string var_name) :
-        InfiniteDist<NormalDist>(lbound,ubound,var_name,make_default_param_desc(var_name)),
-        mean(mean),
-        sigma(sigma)
-{     
-    this->llh_const = compute_llh_const();
-}
+    NormalDist(mean,sigma,lbound,ubound,var_name,make_default_param_desc(var_name))
+{ }
+
 inline
 NormalDist::NormalDist(double mean, double sigma, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         InfiniteDist<NormalDist>(lbound,ubound,var_name,std::move(param_desc)),
         mean(mean),
         sigma(sigma)
-{     
+{
+    this->set_bounds(lbound,ubound);
     this->llh_const = compute_llh_const();
 }
+
 constexpr
 IdxT NormalDist::num_params()
 { 

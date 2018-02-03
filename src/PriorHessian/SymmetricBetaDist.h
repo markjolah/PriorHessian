@@ -47,48 +47,34 @@ protected:
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name) :
-        ScaledFiniteDist<SymmetricBetaDist>(var_name,make_default_param_desc(var_name)),
-        beta(beta),
-        dist(beta,beta)
-{     
-    this->llh_const = compute_llh_const();
-}
+    SymmetricBetaDist(beta,0,1,var_name,make_default_param_desc(var_name))
+{ }
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name, StringVecT&& param_desc) :
-        ScaledFiniteDist<SymmetricBetaDist>(var_name,std::move(param_desc)),
-        beta(beta),
-        dist(beta,beta)
-{     
-    this->llh_const = compute_llh_const();
-}
+    SymmetricBetaDist(beta,0,1,var_name,std::move(param_desc))
+{ }
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name) :
-        ScaledFiniteDist<SymmetricBetaDist>(lbound, ubound, var_name,make_default_param_desc(var_name)),
-        beta(beta),
-        dist(beta,beta)
-{     
-    this->llh_const = compute_llh_const();
-}
+        SymmetricBetaDist(beta,lbound,ubound,var_name,make_default_param_desc(var_name))
+{ }
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         ScaledFiniteDist<SymmetricBetaDist>(lbound, ubound, var_name,std::move(param_desc)),
         beta(beta),
         dist(beta,beta)
-{     
+{
+    this->set_bounds(lbound,ubound);
     this->llh_const = compute_llh_const();
 }
-
-
 
 constexpr
 IdxT SymmetricBetaDist::num_params()
 { 
     return 1; 
 }
-
 
 inline
 StringVecT SymmetricBetaDist::make_default_param_desc(std::string var_name)

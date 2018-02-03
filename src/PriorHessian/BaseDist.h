@@ -29,6 +29,8 @@ using MatT = arma::Mat<double>;
 using StringVecT = std::vector<std::string>; 
 using TypeInfoVecT = std::vector<std::type_index>;
 
+using UniformDistT = std::uniform_real_distribution<double>;
+
 using PriorHessianError = backtrace_exception::BacktraceException;
 
 template<class T>

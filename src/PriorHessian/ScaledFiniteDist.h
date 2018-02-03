@@ -38,18 +38,13 @@ protected:
 
 template<class Derived>
 ScaledFiniteDist<Derived>::ScaledFiniteDist(std::string var_name, StringVecT&& param_desc) :
-    UnivariateDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(0,1); //defaults to [0,1]
-}
+    ScaledFiniteDist(0,1,var_name,std::move(param_desc))
+{ }
 
 template<class Derived>
 ScaledFiniteDist<Derived>::ScaledFiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc):
     UnivariateDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(lbound,ubound);
-}
-
+{ }
 
 template<class Derived>
 void ScaledFiniteDist<Derived>::set_bounds(double lbound, double ubound)

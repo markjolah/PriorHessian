@@ -145,7 +145,7 @@ template<class Derived>
 template<class RngT> 
 double  UnivariateDist<Derived>::sample(RngT &rng)
 {
-    std::uniform_real_distribution<double> uniform;
+    UniformDistT uniform;
     return  static_cast<Derived const*>(this)->icdf(uniform(rng)); //sample via iCDF method
 }
 

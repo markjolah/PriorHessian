@@ -115,18 +115,18 @@ double TruncatingDist<Derived>::compute_llh_truncation_const() const
 
 template<class Derived>
 InfiniteDist<Derived>::InfiniteDist(std::string var_name, StringVecT&& param_desc) :
-    TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(-INFINITY,INFINITY);
-}
+    InfiniteDist(-INFINITY,INFINITY,var_name,std::move(param_desc))
+{ }
 
 template<class Derived>
 InfiniteDist<Derived>::InfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc):
     TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(lbound,ubound);
-}
+{ }
 
+/**
+ * Uses unbounded_cdf from subclass, so must only be called after construction of subclass...
+ * 
+ */
 template<class Derived>
 void InfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 {
@@ -149,18 +149,18 @@ void InfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 
 template<class Derived>
 SemiInfiniteDist<Derived>::SemiInfiniteDist(std::string var_name, StringVecT&& param_desc) :
-    TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(0,INFINITY);
-}
+    SemiInfiniteDist(0,INFINITY, var_name, std::move(param_desc))
+{ }
 
 template<class Derived>
 SemiInfiniteDist<Derived>::SemiInfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc):
     TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(lbound,ubound);
-}
+{ }
 
+/**
+ * Uses unbounded_cdf from subclass, so must only be called after construction of subclass...
+ * 
+ */
 template<class Derived>
 void SemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 {
@@ -191,17 +191,17 @@ void SemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 template<class Derived>
 PositiveSemiInfiniteDist<Derived>::PositiveSemiInfiniteDist(std::string var_name, StringVecT&& param_desc) :
     TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(1,INFINITY);
-}
+{ }
 
 template<class Derived>
 PositiveSemiInfiniteDist<Derived>::PositiveSemiInfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc):
     TruncatingDist<Derived>(var_name, std::move(param_desc))
-{ 
-    set_bounds(lbound,ubound);
-}
+{ }
 
+/**
+ * Uses unbounded_cdf from subclass, so must only be called after construction of subclass...
+ * 
+ */
 template<class Derived>
 void PositiveSemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 {

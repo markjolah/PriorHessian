@@ -8,7 +8,6 @@
 #define _PRIOR_HESSIAN_GAMMADIST_H
 
 #include <boost/math/distributions/gamma.hpp>
-
 #include "TruncatingDist.h"
 
 namespace prior_hessian {
@@ -59,33 +58,18 @@ protected:
 
 inline
 GammaDist::GammaDist(double mean, double kappa, std::string var_name) :
-        SemiInfiniteDist<GammaDist>(var_name,make_default_param_desc(var_name)),
-        mean(mean),
-        kappa(kappa),
-        dist(kappa,mean/kappa)        
-{
-    this->llh_const = compute_llh_const();
-}
+    GammaDist(mean, kappa, 0, INFINITY, var_name, make_default_param_desc(var_name))
+{ }
 
 inline
 GammaDist::GammaDist(double mean, double kappa, std::string var_name, StringVecT&& param_desc) :
-        SemiInfiniteDist<GammaDist>(var_name,std::move(param_desc)),
-        mean(mean),
-        kappa(kappa),
-        dist(kappa,mean/kappa)
-{     
-    this->llh_const = compute_llh_const();
-}
+    GammaDist(mean, kappa, 0, INFINITY, var_name, std::move(param_desc))
+{ }
 
 inline
 GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name) :
-        SemiInfiniteDist<GammaDist>(lbound,ubound,var_name,make_default_param_desc(var_name)),
-        mean(mean),
-        kappa(kappa),
-        dist(kappa,mean/kappa)
-{     
-    this->llh_const = compute_llh_const();
-}
+    GammaDist(mean, kappa,  lbound, ubound, var_name, make_default_param_desc(var_name))
+{ }
 
 inline
 GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
@@ -93,7 +77,8 @@ GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, st
         mean(mean),
         kappa(kappa),
         dist(kappa,mean/kappa)
-{     
+{   
+    this->set_bounds(lbound,ubound);
     this->llh_const = compute_llh_const();
 }
 
@@ -130,7 +115,6 @@ double GammaDist::unbounded_pdf(double x) const
 inline
 double GammaDist::compute_llh_const() const
 {
-//     std::cout<<"ComputeLLHConst: kappa:"<<kappa<<" mean:"<<mean<<" lgamma(kappa):"<<lgamma(kappa)<<"\n";
     return -kappa*log(mean/kappa)-lgamma(kappa);
 }
 

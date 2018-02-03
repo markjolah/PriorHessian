@@ -46,36 +46,27 @@ protected:
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name) :
-        PositiveSemiInfiniteDist<ParetoDist>(lbound, INFINITY, var_name,make_default_param_desc(var_name)),
-        alpha(alpha)
-{     
-    this->llh_const = compute_llh_const();
-}
+    ParetoDist(alpha,lbound,INFINITY,var_name,make_default_param_desc(var_name))
+{ }
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc) :
-        PositiveSemiInfiniteDist<ParetoDist>(lbound, INFINITY, var_name,std::move(param_desc)),
-        alpha(alpha)
-{     
-    this->llh_const = compute_llh_const();
-}
+    ParetoDist(alpha,lbound,INFINITY,var_name,std::move(param_desc))
+{ }
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name) :
-        PositiveSemiInfiniteDist<ParetoDist>(lbound, ubound, var_name,make_default_param_desc(var_name)),
-        alpha(alpha)
-{     
-    this->llh_const = compute_llh_const();
-}
+    ParetoDist(alpha,lbound,ubound,var_name,make_default_param_desc(var_name))
+{ }
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         PositiveSemiInfiniteDist<ParetoDist>(lbound, ubound, var_name,std::move(param_desc)),
         alpha(alpha)
-{     
+{
+    this->set_bounds(lbound,ubound);
     this->llh_const = compute_llh_const();
 }
-
 
 constexpr
 IdxT ParetoDist::num_params()
