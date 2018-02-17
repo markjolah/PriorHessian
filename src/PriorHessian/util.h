@@ -1,5 +1,5 @@
 /** @file util.h
- * @author Mark J. Olah (mjo\@cs.unm.edu)
+ * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 10-2017
  * @brief Utilities and namespace globals
  * 

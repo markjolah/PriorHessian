@@ -1,5 +1,5 @@
 /** @file BaseDist.h
- * @author Mark J. Olah (mjo\@cs.unm.edu)
+ * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2017
  * @brief The Base classes for UnivariateDist and MultivariateDist.
  * 

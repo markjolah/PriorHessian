@@ -1,5 +1,5 @@
 /** @file ParetoDist.h
- * @author Mark J. Olah (mjo\@cs.unm.edu)
+ * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2017
  * @brief ParetoDist class declaration and templated methods
  * 
