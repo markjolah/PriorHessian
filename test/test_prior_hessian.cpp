@@ -4,6 +4,7 @@
  * @brief Main google test for prior_hessian
  */
 #include "test_prior_hessian.h"
+#include "BacktraceException/BacktraceException.h"
 
 /* Globals */
 test_helper::RngEnvironment *env = new test_helper::RngEnvironment; //Googletest wants to free env, so we need to appease its demands or face segfaults.

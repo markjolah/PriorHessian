@@ -10,18 +10,19 @@ TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
 
 
 TYPED_TEST(UnivariateDistTest, get_params) {
-    auto params = this->dist.get_params();    
+    auto params = this->dist.params();    
     EXPECT_EQ(params.n_elem,this->dist.num_params());
     for(size_t i=0; i<this->dist.num_params(); i++)
         EXPECT_EQ(params[i],this->dist.get_param(i));
 }
+
 /*
 TEST_F(NormalDistTest, set_params) {
-    auto new_params = this->dist.get_params();
+    auto new_params = this->dist.params();
     new_params[0]+=2;
     new_params[1]+=5;
     this->dist.set_params(new_params);
-    auto params = this->dist.get_params();
+    auto params = this->dist.params();
     EXPECT_EQ(params.n_elem,this->dist.num_params());
     EXPECT_EQ(params[0],new_params[0]);
     EXPECT_EQ(params[1],new_params[1]);

@@ -25,7 +25,7 @@ public:
     /* Bounds */
     double get_lbound() const; 
     double get_ubound() const;
-    VecT get_params() const;
+    VecT params() const;
     void set_params(const VecT& p);
     
     template<class RngT> double sample(RngT &rng);
@@ -110,7 +110,7 @@ void ComponentDistAdaptor<Derived>::append_ubound(IterT& p) const
 
 /* params */
 template<class Derived>
-VecT ComponentDistAdaptor<Derived>::get_params() const 
+VecT ComponentDistAdaptor<Derived>::params() const 
 { 
     VecT p(num_params());
     auto start = p.begin();

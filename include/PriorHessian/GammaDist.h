@@ -31,30 +31,32 @@ public:
     GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
     
     constexpr static IdxT num_params();
-    static StringVecT make_default_param_desc(std::string var_name);
-    
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
-        
+    double get_param(int idx) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
 
-    friend class TruncatingDist<GammaDist>;
-
+protected:
+    static StringVecT make_default_param_desc(std::string var_name);
+    template<class IterT> void append_params(IterT& p) const;
+    template<class IterT> void set_params(IterT& p);   
+    
     double compute_llh_const() const;
     double unbounded_cdf(double x) const;
     double unbounded_icdf(double u) const;
     double unbounded_pdf(double x) const;
 
-protected:
     using DistT = boost::math::gamma_distribution<double>;
     double mean; //distribution mean
     double kappa; //distribution shape
     DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf    
     
     static void check_params(double mean_val, double kappa_val);
+    friend UnivariateDist<GammaDist>;
+    friend SemiInfiniteDist<GammaDist>;
+    friend TruncatingDist<GammaDist>;
+    template<class RngT> friend class CompositeDist;
 };
 
 inline
@@ -87,6 +89,21 @@ constexpr
 IdxT GammaDist::num_params()
 { 
     return 2; 
+}
+
+inline
+double GammaDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return mean;
+        case 1:
+            return kappa;
+        default:
+            std::ostringstream msg;
+            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
+            throw IndexError(msg.str());
+    }
 }
 
 inline

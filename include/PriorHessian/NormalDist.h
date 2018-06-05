@@ -99,7 +99,7 @@ double NormalDist::get_param(int idx) const
             return sigma;
         default:
             std::ostringstream msg;
-            msg<<"Bad parameter index: "<<idx;
+            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
             throw IndexError(msg.str());
     }
 }

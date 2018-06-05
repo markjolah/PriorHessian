@@ -23,9 +23,9 @@ public:
     void set_var_name(std::string var_name);
 
     /* Bounds */
-    double get_lbound() const; 
-    double get_ubound() const;
-    VecT get_params() const;
+    double lbound() const; 
+    double ubound() const;
+    VecT params() const;
     void set_params(const VecT& p);
     
     template<class RngT> double sample(RngT &rng);
@@ -84,11 +84,11 @@ void UnivariateDist<Derived>::set_var_name(std::string var_name)
 
 
 template<class Derived>
-double UnivariateDist<Derived>::get_lbound() const 
+double UnivariateDist<Derived>::lbound() const 
 { return _lbound; }
 
 template<class Derived>
-double UnivariateDist<Derived>::get_ubound() const 
+double UnivariateDist<Derived>::ubound() const 
 { return _ubound; }
 
 template<class Derived>
@@ -103,7 +103,7 @@ void UnivariateDist<Derived>::append_ubound(IterT& p) const
 
 /* params */
 template<class Derived>
-VecT UnivariateDist<Derived>::get_params() const 
+VecT UnivariateDist<Derived>::params() const 
 { 
     VecT p(num_params());
     auto start = p.begin();

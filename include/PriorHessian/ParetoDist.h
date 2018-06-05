@@ -22,26 +22,37 @@ public:
     ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc);
     ParetoDist(double alpha, double lbound, double ubound, std::string var_name);
     ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
-     constexpr static IdxT num_params();
-    static StringVecT make_default_param_desc(std::string var_name);
+    constexpr static IdxT num_params();
     
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
         
+    double get_param(int idx) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
 
+
+protected:
+    static StringVecT make_default_param_desc(std::string var_name);
+    template<class IterT> void append_params(IterT& p) const;
+    template<class IterT> void set_params(IterT& p);   
+    
     double compute_llh_const() const;
     double unbounded_cdf(double x) const;
     double unbounded_icdf(double u) const;
     double unbounded_pdf(double x) const;
 
-protected:
+    /* Member variables */
     double alpha; //distribution shape
-    
-    static void check_params(double alpha_val); 
+
+    /* static methods */
+    static void check_params(double alpha_val);
+
+    /* Friends! */
+    friend UnivariateDist<ParetoDist>;
+    friend PositiveSemiInfiniteDist<ParetoDist>;
+    friend TruncatingDist<ParetoDist>;
+    template<class RngT> friend class CompositeDist;
 };
 
 inline
@@ -75,6 +86,19 @@ IdxT ParetoDist::num_params()
 }
 
 inline
+double ParetoDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return alpha;
+        default:
+            std::ostringstream msg;
+            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
+            throw IndexError(msg.str());
+    }
+}
+
+inline
 StringVecT ParetoDist::make_default_param_desc(std::string var_name)
 {
     return {std::string("alpha_") + var_name};
@@ -83,25 +107,25 @@ StringVecT ParetoDist::make_default_param_desc(std::string var_name)
 inline
 double ParetoDist::unbounded_cdf(double x) const
 {
-    return 1-pow(get_lbound()/x,alpha);
+    return 1-pow(lbound()/x,alpha);
 }
 
 inline
 double ParetoDist::unbounded_icdf(double u) const
 {
-    return get_lbound() / pow(1-u,1/alpha);
+    return lbound() / pow(1-u,1/alpha);
 }
 
 inline
 double ParetoDist::unbounded_pdf(double x) const
 {
-    return alpha/x * pow(get_lbound()/x,alpha);
+    return alpha/x * pow(lbound()/x,alpha);
 }
 
 inline
 double ParetoDist::compute_llh_const() const
 {
-    return log(alpha) + alpha*log(get_lbound());
+    return log(alpha) + alpha*log(lbound());
 }
 
 inline

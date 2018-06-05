@@ -160,7 +160,7 @@ void InfiniteDist<Derived>::set_lbound(double lbound)
 template<class Derived>
 void InfiniteDist<Derived>::set_ubound(double ubound)
 {
-    set_bounds(this->get_lbound(),ubound);
+    set_bounds(this->lbound(),ubound);
 }
 
 template<class Derived>
@@ -212,7 +212,7 @@ void SemiInfiniteDist<Derived>::set_lbound(double lbound)
 template<class Derived>
 void SemiInfiniteDist<Derived>::set_ubound(double ubound)
 {
-    set_bounds(this->get_lbound(),ubound);
+    set_bounds(this->lbound(),ubound);
 }
 
 template<class Derived>
@@ -260,7 +260,7 @@ void PositiveSemiInfiniteDist<Derived>::set_lbound(double lbound)
 template<class Derived>
 void PositiveSemiInfiniteDist<Derived>::set_ubound(double ubound)
 {
-    set_bounds(this->get_lbound(),ubound);
+    set_bounds(this->lbound(),ubound);
 }
 
 } /* namespace prior_hessian */

@@ -70,7 +70,7 @@ class BaseDist
  template<class RngT> friend class CompositeDist;
 public:
     BaseDist(StringVecT &&params_desc);
-    const StringVecT& get_params_desc() const;
+    const StringVecT& params_desc() const;
     IdxT num_params() const;    
     void set_params_desc(const StringVecT& desc); 
 protected:
@@ -111,7 +111,7 @@ BaseDist::BaseDist(StringVecT &&params_desc) :
 { }
 
 inline
-const StringVecT& BaseDist::get_params_desc() const 
+const StringVecT& BaseDist::params_desc() const 
 { return _params_desc; }
 
 inline
