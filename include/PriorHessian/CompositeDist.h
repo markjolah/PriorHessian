@@ -11,8 +11,8 @@
 #include<utility>
 #include<memory>
 #include<armadillo>
-#include "BaseDist.h"
-#include "UnivariateDist.h"
+#include "PriorHessian/BaseDist.h"
+#include "PriorHessian/UnivariateDist.h"
 
 
 namespace prior_hessian {
@@ -47,7 +47,7 @@ public:
     void initialize(std::tuple<Ts...>&& dist_tuple);
     
     IdxT num_component_dists() const; 
-    TypeInfoVecT types() const;
+    TypeInfoVecT component_types() const;
     
     /* Dimensionality and variable names */
     IdxT num_dim() const;
@@ -109,7 +109,7 @@ protected:
     public:
         virtual ~DistTupleHandle() = default;
         virtual IdxT num_dists() const = 0;
-        virtual TypeInfoVecT types() const = 0;
+        virtual TypeInfoVecT component_types() const = 0;
 
         virtual IdxT num_dim() const = 0;
         virtual UVecT components_num_dim() const = 0;
@@ -168,7 +168,7 @@ protected:
         constexpr IdxT num_params() const override;
         UVecT components_num_dim() const override;
         UVecT components_num_params() const override;   
-        TypeInfoVecT types() const override;        
+        TypeInfoVecT component_types() const override;        
 
         StringVecT dim_variables() const override;
         void set_dim_variables(const StringVecT &vars) override;
@@ -324,8 +324,8 @@ void CompositeDist<RngT>::initialize(std::tuple<Ts...>&& dist_tuple)
 
 
 template<class RngT>
-TypeInfoVecT CompositeDist<RngT>::types() const 
-{ return handle->types(); }
+TypeInfoVecT CompositeDist<RngT>::component_types() const 
+{ return handle->component_types(); }
 
 
 template<class RngT>
@@ -552,7 +552,7 @@ constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dists() const
 
 template<class RngT>
 template<class... Ts>
-TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::types() const
+TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::component_types() const
 { 
     return {std::type_index(typeid(Ts))...}; 
 }

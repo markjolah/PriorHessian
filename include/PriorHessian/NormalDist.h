@@ -8,8 +8,9 @@
 #define _PRIOR_HESSIAN_NORMALDIST_H
 
 #include <boost/math/special_functions/erf.hpp>
+#include <boost/math/constants/constants.hpp>
 
-#include "TruncatingDist.h"
+#include "PriorHessian/TruncatingDist.h"
 
 namespace prior_hessian {
 
@@ -18,7 +19,6 @@ namespace prior_hessian {
  */
 class NormalDist : public InfiniteDist<NormalDist>
 {
-
 public:
     NormalDist(double mean, double sigma, std::string var_name);
     NormalDist(double mean, double sigma, std::string var_name, StringVecT&& param_desc);
@@ -26,31 +26,35 @@ public:
     NormalDist(double mean, double sigma, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
     
     constexpr static IdxT num_params();
-    static StringVecT make_default_param_desc(std::string var_name);
-    
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
-        
+    double get_param(int idx) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
+
+protected:
+    constexpr static double sqrt2 =  ::sqrt(2);
+    constexpr static double sqrt2pi = ::sqrt(2*boost::math::double_constants::pi);
+    constexpr static double log2pi = ::log(2*boost::math::double_constants::pi);
 
     double compute_llh_const() const;
     double unbounded_cdf(double x) const;
     double unbounded_icdf(double u) const;
     double unbounded_pdf(double x) const;
 
-protected:
-    constexpr static double pi=3.141592653589793;
-    constexpr static double sqrt2 =  ::sqrt(2);
-    constexpr static double sqrt2pi = ::sqrt(2*pi);
-    constexpr static double log2pi = ::log(2*pi);
+    template<class IterT> void append_params(IterT& p) const;
+    template<class IterT> void set_params(IterT& p);   
     
     double mean; //distribution mean
     double sigma; //distribution shape
     
+    static StringVecT make_default_param_desc(std::string var_name);
     static void check_params(double mean_val, double sigma_val);
+
+    friend UnivariateDist<NormalDist>;
+    friend InfiniteDist<NormalDist>;
+    friend TruncatingDist<NormalDist>;
+    template<class RngT> friend class CompositeDist;
 };
 
  
@@ -83,6 +87,21 @@ constexpr
 IdxT NormalDist::num_params()
 { 
     return 2; 
+}
+
+inline
+double NormalDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return mean;
+        case 1:
+            return sigma;
+        default:
+            std::ostringstream msg;
+            msg<<"Bad parameter index: "<<idx;
+            throw IndexError(msg.str());
+    }
 }
 
 inline

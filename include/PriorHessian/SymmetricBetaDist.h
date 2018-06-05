@@ -6,8 +6,10 @@
  */
 #ifndef _PRIOR_HESSIAN_SYMMETRICBETADIST_H
 #define _PRIOR_HESSIAN_SYMMETRICBETADIST_H
+
 #include <boost/math/distributions/beta.hpp>
-#include "ScaledFiniteDist.h"
+
+#include "PriorHessian/ScaledFiniteDist.h"
 
 namespace prior_hessian {
 

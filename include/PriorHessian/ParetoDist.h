@@ -7,7 +7,7 @@
 #ifndef _PRIOR_HESSIAN_PARETODIST_H
 #define _PRIOR_HESSIAN_PARETODIST_H
 
-#include "TruncatingDist.h"
+#include "PriorHessian/TruncatingDist.h"
 
 namespace prior_hessian {
 

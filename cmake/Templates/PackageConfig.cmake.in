@@ -4,10 +4,11 @@
 include("${CMAKE_CURRENT_LIST_DIR}/@EXPORT_TARGETS_NAME@.cmake")
 check_required_components("@PROJECT_NAME@")
 
-#Single-library package with epynomous library
+include(CMakeFindDependencyMacro)
+find_dependency(BacktraceException)
+
+#Single-library package with eponymous library
 #Sets:
 # @PROJECT_NAME@_LIBRARIES
 
-set(@PROJECT_NAME@_LIBRARIES @PROJECT_NAME@)
-
-set(@PROJECT_NAME@_BUILD_TYPES) #Header-only libraries have no relevant build types
+set(@PROJECT_NAME@_LIBRARIES @PROJECT_NAME@::@PROJECT_NAME@)

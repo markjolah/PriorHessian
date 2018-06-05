@@ -1,61 +1,67 @@
 # PriorHessian - library for fast computation of log-likelihoods, and derivatives, of multivariate priors defined with Archemedian copulas.
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
-# Copyright 2017
+# Copyright 2017-2018
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
 # See: LICENCE file
 
 cmake_minimum_required( VERSION 3.8 )
 project(PriorHessian VERSION 0.1 LANGUAGES CXX)
-cmake_policy(SET CMP0054 NEW) #Don't derrefernce in if() statements
-cmake_policy(SET CMP0022 NEW) #LINK_INTERFACE_LIBRARIES fix
 
-#Add to modules path
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules 
-                                           ${CMAKE_CURRENT_LIST_DIR}/cmake/Functions)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+option(BUILD_STATIC_LIBS "Build static libraries" ON)
 
+if(${CMAKE_BUILD_TYPE} MATCHES Debug)
+    option(BUILD_TESTING "Build testing framework" ON)
+else()
+    option(BUILD_TESTING "Build testing framework" OFF)
+endif()
+
+message(STATUS "OPTION: BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
+message(STATUS "OPTION: BUILD_STATIC_LIBS: ${BUILD_STATIC_LIBS}")
+message(STATUS "OPTION: BUILD_TESTING: ${BUILD_TESTING}")
+
+list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
+
+### Dependencies
 # Armadillo
 find_package(Armadillo REQUIRED)
-add_definitions(-DARMA_USE_CXX11 -DARMA_DONT_USE_WRAPPER -DARMA_BLAS_LONG)
-add_definitions(-DARMA_DONT_USE_LAPACK) #Should not be needed
-add_definitions(-DARMA_DONT_USE_BLAS) #Should not be needed
-add_definitions(-DARMA_DONT_USE_OPENMP) #Want to explicitly use openMP when required
-add_definitions(-DARMA_DONT_USE_HDF5) #Should not be needed
-if(${CMAKE_BUILD_TYPE} MATCHES Debug)
-    add_definitions(-DARMA_PRINT_ERRORS)
-endif()
+add_definitions(-DARMA_USE_CXX11)
+add_definitions(-DARMA_DONT_USE_LAPACK -DARMA_DONT_USE_BLAS -DARMA_DONT_USE_OPENMP -DARMA_DONT_USE_HDF5) #disable unused dependencies
+set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:Debug>:ARMA_PRINT_ERRORS>)
+set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS $<$<NOT:$<CONFIG:Debug>>:ARMA_NO_DEBUG>)
 
-#Boost configure
-find_package(Boost)
+# Boost configure.  We require boost::math
+find_package(Boost REQUIRED)
 
-#External dependencies
+### External dependencies
 include(AddExternalDependency)
 #BacktraceException allows for exceptions that encode a backtrace for debugging
-set(BacktraceExceptionURL https://github.com/markjolah/BacktraceException.git)
-AddExternalDependency(BacktraceException ${BacktraceExceptionURL} SHARED)
-
-# Compiler Definitions
-if (WIN32)
-    add_definitions( -DWIN32 )
-elseif(UNIX AND NOT APPLE)
-    add_definitions( -DLINUX )
+set(DEPENDENT_LIBRARY_TYPES SHARED)
+if(BUILD_STATIC_LIBS)
+    list(APPEND DEPENDENT_LIBRARY_TYPES STATIC)
 endif()
+add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git ${DEPENDENT_LIBRARY_TYPES})
 
-# CFLAGS ##
-add_compile_options(-W -Wall -Wextra -Werror -Wno-unused-parameter)
-if(${CMAKE_BUILD_TYPE} MATCHES Debug)
-    add_definitions(-DDEBUG)
-elseif()
-    add_definitions(-DNDEBUG)
-endif()
+### CFLAGS
+add_compile_options($<$<AND:$<CONFIG:Debug>,$<CXX_COMPILER_ID:GNU>>:-O0>)
+add_compile_options($<$<CONFIG:Debug>:-W>)
+add_compile_options($<$<CONFIG:Debug>:-Wall>)
+add_compile_options($<$<CONFIG:Debug>:-Wextra>)
+
 set(CMAKE_DEBUG_POSTFIX ".debug" CACHE STRING "Debug file extension")
-set(CMAKE_CXX_FLAGS_DEBUG "-ggdb -O2")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-ggdb -O3")
 
-include(PackageConfig) #Configure Package-Config and associated files for cmake exports
+### PackageConfig Exports
+include(ExportPackageWizzard)
+export_package_wizzard()
 
-add_subdirectory(src/PriorHessian)
-add_subdirectory(src/test)
+### Source directories
+add_subdirectory(src)
+
+if(${BUILD_TESTING})
+    include(CTest)
+    enable_testing()
+    add_subdirectory(test)
+endif()
 

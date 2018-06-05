@@ -7,8 +7,7 @@
 #ifndef _PRIOR_HESSIAN_SCALEDFINITEDIST_H
 #define _PRIOR_HESSIAN_SCALEDFINITEDIST_H
 
-
-#include "UnivariateDist.h"
+#include "PriorHessian/UnivariateDist.h"
 
 namespace prior_hessian {
 

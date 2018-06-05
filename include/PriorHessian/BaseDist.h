@@ -18,7 +18,10 @@
 #include<utility>
 #include<algorithm>
 #include<typeindex>
-#include <BacktraceException/BacktraceException.h>
+
+#include<armadillo>
+
+#include<BacktraceException/BacktraceException.h>
 
 namespace prior_hessian {
  
@@ -33,24 +36,46 @@ using UniformDistT = std::uniform_real_distribution<double>;
 
 using PriorHessianError = backtrace_exception::BacktraceException;
 
+/** @brief Indicates a index access was out of bounds
+ */
+struct IndexError : public PriorHessianError 
+{
+    IndexError(std::string message) : PriorHessianError("IndexError",message) {}
+};
+
+struct ParameterValueError : public PriorHessianError 
+{
+    ParameterValueError(std::string message) : PriorHessianError("ParameterValueError",message) {}
+};
+
+struct NumericalOverflowError : public PriorHessianError 
+{
+    NumericalOverflowError(std::string message) : PriorHessianError("NumericalOverflowError",message) {}
+};
+
 template<class T>
 T square(T t) 
 { 
     return t*t;
 }
 
+//Forward decl
+template<class RngT>
+class CompositeDist;
+
 /** @brief Encapsulates the common functionality of UnivariateDist and MultivariateDist
  */
 class BaseDist
 {
+ template<class RngT> friend class CompositeDist;
 public:
     BaseDist(StringVecT &&params_desc);
     const StringVecT& get_params_desc() const;
     IdxT num_params() const;    
-    template<class IterT> void append_params_desc(IterT& p) const;
     void set_params_desc(const StringVecT& desc); 
-    template<class IterT> void set_params_desc(IterT& d); 
 protected:
+    template<class IterT> void append_params_desc(IterT& p) const;
+    template<class IterT> void set_params_desc(IterT& d); 
     StringVecT _params_desc;
 };
 

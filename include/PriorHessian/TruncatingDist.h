@@ -7,8 +7,7 @@
 #ifndef _PRIOR_HESSIAN_TRUNCATINGDIST_H
 #define _PRIOR_HESSIAN_TRUNCATINGDIST_H
 
-
-#include "UnivariateDist.h"
+#include "PriorHessian/UnivariateDist.h"
 
 namespace prior_hessian {
 
@@ -46,6 +45,8 @@ public:
     InfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc); 
 
     void set_bounds(double lbound, double ubound);    
+    void set_lbound(double lbound);    
+    void set_ubound(double ubound);    
 };
 
 template<class Derived>
@@ -56,6 +57,8 @@ public:
     SemiInfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc); 
 
     void set_bounds(double lbound, double ubound);    
+    void set_lbound(double lbound);    
+    void set_ubound(double ubound);    
 };
 
 template<class Derived>
@@ -66,6 +69,8 @@ public:
     PositiveSemiInfiniteDist(double lbound, double ubound, std::string var_name, StringVecT&& param_desc); 
 
     void set_bounds(double lbound, double ubound);    
+    void set_lbound(double lbound);    
+    void set_ubound(double ubound);    
 };
 
 
@@ -146,6 +151,17 @@ void InfiniteDist<Derived>::set_bounds(double lbound, double ubound)
     this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
+template<class Derived>
+void InfiniteDist<Derived>::set_lbound(double lbound)
+{
+    set_bounds(lbound,this->get_ubound());
+}
+
+template<class Derived>
+void InfiniteDist<Derived>::set_ubound(double ubound)
+{
+    set_bounds(this->get_lbound(),ubound);
+}
 
 template<class Derived>
 SemiInfiniteDist<Derived>::SemiInfiniteDist(std::string var_name, StringVecT&& param_desc) :
@@ -187,6 +203,17 @@ void SemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
     this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
+template<class Derived>
+void SemiInfiniteDist<Derived>::set_lbound(double lbound)
+{
+    set_bounds(lbound,this->get_ubound());
+}
+
+template<class Derived>
+void SemiInfiniteDist<Derived>::set_ubound(double ubound)
+{
+    set_bounds(this->get_lbound(),ubound);
+}
 
 template<class Derived>
 PositiveSemiInfiniteDist<Derived>::PositiveSemiInfiniteDist(std::string var_name, StringVecT&& param_desc) :
@@ -224,6 +251,17 @@ void PositiveSemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
     this->llh_truncation_const = this->compute_llh_truncation_const();
 }
 
+template<class Derived>
+void PositiveSemiInfiniteDist<Derived>::set_lbound(double lbound)
+{
+    set_bounds(lbound,this->get_ubound());
+}
+
+template<class Derived>
+void PositiveSemiInfiniteDist<Derived>::set_ubound(double ubound)
+{
+    set_bounds(this->get_lbound(),ubound);
+}
 
 } /* namespace prior_hessian */
 

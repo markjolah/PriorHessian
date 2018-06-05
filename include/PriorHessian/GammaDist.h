@@ -8,7 +8,8 @@
 #define _PRIOR_HESSIAN_GAMMADIST_H
 
 #include <boost/math/distributions/gamma.hpp>
-#include "TruncatingDist.h"
+
+#include "PriorHessian/TruncatingDist.h"
 
 namespace prior_hessian {
 
