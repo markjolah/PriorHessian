@@ -68,6 +68,7 @@ public:
     prior_hessian::NormalDist dist0{mean0,sigma0,"x"};
     prior_hessian::GammaDist dist1{mean1,kappa1,"y"};
     prior_hessian::ParetoDist dist2{alpha2,lbound2,"z"};
-    prior_hessian::CompositeDist<RngT> cd;
+    using DistT = prior_hessian::CompositeDist<RngT>;
+    DistT cd;
     CompositeDistCompositionTest() : cd(std::make_tuple(dist0,dist1,dist2)) {}
 };

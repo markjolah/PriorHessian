@@ -8,6 +8,92 @@
 
 #include "test_prior_hessian.h"
 
+TEST_F(CompositeDistCompositionTest, copy_construction) {
+    DistT dist_copy{this->cd};  //Move construct
+    //Check copy of parameters is successful
+    auto params = this->cd.params();
+    IdxT Nparams = this->cd.num_params();
+    IdxT Ndim = this->cd.num_dim();
+    auto params_copy = dist_copy.params();
+    ASSERT_EQ(params_copy.n_elem, Nparams);
+    for(IdxT i=0; i < Nparams; i++)
+        EXPECT_EQ(params[i], params_copy[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v = this->cd.sample(env->get_rng());
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    ASSERT_EQ(v2.n_elem, Ndim);
+    for(IdxT i=0; i < Ndim; i++)
+        EXPECT_EQ(v[i],v2[i]);
+}
+
+TEST_F(CompositeDistCompositionTest, copy_assignment) {
+    DistT dist_copy{};
+    volatile double _foo;
+    _foo = (dist_copy.num_dim(),_foo); //Force something to happen with dist_copy first
+    
+    dist_copy=this->cd;  //Move construct
+    //Check copy of parameters is successful
+    auto params = this->cd.params();
+    IdxT Nparams = this->cd.num_params();
+    IdxT Ndim = this->cd.num_dim();
+    auto params_copy = dist_copy.params();
+    ASSERT_EQ(params_copy.n_elem, Nparams);
+    for(IdxT i=0; i < Nparams; i++)
+        EXPECT_EQ(params[i], params_copy[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v = this->cd.sample(env->get_rng());
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    ASSERT_EQ(v2.n_elem, Ndim);
+    for(IdxT i=0; i < Ndim; i++)
+        EXPECT_EQ(v[i],v2[i]);
+}
+
+
+TEST_F(CompositeDistCompositionTest, move_construction) {
+    auto params = this->cd.params();
+    env->reset_rng();
+    auto v = this->cd.sample(env->get_rng());
+    IdxT Nparams = this->cd.num_params();
+    IdxT Ndim = this->cd.num_dim();
+    DistT dist_copy{std::move(this->cd)};  //Move construct
+    //Check copy of parameters is successful
+    auto params_copy = dist_copy.params();
+    ASSERT_EQ(params_copy.n_elem, Nparams);
+    for(IdxT i=0; i < Nparams; i++)
+        EXPECT_EQ(params[i], params_copy[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    ASSERT_EQ(v2.n_elem, Ndim);
+    for(IdxT i=0; i < Ndim; i++)
+        EXPECT_EQ(v[i],v2[i]);
+}
+
+TEST_F(CompositeDistCompositionTest, move_assignment) {
+    DistT dist_copy{std::make_tuple(prior_hessian::NormalDist{})}; //Make something useful to force compiler to do something.
+    auto params = this->cd.params();
+    env->reset_rng();
+    auto v = this->cd.sample(env->get_rng());
+    IdxT Nparams = this->cd.num_params();
+    IdxT Ndim = this->cd.num_dim();
+    dist_copy = std::move(this->cd); //Now move over it with our test fixture dist
+    //Check copy of parameters is successful
+    auto params_copy = dist_copy.params();
+    ASSERT_EQ(params_copy.n_elem, Nparams);
+    for(IdxT i=0; i < Nparams; i++)
+        EXPECT_EQ(params[i], params_copy[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    ASSERT_EQ(v2.n_elem, Ndim);
+    for(IdxT i=0; i < Ndim; i++)
+        EXPECT_EQ(v[i],v2[i]);
+}
+
 TEST_F(CompositeDistCompositionTest, num_component_dists) {
     EXPECT_EQ(this->cd.num_component_dists(),3);
 }

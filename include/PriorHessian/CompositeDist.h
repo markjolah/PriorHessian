@@ -28,8 +28,8 @@ public:
     CompositeDist() = default;
     
     /** @brief Initialize from variable number of UnivariateDist's or MulitvariateDist's arguments */
-    template<class... Ts>
-    CompositeDist(Ts&&... dists);
+//     template<class... Ts>
+//     CompositeDist(Ts&&... dists);
 
     /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
@@ -285,15 +285,15 @@ protected:
 /* CompositeDist<RngT> template methods */
 
 
-template<class RngT>
-template<class... Ts>
-CompositeDist<RngT>::CompositeDist(Ts&&... dists) : 
-    handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::make_tuple(std::forward<Ts>(dists)...))) ),
-    _num_dim(handle->num_dim()),
-    _num_params(handle->num_params()),
-    _lbound(handle->lbound()),
-    _ubound(handle->ubound())
-{ }
+// template<class RngT>
+// template<class... Ts>
+// CompositeDist<RngT>::CompositeDist(Ts&&... dists) : 
+//     handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::make_tuple(std::forward<Ts>(dists)...))) ),
+//     _num_dim(handle->num_dim()),
+//     _num_params(handle->num_params()),
+//     _lbound(handle->lbound()),
+//     _ubound(handle->ubound())
+// { }
 
 template<class RngT>
 template<class... Ts>

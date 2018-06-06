@@ -11,11 +11,83 @@ using UnivariateDistTs = ::testing::Types<prior_hessian::NormalDist,
                                           prior_hessian::SymmetricBetaDist> ;
 TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
 
+TYPED_TEST(UnivariateDistTest, copy_assignment) {
+    TypeParam dist_copy{};
+    dist_copy = this->dist;
+    //Check copy of parameters is successful
+    for(IdxT i=0; i<this->dist.num_params(); i++)
+        EXPECT_EQ(dist_copy.get_param(i),this->dist.get_param(i));
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v = this->dist.sample(env->get_rng());
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    EXPECT_EQ(v,v2);
+}
+
+TYPED_TEST(UnivariateDistTest, copy_construction) {
+    TypeParam dist_copy(this->dist);
+    //Check copy of parameters is successful
+    for(IdxT i=0; i<this->dist.num_params(); i++)
+        EXPECT_EQ(dist_copy.get_param(i),this->dist.get_param(i));
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v = this->dist.sample(env->get_rng());
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    EXPECT_EQ(v,v2);
+}
+
+TYPED_TEST(UnivariateDistTest, move_assignment) {
+    TypeParam dist_copy{};
+    volatile double _foo;
+    _foo = (dist_copy.get_param(0),_foo); //Force something to happen with dist_copy first
+    auto params = this->dist.params();
+    IdxT Nparams = this->dist.num_params();
+    double lbound = this->dist.lbound();
+    double ubound = this->dist.ubound();
+    env->reset_rng();
+    auto v = this->dist.sample(env->get_rng());
+
+    dist_copy = std::move(this->dist);  //Now do the move assignment
+
+    //Check copy of parameters is successful
+    for(IdxT i=0; i<Nparams; i++)
+        EXPECT_EQ(dist_copy.get_param(i),params[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    EXPECT_EQ(v,v2);
+    EXPECT_LE(lbound,v2);
+    EXPECT_LE(v2,ubound);
+}
+
+TYPED_TEST(UnivariateDistTest, move_construction) {
+    auto params = this->dist.params();
+    IdxT Nparams = this->dist.num_params();
+    double lbound = this->dist.lbound();
+    double ubound = this->dist.ubound();
+    env->reset_rng();
+    auto v = this->dist.sample(env->get_rng());
+
+    TypeParam dist_copy = std::move(this->dist);  //Now do the move construct
+
+    //Check copy of parameters is successful
+    for(IdxT i=0; i<Nparams; i++)
+        EXPECT_EQ(dist_copy.get_param(i),params[i]);
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v2 = dist_copy.sample(env->get_rng());
+    EXPECT_EQ(v,v2);
+    EXPECT_LE(lbound,v2);
+    EXPECT_LE(v2,ubound);
+}
+
 
 TYPED_TEST(UnivariateDistTest, params) {
     auto params = this->dist.params();    
     EXPECT_EQ(params.n_elem,this->dist.num_params());
-    for(size_t i=0; i<this->dist.num_params(); i++)
+    for(IdxT i=0; i<this->dist.num_params(); i++)
         EXPECT_EQ(params[i],this->dist.get_param(i));
 }
 
