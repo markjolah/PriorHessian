@@ -17,17 +17,48 @@ prior_hessian::NormalDist make_dist()
     double sigma_lambda = 1;
     double mu = env->sample_normal(mu_mean,mu_sigma);
     double sigma = env->sample_exponential(sigma_lambda);
+//     std::cout<<"Normal: mu: "<<mu<<" sigma:"<<sigma<<"\n";
     return prior_hessian::NormalDist(mu,sigma,"x");
 }
 
+template<>
+prior_hessian::GammaDist make_dist()
+{
+    double alpha_mu = 10.;
+    double beta_mu = 1.;
+    double alpha_kappa = 1.;
+    double beta_kappa = 3.;
+    double mu = env->sample_gamma(alpha_mu,beta_mu);
+    double kappa = env->sample_gamma(alpha_kappa,beta_kappa);
+//     std::cout<<"Gamma: mu: "<<mu<<" kappa:"<<kappa<<"\n";
+    return prior_hessian::GammaDist(mu,kappa,"y");
+}
+
+template<>
+prior_hessian::ParetoDist make_dist()
+{
+    double alpha_alpha = 1.;
+    double beta_alpha = 10.;
+    double alpha_lbound= 1.;
+    double beta_lbound = 10.;
+    double alpha = env->sample_gamma(alpha_alpha,beta_alpha);
+    double lbound = env->sample_gamma(alpha_lbound,beta_lbound);
+//     std::cout<<"Pareto: alpha: "<<alpha<<" lbound:"<<lbound<<std::endl;
+    return prior_hessian::ParetoDist(alpha,lbound,"z");
+}
+
+
 int main(int argc, char **argv) 
 {
-    if(argc>1) {
+    if(argc>2 && !strncmp("--seed",argv[1],6)){
         char* end;
-        env->set_seed(strtoull(argv[0],&end,0));
+        env->set_seed(strtoull(argv[2],&end,0));
+        argc-=2;
+        argv+=2;
     } else {
         env->set_seed();
     }
+    ::testing::InitGoogleTest(&argc, argv);
     
     backtrace_exception::disable_backtraces();
     

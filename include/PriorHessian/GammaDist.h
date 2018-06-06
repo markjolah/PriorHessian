@@ -25,6 +25,7 @@ class GammaDist : public SemiInfiniteDist<GammaDist>
 {
 
 public:
+    GammaDist();
     GammaDist(double mean, double kappa, std::string var_name);
     GammaDist(double mean, double kappa, std::string var_name, StringVecT&& param_desc);
     GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name);
@@ -40,7 +41,7 @@ public:
 protected:
     static StringVecT make_default_param_desc(std::string var_name);
     template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
+    template<class IterT> void set_params_iter(IterT& p);   
     
     double compute_llh_const() const;
     double unbounded_cdf(double x) const;
@@ -58,6 +59,11 @@ protected:
     friend TruncatingDist<GammaDist>;
     template<class RngT> friend class CompositeDist;
 };
+
+inline
+GammaDist::GammaDist() :
+    GammaDist(1,1,0,INFINITY,"x",make_default_param_desc("x"))
+{ }
 
 inline
 GammaDist::GammaDist(double mean, double kappa, std::string var_name) :
@@ -170,7 +176,7 @@ void GammaDist::append_params(IterT& p) const
 } 
 
 template<class IterT>
-void GammaDist::set_params(IterT& p) 
+void GammaDist::set_params_iter(IterT& p) 
 { 
     double mean_val = *p++;
     double kappa_val = *p++;

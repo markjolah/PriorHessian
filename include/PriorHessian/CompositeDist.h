@@ -87,12 +87,15 @@ public:
      * CRTP UnivariateDist and MulitvariateDists base class templates.
      * 
      * All this technology should make these calls very close to custom coded grad and hess calls for any combination of dists.
-     */    
+     */
     void grad_accumulate(const VecT &u, VecT &grad) const;
     void grad2_accumulate(const VecT &u, VecT &grad2) const;
     void hess_accumulate(const VecT &u, MatT &hess) const;
     void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const;
     void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const;
+    //Convenience methods for the lazy.
+    VecT make_zero_grad() const { return {num_dim(),arma::fill::zeros}; }
+    MatT make_zero_hess() const { return {num_dim(),num_dim(),arma::fill::zeros}; }
     
     VecT sample(RngT &rng);
     MatT sample(RngT &rng, IdxT num_samples);
@@ -741,7 +744,7 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 void CompositeDist<RngT>::DistTuple<Ts...>::set_dim_variables(IterT v,std::index_sequence<I...>)
 { 
-    meta::call_in_order( {(std::get<I>(dists).set_var_name(v),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).set_var_name_iter(v),0)...} ); 
 }  
         
 template<class RngT>
@@ -782,7 +785,7 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 void CompositeDist<RngT>::DistTuple<Ts...>::set_params(IterT p,std::index_sequence<I...>)
 { 
-    meta::call_in_order( {(std::get<I>(dists).set_params(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).set_params_iter(p),0)...} ); 
 }
 
 template<class RngT>

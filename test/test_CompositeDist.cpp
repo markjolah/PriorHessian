@@ -61,7 +61,7 @@ TEST_F(CompositeDistCompositionTest, lbound) {
 
 TEST_F(CompositeDistCompositionTest, set_lbound) {
     auto lbound = this->cd.lbound();
-    for(size_t i=0;i<lbound.size();i++) lbound[i]=3.141+i;
+    for(IdxT i=0;i<lbound.size();i++) lbound[i]=3.141+i;
     this->cd.set_lbound(lbound);
     auto lbound2 = this->cd.lbound();
     ASSERT_EQ(this->cd.num_dim(), lbound2.size());
@@ -80,7 +80,7 @@ TEST_F(CompositeDistCompositionTest, ubound) {
 
 TEST_F(CompositeDistCompositionTest, set_ubound) {
     auto ubound = this->cd.ubound();
-    for(size_t i=0;i<ubound.size();i++) ubound[i]=3.141+i;
+    for(IdxT i=0;i<ubound.size();i++) ubound[i]=3.141+i;
     this->cd.set_ubound(ubound);
     auto ubound2 = this->cd.ubound();
     ASSERT_EQ(this->cd.num_dim(), ubound2.size());
@@ -92,7 +92,7 @@ TEST_F(CompositeDistCompositionTest, set_ubound) {
 TEST_F(CompositeDistCompositionTest, set_bounds) {
     auto lbounds = this->cd.lbound();
     auto ubounds = this->cd.ubound();
-    for(size_t i=0;i<lbounds.size();i++) {lbounds[i]=3.141+i; ubounds[i]=i+10;}
+    for(IdxT i=0;i<lbounds.size();i++) {lbounds[i]=3.141+i; ubounds[i]=i+10;}
     this->cd.set_bounds(lbounds,ubounds);
     auto lbounds2 = this->cd.lbound();
     auto ubounds2 = this->cd.ubound();
@@ -119,12 +119,12 @@ TEST_F(CompositeDistCompositionTest, params) {
     auto nps = this->cd.components_num_params();
     ASSERT_EQ(this->cd.num_params(), params.size());
     ASSERT_EQ(this->cd.num_component_dists(), nps.size());
-    size_t j=0;
-    for(size_t k=0; k<nps[0]; k++)
+    IdxT j=0;
+    for(IdxT k=0; k<nps[0]; k++)
         EXPECT_EQ(dist0.get_param(k),params[j++]);
-    for(size_t k=0; k<nps[1]; k++)
+    for(IdxT k=0; k<nps[1]; k++)
         EXPECT_EQ(dist1.get_param(k),params[j++]);
-    for(size_t k=0; k<nps[2]; k++)
+    for(IdxT k=0; k<nps[2]; k++)
         EXPECT_EQ(dist2.get_param(k),params[j++]);
 }
 
@@ -134,7 +134,7 @@ TEST_F(CompositeDistCompositionTest, set_params) {
     this->cd.set_params(params);
     auto params2 = this->cd.params();
     ASSERT_EQ(this->cd.num_params(), params2.size());
-    for(size_t k=0;k<params2.size();k++) EXPECT_EQ(params[k],params2[k]);
+    for(IdxT k=0;k<params2.size();k++) EXPECT_EQ(params[k],params2[k]);
 }
 
 TEST_F(CompositeDistCompositionTest, params_desc) {
@@ -142,12 +142,12 @@ TEST_F(CompositeDistCompositionTest, params_desc) {
     auto nps = this->cd.components_num_params();
     ASSERT_EQ(this->cd.num_params(), pd.size());
     ASSERT_EQ(this->cd.num_component_dists(), nps.size());
-    size_t j=0;
-    for(size_t k=0; k<nps[0]; k++)
+    IdxT j=0;
+    for(IdxT k=0; k<nps[0]; k++)
         EXPECT_EQ(dist0.params_desc()[k],pd[j++]);
-    for(size_t k=0; k<nps[1]; k++)
+    for(IdxT k=0; k<nps[1]; k++)
         EXPECT_EQ(dist1.params_desc()[k],pd[j++]);
-    for(size_t k=0; k<nps[2]; k++)
+    for(IdxT k=0; k<nps[2]; k++)
         EXPECT_EQ(dist2.params_desc()[k],pd[j++]);
 }
 
@@ -158,14 +158,13 @@ TEST_F(CompositeDistCompositionTest, set_params_desc) {
     this->cd.set_params_desc(pd);
     auto pd2 = this->cd.params_desc();
     ASSERT_EQ(this->cd.num_params(), pd2.size());
-    for(size_t k=0;k<pd2.size();k++) 
+    for(IdxT k=0;k<pd2.size();k++) 
         EXPECT_EQ(pd[k],pd2[k]);
 }
 
 
 TEST_F(CompositeDistCompositionTest, cdf) {
-    int Ntest = 100;
-    for(int n=0;n<Ntest;n++)
+    for(int n=0; n < this->Ntest; n++)
     {
         auto v = this->cd.sample(env->get_rng());
         double cdf = this->cd.cdf(v);
@@ -181,8 +180,7 @@ TEST_F(CompositeDistCompositionTest, cdf) {
 }    
 
 TEST_F(CompositeDistCompositionTest, pdf) {
-    int Ntest = 100;
-    for(int n=0;n<Ntest;n++)
+    for(int n=0; n < this->Ntest; n++)
     {
         auto v = this->cd.sample(env->get_rng());
         double pdf = this->cd.pdf(v);
@@ -197,8 +195,7 @@ TEST_F(CompositeDistCompositionTest, pdf) {
 }    
 
 TEST_F(CompositeDistCompositionTest, llh) {
-    int Ntest = 100;
-    for(int n=0;n<Ntest;n++)
+    for(int n=0; n < this->Ntest; n++)
     {
         auto v = this->cd.sample(env->get_rng());
         double llh = this->cd.llh(v);
@@ -210,3 +207,205 @@ TEST_F(CompositeDistCompositionTest, llh) {
         EXPECT_TRUE(std::isfinite(llh));
     }
 }    
+
+TEST_F(CompositeDistCompositionTest, rllh) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        double rllh = this->cd.rllh(v);
+        double rllh2=0;
+        rllh2 += dist0.rllh(v[0]);
+        rllh2 += dist1.rllh(v[1]);
+        rllh2 += dist2.rllh(v[2]);
+        EXPECT_DOUBLE_EQ(rllh2,rllh);
+        EXPECT_TRUE(std::isfinite(rllh));
+    }
+}    
+
+TEST_F(CompositeDistCompositionTest, grad) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad = this->cd.grad(v);
+        ASSERT_EQ(grad.n_elem, this->cd.num_dim());
+        EXPECT_EQ(dist0.grad(v[0]), grad[0]);
+        EXPECT_EQ(dist1.grad(v[1]), grad[1]);
+        EXPECT_EQ(dist2.grad(v[2]), grad[2]);
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, grad2) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad2 = this->cd.grad2(v);
+        ASSERT_EQ(grad2.n_elem, this->cd.num_dim());
+        EXPECT_EQ(dist0.grad2(v[0]), grad2[0]);
+        EXPECT_EQ(dist1.grad2(v[1]), grad2[1]);
+        EXPECT_EQ(dist2.grad2(v[2]), grad2[2]);
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, hess) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto hess = this->cd.hess(v);
+        ASSERT_EQ(hess.n_rows, this->cd.num_dim());
+        ASSERT_EQ(hess.n_cols, this->cd.num_dim());
+        EXPECT_EQ(dist0.grad2(v[0]), hess(0,0));
+        EXPECT_EQ(dist1.grad2(v[1]), hess(1,1));
+        EXPECT_EQ(dist2.grad2(v[2]), hess(2,2));
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, grad_accumulate) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad = this->cd.make_zero_grad();
+        ASSERT_EQ(grad.n_elem, this->cd.num_dim());
+        this->cd.grad_accumulate(v,grad);
+        EXPECT_EQ(dist0.grad(v[0]), grad[0]);
+        EXPECT_EQ(dist1.grad(v[1]), grad[1]);
+        EXPECT_EQ(dist2.grad(v[2]), grad[2]);
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, grad2_accumulate) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad2 = this->cd.make_zero_grad();
+        ASSERT_EQ(grad2.n_elem, this->cd.num_dim());
+        this->cd.grad2_accumulate(v,grad2);
+        EXPECT_EQ(dist0.grad2(v[0]), grad2[0]);
+        EXPECT_EQ(dist1.grad2(v[1]), grad2[1]);
+        EXPECT_EQ(dist2.grad2(v[2]), grad2[2]);
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, hess_accumulate) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto hess = this->cd.make_zero_hess();
+        ASSERT_EQ(hess.n_rows, this->cd.num_dim());
+        ASSERT_EQ(hess.n_cols, this->cd.num_dim());
+        this->cd.hess_accumulate(v,hess);
+        EXPECT_EQ(dist0.grad2(v[0]), hess(0,0));
+        EXPECT_EQ(dist1.grad2(v[1]), hess(1,1));
+        EXPECT_EQ(dist2.grad2(v[2]), hess(2,2));
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, grad_grad2_accumulate) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad = this->cd.make_zero_grad();
+        auto grad2 = this->cd.make_zero_grad();
+        ASSERT_EQ(grad.n_elem, this->cd.num_dim());
+        ASSERT_EQ(grad2.n_elem, this->cd.num_dim());
+        this->cd.grad_grad2_accumulate(v,grad,grad2);
+        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
+        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
+        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
+        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), grad2[0]);
+        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), grad2[1]);
+        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), grad2[2]);
+   }
+}
+
+TEST_F(CompositeDistCompositionTest, grad_hess_accumulate) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad = this->cd.make_zero_grad();
+        ASSERT_EQ(grad.n_elem, this->cd.num_dim());
+        auto hess = this->cd.make_zero_hess();
+        ASSERT_EQ(hess.n_rows, this->cd.num_dim());
+        ASSERT_EQ(hess.n_cols, this->cd.num_dim());
+        this->cd.grad_hess_accumulate(v,grad,hess);
+        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
+        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
+        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
+        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), hess(0,0));
+        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), hess(1,1));
+        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), hess(2,2));
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, g) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto grad = this->cd.make_zero_grad();
+        ASSERT_EQ(grad.n_elem, this->cd.num_dim());
+        auto hess = this->cd.make_zero_hess();
+        ASSERT_EQ(hess.n_rows, this->cd.num_dim());
+        ASSERT_EQ(hess.n_cols, this->cd.num_dim());
+        this->cd.grad_hess_accumulate(v,grad,hess);
+        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
+        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
+        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
+        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), hess(0,0));
+        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), hess(1,1));
+        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), hess(2,2));
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, sample_bounds_test) {
+    prior_hessian::VecT lbound={0.2,0.3,0.4};
+    prior_hessian::VecT ubound={1.2,1.3,1.4};
+    this->cd.set_bounds(lbound,ubound);
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        for(prior_hessian::IdxT k=0;k<this->cd.num_dim();k++){
+            EXPECT_LE(lbound[k],v[k]);
+            EXPECT_GE(ubound[k],v[k]);
+        }
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, sample_vector_repeatability) {
+    env->reset_rng();
+    int N = this->Ntest;
+    auto sample = this->cd.sample(env->get_rng(),N);
+    ASSERT_EQ(sample.n_rows,this->cd.num_dim());
+    ASSERT_EQ(sample.n_cols,N);
+    env->reset_rng();
+    for(int n=0; n < N; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        ASSERT_EQ(v.n_elem,this->cd.num_dim());
+        for(prior_hessian::IdxT k=0; k<this->cd.num_dim(); k++){
+            EXPECT_EQ(sample(k,n),v[k]);
+        }
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, llh_components) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto llh_comp = this->cd.llh_components(v);
+        ASSERT_EQ(llh_comp.n_elem, this->cd.num_dim());
+        EXPECT_EQ(dist0.llh(v[0]), llh_comp[0]);
+        EXPECT_EQ(dist1.llh(v[1]), llh_comp[1]);
+        EXPECT_EQ(dist2.llh(v[2]), llh_comp[2]);
+    }
+}
+
+TEST_F(CompositeDistCompositionTest, rllh_components) {
+    for(int n=0; n < this->Ntest; n++)
+    {
+        auto v = this->cd.sample(env->get_rng());
+        auto rllh_comp = this->cd.rllh_components(v);
+        ASSERT_EQ(rllh_comp.n_elem, this->cd.num_dim());
+        EXPECT_EQ(dist0.rllh(v[0]), rllh_comp[0]);
+        EXPECT_EQ(dist1.rllh(v[1]), rllh_comp[1]);
+        EXPECT_EQ(dist2.rllh(v[2]), rllh_comp[2]);
+    }
+}

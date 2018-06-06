@@ -154,7 +154,7 @@ void InfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 template<class Derived>
 void InfiniteDist<Derived>::set_lbound(double lbound)
 {
-    set_bounds(lbound,this->get_ubound());
+    set_bounds(lbound,this->ubound());
 }
 
 template<class Derived>
@@ -206,7 +206,7 @@ void SemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 template<class Derived>
 void SemiInfiniteDist<Derived>::set_lbound(double lbound)
 {
-    set_bounds(lbound,this->get_ubound());
+    set_bounds(lbound,this->ubound());
 }
 
 template<class Derived>
@@ -254,7 +254,7 @@ void PositiveSemiInfiniteDist<Derived>::set_bounds(double lbound, double ubound)
 template<class Derived>
 void PositiveSemiInfiniteDist<Derived>::set_lbound(double lbound)
 {
-    set_bounds(lbound,this->get_ubound());
+    set_bounds(lbound,this->ubound());
 }
 
 template<class Derived>

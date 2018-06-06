@@ -32,7 +32,7 @@ public:
 protected:
     /* Helper methods for use by CompositeDist */
     template<class IterT> void append_var_name(IterT &v) const;
-    template<class IterT> void set_var_name(IterT &v);
+    template<class IterT> void set_var_name_iter(IterT &v);
     template<class IterT> void append_lbound(IterT &v) const;
     template<class IterT> void append_ubound(IterT &v) const;
     template<class IterT> void set_bounds_from_iter(IterT& lbounds, IterT &ubounds);   
@@ -115,7 +115,7 @@ template<class Derived>
 void UnivariateDist<Derived>::set_params(const VecT& p) 
 { 
     auto start = p.cbegin();
-    static_cast<Derived*>(this)->set_params(start); 
+    static_cast<Derived*>(this)->set_params_iter(start); 
 }     
 
 
@@ -166,7 +166,7 @@ double  UnivariateDist<Derived>::sample(RngT &rng)
 
 template<class Derived>
 template<class IterT>
-void UnivariateDist<Derived>::set_var_name(IterT& v)
+void UnivariateDist<Derived>::set_var_name_iter(IterT& v)
 { _var_name = *v++; } 
 
 template<class Derived>

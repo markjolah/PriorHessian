@@ -18,6 +18,7 @@ class ParetoDist : public PositiveSemiInfiniteDist<ParetoDist>
 {
 
 public:
+    ParetoDist();
     ParetoDist(double alpha, double lbound, std::string var_name);
     ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc);
     ParetoDist(double alpha, double lbound, double ubound, std::string var_name);
@@ -35,7 +36,7 @@ public:
 protected:
     static StringVecT make_default_param_desc(std::string var_name);
     template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
+    template<class IterT> void set_params_iter(IterT& p);   
     
     double compute_llh_const() const;
     double unbounded_cdf(double x) const;
@@ -54,6 +55,11 @@ protected:
     friend TruncatingDist<ParetoDist>;
     template<class RngT> friend class CompositeDist;
 };
+
+inline
+ParetoDist::ParetoDist() :
+    ParetoDist(1,1,INFINITY,"x",make_default_param_desc("x"))
+{ }
 
 inline
 ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name) :
@@ -161,7 +167,7 @@ void ParetoDist::append_params(IterT& p) const
 } 
 
 template<class IterT>
-void ParetoDist::set_params(IterT& p) 
+void ParetoDist::set_params_iter(IterT& p) 
 { 
     double alpha_val = *p++;
     check_params(alpha_val);

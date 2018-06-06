@@ -20,6 +20,7 @@ namespace prior_hessian {
 class NormalDist : public InfiniteDist<NormalDist>
 {
 public:
+    NormalDist();
     NormalDist(double mean, double sigma, std::string var_name);
     NormalDist(double mean, double sigma, std::string var_name, StringVecT&& param_desc);
     NormalDist(double mean, double sigma, double lbound, double ubound, std::string var_name);
@@ -34,7 +35,7 @@ public:
 
 protected:
     constexpr static double sqrt2 =  ::sqrt(2);
-    constexpr static double sqrt2pi = ::sqrt(2*boost::math::double_constants::pi);
+    constexpr static double sqrt2pi_inv = 1./::sqrt(2*boost::math::double_constants::pi);
     constexpr static double log2pi = ::log(2*boost::math::double_constants::pi);
 
     double compute_llh_const() const;
@@ -43,10 +44,11 @@ protected:
     double unbounded_pdf(double x) const;
 
     template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
+    template<class IterT> void set_params_iter(IterT& p);   
     
     double mean; //distribution mean
     double sigma; //distribution shape
+    double sigma_inv;
     
     static StringVecT make_default_param_desc(std::string var_name);
     static void check_params(double mean_val, double sigma_val);
@@ -56,6 +58,11 @@ protected:
     friend TruncatingDist<NormalDist>;
     template<class RngT> friend class CompositeDist;
 };
+
+inline
+NormalDist::NormalDist() :
+    NormalDist(0,1,-INFINITY,INFINITY,"x",make_default_param_desc("x"))
+{ }
 
  
 inline
@@ -77,7 +84,8 @@ inline
 NormalDist::NormalDist(double mean, double sigma, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
         InfiniteDist<NormalDist>(lbound,ubound,var_name,std::move(param_desc)),
         mean(mean),
-        sigma(sigma)
+        sigma(sigma),
+        sigma_inv(1./sigma)
 {
     this->set_bounds(lbound,ubound);
     this->llh_const = compute_llh_const();
@@ -125,8 +133,8 @@ double NormalDist::unbounded_icdf(double u) const
 inline
 double NormalDist::unbounded_pdf(double x) const
 {
-    double val = (x-mean)/sigma;
-    return exp(-.5*val*val)/(sigma*sqrt2pi);
+    double val = (x-mean)*sigma_inv;
+    return exp(-.5*val*val)*sigma_inv*sqrt2pi_inv;
 }
 
 inline
@@ -138,28 +146,28 @@ double NormalDist::compute_llh_const() const
 inline
 double NormalDist::rllh(double x) const
 {
-    double val = (x-mean)/sigma;
+    double val = (x-mean)*sigma_inv;
     return -.5*val*val;
 }
 
 inline
 double NormalDist::grad(double x) const
 {
-    return (x-mean)/(sigma*sigma);
+    return -(x-mean)*(sigma_inv*sigma_inv);
 }
 
 inline
 double NormalDist::grad2(double x) const
 {
-    return 1./(sigma*sigma);
+    return -sigma_inv*sigma_inv;
 }
 
 inline
 void NormalDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
-    double s2inv = 1./(sigma*sigma);
-    g  += (x-mean)*s2inv;
-    g2 += -s2inv;
+    double sigma_inv2 = sigma_inv*sigma_inv;
+    g  += -(x-mean)*sigma_inv2;
+    g2 += -sigma_inv2;
 }
 
 template<class IterT>
@@ -170,13 +178,14 @@ void NormalDist::append_params(IterT& p) const
 } 
 
 template<class IterT>
-void NormalDist::set_params(IterT& p) 
+void NormalDist::set_params_iter(IterT& p) 
 { 
     double mean_val = *p++;
     double sigma_val = *p++;
     check_params(mean_val, sigma_val);
     mean = mean_val;
     sigma = sigma_val;
+    sigma_inv = 1./sigma;
     llh_const = compute_llh_const();
 }     
     

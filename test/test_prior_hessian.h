@@ -15,20 +15,23 @@
 /* Globals */
 extern test_helper::RngEnvironment *env;
 
+using prior_hessian::IdxT;
+using prior_hessian::VecT;
+using prior_hessian::MatT;
+
 /* Factory functions */
 template<class Dist> 
 Dist make_dist();
 template<> prior_hessian::NormalDist make_dist();
-
-template<class Dist> 
-Dist make_dist();
-template<> prior_hessian::NormalDist make_dist();
+template<> prior_hessian::GammaDist make_dist();
+template<> prior_hessian::ParetoDist make_dist();
 
 /* Type parameterized test fixtures */
 template<class Dist>
 class UnivariateDistTest : public ::testing::Test {
 public:    
-    Dist dist{0,1,"x"};
+    Dist dist;
+    static constexpr int Ntest = 100;
     virtual void SetUp() {
         env->reset_rng();
         dist = make_dist<Dist>();
@@ -59,6 +62,7 @@ public:
     
     static constexpr double lbound2 = 1.0;
     static constexpr double alpha2 = 3.0;
+    static constexpr int Ntest = 100;
     prior_hessian::NormalDist dist0{mean0,sigma0,"x"};
     prior_hessian::GammaDist dist1{mean1,kappa1,"y"};
     prior_hessian::ParetoDist dist2{alpha2,lbound2,"z"};
