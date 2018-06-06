@@ -10,6 +10,7 @@
 #include "PriorHessian/NormalDist.h"
 #include "PriorHessian/GammaDist.h"
 #include "PriorHessian/ParetoDist.h"
+#include "PriorHessian/SymmetricBetaDist.h"
 #include "PriorHessian/CompositeDist.h"
 #include <random>
 /* Globals */
@@ -25,6 +26,7 @@ Dist make_dist();
 template<> prior_hessian::NormalDist make_dist();
 template<> prior_hessian::GammaDist make_dist();
 template<> prior_hessian::ParetoDist make_dist();
+template<> prior_hessian::SymmetricBetaDist make_dist();
 
 /* Type parameterized test fixtures */
 template<class Dist>

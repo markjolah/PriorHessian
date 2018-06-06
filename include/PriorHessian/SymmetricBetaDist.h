@@ -19,33 +19,49 @@ namespace prior_hessian {
 class SymmetricBetaDist : public ScaledFiniteDist<SymmetricBetaDist>
 {
 public:
+    SymmetricBetaDist();
     SymmetricBetaDist(double beta, std::string var_name);
     SymmetricBetaDist(double beta, std::string var_name, StringVecT&& param_desc);
     SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name);
     SymmetricBetaDist(double beta, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
     
     constexpr static IdxT num_params();
-    static StringVecT make_default_param_desc(std::string var_name);
 
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params(IterT& p);   
-    
+    double get_param(int idx) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
     
+protected:
+    template<class IterT> void append_params(IterT& p) const;
+    template<class IterT> void set_params_iter(IterT& p);   
+    
     double compute_llh_const() const;
     double unscaled_cdf(double x) const;
     double unscaled_icdf(double u) const;
     double unscaled_pdf(double x) const;
-protected:
+
     using DistT = boost::math::beta_distribution<double>;
+    /* Member variables */
     double beta; //symmetric shape parameter
     DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf
 
+    /* static methods */
+    static StringVecT make_default_param_desc(std::string var_name);
     static void check_params(double beta_val);
+
+    /* Friends! */
+    friend UnivariateDist<SymmetricBetaDist>;
+    friend ScaledFiniteDist<SymmetricBetaDist>;
+    friend TruncatingDist<SymmetricBetaDist>;
+    template<class RngT> friend class CompositeDist;
 };
+
+inline
+SymmetricBetaDist::SymmetricBetaDist() :
+    SymmetricBetaDist(1,0,1,"x",make_default_param_desc("x"))
+{ }
 
 inline
 SymmetricBetaDist::SymmetricBetaDist(double beta, std::string var_name) :
@@ -77,6 +93,20 @@ IdxT SymmetricBetaDist::num_params()
 { 
     return 1; 
 }
+
+inline
+double SymmetricBetaDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return beta;
+        default:
+            std::ostringstream msg;
+            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
+            throw IndexError(msg.str());
+    }
+}
+
 
 inline
 StringVecT SymmetricBetaDist::make_default_param_desc(std::string var_name)
@@ -151,7 +181,7 @@ void SymmetricBetaDist::append_params(IterT& p) const
 } 
 
 template<class IterT>
-void SymmetricBetaDist::set_params(IterT& p) 
+void SymmetricBetaDist::set_params_iter(IterT& p) 
 { 
     double beta_val = *p++;
     check_params(beta_val);

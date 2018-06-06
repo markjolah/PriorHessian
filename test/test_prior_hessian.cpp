@@ -47,6 +47,16 @@ prior_hessian::ParetoDist make_dist()
     return prior_hessian::ParetoDist(alpha,lbound,"z");
 }
 
+template<>
+prior_hessian::SymmetricBetaDist make_dist()
+{
+    double alpha_beta = 1;
+    double beta_beta = 10.;
+    double beta = env->sample_gamma(alpha_beta,beta_beta);
+//     std::cout<<"SymmetricBetaDist: betaa: "<<beta<<std::endl;
+    return prior_hessian::SymmetricBetaDist(beta,"w");
+}
+
 
 int main(int argc, char **argv) 
 {

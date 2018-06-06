@@ -5,7 +5,10 @@
  */
 #include "test_prior_hessian.h"
 
-using UnivariateDistTs = ::testing::Types<prior_hessian::NormalDist,prior_hessian::GammaDist,prior_hessian::ParetoDist> ;
+using UnivariateDistTs = ::testing::Types<prior_hessian::NormalDist,
+                                          prior_hessian::GammaDist,
+                                          prior_hessian::ParetoDist,
+                                          prior_hessian::SymmetricBetaDist> ;
 TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
 
 
@@ -32,12 +35,12 @@ TYPED_TEST(UnivariateDistTest, set_params) {
 // }
 
 TYPED_TEST(UnivariateDistTest, set_lbound) {
-    double new_lbound = std::max(1.,this->dist.lbound()-0.5);
+    double new_lbound = std::max(0.5,this->dist.lbound()-0.5);
     //check set_bounds(lbound,)
     this->dist.set_bounds(new_lbound,this->dist.ubound());
     EXPECT_EQ(new_lbound,this->dist.lbound());
     //check set_lbound()
-    new_lbound = std::max(2.,this->dist.lbound()-0.5);
+    new_lbound = std::max(0.7,this->dist.lbound()-0.5);
     this->dist.set_lbound(new_lbound);
     EXPECT_EQ(new_lbound,this->dist.lbound());
 }

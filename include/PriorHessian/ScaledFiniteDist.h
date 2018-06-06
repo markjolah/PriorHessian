@@ -24,6 +24,8 @@ public:
    double icdf(double u) const;
    double llh(double x) const;
 
+   void set_lbound(double lbound);
+   void set_ubound(double ubound);
    void set_bounds(double lbound, double ubound);
 protected:
     double llh_scaling_const;
@@ -46,6 +48,35 @@ ScaledFiniteDist<Derived>::ScaledFiniteDist(double lbound, double ubound, std::s
 { }
 
 template<class Derived>
+void ScaledFiniteDist<Derived>::set_lbound(double lbound)
+{
+    if(lbound == -INFINITY) {
+        std::ostringstream msg;
+        msg<<"ScaledFiniteDist: lbound must be finite. Got:"<<lbound;
+        throw PriorHessianError("BoundsError",msg.str());
+    }
+    UnivariateDist<Derived>::set_lbound(lbound); //Set top-level bounds
+    
+    bounds_delta = this->_ubound - lbound;
+    llh_scaling_const = compute_llh_scaling_const(); //Truncation terms.
+}
+
+template<class Derived>
+void ScaledFiniteDist<Derived>::set_ubound(double ubound)
+{
+    if(ubound == INFINITY) {
+        std::ostringstream msg;
+        msg<<"ScaledFiniteDist: ubound must be finite. Got:"<<ubound;
+        throw PriorHessianError("BoundsError",msg.str());
+    }
+    UnivariateDist<Derived>::set_ubound(ubound); //Set top-level bounds
+    
+    bounds_delta = ubound - this->_lbound;
+    llh_scaling_const = compute_llh_scaling_const(); //Truncation terms.
+}
+
+
+template<class Derived>
 void ScaledFiniteDist<Derived>::set_bounds(double lbound, double ubound)
 {
     if(lbound == -INFINITY) {
@@ -54,7 +85,7 @@ void ScaledFiniteDist<Derived>::set_bounds(double lbound, double ubound)
         throw PriorHessianError("BoundsError",msg.str());
     } else if(ubound == INFINITY) {
         std::ostringstream msg;
-        msg<<"ScaledFiniteDist: ubound must be finite. Got:"<<lbound;
+        msg<<"ScaledFiniteDist: ubound must be finite. Got:"<<ubound;
         throw PriorHessianError("BoundsError",msg.str());
     }
     UnivariateDist<Derived>::set_bounds(lbound,ubound); //Set top-level bounds

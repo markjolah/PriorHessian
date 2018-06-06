@@ -25,16 +25,13 @@ public:
     ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
     constexpr static IdxT num_params();
     
-        
     double get_param(int idx) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
 
-
 protected:
-    static StringVecT make_default_param_desc(std::string var_name);
     template<class IterT> void append_params(IterT& p) const;
     template<class IterT> void set_params_iter(IterT& p);   
     
@@ -48,7 +45,8 @@ protected:
 
     /* static methods */
     static void check_params(double alpha_val);
-
+    static StringVecT make_default_param_desc(std::string var_name);
+    
     /* Friends! */
     friend UnivariateDist<ParetoDist>;
     friend PositiveSemiInfiniteDist<ParetoDist>;
