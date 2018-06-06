@@ -34,6 +34,8 @@ public:
     /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
     CompositeDist(std::tuple<Ts...>&& dist_tuple);
+    template<class... Ts>
+    CompositeDist(const std::tuple<Ts...>& dist_tuple);
     
     /* Move only type */
     CompositeDist(const CompositeDist &); 
@@ -580,14 +582,14 @@ void CompositeDist<RngT>::update_bounds()
 
 template<class RngT>
 template<class... Ts>
-CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(std::tuple<Ts...>&& dists) :
-    dists(std::move(dists))
+CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(std::tuple<Ts...>&& _dists) :
+    dists(std::move(_dists))
 { }
 
 template<class RngT>
 template<class... Ts>
-CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(const std::tuple<Ts...> &dists) :
-    dists(dists)
+CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(const std::tuple<Ts...>& _dists) :
+    dists(_dists)
 { }
 
 
