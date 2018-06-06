@@ -36,8 +36,8 @@ public:
     CompositeDist(std::tuple<Ts...>&& dist_tuple);
     
     /* Move only type */
-    CompositeDist(const CompositeDist &) = delete; 
-    CompositeDist& operator=(const CompositeDist &) = delete;     
+    CompositeDist(const CompositeDist &); 
+    CompositeDist& operator=(const CompositeDist &);     
     CompositeDist(CompositeDist&&) = default;
     CompositeDist& operator=(CompositeDist&&) = default;  
     
@@ -45,6 +45,9 @@ public:
     void initialize(Ts&&... dists);
     template<class... Ts>
     void initialize(std::tuple<Ts...>&& dist_tuple);
+    
+    template<class... Ts> 
+    const std::tuple<Ts...>& get_dist_tuple() const; 
     
     IdxT num_component_dists() const; 
     TypeInfoVecT component_types() const;
@@ -111,6 +114,9 @@ protected:
     {
     public:
         virtual ~DistTupleHandle() = default;
+        virtual std::unique_ptr<DistTupleHandle> clone() const = 0;
+        virtual const std::type_info& type_info() const = 0;
+
         virtual IdxT num_dists() const = 0;
         virtual TypeInfoVecT component_types() const = 0;
 
@@ -161,10 +167,13 @@ protected:
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
     public:  
+        DistTuple(const std::tuple<Ts...> &dists);
         DistTuple(std::tuple<Ts...>&& dists);
         DistTuple(DistTuple&&) = default;
-        DistTuple(const DistTuple&) = delete;
+        DistTuple(const DistTuple&) = default;
         
+        const std::type_info& type_info() const override;
+        std::unique_ptr<DistTupleHandle> clone() const override;
         
         constexpr IdxT num_dists() const override;
         constexpr IdxT num_dim() const override;
@@ -304,6 +313,32 @@ CompositeDist<RngT>::CompositeDist(std::tuple<Ts...>&& dist_tuple) :
     _lbound(handle->lbound()),
     _ubound(handle->ubound())
 { }
+
+
+template<class RngT>
+CompositeDist<RngT>::CompositeDist(const CompositeDist &o) : handle{o.handle->clone()} 
+{ }
+
+template<class RngT>
+CompositeDist<RngT>& CompositeDist<RngT>::operator=(const CompositeDist &o) 
+{
+    handle = o.handle->clone();
+    return *this;
+}
+
+template<class RngT>
+template<class... Ts> 
+const std::tuple<Ts...>& CompositeDist<RngT>::get_dist_tuple() const 
+{
+    const std::type_info& tuple_id = typeid(std::tuple<Ts...>);
+    if (typeid(std::tuple<Ts...>) != handle->type_info()){
+        std::ostringstream os;
+        os<<"CompositeDist Expected type_id:"<<handle->type_info()<<" got type_id:"<<tuple_id;
+        throw RuntimeTypeError(os.str());
+    } else {
+        return static_cast<std::unique_ptr<DistTuple<Ts...>>>(handle)->dists;
+    }
+}
 
 template<class RngT>
 template<class... Ts>
@@ -547,8 +582,27 @@ template<class RngT>
 template<class... Ts>
 CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(std::tuple<Ts...>&& dists) :
     dists(std::move(dists))
-{}
+{ }
 
+template<class RngT>
+template<class... Ts>
+CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(const std::tuple<Ts...> &dists) :
+    dists(dists)
+{ }
+
+
+template<class RngT>
+template<class... Ts>
+std::unique_ptr<typename CompositeDist<RngT>::DistTupleHandle> 
+CompositeDist<RngT>::DistTuple<Ts...>::clone() const
+//{ return std::unique_ptr<DistTuple<Ts...>>(new DistTuple<Ts...>(dists)); }
+{ return std::make_unique<DistTuple<Ts...>>(dists); }
+
+template<class RngT>
+template<class... Ts>
+const std::type_info& 
+CompositeDist<RngT>::DistTuple<Ts...>::type_info() const
+{ return typeid(dists); }
 
 template<class RngT>
 template<class... Ts>
@@ -558,23 +612,17 @@ constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dists() const
 template<class RngT>
 template<class... Ts>
 TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::component_types() const
-{ 
-    return {std::type_index(typeid(Ts))...}; 
-}
+{ return {std::type_index(typeid(Ts))...}; }
 
 template<class RngT>
 template<class... Ts>
 constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dim() const
-{
-    return _num_dim;
-}
+{ return _num_dim; }
 
 template<class RngT>
 template<class... Ts>
 UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_dim() const
-{
-    return {Ts::num_dim()...};
-}
+{ return {Ts::num_dim()...}; }
 
 template<class RngT>
 template<class... Ts>
@@ -588,9 +636,7 @@ StringVecT CompositeDist<RngT>::DistTuple<Ts...>::dim_variables() const
 template<class RngT>
 template<class... Ts>
 void CompositeDist<RngT>::DistTuple<Ts...>::set_dim_variables(const StringVecT &vars)
-{ 
-    set_dim_variables(vars.begin(),IndexT()); 
-}
+{ set_dim_variables(vars.begin(),IndexT()); }
 
 template<class RngT>
 template<class... Ts>

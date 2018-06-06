@@ -48,6 +48,11 @@ struct ParameterValueError : public PriorHessianError
     ParameterValueError(std::string message) : PriorHessianError("ParameterValueError",message) {}
 };
 
+struct RuntimeTypeError : public PriorHessianError 
+{
+    RuntimeTypeError(std::string message) : PriorHessianError("RuntimeTypeError",message) {}
+};
+
 struct NumericalOverflowError : public PriorHessianError 
 {
     NumericalOverflowError(std::string message) : PriorHessianError("NumericalOverflowError",message) {}
