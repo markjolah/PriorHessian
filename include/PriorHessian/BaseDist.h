@@ -91,6 +91,7 @@ protected:
  * 
  */
 namespace meta {
+    //inline void call_in_order() { }
     template<class T>
     void call_in_order(std::initializer_list<T>) 
     { }
@@ -103,8 +104,12 @@ namespace meta {
     constexpr T prod_in_order(std::initializer_list<T> L) 
     { return std::accumulate(L.begin(),L.end(),T{1},std::multiplies<T>()); }
 
+    
+    constexpr IdxT unordered_sum() { return 0;}
+    
     template<class T>
     constexpr T unordered_sum(T i) { return i;}
+    
     template<class T, class... Ts>
     constexpr auto unordered_sum(T i,Ts... args) 
     { return i + unordered_sum(args...);}

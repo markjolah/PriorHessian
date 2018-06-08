@@ -25,23 +25,19 @@ template<class RngT>
 class CompositeDist
 {
 public:
-    CompositeDist() = default;
+    CompositeDist();
     
-    /** @brief Initialize from variable number of UnivariateDist's or MulitvariateDist's arguments */
-//     template<class... Ts>
-//     CompositeDist(Ts&&... dists);
-
     /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
-    CompositeDist(std::tuple<Ts...>&& dist_tuple);
+    explicit CompositeDist(std::tuple<Ts...>&& dist_tuple);
     template<class... Ts>
-    CompositeDist(const std::tuple<Ts...>& dist_tuple);
+    explicit CompositeDist(const std::tuple<Ts...>& dist_tuple);
     
     /* Move only type */
     CompositeDist(const CompositeDist &); 
     CompositeDist& operator=(const CompositeDist &);     
-    CompositeDist(CompositeDist&&) = default;
-    CompositeDist& operator=(CompositeDist&&) = default;  
+    CompositeDist(CompositeDist&&);
+    CompositeDist& operator=(CompositeDist&&);  
     
     template<class... Ts>
     void initialize(Ts&&... dists);
@@ -169,10 +165,12 @@ protected:
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
     public:  
-        DistTuple(const std::tuple<Ts...> &dists);
-        DistTuple(std::tuple<Ts...>&& dists);
-        DistTuple(DistTuple&&) = default;
-        DistTuple(const DistTuple&) = default;
+        explicit DistTuple(const std::tuple<Ts...> &dists);
+        explicit DistTuple(std::tuple<Ts...>&& dists);
+//         DistTuple(DistTuple&&) = default;
+//         DistTuple(const DistTuple&) = default;
+//         DistTuple& operator=(DistTuple&&) = default;
+//         DistTuple& operator=(const DistTuple&) = default;
         
         const std::type_info& type_info() const override;
         std::unique_ptr<DistTupleHandle> clone() const override;
@@ -279,7 +277,57 @@ protected:
         template<class IterT, std::size_t... I> 
         VecT rllh_components(IterT theta, std::index_sequence<I...>) const;
     };
+    
+    class EmptyDistTuple : public DistTupleHandle
+    {
+    public:  
+        EmptyDistTuple() {}
+        explicit EmptyDistTuple(const std::tuple<>&) {}
+        explicit EmptyDistTuple(std::tuple<>&&) {}
+        
+        const std::type_info& type_info() const override {return typeid(std::tuple<>);}
+        std::unique_ptr<DistTupleHandle> clone() const override {return std::make_unique<EmptyDistTuple>();}
+        
+        constexpr IdxT num_dists() const override {return 0;}
+        constexpr IdxT num_dim() const override {return 0;}
+        constexpr IdxT num_params() const override {return 0;}
+        UVecT components_num_dim() const override {return {};}
+        UVecT components_num_params() const override {return {};}
+        TypeInfoVecT component_types() const override {return {};}
 
+        StringVecT dim_variables() const override {return {};}
+        void set_dim_variables(const StringVecT &vars) override {if(!vars.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        VecT lbound() const override {return {};}
+        VecT ubound() const override {return {};}
+        void set_bounds(const VecT &new_lbound,const VecT &new_ubound) override 
+            {if( !new_lbound.is_empty() || !new_ubound.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+
+        VecT params() const override {return {};}
+        void set_params(const VecT &params) override
+            {if(!params.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        StringVecT params_desc() const override {return {};}
+        void set_params_desc(const StringVecT &desc) override
+            {if(!desc.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        double cdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double pdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double llh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double rllh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+
+        void grad_accumulate(const VecT &u, VecT &g) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad2_accumulate(const VecT &u, VecT &g2) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void hess_accumulate(const VecT &u, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT sample(RngT &rng) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        MatT sample(RngT &rng, IdxT nSamples) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+
+        VecT llh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT rllh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+    };
+
+
+    
+    /*specialization for empty tuple */
     /* Protected methods */
     void update_bounds();
     /* Protected member variables */
@@ -292,39 +340,66 @@ protected:
 
 
 
-
 /* CompositeDist<RngT> template methods */
 
-
-// template<class RngT>
-// template<class... Ts>
-// CompositeDist<RngT>::CompositeDist(Ts&&... dists) : 
-//     handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::make_tuple(std::forward<Ts>(dists)...))) ),
-//     _num_dim(handle->num_dim()),
-//     _num_params(handle->num_params()),
-//     _lbound(handle->lbound()),
-//     _ubound(handle->ubound())
-// { }
+template<class RngT>
+CompositeDist<RngT>::CompositeDist() 
+    : handle( std::unique_ptr<DistTupleHandle>(new EmptyDistTuple()) ),
+      _num_dim(handle->num_dim()),
+      _num_params(handle->num_params()),
+      _lbound(handle->lbound()),
+      _ubound(handle->ubound())
+{ }
 
 template<class RngT>
 template<class... Ts>
-CompositeDist<RngT>::CompositeDist(std::tuple<Ts...>&& dist_tuple) : 
-    handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple))) ),
-    _num_dim(handle->num_dim()),
-    _num_params(handle->num_params()),
-    _lbound(handle->lbound()),
-    _ubound(handle->ubound())
+CompositeDist<RngT>::CompositeDist(std::tuple<Ts...>&& dist_tuple) 
+    : handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple))) ),
+      _num_dim(handle->num_dim()),
+      _num_params(handle->num_params()),
+      _lbound(handle->lbound()),
+      _ubound(handle->ubound())
 { }
 
+template<class RngT>
+CompositeDist<RngT>::CompositeDist(const CompositeDist &o) 
+    : handle{o.handle->clone()},
+      _num_dim(o._num_dim),
+      _num_params(o._num_params),
+      _lbound(o._lbound),
+      _ubound(o._ubound)
+{ }
 
 template<class RngT>
-CompositeDist<RngT>::CompositeDist(const CompositeDist &o) : handle{o.handle->clone()} 
+CompositeDist<RngT>::CompositeDist(CompositeDist &&o) 
+    : handle{std::move(o.handle)},
+      _num_dim(o._num_dim),
+      _num_params(o._num_params),
+      _lbound{std::move(o._lbound)},
+      _ubound{std::move(o._ubound)}
 { }
 
 template<class RngT>
 CompositeDist<RngT>& CompositeDist<RngT>::operator=(const CompositeDist &o) 
 {
+    if(this == &o) return *this; //Ignore self-assignment
     handle = o.handle->clone();
+    _num_dim = o._num_dim;
+    _num_params = o._num_params;
+    _lbound = o._lbound;
+    _ubound = o._ubound;
+    return *this;
+}
+
+template<class RngT>
+CompositeDist<RngT>& CompositeDist<RngT>::operator=(CompositeDist &&o) 
+{
+    if(this == &o) return *this; //Ignore self-assignment
+    handle = std::move(o.handle);
+    _num_dim = o._num_dim;
+    _num_params = o._num_params;
+    _lbound = std::move(o._lbound);
+    _ubound = std::move(o._ubound);
     return *this;
 }
 
@@ -393,7 +468,7 @@ void CompositeDist<RngT>::set_dim_variables(const StringVecT &vars)
     if(vars.size() != num_dim()){
         std::ostringstream msg;
         msg<<"Got bad dim variables vector size:"<<vars.size()<<" expected:"<<num_dim();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_dim_variables(vars); 
 }
@@ -412,7 +487,7 @@ void CompositeDist<RngT>::set_lbound(const VecT &new_bound)
     if(new_bound.n_elem != num_dim()) {
         std::ostringstream msg;
         msg<<"Got bad lbound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_bounds(new_bound, ubound()); 
     update_bounds(); //Bounds may have changed with parameters
@@ -424,7 +499,7 @@ void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
     if(new_bound.n_elem != num_dim()) {
         std::ostringstream msg;
         msg<<"Got bad ubound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_bounds(lbound(), new_bound); 
     update_bounds(); //Bounds may have changed with parameters
@@ -436,12 +511,12 @@ void CompositeDist<RngT>::set_bounds(const VecT &new_lbound,const VecT &new_ubou
     if(new_lbound.n_elem != num_dim()) {
         std::ostringstream msg;
         msg<<"Got bad lbound vector size:"<<new_lbound.n_elem<<" expected:"<<num_dim();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     if(new_ubound.n_elem != num_dim()) {
         std::ostringstream msg;
         msg<<"Got bad ubound vector size:"<<new_ubound.n_elem<<" expected:"<<num_dim();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_bounds(new_lbound, new_ubound); 
     update_bounds(); //Bounds may have changed with parameters
@@ -471,7 +546,7 @@ void CompositeDist<RngT>::set_params(const VecT &new_params)
     if(new_params.n_elem != num_params()) {
         std::ostringstream msg;
         msg<<"Got bad params vector size:"<<new_params.n_elem<<" expected:"<<num_params();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_params(new_params);
 }    
@@ -486,7 +561,7 @@ void CompositeDist<RngT>::set_params_desc(const StringVecT &new_desc)
     if(new_desc.size() != num_params()) {
         std::ostringstream msg;
         msg<<"Got bad params desc vector size:"<<new_desc.size()<<" expected:"<<num_params();
-        throw PriorHessianError("ParameterError",msg.str());
+        throw ParameterValueError(msg.str());
     }
     handle->set_params_desc(new_desc); 
 }
@@ -597,7 +672,6 @@ template<class RngT>
 template<class... Ts>
 std::unique_ptr<typename CompositeDist<RngT>::DistTupleHandle> 
 CompositeDist<RngT>::DistTuple<Ts...>::clone() const
-//{ return std::unique_ptr<DistTuple<Ts...>>(new DistTuple<Ts...>(dists)); }
 { return std::make_unique<DistTuple<Ts...>>(dists); }
 
 template<class RngT>
