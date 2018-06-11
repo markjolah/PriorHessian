@@ -16,7 +16,7 @@ template<class Derived>
 class UnivariateDist : public BaseDist {
     template<class RngT> friend class CompositeDist;
 public:
-    UnivariateDist(std::string var_name, StringVecT &&params_desc);
+    UnivariateDist(std::string var_name, StringVecT &&param_names);
     /* Var name and dimensionality */
     constexpr static IdxT num_dim();
     const std::string& var_name();
@@ -65,8 +65,8 @@ protected:
 };
 
 template<class Derived>
-UnivariateDist<Derived>::UnivariateDist(std::string var_name, StringVecT &&params_desc) :
-    BaseDist(std::move(params_desc)),
+UnivariateDist<Derived>::UnivariateDist(std::string var_name, StringVecT &&param_names) :
+    BaseDist(std::move(param_names)),
     _var_name(var_name)
 { }
 

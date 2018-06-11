@@ -10,7 +10,11 @@
 
 #include<utility>
 #include<memory>
+#include<unordered_map>
+#include<sstream>
+
 #include<armadillo>
+
 #include "PriorHessian/BaseDist.h"
 #include "PriorHessian/UnivariateDist.h"
 
@@ -43,7 +47,9 @@ public:
     void initialize(Ts&&... dists);
     template<class... Ts>
     void initialize(std::tuple<Ts...>&& dist_tuple);
-    
+      
+    void clear();
+       
     template<class... Ts> 
     const std::tuple<Ts...>& get_dist_tuple() const; 
     
@@ -71,8 +77,15 @@ public:
     void set_params(const VecT &params);
 
     /* Distribution Parameter Descriptions (names) */
-    StringVecT params_desc() const;
-    void set_params_desc(const StringVecT &desc);
+    StringVecT param_names() const;
+    void set_param_names(const StringVecT &name);
+
+    /* Convenience functions for working with parameters by name */
+    bool has_param(const std::string &name) const;
+    double get_param_value(const std::string &name) const; 
+    int get_param_index(const std::string &name) const; 
+    void set_param_value(const std::string &name, double value);
+    void rename_param(const std::string &old_name, const std::string &new_name);
     
     //Functions mapped over underlying distributions
     double cdf(const VecT &u) const;
@@ -132,8 +145,8 @@ protected:
         virtual VecT params() const = 0;
         
         virtual void set_params(const VecT &params) = 0;
-        virtual StringVecT params_desc() const = 0;
-        virtual void set_params_desc(const StringVecT &desc) = 0;
+        virtual StringVecT param_names() const = 0;
+        virtual void set_param_names(const StringVecT &names) = 0;
 
         virtual double cdf(const VecT &u) const = 0;
         virtual double pdf(const VecT &u) const = 0;
@@ -167,10 +180,6 @@ protected:
     public:  
         explicit DistTuple(const std::tuple<Ts...> &dists);
         explicit DistTuple(std::tuple<Ts...>&& dists);
-//         DistTuple(DistTuple&&) = default;
-//         DistTuple(const DistTuple&) = default;
-//         DistTuple& operator=(DistTuple&&) = default;
-//         DistTuple& operator=(const DistTuple&) = default;
         
         const std::type_info& type_info() const override;
         std::unique_ptr<DistTupleHandle> clone() const override;
@@ -190,8 +199,8 @@ protected:
 
         VecT params() const override;
         void set_params(const VecT &params) override;
-        StringVecT params_desc() const override;
-        void set_params_desc(const StringVecT &desc) override;
+        StringVecT param_names() const override;
+        void set_param_names(const StringVecT &names) override;
         double cdf(const VecT &u) const override;
         double pdf(const VecT &u) const override;
         double llh(const VecT &u) const override;
@@ -233,10 +242,10 @@ protected:
         void set_params(IterT p,std::index_sequence<I...>);
         
         template<class IterT, std::size_t... I> 
-        void append_params_desc(IterT p, std::index_sequence<I...>) const;
+        void append_param_names(IterT p, std::index_sequence<I...>) const;
 
         template<class IterT, std::size_t... I> 
-        void set_params_desc(IterT p,std::index_sequence<I...>);
+        void set_param_names(IterT p,std::index_sequence<I...>);
                 
         template<class IterT, std::size_t... I> 
         double cdf(IterT u,std::index_sequence<I...>) const;
@@ -305,9 +314,9 @@ protected:
         VecT params() const override {return {};}
         void set_params(const VecT &params) override
             {if(!params.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
-        StringVecT params_desc() const override {return {};}
-        void set_params_desc(const StringVecT &desc) override
-            {if(!desc.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        StringVecT param_names() const override {return {};}
+        void set_param_names(const StringVecT &names) override
+            {if(!names.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         double cdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         double pdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         double llh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
@@ -329,13 +338,18 @@ protected:
     
     /*specialization for empty tuple */
     /* Protected methods */
-    void update_bounds();
     /* Protected member variables */
     std::unique_ptr<DistTupleHandle> handle;
+
+private:
+    void update_bounds();
+    void initialize_from_handle();
+    void initialize_param_name_idx();
     IdxT _num_dim;
     IdxT _num_params;
     VecT _lbound; 
     VecT _ubound; 
+    std::unordered_map<std::string,int> param_name_idx;
 };
 
 
@@ -344,31 +358,19 @@ protected:
 
 template<class RngT>
 CompositeDist<RngT>::CompositeDist() 
-    : handle( std::unique_ptr<DistTupleHandle>(new EmptyDistTuple()) ),
-      _num_dim(handle->num_dim()),
-      _num_params(handle->num_params()),
-      _lbound(handle->lbound()),
-      _ubound(handle->ubound())
-{ }
+    : handle( std::unique_ptr<DistTupleHandle>(new EmptyDistTuple()) )
+{ initialize_from_handle(); }
 
 template<class RngT>
 template<class... Ts>
 CompositeDist<RngT>::CompositeDist(std::tuple<Ts...>&& dist_tuple) 
-    : handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple))) ),
-      _num_dim(handle->num_dim()),
-      _num_params(handle->num_params()),
-      _lbound(handle->lbound()),
-      _ubound(handle->ubound())
-{ }
+    : handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple))) )
+{ initialize_from_handle(); }
 
 template<class RngT>
 CompositeDist<RngT>::CompositeDist(const CompositeDist &o) 
-    : handle{o.handle->clone()},
-      _num_dim(o._num_dim),
-      _num_params(o._num_params),
-      _lbound(o._lbound),
-      _ubound(o._ubound)
-{ }
+    : handle{o.handle->clone()}
+{ initialize_from_handle(); }
 
 template<class RngT>
 CompositeDist<RngT>::CompositeDist(CompositeDist &&o) 
@@ -376,7 +378,8 @@ CompositeDist<RngT>::CompositeDist(CompositeDist &&o)
       _num_dim(o._num_dim),
       _num_params(o._num_params),
       _lbound{std::move(o._lbound)},
-      _ubound{std::move(o._ubound)}
+      _ubound{std::move(o._ubound)},
+      param_name_idx{std::move(o.param_name_idx)}
 { }
 
 template<class RngT>
@@ -384,10 +387,7 @@ CompositeDist<RngT>& CompositeDist<RngT>::operator=(const CompositeDist &o)
 {
     if(this == &o) return *this; //Ignore self-assignment
     handle = o.handle->clone();
-    _num_dim = o._num_dim;
-    _num_params = o._num_params;
-    _lbound = o._lbound;
-    _ubound = o._ubound;
+    initialize_from_handle();
     return *this;
 }
 
@@ -400,6 +400,7 @@ CompositeDist<RngT>& CompositeDist<RngT>::operator=(CompositeDist &&o)
     _num_params = o._num_params;
     _lbound = std::move(o._lbound);
     _ubound = std::move(o._ubound);
+    param_name_idx = std::move(o.param_name_idx);
     return *this;
 }
 
@@ -422,10 +423,7 @@ template<class... Ts>
 void CompositeDist<RngT>::initialize(Ts&&... dists)
 {
     handle = std::unique_ptr<DistTupleHandle>( new DistTuple<Ts...>(std::make_tuple(std::forward<Ts>(dists)...)) );
-    _num_dim = handle->num_dim();
-    _num_params = handle->num_params();
-    _lbound = handle->lbound();
-    _ubound = handle->ubound();    
+    initialize_from_handle();
 }
 
 template<class RngT>
@@ -433,12 +431,92 @@ template<class... Ts>
 void CompositeDist<RngT>::initialize(std::tuple<Ts...>&& dist_tuple)
 {
     handle = std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple)));
+    initialize_from_handle();
+}
+
+template<class RngT>
+void CompositeDist<RngT>::clear()
+{
+    handle = std::unique_ptr<DistTupleHandle>(new EmptyDistTuple());
+    initialize_from_handle();
+}
+
+template<class RngT>
+void CompositeDist<RngT>::initialize_from_handle()
+{
     _num_dim = handle->num_dim();
     _num_params = handle->num_params();
     _lbound = handle->lbound();
-    _ubound = handle->ubound();    
+    _ubound = handle->ubound();
+    initialize_param_name_idx();
 }
 
+template<class RngT>
+void CompositeDist<RngT>::initialize_param_name_idx()
+{
+    auto pnames = param_names();
+    for(IdxT i=0; i<pnames.size(); i++) param_name_idx[pnames[i]]=i;
+}
+
+
+template<class RngT>
+bool CompositeDist<RngT>::has_param(const std::string &name) const
+{
+    return param_name_idx.find(name) != param_name_idx.end();
+}
+
+template<class RngT>
+double CompositeDist<RngT>::get_param_value(const std::string &name) const
+{
+    auto it = param_name_idx.find(name);
+    if(it == param_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No parameter found named:"<<name;
+        throw ParameterNameError(msg.str());
+    }
+    return params()[it->second];
+}
+
+template<class RngT>
+int CompositeDist<RngT>::get_param_index(const std::string &name) const
+{
+    auto it = param_name_idx.find(name);
+    if(it == param_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No parameter found named:"<<name;
+        throw ParameterNameError(msg.str());
+    }
+    return it->second;
+}
+
+
+template<class RngT>
+void CompositeDist<RngT>::set_param_value(const std::string &name, double value)
+{
+    auto it = param_name_idx.find(name);
+    if(it == param_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No parameter found named:"<<name;
+        throw ParameterNameError(msg.str());
+    }
+    auto ps = params();
+    ps[it->second]=value;
+    set_params(ps);
+}
+
+template<class RngT>
+void CompositeDist<RngT>::rename_param(const std::string &old_name, const std::string &new_name)
+{
+    auto it = param_name_idx.find(old_name);
+    if(it == param_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No parameter found named:"<<old_name;
+        throw ParameterNameError(msg.str());
+    }
+    auto ns = param_names();
+    ns[it->second]=new_name;
+    set_param_names(ns);
+}
 
 template<class RngT>
 TypeInfoVecT CompositeDist<RngT>::component_types() const 
@@ -552,18 +630,18 @@ void CompositeDist<RngT>::set_params(const VecT &new_params)
 }    
 
 template<class RngT>
-StringVecT CompositeDist<RngT>::params_desc() const 
-{ return handle->params_desc(); }
+StringVecT CompositeDist<RngT>::param_names() const 
+{ return handle->param_names(); }
 
 template<class RngT>
-void CompositeDist<RngT>::set_params_desc(const StringVecT &new_desc) 
+void CompositeDist<RngT>::set_param_names(const StringVecT &new_names) 
 { 
-    if(new_desc.size() != num_params()) {
+    if(new_names.size() != num_params()) {
         std::ostringstream msg;
-        msg<<"Got bad params desc vector size:"<<new_desc.size()<<" expected:"<<num_params();
+        msg<<"Got bad params names vector size:"<<new_names.size()<<" expected:"<<num_params();
         throw ParameterValueError(msg.str());
     }
-    handle->set_params_desc(new_desc); 
+    handle->set_param_names(new_names); 
 }
 
 //Functions mapped over underlying distributions
@@ -763,17 +841,17 @@ void CompositeDist<RngT>::DistTuple<Ts...>::set_params(const VecT &params)
 
 template<class RngT>
 template<class... Ts>
-StringVecT CompositeDist<RngT>::DistTuple<Ts...>::params_desc() const
+StringVecT CompositeDist<RngT>::DistTuple<Ts...>::param_names() const
 {
-    StringVecT desc(_num_params);
-    append_params_desc(desc.begin(),IndexT());
-    return desc;
+    StringVecT names(_num_params);
+    append_param_names(names.begin(),IndexT());
+    return names;
 }
 
 template<class RngT>
 template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::set_params_desc(const StringVecT &desc)
-{ set_params_desc(desc.begin(),IndexT()); }
+void CompositeDist<RngT>::DistTuple<Ts...>::set_param_names(const StringVecT &names)
+{ set_param_names(names.begin(),IndexT()); }
         
 template<class RngT>
 template<class... Ts>
@@ -913,17 +991,17 @@ void CompositeDist<RngT>::DistTuple<Ts...>::set_params(IterT p,std::index_sequen
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_params_desc(IterT p, std::index_sequence<I...>) const
+void CompositeDist<RngT>::DistTuple<Ts...>::append_param_names(IterT p, std::index_sequence<I...>) const
 { 
-    meta::call_in_order( {(std::get<I>(dists).append_params_desc(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).append_param_names(p),0)...} ); 
 }
 
 template<class RngT>
 template<class... Ts>
 template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::set_params_desc(IterT p,std::index_sequence<I...>)
+void CompositeDist<RngT>::DistTuple<Ts...>::set_param_names(IterT p,std::index_sequence<I...>)
 { 
-    meta::call_in_order( {(std::get<I>(dists).set_params_desc(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).set_param_names(p),0)...} ); 
 }
         
 template<class RngT>
@@ -1056,9 +1134,9 @@ std::ostream& operator<<(std::ostream &out,const CompositeDist<RngT> &comp_dist)
     out<<"  NumParams:"<<comp_dist.num_params()<<"\n";
     out<<"  ComponentNumParams:"<<comp_dist.components_num_params().t();
     out<<"  Params:"<<comp_dist.params().t();
-    auto param_desc=comp_dist.params_desc();
+    auto param_names=comp_dist.param_names();
     out<<"  ParamDesc:[";
-    for(auto &v: param_desc) out<<v<<",";
+    for(auto &v: param_names) out<<v<<",";
     out<<"]\n";
     
     return out;

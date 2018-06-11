@@ -254,26 +254,26 @@ TEST_F(CompositeDistCompositionTest, set_params) {
     for(IdxT k=0;k<params2.size();k++) EXPECT_EQ(params[k],params2[k]);
 }
 
-TEST_F(CompositeDistCompositionTest, params_desc) {
-    auto pd = this->cd.params_desc();
+TEST_F(CompositeDistCompositionTest, param_names) {
+    auto pd = this->cd.param_names();
     auto nps = this->cd.components_num_params();
     ASSERT_EQ(this->cd.num_params(), pd.size());
     ASSERT_EQ(this->cd.num_component_dists(), nps.size());
     IdxT j=0;
     for(IdxT k=0; k<nps[0]; k++)
-        EXPECT_EQ(dist0.params_desc()[k],pd[j++]);
+        EXPECT_EQ(dist0.param_names()[k],pd[j++]);
     for(IdxT k=0; k<nps[1]; k++)
-        EXPECT_EQ(dist1.params_desc()[k],pd[j++]);
+        EXPECT_EQ(dist1.param_names()[k],pd[j++]);
     for(IdxT k=0; k<nps[2]; k++)
-        EXPECT_EQ(dist2.params_desc()[k],pd[j++]);
+        EXPECT_EQ(dist2.param_names()[k],pd[j++]);
 }
 
-TEST_F(CompositeDistCompositionTest, set_params_desc) {
-    auto pd = this->cd.params_desc();
+TEST_F(CompositeDistCompositionTest, set_param_names) {
+    auto pd = this->cd.param_names();
     ASSERT_EQ(this->cd.num_params(), pd.size());
     for(auto& p:pd) p.append("abc1234567890");    
-    this->cd.set_params_desc(pd);
-    auto pd2 = this->cd.params_desc();
+    this->cd.set_param_names(pd);
+    auto pd2 = this->cd.param_names();
     ASSERT_EQ(this->cd.num_params(), pd2.size());
     for(IdxT k=0;k<pd2.size();k++) 
         EXPECT_EQ(pd[k],pd2[k]);

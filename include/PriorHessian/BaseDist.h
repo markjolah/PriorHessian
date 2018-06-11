@@ -48,6 +48,11 @@ struct ParameterValueError : public PriorHessianError
     ParameterValueError(std::string message) : PriorHessianError("ParameterValueError",message) {}
 };
 
+struct ParameterNameError : public PriorHessianError 
+{
+    ParameterNameError(std::string message) : PriorHessianError("ParameterNameError",message) {}
+};
+
 struct RuntimeTypeError : public PriorHessianError 
 {
     RuntimeTypeError(std::string message) : PriorHessianError("RuntimeTypeError",message) {}
@@ -74,14 +79,14 @@ class BaseDist
 {
  template<class RngT> friend class CompositeDist;
 public:
-    BaseDist(StringVecT &&params_desc);
-    const StringVecT& params_desc() const;
+    BaseDist(StringVecT &&param_names);
+    const StringVecT& param_names() const;
     IdxT num_params() const;    
-    void set_params_desc(const StringVecT& desc); 
+    void set_param_names(const StringVecT& desc); 
 protected:
-    template<class IterT> void append_params_desc(IterT& p) const;
-    template<class IterT> void set_params_desc(IterT& d); 
-    StringVecT _params_desc;
+    template<class IterT> void append_param_names(IterT& p) const;
+    template<class IterT> void set_param_names(IterT& d); 
+    StringVecT _param_names;
 };
 
 /** @brief Class templates to utilize sequencing behaviour of std::initializer_list expressions.
@@ -116,34 +121,34 @@ namespace meta {
 }
 
 inline
-BaseDist::BaseDist(StringVecT &&params_desc) : 
-    _params_desc(std::move(params_desc)) 
+BaseDist::BaseDist(StringVecT &&param_names) : 
+    _param_names(std::move(param_names)) 
 { }
 
 inline
-const StringVecT& BaseDist::params_desc() const 
-{ return _params_desc; }
+const StringVecT& BaseDist::param_names() const 
+{ return _param_names; }
 
 inline
 IdxT BaseDist::num_params() const 
-{ return _params_desc.size(); }
+{ return _param_names.size(); }
 
 template<class IterT>
-void BaseDist::append_params_desc(IterT& p) const 
+void BaseDist::append_param_names(IterT& p) const 
 { 
-    p = std::copy(_params_desc.cbegin(),_params_desc.cend(),p); //Make sure to update p to new position
+    p = std::copy(_param_names.cbegin(),_param_names.cend(),p); //Make sure to update p to new position
 } 
 
 inline
-void BaseDist::set_params_desc(const StringVecT& desc) 
+void BaseDist::set_param_names(const StringVecT& desc) 
 { 
     auto iter = desc.cbegin();
-    set_params_desc(iter);
+    set_param_names(iter);
 }
 
 template<class IterT>
-void BaseDist::set_params_desc(IterT& d) 
-{ for(IdxT i=0; i<num_params(); i++) _params_desc[i] = *d++; }
+void BaseDist::set_param_names(IterT& d) 
+{ for(IdxT i=0; i<num_params(); i++) _param_names[i] = *d++; }
 
 
 

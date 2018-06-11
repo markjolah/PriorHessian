@@ -102,8 +102,8 @@ TYPED_TEST(UnivariateDistTest, set_params) {
         EXPECT_EQ(params[k],new_params[k]);
 }
 
-// TYPED_TEST(UnivariateDistTest, params_desc) {
-//     auto params = this->dist.params_desc();    
+// TYPED_TEST(UnivariateDistTest, param_names) {
+//     auto params = this->dist.param_names();    
 // }
 
 TYPED_TEST(UnivariateDistTest, set_lbound) {

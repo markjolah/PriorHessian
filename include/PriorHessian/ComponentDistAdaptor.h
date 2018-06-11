@@ -16,7 +16,7 @@ template<class Dist>
 class ComponentDistAdaptor  {   
     friend CompositeDist;
 public:
-    ComponentDistAdaptor(Dist dist, std::string var_name, StringVecT &&params_desc);
+    ComponentDistAdaptor(Dist dist, std::string var_name, StringVecT &&param_names);
     /* Var name and dimensionality */
     constexpr static IdxT num_dim();
     const std::string& var_name();
@@ -33,8 +33,8 @@ protected:
     template<class IterT> void append_params_iter(IterT& p) const;
     template<class IterT> void set_params_iter(IterT& p);   
 
-    template<class IterT> void append_params_desc(IterT& p) const;
-    template<class IterT> void set_params_desc(IterT& d); 
+    template<class IterT> void append_param_names(IterT& p) const;
+    template<class IterT> void set_param_names(IterT& d); 
 
     /* Helper methods for use by CompositeDist */
     template<class IterT> void append_var_name(IterT &v) const;
@@ -72,8 +72,8 @@ protected:
 };
 
 template<class Derived>
-ComponentDistAdaptor<Derived>::ComponentDistAdaptor(std::string var_name, StringVecT &&params_desc) :
-    BaseDist(std::move(params_desc)),
+ComponentDistAdaptor<Derived>::ComponentDistAdaptor(std::string var_name, StringVecT &&param_names) :
+    BaseDist(std::move(param_names)),
     _var_name(var_name)
 { }
 
