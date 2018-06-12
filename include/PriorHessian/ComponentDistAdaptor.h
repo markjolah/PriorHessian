@@ -11,22 +11,20 @@
 #include "PriorHessian/BaseDist.h"
 
 namespace prior_hessian {
+
+class BaseComponentDistAdaptor {
+};
     
 template<class Dist>
-class ComponentDistAdaptor  {   
+class ComponentDistAdaptor : public BaseComponentDistAdaptor {   
     friend CompositeDist;
 public:
+    ComponentDistAdaptor(Dist dist, std::string var_name);
     ComponentDistAdaptor(Dist dist, std::string var_name, StringVecT &&param_names);
     /* Var name and dimensionality */
     constexpr static IdxT num_dim();
     const std::string& var_name();
     void set_var_name(std::string var_name);
-
-    /* Bounds */
-    double get_lbound() const; 
-    double get_ubound() const;
-    VecT params() const;
-    void set_params(const VecT& p);
     
     template<class RngT> double sample(RngT &rng);
 protected:

@@ -15,7 +15,9 @@
 
 #include<armadillo>
 
-#include "PriorHessian/BaseDist.h"
+#include "PriorHessian/Meta.h"
+#include "PriorHessian/util.h"
+#include "PriorHessian/PriorHessianError.h"
 #include "PriorHessian/UnivariateDist.h"
 
 
@@ -342,14 +344,16 @@ protected:
     std::unique_ptr<DistTupleHandle> handle;
 
 private:
+    using ParamNameMapT=std::unordered_map<std::string,int>;
+    static bool all_names_unique(StringVecT const &names);
     void update_bounds();
     void initialize_from_handle();
-    void initialize_param_name_idx();
+    static ParamNameMapT initialize_param_name_idx(const StringVecT &names);// throw (ParameterNameUniquenessError)
     IdxT _num_dim;
     IdxT _num_params;
     VecT _lbound; 
     VecT _ubound; 
-    std::unordered_map<std::string,int> param_name_idx;
+    ParamNameMapT param_name_idx;
 };
 
 
@@ -448,14 +452,23 @@ void CompositeDist<RngT>::initialize_from_handle()
     _num_params = handle->num_params();
     _lbound = handle->lbound();
     _ubound = handle->ubound();
-    initialize_param_name_idx();
+    param_name_idx = initialize_param_name_idx(param_names());
 }
 
 template<class RngT>
-void CompositeDist<RngT>::initialize_param_name_idx()
+typename CompositeDist<RngT>::ParamNameMapT 
+CompositeDist<RngT>::initialize_param_name_idx(const StringVecT &names)
 {
-    auto pnames = param_names();
-    for(IdxT i=0; i<pnames.size(); i++) param_name_idx[pnames[i]]=i;
+    ParamNameMapT name_idx;
+    for(IdxT i=0; i<names.size(); i++) name_idx[names[i]] = i;
+    if(name_idx.size() < names.size()){
+        std::ostringstream msg;
+        msg<<"Parameter names contain duplicate values. Got: "<<names.size()<<" name, but only "<<name_idx.size()<<" are unique. Names:";
+        for(auto n:names) msg<<n<<",";
+        msg<<"]";
+        throw ParameterNameUniquenessError(msg.str());
+    }
+    return name_idx;
 }
 
 
@@ -510,11 +523,20 @@ void CompositeDist<RngT>::rename_param(const std::string &old_name, const std::s
     auto it = param_name_idx.find(old_name);
     if(it == param_name_idx.end()) {
         std::ostringstream msg;
-        msg << "No parameter found named:"<<old_name;
+        msg << "rename_param: No parameter found named:"<<old_name;
         throw ParameterNameError(msg.str());
     }
+    auto nit = param_name_idx.find(new_name);    
+    if(nit == it) return; //Names are the same.  Do nothing.
+    if(nit != param_name_idx.end()) { //already exists
+        std::ostringstream msg;
+        msg <<"rename_param: Parameter with name:"<<new_name<<" already exists.";
+        throw ParameterNameUniquenessError(msg.str());
+    }
+    
     auto ns = param_names();
-    ns[it->second]=new_name;
+    int idx = it->second;
+    ns[idx] = new_name;
     set_param_names(ns);
 }
 
@@ -641,7 +663,15 @@ void CompositeDist<RngT>::set_param_names(const StringVecT &new_names)
         msg<<"Got bad params names vector size:"<<new_names.size()<<" expected:"<<num_params();
         throw ParameterValueError(msg.str());
     }
-    handle->set_param_names(new_names); 
+    param_name_idx = initialize_param_name_idx(new_names); //Checks for uniqueness. Throws ParameterNameUniquenessError
+    handle->set_param_names(new_names);
+}
+
+template<class RngT>
+bool CompositeDist<RngT>::all_names_unique(StringVecT const &names) 
+{ 
+    std::set<std::string> u{names.begin(), names.end()};
+    return names.size() == u.size();
 }
 
 //Functions mapped over underlying distributions
@@ -928,6 +958,7 @@ VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(const VecT &theta) c
 
 /* CompositeDist<RngT>::DistTuple<Ts...> private template methods
  * These are variadic templates over the indexes and do the actual calls to the component dists
+ * This is what ComponentDistAdaptor interface is for
  */
 
 

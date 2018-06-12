@@ -5,35 +5,43 @@
  * 
  * 
  */
-#ifndef _PHES_UTIL_H
-#define _PHES_UTIL_H
+#ifndef _PRIOR_HESSIAN_UTIL_H
+#define _PRIOR_HESSIAN_UTIL_H
 
+#include<cmath>
+#include<string>
+#include<random>
+#include<vector>
+#include<typeindex>
+
+#include<armadillo>
 /**
  * 
  * 
  */
-namespace phess
+namespace prior_hessian
 {
-    using VecT = arma::Col<double>;
-    using MatT = arma::Mat<double>;
+
+using VecT = arma::Col<double>;
+using IdxT = arma::uword;
+using UVecT = arma::Col<IdxT>;
+using VecT = arma::Col<double>;
+using MatT = arma::Mat<double>;
+using StringVecT = std::vector<std::string>; 
+using TypeInfoVecT = std::vector<std::type_index>;
+
+using UniformDistT = std::uniform_real_distribution<double>;
 
 
-class SymmetricBetaDist
-{
-    double beta;
-    SymmetricBetaDist(double beta);
-    static double log_prior_const(double beta);
-    double llh();
-    
-    double rllh(double x);
-    void rllh_grad(double x, double &rllh, VecT &grad);
-    void 
+template<class T>
+T square(T t) 
+{ 
+    return t*t;
 }
-
-
 
 /** Compute log(1+exp(x)) 
  */
+inline
 double log1pexp(double x) 
 {
     if (x <= -37) return exp(x);
@@ -44,13 +52,14 @@ double log1pexp(double x)
 
 /** Compute log(1-exp(x)) 
  */
+inline
 double log1mexp(double x) 
 {
     static constexpr const double ln2 = log(2);
-    if (x <= 0) return -inf;
-    else if (x <= ln2) return log(-expm1(-a));
-    else return log1p(-exp(-a));
+    if (x <= 0) return -INFINITY;
+    else if (x <= ln2) return log(-expm1(-x));
+    else return log1p(-exp(-x));
 }
 
-} /* namespace phess */
-#endif /* _PHES_UTIL_H */
+} /* namespace prior_hessian */
+#endif /* _PRIOR_HESSIAN_UTIL_H */

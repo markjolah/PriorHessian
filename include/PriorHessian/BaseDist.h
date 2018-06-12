@@ -13,62 +13,14 @@
 #ifndef _PRIOR_HESSIAN_BASEDIST_H
 #define _PRIOR_HESSIAN_BASEDIST_H
 
-#include<string>
-#include<vector>
-#include<utility>
-#include<algorithm>
-#include<typeindex>
 
 #include<armadillo>
 
-#include<BacktraceException/BacktraceException.h>
+#include "PriorHessian/util.h"
+#include "PriorHessian/PriorHessianError.h"
 
 namespace prior_hessian {
  
-using IdxT = arma::uword;
-using UVecT = arma::Col<IdxT>;
-using VecT = arma::Col<double>;
-using MatT = arma::Mat<double>;
-using StringVecT = std::vector<std::string>; 
-using TypeInfoVecT = std::vector<std::type_index>;
-
-using UniformDistT = std::uniform_real_distribution<double>;
-
-using PriorHessianError = backtrace_exception::BacktraceException;
-
-/** @brief Indicates a index access was out of bounds
- */
-struct IndexError : public PriorHessianError 
-{
-    IndexError(std::string message) : PriorHessianError("IndexError",message) {}
-};
-
-struct ParameterValueError : public PriorHessianError 
-{
-    ParameterValueError(std::string message) : PriorHessianError("ParameterValueError",message) {}
-};
-
-struct ParameterNameError : public PriorHessianError 
-{
-    ParameterNameError(std::string message) : PriorHessianError("ParameterNameError",message) {}
-};
-
-struct RuntimeTypeError : public PriorHessianError 
-{
-    RuntimeTypeError(std::string message) : PriorHessianError("RuntimeTypeError",message) {}
-};
-
-struct NumericalOverflowError : public PriorHessianError 
-{
-    NumericalOverflowError(std::string message) : PriorHessianError("NumericalOverflowError",message) {}
-};
-
-template<class T>
-T square(T t) 
-{ 
-    return t*t;
-}
-
 //Forward decl
 template<class RngT>
 class CompositeDist;
@@ -89,36 +41,6 @@ protected:
     StringVecT _param_names;
 };
 
-/** @brief Class templates to utilize sequencing behaviour of std::initializer_list expressions.
- * 
- * These class templates are intended to be used in variadic template functions to sequence the order of calls as
- * a std::initializer_list.
- * 
- */
-namespace meta {
-    //inline void call_in_order() { }
-    template<class T>
-    void call_in_order(std::initializer_list<T>) 
-    { }
-
-    template<class T>
-    constexpr T sum_in_order(std::initializer_list<T> L) 
-    { return std::accumulate(L.begin(),L.end(),T{0},std::plus<T>()); }
-    
-    template<class T>
-    constexpr T prod_in_order(std::initializer_list<T> L) 
-    { return std::accumulate(L.begin(),L.end(),T{1},std::multiplies<T>()); }
-
-    
-    constexpr IdxT unordered_sum() { return 0;}
-    
-    template<class T>
-    constexpr T unordered_sum(T i) { return i;}
-    
-    template<class T, class... Ts>
-    constexpr auto unordered_sum(T i,Ts... args) 
-    { return i + unordered_sum(args...);}
-}
 
 inline
 BaseDist::BaseDist(StringVecT &&param_names) : 
