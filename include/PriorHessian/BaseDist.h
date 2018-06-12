@@ -37,7 +37,7 @@ public:
     void set_param_names(const StringVecT& desc); 
 protected:
     template<class IterT> void append_param_names(IterT& p) const;
-    template<class IterT> void set_param_names(IterT& d); 
+    template<class IterT> void set_param_names_iter(IterT& d); 
     StringVecT _param_names;
 };
 
@@ -65,11 +65,11 @@ inline
 void BaseDist::set_param_names(const StringVecT& desc) 
 { 
     auto iter = desc.cbegin();
-    set_param_names(iter);
+    set_param_names_iter(iter);
 }
 
 template<class IterT>
-void BaseDist::set_param_names(IterT& d) 
+void BaseDist::set_param_names_iter(IterT& d) 
 { for(IdxT i=0; i<num_params(); i++) _param_names[i] = *d++; }
 
 

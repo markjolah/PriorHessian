@@ -1032,7 +1032,7 @@ template<class... Ts>
 template<class IterT, std::size_t... I> 
 void CompositeDist<RngT>::DistTuple<Ts...>::set_param_names(IterT p,std::index_sequence<I...>)
 { 
-    meta::call_in_order( {(std::get<I>(dists).set_param_names(p),0)...} ); 
+    meta::call_in_order( {(std::get<I>(dists).set_param_names_iter(p),0)...} ); 
 }
         
 template<class RngT>

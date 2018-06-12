@@ -8,70 +8,90 @@
 #ifndef _PRIOR_HESSIAN_COMPONENTDISTADAPTOR_H
 #define _PRIOR_HESSIAN_COMPONENTDISTADAPTOR_H
 
-#include "PriorHessian/BaseDist.h"
+#include "PriorHessian/util.h"
+#include "PriorHessian/PriorHessianError.h"
 
 namespace prior_hessian {
 
 class BaseComponentDistAdaptor {
 };
-    
+
+//Forward decl
+template<class RngT>
+class CompositeDist;
+
 template<class Dist>
 class ComponentDistAdaptor : public BaseComponentDistAdaptor {   
-    friend CompositeDist;
+    template<class RngT> friend class CompositeDist;
 public:
+    ComponentDistAdaptor();
     ComponentDistAdaptor(Dist dist, std::string var_name);
     ComponentDistAdaptor(Dist dist, std::string var_name, StringVecT &&param_names);
-    /* Var name and dimensionality */
-    constexpr static IdxT num_dim();
-    const std::string& var_name();
-    void set_var_name(std::string var_name);
     
-    template<class RngT> double sample(RngT &rng);
+    template<class T>
+    std::
+    T make_adaptor(Dist dist, std::string var_name);
+    
+    
+    IdxT num_dim();
+    const StringVecT& var_names() const;
+    const std::string& var_name(int i) const;
+    void set_var_names(const StringVecT &var_name);
+    void set_var_name(int i, std::string new_var_name);
+    
+    IdxT num_params() const;
+    const StringVecT& param_names() const;
+    const StringVecT& param_name(int i) const;
+    void set_param_names(const StringVecT &names);
+    void set_param_name(int i, const std::string &name);
+    
+    Dist& get_dist();
+    const Dist& get_dist() const;
+    Dist& set_dist(Dist dist);
+    Dist& set_dist(Dist dist, std::string var_name);
+    Dist& set_dist(Dist dist, std::string var_name, StringVecT &&param_names);
+    
 protected:
-    template<class IterT> void append_params_iter(IterT& p) const;
-    template<class IterT> void set_params_iter(IterT& p);   
-
-    template<class IterT> void append_param_names(IterT& p) const;
-    template<class IterT> void set_param_names(IterT& d); 
-
-    /* Helper methods for use by CompositeDist */
+    Dist dist;
+    IdxT _num_dim;
+    StringVecT _var_names;
+    StringVecT _param_names;
+    
     template<class IterT> void append_var_name(IterT &v) const;
-    template<class IterT> void set_var_name(IterT &v);
+    template<class IterT> void set_var_name_iter(IterT &v);
+
     template<class IterT> void append_lbound(IterT &v) const;
     template<class IterT> void append_ubound(IterT &v) const;
     template<class IterT> void set_bounds_from_iter(IterT& lbounds, IterT &ubounds);   
     
-    /* Univariate helper operations */
+    template<class IterT> void append_params(IterT& p) const;
+    template<class IterT> void set_params_iter(IterT& p);   
+
+    template<class IterT> void append_param_names(IterT& p) const;
+    template<class IterT> void set_param_names_iter(IterT& d); 
+
     template<class IterT> double cdf_from_iter(IterT &u) const;
     template<class IterT> double pdf_from_iter(IterT &u) const;
     template<class IterT> double llh_from_iter(IterT &u) const;
     template<class IterT> double rllh_from_iter(IterT &u) const;
 
-    /* Sample helper operatations */
-    template<class RngT, class IterT> void append_sample(RngT &rng, IterT &iter);
-
-    /* Vector and matrix helper operations */
     void grad_accumulate_idx(const VecT &u, VecT &g, IdxT &k) const;
     void grad2_accumulate_idx(const VecT &u, VecT &g2, IdxT &k) const; 
     void hess_accumulate_idx(const VecT &u, MatT &h, IdxT &k) const; 
     void grad_grad2_accumulate_idx(const VecT &u, VecT &g, VecT &g2, IdxT &k) const; 
     void grad_hess_accumulate_idx(const VecT &u, VecT &g, MatT &h, IdxT &k) const; 
 
-    Dist dist;
-    std::string _var_name;
-    double _lbound;
-    double _ubound;
-    double llh_const;
-    
-
-    void set_bounds(double lbound, double ubound);
-    void set_lbound(double lbound);
-    void set_ubound(double ubound);
+    template<class RngT, class IterT> void append_sample(RngT &rng, IterT &iter);
 };
 
+
+ComponentDistAdaptor();
+ComponentDistAdaptor(Dist dist, std::string var_name);
+ComponentDistAdaptor(Dist dist, std::string var_name, StringVecT &&param_names);
+
 template<class Derived>
-ComponentDistAdaptor<Derived>::ComponentDistAdaptor(std::string var_name, StringVecT &&param_names) :
-    BaseDist(std::move(param_names)),
+ComponentDistAdaptor<Derived>::ComponentDistAdaptor(StringVecT var_names, StringVecT &&param_names) 
+    : BaseComponentDistAdaptor(),
     _var_name(var_name)
 { }
 

@@ -8,6 +8,7 @@
 #ifndef _PRIOR_HESSIAN_META_H
 #define _PRIOR_HESSIAN_META_H
 #include<initializer_list>
+#include<cstdint>
 
 namespace prior_hessian {
     
@@ -18,6 +19,7 @@ namespace prior_hessian {
  * 
  */
 namespace meta {
+    using IntT = uint64_t;
     //inline void call_in_order() { }
     template<class T>
     void call_in_order(std::initializer_list<T>) 
@@ -32,7 +34,7 @@ namespace meta {
     { return std::accumulate(L.begin(),L.end(),T{1},std::multiplies<T>()); }
 
     
-    constexpr IdxT unordered_sum() { return 0;}
+    constexpr IntT unordered_sum() { return 0;}
     
     template<class T>
     constexpr T unordered_sum(T i) { return i;}
