@@ -17,21 +17,19 @@ prior_hessian::NormalDist make_dist()
     double sigma_lambda = 1;
     double mu = env->sample_normal(mu_mean,mu_sigma);
     double sigma = env->sample_exponential(sigma_lambda);
-//     std::cout<<"Normal: mu: "<<mu<<" sigma:"<<sigma<<"\n";
-    return prior_hessian::NormalDist(mu,sigma,"x");
+    return prior_hessian::NormalDist(mu,sigma);
 }
 
 template<>
 prior_hessian::GammaDist make_dist()
 {
-    double alpha_mu = 10.;
-    double beta_mu = 1.;
+    double alpha_theta = 10.;
+    double beta_theta = 1.;
     double alpha_kappa = 1.;
     double beta_kappa = 3.;
-    double mu = env->sample_gamma(alpha_mu,beta_mu);
+    double theta = env->sample_gamma(alpha_theta,beta_theta);
     double kappa = env->sample_gamma(alpha_kappa,beta_kappa);
-//     std::cout<<"Gamma: mu: "<<mu<<" kappa:"<<kappa<<"\n";
-    return prior_hessian::GammaDist(mu,kappa,"y");
+    return prior_hessian::GammaDist(theta,kappa);
 }
 
 template<>
@@ -43,8 +41,7 @@ prior_hessian::ParetoDist make_dist()
     double beta_lbound = 10.;
     double alpha = env->sample_gamma(alpha_alpha,beta_alpha);
     double lbound = env->sample_gamma(alpha_lbound,beta_lbound);
-//     std::cout<<"Pareto: alpha: "<<alpha<<" lbound:"<<lbound<<std::endl;
-    return prior_hessian::ParetoDist(alpha,lbound,"z");
+    return prior_hessian::ParetoDist(alpha,lbound);
 }
 
 template<>
@@ -53,8 +50,7 @@ prior_hessian::SymmetricBetaDist make_dist()
     double alpha_beta = 1;
     double beta_beta = 10.;
     double beta = env->sample_gamma(alpha_beta,beta_beta);
-//     std::cout<<"SymmetricBetaDist: betaa: "<<beta<<std::endl;
-    return prior_hessian::SymmetricBetaDist(beta,"w");
+    return prior_hessian::SymmetricBetaDist(beta);
 }
 
 

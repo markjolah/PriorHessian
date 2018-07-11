@@ -33,7 +33,7 @@ public:
         seed = seed_dist(rng);
     }
     
-    void SetUp() const
+    void SetUp()
     {
         ::testing::Test::RecordProperty("rng_seed",seed);
         std::cout<<">>>>>>>>>>>> To Repeat Use SEED: "<<seed<<"\n";

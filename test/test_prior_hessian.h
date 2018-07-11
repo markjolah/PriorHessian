@@ -13,20 +13,19 @@
 #include "PriorHessian/SymmetricBetaDist.h"
 #include "PriorHessian/CompositeDist.h"
 #include <random>
+
+using namespace prior_hessian;
+
 /* Globals */
 extern test_helper::RngEnvironment *env;
-
-using prior_hessian::IdxT;
-using prior_hessian::VecT;
-using prior_hessian::MatT;
 
 /* Factory functions */
 template<class Dist> 
 Dist make_dist();
-template<> prior_hessian::NormalDist make_dist();
-template<> prior_hessian::GammaDist make_dist();
-template<> prior_hessian::ParetoDist make_dist();
-template<> prior_hessian::SymmetricBetaDist make_dist();
+template<> NormalDist make_dist();
+template<> GammaDist make_dist();
+template<> ParetoDist make_dist();
+template<> SymmetricBetaDist make_dist();
 
 /* Type parameterized test fixtures */
 template<class Dist>
@@ -57,18 +56,30 @@ public:
 class CompositeDistCompositionTest : public ::testing::Test {
 public:
     using RngT=std::mt19937_64;
-    static constexpr double mean0 = -10.0;
+    static constexpr double mu0 = -10.0;
     static constexpr double sigma0 = 7.0;
-    static constexpr double mean1 = 10.0;
+    static constexpr double theta1 = 10.0;
     static constexpr double kappa1 = 3.0;
     
     static constexpr double lbound2 = 1.0;
     static constexpr double alpha2 = 3.0;
+    static constexpr double beta3 = 2.0;
     static constexpr int Ntest = 100;
-    prior_hessian::NormalDist dist0{mean0,sigma0,"x"};
-    prior_hessian::GammaDist dist1{mean1,kappa1,"y"};
-    prior_hessian::ParetoDist dist2{alpha2,lbound2,"z"};
-    using DistT = prior_hessian::CompositeDist<RngT>;
-    DistT cd;
-    CompositeDistCompositionTest() : cd(std::make_tuple(dist0,dist1,dist2)) {}
+    
+    
+    std::tuple<NormalDist,GammaDist,ParetoDist,SymmetricBetaDist> dists;
+//     std::tuple<BoundedNormalDist,BoundedGammaDist,BoundedParetoDist,ScaledSymmetricBetaDist> adapted_dists;
+    
+    using CompositeDistT = CompositeDist<RngT>;
+    
+    CompositeDistT composite;
+    
+    
+    
+    CompositeDistCompositionTest() 
+        : dists{std::make_tuple(NormalDist{mu0,sigma0}, GammaDist{theta1,kappa1}, ParetoDist{alpha2,lbound2}, SymmetricBetaDist{beta3})},
+          composite{dists}
+    {           
+//         adapted_dists = make_adapted_bounded_dist_tuple(dists);
+    }
 };

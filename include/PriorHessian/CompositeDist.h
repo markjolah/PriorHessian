@@ -18,85 +18,135 @@
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/util.h"
 #include "PriorHessian/PriorHessianError.h"
-#include "PriorHessian/UnivariateDist.h"
 
+#include "ParallelRngManager/AnyRng/AnyRng.h"
 
 namespace prior_hessian {
 
 /** @brief A probability distribution made of independent component distributions composing groups of 1 or more variables.
  * 
+ * CompositeDist is a world unto itself.
+ * 
+ * class UnivariateDistInterface {
+ *   static constexpr IdxT num_dim();
+ *   static constexpr IdxT num_params();
+ *   static const StringVecT param_names;
+ *   double lbound() const; 
+ *   double ubound() const;
+ *   void set_bounds(double lbound, double ubound);
+ *   void set_lbound(double lbound);
+ *   void set_ubound(double ubound);
+ *   double get_param(int idx) const;
+ *   void set_param(int idx, double val);
+ *   double cdf(double x) const;
+ *   double icdf(double u) const;
+ *   double pdf(double x) const;
+ *   double llh(double x) const;
+ *   double rllh(double x) const;
+ *   double grad(double x) const;
+ *   double grad2(double x) const;
+ *   void grad_grad2_accumulate(double x, double &g, double &g2) const;
+ *   template< class RngT > double sample(RngT &rng) const;
+ * }
+ * 
  * 
  */
-template<class RngT>
+
 class CompositeDist
 {
 public:
+    using AnyRngT = any_rng::AnyRngT;
+    
     CompositeDist();
     
     /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
+    template<class... Ts,typename=meta::EnableConstructorIfAllAreNotTupleAndAreNotSelfT<CompositeDist,Ts...>>
+    explicit CompositeDist(Ts&&... dists);
     template<class... Ts>
     explicit CompositeDist(std::tuple<Ts...>&& dist_tuple);
     template<class... Ts>
     explicit CompositeDist(const std::tuple<Ts...>& dist_tuple);
     
-    /* Move only type */
-    CompositeDist(const CompositeDist &); 
+    void initialize();
+    template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
+    void initialize(Ts&&... dists);
+    template<class... Ts>
+    void initialize(std::tuple<Ts...>&& dist_tuple);
+    template<class... Ts>
+    void initialize(const std::tuple<Ts...>& dist_tuple);
+    
+    CompositeDist(const CompositeDist &)
     CompositeDist& operator=(const CompositeDist &);     
     CompositeDist(CompositeDist&&);
     CompositeDist& operator=(CompositeDist&&);  
     
-    template<class... Ts>
-    void initialize(Ts&&... dists);
-    template<class... Ts>
-    void initialize(std::tuple<Ts...>&& dist_tuple);
-      
-    void clear();
+    void clear()
+    {
+        handle = std::unique_ptr<DistTupleHandle>(new EmptyDistTuple());
+        initialize_from_handle();
+    }
        
     template<class... Ts> 
     const std::tuple<Ts...>& get_dist_tuple() const; 
     
-    IdxT num_component_dists() const; 
-    TypeInfoVecT component_types() const;
+    IdxT num_component_dists() const { return handle->num_dists(); }
+    TypeInfoVecT component_types() const { return handle->component_types(); }
     
     /* Dimensionality and variable names */
-    IdxT num_dim() const;
-    UVecT components_num_dim() const;
-    StringVecT dim_variables() const;
-    void set_dim_variables(const StringVecT &vars);
+    IdxT num_dim() const { return handle->num_dim(); }
+    UVecT components_num_dim() const { return handle->components_num_dim(); }
+    StringVecT dim_variables() const { return handle->dim_variables(); }
+    void set_dim_variables(const StringVecT &vars)  { handle->set_dim_variables(vars); }
+
     
     /* Bounds */
-    const VecT& lbound() const;
-    const VecT& ubound() const;
-    bool in_bounds(const VecT &u) const;
-    void set_lbound(const VecT &hew_bound);
-    void set_ubound(const VecT &hew_bound);
-    void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound);
+    const VecT& lbound() const { return handle->lbound(); }
+    const VecT& ubound() const { return handle->ubound(); }
+    bool in_bounds(const VecT &u) const { return arma::all(_lbound<u && u<_ubound); }
+    void set_lbound(const VecT &hew_bound) { handle->set_lbound(new_bound); }
+    void set_ubound(const VecT &hew_bound) { handle->set_ubound(new_bound); }
+    void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) { handle->set_bounds(new_lbound, new_ubound); }
 
     /* Distribution Parameters */
-    IdxT num_params() const; 
-    UVecT components_num_params() const;
-    VecT params() const;
-    void set_params(const VecT &params);
+    IdxT num_params() const { return handle->num_params(); }
+    UVecT components_num_params() const { return handle->components_num_params(); }
+    VecT params() const { return handle->params(); } 
+    void set_params(const VecT &params) { handle->set_params(new_params); }
 
     /* Distribution Parameter Descriptions (names) */
-    StringVecT param_names() const;
-    void set_param_names(const StringVecT &name);
+    StringVecT param_names() const { return handle->param_names(); }
 
     /* Convenience functions for working with parameters by name */
     bool has_param(const std::string &name) const;
     double get_param_value(const std::string &name) const; 
     int get_param_index(const std::string &name) const; 
     void set_param_value(const std::string &name, double value);
-    void rename_param(const std::string &old_name, const std::string &new_name);
     
     //Functions mapped over underlying distributions
-    double cdf(const VecT &u) const;
-    double pdf(const VecT &u) const;
-    double llh(const VecT &u) const;
-    double rllh(const VecT &u) const;    
-    VecT grad(const VecT &u) const; 
-    VecT grad2(const VecT &u) const;
-    MatT hess(const VecT &u) const; 
+    double cdf(const VecT &u) const { return handle->cdf(u); }
+    double pdf(const VecT &u) const { return handle->pdf(u); }
+    double llh(const VecT &u) const { return handle->llh(u); }
+    double rllh(const VecT &u) const { return handle->rllh(u); }
+    VecT grad(const VecT &u) const
+    {
+        VecT g(_num_dim, arma::fill::zeros);
+        handle->grad_accumulate(u,g);
+        return g;
+    }
+
+    VecT grad2(const VecT &u) const
+    {
+        VecT g2(_num_dim, arma::fill::zeros);
+        handle->grad2_accumulate(u,g2);
+        return g2;
+    }
+
+    MatT hess(const VecT &u) const
+    {
+        MatT h(_num_dim,_num_dim,arma::fill::zeros);
+        handle->hess_accumulate(u,h);
+        return h;
+    }
     
     /* Accumulate methods add thier contributions to respective grad, grad2 or hess arguments 
      * These are more efficient.  They use the Dist.xxx_acumulate methods, which are intern provided by the
@@ -104,22 +154,23 @@ public:
      * 
      * All this technology should make these calls very close to custom coded grad and hess calls for any combination of dists.
      */
-    void grad_accumulate(const VecT &u, VecT &grad) const;
-    void grad2_accumulate(const VecT &u, VecT &grad2) const;
-    void hess_accumulate(const VecT &u, MatT &hess) const;
-    void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const;
-    void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const;
+    void grad_accumulate(const VecT &u, VecT &grad) const { return handle->grad_accumulate(theta,grad); }
+    void grad2_accumulate(const VecT &u, VecT &grad2) const { return handle->grad2_accumulate(theta,grad2); }
+    void hess_accumulate(const VecT &u, MatT &hess) const { return handle->hess_accumulate(theta,hess); }
+    void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const { return handle->grad_grad2_accumulate(theta,grad,grad2); }
+    void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const { return handle->grad_hess_accumulate(theta,grad,hess); }
     //Convenience methods for the lazy.
     VecT make_zero_grad() const { return {num_dim(),arma::fill::zeros}; }
     MatT make_zero_hess() const { return {num_dim(),num_dim(),arma::fill::zeros}; }
     
-    VecT sample(RngT &rng);
-    MatT sample(RngT &rng, IdxT num_samples);
+    VecT sample(AnyRngT &rng) { return handle->sample(rng); }
+    MatT sample(AnyRngT &rng, IdxT num_samples) { return handle->sample(rng,num_samples); }
 
     /* Per-component values for debugging and plotting purposes */
-    VecT llh_components(const VecT &u) const;
-    VecT rllh_components(const VecT &u) const;    
-protected:
+    VecT llh_components(const VecT &u) const { return handle->llh_components(u); }
+    VecT rllh_components(const VecT &u) const { return handle->rllh_components(u); }
+
+private:
     
     /** @brief Model interface
      */
@@ -129,45 +180,36 @@ protected:
         virtual ~DistTupleHandle() = default;
         virtual std::unique_ptr<DistTupleHandle> clone() const = 0;
         virtual const std::type_info& type_info() const = 0;
-
         virtual IdxT num_dists() const = 0;
         virtual TypeInfoVecT component_types() const = 0;
-
         virtual IdxT num_dim() const = 0;
         virtual UVecT components_num_dim() const = 0;
         virtual StringVecT dim_variables() const = 0;
         virtual void set_dim_variables(const StringVecT &vars) = 0;
-
         virtual VecT lbound() const = 0;
         virtual VecT ubound() const = 0;
+        virtual void set_lbound(const VecT &hew_lbound) = 0;
+        virtual void set_ubound(const VecT &hew_ubound) = 0;
         virtual void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) = 0;
-    
         virtual IdxT num_params() const = 0;
         virtual UVecT components_num_params() const = 0;
-        virtual VecT params() const = 0;
-        
+        virtual VecT params() const = 0;        
         virtual void set_params(const VecT &params) = 0;
         virtual StringVecT param_names() const = 0;
-        virtual void set_param_names(const StringVecT &names) = 0;
-
         virtual double cdf(const VecT &u) const = 0;
         virtual double pdf(const VecT &u) const = 0;
         virtual double llh(const VecT &u) const = 0;
         virtual double rllh(const VecT &u) const = 0;
-        
-        
         virtual void grad_accumulate(const VecT &u, VecT &grad) const = 0;
         virtual void grad2_accumulate(const VecT &u, VecT &grad2) const = 0;
         virtual void hess_accumulate(const VecT &u, MatT &hess) const = 0;
         virtual void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const = 0;
         virtual void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const = 0;
-        
-        virtual VecT sample(RngT &rng) = 0;
-        virtual MatT sample(RngT &rng, IdxT nSamples) = 0;
-
+        virtual VecT sample(AnyRngT &rng) = 0;
+        virtual MatT sample(AnyRngT &rng, IdxT nSamples) = 0;
         virtual VecT llh_components(const VecT &u) const = 0;
         virtual VecT rllh_components(const VecT &u) const = 0;
-    };
+    }; /* class DistTupleHandle */
     
     template<class... Ts>
     class DistTuple : public DistTupleHandle
@@ -180,114 +222,206 @@ protected:
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
     public:  
-        explicit DistTuple(const std::tuple<Ts...> &dists);
-        explicit DistTuple(std::tuple<Ts...>&& dists);
+        explicit DistTuple(const std::tuple<Ts...> &dists) : dists(std::move(_dists)) { }
+        explicit DistTuple(std::tuple<Ts...>&& dists) : dists(_dists) { }
         
-        const std::type_info& type_info() const override;
-        std::unique_ptr<DistTupleHandle> clone() const override;
+        const std::type_info& type_info() const override { return typeid(dists); }
+        std::unique_ptr<DistTupleHandle> clone() const override { return std::make_unique<DistTuple<Ts...>>(dists); }
+        constexpr IdxT num_dists() const override { return _num_dists; }
+        constexpr IdxT num_dim() const override { return _num_dim; }
+        constexpr IdxT num_params() const override { return _num_params; }
+        UVecT components_num_dim() const override { return {Ts::num_dim()...}; }
+        UVecT components_num_params() const override { return {Ts::num_params()...}; }
+        TypeInfoVecT component_types() const override { return {std::type_index(typeid(Ts))...}; }
+
+        StringVecT dim_variables() const override
+        {
+            StringVecT vars(_num_dim);
+            append_dim_variables(vars.begin(),IndexT());
+            return vars;
+        }
+
+        void set_dim_variables(const StringVecT &vars) override { set_dim_variables(vars.begin(),IndexT()); }
         
-        constexpr IdxT num_dists() const override;
-        constexpr IdxT num_dim() const override;
-        constexpr IdxT num_params() const override;
-        UVecT components_num_dim() const override;
-        UVecT components_num_params() const override;   
-        TypeInfoVecT component_types() const override;        
-
-        StringVecT dim_variables() const override;
-        void set_dim_variables(const StringVecT &vars) override;
-        VecT lbound() const override;
-        VecT ubound() const override;
-        void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) override;
-
-        VecT params() const override;
-        void set_params(const VecT &params) override;
-        StringVecT param_names() const override;
-        void set_param_names(const StringVecT &names) override;
-        double cdf(const VecT &u) const override;
-        double pdf(const VecT &u) const override;
-        double llh(const VecT &u) const override;
-        double rllh(const VecT &u) const override;
+        VecT lbound() const override
+        {
+            VecT lb(_num_dim);
+            append_lbound(lb.begin(),IndexT());
+            return lb;
+        }
         
+        VecT ubound() const override
+        {
+            VecT ub(_num_dim);
+            append_ubound(ub.begin(),IndexT());
+            return ub;
+        }
+        
+        void set_lbound(const VecT &hew_bound) override { set_lbound(new_bound.begin(), IndexT{}); }
+        void set_ubound(const VecT &hew_bound) override { set_ubound(new_bound.begin(), IndexT{}); }
+        void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) override { set_bounds(new_lbound.begin(), new_ubound.begin(), IndexT{}); }
 
-        void grad_accumulate(const VecT &u, VecT &g) const override;
-        void grad2_accumulate(const VecT &u, VecT &g2) const override; 
-        void hess_accumulate(const VecT &u, MatT &h) const override;
-        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override;
-        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override;
-        VecT sample(RngT &rng) override;
-        MatT sample(RngT &rng, IdxT nSamples) override;
+        VecT params() const override
+        {
+            VecT params(_num_params);
+            append_params(params.begin(),IndexT());
+            return params;
+        }
+        
+        void set_params(const VecT &params) override { set_params(params.begin(),IndexT()); }
+        
+        StringVecT param_names() const override
+        {
+            StringVecT names(_num_params);
+            append_param_names(names.begin(),IndexT());
+            return names;
+        }
+        
+        double cdf(const VecT &u) const override { return cdf(u.begin(),IndexT()); }
+        double pdf(const VecT &u) const override { return pdf(u.begin(),IndexT()); }
+        double llh(const VecT &u) const override { return llh(u.begin(),IndexT()); }
+        double rllh(const VecT &u) const override { return rllh(u.begin(),IndexT()); }
+        void grad_accumulate(const VecT &u, VecT &g) const override { grad_accumulate(u,g,IndexT()); }
+        void grad2_accumulate(const VecT &u, VecT &g2) const override { grad2_accumulate(u,g2,IndexT()); }
+        void hess_accumulate(const VecT &u, MatT &h) const override { hess_accumulate(u,h,IndexT()); }
+        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { grad_grad2_accumulate(u,g,g2,IndexT()); }
+        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { grad_hess_accumulate(u,g,h,IndexT()); }
+        
+        VecT sample(RngT &rng) override
+        {
+            VecT s(_num_dim);
+            sample(rng, s.begin(), IndexT());
+            return s;
+        }
+        
+        MatT sample(RngT &rng, IdxT nSamples) override
+        {
+            MatT s(_num_dim,nSamples);
+            sample(rng, s.begin(), nSamples, IndexT());
+            return s;
+        }
+        
+        VecT llh_components(const VecT &u) const override { return llh_components(theta.begin(), IndexT());}
+        VecT rllh_components(const VecT &u) const override { return rllh_components(theta.begin(), IndexT());}
 
-        VecT llh_components(const VecT &u) const override;
-        VecT rllh_components(const VecT &u) const override;
     private:
+        /* Data members */
         std::tuple<Ts...> dists;
         
         template<class IterT, std::size_t... I> 
-        void append_dim_variables(IterT v, std::index_sequence<I...>) const;
+        void append_dim_variables(IterT v, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_var_name(v),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void set_dim_variables(IterT v,std::index_sequence<I...>);
+        void set_dim_variables(IterT v,std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_var_name_iter(v),0)...} ); }  
                 
         template<class IterT, std::size_t... I> 
-        void append_lbound(IterT p, std::index_sequence<I...>) const;
+        void append_lbound(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_lbound(p),0)...} ); }
         
         template<class IterT, std::size_t... I> 
-        void append_ubound(IterT p, std::index_sequence<I...>) const;
+        void append_ubound(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_ubound(p),0)...} ); }
         
         template<class IterT, std::size_t... I> 
-        void set_bounds(IterT lb, IterT ub, std::index_sequence<I...>);
+        void set_lbound(IterT b, std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_lbound_from_iter(b),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void append_params(IterT p, std::index_sequence<I...>) const;
+        void set_ubound(IterT b, std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_ubound_from_iter(b),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void set_params(IterT p,std::index_sequence<I...>);
+        void set_bounds(IterT lb, IterT ub, std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_bounds_from_iter(lb,ub),0)...} ); }
+
+        template<class IterT, std::size_t... I> 
+        void append_params(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_params(p),0)...} ); }
+
+        template<class IterT, std::size_t... I> 
+        void set_params(IterT p,std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_params_iter(p),0)...} ); }
         
         template<class IterT, std::size_t... I> 
-        void append_param_names(IterT p, std::index_sequence<I...>) const;
+        void append_param_names(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_param_names(p),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void set_param_names(IterT p,std::index_sequence<I...>);
+        void set_param_names(IterT p,std::index_sequence<I...>)
+        { meta::call_in_order( {(std::get<I>(dists).set_param_names_iter(p),0)...} ); }
                 
         template<class IterT, std::size_t... I> 
-        double cdf(IterT u,std::index_sequence<I...>) const;
+        double cdf(IterT u,std::index_sequence<I...>) const
+        { return meta::prod_in_order( {std::get<I>(dists).cdf_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
-        double pdf(IterT u,std::index_sequence<I...>) const;
+        double pdf(IterT u,std::index_sequence<I...>) const
+        { return meta::prod_in_order( {std::get<I>(dists).pdf_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
-        double llh(IterT u,std::index_sequence<I...>) const;
+        double llh(IterT u,std::index_sequence<I...>) const
+        { return meta::sum_in_order( {std::get<I>(dists).llh_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
-        double rllh(IterT u,std::index_sequence<I...>) const;
+        double rllh(IterT u,std::index_sequence<I...>) const
+        { return meta::sum_in_order( {std::get<I>(dists).rllh_from_iter(u)...} ); }
                         
         template<std::size_t... I> 
-        void grad_accumulate(const VecT &u, VecT &g,std::index_sequence<I...>) const;
+        void grad_accumulate(const VecT &u, VecT &g,std::index_sequence<I...>) const
+        { 
+            IdxT k=0;
+            meta::call_in_order( {(std::get<I>(dists).grad_accumulate_idx(u,g,k),0)...} ); 
+        }
         
         template<std::size_t... I> 
-        void grad2_accumulate(const VecT &u, VecT &g2,std::index_sequence<I...>) const;
+        void grad2_accumulate(const VecT &u, VecT &g2,std::index_sequence<I...>) const 
+        { 
+            IdxT k=0;
+            meta::call_in_order( {(std::get<I>(dists).grad2_accumulate_idx(u,g2,k),0)...} ); 
+        }
+        
+        template<std::size_t... I> 
+        void hess_accumulate(const VecT &u, MatT &m, std::index_sequence<I...>) const 
+        {
+            IdxT k=0;
+            meta::call_in_order( {(std::get<I>(dists).hess_accumulate_idx(u,m,k),0)...} );
+        }
+        
+        template<std::size_t... I> 
+        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2, std::index_sequence<I...>) const 
+        { 
+            IdxT k=0;
+            meta::call_in_order( {(std::get<I>(dists).grad_grad2_accumulate_idx(u,g,g2,k),0)...} );
+        }
+        
+        template<std::size_t... I> 
+        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h,std::index_sequence<I...>) const
+        {
+            IdxT k=0;
+            meta::call_in_order( {(std::get<I>(dists).grad_hess_accumulate_idx(u,g,h,k),0)...} );
+        }
 
-        template<std::size_t... I> 
-        void hess_accumulate(const VecT &u, MatT &m, std::index_sequence<I...>) const;
-        
-        template<std::size_t... I> 
-        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2, std::index_sequence<I...>) const;
-        
-        template<std::size_t... I> 
-        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h,std::index_sequence<I...>) const;
+        template<class IterT, std::size_t... I> 
+        void sample(AnyRngT &rng, IterT s, std::index_sequence<I...>);
+        { meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void sample(RngT &rng, IterT s, std::index_sequence<I...>);
-
-        template<class IterT, std::size_t... I> 
-        void sample(RngT &rng, IterT s, IdxT nSamples, std::index_sequence<I...>);
+        void sample(AnyRngT &rng, IterT s, IdxT nSamples, std::index_sequence<I...>)
+        {     
+            for(IdxT n=0; n<nSamples; n++) 
+                meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
+        }
         
         template<class IterT, std::size_t... I> 
-        VecT llh_components(IterT theta, std::index_sequence<I...>) const;
+        VecT llh_components(IterT theta, std::index_sequence<I...>) const
+        { return {std::get<I>(dists).llh_from_iter(theta)...}; }
         
         template<class IterT, std::size_t... I> 
-        VecT rllh_components(IterT theta, std::index_sequence<I...>) const;
-    };
+        VecT rllh_components(IterT theta, std::index_sequence<I...>) const
+        { return {std::get<I>(dists).rllh_from_iter(theta)...}; }
+    }; /* class DistTuple */
     
     class EmptyDistTuple : public DistTupleHandle
     {
@@ -310,6 +444,10 @@ protected:
         void set_dim_variables(const StringVecT &vars) override {if(!vars.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         VecT lbound() const override {return {};}
         VecT ubound() const override {return {};}
+        void set_lbound(const VecT &new_bound) override 
+            {if( !new_bound.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        void set_ubound(const VecT &new_bound) override 
+            {if( !new_bound.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         void set_bounds(const VecT &new_lbound,const VecT &new_ubound) override 
             {if( !new_lbound.is_empty() || !new_ubound.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
 
@@ -317,8 +455,6 @@ protected:
         void set_params(const VecT &params) override
             {if(!params.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         StringVecT param_names() const override {return {};}
-        void set_param_names(const StringVecT &names) override
-            {if(!names.empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         double cdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         double pdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         double llh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
@@ -329,88 +465,262 @@ protected:
         void hess_accumulate(const VecT &u, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        VecT sample(RngT &rng) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        MatT sample(RngT &rng, IdxT nSamples) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT sample(AnyRngT &rng) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        MatT sample(AnyRngT &rng, IdxT nSamples) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
 
         VecT llh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         VecT rllh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+    }; /* class EmptyDistTuple */
+
+
+   /** @brief An internal class that wraps conforming dists with adjustable bounds.
+     * 
+     * 
+     */
+    template<class Dist>
+    class ComponentDistAdaptor : public Dist {   
+    public:
+        ComponentDistAdaptor() 
+            : ComponentDistAdaptor(Dist{}, generate_var_name()) { }
+        
+        explicit ComponentDistAdaptor(std::string var_name) 
+            : ComponentDistAdaptor(Dist{}, std::move(var_name)) { }
+        
+        explicit ComponentDistAdaptor(Dist &&dist) 
+            : ComponentDistAdaptor(std::move(dist), generate_var_name()) { }        
+        
+        explicit ComponentDistAdaptor(const Dist &dist) 
+            : ComponentDistAdaptor(dist, generate_var_name()) { }
+        
+        ComponentDistAdaptor(Dist &&dist,  StringVecT &&var_name) 
+            : ComponentDistAdaptor(std::move(dist), std::move(var_name[0])) { }
+        
+        ComponentDistAdaptor(const Dist &dist, StringVecT var_name)  
+            : ComponentDistAdaptor(dist, std::move(var_name[0])) { }
+        
+        ComponentDistAdaptor(Dist &&dist, std::string &&var_name)  
+            : _dist(std::move(dist)), _var_name{std::move(var_name)} { }
+        
+        ComponentDistAdaptor(const Dist &dist, std::string var_name)  
+            : _dist(dist), _var_name{std::move(var_name)} { }
+        
+        static constexpr IdxT num_dim() { return Dist::num_dim(); }
+        static constexpr IdxT num_params() { return Dist::num_params(); }
+        const StringVecT& var_names() const { return {_var_name}; }
+        const std::string& var_name(IdxT i) const { return _var_name; }
+        void set_var_names(StringVecT var_name) { _var_name = std::move(var_names[0]); };
+        void set_var_name(IdxT i, std::string new_var_name) { _var_name = std::move(new_var_name); }
+        
+        StringVecT param_names() const;
+        std::string param_name(IdxT i) const;
+            
+        Dist& get_dist() { return _dist; }
+        const Dist& get_dist() const { return _dist; }
+        void set_dist(Dist&& dist) { _dist = std::move(dist); }
+        void set_dist(const Dist& dist) { _dist = dist; }
+        void set_dist(Dist&& dist, std::string var_name) 
+        { 
+            _dist = std::move(dist); 
+            _var_name = std::move(var_name);
+        }
+        
+        void set_dist(const Dist& dist, std::string var_name) 
+        { 
+            _dist = dist; 
+            _var_name = std::move(var_name);
+        }
+
+    private:
+        Dist _dist;
+        std::string _var_name;
+
+        static std::string generate_var_name() 
+        {
+            static IdxT count = 0;
+            return "v"s + std::to_string(count++);
+        }
+        
+        template<class IterT> void append_var_name(IterT &v) const { *v++ = _var_name; }
+        template<class IterT> void set_var_name_iter(IterT &v) { _var_name = *v++; } 
+        template<class IterT> void append_lbound(IterT &v) const { *v++ = this->lbound(); } 
+        template<class IterT> void append_ubound(IterT &v) const { *v++ = this->ubound(); } 
+        template<class IterT> void set_lbound_from_iter(IterT& lbounds) { this->set_lbounds(*lbounds++); }
+        template<class IterT> void set_ubound_from_iter(IterT& ubounds) { this->set_ubounds(*ubounds++); }   
+        template<class IterT> void set_bounds_from_iter(IterT& lbounds, IterT &ubounds) { this->set_bounds(*lbounds++, *ubounds++); }
+        template<class IterT> void append_params(IterT& v) const { for(IdxT n=0;n<this->num_parms();n++) *v++ = this->get_param(n); }
+        template<class IterT> void set_params_iter(IterT& v) { for(IdxT n=0;n<this->num_parms();n++) this->set_param(n, *v++); }
+        template<class IterT> void append_param_names(IterT& v) const { v = std::copy(this->param_names.cbegin(), this->param_names.cend(), v); }
+        template<class IterT> double cdf_from_iter(IterT &u) const { return this->cdf(*u++); }
+        template<class IterT> double pdf_from_iter(IterT &u) const { return this->pdf(*u++); }
+        template<class IterT> double llh_from_iter(IterT &u) const { return this->llh(*u++); }
+        template<class IterT> double rllh_from_iter(IterT &u) const { return this->rllh(*u++); }
+
+        void grad_accumulate_idx(const VecT &u, VecT &g, IdxT &k) const 
+        { 
+            g(k) += this->grad(u(k));
+            k++;
+        }
+        
+        void grad2_accumulate_idx(const VecT &u, VecT &g2, IdxT &k) const 
+        {
+            g2(k) += this->grad2(u(k));
+            k++;
+        }
+        
+        void hess_accumulate_idx(const VecT &u, MatT &h, IdxT &k) const 
+        { 
+            h(k,k) += this->grad2(u(k));
+            k++;
+        }
+        
+        void grad_grad2_accumulate_idx(const VecT &u, VecT &g, VecT &g2, IdxT &k) const 
+        { 
+            this->grad_grad2_accumulate(u(k),g(k),g2(k));
+            k++;
+        }
+        
+        void grad_hess_accumulate_idx(const VecT &u, VecT &g, MatT &h, IdxT &k) const 
+        { 
+            this->grad_grad2_accumulate(u(k),g(k),h(k,k)); //hess and grad2 are the same in 1D
+            k++;
+        }
+
+        template<class RngT, class IterT> 
+        void append_sample(RngT &rng, IterT &iter) { *iter++ = this->sample(rng); }
     };
 
+private:    
+    void initialize_from_handle();
 
+    template<class... Ts>
+    void _initialize_from_components(Ts&&... dists);
     
-    /*specialization for empty tuple */
-    /* Protected methods */
-    /* Protected member variables */
     std::unique_ptr<DistTupleHandle> handle;
 
-private:
-    using ParamNameMapT=std::unordered_map<std::string,int>;
-    static bool all_names_unique(StringVecT const &names);
-    void update_bounds();
-    void initialize_from_handle();
+    using ParamNameMapT = std::unordered_map<std::string,int>;    
     static ParamNameMapT initialize_param_name_idx(const StringVecT &names);// throw (ParameterNameUniquenessError)
-    IdxT _num_dim;
-    IdxT _num_params;
-    VecT _lbound; 
-    VecT _ubound; 
     ParamNameMapT param_name_idx;
 };
 
+/* Constructor free functions and adaptor functions */
+
+namespace detail
+{
+    template<class Dist>
+    class dist_adaptor_traits {
+    public:
+        using bounds_adapted_dist = void;
+        static constexpr bool adaptable_bounds = false;
+    };
+    
+    class NormalDist;
+    template<> class dist_adaptor_traits<NormalDist>;
+    class GammalDist;
+    template<> class dist_adaptor_traits<GammaDist>;
+    class ParetolDist;
+    template<> class dist_adaptor_traits<ParetoDist>;
+    class SymmetricBetaDist;
+    template<> class dist_adaptor_traits<SymmetricBetaDist>;
+} /* namespace detail */
+
+/** Type traits class for distribution type DistT.  
+ *
+ * The traits class describes the Adaptor classes applicable to each individual distribution
+ */
+template<class DistT> using DistTraitsT = detail::dist_adaptor_traits<std::decay_t<DistT>>;
+
+/** The bounds-adapted distribution type for a given distribution type DistT
+ * This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
+ */
+template<class DistT> using BoundsAdaptedDistT = typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
+
+
+namespace detail
+{
+    template<class... Ts,std::size_t... I>
+    std::tuple<BoundsAdaptedDistT<Ts>...>
+    make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
+    {
+        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(dists))...);
+    }
+
+    template<class... Ts,std::size_t... I>
+    std::tuple<BoundsAdaptedDistT<Ts>...>
+    make_adapted_bounded_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
+    {
+        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(dists))...);
+    }
+
+    template<class... Ts,std::size_t... I>
+    std::tuple<ComponentDistAdaptor<BoundsAdaptedDistT<Ts>>...>
+    make_component_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
+    {
+        return std::make_tuple(ComponentDistAdaptor<BoundsAdaptedDistT<Ts>>{make_adapted_bounded_dist(std::get<I>(dists))}...);
+    }
+} /* namespace detail */
+
+
+template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+ComponentDistAdaptor<BoundsAdaptedDistT<Dist>>
+make_component_dist(Dist &&dist)
+{
+    return ComponentDistAdaptor<BoundsAdaptedDistT<Dist>>(make_adapted_bounded_dist(std::forward<Dist>(dist)));
+}
+
+template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+meta::ReturnIfT<Dist, DistTraitsT<Dist>::adaptable_bounds>
+make_adapted_bounded_dist(Dist &&dist)
+{ return dist; }
+
+template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+meta::ReturnIfT<BoundsAdaptedDistT<Dist>, DistTraitsT<Dist>::adaptable_bounds>
+make_adapted_bounded_dist(Dist &&dist)
+{ return {std::forward<Dist>(dist)}; }
+
+template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+meta::ReturnIfT<Dist, DistTraitsT<Dist>::adaptable_bounds>
+make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
+{ 
+    dist.set_bounds(lbound,ubound);
+    return dist; 
+}
+
+template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+meta::ReturnIfT<BoundsAdaptedDistT<Dist>, DistTraitsT<Dist>::adaptable_bounds>
+make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
+{ return {std::forward<Dist>(dist),lbound,ubound}; }
+
+template<class... Ts>
+std::tuple<BoundsAdaptedDistT<Ts>...>
+make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists) 
+{
+    return detail::make_adapted_bounded_dist_tuple(std::move(dists), std::index_sequence_for<Ts...>{});
+}
+
+template<class... Ts>
+std::tuple<BoundsAdaptedDistT<Ts>...>
+make_adapted_bounded_dist_tuple(const std::tuple<Ts...>& dists) 
+{
+    return detail::make_adapted_bounded_dist_tuple(dists, std::index_sequence_for<Ts...>{});
+}
 
 
 /* CompositeDist<RngT> template methods */
-
-template<class RngT>
-CompositeDist<RngT>::CompositeDist() 
-    : handle( std::unique_ptr<DistTupleHandle>(new EmptyDistTuple()) )
-{ initialize_from_handle(); }
-
-template<class RngT>
 template<class... Ts>
-CompositeDist<RngT>::CompositeDist(std::tuple<Ts...>&& dist_tuple) 
-    : handle( std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple))) )
+CompositeDist::CompositeDist(std::tuple<Ts...>&& dist_tuple) 
+    : handle{ std::unique_ptr<DistTupleHandle>{
+                new DistTuple<Ts...>( make_component_dist_tuple(std::move(dist_tuple)) ) }}
 { initialize_from_handle(); }
 
-template<class RngT>
-CompositeDist<RngT>::CompositeDist(const CompositeDist &o) 
-    : handle{o.handle->clone()}
+template<class... Ts>
+CompositeDist::CompositeDist(const std::tuple<Ts...>& dist_tuple) 
+    : handle{ std::unique_ptr<DistTupleHandle>{
+                new DistTuple<Ts...>( make_component_dist_tuple(dist_tuple) ) }}
 { initialize_from_handle(); }
 
-template<class RngT>
-CompositeDist<RngT>::CompositeDist(CompositeDist &&o) 
-    : handle{std::move(o.handle)},
-      _num_dim(o._num_dim),
-      _num_params(o._num_params),
-      _lbound{std::move(o._lbound)},
-      _ubound{std::move(o._ubound)},
-      param_name_idx{std::move(o.param_name_idx)}
-{ }
-
-template<class RngT>
-CompositeDist<RngT>& CompositeDist<RngT>::operator=(const CompositeDist &o) 
-{
-    if(this == &o) return *this; //Ignore self-assignment
-    handle = o.handle->clone();
-    initialize_from_handle();
-    return *this;
-}
-
-template<class RngT>
-CompositeDist<RngT>& CompositeDist<RngT>::operator=(CompositeDist &&o) 
-{
-    if(this == &o) return *this; //Ignore self-assignment
-    handle = std::move(o.handle);
-    _num_dim = o._num_dim;
-    _num_params = o._num_params;
-    _lbound = std::move(o._lbound);
-    _ubound = std::move(o._ubound);
-    param_name_idx = std::move(o.param_name_idx);
-    return *this;
-}
-
-template<class RngT>
 template<class... Ts> 
-const std::tuple<Ts...>& CompositeDist<RngT>::get_dist_tuple() const 
+const std::tuple<Ts...>& 
+CompositeDist::get_dist_tuple() const 
 {
     const std::type_info& tuple_id = typeid(std::tuple<Ts...>);
     if (typeid(std::tuple<Ts...>) != handle->type_info()){
@@ -422,756 +732,46 @@ const std::tuple<Ts...>& CompositeDist<RngT>::get_dist_tuple() const
     }
 }
 
-template<class RngT>
 template<class... Ts>
-void CompositeDist<RngT>::initialize(Ts&&... dists)
+void CompositeDist::initialize(Ts&&... dists)
 {
-    handle = std::unique_ptr<DistTupleHandle>( new DistTuple<Ts...>(std::make_tuple(std::forward<Ts>(dists)...)) );
-    initialize_from_handle();
-}
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::initialize(std::tuple<Ts...>&& dist_tuple)
-{
-    handle = std::unique_ptr<DistTupleHandle>(new DistTuple<Ts...>(std::move(dist_tuple)));
-    initialize_from_handle();
-}
-
-template<class RngT>
-void CompositeDist<RngT>::clear()
-{
-    handle = std::unique_ptr<DistTupleHandle>(new EmptyDistTuple());
-    initialize_from_handle();
-}
-
-template<class RngT>
-void CompositeDist<RngT>::initialize_from_handle()
-{
-    _num_dim = handle->num_dim();
-    _num_params = handle->num_params();
-    _lbound = handle->lbound();
-    _ubound = handle->ubound();
-    param_name_idx = initialize_param_name_idx(param_names());
-}
-
-template<class RngT>
-typename CompositeDist<RngT>::ParamNameMapT 
-CompositeDist<RngT>::initialize_param_name_idx(const StringVecT &names)
-{
-    ParamNameMapT name_idx;
-    for(IdxT i=0; i<names.size(); i++) name_idx[names[i]] = i;
-    if(name_idx.size() < names.size()){
-        std::ostringstream msg;
-        msg<<"Parameter names contain duplicate values. Got: "<<names.size()<<" name, but only "<<name_idx.size()<<" are unique. Names:";
-        for(auto n:names) msg<<n<<",";
-        msg<<"]";
-        throw ParameterNameUniquenessError(msg.str());
-    }
-    return name_idx;
-}
-
-
-template<class RngT>
-bool CompositeDist<RngT>::has_param(const std::string &name) const
-{
-    return param_name_idx.find(name) != param_name_idx.end();
-}
-
-template<class RngT>
-double CompositeDist<RngT>::get_param_value(const std::string &name) const
-{
-    auto it = param_name_idx.find(name);
-    if(it == param_name_idx.end()) {
-        std::ostringstream msg;
-        msg << "No parameter found named:"<<name;
-        throw ParameterNameError(msg.str());
-    }
-    return params()[it->second];
-}
-
-template<class RngT>
-int CompositeDist<RngT>::get_param_index(const std::string &name) const
-{
-    auto it = param_name_idx.find(name);
-    if(it == param_name_idx.end()) {
-        std::ostringstream msg;
-        msg << "No parameter found named:"<<name;
-        throw ParameterNameError(msg.str());
-    }
-    return it->second;
-}
-
-
-template<class RngT>
-void CompositeDist<RngT>::set_param_value(const std::string &name, double value)
-{
-    auto it = param_name_idx.find(name);
-    if(it == param_name_idx.end()) {
-        std::ostringstream msg;
-        msg << "No parameter found named:"<<name;
-        throw ParameterNameError(msg.str());
-    }
-    auto ps = params();
-    ps[it->second]=value;
-    set_params(ps);
-}
-
-template<class RngT>
-void CompositeDist<RngT>::rename_param(const std::string &old_name, const std::string &new_name)
-{
-    auto it = param_name_idx.find(old_name);
-    if(it == param_name_idx.end()) {
-        std::ostringstream msg;
-        msg << "rename_param: No parameter found named:"<<old_name;
-        throw ParameterNameError(msg.str());
-    }
-    auto nit = param_name_idx.find(new_name);    
-    if(nit == it) return; //Names are the same.  Do nothing.
-    if(nit != param_name_idx.end()) { //already exists
-        std::ostringstream msg;
-        msg <<"rename_param: Parameter with name:"<<new_name<<" already exists.";
-        throw ParameterNameUniquenessError(msg.str());
-    }
-    
-    auto ns = param_names();
-    int idx = it->second;
-    ns[idx] = new_name;
-    set_param_names(ns);
-}
-
-template<class RngT>
-TypeInfoVecT CompositeDist<RngT>::component_types() const 
-{ return handle->component_types(); }
-
-
-template<class RngT>
-IdxT CompositeDist<RngT>::num_component_dists() const
-{return handle->num_dists();}
-
-template<class RngT>
-IdxT CompositeDist<RngT>::num_dim() const 
-{return _num_dim;}
-
-/** @brief Number of dims of each component as a vector */
-template<class RngT>
-UVecT CompositeDist<RngT>::components_num_dim() const 
-{ return handle->components_num_dim(); }
-
-template<class RngT>
-StringVecT CompositeDist<RngT>::dim_variables() const 
-{ return handle->dim_variables(); }
-
-template<class RngT>
-void CompositeDist<RngT>::set_dim_variables(const StringVecT &vars) 
-{ 
-    if(vars.size() != num_dim()){
-        std::ostringstream msg;
-        msg<<"Got bad dim variables vector size:"<<vars.size()<<" expected:"<<num_dim();
-        throw ParameterValueError(msg.str());
-    }
-    handle->set_dim_variables(vars); 
-}
-
-template<class RngT>
-const VecT& CompositeDist<RngT>::lbound() const 
-{ return _lbound; }
-
-template<class RngT>
-const VecT& CompositeDist<RngT>::ubound() const 
-{ return _ubound; }
-
-template<class RngT>
-void CompositeDist<RngT>::set_lbound(const VecT &new_bound)
-{ 
-    if(new_bound.n_elem != num_dim()) {
-        std::ostringstream msg;
-        msg<<"Got bad lbound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
-        throw ParameterValueError(msg.str());
-    }
-    handle->set_bounds(new_bound, ubound()); 
-    update_bounds(); //Bounds may have changed with parameters
-}
-
-template<class RngT>
-void CompositeDist<RngT>::set_ubound(const VecT &new_bound)
-{ 
-    if(new_bound.n_elem != num_dim()) {
-        std::ostringstream msg;
-        msg<<"Got bad ubound vector size:"<<new_bound.n_elem<<" expected:"<<num_dim();
-        throw ParameterValueError(msg.str());
-    }
-    handle->set_bounds(lbound(), new_bound); 
-    update_bounds(); //Bounds may have changed with parameters
-}
-
-template<class RngT>
-void CompositeDist<RngT>::set_bounds(const VecT &new_lbound,const VecT &new_ubound)
-{ 
-    if(new_lbound.n_elem != num_dim()) {
-        std::ostringstream msg;
-        msg<<"Got bad lbound vector size:"<<new_lbound.n_elem<<" expected:"<<num_dim();
-        throw ParameterValueError(msg.str());
-    }
-    if(new_ubound.n_elem != num_dim()) {
-        std::ostringstream msg;
-        msg<<"Got bad ubound vector size:"<<new_ubound.n_elem<<" expected:"<<num_dim();
-        throw ParameterValueError(msg.str());
-    }
-    handle->set_bounds(new_lbound, new_ubound); 
-    update_bounds(); //Bounds may have changed with parameters
-}
-
-
-/** @brief Strict bounds check for u withing the lbound and ubound */
-template<class RngT>
-bool CompositeDist<RngT>::in_bounds(const VecT &u) const
-{ return arma::all(_lbound<u && u<_ubound); }
-
-template<class RngT>
-IdxT CompositeDist<RngT>::num_params() const 
-{ return _num_params; }
-
-template<class RngT>
-UVecT CompositeDist<RngT>::components_num_params() const 
-{ return handle->components_num_params(); }
-
-template<class RngT>
-VecT CompositeDist<RngT>::params() const 
-{ return handle->params(); } 
-
-template<class RngT>
-void CompositeDist<RngT>::set_params(const VecT &new_params) 
-{
-    if(new_params.n_elem != num_params()) {
-        std::ostringstream msg;
-        msg<<"Got bad params vector size:"<<new_params.n_elem<<" expected:"<<num_params();
-        throw ParameterValueError(msg.str());
-    }
-    handle->set_params(new_params);
+    _initialize_from_components( make_component_dist(std::forward<Ts>(dists)) ... );
 }    
 
-template<class RngT>
-StringVecT CompositeDist<RngT>::param_names() const 
-{ return handle->param_names(); }
+template<class... Ts>
+void CompositeDist::_initialize_from_components(Ts&&... dists)
+{
+    handle = std::unique_ptr<DistTupleHandle>{ new DistTuple<Ts...>(std::forward<Ts>(dists)...) };
+    initialize_from_handle();
+}
 
-template<class RngT>
-void CompositeDist<RngT>::set_param_names(const StringVecT &new_names) 
+template<class... Ts>
+void CompositeDist::initialize(std::tuple<Ts...>&& dist_tuple)
+{
+    handle = std::unique_ptr<DistTupleHandle>{ new DistTuple<Ts...>(make_component_dist_tuple(std::move(dist_tuple))) };
+    initialize_from_handle();
+}
+
+template<class Dist>
+StringVecT CompositeDist::ComponentDistAdaptor<Dist>::param_names() const
 { 
-    if(new_names.size() != num_params()) {
-        std::ostringstream msg;
-        msg<<"Got bad params names vector size:"<<new_names.size()<<" expected:"<<num_params();
-        throw ParameterValueError(msg.str());
-    }
-    param_name_idx = initialize_param_name_idx(new_names); //Checks for uniqueness. Throws ParameterNameUniquenessError
-    handle->set_param_names(new_names);
-}
-
-template<class RngT>
-bool CompositeDist<RngT>::all_names_unique(StringVecT const &names) 
-{ 
-    std::set<std::string> u{names.begin(), names.end()};
-    return names.size() == u.size();
-}
-
-//Functions mapped over underlying distributions
-template<class RngT>
-double CompositeDist<RngT>::cdf(const VecT &u) const 
-{ return handle->cdf(u); }
-
-template<class RngT>
-double CompositeDist<RngT>::pdf(const VecT &u) const 
-{ return handle->pdf(u); }    
-
-template<class RngT>
-double CompositeDist<RngT>::llh(const VecT &u) const 
-{ return handle->llh(u); }
-
-template<class RngT>
-double CompositeDist<RngT>::rllh(const VecT &u) const 
-{ return handle->rllh(u); }
-
-template<class RngT>
-VecT CompositeDist<RngT>::grad(const VecT &u) const 
-{
-    VecT g(_num_dim, arma::fill::zeros);
-    handle->grad_accumulate(u,g);
-    return g;
-}
-
-template<class RngT>
-VecT CompositeDist<RngT>::grad2(const VecT &u) const
-{
-    VecT g2(_num_dim, arma::fill::zeros);
-    handle->grad2_accumulate(u,g2);
-    return g2;
-}
-
-template<class RngT>
-MatT CompositeDist<RngT>::hess(const VecT &u) const 
-{
-    MatT h(_num_dim,_num_dim,arma::fill::zeros);
-    handle->hess_accumulate(u,h);
-    return h;
-}
-    
-template<class RngT>
-void CompositeDist<RngT>::grad_accumulate(const VecT &theta, VecT &grad) const 
-{ return handle->grad_accumulate(theta,grad); }
-
-template<class RngT>
-void CompositeDist<RngT>::grad2_accumulate(const VecT &theta, VecT &grad2) const 
-{ return handle->grad2_accumulate(theta,grad2); }
-
-template<class RngT>
-void CompositeDist<RngT>::hess_accumulate(const VecT &theta, MatT &hess) const 
-{ return handle->hess_accumulate(theta,hess); }
-
-template<class RngT>
-void CompositeDist<RngT>::grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const 
-{ return handle->grad_grad2_accumulate(theta,grad,grad2); }
-
-template<class RngT>
-void CompositeDist<RngT>::grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const 
-{ return handle->grad_hess_accumulate(theta,grad,hess); }
-
-template<class RngT>
-VecT CompositeDist<RngT>::sample(RngT &rng) 
-{ return handle->sample(rng); }
-
-template<class RngT>
-MatT CompositeDist<RngT>::sample(RngT &rng, IdxT num_samples) 
-{ return handle->sample(rng,num_samples); }
-
-template<class RngT>
-VecT CompositeDist<RngT>::llh_components(const VecT &u) const 
-{ return handle->llh_components(u); }
-
-template<class RngT>
-VecT CompositeDist<RngT>::rllh_components(const VecT &u) const 
-{ return handle->rllh_components(u); }
-
-
-template<class RngT>
-void CompositeDist<RngT>::update_bounds()
-{
-    _lbound = handle->lbound();
-    _ubound = handle->ubound();
-}
-
-
-/* CompositeDist<RngT>::DistTuple<Ts...> template methods */
-
-
-template<class RngT>
-template<class... Ts>
-CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(std::tuple<Ts...>&& _dists) :
-    dists(std::move(_dists))
-{ }
-
-template<class RngT>
-template<class... Ts>
-CompositeDist<RngT>::DistTuple<Ts...>::DistTuple(const std::tuple<Ts...>& _dists) :
-    dists(_dists)
-{ }
-
-
-template<class RngT>
-template<class... Ts>
-std::unique_ptr<typename CompositeDist<RngT>::DistTupleHandle> 
-CompositeDist<RngT>::DistTuple<Ts...>::clone() const
-{ return std::make_unique<DistTuple<Ts...>>(dists); }
-
-template<class RngT>
-template<class... Ts>
-const std::type_info& 
-CompositeDist<RngT>::DistTuple<Ts...>::type_info() const
-{ return typeid(dists); }
-
-template<class RngT>
-template<class... Ts>
-constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dists() const
-{ return _num_dists; }
-
-template<class RngT>
-template<class... Ts>
-TypeInfoVecT CompositeDist<RngT>::DistTuple<Ts...>::component_types() const
-{ return {std::type_index(typeid(Ts))...}; }
-
-template<class RngT>
-template<class... Ts>
-constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_dim() const
-{ return _num_dim; }
-
-template<class RngT>
-template<class... Ts>
-UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_dim() const
-{ return {Ts::num_dim()...}; }
-
-template<class RngT>
-template<class... Ts>
-StringVecT CompositeDist<RngT>::DistTuple<Ts...>::dim_variables() const
-{
-    StringVecT vars(_num_dim);
-    append_dim_variables(vars.begin(),IndexT());
-    return vars;
-}
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::set_dim_variables(const StringVecT &vars)
-{ set_dim_variables(vars.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::lbound() const
-{
-    VecT lb(_num_dim);
-    append_lbound(lb.begin(),IndexT());
-    return lb;
-}
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::ubound() const
-{
-    VecT ub(_num_dim);
-    append_ubound(ub.begin(),IndexT());
-    return ub;
-}
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::set_bounds(const VecT &new_lbound, const VecT &new_ubound)
-{ set_bounds(new_lbound.begin(),new_ubound.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-constexpr IdxT CompositeDist<RngT>::DistTuple<Ts...>::num_params() const
-{ return _num_params; }
-
-template<class RngT>
-template<class... Ts>
-UVecT CompositeDist<RngT>::DistTuple<Ts...>::components_num_params() const
-{ return {Ts::num_params()...}; }        
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::params() const
-{
-    VecT params(_num_params);
-    append_params(params.begin(),IndexT());
-    return params;
-}
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::set_params(const VecT &params)
-{ set_params(params.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-StringVecT CompositeDist<RngT>::DistTuple<Ts...>::param_names() const
-{
-    StringVecT names(_num_params);
-    append_param_names(names.begin(),IndexT());
+    StringVecT names = static_cast<const Dist*>(this)->param_names;
+    std::string prefix = _var_name + '.';
+    for(auto &n: names) n.insert(0,prefix);
     return names;
 }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::set_param_names(const StringVecT &names)
-{ set_param_names(names.begin(),IndexT()); }
-        
-template<class RngT>
-template<class... Ts>
-double CompositeDist<RngT>::DistTuple<Ts...>::cdf(const VecT &u) const
-{ return cdf(u.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-double CompositeDist<RngT>::DistTuple<Ts...>::pdf(const VecT &u) const
-{ return pdf(u.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-double CompositeDist<RngT>::DistTuple<Ts...>::llh(const VecT &u) const
-{ return llh(u.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-double CompositeDist<RngT>::DistTuple<Ts...>::rllh(const VecT &u) const
-{ return rllh(u.begin(),IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_accumulate(const VecT &u, VecT &g) const
-{ grad_accumulate(u,g,IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::grad2_accumulate(const VecT &u, VecT &g2) const
-{ grad2_accumulate(u,g2,IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::hess_accumulate(const VecT &u, MatT &h) const
-{ hess_accumulate(u,h,IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const
-{ grad_grad2_accumulate(u,g,g2,IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const
-{ grad_hess_accumulate(u,g,h,IndexT()); }
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng)
-{
-    VecT s(_num_dim);
-    sample(rng, s.begin(), IndexT());
-    return s;
-}
-
-template<class RngT>
-template<class... Ts>
-MatT CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IdxT nSamples)
-{
-    MatT s(_num_dim,nSamples);
-    sample(rng, s.begin(), nSamples, IndexT());
-    return s;
-}
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::llh_components(const VecT &theta) const
-{ return llh_components(theta.begin(), IndexT());}
-
-template<class RngT>
-template<class... Ts>
-VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(const VecT &theta) const
-{ return rllh_components(theta.begin(), IndexT());}
-
-/* CompositeDist<RngT>::DistTuple<Ts...> private template methods
- * These are variadic templates over the indexes and do the actual calls to the component dists
- * This is what ComponentDistAdaptor interface is for
- */
-
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_dim_variables(IterT v, std::index_sequence<I...>) const
-{ 
-    meta::call_in_order( {(std::get<I>(dists).append_var_name(v),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::set_dim_variables(IterT v,std::index_sequence<I...>)
-{ 
-    meta::call_in_order( {(std::get<I>(dists).set_var_name_iter(v),0)...} ); 
-}  
-        
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_lbound(IterT p, std::index_sequence<I...>) const
-{ 
-    meta::call_in_order( {(std::get<I>(dists).append_lbound(p),0)...} ); 
-}
-
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_ubound(IterT p, std::index_sequence<I...>) const
-{ 
-    meta::call_in_order( {(std::get<I>(dists).append_ubound(p),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::set_bounds(IterT lb, IterT ub,std::index_sequence<I...>)
-{ 
-    meta::call_in_order( {(std::get<I>(dists).set_bounds_from_iter(lb,ub),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_params(IterT p, std::index_sequence<I...>) const
-{ 
-    meta::call_in_order( {(std::get<I>(dists).append_params(p),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::set_params(IterT p,std::index_sequence<I...>)
-{ 
-    meta::call_in_order( {(std::get<I>(dists).set_params_iter(p),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::append_param_names(IterT p, std::index_sequence<I...>) const
-{ 
-    meta::call_in_order( {(std::get<I>(dists).append_param_names(p),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::set_param_names(IterT p,std::index_sequence<I...>)
-{ 
-    meta::call_in_order( {(std::get<I>(dists).set_param_names_iter(p),0)...} ); 
-}
-        
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-double CompositeDist<RngT>::DistTuple<Ts...>::cdf(IterT u,std::index_sequence<I...>) const 
-{ 
-    return meta::prod_in_order( {std::get<I>(dists).cdf_from_iter(u)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-double CompositeDist<RngT>::DistTuple<Ts...>::pdf(IterT u,std::index_sequence<I...>) const 
-{ 
-    return meta::prod_in_order( {std::get<I>(dists).pdf_from_iter(u)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-double CompositeDist<RngT>::DistTuple<Ts...>::llh(IterT u,std::index_sequence<I...>) const 
-{ 
-    return meta::sum_in_order( {std::get<I>(dists).llh_from_iter(u)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-double CompositeDist<RngT>::DistTuple<Ts...>::rllh(IterT u,std::index_sequence<I...>) const 
-{ 
-    return meta::sum_in_order( {std::get<I>(dists).rllh_from_iter(u)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_accumulate(const VecT &u, VecT &g,std::index_sequence<I...>) const
-{ 
-    IdxT k=0;
-    meta::call_in_order( {(std::get<I>(dists).grad_accumulate_idx(u,g,k),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::grad2_accumulate(const VecT &u, VecT &g2,std::index_sequence<I...>) const
-{ 
-    IdxT k=0;
-    meta::call_in_order( {(std::get<I>(dists).grad2_accumulate_idx(u,g2,k),0)...} ); 
-}
-
-template<class RngT>
-template<class... Ts>
-template<std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::hess_accumulate(const VecT &u, MatT &m, std::index_sequence<I...>) const
-{
-    IdxT k=0;
-    meta::call_in_order( {(std::get<I>(dists).hess_accumulate_idx(u,m,k),0)...} );
-}
-
-template<class RngT>
-template<class... Ts>
-template<std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2, std::index_sequence<I...>) const
-{ 
-    IdxT k=0;
-    meta::call_in_order( {(std::get<I>(dists).grad_grad2_accumulate_idx(u,g,g2,k),0)...} );
-}
-
-template<class RngT>
-template<class... Ts>
-template<std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::grad_hess_accumulate(const VecT &u, VecT &g, MatT &h,std::index_sequence<I...>) const
-{
-    IdxT k=0;
-    meta::call_in_order( {(std::get<I>(dists).grad_hess_accumulate_idx(u,g,h,k),0)...} );
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IterT s, std::index_sequence<I...>)
-{
-    meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-void CompositeDist<RngT>::DistTuple<Ts...>::sample(RngT &rng, IterT s, IdxT nSamples,std::index_sequence<I...>)
-{
-    for(IdxT n=0; n<nSamples; n++) 
-        meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
-}
-
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-VecT CompositeDist<RngT>::DistTuple<Ts...>::llh_components(IterT theta,std::index_sequence<I...>) const 
-{ 
-    return VecT{std::get<I>(dists).llh_from_iter(theta)...}; 
-}
-
-template<class RngT>
-template<class... Ts>
-template<class IterT, std::size_t... I> 
-VecT CompositeDist<RngT>::DistTuple<Ts...>::rllh_components(IterT theta,std::index_sequence<I...>) const 
-{ 
-    return VecT{std::get<I>(dists).rllh_from_iter(theta)...}; 
-}
-
-
-
-template<class RngT>
-std::ostream& operator<<(std::ostream &out,const CompositeDist<RngT> &comp_dist)
-{
-    out<<"[CompositeDist]:\n";
-    out<<"  NumComponentDists:"<<comp_dist.num_component_dists()<<"\n";
-    out<<"  NumDim:"<<comp_dist.num_dim()<<"\n";
-    out<<"  ComponentNumDim:"<<comp_dist.components_num_dim().t();
-    out<<"  LBound:"<<comp_dist.lbound().t();
-    out<<"  UBound:"<<comp_dist.ubound().t();
-    auto vars=comp_dist.dim_variables();
-    out<<"  Vars:[";
-    for(auto v: vars) out<<v<<",";
-    out<<"]\n";
-
-    out<<"  NumParams:"<<comp_dist.num_params()<<"\n";
-    out<<"  ComponentNumParams:"<<comp_dist.components_num_params().t();
-    out<<"  Params:"<<comp_dist.params().t();
-    auto param_names=comp_dist.param_names();
-    out<<"  ParamDesc:[";
-    for(auto &v: param_names) out<<v<<",";
-    out<<"]\n";
     
-    return out;
+template<class Dist>
+std::string CompositeDist::ComponentDistAdaptor<Dist>::param_name(IdxT i) const
+{
+    DEBUG_ASSERT(i < num_params(), assert::handler{}, "Parameter index out-of-range");
+    std::ostringstream out;
+    out<<_var_name<<"."<< static_cast<const Dist*>(this)->param_names[i];
+    return out.str();
 }
+
+
+/* Protected methods */
 
 
 } /* namespace prior_hessian */

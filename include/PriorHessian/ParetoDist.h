@@ -7,182 +7,142 @@
 #ifndef _PRIOR_HESSIAN_PARETODIST_H
 #define _PRIOR_HESSIAN_PARETODIST_H
 
-#include "PriorHessian/TruncatingDist.h"
+#include <cmath>
+
+#include "PriorHessian/UnivariateDist.h"
+#include "PriorHessian/UpperTruncatedDist.h"
 
 namespace prior_hessian {
 
 /** @brief Pareto dist with infinite upper bound.
  * 
  */
-class ParetoDist : public PositiveSemiInfiniteDist<ParetoDist>
+class ParetoDist : public UnivariateDist
 {
-
 public:
-    ParetoDist();
-    ParetoDist(double alpha, double lbound, std::string var_name);
-    ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc);
-    ParetoDist(double alpha, double lbound, double ubound, std::string var_name);
-    ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
-    constexpr static IdxT num_params();
+    static const StringVecT param_names;
+    static constexpr IdxT num_params() { return 1; }
+    
+    ParetoDist(double alpha=1.0, double lbound=1.0);
     
     double get_param(int idx) const;
+    void set_param(int idx, double val);
+    double alpha() const;
+    void set_alpha(double val);
+    
+    void set_lbound(double lbound);
+        
+    double cdf(double x) const;
+    double icdf(double u) const;
+    double pdf(double x) const;
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
-
+    
+    template<class RngT>
+    double sample(RngT &rng) const;
 protected:
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params_iter(IterT& p);   
-    
+    static double check_alpha(double val);
+    static double check_lbound(double val);
+   
+    double _alpha; //distribution shape
+    double llh_const;    
+
     double compute_llh_const() const;
-    double unbounded_cdf(double x) const;
-    double unbounded_icdf(double u) const;
-    double unbounded_pdf(double x) const;
-
-    /* Member variables */
-    double alpha; //distribution shape
-
-    /* static methods */
-    static void check_params(double alpha_val);
-    static StringVecT make_default_param_desc(std::string var_name);
-    
-    /* Friends! */
-    friend UnivariateDist<ParetoDist>;
-    friend PositiveSemiInfiniteDist<ParetoDist>;
-    friend TruncatingDist<ParetoDist>;
-    template<class RngT> friend class CompositeDist;
 };
 
-inline
-ParetoDist::ParetoDist() :
-    ParetoDist(1,1,INFINITY,"x",make_default_param_desc("x"))
-{ }
+/* A bounded pareto dist uses the UpperTruncatedDist adaptor */
+using BoundedParetoDist = UpperTruncatedDist<ParetoDist>;
 
-inline
-ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name) :
-    ParetoDist(alpha,lbound,INFINITY,var_name,make_default_param_desc(var_name))
-{ }
-
-inline
-ParetoDist::ParetoDist(double alpha, double lbound, std::string var_name, StringVecT&& param_desc) :
-    ParetoDist(alpha,lbound,INFINITY,var_name,std::move(param_desc))
-{ }
-
-inline
-ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name) :
-    ParetoDist(alpha,lbound,ubound,var_name,make_default_param_desc(var_name))
-{ }
-
-inline
-ParetoDist::ParetoDist(double alpha, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
-        PositiveSemiInfiniteDist<ParetoDist>(lbound, ubound, var_name,std::move(param_desc)),
-        alpha(alpha)
+BoundedParetoDist make_bounded_pareto_dist(double alpha, double lbound, double ubound)
 {
-    this->set_bounds(lbound,ubound);
-    this->llh_const = compute_llh_const();
+    return {ParetoDist(alpha,lbound),ubound};
 }
 
-constexpr
-IdxT ParetoDist::num_params()
+namespace detail
+{
+    template<class Dist>
+    class dist_adaptor_traits;
+    
+    template<>
+    class dist_adaptor_traits<ParetoDist> {
+    public:
+        using bounds_adapted_dist = BoundedParetoDist;
+        
+        static constexpr bool adaptable_bounds = false;
+    };
+    
+    template<>
+    class dist_adaptor_traits<BoundedParetoDist> {
+    public:
+        using bounds_adapted_dist = BoundedParetoDist;
+        
+        static constexpr bool adaptable_bounds = true;
+    };
+} /* namespace detail */
+
+inline
+void ParetoDist::set_lbound(double lbound)
 { 
-    return 1; 
+    UnivariateDist::set_lbound(check_lbound(lbound)); 
+    llh_const = compute_llh_const();  //Pareto llh_const depends on lbound.
 }
 
 inline
-double ParetoDist::get_param(int idx) const
-{ 
-    switch(idx){
-        case 0:
-            return alpha;
-        default:
-            std::ostringstream msg;
-            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
-            throw IndexError(msg.str());
-    }
-}
-
-inline
-StringVecT ParetoDist::make_default_param_desc(std::string var_name)
+double ParetoDist::cdf(double x) const
 {
-    return {std::string("alpha_") + var_name};
+    return 1-pow(lbound()/x,_alpha);
 }
 
 inline
-double ParetoDist::unbounded_cdf(double x) const
+double ParetoDist::icdf(double u) const
 {
-    return 1-pow(lbound()/x,alpha);
+    return lbound() / pow(1-u,1/_alpha);
 }
 
 inline
-double ParetoDist::unbounded_icdf(double u) const
+double ParetoDist::pdf(double x) const
 {
-    return lbound() / pow(1-u,1/alpha);
-}
-
-inline
-double ParetoDist::unbounded_pdf(double x) const
-{
-    return alpha/x * pow(lbound()/x,alpha);
-}
-
-inline
-double ParetoDist::compute_llh_const() const
-{
-    return log(alpha) + alpha*log(lbound());
+    return _alpha/x * pow(lbound()/x,_alpha);
 }
 
 inline
 double ParetoDist::rllh(double x) const
 {
-    return -(alpha+1)*log(x);
+    return -(_alpha+1)*log(x);
 }
 
 inline
 double ParetoDist::grad(double x) const
 {
-    return -(alpha+1)/x;
+    return -(_alpha+1)/x;
 }
 
 inline
 double ParetoDist::grad2(double x) const
 {
-    return (alpha+1)/(x*x);
+    return (_alpha+1)/(x*x);
 }
 
 inline
 void ParetoDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
-    double ap1ox = (alpha+1)/x;
+    double x_inv = 1/x;
+    double ap1ox = (_alpha+1)*x_inv;
     g  -= ap1ox ;   // -(alpha+1)/x
-    g2 += ap1ox/x;  // (alpha+1)/x^2
+    g2 += ap1ox*x_inv;  // (alpha+1)/x^2
 }
 
-template<class IterT>
-void ParetoDist::append_params(IterT& p) const 
-{ 
-    *p++ = alpha;
-} 
-
-template<class IterT>
-void ParetoDist::set_params_iter(IterT& p) 
-{ 
-    double alpha_val = *p++;
-    check_params(alpha_val);
-    alpha = alpha_val;
-    llh_const = compute_llh_const();
-}     
-
-inline
-void ParetoDist::check_params(double alpha_val) 
-{ 
-    if(alpha_val<=0 || !std::isfinite(alpha_val)) {
-        std::ostringstream msg;
-        msg<<"ParetoDist::set_params: got bad alpha value:"<<alpha_val;
-        throw PriorHessianError("BadParameter",msg.str());
-    }
+template<class RngT>
+double ParetoDist::sample(RngT &rng) const
+{
+    std::uniform_real_distribution<double> d;
+    double u = 1-d(rng); // u is uniform on (0,1]
+    return lbound()/pow(u,1/_alpha) ;
 }
-    
+
 } /* namespace prior_hessian */
 
 #endif /* _PRIOR_HESSIAN_PARETODIST_H */

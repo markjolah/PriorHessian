@@ -7,199 +7,145 @@
 #ifndef _PRIOR_HESSIAN_GAMMADIST_H
 #define _PRIOR_HESSIAN_GAMMADIST_H
 
-#include <boost/math/distributions/gamma.hpp>
+#include <cmath>
+#include <random>
 
-#include "PriorHessian/TruncatingDist.h"
+#include "PriorHessian/UnivariateDist.h"
+#include "PriorHessian/TruncatedDist.h"
 
 namespace prior_hessian {
 
 /** @brief Single parameter beta distribution where \alpha = \beta, leading to symmetric bounded distribution.  
  * 
- * We parameterize by mean= (kappa*theta) and kappa instead of the normal parameters: 
- * (theta,kappa).  The parameterization by mean is more useful for the context of a prior
- * because the expert users are expected to tune the prior distribution and a mean an shape is more 
- * inuititive then a shape and scale where the scale does not correspond directly to a physical scale of
- * interest in the system or experiment. 
  */
-class GammaDist : public SemiInfiniteDist<GammaDist>
+class GammaDist : public UnivariateDist
 {
 
 public:
-    GammaDist();
-    GammaDist(double mean, double kappa, std::string var_name);
-    GammaDist(double mean, double kappa, std::string var_name, StringVecT&& param_desc);
-    GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name);
-    GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name, StringVecT&& param_desc);
+    static const StringVecT param_names;
+    static constexpr IdxT num_params();
     
-    constexpr static IdxT num_params();
+    GammaDist(double scale=1.0, double shape=1.0);
+    
     double get_param(int idx) const;
+    void set_param(int idx, double val);
+    double scale() const;
+    double shape() const;
+    void set_scale(double val);
+    void set_shape(double val);
+        
+    double cdf(double x) const;
+    double icdf(double u) const;
+    double pdf(double x) const;
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
     void grad_grad2_accumulate(double x, double &g, double &g2) const;
-
+    
+    template<class RngT>
+    double sample(RngT &rng) const;
 protected:
-    static StringVecT make_default_param_desc(std::string var_name);
-    template<class IterT> void append_params(IterT& p) const;
-    template<class IterT> void set_params_iter(IterT& p);   
+    using RngDistT = std::gamma_distribution<double>; //Used for RNG
     
-    double compute_llh_const() const;
-    double unbounded_cdf(double x) const;
-    double unbounded_icdf(double u) const;
-    double unbounded_pdf(double x) const;
+    static double check_scale(double val);
+    static double check_shape(double val);
 
-    using DistT = boost::math::gamma_distribution<double>;
-    double mean; //distribution mean
-    double kappa; //distribution shape
-    DistT dist; //Boost distribution for use in computations of cdf,pdf,icdf    
-    
-    static void check_params(double mean_val, double kappa_val);
-    friend UnivariateDist<GammaDist>;
-    friend SemiInfiniteDist<GammaDist>;
-    friend TruncatingDist<GammaDist>;
-    template<class RngT> friend class CompositeDist;
+    double _scale; //distribution scale
+    double _shape; //distribution shape
+    double llh_const;    
+
+    double compute_llh_const() const;
 };
 
-inline
-GammaDist::GammaDist() :
-    GammaDist(1,1,0,INFINITY,"x",make_default_param_desc("x"))
-{ }
+/* A bounded gamma dist uses the TruncatedDist adaptor */
+using BoundedGammaDist = TruncatedDist<GammaDist>;
 
-inline
-GammaDist::GammaDist(double mean, double kappa, std::string var_name) :
-    GammaDist(mean, kappa, 0, INFINITY, var_name, make_default_param_desc(var_name))
-{ }
-
-inline
-GammaDist::GammaDist(double mean, double kappa, std::string var_name, StringVecT&& param_desc) :
-    GammaDist(mean, kappa, 0, INFINITY, var_name, std::move(param_desc))
-{ }
-
-inline
-GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name) :
-    GammaDist(mean, kappa,  lbound, ubound, var_name, make_default_param_desc(var_name))
-{ }
-
-inline
-GammaDist::GammaDist(double mean, double kappa, double lbound, double ubound, std::string var_name, StringVecT&& param_desc) :
-        SemiInfiniteDist<GammaDist>(lbound,ubound,var_name,std::move(param_desc)),
-        mean(mean),
-        kappa(kappa),
-        dist(kappa,mean/kappa)
-{   
-    this->set_bounds(lbound,ubound);
-    this->llh_const = compute_llh_const();
+BoundedGammaDist make_bounded_gamma_dist(double scale, double shape, double lbound, double ubound)
+{
+    return {GammaDist(scale, shape),lbound,ubound};
 }
+
+namespace detail
+{
+    template<class Dist>
+    class dist_adaptor_traits;
+    
+    template<>
+    class dist_adaptor_traits<GammaDist> {
+    public:
+        using bounds_adapted_dist = BoundedGammaDist;
+        
+        static constexpr bool adaptable_bounds = false;
+    };
+    
+    template<>
+    class dist_adaptor_traits<BoundedGammaDist> {
+    public:
+        using bounds_adapted_dist = BoundedGammaDist;
+        
+        static constexpr bool adaptable_bounds = true;
+    };
+} /* namespace detail */
+
 
 constexpr
 IdxT GammaDist::num_params()
-{ 
-    return 2; 
-}
+{ return 2; }
 
 inline
-double GammaDist::get_param(int idx) const
-{ 
-    switch(idx){
-        case 0:
-            return mean;
-        case 1:
-            return kappa;
-        default:
-            std::ostringstream msg;
-            msg<<"Bad parameter index: "<<idx<<" max:"<<num_params();
-            throw IndexError(msg.str());
-    }
-}
+double GammaDist::scale() const
+{ return _scale; }
 
 inline
-StringVecT GammaDist::make_default_param_desc(std::string var_name)
-{
-    return {std::string("mean_") + var_name, std::string("kappa_") + var_name};
-}
+double GammaDist::shape() const
+{ return _shape; }
 
 inline
-double GammaDist::unbounded_cdf(double x) const
-{
-    return boost::math::cdf(dist,x);
-}
+void GammaDist::set_scale(double val)
+{ _scale = check_scale(val); }
 
 inline
-double GammaDist::unbounded_icdf(double u) const
-{
-    return boost::math::quantile(dist,u);
-}
-
-inline
-double GammaDist::unbounded_pdf(double x) const
-{
-    return boost::math::pdf(dist,x);
-}
-
-inline
-double GammaDist::compute_llh_const() const
-{
-    return -kappa*log(mean/kappa)-lgamma(kappa);
-}
+void GammaDist::set_shape(double val)
+{ _shape = check_shape(val); }
 
 inline
 double GammaDist::rllh(double x) const
 {
-    return (kappa-1)*log(x) - kappa*x/mean;
+    return (_shape-1)*log(x) - x/_scale;
+}
+
+inline
+double GammaDist::llh(double x) const
+{
+    return rllh(x) + llh_const;
 }
 
 inline
 double GammaDist::grad(double x) const
 {
-    return (kappa-1)/x - kappa/mean;
+    return (_shape-1)/x - 1/_scale;
 }
 
 inline
 double GammaDist::grad2(double x) const
 {
-    return -(kappa-1)/(x*x);
+    return -(_shape-1)/(x*x);
 }
 
 inline
 void GammaDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
-    double km1 = kappa-1;
-    g  += km1/x - kappa/mean;
+    double km1 = _shape-1;
+    g  += km1/x - 1/_scale;
     g2 += -km1/(x*x);
 }
 
-template<class IterT>
-void GammaDist::append_params(IterT& p) const 
-{ 
-    *p++ = mean;
-    *p++ = kappa;
-} 
-
-template<class IterT>
-void GammaDist::set_params_iter(IterT& p) 
-{ 
-    double mean_val = *p++;
-    double kappa_val = *p++;
-    check_params(mean_val,kappa_val);
-    mean = mean_val;
-    kappa = kappa_val;
-    dist = DistT(kappa,mean/kappa);
-    llh_const = compute_llh_const();
-}     
-
-inline
-void GammaDist::check_params(double mean_val, double kappa_val) 
-{ 
-    if(mean_val<=0 || !std::isfinite(mean_val)) {
-        std::ostringstream msg;
-        msg<<"GammaDist::set_params: got bad mean value:"<<mean_val;
-        throw PriorHessianError("BadParameter",msg.str());
-    }
-    if(kappa_val<=0 || !std::isfinite(kappa_val)) {
-        std::ostringstream msg;
-        msg<<"GammaDist::set_params: got bad kappa value:"<<kappa_val;
-        throw PriorHessianError("BadParameter",msg.str());
-    }
+template<class RngT>
+double GammaDist::sample(RngT &rng) const
+{
+    RngDistT d(_shape,_scale);
+    return d(rng);
 }
 
 } /* namespace prior_hessian */

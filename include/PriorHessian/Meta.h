@@ -19,8 +19,10 @@ namespace prior_hessian {
  * 
  */
 namespace meta {
-    using IntT = uint64_t;
-    //inline void call_in_order() { }
+
+    /** NOOP function which is used to ensure call order on a variadic sequence of function calls 
+     *
+     */
     template<class T>
     void call_in_order(std::initializer_list<T>) 
     { }
@@ -32,16 +34,65 @@ namespace meta {
     template<class T>
     constexpr T prod_in_order(std::initializer_list<T> L) 
     { return std::accumulate(L.begin(),L.end(),T{1},std::multiplies<T>()); }
+    
+    template<class...> struct conjunction : std::true_type { };
+    template<class B1> struct conjunction<B1> : B1 { };
+    template<class B1, class... Bn>
+    struct conjunction<B1, Bn...> 
+        : std::conditional_t<bool(B1::value), conjunction<Bn...>, B1> {};
+    
+    template<class...> struct disjunction : std::true_type { };
+    template<class B1> struct disjunction<B1> : B1 { };
+    template<class B1, class... Bn>
+    struct disjunction<B1, Bn...> 
+        : std::conditional_t<bool(B1::value), disjunction<Bn...>, B1> {};
 
+    template<template <typename...> class, typename>
+    struct is_template_of : std::false_type { };
+
+    template<template <typename...> class ClassTemplate, typename... Ts>
+    struct is_template_of<ClassTemplate, ClassTemplate<Ts...>> : std::true_type { };
+
+    template<class T,class BaseT> 
+    using EnableIfSubclassT = std::enable_if_t<
+        std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value >;
+
+    template<class ReturnT, class T,class BaseT> 
+    using ReturnIfSubclassT = std::enable_if_t<
+        std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value, ReturnT>;
+
+    template<class BaseT, class... Ts> 
+    using EnableIfIsSuperclassOfAllT = std::enable_if_t<conjunction< 
+        std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<Ts>> ... >::value >;
+
+    template<class T, template <typename...> class ClassTemplate> 
+    using EnableIfInstatiatedFromT = std::enable_if_t<
+                is_template_of<ClassTemplate, std::remove_reference_t<T>>::value >;
+
+    template<template <typename> class ClassTemplate, class... Ts> 
+    using EnableIfIsTemplateForAllT = std::enable_if_t< conjunction< 
+        is_template_of<ClassTemplate,std::remove_reference_t<Ts>> ... >::value >;
+
+    template<class T> 
+    using EnableIfIsNotTupleT = std::enable_if_t< !is_template_of<std::tuple,std::remove_reference_t<T>>::value >;
+
+    template<class... Ts> 
+    using EnableIfAllAreNotTupleT = std::enable_if_t< !disjunction< 
+        is_template_of<std::tuple,std::remove_reference_t<Ts>>... >::value >;
+
+    template<class SelfT, class T> 
+    using EnableConstructorIfIsNotTupleAndIsNotSelfT = std::enable_if_t< 
+                                                        !is_template_of<std::tuple,std::remove_reference_t<T>>::value 
+                                                     && !std::is_same<std::decay_t<T>,SelfT>::value >;
+
+    template<class SelfT, class... Ts> 
+    using EnableConstructorIfAllAreNotTupleAndAreNotSelfT = std::enable_if_t< 
+                                                        !disjunction<is_template_of<std::tuple,std::remove_reference_t<Ts>>...>::value
+                                                     && !disjunction<std::is_same<std::decay_t<Ts>,SelfT>...>::value >;
     
-    constexpr IntT unordered_sum() { return 0;}
-    
-    template<class T>
-    constexpr T unordered_sum(T i) { return i;}
-    
-    template<class T, class... Ts>
-    constexpr auto unordered_sum(T i,Ts... args) 
-    { return i + unordered_sum(args...);}
+    template<class ReturnT, class BoolT> 
+    using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
+
 }
 
 } /* namespace prior_hessian */
