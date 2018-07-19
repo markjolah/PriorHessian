@@ -230,9 +230,8 @@ TYPED_TEST(BoundsAdaptedDistTest, set_lbound) {
 
 TYPED_TEST(BoundsAdaptedDistTest, sample_bounds) {
     auto &dist = this->dist;
-    double median = dist.median();
-    double lbound = env->sample_real(median/2, median*2);
-    double ubound = env->sample_real(lbound+1, lbound*5);
+    double lbound = env->sample_real(dist.icdf(0.01), dist.icdf(0.499));
+    double ubound = env->sample_real(dist.icdf(0.501), dist.icdf(0.999));
     dist.set_bounds(lbound,ubound);
     for(int n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
@@ -275,9 +274,8 @@ TYPED_TEST(BoundsAdaptedDistTest, set_bounds_cdf) {
     auto &dist = this->dist;
     auto dist_copy = dist;
     ASSERT_EQ(dist,dist_copy); //Sanity check
-    double median = dist.median();
-    double lbound = env->sample_real(median/2, median*2);
-    double ubound = env->sample_real(lbound+1, lbound*5);
+    double lbound = env->sample_real(dist.icdf(0.01), dist.icdf(0.45));
+    double ubound = env->sample_real(dist.icdf(0.51), dist.icdf(0.999));
     dist.set_ubound(ubound);
     EXPECT_EQ(dist.cdf(ubound),1)<<"bad cdf at ubound: "<<ubound;
     if(std::isfinite(dist.lbound())) {
@@ -293,12 +291,4 @@ TYPED_TEST(BoundsAdaptedDistTest, set_bounds_cdf) {
     EXPECT_EQ(dist,dist_copy);  //Should arrive at same distrbution by either order of bounds setting
 }
 
-// TEST_F(NormalDistTest, set_bounds_cdf) {
-//     double ubound = 20;
-//     dist.set_ubound(ubound);
-//     EXPECT_EQ(dist.cdf(ubound),1);
-//     double lbound = 0;
-//     dist.set_lbound(lbound);
-//     EXPECT_EQ(dist.cdf(lbound),0);
-// }
 

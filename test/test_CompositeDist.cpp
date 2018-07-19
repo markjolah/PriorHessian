@@ -267,7 +267,7 @@ TYPED_TEST(CompositeDistTest, initialize_from_rvalue_dists) {
     CompositeDist &composite = this->composite;
     CompositeDist new_composite;
     auto tup = this->dists;
-    initialize_from_dists(new_composite, tup);
+    initialize_from_dists(new_composite, std::move(tup));
     check_composite_dists_equal(composite,new_composite);
 }
 
