@@ -18,7 +18,7 @@ const StringVecT ParetoDist::param_names = { "alpha" };
 /* Constructors */
 ParetoDist::ParetoDist(double alpha, double lbound) 
     : UnivariateDist(check_lbound(lbound),INFINITY),
-      _alpha(check_alpha(alpha)),
+      alpha_(check_alpha(alpha)),
       llh_const(compute_llh_const())
 { }
 
@@ -26,14 +26,14 @@ ParetoDist::ParetoDist(double alpha, double lbound)
     
 double ParetoDist::compute_llh_const() const
 {
-    return log(_alpha) + _alpha*log(lbound());
+    return log(alpha_) + alpha_*log(lbound());
 }
 
 double ParetoDist::get_param(int idx) const
 { 
     switch(idx){
         case 0:
-            return _alpha;
+            return alpha_;
         default:
             //Don't handle indexing errors.
             return std::numeric_limits<double>::quiet_NaN();

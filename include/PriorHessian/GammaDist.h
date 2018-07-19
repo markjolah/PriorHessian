@@ -23,21 +23,30 @@ class GammaDist : public UnivariateDist
 
 public:
     static const StringVecT param_names;
-    static constexpr IdxT num_params();
+    static constexpr IdxT num_params() { return 2; }
     
     GammaDist(double scale=1.0, double shape=1.0);
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    double scale() const;
-    double shape() const;
-    void set_scale(double val);
-    void set_shape(double val);
+    VecT params() const { return {_scale, _shape}; }
+    void set_params(const VecT &p) 
+    { 
+        _scale = check_scale(p[0]);  
+        _shape = check_shape(p[1]); 
+    }
+    bool operator==(const GammaDist &o) const { return _scale == o._scale && _shape == o._shape; }
+    bool operator!=(const GammaDist &o) const { return !this->operator==(o);}
+
+    double scale() const { return _scale; }
+    double shape() const { return _shape; }
+    void set_scale(double val) { _scale = check_scale(val); }
+    void set_shape(double val) { _shape = check_shape(val); }
         
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const;
+    double llh(double x) const { return rllh(x) + llh_const; }
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -61,6 +70,7 @@ protected:
 /* A bounded gamma dist uses the TruncatedDist adaptor */
 using BoundedGammaDist = TruncatedDist<GammaDist>;
 
+inline
 BoundedGammaDist make_bounded_gamma_dist(double scale, double shape, double lbound, double ubound)
 {
     return {GammaDist(scale, shape),lbound,ubound};
@@ -89,36 +99,10 @@ namespace detail
 } /* namespace detail */
 
 
-constexpr
-IdxT GammaDist::num_params()
-{ return 2; }
-
-inline
-double GammaDist::scale() const
-{ return _scale; }
-
-inline
-double GammaDist::shape() const
-{ return _shape; }
-
-inline
-void GammaDist::set_scale(double val)
-{ _scale = check_scale(val); }
-
-inline
-void GammaDist::set_shape(double val)
-{ _shape = check_shape(val); }
-
 inline
 double GammaDist::rllh(double x) const
 {
     return (_shape-1)*log(x) - x/_scale;
-}
-
-inline
-double GammaDist::llh(double x) const
-{
-    return rllh(x) + llh_const;
 }
 
 inline

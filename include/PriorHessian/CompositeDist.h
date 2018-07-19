@@ -18,8 +18,9 @@
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/util.h"
 #include "PriorHessian/PriorHessianError.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
 
-#include "ParallelRngManager/AnyRng/AnyRng.h"
+#include "PriorHessian/AnyRng/AnyRng.h"
 
 namespace prior_hessian {
 
@@ -54,43 +55,76 @@ namespace prior_hessian {
 
 class CompositeDist
 {
+    template<class DistT>
+    class ComponentDistAdaptor;
+    
 public:
-    using AnyRngT = any_rng::AnyRngT;
+    using AnyRngT = any_rng::AnyRng<std::size_t>;
     
     CompositeDist();
     
     /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
-    template<class... Ts,typename=meta::EnableConstructorIfAllAreNotTupleAndAreNotSelfT<CompositeDist,Ts...>>
-    explicit CompositeDist(Ts&&... dists);
-    template<class... Ts>
-    explicit CompositeDist(std::tuple<Ts...>&& dist_tuple);
-    template<class... Ts>
-    explicit CompositeDist(const std::tuple<Ts...>& dist_tuple);
+    template<class... Ts, meta::ConstructableIfAllAreNotTupleAndAreNotSelfT<CompositeDist,Ts...> = true>
+    explicit CompositeDist(Ts&&... dists)   
+        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} }
+    { initialize_from_handle(); }
     
-    void initialize();
+    template<class... Ts>
+    explicit CompositeDist(std::tuple<Ts...>&& dist_tuple)
+        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} }
+    { initialize_from_handle(); }
+
+    template<class... Ts>
+    explicit CompositeDist(const std::tuple<Ts...>& dist_tuple)
+        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} }
+    { initialize_from_handle(); }
+    
+    void initialize() { clear(); }
+    void initialize(const std::tuple<>&) { clear(); }
+    void initialize(std::tuple<>&&) { clear(); }
+    
     template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
-    void initialize(Ts&&... dists);
-    template<class... Ts>
-    void initialize(std::tuple<Ts...>&& dist_tuple);
-    template<class... Ts>
-    void initialize(const std::tuple<Ts...>& dist_tuple);
+    void initialize(Ts&&... dists)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
+        initialize_from_handle();
+    }
+
+    template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
+    void initialize(std::tuple<Ts...>&& dist_tuple)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
+        initialize_from_handle();
+    }
+
     
-    CompositeDist(const CompositeDist &)
+    template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
+    void initialize(const std::tuple<Ts...>& dist_tuple)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
+        initialize_from_handle();
+    }
+    
+    CompositeDist(const CompositeDist &);
     CompositeDist& operator=(const CompositeDist &);     
     CompositeDist(CompositeDist&&);
     CompositeDist& operator=(CompositeDist&&);  
-    
-    void clear()
-    {
-        handle = std::unique_ptr<DistTupleHandle>(new EmptyDistTuple());
-        initialize_from_handle();
-    }
+
+    void clear();
        
     template<class... Ts> 
     const std::tuple<Ts...>& get_dist_tuple() const; 
     
+    bool is_empty() const { return handle->num_dists()==0; }
+    operator bool() const { return handle->num_dists()>0; }
     IdxT num_component_dists() const { return handle->num_dists(); }
     TypeInfoVecT component_types() const { return handle->component_types(); }
+    
+    bool operator==(const CompositeDist &o) const;
+    bool operator!=(const CompositeDist &o) const { return !this->operator==(o); }
     
     /* Dimensionality and variable names */
     IdxT num_dim() const { return handle->num_dim(); }
@@ -100,18 +134,18 @@ public:
 
     
     /* Bounds */
-    const VecT& lbound() const { return handle->lbound(); }
-    const VecT& ubound() const { return handle->ubound(); }
-    bool in_bounds(const VecT &u) const { return arma::all(_lbound<u && u<_ubound); }
-    void set_lbound(const VecT &hew_bound) { handle->set_lbound(new_bound); }
-    void set_ubound(const VecT &hew_bound) { handle->set_ubound(new_bound); }
-    void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) { handle->set_bounds(new_lbound, new_ubound); }
+    VecT lbound() const { return handle->lbound(); }
+    VecT ubound() const { return handle->ubound(); }
+    bool in_bounds(const VecT &u) const { return arma::all(lbound()<u && u<ubound()); }
+    void set_lbound(const VecT &new_bound) { handle->set_lbound(new_bound); }
+    void set_ubound(const VecT &new_bound) { handle->set_ubound(new_bound); }
+    void set_bounds(const VecT &new_lbound,const VecT &new_ubound) { handle->set_bounds(new_lbound, new_ubound); }
 
     /* Distribution Parameters */
     IdxT num_params() const { return handle->num_params(); }
     UVecT components_num_params() const { return handle->components_num_params(); }
     VecT params() const { return handle->params(); } 
-    void set_params(const VecT &params) { handle->set_params(new_params); }
+    void set_params(const VecT &new_params) { handle->set_params(new_params); }
 
     /* Distribution Parameter Descriptions (names) */
     StringVecT param_names() const { return handle->param_names(); }
@@ -129,21 +163,21 @@ public:
     double rllh(const VecT &u) const { return handle->rllh(u); }
     VecT grad(const VecT &u) const
     {
-        VecT g(_num_dim, arma::fill::zeros);
+        VecT g(num_dim(), arma::fill::zeros);
         handle->grad_accumulate(u,g);
         return g;
     }
 
     VecT grad2(const VecT &u) const
     {
-        VecT g2(_num_dim, arma::fill::zeros);
+        VecT g2(num_dim(), arma::fill::zeros);
         handle->grad2_accumulate(u,g2);
         return g2;
     }
 
     MatT hess(const VecT &u) const
     {
-        MatT h(_num_dim,_num_dim,arma::fill::zeros);
+        MatT h(num_dim(),num_dim(),arma::fill::zeros);
         handle->hess_accumulate(u,h);
         return h;
     }
@@ -154,11 +188,11 @@ public:
      * 
      * All this technology should make these calls very close to custom coded grad and hess calls for any combination of dists.
      */
-    void grad_accumulate(const VecT &u, VecT &grad) const { return handle->grad_accumulate(theta,grad); }
-    void grad2_accumulate(const VecT &u, VecT &grad2) const { return handle->grad2_accumulate(theta,grad2); }
-    void hess_accumulate(const VecT &u, MatT &hess) const { return handle->hess_accumulate(theta,hess); }
-    void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const { return handle->grad_grad2_accumulate(theta,grad,grad2); }
-    void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const { return handle->grad_hess_accumulate(theta,grad,hess); }
+    void grad_accumulate(const VecT &theta, VecT &grad) const { return handle->grad_accumulate(theta,grad); }
+    void grad2_accumulate(const VecT &theta, VecT &grad2) const { return handle->grad2_accumulate(theta,grad2); }
+    void hess_accumulate(const VecT &theta, MatT &hess) const { return handle->hess_accumulate(theta,hess); }
+    void grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const { return handle->grad_grad2_accumulate(theta,grad,grad2); }
+    void grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const { return handle->grad_hess_accumulate(theta,grad,hess); }
     //Convenience methods for the lazy.
     VecT make_zero_grad() const { return {num_dim(),arma::fill::zeros}; }
     MatT make_zero_hess() const { return {num_dim(),num_dim(),arma::fill::zeros}; }
@@ -166,6 +200,21 @@ public:
     VecT sample(AnyRngT &rng) { return handle->sample(rng); }
     MatT sample(AnyRngT &rng, IdxT num_samples) { return handle->sample(rng,num_samples); }
 
+    template<class RngT>
+    VecT sample(RngT &&rng) 
+    { 
+        AnyRngT anyrng{std::forward<RngT>(rng)};
+        return handle->sample(anyrng); 
+    }
+
+    template<class RngT>
+    MatT sample(RngT &&rng, IdxT num_samples) 
+        { 
+        AnyRngT anyrng{std::forward<RngT>(rng)};
+        return handle->sample(anyrng,num_samples); 
+    }
+
+    
     /* Per-component values for debugging and plotting purposes */
     VecT llh_components(const VecT &u) const { return handle->llh_components(u); }
     VecT rllh_components(const VecT &u) const { return handle->rllh_components(u); }
@@ -180,6 +229,7 @@ private:
         virtual ~DistTupleHandle() = default;
         virtual std::unique_ptr<DistTupleHandle> clone() const = 0;
         virtual const std::type_info& type_info() const = 0;
+        virtual bool is_equal(const DistTupleHandle &) const =0;
         virtual IdxT num_dists() const = 0;
         virtual TypeInfoVecT component_types() const = 0;
         virtual IdxT num_dim() const = 0;
@@ -213,23 +263,29 @@ private:
     
     template<class... Ts>
     class DistTuple : public DistTupleHandle
-    {
+    {        
         using IndexT = std::index_sequence_for<Ts...>;
         constexpr static IdxT _num_dists = sizeof...(Ts);
-        constexpr static IdxT _num_dim = meta::unordered_sum(Ts::num_dim()...);
-        constexpr static IdxT _num_params = meta::unordered_sum(Ts::num_params()...);
+        constexpr static IdxT _num_dim = meta::sum_in_order({Ts::num_dim()...});
+        constexpr static IdxT _num_params = meta::sum_in_order({Ts::num_params()...});
         using StaticSizeArrayT = std::array<IdxT,_num_dists>;
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
     public:  
-        explicit DistTuple(const std::tuple<Ts...> &dists) : dists(std::move(_dists)) { }
-        explicit DistTuple(std::tuple<Ts...>&& dists) : dists(_dists) { }
+        explicit DistTuple(const std::tuple<Ts...> &_dists) : dists{std::move(_dists)} { }
+        explicit DistTuple(std::tuple<Ts...>&& _dists) : dists{_dists} { }
         
+        template<meta::ConstructableIfIsTemplateForAllT<ComponentDistAdaptor,Ts...> = true>
+        explicit DistTuple(Ts&&... _dists) : dists{std::make_tuple(std::forward<Ts>(_dists)...)} { }
+                
         const std::type_info& type_info() const override { return typeid(dists); }
         std::unique_ptr<DistTupleHandle> clone() const override { return std::make_unique<DistTuple<Ts...>>(dists); }
-        constexpr IdxT num_dists() const override { return _num_dists; }
-        constexpr IdxT num_dim() const override { return _num_dim; }
-        constexpr IdxT num_params() const override { return _num_params; }
+        bool is_equal(const DistTupleHandle &o) const override 
+        {  return is_equal(static_cast<const DistTuple<Ts...> &>(o), IndexT{}); }
+            
+        IdxT num_dists() const override { return _num_dists; }
+        IdxT num_dim() const override { return _num_dim; }
+        IdxT num_params() const override { return _num_params; }
         UVecT components_num_dim() const override { return {Ts::num_dim()...}; }
         UVecT components_num_params() const override { return {Ts::num_params()...}; }
         TypeInfoVecT component_types() const override { return {std::type_index(typeid(Ts))...}; }
@@ -257,9 +313,9 @@ private:
             return ub;
         }
         
-        void set_lbound(const VecT &hew_bound) override { set_lbound(new_bound.begin(), IndexT{}); }
-        void set_ubound(const VecT &hew_bound) override { set_ubound(new_bound.begin(), IndexT{}); }
-        void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) override { set_bounds(new_lbound.begin(), new_ubound.begin(), IndexT{}); }
+        void set_lbound(const VecT &new_bound) override { set_lbound(new_bound.begin(), IndexT{}); }
+        void set_ubound(const VecT &new_bound) override { set_ubound(new_bound.begin(), IndexT{}); }
+        void set_bounds(const VecT &new_lbound,const VecT &new_ubound) override { set_bounds(new_lbound.begin(), new_ubound.begin(), IndexT{}); }
 
         VecT params() const override
         {
@@ -287,27 +343,31 @@ private:
         void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { grad_grad2_accumulate(u,g,g2,IndexT()); }
         void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { grad_hess_accumulate(u,g,h,IndexT()); }
         
-        VecT sample(RngT &rng) override
+        VecT sample(AnyRngT &rng) override
         {
             VecT s(_num_dim);
             sample(rng, s.begin(), IndexT());
             return s;
         }
         
-        MatT sample(RngT &rng, IdxT nSamples) override
+        MatT sample(AnyRngT &rng, IdxT nSamples) override
         {
             MatT s(_num_dim,nSamples);
             sample(rng, s.begin(), nSamples, IndexT());
             return s;
         }
         
-        VecT llh_components(const VecT &u) const override { return llh_components(theta.begin(), IndexT());}
-        VecT rllh_components(const VecT &u) const override { return rllh_components(theta.begin(), IndexT());}
+        VecT llh_components(const VecT &theta) const override { return llh_components(theta.begin(), IndexT());}
+        VecT rllh_components(const VecT &theta) const override { return rllh_components(theta.begin(), IndexT());}
 
     private:
         /* Data members */
         std::tuple<Ts...> dists;
         
+        template<std::size_t... I> 
+        bool is_equal(const DistTuple<Ts...> &o, std::index_sequence<I...>) const
+        { return meta::logical_and_in_order( {std::get<I>(dists) == std::get<I>(o.dists)...}); }
+
         template<class IterT, std::size_t... I> 
         void append_dim_variables(IterT v, std::index_sequence<I...>) const
         { meta::call_in_order( {(std::get<I>(dists).append_var_name(v),0)...} ); }
@@ -404,7 +464,7 @@ private:
         }
 
         template<class IterT, std::size_t... I> 
-        void sample(AnyRngT &rng, IterT s, std::index_sequence<I...>);
+        void sample(AnyRngT &rng, IterT s, std::index_sequence<I...>)
         { meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} ); }
 
         template<class IterT, std::size_t... I> 
@@ -432,10 +492,11 @@ private:
         
         const std::type_info& type_info() const override {return typeid(std::tuple<>);}
         std::unique_ptr<DistTupleHandle> clone() const override {return std::make_unique<EmptyDistTuple>();}
+        bool is_equal(const DistTupleHandle &o) const override { return o.num_dists()==0; }
         
-        constexpr IdxT num_dists() const override {return 0;}
-        constexpr IdxT num_dim() const override {return 0;}
-        constexpr IdxT num_params() const override {return 0;}
+        IdxT num_dists() const override {return 0;}
+        IdxT num_dim() const override {return 0;}
+        IdxT num_params() const override {return 0;}
         UVecT components_num_dim() const override {return {};}
         UVecT components_num_params() const override {return {};}
         TypeInfoVecT component_types() const override {return {};}
@@ -455,21 +516,21 @@ private:
         void set_params(const VecT &params) override
             {if(!params.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
         StringVecT param_names() const override {return {};}
-        double cdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        double pdf(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        double llh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        double rllh(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double cdf(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double pdf(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double llh(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        double rllh(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
 
-        void grad_accumulate(const VecT &u, VecT &g) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        void grad2_accumulate(const VecT &u, VecT &g2) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        void hess_accumulate(const VecT &u, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        VecT sample(AnyRngT &rng) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        MatT sample(AnyRngT &rng, IdxT nSamples) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad_accumulate(const VecT&, VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad2_accumulate(const VecT&, VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void hess_accumulate(const VecT&, MatT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad_grad2_accumulate(const VecT&, VecT&, VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        void grad_hess_accumulate(const VecT&, VecT&, MatT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT sample(AnyRngT&) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        MatT sample(AnyRngT&, IdxT) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
 
-        VecT llh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        VecT rllh_components(const VecT &u) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT llh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT rllh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
     }; /* class EmptyDistTuple */
 
 
@@ -478,7 +539,7 @@ private:
      * 
      */
     template<class Dist>
-    class ComponentDistAdaptor : public Dist {   
+    class ComponentDistAdaptor : public Dist {
     public:
         ComponentDistAdaptor() 
             : ComponentDistAdaptor(Dist{}, generate_var_name()) { }
@@ -499,20 +560,32 @@ private:
             : ComponentDistAdaptor(dist, std::move(var_name[0])) { }
         
         ComponentDistAdaptor(Dist &&dist, std::string &&var_name)  
-            : _dist(std::move(dist)), _var_name{std::move(var_name)} { }
+            : _dist(std::move(dist)), 
+              _var_name{std::move(var_name)}
+        { }
         
         ComponentDistAdaptor(const Dist &dist, std::string var_name)  
-            : _dist(dist), _var_name{std::move(var_name)} { }
+            : _dist(dist), 
+              _var_name{std::move(var_name)}
+        { }
         
         static constexpr IdxT num_dim() { return Dist::num_dim(); }
         static constexpr IdxT num_params() { return Dist::num_params(); }
         const StringVecT& var_names() const { return {_var_name}; }
-        const std::string& var_name(IdxT i) const { return _var_name; }
-        void set_var_names(StringVecT var_name) { _var_name = std::move(var_names[0]); };
-        void set_var_name(IdxT i, std::string new_var_name) { _var_name = std::move(new_var_name); }
+        const std::string& var_name(IdxT) const { return _var_name; }
+        void set_var_names(StringVecT var_name) { _var_name = std::move(var_name[0]); };
+        void set_var_name(IdxT, std::string new_var_name) { _var_name = std::move(new_var_name); }
         
-        StringVecT param_names() const;
-        std::string param_name(IdxT i) const;
+        StringVecT param_names() const
+        { 
+            StringVecT names;
+            for(auto &n: Dist::param_names) names.emplace_back(format_param_name(n));
+            return names;
+        }
+        
+        std::string param_name(IdxT i) const
+        { return format_param_name(Dist::param_names[i]); }
+            
             
         Dist& get_dist() { return _dist; }
         const Dist& get_dist() const { return _dist; }
@@ -530,26 +603,25 @@ private:
             _var_name = std::move(var_name);
         }
 
-    private:
-        Dist _dist;
-        std::string _var_name;
-
-        static std::string generate_var_name() 
-        {
-            static IdxT count = 0;
-            return "v"s + std::to_string(count++);
-        }
-        
         template<class IterT> void append_var_name(IterT &v) const { *v++ = _var_name; }
         template<class IterT> void set_var_name_iter(IterT &v) { _var_name = *v++; } 
         template<class IterT> void append_lbound(IterT &v) const { *v++ = this->lbound(); } 
         template<class IterT> void append_ubound(IterT &v) const { *v++ = this->ubound(); } 
-        template<class IterT> void set_lbound_from_iter(IterT& lbounds) { this->set_lbounds(*lbounds++); }
-        template<class IterT> void set_ubound_from_iter(IterT& ubounds) { this->set_ubounds(*ubounds++); }   
-        template<class IterT> void set_bounds_from_iter(IterT& lbounds, IterT &ubounds) { this->set_bounds(*lbounds++, *ubounds++); }
-        template<class IterT> void append_params(IterT& v) const { for(IdxT n=0;n<this->num_parms();n++) *v++ = this->get_param(n); }
-        template<class IterT> void set_params_iter(IterT& v) { for(IdxT n=0;n<this->num_parms();n++) this->set_param(n, *v++); }
-        template<class IterT> void append_param_names(IterT& v) const { v = std::copy(this->param_names.cbegin(), this->param_names.cend(), v); }
+        template<class IterT> void set_lbound_from_iter(IterT& lbounds) { this->set_lbound(*lbounds++); }
+        template<class IterT> void set_ubound_from_iter(IterT& ubounds) { this->set_ubound(*ubounds++); }   
+        
+        template<class IterT> void set_bounds_from_iter(IterT& lbounds, IterT &ubounds) 
+        { this->set_bounds(*lbounds++, *ubounds++); }
+        
+        template<class IterT> void append_params(IterT& v) const 
+        { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->get_param(n); }
+        
+        template<class IterT> void set_params_iter(IterT& v) 
+        { for(IdxT n=0; n<Dist::num_params(); n++) this->set_param(n, *v++); }
+        
+        template<class IterT> void append_param_names(IterT& v) const
+        { for(auto& n: Dist::param_names) *v++ = format_param_name(n); }
+        
         template<class IterT> double cdf_from_iter(IterT &u) const { return this->cdf(*u++); }
         template<class IterT> double pdf_from_iter(IterT &u) const { return this->pdf(*u++); }
         template<class IterT> double llh_from_iter(IterT &u) const { return this->llh(*u++); }
@@ -587,136 +659,72 @@ private:
 
         template<class RngT, class IterT> 
         void append_sample(RngT &rng, IterT &iter) { *iter++ = this->sample(rng); }
+    private:
+        Dist _dist;
+        std::string _var_name;
+        
+        static std::string generate_var_name() 
+        {
+            static IdxT count = 0;
+            return std::string("v") + std::to_string(count++);
+        }
+        
+        std::string format_param_name(const std::string &param_name) const 
+        { return _var_name+'.'+param_name; }
     };
 
 private:    
-    void initialize_from_handle();
+    template<class DistT> using ComponentDistT = 
+        ComponentDistAdaptor<typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist>;
+
+    void initialize_from_handle(); //Called on every new handle initialization
+    
+    
+    /* make_component_dist() */
+    template<class DistT>
+    meta::ReturnIfInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
+    make_component_dist(DistT&& dist)
+    { return make_adapted_bounded_dist(dist); }
+    
+    template<class DistT>
+    meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
+    make_component_dist(DistT&& dist)
+    { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
+    
+    
+    /* make_component_dist_tuple() */
+    template<class... Ts>
+    std::tuple<ComponentDistT<Ts>...>
+    make_component_dist_tuple(const std::tuple<Ts...>& dists)
+    { return make_component_dist_tuple(dists,std::index_sequence_for<Ts...>{}); }
+    
+    template<class... Ts,std::size_t... I>
+    std::tuple<ComponentDistT<Ts>...>
+    make_component_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
+    { return std::make_tuple(ComponentDistT<Ts>{make_adapted_bounded_dist(std::get<I>(dists))}...); }
 
     template<class... Ts>
-    void _initialize_from_components(Ts&&... dists);
+    std::tuple<ComponentDistT<Ts>...>
+    make_component_dist_tuple(std::tuple<Ts...>&& dists)
+    { return make_component_dist_tuple(std::move(dists),std::index_sequence_for<Ts...>{}); }
     
+    template<class... Ts,std::size_t... I>
+    std::tuple<ComponentDistT<Ts>...>
+    make_component_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
+    { return std::make_tuple(ComponentDistT<Ts>{make_adapted_bounded_dist(std::get<I>(std::move(dists)))}...); }    
+    
+    /* Private Memeber variables */
     std::unique_ptr<DistTupleHandle> handle;
 
+    /* Param name index */
     using ParamNameMapT = std::unordered_map<std::string,int>;    
     static ParamNameMapT initialize_param_name_idx(const StringVecT &names);// throw (ParameterNameUniquenessError)
     ParamNameMapT param_name_idx;
 };
 
-/* Constructor free functions and adaptor functions */
-
-namespace detail
-{
-    template<class Dist>
-    class dist_adaptor_traits {
-    public:
-        using bounds_adapted_dist = void;
-        static constexpr bool adaptable_bounds = false;
-    };
-    
-    class NormalDist;
-    template<> class dist_adaptor_traits<NormalDist>;
-    class GammalDist;
-    template<> class dist_adaptor_traits<GammaDist>;
-    class ParetolDist;
-    template<> class dist_adaptor_traits<ParetoDist>;
-    class SymmetricBetaDist;
-    template<> class dist_adaptor_traits<SymmetricBetaDist>;
-} /* namespace detail */
-
-/** Type traits class for distribution type DistT.  
- *
- * The traits class describes the Adaptor classes applicable to each individual distribution
- */
-template<class DistT> using DistTraitsT = detail::dist_adaptor_traits<std::decay_t<DistT>>;
-
-/** The bounds-adapted distribution type for a given distribution type DistT
- * This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
- */
-template<class DistT> using BoundsAdaptedDistT = typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
-
-
-namespace detail
-{
-    template<class... Ts,std::size_t... I>
-    std::tuple<BoundsAdaptedDistT<Ts>...>
-    make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
-    {
-        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(dists))...);
-    }
-
-    template<class... Ts,std::size_t... I>
-    std::tuple<BoundsAdaptedDistT<Ts>...>
-    make_adapted_bounded_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
-    {
-        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(dists))...);
-    }
-
-    template<class... Ts,std::size_t... I>
-    std::tuple<ComponentDistAdaptor<BoundsAdaptedDistT<Ts>>...>
-    make_component_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
-    {
-        return std::make_tuple(ComponentDistAdaptor<BoundsAdaptedDistT<Ts>>{make_adapted_bounded_dist(std::get<I>(dists))}...);
-    }
-} /* namespace detail */
-
-
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-ComponentDistAdaptor<BoundsAdaptedDistT<Dist>>
-make_component_dist(Dist &&dist)
-{
-    return ComponentDistAdaptor<BoundsAdaptedDistT<Dist>>(make_adapted_bounded_dist(std::forward<Dist>(dist)));
-}
-
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-meta::ReturnIfT<Dist, DistTraitsT<Dist>::adaptable_bounds>
-make_adapted_bounded_dist(Dist &&dist)
-{ return dist; }
-
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-meta::ReturnIfT<BoundsAdaptedDistT<Dist>, DistTraitsT<Dist>::adaptable_bounds>
-make_adapted_bounded_dist(Dist &&dist)
-{ return {std::forward<Dist>(dist)}; }
-
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-meta::ReturnIfT<Dist, DistTraitsT<Dist>::adaptable_bounds>
-make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
-{ 
-    dist.set_bounds(lbound,ubound);
-    return dist; 
-}
-
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-meta::ReturnIfT<BoundsAdaptedDistT<Dist>, DistTraitsT<Dist>::adaptable_bounds>
-make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
-{ return {std::forward<Dist>(dist),lbound,ubound}; }
-
-template<class... Ts>
-std::tuple<BoundsAdaptedDistT<Ts>...>
-make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists) 
-{
-    return detail::make_adapted_bounded_dist_tuple(std::move(dists), std::index_sequence_for<Ts...>{});
-}
-
-template<class... Ts>
-std::tuple<BoundsAdaptedDistT<Ts>...>
-make_adapted_bounded_dist_tuple(const std::tuple<Ts...>& dists) 
-{
-    return detail::make_adapted_bounded_dist_tuple(dists, std::index_sequence_for<Ts...>{});
-}
-
 
 /* CompositeDist<RngT> template methods */
-template<class... Ts>
-CompositeDist::CompositeDist(std::tuple<Ts...>&& dist_tuple) 
-    : handle{ std::unique_ptr<DistTupleHandle>{
-                new DistTuple<Ts...>( make_component_dist_tuple(std::move(dist_tuple)) ) }}
-{ initialize_from_handle(); }
 
-template<class... Ts>
-CompositeDist::CompositeDist(const std::tuple<Ts...>& dist_tuple) 
-    : handle{ std::unique_ptr<DistTupleHandle>{
-                new DistTuple<Ts...>( make_component_dist_tuple(dist_tuple) ) }}
-{ initialize_from_handle(); }
 
 template<class... Ts> 
 const std::tuple<Ts...>& 
@@ -725,51 +733,12 @@ CompositeDist::get_dist_tuple() const
     const std::type_info& tuple_id = typeid(std::tuple<Ts...>);
     if (typeid(std::tuple<Ts...>) != handle->type_info()){
         std::ostringstream os;
-        os<<"CompositeDist Expected type_id:"<<handle->type_info()<<" got type_id:"<<tuple_id;
+        os<<"CompositeDist Expected type_id:" << handle->type_info().name() << " got type_id:"<<tuple_id.name();
         throw RuntimeTypeError(os.str());
     } else {
         return static_cast<std::unique_ptr<DistTuple<Ts...>>>(handle)->dists;
     }
 }
-
-template<class... Ts>
-void CompositeDist::initialize(Ts&&... dists)
-{
-    _initialize_from_components( make_component_dist(std::forward<Ts>(dists)) ... );
-}    
-
-template<class... Ts>
-void CompositeDist::_initialize_from_components(Ts&&... dists)
-{
-    handle = std::unique_ptr<DistTupleHandle>{ new DistTuple<Ts...>(std::forward<Ts>(dists)...) };
-    initialize_from_handle();
-}
-
-template<class... Ts>
-void CompositeDist::initialize(std::tuple<Ts...>&& dist_tuple)
-{
-    handle = std::unique_ptr<DistTupleHandle>{ new DistTuple<Ts...>(make_component_dist_tuple(std::move(dist_tuple))) };
-    initialize_from_handle();
-}
-
-template<class Dist>
-StringVecT CompositeDist::ComponentDistAdaptor<Dist>::param_names() const
-{ 
-    StringVecT names = static_cast<const Dist*>(this)->param_names;
-    std::string prefix = _var_name + '.';
-    for(auto &n: names) n.insert(0,prefix);
-    return names;
-}
-    
-template<class Dist>
-std::string CompositeDist::ComponentDistAdaptor<Dist>::param_name(IdxT i) const
-{
-    DEBUG_ASSERT(i < num_params(), assert::handler{}, "Parameter index out-of-range");
-    std::ostringstream out;
-    out<<_var_name<<"."<< static_cast<const Dist*>(this)->param_names[i];
-    return out.str();
-}
-
 
 /* Protected methods */
 

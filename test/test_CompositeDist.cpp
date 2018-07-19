@@ -8,13 +8,23 @@
 
 #include "test_prior_hessian.h"
 
-TEST_F(CompositeDistCompositionTest, copy_construction) {
-    CompositeDistT &composite = this->composite;
+using namespace prior_hessian;
+
+using CompositeDistTestTs = ::testing::Types<
+    std::tuple<NormalDist, GammaDist, ParetoDist, SymmetricBetaDist>,
+    std::tuple<TruncatedDist<NormalDist>, NormalDist, TruncatedDist<GammaDist>>,
+    std::tuple<ParetoDist>,
+    std::tuple<>>;
+                                          
+TYPED_TEST_CASE(CompositeDistTest, CompositeDistTestTs);
+
+TYPED_TEST(CompositeDistTest, copy_construction) {
+    CompositeDist &composite = this->composite;
     IdxT Nparams = composite.num_params();
     IdxT Ndim = composite.num_dim();
     auto params = composite.params();
     auto lbound = composite.lbound();
-    CompositeDistT dist_copy{composite};  //copy construct
+    CompositeDist dist_copy{composite};  //copy construct
     EXPECT_EQ(dist_copy.num_dim(), Ndim);
     EXPECT_EQ(dist_copy.num_params(), Nparams);
     //Check copy of parameters is successful
@@ -27,18 +37,20 @@ TEST_F(CompositeDistCompositionTest, copy_construction) {
     for(IdxT i=0; i < Ndim; i++)
         EXPECT_EQ(lbound[i], lbound_copy[i])<<i;
     //Check repeatability of rng generation
-    env->reset_rng();
-    auto v = composite.sample(env->get_rng());
-    env->reset_rng();
-    auto v2 = dist_copy.sample(env->get_rng());
-    ASSERT_EQ(v2.n_elem, Ndim);
-    for(IdxT i=0; i < Ndim; i++)
-        EXPECT_EQ(v[i],v2[i]);
+    if(composite){
+        env->reset_rng();
+        auto v = composite.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = dist_copy.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++)
+            EXPECT_EQ(v[i],v2[i]);
+    }
 }
 
-TEST_F(CompositeDistCompositionTest, copy_assignment) {
-    CompositeDistT &composite = this->composite;
-    CompositeDistT dist_copy{};
+TYPED_TEST(CompositeDistTest, copy_assignment) {
+    CompositeDist &composite = this->composite;
+    CompositeDist dist_copy{};
     volatile double _foo=0;
     _foo = (dist_copy.num_dim(),_foo); //Force something to happen with dist_copy first
     
@@ -59,25 +71,27 @@ TEST_F(CompositeDistCompositionTest, copy_assignment) {
     for(IdxT i=0; i < Ndim; i++)
         EXPECT_EQ(lbound[i], lbound_copy[i])<<i;
     //Check repeatability of rng generation
-    env->reset_rng();
-    auto v = composite.sample(env->get_rng());
-    env->reset_rng();
-    auto v2 = dist_copy.sample(env->get_rng());
-    ASSERT_EQ(v2.n_elem, Ndim);
-    for(IdxT i=0; i < Ndim; i++)
-        EXPECT_EQ(v[i],v2[i]);
+    if(composite) {
+        env->reset_rng();
+        auto v = composite.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = dist_copy.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
+    }
 }
 
 
-TEST_F(CompositeDistCompositionTest, move_construction) {
-    CompositeDistT &composite = this->composite;
+TYPED_TEST(CompositeDistTest, move_construction) {
+    CompositeDist &composite = this->composite;
     auto params = composite.params();
     auto lbound = composite.lbound();
     env->reset_rng();
-    auto v = composite.sample(env->get_rng());
+    VecT v;
+    if(composite) v = composite.sample(env->get_rng());
     IdxT Nparams = composite.num_params();
     IdxT Ndim = composite.num_dim();
-    CompositeDistT dist_copy{std::move(composite)};  //Move construct
+    CompositeDist dist_copy{std::move(composite)};  //Move construct
     EXPECT_EQ(dist_copy.num_dim(), Ndim);
     EXPECT_EQ(dist_copy.num_params(), Nparams);
     //Check copy of parameters is successful
@@ -90,20 +104,23 @@ TEST_F(CompositeDistCompositionTest, move_construction) {
     for(IdxT i=0; i < Ndim; i++)
         EXPECT_EQ(lbound[i], lbound_copy[i])<<i;
     //Check repeatability of rng generation
-    env->reset_rng();
-    auto v2 = dist_copy.sample(env->get_rng());
-    ASSERT_EQ(v2.n_elem, Ndim);
-    for(IdxT i=0; i < Ndim; i++)
-        EXPECT_EQ(v[i],v2[i]);
+    if(Ndim>0) {
+        env->reset_rng();
+        auto v2 = dist_copy.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++)
+            EXPECT_EQ(v[i],v2[i]);
+    }
 }
 
-TEST_F(CompositeDistCompositionTest, move_assignment) {
-    CompositeDistT &composite = this->composite;
-    CompositeDistT dist_copy{std::make_tuple(prior_hessian::NormalDist{})}; //Make something useful to force compiler to do something.
+TYPED_TEST(CompositeDistTest, move_assignment) {
+    CompositeDist &composite = this->composite;
+    CompositeDist dist_copy{std::make_tuple(prior_hessian::NormalDist{})}; //Make something useful to force compiler to do something.
     auto params = composite.params();
     auto lbound = composite.lbound();
     env->reset_rng();
-    auto v = composite.sample(env->get_rng());
+    VecT v;
+    if(composite) v = composite.sample(env->get_rng());
     IdxT Nparams = composite.num_params();
     IdxT Ndim = composite.num_dim();
     dist_copy = std::move(composite); //Now move over it with our test fixture dist
@@ -120,21 +137,147 @@ TEST_F(CompositeDistCompositionTest, move_assignment) {
     for(IdxT i=0; i < Ndim; i++)
         EXPECT_EQ(lbound[i], lbound_copy[i])<<i;
     //Check repeatability of rng generation
-    env->reset_rng();
-    auto v2 = dist_copy.sample(env->get_rng());
-    ASSERT_EQ(v2.n_elem, Ndim);
-    for(IdxT i=0; i < Ndim; i++)
-        EXPECT_EQ(v[i],v2[i]);
+    if(Ndim>0) {
+        env->reset_rng();
+        auto v2 = dist_copy.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++)
+            EXPECT_EQ(v[i],v2[i]);
+    }
 }
 
-TEST_F(CompositeDistCompositionTest, num_component_dists) {
-    CompositeDistT &composite = this->composite;
+TYPED_TEST(CompositeDistTest, num_component_dists) {
+    CompositeDist &composite = this->composite;
     EXPECT_EQ(composite.num_component_dists(),std::tuple_size<decltype(this->dists)>::value);
 }
 
+
+/**
+ * Check  constuction from varadic list of dists is same as initialize 
+ * ( which is used internally by CompositeDistTest::SetUp(). )
+ * 
+ */
+TYPED_TEST(CompositeDistTest, construct_from_tuple) {
+    CompositeDist &composite = this->composite;
+    auto new_composite = construct_from_tuple(this->dists);
+    ASSERT_EQ((bool)composite,(bool)new_composite);
+    auto Ndim = composite.num_dim();
+    ASSERT_EQ(Ndim, new_composite.num_dim());
+    ASSERT_EQ(composite.num_component_dists(), new_composite.num_component_dists());
+    if(composite) { //Test rng-repeatability
+        env->reset_rng();
+        auto v = composite.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = new_composite.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
+    }
+}
+
+TYPED_TEST(CompositeDistTest, construct_from_rvalue_tuple) {
+    CompositeDist &composite = this->composite;
+    auto tup = this->dists;
+    auto new_composite = construct_from_tuple(std::move(tup));
+    ASSERT_EQ((bool)composite,(bool)new_composite);
+    auto Ndim = composite.num_dim();
+    ASSERT_EQ(Ndim, new_composite.num_dim());
+    ASSERT_EQ(composite.num_component_dists(), new_composite.num_component_dists());
+    if(composite) { //Test rng-repeatability
+        env->reset_rng();
+        auto v = composite.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = new_composite.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
+    }
+}
+
+TYPED_TEST(CompositeDistTest, initialize_empty) {
+    CompositeDist &composite = this->composite;
+    composite.initialize();
+    ASSERT_FALSE((bool) composite);
+    ASSERT_TRUE(composite.is_empty());
+    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_dim(),0);
+}
+
+TYPED_TEST(CompositeDistTest, initialize_empty_tuple) {
+    CompositeDist &composite = this->composite;
+    std::tuple<> tup;
+    composite.initialize(tup);
+    ASSERT_FALSE((bool) composite);
+    ASSERT_TRUE(composite.is_empty());
+    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_dim(),0);
+}
+
+TYPED_TEST(CompositeDistTest, initialize_empty_rvalue_tuple) {
+    CompositeDist &composite = this->composite;
+    composite.initialize(std::tuple<>{});
+    ASSERT_FALSE((bool) composite);
+    ASSERT_TRUE(composite.is_empty());
+    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_dim(),0);
+}
+
+void check_composite_dists_equal(CompositeDist &d1, CompositeDist &d2)
+{
+    ASSERT_EQ((bool)d1,(bool)d2);
+    auto Ndim = d1.num_dim();
+    ASSERT_EQ(Ndim, d2.num_dim());
+    ASSERT_EQ(d1.num_component_dists(), d2.num_component_dists());
+    if(d1) { //Test rng-repeatability
+        env->reset_rng();
+        auto v = d1.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = d2.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
+    }    
+    ASSERT_EQ(d1,d2);
+}
+
+TYPED_TEST(CompositeDistTest, initialize_from_tuple) {
+    SCOPED_TRACE("initialize_from_tuple");
+    CompositeDist &composite = this->composite;
+    CompositeDist new_composite;
+    new_composite.initialize(this->dists);
+    check_composite_dists_equal(composite,new_composite);
+}
+
+TYPED_TEST(CompositeDistTest, initialize_from_rvalue_tuple) {
+    SCOPED_TRACE("initialize_from_rvalue_tuple");
+    CompositeDist &composite = this->composite;
+    CompositeDist new_composite;
+    auto tup = this->dists;
+    new_composite.initialize(std::move(tup));
+    check_composite_dists_equal(composite,new_composite);
+}
+
+TYPED_TEST(CompositeDistTest, initialize_from_dists) {
+    SCOPED_TRACE("initialize_from_dists");
+    CompositeDist &composite = this->composite;
+    CompositeDist new_composite;
+    initialize_from_dists(new_composite, this->dists);
+    check_composite_dists_equal(composite,new_composite);
+}
+
+
+TYPED_TEST(CompositeDistTest, initialize_from_rvalue_dists) {
+    SCOPED_TRACE("initialize_from_rvalue_dists");
+    CompositeDist &composite = this->composite;
+    CompositeDist new_composite;
+    auto tup = this->dists;
+    initialize_from_dists(new_composite, tup);
+    check_composite_dists_equal(composite,new_composite);
+}
+
+
+
+
 /*
 TEST_F(CompositeDistCompositionTest, component_types) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto types = composite.component_types();
     ASSERT_EQ(composite.num_component_dists(), types.size());
 //     EXPECT_EQ(std::type_index(typeid(dist0)), types[0]);
@@ -143,12 +286,12 @@ TEST_F(CompositeDistCompositionTest, component_types) {
 }
 
 TEST_F(CompositeDistCompositionTest, num_dim) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     EXPECT_EQ(composite.num_dim(),3);
 }
 
 TEST_F(CompositeDistCompositionTest, components_num_dim) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto ndim = composite.components_num_dim();
     ASSERT_EQ(composite.num_component_dists(), ndim.size());
 //     EXPECT_EQ(dist0.num_dim(), ndim[0]);
@@ -157,7 +300,7 @@ TEST_F(CompositeDistCompositionTest, components_num_dim) {
 }
 
 TEST_F(CompositeDistCompositionTest, dim_variables) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto vars = composite.dim_variables();
     ASSERT_EQ(composite.num_dim(), vars.size());
 //     EXPECT_EQ(dist0.var_name(), vars[0]);
@@ -166,7 +309,7 @@ TEST_F(CompositeDistCompositionTest, dim_variables) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_dim_variables) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto vars = composite.dim_variables();
     for(auto& v:vars) v.append("foo");
     composite.set_dim_variables(vars);
@@ -178,7 +321,7 @@ TEST_F(CompositeDistCompositionTest, set_dim_variables) {
 }
 
 TEST_F(CompositeDistCompositionTest, lbound) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto lbound = composite.lbound();
     ASSERT_EQ(composite.num_dim(), lbound.size());
 //     EXPECT_EQ(dist0.lbound(), lbound[0]);
@@ -187,7 +330,7 @@ TEST_F(CompositeDistCompositionTest, lbound) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_lbound) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto lbound = composite.lbound();
     for(IdxT i=0;i<lbound.size();i++) lbound[i]=3.141+i;
     composite.set_lbound(lbound);
@@ -199,7 +342,7 @@ TEST_F(CompositeDistCompositionTest, set_lbound) {
 }
 
 TEST_F(CompositeDistCompositionTest, ubound) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto ubound = composite.ubound();
     ASSERT_EQ(composite.num_dim(), ubound.size());
 //     EXPECT_EQ(dist0.ubound(), ubound[0]);
@@ -208,7 +351,7 @@ TEST_F(CompositeDistCompositionTest, ubound) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_ubound) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto ubound = composite.ubound();
     for(IdxT i=0;i<ubound.size();i++) ubound[i]=3.141+i;
     composite.set_ubound(ubound);
@@ -220,7 +363,7 @@ TEST_F(CompositeDistCompositionTest, set_ubound) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_bounds) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto lbounds = composite.lbound();
     auto ubounds = composite.ubound();
     for(IdxT i=0;i<lbounds.size();i++) {lbounds[i]=3.141+i; ubounds[i]=i+10;}
@@ -238,7 +381,7 @@ TEST_F(CompositeDistCompositionTest, set_bounds) {
 }
 
 TEST_F(CompositeDistCompositionTest, component_num_params) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto nps = composite.components_num_params();
     ASSERT_EQ(composite.num_params(), arma::sum(nps));
 //     EXPECT_EQ(dist0.num_params(), nps[0]);
@@ -247,7 +390,7 @@ TEST_F(CompositeDistCompositionTest, component_num_params) {
 }
 
 TEST_F(CompositeDistCompositionTest, params) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto params = composite.params();
     auto nps = composite.components_num_params();
     ASSERT_EQ(composite.num_params(), params.size());
@@ -262,7 +405,7 @@ TEST_F(CompositeDistCompositionTest, params) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_params) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto params = composite.params();
     for(auto& p:params) p*=1.01;
     composite.set_params(params);
@@ -272,7 +415,7 @@ TEST_F(CompositeDistCompositionTest, set_params) {
 }
 
 TEST_F(CompositeDistCompositionTest, param_names) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto pd = composite.param_names();
     auto nps = composite.components_num_params();
     ASSERT_EQ(composite.num_params(), pd.size());
@@ -287,7 +430,7 @@ TEST_F(CompositeDistCompositionTest, param_names) {
 }
 
 TEST_F(CompositeDistCompositionTest, has_param) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto names = composite.param_names();
     for(auto n: names) EXPECT_TRUE(composite.has_param(n));
     EXPECT_FALSE(composite.has_param(""));
@@ -295,7 +438,7 @@ TEST_F(CompositeDistCompositionTest, has_param) {
 }
 
 TEST_F(CompositeDistCompositionTest, get_param_value) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto names = composite.param_names();
     auto vals = composite.params();
     for(IdxT i=0;i<composite.num_params();i++) EXPECT_EQ(composite.get_param_value(names[i]),vals[i]);
@@ -304,7 +447,7 @@ TEST_F(CompositeDistCompositionTest, get_param_value) {
 }
 
 TEST_F(CompositeDistCompositionTest, set_param_value) {
-    CompositeDistT &composite = this->composite;
+    CompositeDist &composite = this->composite;
     auto names = composite.param_names();
     auto vals = composite.params();
     auto new_vals = vals+0.001;

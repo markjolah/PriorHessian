@@ -4,8 +4,8 @@
  * @brief SymmetricBetaDist class declaration and templated methods
  * 
  */
-#ifndef _PRIOR_HESSIAN_SYMMETRICBETADIST_H
-#define _PRIOR_HESSIAN_SYMMETRICBETADIST_H
+#ifndef PRIOR_HESSIAN_SYMMETRICBETADIST_H
+#define PRIOR_HESSIAN_SYMMETRICBETADIST_H
 
 #include <cmath>
 #include <random>
@@ -24,17 +24,22 @@ class SymmetricBetaDist : public UnivariateDist
 {
 public:
     static const StringVecT param_names;
-    static constexpr IdxT num_params();
+    static constexpr IdxT num_params() { return 1; }
     SymmetricBetaDist(double beta=1.0);
-double get_param(int idx) const;
+    double get_param(int idx) const;
     void set_param(int idx, double val);
-    double beta() const;
-    void set_beta(double val);
+    VecT params() const { return {_beta}; }
+    void set_params(const VecT &p) { _beta = check_beta(p[0]); }
+    bool operator==(const SymmetricBetaDist &o) const { return _beta == o._beta; }
+    bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
+
+    double beta() const { return _beta; }
+    void set_beta(double val) { _beta = check_beta(val); }
         
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const;
+    double llh(double x) const { return rllh(x) + llh_const; }
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -56,6 +61,7 @@ protected:
 /* A bounded normal dist uses the ScaledDist adaptor */
 using ScaledSymmetricBetaDist = ScaledDist<SymmetricBetaDist>;
 
+inline
 ScaledSymmetricBetaDist make_scaled_symmetric_beta_dist(double beta, double lbound, double ubound)
 {
     return {SymmetricBetaDist(beta),lbound,ubound};
@@ -83,28 +89,10 @@ namespace detail
     };
 } /* namespace detail */
 
-constexpr
-IdxT SymmetricBetaDist::num_params()
-{ return 1; }
-
-inline
-double SymmetricBetaDist::beta() const
-{ return _beta; }
-
-inline
-void SymmetricBetaDist::set_beta(double val)
-{ _beta = check_beta(val); }
-
 inline
 double SymmetricBetaDist::rllh(double x) const
 {
     return (_beta-1) * log(x*(1-x));
-}
-
-inline
-double SymmetricBetaDist::llh(double x) const
-{
-    return rllh(x) + llh_const;
 }
 
 inline
@@ -128,7 +116,14 @@ void SymmetricBetaDist::grad_grad2_accumulate(double x, double &g, double &g2) c
     g  += bm1*(x_inv-v); //(beta-1)*(1/z-1/(1-z))
     g2 += bm1*(v*v-x_inv*x_inv);
 }
-       
+
+template<class RngT>
+double SymmetricBetaDist::sample(RngT &rng) const
+{
+    std::uniform_real_distribution<double> uni;
+    return icdf(uni(rng));
+}
+
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_SYMMETRICBETADIST_H */
+#endif /* PRIOR_HESSIAN_SYMMETRICBETADIST_H */

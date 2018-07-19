@@ -9,6 +9,7 @@
 
 #include <cmath>
 
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
 
 namespace prior_hessian {
@@ -17,18 +18,30 @@ template<class Dist>
 class ScaledDist : public Dist
 {
 public:
-    ScaledDist();
-    ScaledDist(double lbound, double ubound);
-    explicit ScaledDist(const Dist &dist);
-    explicit ScaledDist(Dist &&dist);
-    ScaledDist(const Dist &dist, double lbound, double ubound);
-    ScaledDist(Dist &&dist, double lbound, double ubound);
+    ScaledDist() : ScaledDist(Dist{}) { }
+    ScaledDist(double lbound, double ubound) : ScaledDist(Dist{}, lbound, ubound) { }
 
-    double lbound() const;
-    double ubound() const;
-    double unscaled_lbound() const;
-    double unscaled_ubound() const;
+    template<typename=meta::EnableIfNotIsSelfT<Dist,ScaledDist>>
+    ScaledDist(const Dist &dist) : ScaledDist(dist, dist.lbound(), dist.ubound()) { }
     
+    template<typename=meta::EnableIfNotIsSelfT<Dist,ScaledDist>>
+    ScaledDist(Dist &&dist) : ScaledDist(std::move(dist), dist.lbound(), dist.ubound()) { }
+
+    ScaledDist(const Dist &dist, double lbound, double ubound) : Dist(dist) { set_bounds(lbound,ubound); }
+    ScaledDist(Dist &&dist, double lbound, double ubound) : Dist(std::move(dist)) { set_bounds(lbound,ubound); }
+
+    double lbound() const { return _scaled_lbound; }
+    double ubound() const { return _scaled_ubound; }
+    double unscaled_lbound() const { return Dist::lbound(); }
+    double unscaled_ubound() const { return Dist::ubound(); }
+    bool operator==(const ScaledDist<Dist> &o) const 
+    { 
+        return _scaled_lbound==o._scaled_lbound && _scaled_ubound==o._scaled_ubound && 
+                static_cast<const Dist&>(*this).operator==(static_cast<const Dist&>(o)); 
+    }
+
+    bool operator!=(const ScaledDist<Dist> &o) const { return !this->operator==(o);}
+  
     void set_lbound(double lbound);
     void set_ubound(double ubound);
     void set_bounds(double lbound, double ubound);
@@ -51,52 +64,6 @@ protected:
     double convert_from_unitary_coords(double u) const;
 };
 
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist() 
-    : ScaledDist(Dist{})
-{ }
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist(double lbound, double ubound) 
-    : ScaledDist(Dist{}, lbound, ubound)
-{ }
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist(const Dist &dist) 
-    : ScaledDist(dist, dist.lbound(), dist.ubound())
-{ }
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist(Dist &&dist)
-    : ScaledDist(std::move(dist), dist.lbound(), dist.ubound())
-{ }
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist(const Dist &dist, double lbound, double ubound)
-    : Dist(dist)
-{ set_bounds(lbound,ubound); }
-
-template<class Dist>
-ScaledDist<Dist>::ScaledDist(Dist &&dist, double lbound, double ubound)
-    : Dist(std::move(dist))
-{ set_bounds(lbound,ubound); }
-
-template<class Dist>
-double ScaledDist<Dist>::lbound() const
-{ return _scaled_lbound; }
-
-template<class Dist>
-double ScaledDist<Dist>::ubound() const
-{ return _scaled_ubound; }
-
-template<class Dist>
-double ScaledDist<Dist>::unscaled_lbound() const
-{ return Dist::lbound(); }
-
-template<class Dist>
-double ScaledDist<Dist>::unscaled_ubound() const
-{ return Dist::ubound(); }
 
 template<class Dist>
 void ScaledDist<Dist>::set_bounds(double lbound, double ubound)
@@ -159,7 +126,6 @@ double ScaledDist<Dist>::sample(RngT &rng) const
     return convert_from_unitary_coords(Dist::sample(rng)); 
 }
 
-
 template<class Dist>
 double ScaledDist<Dist>::convert_to_unitary_coords(double x) const
 {
@@ -171,7 +137,6 @@ double ScaledDist<Dist>::convert_from_unitary_coords(double u) const
 {
     return lbound() + (u-unscaled_lbound())*scaling_ratio;
 }
-
 
 } /* namespace prior_hessian */
 

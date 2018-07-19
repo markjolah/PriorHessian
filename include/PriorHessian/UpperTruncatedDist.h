@@ -4,11 +4,12 @@
  * @brief UpperTruncatedDist declaration and templated methods definitions
  * 
  */
-#ifndef _PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H
-#define _PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H
+#ifndef PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H
+#define PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H
 
 #include <cmath>
 
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
 
 namespace prior_hessian {
@@ -20,16 +21,29 @@ template<class Dist>
 class UpperTruncatedDist : public Dist
 {
 public:
-    UpperTruncatedDist();
-    explicit UpperTruncatedDist(double ubound);
-    explicit UpperTruncatedDist(const Dist &dist);
-    explicit UpperTruncatedDist(Dist &&dist);
-    UpperTruncatedDist(const Dist &dist, double ubound);
-    UpperTruncatedDist(Dist &&dist, double ubound);
-    double ubound() const;
-    double global_ubound() const;
-    bool truncated() const;
+    UpperTruncatedDist() : UpperTruncatedDist(Dist{}) { }
+    explicit UpperTruncatedDist(double ubound) : UpperTruncatedDist(Dist{}, ubound) { }
     
+    template<typename=meta::EnableIfNotIsSelfT<Dist,UpperTruncatedDist>>
+    UpperTruncatedDist(const Dist &dist) : UpperTruncatedDist(dist, dist.ubound()) { }
+    
+    template<typename=meta::EnableIfNotIsSelfT<Dist,UpperTruncatedDist>>
+    UpperTruncatedDist(Dist &&dist) : UpperTruncatedDist(std::move(dist), dist.ubound()) { }
+    
+    UpperTruncatedDist(const Dist &dist, double ubound) : Dist(dist) { set_ubound(ubound); }
+    UpperTruncatedDist(Dist &&dist, double ubound) : Dist(std::move(dist)) { set_ubound(ubound); }
+
+    double ubound() const { return _truncated_ubound; }
+    double global_ubound() const { return Dist::ubound(); }
+    bool truncated() const { return _truncated; }
+    bool operator==(const UpperTruncatedDist<Dist> &o) const 
+    { 
+        return  _truncated_ubound==o._truncated_ubound && 
+                static_cast<const Dist&>(*this).operator==(static_cast<const Dist&>(o)); 
+    }
+
+    bool operator!=(const UpperTruncatedDist<Dist> &o) const { return !this->operator==(o);}
+     
     void set_bounds(double lbound, double ubound);    
     void set_ubound(double ubound);    
 
@@ -47,48 +61,6 @@ protected:
     double ubound_cdf; // cdf(_truncated_ubound)  [The lbound remains in place and the cdf at the lbound is 0 so this is equivalent to bounds_cdf_delta in TrunctedDist]
     double llh_truncation_const;// -log(ubounds_cdf)   
 };
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist() 
-    : UpperTruncatedDist(Dist{})
-{ }
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist(double ubound) 
-    : UpperTruncatedDist(Dist{}, ubound)
-{ }
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist(const Dist &dist) 
-    : UpperTruncatedDist(dist, dist.ubound())
-{ }
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist(Dist &&dist)
-    : UpperTruncatedDist(std::move(dist), dist.ubound())
-{ }
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist(const Dist &dist, double ubound)
-    : Dist(dist)
-{ set_ubound(ubound); }
-
-template<class Dist>
-UpperTruncatedDist<Dist>::UpperTruncatedDist(Dist &&dist, double ubound)
-    : Dist(std::move(dist))
-{ set_ubound(ubound); }
-
-template<class Dist>
-double UpperTruncatedDist<Dist>::ubound() const
-{ return _truncated_ubound; }
-
-template<class Dist>
-double UpperTruncatedDist<Dist>::global_ubound() const
-{ return Dist::ubound(); }
-
-template<class Dist>
-bool UpperTruncatedDist<Dist>::truncated() const
-{ return _truncated; }
 
 template<class Dist>
 void UpperTruncatedDist<Dist>::set_bounds(double lbound, double ubound)
@@ -158,4 +130,4 @@ double UpperTruncatedDist<Dist>::sample(RngT &rng) const
 
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H */
+#endif /* PRIOR_HESSIAN_UPPERTRUNCATEDDIST_H */

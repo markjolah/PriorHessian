@@ -43,17 +43,20 @@ namespace prior_hessian {
 class PriorHessianError : public std::exception
 {
 protected:
-    std::string _condition;
-    std::string _what;
+    std::string condition;
+    std::string what_str;
+    std::string what_;
 public:
     PriorHessianError(std::string condition, std::string what) 
-        : _condition{std::string{"ParallelRngManager:"} + condition},
-          _what{what} 
+        : condition{std::string{"PriorHessianr:"} + condition},
+          what_str{condition+" :: \""+what+"\""},
+          what_{what} 
     { }
     
     const char* what() const noexcept override 
     { 
-        return (_condition+" :: \""+_what+"\"").c_str(); 
+        
+        return what_str.c_str(); 
     }
 };
     

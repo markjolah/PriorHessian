@@ -27,15 +27,20 @@ public:
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    double alpha() const;
-    void set_alpha(double val);
+    VecT params() const { return {alpha_}; }
+    void set_params(const VecT &p) { alpha_ = check_alpha(p[0]); }
+    bool operator==(const ParetoDist &o) const { return _lbound==o._lbound && alpha_ == o.alpha_; }
+    bool operator!=(const ParetoDist &o) const { return !this->operator==(o);}
+
+    double alpha() const { return alpha_; } 
+    void set_alpha(double val) { alpha_ = check_alpha(val); }
     
     void set_lbound(double lbound);
         
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const;
+    double llh(double x) const { return rllh(x) + llh_const; }
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -47,7 +52,7 @@ protected:
     static double check_alpha(double val);
     static double check_lbound(double val);
    
-    double _alpha; //distribution shape
+    double alpha_; //distribution shape
     double llh_const;    
 
     double compute_llh_const() const;
@@ -56,6 +61,7 @@ protected:
 /* A bounded pareto dist uses the UpperTruncatedDist adaptor */
 using BoundedParetoDist = UpperTruncatedDist<ParetoDist>;
 
+inline
 BoundedParetoDist make_bounded_pareto_dist(double alpha, double lbound, double ubound)
 {
     return {ParetoDist(alpha,lbound),ubound};
@@ -86,51 +92,51 @@ namespace detail
 inline
 void ParetoDist::set_lbound(double lbound)
 { 
-    UnivariateDist::set_lbound(check_lbound(lbound)); 
+    _lbound = lbound;
     llh_const = compute_llh_const();  //Pareto llh_const depends on lbound.
 }
 
 inline
 double ParetoDist::cdf(double x) const
 {
-    return 1-pow(lbound()/x,_alpha);
+    return 1-pow(lbound()/x,alpha_);
 }
 
 inline
 double ParetoDist::icdf(double u) const
 {
-    return lbound() / pow(1-u,1/_alpha);
+    return lbound() / pow(1-u,1/alpha_);
 }
 
 inline
 double ParetoDist::pdf(double x) const
 {
-    return _alpha/x * pow(lbound()/x,_alpha);
+    return alpha_/x * pow(lbound()/x,alpha_);
 }
 
 inline
 double ParetoDist::rllh(double x) const
 {
-    return -(_alpha+1)*log(x);
+    return -(alpha_+1)*log(x);
 }
 
 inline
 double ParetoDist::grad(double x) const
 {
-    return -(_alpha+1)/x;
+    return -(alpha_+1)/x;
 }
 
 inline
 double ParetoDist::grad2(double x) const
 {
-    return (_alpha+1)/(x*x);
+    return (alpha_+1)/(x*x);
 }
 
 inline
 void ParetoDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
     double x_inv = 1/x;
-    double ap1ox = (_alpha+1)*x_inv;
+    double ap1ox = (alpha_+1)*x_inv;
     g  -= ap1ox ;   // -(alpha+1)/x
     g2 += ap1ox*x_inv;  // (alpha+1)/x^2
 }
@@ -140,7 +146,7 @@ double ParetoDist::sample(RngT &rng) const
 {
     std::uniform_real_distribution<double> d;
     double u = 1-d(rng); // u is uniform on (0,1]
-    return lbound()/pow(u,1/_alpha) ;
+    return lbound()/pow(u,1/alpha_) ;
 }
 
 } /* namespace prior_hessian */

@@ -13,10 +13,10 @@ namespace prior_hessian {
 
 class UnivariateDist : public BaseDist {
 public:
-    static constexpr IdxT num_dim();
+    static constexpr IdxT num_dim() { return 1; }
 
-    double lbound() const; 
-    double ubound() const;
+    double lbound() const { return _lbound; }
+    double ubound() const { return _ubound; }
 
     void set_bounds(double lbound, double ubound);
     void set_lbound(double lbound);
@@ -30,18 +30,6 @@ protected:
     
     static void check_bounds(double lbound, double ubound);
 };
-
-constexpr 
-IdxT UnivariateDist::num_dim()
-{ return 1; }
-
-inline
-double UnivariateDist::lbound() const
-{ return _lbound; }
-
-inline
-double UnivariateDist::ubound() const
-{ return _ubound; }
 
 } /* namespace prior_hessian */
 

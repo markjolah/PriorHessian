@@ -22,21 +22,30 @@ class NormalDist : public UnivariateDist
 {
 public:
     static const StringVecT param_names;
-    static constexpr IdxT num_params();
+    static constexpr IdxT num_params() { return 2; }
     
     NormalDist(double mu=0.0, double sigma=1.0);
     
+    double mu() const { return _mu; }
+    double sigma() const { return _sigma; }
+    void set_mu(double val) { _mu = check_mu(val); }
+    void set_sigma(double val) { _sigma = check_sigma(val); }
+    bool operator==(const NormalDist &o) const { return _mu == o._mu && _sigma == o._sigma; }
+    bool operator!=(const NormalDist &o) const { return !this->operator==(o);}
+    
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    double mu() const;
-    double sigma() const;
-    void set_mu(double val);
-    void set_sigma(double val);
+    VecT params() const { return {_mu, _sigma}; }
+    void set_params(const VecT &p)
+    { 
+        _mu = check_mu(p[0]);  
+        _sigma = check_sigma(p[1]); 
+    }
         
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const;
+    double llh(double x) const { return rllh(x) + llh_const; }
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -65,6 +74,7 @@ protected:
 /* A bounded normal dist uses the TruncatedDist adaptor */
 using BoundedNormalDist = TruncatedDist<NormalDist>;
 
+inline
 BoundedNormalDist make_bounded_normal_dist(double mu, double sigma, double lbound, double ubound)
 {
     return {NormalDist(mu, sigma),lbound,ubound};
@@ -92,26 +102,6 @@ namespace detail
     };
 } /* namespace detail */
 
-constexpr
-IdxT NormalDist::num_params()
-{ return 2; }
-
-inline
-double NormalDist::mu() const
-{ return _mu; }
-
-inline
-double NormalDist::sigma() const
-{ return _sigma; }
-
-inline
-void NormalDist::set_mu(double val)
-{ _mu = check_mu(val); }
-
-inline
-void NormalDist::set_sigma(double val)
-{ _sigma = check_sigma(val); }
-
 inline
 double NormalDist::pdf(double x) const
 {
@@ -130,12 +120,6 @@ double NormalDist::rllh(double x) const
 {
     double val = (x - _mu)*sigma_inv;
     return -.5*val*val;
-}
-
-inline
-double NormalDist::llh(double x) const
-{
-    return rllh(x) + llh_const;
 }
 
 inline

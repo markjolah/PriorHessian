@@ -11,22 +11,24 @@
 namespace prior_hessian {
 
 CompositeDist::CompositeDist() 
-    : handle( std::unique_ptr<DistTupleHandle>(new EmptyDistTuple()) )
-{ 
-    initialize_from_handle(); 
-}
+    : handle{new EmptyDistTuple{}}
+{ initialize_from_handle(); }
     
 CompositeDist::CompositeDist(const CompositeDist &o) 
     : handle{o.handle->clone()}
-{ 
-    initialize_from_handle(); 
-}
+{ initialize_from_handle(); }
     
-CompositeDist<RngT>::CompositeDist(CompositeDist &&o) 
+CompositeDist::CompositeDist(CompositeDist &&o) 
     : handle{std::move(o.handle)},
       param_name_idx{std::move(o.param_name_idx)}
 { }
-    
+
+void CompositeDist::clear()
+{
+    handle = std::unique_ptr<DistTupleHandle>{new EmptyDistTuple{}};
+    initialize_from_handle();
+}
+   
 CompositeDist& CompositeDist::operator=(const CompositeDist &o) 
 {
     if(this == &o) return *this; //Ignore self-assignment
@@ -41,6 +43,16 @@ CompositeDist& CompositeDist::operator=(CompositeDist &&o)
     handle = std::move(o.handle);
     param_name_idx = std::move(o.param_name_idx);
     return *this;
+}
+
+bool CompositeDist::operator==(const CompositeDist &o) const 
+{
+    if(is_empty()) return o.is_empty(); //Empty classes are equal to themselves
+    if(o.is_empty()) return false;
+    auto &h1 = *handle;
+    auto &h2 = *o.handle;
+    if(typeid(h1) != typeid(h2)) return false;
+    return h1.is_equal(h2);
 }
 
 std::ostream& operator<<(std::ostream &out,const CompositeDist &comp_dist)
@@ -107,12 +119,11 @@ void CompositeDist::set_param_value(const std::string &name, double value)
     set_params(ps);
 }
 
-//Called on ever new initialization
-CompositeDist::initialize_from_handle()
+//Called on every new initialization
+void CompositeDist::initialize_from_handle()
 {
     param_name_idx = initialize_param_name_idx(param_names());
 }
-
 
 CompositeDist::ParamNameMapT 
 CompositeDist::initialize_param_name_idx(const StringVecT &names)
@@ -128,6 +139,5 @@ CompositeDist::initialize_param_name_idx(const StringVecT &names)
     }
     return name_idx;
 }
-
 
 } /* namespace prior_hessian */

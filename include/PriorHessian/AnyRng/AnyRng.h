@@ -11,6 +11,9 @@
  */
 #ifndef _ANY_RNG_ANYRNG_H
 #define _ANY_RNG_ANYRNG_H
+#include <typeinfo>
+#include <memory>
+#include <type_traits>
 
 namespace any_rng
 {
@@ -26,24 +29,48 @@ namespace any_rng
  * This is intended as a single-threaded data structure.
  * 
  */
-template<typename ResultT>
+template<class ResultT>
 class AnyRng
 {
 public:
-    template<typename RNG>
-    explicit AnyRng(RNG &rng) 
-        : min{RNG::min()},
-          max{RNG::max()},
-          _generate{ [&rng](){return rng();} }
-    { }
-    
+    template<typename RNG, typename=std::enable_if_t<std::is_same<ResultT,typename RNG::result_type>::value>>
+    explicit AnyRng(RNG &rng_) : handle{new RngWrapper<RNG>{rng_}} { } 
     using result_type = ResultT;
-    ResultT operator()() { return _generate(); }
-
-    const ResultT min;
-    const ResultT max;
+    const std::type_info& type_info() { handle->type_info(); }
+    ResultT min() const { return handle->min(); }
+    ResultT max() const { return handle->max(); }
+    void seed(ResultT seed=0) { handle->seed(seed); }
+    ResultT operator()() { return handle->generate(); }
+    void discard( ResultT z) { return handle->discard(z); }
+    
 private:
-    std::function<ResultT()> _generate;
+    class RngHandle
+    {
+    public:
+        virtual ~RngHandle() = default;
+        virtual const std::type_info& type_info() const = 0;
+        virtual ResultT min() const = 0;
+        virtual ResultT max() const = 0;        
+        virtual void seed(ResultT seed) = 0;
+        virtual ResultT generate() = 0;
+        virtual void discard( ResultT z) = 0;
+    };
+    
+    template<class RngT>
+    class RngWrapper : public RngHandle {
+    public:
+        RngWrapper(RngT &rng_) : rng{rng_} { }
+        const std::type_info& type_info() const override { return typeid(RngT); }
+        ResultT min() const override { return rng.min(); }
+        ResultT max() const override { return rng.max(); }        
+        void seed(ResultT seed) override { rng.seed(seed); }
+        ResultT generate() override { return rng(); }
+        void discard( ResultT z) override { rng.discard(z); }
+    private:
+        RngT &rng;
+    };
+    
+    std::unique_ptr<RngHandle> handle;
 };
 
 } /* namespace any_rng */

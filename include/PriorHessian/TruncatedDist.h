@@ -4,11 +4,12 @@
  * @brief TruncatedDist declaration and templated methods definitions
  * 
  */
-#ifndef _PRIOR_HESSIAN_TRUNCATEDDIST_H
-#define _PRIOR_HESSIAN_TRUNCATEDDIST_H
+#ifndef PRIOR_HESSIAN_TRUNCATEDDIST_H
+#define PRIOR_HESSIAN_TRUNCATEDDIST_H
 
 #include <cmath>
 
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
 
 namespace prior_hessian {
@@ -20,18 +21,35 @@ template<class Dist>
 class TruncatedDist : public Dist
 {
 public:
-    TruncatedDist();
-    TruncatedDist(double lbound, double ubound);
-    explicit TruncatedDist(const Dist &dist);
-    explicit TruncatedDist(Dist &&dist);
-    TruncatedDist(const Dist &dist, double lbound, double ubound);
-    TruncatedDist(Dist &&dist, double lbound, double ubound);
+    TruncatedDist(): TruncatedDist(Dist{}) { }
+    TruncatedDist(double lbound, double ubound) : TruncatedDist(Dist{}, lbound, ubound) { }
 
-    double lbound() const;
-    double ubound() const;
-    double global_lbound() const;
-    double global_ubound() const;
-    bool truncated() const;
+    template<typename=meta::EnableIfNotIsSelfT<Dist,TruncatedDist>>
+    TruncatedDist(const Dist &dist) : TruncatedDist(dist, dist.lbound(), dist.ubound()) { }
+    
+    template<typename=meta::EnableIfNotIsSelfT<Dist,TruncatedDist>>
+    TruncatedDist(Dist &&dist) : TruncatedDist(std::move(dist), dist.lbound(), dist.ubound()) { }
+    
+    TruncatedDist(const Dist &dist, double lbound, double ubound) 
+        : Dist(dist)
+    { set_bounds(lbound,ubound); }
+
+    TruncatedDist(Dist &&dist, double lbound, double ubound)
+        : Dist(std::move(dist))
+    { set_bounds(lbound,ubound); }
+
+    double lbound() const { return _truncated_lbound; }
+    double ubound() const { return _truncated_ubound; }
+    double global_lbound() const { return Dist::lbound(); }
+    double global_ubound() const { return Dist::ubound(); }
+    bool truncated() const { return _truncated; }
+    bool operator==(const TruncatedDist<Dist> &o) const 
+    { 
+        return _truncated_lbound==o._truncated_lbound && _truncated_ubound==o._truncated_ubound && 
+                static_cast<const Dist&>(*this).operator==(static_cast<const Dist&>(o)); 
+    }
+
+    bool operator!=(const TruncatedDist<Dist> &o) const { return !this->operator==(o);}
     
     void set_bounds(double lbound, double ubound);    
     void set_lbound(double lbound);    
@@ -53,56 +71,6 @@ protected:
     double bounds_cdf_delta; // (cdf(_ubound) - cdf(_lbound))
     double llh_truncation_const;// -log(bounds_cdf_delta)   
 };
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist() 
-    : TruncatedDist(Dist{})
-{ }
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist(double lbound, double ubound) 
-    : TruncatedDist(Dist{}, lbound, ubound)
-{ }
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist(const Dist &dist) 
-    : TruncatedDist(dist, dist.lbound(), dist.ubound())
-{ }
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist(Dist &&dist)
-    : TruncatedDist(std::move(dist), dist.lbound(), dist.ubound())
-{ }
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist(const Dist &dist, double lbound, double ubound)
-    : Dist(dist)
-{ set_bounds(lbound,ubound); }
-
-template<class Dist>
-TruncatedDist<Dist>::TruncatedDist(Dist &&dist, double lbound, double ubound)
-    : Dist(std::move(dist))
-{ set_bounds(lbound,ubound); }
-
-template<class Dist>
-double TruncatedDist<Dist>::lbound() const
-{ return _truncated_lbound; }
-
-template<class Dist>
-double TruncatedDist<Dist>::ubound() const
-{ return _truncated_ubound; }
-
-template<class Dist>
-double TruncatedDist<Dist>::global_lbound() const
-{ return Dist::lbound(); }
-
-template<class Dist>
-double TruncatedDist<Dist>::global_ubound() const
-{ return Dist::ubound(); }
-
-template<class Dist>
-bool TruncatedDist<Dist>::truncated() const
-{ return _truncated; }
 
 template<class Dist>
 void TruncatedDist<Dist>::set_bounds(double lbound, double ubound)
@@ -186,4 +154,4 @@ double TruncatedDist<Dist>::sample(RngT &rng) const
 
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_TRUNCATEDDIST_H */
+#endif /* PRIOR_HESSIAN_TRUNCATEDDIST_H */
