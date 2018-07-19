@@ -6,11 +6,11 @@
 #include "gtest/gtest.h"
 #include "test_helpers/rng_environment.h"
 
-#include "PriorHessian/UnivariateDist.h"
 #include "PriorHessian/NormalDist.h"
 #include "PriorHessian/GammaDist.h"
 #include "PriorHessian/ParetoDist.h"
 #include "PriorHessian/SymmetricBetaDist.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
 #include "PriorHessian/CompositeDist.h"
 #include <random>
 #include <type_traits>
@@ -125,7 +125,29 @@ void initialize_from_dists(CompositeDist &dist, std::tuple<Ts...>&&ts)
 { return ::detail::initialize_from_dists(dist, std::move(ts), std::index_sequence_for<Ts...>{}); }
 
 
-//Test the iteration technology of Composite Dist matches the individual items
+template<class Dist, typename=meta::EnableIfSubclassT<Dist,UnivariateDist>>
+void check_equal(const Dist &d1, const Dist &d2)
+{
+    auto Nparams = d1.num_params();
+    ASSERT_EQ(d1,d2);
+    ASSERT_EQ(Nparams, d2.num_params());
+    //parameters are equal
+    for(IdxT i=0; i<Nparams; i++) EXPECT_EQ(d1.get_param(i),d2.get_param(i));    
+    //Check repeatability of rng generation
+    env->reset_rng();
+    auto v1 = d1.sample(env->get_rng());
+    env->reset_rng();
+    auto v2 = d2.sample(env->get_rng());
+    EXPECT_EQ(v1,v2);
+}
+
+using UnivariateDistTs = ::testing::Types<
+                                NormalDist, BoundedNormalDist,
+                                GammaDist, BoundedGammaDist,
+                                ParetoDist, BoundedParetoDist,
+                                SymmetricBetaDist, ScaledSymmetricBetaDist>;
+                                        
+
 /* Type parameterized test fixtures */
 template<class Dist>
 class UnivariateDistTest : public ::testing::Test {
@@ -135,6 +157,21 @@ public:
     virtual void SetUp() override {
         env->reset_rng();
         dist = make_dist<Dist>();
+    }
+};
+
+
+template<class Dist>
+class BoundsAdaptedDistTest: public ::testing::Test {
+public:
+    Dist orig_dist;
+    using BoundedDistT = BoundsAdaptedDistT<Dist>;
+    BoundedDistT dist;
+    static constexpr int Ntest = 100;
+    virtual void SetUp() override {
+        env->reset_rng();
+        orig_dist = make_dist<Dist>();
+        dist = make_adapted_bounded_dist(orig_dist);
     }
 };
 

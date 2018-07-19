@@ -35,7 +35,10 @@ public:
 
     double beta() const { return _beta; }
     void set_beta(double val) { _beta = check_beta(val); }
-        
+
+    double mean() const { return 1/2; }
+    double median() const { return icdf(0.5); }
+    
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;

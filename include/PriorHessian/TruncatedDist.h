@@ -21,6 +21,8 @@ template<class Dist>
 class TruncatedDist : public Dist
 {
 public:
+    static constexpr const double min_bounds_cdf_delta = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
+    
     TruncatedDist(): TruncatedDist(Dist{}) { }
     TruncatedDist(double lbound, double ubound) : TruncatedDist(Dist{}, lbound, ubound) { }
 
@@ -55,6 +57,8 @@ public:
     void set_lbound(double lbound);    
     void set_ubound(double ubound);    
 
+    double mean() const { throw PriorHessianError("NotImplemented::BOOO!!!"); }
+    double median() const {return Dist::icdf(lbound_cdf+bounds_cdf_delta*.5); }
     double cdf(double x) const;
     double pdf(double x) const;
     double icdf(double u) const;
@@ -80,7 +84,7 @@ void TruncatedDist<Dist>::set_bounds(double lbound, double ubound)
         msg<<"set_bounds: Invalid lbound:"<<lbound<<" with regard to global_lbound:"<<global_lbound();
         throw ParameterValueError(msg.str());
     }
-    if( !(ubound >= global_ubound()) ) {    //This form of comparison handles NaNs 
+    if( !(ubound <= global_ubound()) ) {    //This form of comparison handles NaNs 
         std::ostringstream msg;
         msg<<"set_bounds: Invalid ubound:"<<ubound<<" with regard to global_ubound:"<<global_ubound();
         throw ParameterValueError(msg.str());
@@ -90,17 +94,25 @@ void TruncatedDist<Dist>::set_bounds(double lbound, double ubound)
         msg<<"set_bounds: Invalid bounds lbound:"<<lbound<<" >= ubound:"<<ubound;
         throw ParameterValueError(msg.str());
     }
-    _truncated = (lbound>global_lbound() || ubound<global_ubound());
-    if(_truncated) {
+    bool truncated = (lbound>global_lbound() || ubound<global_ubound());
+    if(truncated) {
         lbound_cdf = (lbound==global_lbound()) ? 0 : Dist::cdf(lbound);
         double ubound_cdf = (ubound==global_ubound()) ? 1 : Dist::cdf(ubound);
         bounds_cdf_delta = ubound_cdf - lbound_cdf;
+        if(bounds_cdf_delta<min_bounds_cdf_delta) {            
+            std::ostringstream msg;
+            msg<<"TruncatedDist::set_bounds: bounds:["<<lbound<<","<<ubound<<"] with cdf:["<<lbound_cdf<<","<<ubound_cdf
+               <<"] have delta: "<<bounds_cdf_delta<<" < min_delta = "<<min_bounds_cdf_delta
+               <<".  Bounds cover too small a portation of the domain for accuarate truncation.";
+            throw ParameterValueError(msg.str());
+        }
         llh_truncation_const = -log(bounds_cdf_delta);
     } else {
         lbound_cdf = 0;
         bounds_cdf_delta = 1;
         llh_truncation_const = 0;
     }
+    _truncated = truncated;
     _truncated_lbound = lbound;
     _truncated_ubound = ubound;
 }

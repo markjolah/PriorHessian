@@ -63,12 +63,15 @@ namespace detail
     * The traits class describes the Adaptor classes applicable to each individual distribution
     */
     template<class DistT> using DistTraitsT = detail::dist_adaptor_traits<std::decay_t<DistT>>;
+}
 
-    /** The bounds-adapted distribution type for a given distribution type DistT
-    * This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
-    */
-    template<class DistT> using BoundsAdaptedDistT = typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
+/** The bounds-adapted distribution type for a given distribution type DistT
+* This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
+*/
+template<class DistT> using BoundsAdaptedDistT = typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
 
+namespace detail 
+{
     template<class... Ts,std::size_t... I>
     std::tuple<BoundsAdaptedDistT<Ts>...>
     make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
@@ -84,7 +87,6 @@ namespace detail
     }
 } /* namespace detail */
 
-
 /** make_adapted_bounded_dist()
  * 
  * Can be replaced with constexpr if in c++17
@@ -95,7 +97,7 @@ make_adapted_bounded_dist(Dist &&dist)
 { return dist; }
 
 template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-std::enable_if_t< !detail::DistTraitsT<Dist>::adaptable_bounds, detail::BoundsAdaptedDistT<Dist>>
+std::enable_if_t< !detail::DistTraitsT<Dist>::adaptable_bounds, BoundsAdaptedDistT<Dist>>
 make_adapted_bounded_dist(Dist &&dist)
 { return {std::forward<Dist>(dist)}; }
 
@@ -108,7 +110,7 @@ make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
 }
 
 template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
-std::enable_if_t<!detail::DistTraitsT<Dist>::adaptable_bounds, detail::BoundsAdaptedDistT<Dist>>
+std::enable_if_t<!detail::DistTraitsT<Dist>::adaptable_bounds, BoundsAdaptedDistT<Dist>>
 make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
 { 
     return {std::forward<Dist>(dist),lbound,ubound}; 
@@ -122,21 +124,21 @@ make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
  */
 
 template<class... Ts>
-std::tuple<detail::BoundsAdaptedDistT<Ts>...>
+std::tuple<BoundsAdaptedDistT<Ts>...>
 make_adapted_bounded_dist_tuple(Ts&&... ts) 
 {
     return std::make_tuple(make_adapted_bounded_dist(std::forward<Ts>(ts))...);
 }
 
 template<class... Ts>
-std::tuple<detail::BoundsAdaptedDistT<Ts>...>
+std::tuple<BoundsAdaptedDistT<Ts>...>
 make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists) 
 {
     return detail::make_adapted_bounded_dist_tuple(std::move(dists), std::index_sequence_for<Ts...>{});
 }
 
 template<class... Ts>
-std::tuple<detail::BoundsAdaptedDistT<Ts>...>
+std::tuple<BoundsAdaptedDistT<Ts>...>
 make_adapted_bounded_dist_tuple(const std::tuple<Ts...>& dists) 
 {
     return detail::make_adapted_bounded_dist_tuple(dists, std::index_sequence_for<Ts...>{});

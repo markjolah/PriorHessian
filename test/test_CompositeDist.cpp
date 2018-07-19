@@ -1,7 +1,6 @@
 /** @file test_CompositeDists.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2016-2018
- * @brief Use googletest to test the CompositeDist 
+ * @date 2018
  */
 #include <cmath>
 #include "gtest/gtest.h"

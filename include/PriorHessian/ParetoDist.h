@@ -36,7 +36,10 @@ public:
     void set_alpha(double val) { alpha_ = check_alpha(val); }
     
     void set_lbound(double lbound);
-        
+    
+    double mean() const { return (alpha_ <=1) ? INFINITY : alpha_*lbound()/(alpha_-1); }
+    double median() const { return lbound() * std::pow(2,1/alpha_); }
+    
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;

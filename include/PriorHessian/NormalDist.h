@@ -41,7 +41,10 @@ public:
         _mu = check_mu(p[0]);  
         _sigma = check_sigma(p[1]); 
     }
-        
+    
+    double mean() const { return _mu; }
+    double median() const { return _mu; }
+    
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;

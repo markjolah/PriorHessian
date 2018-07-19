@@ -46,6 +46,10 @@ public:
     void set_ubound(double ubound);
     void set_bounds(double lbound, double ubound);
 
+    double mean() const { return convert_from_unitary_coords(Dist::mean()); }
+    double median() const { return convert_from_unitary_coords(Dist::median()); }
+
+    
     double cdf(double x) const;
     double pdf(double x) const;
     double icdf(double u) const;

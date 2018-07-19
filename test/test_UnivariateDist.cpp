@@ -1,18 +1,12 @@
-/** @file test_pprior_hessian.cpp
+/** @file test_UnivariaateDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2016-2018
- * @brief Use googletest to test the ParallelRngManager class
+ * @date 2018
  */
 #include "test_prior_hessian.h"
 
 using namespace prior_hessian;
 
-using UnivariateDistTs = ::testing::Types<
-                                NormalDist, BoundedNormalDist,
-                                GammaDist, BoundedGammaDist,
-                                ParetoDist, BoundedParetoDist,
-                                SymmetricBetaDist, ScaledSymmetricBetaDist>;
-                                        
+
 TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
 
 template<class Dist>
@@ -93,8 +87,7 @@ TYPED_TEST(UnivariateDistTest, move_construction) {
     EXPECT_LE(v2,ubound);
 }
 
-
-TYPED_TEST(UnivariateDistTest, params) {
+TYPED_TEST(UnivariateDistTest, get_params) {
     auto &dist = this->dist;
     auto params = dist.params();    
     EXPECT_EQ(params.n_elem,dist.num_params());
@@ -114,46 +107,33 @@ TYPED_TEST(UnivariateDistTest, set_params) {
         EXPECT_EQ(params[k],new_params[k]);
 }
 
-// TYPED_TEST(UnivariateDistTest, equality) {
+TYPED_TEST(UnivariateDistTest, get_lbound_ubound) {
+    auto &dist = this->dist;
+    double lb = dist.lbound();
+    EXPECT_FALSE(std::isnan(lb));
+    double ub = dist.ubound();
+    EXPECT_FALSE(std::isnan(ub));
+    EXPECT_LT(lb,ub);
+}
+    
+TYPED_TEST(UnivariateDistTest, equality_inequality) {
+    auto &dist = this->dist;
+    auto dist_copy = dist;
+    EXPECT_TRUE(dist == dist_copy);
+    EXPECT_FALSE(dist != dist_copy);
+    dist_copy.set_param(0,dist_copy.get_param(0)+1E-7);
+    EXPECT_FALSE(dist == dist_copy);
+    EXPECT_TRUE(dist != dist_copy);
+}
 
-
-
-// TYPED_TEST(UnivariateDistTest, param_names) {
-//     auto params = dist.param_names();    
-// }
-
-// TYPED_TEST(UnivariateDistTest, set_lbound) {
-//     double new_lbound = dist.lbound()+0.01;
-//     //check set_bounds(lbound,)
-//     dist.set_bounds(new_lbound,dist.ubound());
-//     EXPECT_EQ(new_lbound,dist.lbound());
-//     //check set_lbound()
-//     new_lbound = dist.lbound()+0.002;
-//     dist.set_lbound(new_lbound);
-//     EXPECT_EQ(new_lbound,dist.lbound());
-// }
-// 
-// TYPED_TEST(UnivariateDistTest, set_ubound) {
-//     double new_ubound = dist.ubound()+0.003;
-//     //check set_bounds(,ubound)
-//     dist.set_bounds(dist.lbound(),new_ubound);
-//     EXPECT_EQ(new_ubound,dist.ubound());
-//     //check set_ubound()
-//     new_ubound = dist.ubound()+0.003;
-//     dist.set_ubound(new_ubound);
-//     EXPECT_EQ(new_ubound,dist.ubound());
-// }
-
-// TYPED_TEST(UnivariateDistTest, sample_bounds) {
-//     double L=1;
-//     double U=10;
-//     dist.set_bounds(L,U);
-//     for(int n=0; n < this->Ntest; n++){
-//         double v = dist.sample(env->get_rng());
-//         EXPECT_LE(L,v);
-//         EXPECT_LE(v,U);
-//     }
-// }
+TYPED_TEST(UnivariateDistTest, param_names) {
+    auto &dist = this->dist;
+    auto &params = dist.param_names;
+    std::set<std::string> params_set(params.begin(),params.end());
+    EXPECT_EQ(params.size(), params_set.size())<< "Parameter Names must be unique.";
+    EXPECT_EQ(params.size(), dist.num_params());
+    for(IdxT n=0; n<dist.num_params(); n++) EXPECT_FALSE(params[n].empty());
+}
 
 TYPED_TEST(UnivariateDistTest, cdf) {
     auto &dist = this->dist;
@@ -226,49 +206,3 @@ TYPED_TEST(UnivariateDistTest, grad_grad_accumulate) {
         EXPECT_DOUBLE_EQ(grad2,grad2_acc);
     }
 }
-
-/*
-TEST_F(NormalDistTest, set_ubound) {
-    double ubound = dist.get_ubound();
-    EXPECT_EQ(ubound,INFINITY);
-    //check set_bounds()
-    double new_ubound = 10;
-    dist.set_bounds(dist.get_lbound(),new_ubound);
-    EXPECT_EQ(new_ubound,dist.get_ubound());
-    //check set_ubound()
-    new_ubound = 20;
-    dist.set_ubound(new_ubound);
-    EXPECT_EQ(new_ubound,dist.get_ubound());
-}
-
-TEST_F(NormalDistTest, set_illegal_bounds) {
-    //check set_bounds()
-    EXPECT_THROW(dist.set_bounds(1,1), prior_hessian::PriorHessianError);
-    EXPECT_THROW(dist.set_bounds(0,-1), prior_hessian::PriorHessianError);
-    dist.set_lbound(-1);
-    EXPECT_THROW(dist.set_ubound(-2), prior_hessian::PriorHessianError);
-    dist.set_ubound(1);
-    EXPECT_THROW(dist.set_lbound(2), prior_hessian::PriorHessianError);
-}
-
-TEST_F(NormalDistTest, set_bounds_cdf) {
-    RngT rng(environment.get_seed());
-    std::uniform_real_distribution<double> d(-1e6,1e6);
-    double lbound = d(rng);
-    d = std::uniform_real_distribution<double>(lbound+std::numeric_limits<double>::epsilon(),1e6);
-    double ubound = d(rng);
-    dist.set_ubound(ubound);
-    EXPECT_EQ(dist.cdf(ubound),1)<<"ubound: "<<ubound;
-    dist.set_lbound(lbound);
-    EXPECT_EQ(dist.cdf(lbound),0)<<"lbound: "<<lbound;
-}*/
-
-// TEST_F(NormalDistTest, set_bounds_cdf) {
-//     double ubound = 20;
-//     dist.set_ubound(ubound);
-//     EXPECT_EQ(dist.cdf(ubound),1);
-//     double lbound = 0;
-//     dist.set_lbound(lbound);
-//     EXPECT_EQ(dist.cdf(lbound),0);
-// }
-

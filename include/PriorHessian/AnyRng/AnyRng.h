@@ -36,7 +36,7 @@ public:
     template<typename RNG, typename=std::enable_if_t<std::is_same<ResultT,typename RNG::result_type>::value>>
     explicit AnyRng(RNG &rng_) : handle{new RngWrapper<RNG>{rng_}} { } 
     using result_type = ResultT;
-    const std::type_info& type_info() { handle->type_info(); }
+    const std::type_info& type_info() { return handle->type_info(); }
     ResultT min() const { return handle->min(); }
     ResultT max() const { return handle->max(); }
     void seed(ResultT seed=0) { handle->seed(seed); }

@@ -43,6 +43,9 @@ public:
     void set_scale(double val) { _scale = check_scale(val); }
     void set_shape(double val) { _shape = check_shape(val); }
         
+    double mean() const { return _shape*_scale; }
+    double median() const { return icdf(0.5); }
+        
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
