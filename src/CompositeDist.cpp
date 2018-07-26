@@ -58,9 +58,9 @@ bool CompositeDist::operator==(const CompositeDist &o) const
 std::ostream& operator<<(std::ostream &out,const CompositeDist &comp_dist)
 {
     out<<"[CompositeDist]:\n";
-    out<<"  NumComponentDists:"<<comp_dist.num_component_dists()<<"\n";
+    out<<"  NumComponentDists:"<<comp_dist.num_components()<<"\n";
     out<<"  NumDim:"<<comp_dist.num_dim()<<"\n";
-    out<<"  ComponentNumDim:"<<comp_dist.components_num_dim().t();
+    out<<"  ComponentNumDim:"<<comp_dist.num_dim_components().t();
     out<<"  LBound:"<<comp_dist.lbound().t();
     out<<"  UBound:"<<comp_dist.ubound().t();
     auto vars=comp_dist.dim_variables();
@@ -69,7 +69,7 @@ std::ostream& operator<<(std::ostream &out,const CompositeDist &comp_dist)
     out<<"]\n";
 
     out<<"  NumParams:"<<comp_dist.num_params()<<"\n";
-    out<<"  ComponentNumParams:"<<comp_dist.components_num_params().t();
+    out<<"  ComponentNumParams:"<<comp_dist.num_params_components().t();
     out<<"  Params:"<<comp_dist.params().t();
     auto param_names=comp_dist.param_names();
     out<<"  ParamDesc:[";

@@ -8,6 +8,23 @@
 /* Globals */
 test_helper::RngEnvironment *env = new test_helper::RngEnvironment; //Googletest wants to free env, so we need to appease its demands or face segfaults.
 
+void check_symmetric(const MatT &m)
+{
+    ASSERT_TRUE(m.is_square());
+    IdxT N = m.n_rows;
+    for(IdxT c=0; c<N; c++) {
+        for(IdxT r=0; r<c; r++){
+            EXPECT_EQ(m(r,c), m(c,r))<<"Matrix not symmetric.";
+        }
+    }
+}
+
+void check_positive_definite(const MatT &m)
+{
+    auto R = m;
+    ASSERT_TRUE(arma::chol(R,m))<<"Cholesky fail. Matrix not positive definite.";
+}
+
 
 int main(int argc, char **argv) 
 {

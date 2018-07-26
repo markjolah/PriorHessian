@@ -7,7 +7,7 @@
 #define _PRIOR_HESSIAN_BASEDIST_H
 
 namespace prior_hessian {
- 
+    
 class BaseDist
 { };
 

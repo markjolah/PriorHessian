@@ -200,10 +200,7 @@ TYPED_TEST(BoundsAdaptedDistTest, grad_grad_accumulate) {
 TYPED_TEST(BoundsAdaptedDistTest, set_ubound) {
     auto &dist = this->dist;
     auto dist_copy = this->dist;
-    double old_bound = dist.ubound();
-    double delta = 1.0E0;
-    double default_bounds = env->sample_real(dist.icdf(0.55),dist.icdf(0.85));
-    double new_bound = std::isfinite(old_bound) ? old_bound + delta : default_bounds;        
+    double new_bound = env->sample_real(dist.icdf(0.55),dist.icdf(0.95));
     //check set_bounds(,ubound)
     dist.set_bounds(dist.lbound(),new_bound);
     EXPECT_EQ(new_bound,dist.ubound());
@@ -215,10 +212,7 @@ TYPED_TEST(BoundsAdaptedDistTest, set_ubound) {
 TYPED_TEST(BoundsAdaptedDistTest, set_lbound) {
     auto &dist = this->dist;
     auto dist_copy = this->dist;
-    double old_bound = dist.lbound();
-    double delta = 1.0E-2;
-    double default_bounds = 2;
-    double new_bound = std::isfinite(old_bound) ? old_bound + delta : default_bounds;        
+    double new_bound = env->sample_real(dist.icdf(0.05),dist.icdf(0.45));
     //check set_bounds(,ubound)
     dist.set_bounds(new_bound,dist.ubound());
     EXPECT_EQ(new_bound,dist.lbound());

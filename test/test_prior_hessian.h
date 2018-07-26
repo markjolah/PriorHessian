@@ -141,6 +141,10 @@ void check_equal(const Dist &d1, const Dist &d2)
     EXPECT_EQ(v1,v2);
 }
 
+void check_symmetric(const MatT &m);
+void check_positive_definite(const MatT &m);
+
+
 using UnivariateDistTs = ::testing::Types<
                                 NormalDist, BoundedNormalDist,
                                 GammaDist, BoundedGammaDist,
@@ -181,7 +185,7 @@ class CompositeDistTest : public ::testing::Test {
 public:    
     TupleT dists;
     CompositeDist composite;
-    
+    static constexpr int Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         initialize_distribution_tuple(dists);

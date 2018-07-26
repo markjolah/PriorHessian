@@ -3,7 +3,13 @@
 # CTest integration of googletest
 
 find_package(GTest REQUIRED)
+find_package(LAPACK REQUIRED)
+find_package(BLAS REQUIRED)
 
+remove_definitions(-DARMA_DONT_USE_LAPACK)
+remove_definitions(-DARMA_DONT_USE_BLAS)
+add_definitions(-DARMA_USE_LAPACK)
+add_definitions(-DARMA_USE_BLAS)
 set(GTEST_EXE test${PROJECT_NAME})
 file(GLOB GTEST_SRCS test_*.cpp)
 add_executable(${GTEST_EXE} ${GTEST_SRCS})

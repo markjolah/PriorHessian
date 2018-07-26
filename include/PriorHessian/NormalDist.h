@@ -21,15 +21,23 @@ namespace prior_hessian {
 class NormalDist : public UnivariateDist
 {
 public:
-    static const StringVecT param_names;
+    /* Static constant member data */
+    static const StringVecT param_names; //Cannonical names for parameters
+    static const VecT param_lbound; //Lower bound on valid parameter values 
+    static const VecT param_ubound; //Upper bound on valid parameter values
+    /* Static member functions */
     static constexpr IdxT num_params() { return 2; }
+    static bool check_params(double mu, double sigma); /* Check parameters are valid (in bounds) */    
+    static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
     
     NormalDist(double mu=0.0, double sigma=1.0);
     
     double mu() const { return _mu; }
     double sigma() const { return _sigma; }
-    void set_mu(double val) { _mu = check_mu(val); }
-    void set_sigma(double val) { _sigma = check_sigma(val); }
+    void set_mu(double val) { _mu = checked_mu(val); }
+    void set_sigma(double val) { _sigma = checked_sigma(val); }
     bool operator==(const NormalDist &o) const { return _mu == o._mu && _sigma == o._sigma; }
     bool operator!=(const NormalDist &o) const { return !this->operator==(o);}
     
@@ -38,8 +46,8 @@ public:
     VecT params() const { return {_mu, _sigma}; }
     void set_params(const VecT &p)
     { 
-        _mu = check_mu(p[0]);  
-        _sigma = check_sigma(p[1]); 
+        _mu = checked_mu(p[0]);  
+        _sigma = checked_sigma(p[1]); 
     }
     
     double mean() const { return _mu; }
@@ -56,6 +64,7 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
+
 protected:
     using RngDistT = std::normal_distribution<double>; //Used for RNG
 
@@ -63,8 +72,8 @@ protected:
     static const double sqrt2pi_inv;
     static const double log2pi;
 
-    static double check_mu(double val);
-    static double check_sigma(double val);
+    static double checked_mu(double val);
+    static double checked_sigma(double val);
    
     double _mu; //distribution mu
     double _sigma; //distribution shape
@@ -104,6 +113,56 @@ namespace detail
         static constexpr bool adaptable_bounds = true;
     };
 } /* namespace detail */
+
+inline
+bool NormalDist::check_params(double param0, double param1)
+{
+    return std::isfinite(param0) && std::isfinite(param1);     
+}
+
+inline
+bool NormalDist::check_params(VecT &params)
+{ 
+    return params.is_finite();     
+}
+
+template<class IterT>
+bool NormalDist::check_params_iter(IterT &params)
+{
+    double mu = *params++;
+    double sigma = *params++;
+    return check_params(mu,sigma);
+}
+
+inline
+double NormalDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return _mu;
+        case 1:
+            return _sigma;
+        default:
+            //Don't handle indexing errors.
+            return std::numeric_limits<double>::quiet_NaN();
+    }
+}
+
+inline
+void NormalDist::set_param(int idx, double val)
+{ 
+    switch(idx){
+        case 0:
+            set_mu(val);
+            return;
+        case 1:
+            set_sigma(val);
+            return;
+        default:
+            return; //Don't handle indexing errors.
+    }
+}
+
 
 inline
 double NormalDist::pdf(double x) const

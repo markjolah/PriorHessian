@@ -23,18 +23,27 @@ namespace prior_hessian {
 class SymmetricBetaDist : public UnivariateDist
 {
 public:
-    static const StringVecT param_names;
+        /* Static constant member data */
+    static const StringVecT param_names; //Cannonical names for parameters
+    static const VecT param_lbound; //Lower bound on valid parameter values 
+    static const VecT param_ubound; //Upper bound on valid parameter values
+    /* Static member functions */
     static constexpr IdxT num_params() { return 1; }
+    static bool check_params(double beta); /* Check parameters are valid (in bounds) */    
+    static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    
     SymmetricBetaDist(double beta=1.0);
     double get_param(int idx) const;
     void set_param(int idx, double val);
     VecT params() const { return {_beta}; }
-    void set_params(const VecT &p) { _beta = check_beta(p[0]); }
+    void set_params(const VecT &p) { _beta = checked_beta(p[0]); }
     bool operator==(const SymmetricBetaDist &o) const { return _beta == o._beta; }
     bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
 
     double beta() const { return _beta; }
-    void set_beta(double val) { _beta = check_beta(val); }
+    void set_beta(double val) { _beta = checked_beta(val); }
 
     double mean() const { return 1/2; }
     double median() const { return icdf(0.5); }
@@ -50,10 +59,10 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
-protected:
+private:
     using RngDistT = boost::math::beta_distribution<double>;//Used for RNG
 
-    static double check_beta(double val);
+    static double checked_beta(double val);
    
     double _beta; //distribution mean
     double llh_const;    
@@ -91,6 +100,49 @@ namespace detail
         static constexpr bool adaptable_bounds = true;
     };
 } /* namespace detail */
+
+
+inline
+bool SymmetricBetaDist::check_params(double param0)
+{
+    return std::isfinite(param0) && param0>0;     
+}
+
+inline
+bool SymmetricBetaDist::check_params(VecT &params)
+{ 
+    return std::isfinite(params[0]) && params[0]>0;     
+}
+
+template<class IterT>
+bool SymmetricBetaDist::check_params_iter(IterT &p)
+{ 
+    return check_params(*p++);
+}
+
+inline
+double SymmetricBetaDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return _beta;
+        default:
+            //Don't handle indexing errors.
+            return std::numeric_limits<double>::quiet_NaN();
+    }
+}
+
+inline
+void SymmetricBetaDist::set_param(int idx, double val)
+{ 
+    switch(idx){
+        case 0:
+            set_beta(val);
+            return;
+        default:
+            return; //Don't handle indexing errors.
+    }
+}
 
 inline
 double SymmetricBetaDist::rllh(double x) const

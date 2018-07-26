@@ -145,9 +145,9 @@ TYPED_TEST(CompositeDistTest, move_assignment) {
     }
 }
 
-TYPED_TEST(CompositeDistTest, num_component_dists) {
+TYPED_TEST(CompositeDistTest, num_components) {
     CompositeDist &composite = this->composite;
-    EXPECT_EQ(composite.num_component_dists(),std::tuple_size<decltype(this->dists)>::value);
+    EXPECT_EQ(composite.num_components(),std::tuple_size<decltype(this->dists)>::value);
 }
 
 
@@ -162,7 +162,7 @@ TYPED_TEST(CompositeDistTest, construct_from_tuple) {
     ASSERT_EQ((bool)composite,(bool)new_composite);
     auto Ndim = composite.num_dim();
     ASSERT_EQ(Ndim, new_composite.num_dim());
-    ASSERT_EQ(composite.num_component_dists(), new_composite.num_component_dists());
+    ASSERT_EQ(composite.num_components(), new_composite.num_components());
     if(composite) { //Test rng-repeatability
         env->reset_rng();
         auto v = composite.sample(env->get_rng());
@@ -180,7 +180,7 @@ TYPED_TEST(CompositeDistTest, construct_from_rvalue_tuple) {
     ASSERT_EQ((bool)composite,(bool)new_composite);
     auto Ndim = composite.num_dim();
     ASSERT_EQ(Ndim, new_composite.num_dim());
-    ASSERT_EQ(composite.num_component_dists(), new_composite.num_component_dists());
+    ASSERT_EQ(composite.num_components(), new_composite.num_components());
     if(composite) { //Test rng-repeatability
         env->reset_rng();
         auto v = composite.sample(env->get_rng());
@@ -196,7 +196,7 @@ TYPED_TEST(CompositeDistTest, initialize_empty) {
     composite.initialize();
     ASSERT_FALSE((bool) composite);
     ASSERT_TRUE(composite.is_empty());
-    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_components(),0);
     ASSERT_EQ(composite.num_dim(),0);
 }
 
@@ -206,7 +206,7 @@ TYPED_TEST(CompositeDistTest, initialize_empty_tuple) {
     composite.initialize(tup);
     ASSERT_FALSE((bool) composite);
     ASSERT_TRUE(composite.is_empty());
-    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_components(),0);
     ASSERT_EQ(composite.num_dim(),0);
 }
 
@@ -215,7 +215,7 @@ TYPED_TEST(CompositeDistTest, initialize_empty_rvalue_tuple) {
     composite.initialize(std::tuple<>{});
     ASSERT_FALSE((bool) composite);
     ASSERT_TRUE(composite.is_empty());
-    ASSERT_EQ(composite.num_component_dists(),0);
+    ASSERT_EQ(composite.num_components(),0);
     ASSERT_EQ(composite.num_dim(),0);
 }
 
@@ -224,7 +224,7 @@ void check_composite_dists_equal(CompositeDist &d1, CompositeDist &d2)
     ASSERT_EQ((bool)d1,(bool)d2);
     auto Ndim = d1.num_dim();
     ASSERT_EQ(Ndim, d2.num_dim());
-    ASSERT_EQ(d1.num_component_dists(), d2.num_component_dists());
+    ASSERT_EQ(d1.num_components(), d2.num_components());
     if(d1) { //Test rng-repeatability
         env->reset_rng();
         auto v = d1.sample(env->get_rng());
@@ -271,437 +271,487 @@ TYPED_TEST(CompositeDistTest, initialize_from_rvalue_dists) {
     check_composite_dists_equal(composite,new_composite);
 }
 
-
-
-
-/*
-TEST_F(CompositeDistCompositionTest, component_types) {
-    CompositeDist &composite = this->composite;
-    auto types = composite.component_types();
-    ASSERT_EQ(composite.num_component_dists(), types.size());
-//     EXPECT_EQ(std::type_index(typeid(dist0)), types[0]);
-//     EXPECT_EQ(std::type_index(typeid(dist1)), types[1]);
-//     EXPECT_EQ(std::type_index(typeid(dist2)), types[2]);
+TYPED_TEST(CompositeDistTest, clear) {
+    auto &composite = this->composite;
+    auto copy = composite;
+    EXPECT_EQ(composite,copy);
+    composite.clear();
+    ASSERT_FALSE((bool) composite);
+    ASSERT_TRUE(composite.is_empty());
+    ASSERT_EQ(composite.num_components(),0);
+    ASSERT_EQ(composite.num_dim(),0);
+    copy.clear();
+    EXPECT_EQ(composite,copy);
 }
 
-TEST_F(CompositeDistCompositionTest, num_dim) {
+TYPED_TEST(CompositeDistTest, is_empty_operator_bool) {
+    auto &composite = this->composite;
+    EXPECT_EQ(!composite.is_empty(), (bool) composite);
+    if(composite) {
+        EXPECT_LT(0,composite.num_components());
+        EXPECT_LT(0,composite.num_dim());
+    } else {
+        EXPECT_EQ(0,composite.num_components());
+        EXPECT_EQ(0,composite.num_dim());
+    }
+}
+  
+TYPED_TEST(CompositeDistTest, num_dim) {
     CompositeDist &composite = this->composite;
-    EXPECT_EQ(composite.num_dim(),3);
+    EXPECT_EQ(composite.num_dim(),std::tuple_size<TypeParam>::value);
 }
 
-TEST_F(CompositeDistCompositionTest, components_num_dim) {
+TYPED_TEST(CompositeDistTest, num_dim_components) {
     CompositeDist &composite = this->composite;
-    auto ndim = composite.components_num_dim();
-    ASSERT_EQ(composite.num_component_dists(), ndim.size());
-//     EXPECT_EQ(dist0.num_dim(), ndim[0]);
-//     EXPECT_EQ(dist1.num_dim(), ndim[1]);
-//     EXPECT_EQ(dist2.num_dim(), ndim[2]);
+    auto ndim = composite.num_dim_components();
+    ASSERT_EQ(composite.num_components(), ndim.size());
+    for(IdxT n=0; n< composite.num_components(); n++)
+        EXPECT_LT(0,ndim[n]);
 }
 
-TEST_F(CompositeDistCompositionTest, dim_variables) {
+TYPED_TEST(CompositeDistTest, dim_variables) {
+    //Variable names for each dimension
     CompositeDist &composite = this->composite;
     auto vars = composite.dim_variables();
     ASSERT_EQ(composite.num_dim(), vars.size());
-//     EXPECT_EQ(dist0.var_name(), vars[0]);
-//     EXPECT_EQ(dist1.var_name(), vars[1]);
-//     EXPECT_EQ(dist2.var_name(), vars[2]);
+    std::unordered_set<std::string> vars_set(vars.begin(), vars.end());
+    EXPECT_EQ(vars.size(), vars_set.size())<<"Var names should be unique.";
+    for(auto &v:vars) EXPECT_LT(0,v.size())<<"Var should not be empty.";
 }
 
-TEST_F(CompositeDistCompositionTest, set_dim_variables) {
+TYPED_TEST(CompositeDistTest, set_dim_variables) {
     CompositeDist &composite = this->composite;
     auto vars = composite.dim_variables();
     for(auto& v:vars) v.append("foo");
     composite.set_dim_variables(vars);
     auto vars2 = composite.dim_variables();
     ASSERT_EQ(composite.num_dim(), vars2.size());
-//     EXPECT_EQ(dist0.var_name()+"foo", vars2[0]);
-//     EXPECT_EQ(dist1.var_name()+"foo", vars2[1]);
-//     EXPECT_EQ(dist2.var_name()+"foo", vars2[2]);
+    for(IdxT n=0; n<composite.num_dim(); n++) EXPECT_EQ(vars2[n],vars[n]);
 }
 
-TEST_F(CompositeDistCompositionTest, lbound) {
+/* Bounds */
+TYPED_TEST(CompositeDistTest, lbound_ubound) {
     CompositeDist &composite = this->composite;
-    auto lbound = composite.lbound();
-    ASSERT_EQ(composite.num_dim(), lbound.size());
-//     EXPECT_EQ(dist0.lbound(), lbound[0]);
-//     EXPECT_EQ(dist1.lbound(), lbound[1]);
-//     EXPECT_EQ(dist2.lbound(), lbound[2]);
+    auto lb = composite.lbound();
+    ASSERT_TRUE(!lb.has_nan());
+    auto ub = composite.ubound();
+    ASSERT_TRUE(!ub.has_nan());
+    ASSERT_TRUE(arma::all(lb<ub))<<"Bad bounds lb:"<<lb.t()<<" ub:"<<ub.t();
 }
 
-TEST_F(CompositeDistCompositionTest, set_lbound) {
+TYPED_TEST(CompositeDistTest, in_bounds) {
     CompositeDist &composite = this->composite;
-    auto lbound = composite.lbound();
-    for(IdxT i=0;i<lbound.size();i++) lbound[i]=3.141+i;
-    composite.set_lbound(lbound);
-    auto lbound2 = composite.lbound();
-    ASSERT_EQ(composite.num_dim(), lbound2.size());
-//     EXPECT_EQ(3.141+0, lbound2[0]);
-//     EXPECT_EQ(3.141+1, lbound2[1]);
-//     EXPECT_EQ(3.141+2, lbound2[2]);
-}
+    if(!composite) return;
+    auto lb = composite.lbound();
+    auto ub = composite.ubound();
+    VecT old_s;
+    for(IdxT n=0;n<this->Ntest;n++) {
+        auto s = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(s));
+        if(n>0) {ASSERT_TRUE(!arma::all(s==old_s));}
+        old_s = s;
+    }
+}    
 
-TEST_F(CompositeDistCompositionTest, ubound) {
+TYPED_TEST(CompositeDistTest, set_bounds) {
     CompositeDist &composite = this->composite;
-    auto ubound = composite.ubound();
-    ASSERT_EQ(composite.num_dim(), ubound.size());
-//     EXPECT_EQ(dist0.ubound(), ubound[0]);
-//     EXPECT_EQ(dist1.ubound(), ubound[1]);
-//     EXPECT_EQ(dist2.ubound(), ubound[2]);
+    if(!composite) return;
+    auto val1 = composite.sample(env->get_rng());
+    auto val2 = composite.sample(env->get_rng());
+    auto new_lb = arma::min(val1,val2);
+    auto new_ub = arma::max(val1,val2);
+    auto lb = composite.lbound();
+    auto ub = composite.ubound();
+    ASSERT_TRUE(arma::all(new_lb>lb));
+    ASSERT_TRUE(arma::all(new_ub<ub));
+    ASSERT_TRUE(composite.in_bounds(new_lb));
+    ASSERT_TRUE(composite.in_bounds(new_ub));
+
+    composite.set_lbound(new_lb);
+    ASSERT_TRUE(arma::all(new_lb==composite.lbound()));
+    composite.set_lbound(lb);
+    ASSERT_TRUE(arma::all(lb==composite.lbound()));
+    ASSERT_TRUE(composite.in_bounds(new_lb));
+    ASSERT_TRUE(!composite.in_bounds(lb) || arma::all(lb==composite.lbound()));
+
+    composite.set_ubound(new_ub);
+    ASSERT_TRUE(arma::all(new_ub==composite.ubound()));
+    composite.set_ubound(ub);
+    ASSERT_TRUE(arma::all(ub==composite.ubound()));
+    ASSERT_TRUE(composite.in_bounds(new_ub));
+    ASSERT_TRUE(!composite.in_bounds(ub) || arma::all(ub==composite.ubound()));
+
+    composite.set_bounds(new_lb, new_ub);
+    ASSERT_TRUE(arma::all(new_lb==composite.lbound()));
+    ASSERT_TRUE(arma::all(new_ub==composite.ubound()));
+    composite.set_bounds(lb,ub);
+    ASSERT_TRUE(arma::all(lb==composite.lbound()));
+    ASSERT_TRUE(arma::all(ub==composite.ubound()));
+    ASSERT_TRUE(composite.in_bounds(new_lb));
+    ASSERT_TRUE(!composite.in_bounds(lb) || arma::all(lb==composite.lbound()));
+    ASSERT_TRUE(composite.in_bounds(new_ub));
+    ASSERT_TRUE(!composite.in_bounds(ub) || arma::all(ub==composite.ubound()));
 }
 
-TEST_F(CompositeDistCompositionTest, set_ubound) {
+TYPED_TEST(CompositeDistTest, in_bounds_set_bounds) {
     CompositeDist &composite = this->composite;
-    auto ubound = composite.ubound();
-    for(IdxT i=0;i<ubound.size();i++) ubound[i]=3.141+i;
-    composite.set_ubound(ubound);
-    auto ubound2 = composite.ubound();
-    ASSERT_EQ(composite.num_dim(), ubound2.size());
-//     EXPECT_EQ(3.141+0, ubound2[0]);
-//     EXPECT_EQ(3.141+1, ubound2[1]);
-//     EXPECT_EQ(3.141+2, ubound2[2]);
-}
+    if(!composite) return;
+    auto lb = composite.lbound();
+    auto ub = composite.ubound();
+    auto val1 = composite.sample(env->get_rng());
+    auto val2 = composite.sample(env->get_rng());
+    auto new_lb = arma::min(val1,val2);
+    auto new_ub = arma::max(val1,val2);
+    composite.set_bounds(new_lb, new_ub);
+    VecT old_s;
+    for(IdxT n=0;n<this->Ntest;n++) {
+        auto s = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(s));
+        if(n>0) {ASSERT_TRUE(!arma::all(s==old_s));}
+        old_s = s;
+    }
+}    
 
-TEST_F(CompositeDistCompositionTest, set_bounds) {
+/* Distribution Parameters */
+TYPED_TEST(CompositeDistTest, num_params_components) {
     CompositeDist &composite = this->composite;
-    auto lbounds = composite.lbound();
-    auto ubounds = composite.ubound();
-    for(IdxT i=0;i<lbounds.size();i++) {lbounds[i]=3.141+i; ubounds[i]=i+10;}
-    composite.set_bounds(lbounds,ubounds);
-    auto lbounds2 = composite.lbound();
-    auto ubounds2 = composite.ubound();
-    ASSERT_EQ(composite.num_dim(), ubounds2.size());
-    ASSERT_EQ(composite.num_dim(), lbounds2.size());
-//     EXPECT_EQ(3.141+0, lbounds2[0]);
-//     EXPECT_EQ(3.141+1, lbounds2[1]);
-//     EXPECT_EQ(3.141+2, lbounds2[2]);
-//     EXPECT_EQ(10+0, ubounds2[0]);
-//     EXPECT_EQ(10+1, ubounds2[1]);
-//     EXPECT_EQ(10+2, ubounds2[2]);
+    auto n_p = composite.num_params_components();
+    ASSERT_EQ(composite.num_components(), n_p.size());
+    for(auto n: n_p) EXPECT_LT(0,n)<<"Component distributions should have 1 or more parameters";
+    EXPECT_EQ(composite.num_params(), arma::sum(n_p))<<"Composite number of parameters should match sum of components.";
 }
 
-TEST_F(CompositeDistCompositionTest, component_num_params) {
+TYPED_TEST(CompositeDistTest, params_equal_params_components) {
     CompositeDist &composite = this->composite;
-    auto nps = composite.components_num_params();
-    ASSERT_EQ(composite.num_params(), arma::sum(nps));
-//     EXPECT_EQ(dist0.num_params(), nps[0]);
-//     EXPECT_EQ(dist1.num_params(), nps[1]);
-//     EXPECT_EQ(dist2.num_params(), nps[2]);
+    auto cps = composite.params_components();
+    auto params = composite.params();
+    auto ncps = composite.num_params_components();
+    ASSERT_EQ(composite.num_components(), cps.size());
+    ASSERT_EQ(composite.num_params(), params.n_elem);
+    IdxT pidx=0;
+    for(IdxT n=0;n<composite.num_components(); n++) {
+        ASSERT_EQ(cps[n].n_elem, ncps[n]);
+        for(IdxT k=0; k<ncps[n];k++) EXPECT_EQ(cps[n][k], params[pidx++]);
+    }
 }
 
-TEST_F(CompositeDistCompositionTest, params) {
+TYPED_TEST(CompositeDistTest, check_params) {
     CompositeDist &composite = this->composite;
     auto params = composite.params();
-    auto nps = composite.components_num_params();
-    ASSERT_EQ(composite.num_params(), params.size());
-    ASSERT_EQ(composite.num_component_dists(), nps.size());
-    IdxT j=0;
-//     for(IdxT k=0; k<nps[0]; k++)
-//         EXPECT_EQ(dist0.get_param(k),params[j++]);
-//     for(IdxT k=0; k<nps[1]; k++)
-//         EXPECT_EQ(dist1.get_param(k),params[j++]);
-//     for(IdxT k=0; k<nps[2]; k++)
-//         EXPECT_EQ(dist2.get_param(k),params[j++]);
+    ASSERT_TRUE(composite.check_params(params));
 }
 
-TEST_F(CompositeDistCompositionTest, set_params) {
+TYPED_TEST(CompositeDistTest, set_params_idempotent) {
     CompositeDist &composite = this->composite;
     auto params = composite.params();
-    for(auto& p:params) p*=1.01;
     composite.set_params(params);
     auto params2 = composite.params();
-    ASSERT_EQ(composite.num_params(), params2.size());
-    for(IdxT k=0;k<params2.size();k++) EXPECT_EQ(params[k],params2[k]);
+    ASSERT_TRUE(arma::all(params==params2));
 }
 
-TEST_F(CompositeDistCompositionTest, param_names) {
+TYPED_TEST(CompositeDistTest, params_lbound_ubound) {
     CompositeDist &composite = this->composite;
-    auto pd = composite.param_names();
-    auto nps = composite.components_num_params();
-    ASSERT_EQ(composite.num_params(), pd.size());
-    ASSERT_EQ(composite.num_component_dists(), nps.size());
-    IdxT j=0;
-    for(IdxT k=0; k<nps[0]; k++)
-        EXPECT_EQ(dist0.param_names()[k],pd[j++]);
-    for(IdxT k=0; k<nps[1]; k++)
-        EXPECT_EQ(dist1.param_names()[k],pd[j++]);
-    for(IdxT k=0; k<nps[2]; k++)
-        EXPECT_EQ(dist2.param_names()[k],pd[j++]);
+    auto params = composite.params();
+    auto lb = composite.params_lbound();
+    auto ub = composite.params_ubound();
+    ASSERT_EQ(composite.num_params(), lb.n_elem);
+    ASSERT_EQ(composite.num_params(), ub.n_elem);
+    ASSERT_TRUE(arma::all(lb <= params))<<"OOB Params: "<<params<<" lb:"<<lb;
+    ASSERT_TRUE(arma::all(ub >= params))<<"OOB Params: "<<params<<" ub:"<<ub;
 }
 
-TEST_F(CompositeDistCompositionTest, has_param) {
+TYPED_TEST(CompositeDistTest, set_params_random) {
     CompositeDist &composite = this->composite;
-    auto names = composite.param_names();
-    for(auto n: names) EXPECT_TRUE(composite.has_param(n));
-    EXPECT_FALSE(composite.has_param(""));
-    EXPECT_FALSE(composite.has_param("foo"));
+    IdxT N = composite.num_params();
+    auto params = composite.params();
+    auto lb = arma::max(composite.params_lbound(), params/2).eval();
+    auto ub = arma::min(composite.params_ubound(), params*2).eval();
+    for(IdxT n=0;n<N;n++) params(n) = env->sample_real(lb(n),ub(n));
+    ASSERT_TRUE(composite.check_params(params));
+    composite.set_params(params);
+    ASSERT_TRUE(arma::all(params==composite.params()));
 }
 
-TEST_F(CompositeDistCompositionTest, get_param_value) {
-    CompositeDist &composite = this->composite;
-    auto names = composite.param_names();
-    auto vals = composite.params();
-    for(IdxT i=0;i<composite.num_params();i++) EXPECT_EQ(composite.get_param_value(names[i]),vals[i]);
-    EXPECT_THROW(composite.get_param_value(""),prior_hessian::ParameterNameError);
-    EXPECT_THROW(composite.get_param_value("foo"),prior_hessian::ParameterNameError);
-}
-
-TEST_F(CompositeDistCompositionTest, set_param_value) {
+TYPED_TEST(CompositeDistTest, param_names) {
     CompositeDist &composite = this->composite;
     auto names = composite.param_names();
-    auto vals = composite.params();
-    auto new_vals = vals+0.001;
-    for(IdxT i=0;i<composite.num_params();i++) {
-        EXPECT_EQ(composite.get_param_value(names[i]),vals[i]);
-        composite.set_param_value(names[i],new_vals[i]);
-        EXPECT_EQ(composite.get_param_value(names[i]),new_vals[i]);
-    }
-    EXPECT_THROW(composite.set_param_value("",17),prior_hessian::ParameterNameError);
-    EXPECT_THROW(composite.set_param_value("foo",21),prior_hessian::ParameterNameError);
+    ASSERT_EQ(composite.num_params(), names.size());
+    std::unordered_set<std::string> names_set(names.begin(), names.end());
+    EXPECT_EQ(names.size(), names_set.size())<<"Param names should be unique.";
+    for(auto &n:names) EXPECT_LT(0,n.size())<<"Param Name should not be empty.";
 }
 
-TEST_F(CompositeDistCompositionTest, cdf) {
-    for(int n=0; n < this->Ntest; n++)
-    {
-        auto v = composite.sample(env->get_rng());
-        double cdf = composite.cdf(v);
-        double cdf2=1.0;
-        cdf2*=dist0.cdf(v[0]);
-        cdf2*=dist1.cdf(v[1]);
-        cdf2*=dist2.cdf(v[2]);
-        EXPECT_DOUBLE_EQ(cdf2,cdf);
-        EXPECT_TRUE(std::isfinite(cdf));
-        EXPECT_LE(0,cdf);
-        EXPECT_LE(cdf,1);
+TYPED_TEST(CompositeDistTest, param_value_and_index) {
+    CompositeDist &composite = this->composite;
+    auto names = composite.param_names();
+    auto params = composite.params();
+    for(auto &n:names) {
+        ASSERT_TRUE(composite.has_param(n));
+        auto k = composite.get_param_index(n);
+        auto v = composite.get_param_value(n);
+        ASSERT_EQ(params(k),v)<<"Param index and value do not match";
     }
-}    
+}
 
-TEST_F(CompositeDistCompositionTest, pdf) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, param_set_by_name) {
+    CompositeDist &composite = this->composite;
+    IdxT N = composite.num_params();
+    auto params = composite.params();
+    auto lb = arma::max(composite.params_lbound(), params/2).eval();
+    auto ub = arma::min(composite.params_ubound(), params*2).eval();
+    for(IdxT n=0;n<N;n++) params(n) = env->sample_real(lb(n),ub(n));
+    ASSERT_TRUE(composite.check_params(params));
+    auto names = composite.param_names();
+    IdxT k=0;
+    for(auto &n:names) composite.set_param_value(n,params[k++]);
+    ASSERT_TRUE(arma::all(params == composite.params()))<<"Individual param setting did not work.";
+}
+
+TYPED_TEST(CompositeDistTest, cdf) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        double pdf = composite.pdf(v);
-        double pdf2=1.0;
-        pdf2*=dist0.pdf(v[0]);
-        pdf2*=dist1.pdf(v[1]);
-        pdf2*=dist2.pdf(v[2]);
-        EXPECT_DOUBLE_EQ(pdf2,pdf);
-        EXPECT_TRUE(std::isfinite(pdf));
-        EXPECT_LE(0,pdf);
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto cdf = composite.cdf(v);
+        ASSERT_TRUE(std::isfinite(cdf));
+        ASSERT_LE(0,cdf);
+        ASSERT_LE(cdf,1);
     }
-}    
+}
 
-TEST_F(CompositeDistCompositionTest, llh) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, pdf) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        double llh = composite.llh(v);
-        double llh2=0;
-        llh2+=dist0.llh(v[0]);
-        llh2+=dist1.llh(v[1]);
-        llh2+=dist2.llh(v[2]);
-        EXPECT_DOUBLE_EQ(llh2,llh);
-        EXPECT_TRUE(std::isfinite(llh));
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto pdf = composite.pdf(v);
+        ASSERT_TRUE(std::isfinite(pdf));
+        ASSERT_LE(0,pdf);
     }
-}    
+}
 
-TEST_F(CompositeDistCompositionTest, rllh) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, llh) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        double rllh = composite.rllh(v);
-        double rllh2=0;
-        rllh2 += dist0.rllh(v[0]);
-        rllh2 += dist1.rllh(v[1]);
-        rllh2 += dist2.rllh(v[2]);
-        EXPECT_DOUBLE_EQ(rllh2,rllh);
-        EXPECT_TRUE(std::isfinite(rllh));
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto llh = composite.llh(v);
+        ASSERT_TRUE(std::isfinite(llh));
     }
-}    
+}
 
-TEST_F(CompositeDistCompositionTest, grad) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, rllh) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    double old_delta;
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto rllh = composite.rllh(v);
+        ASSERT_TRUE(std::isfinite(rllh));
+        auto llh = composite.llh(v);
+        double delta = llh - rllh;
+        if(n>0) {
+            EXPECT_FLOAT_EQ(delta,old_delta)<<"Incosistent delta betweeen rllh:"<<rllh<<" and llh:"<<llh;
+        }
+        old_delta = delta;
+    }
+}
+
+TYPED_TEST(CompositeDistTest, grad) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
+        auto v = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(v));
         auto grad = composite.grad(v);
-        ASSERT_EQ(grad.n_elem, composite.num_dim());
-        EXPECT_EQ(dist0.grad(v[0]), grad[0]);
-        EXPECT_EQ(dist1.grad(v[1]), grad[1]);
-        EXPECT_EQ(dist2.grad(v[2]), grad[2]);
+        ASSERT_EQ(grad.n_elem,composite.num_dim());
+        ASSERT_TRUE(grad.is_finite());
     }
 }
 
-TEST_F(CompositeDistCompositionTest, grad2) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, grad2) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(v));
         auto grad2 = composite.grad2(v);
-        ASSERT_EQ(grad2.n_elem, composite.num_dim());
-        EXPECT_EQ(dist0.grad2(v[0]), grad2[0]);
-        EXPECT_EQ(dist1.grad2(v[1]), grad2[1]);
-        EXPECT_EQ(dist2.grad2(v[2]), grad2[2]);
+        ASSERT_EQ(grad2.n_elem,composite.num_dim());
+        ASSERT_TRUE(grad2.is_finite());
     }
 }
 
-TEST_F(CompositeDistCompositionTest, hess) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, hess) {
+    SCOPED_TRACE("hess");
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(v));
         auto hess = composite.hess(v);
-        ASSERT_EQ(hess.n_rows, composite.num_dim());
-        ASSERT_EQ(hess.n_cols, composite.num_dim());
-        EXPECT_EQ(dist0.grad2(v[0]), hess(0,0));
-        EXPECT_EQ(dist1.grad2(v[1]), hess(1,1));
-        EXPECT_EQ(dist2.grad2(v[2]), hess(2,2));
+        ASSERT_TRUE(hess.is_finite());
+        ASSERT_EQ(hess.n_rows,composite.num_dim());
+        ASSERT_EQ(hess.n_cols,composite.num_dim());
+        check_symmetric(hess);
     }
 }
 
-TEST_F(CompositeDistCompositionTest, grad_accumulate) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, grad_accumulate) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        auto grad = composite.make_zero_grad();
-        ASSERT_EQ(grad.n_elem, composite.num_dim());
-        composite.grad_accumulate(v,grad);
-        EXPECT_EQ(dist0.grad(v[0]), grad[0]);
-        EXPECT_EQ(dist1.grad(v[1]), grad[1]);
-        EXPECT_EQ(dist2.grad(v[2]), grad[2]);
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto grad = composite.grad(v);
+        ASSERT_EQ(grad.n_elem,composite.num_dim());
+        auto grad_acc = composite.make_zero_grad();
+        ASSERT_EQ(grad_acc.n_elem,composite.num_dim());
+        ASSERT_TRUE(arma::all(grad_acc==0))<<"Grad should be initialized to 0";
+        composite.grad_accumulate(v,grad_acc);
+        ASSERT_TRUE(grad_acc.is_finite());
+        ASSERT_TRUE(arma::all(grad_acc == grad))<<"Grad should matach grad_accumulate";
     }
 }
 
-TEST_F(CompositeDistCompositionTest, grad2_accumulate) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, grad2_accumulate) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        auto grad2 = composite.make_zero_grad();
-        ASSERT_EQ(grad2.n_elem, composite.num_dim());
-        composite.grad2_accumulate(v,grad2);
-        EXPECT_EQ(dist0.grad2(v[0]), grad2[0]);
-        EXPECT_EQ(dist1.grad2(v[1]), grad2[1]);
-        EXPECT_EQ(dist2.grad2(v[2]), grad2[2]);
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto grad2 = composite.grad2(v);
+        ASSERT_EQ(grad2.n_elem,composite.num_dim());
+        auto grad2_acc = composite.make_zero_grad();
+        ASSERT_EQ(grad2_acc.n_elem,composite.num_dim());
+        ASSERT_TRUE(arma::all(grad2_acc==0))<<"Grad should be initialized to 0";
+        composite.grad2_accumulate(v,grad2_acc);
+        ASSERT_TRUE(grad2_acc.is_finite());
+        ASSERT_TRUE(arma::all(grad2_acc == grad2))<<"Grad2 should matach grad2_accumulate";
     }
 }
 
-TEST_F(CompositeDistCompositionTest, hess_accumulate) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, hess_accumulate) {
+    SCOPED_TRACE("hess_accumulate");
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        auto hess = composite.make_zero_hess();
-        ASSERT_EQ(hess.n_rows, composite.num_dim());
-        ASSERT_EQ(hess.n_cols, composite.num_dim());
-        composite.hess_accumulate(v,hess);
-        EXPECT_EQ(dist0.grad2(v[0]), hess(0,0));
-        EXPECT_EQ(dist1.grad2(v[1]), hess(1,1));
-        EXPECT_EQ(dist2.grad2(v[2]), hess(2,2));
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto hess = composite.hess(v);
+        ASSERT_EQ(hess.n_rows,composite.num_dim());
+        ASSERT_EQ(hess.n_cols,composite.num_dim());
+        auto hess_acc = composite.make_zero_hess();
+        ASSERT_EQ(hess_acc.n_rows,composite.num_dim());
+        ASSERT_EQ(hess_acc.n_cols,composite.num_dim());
+        ASSERT_EQ(0,arma::abs(hess_acc).max())<<"Hess should be initialized to 0";
+        composite.hess_accumulate(v,hess_acc);
+        ASSERT_TRUE(hess_acc.is_finite());
+        ASSERT_TRUE(arma::approx_equal(hess,hess_acc,"reldiff",1e-8))<<"Hess should matach hess_accumulate";
+        check_symmetric(hess_acc);
     }
 }
 
-TEST_F(CompositeDistCompositionTest, grad_grad2_accumulate) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest,grad_grad2_accumulate) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        auto grad = composite.make_zero_grad();
-        auto grad2 = composite.make_zero_grad();
-        ASSERT_EQ(grad.n_elem, composite.num_dim());
-        ASSERT_EQ(grad2.n_elem, composite.num_dim());
-        composite.grad_grad2_accumulate(v,grad,grad2);
-        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
-        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
-        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
-        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), grad2[0]);
-        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), grad2[1]);
-        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), grad2[2]);
-   }
-}
-
-TEST_F(CompositeDistCompositionTest, grad_hess_accumulate) {
-    for(int n=0; n < this->Ntest; n++)
-    {
-        auto v = composite.sample(env->get_rng());
-        auto grad = composite.make_zero_grad();
-        ASSERT_EQ(grad.n_elem, composite.num_dim());
-        auto hess = composite.make_zero_hess();
-        ASSERT_EQ(hess.n_rows, composite.num_dim());
-        ASSERT_EQ(hess.n_cols, composite.num_dim());
-        composite.grad_hess_accumulate(v,grad,hess);
-        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
-        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
-        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
-        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), hess(0,0));
-        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), hess(1,1));
-        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), hess(2,2));
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto grad = composite.grad(v);
+        auto grad2 = composite.grad2(v);
+        auto grad_acc = composite.make_zero_grad();
+        auto grad2_acc = composite.make_zero_grad();
+        
+        composite.grad_grad2_accumulate(v,grad_acc,grad2_acc);
+        ASSERT_TRUE(grad_acc.is_finite());
+        ASSERT_TRUE(grad2_acc.is_finite());
+        ASSERT_TRUE(arma::approx_equal(grad,grad_acc,"reldiff",1e-8))<<"Grad should matach grad_accumulate";        
+        ASSERT_TRUE(arma::approx_equal(grad2,grad2_acc,"reldiff",1e-8))<<"Grad2:"<<grad2.t()<<" should matach grad2_accumulate:"<<grad2_acc.t();
     }
 }
 
-TEST_F(CompositeDistCompositionTest, g) {
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest,grad_hess_accumulate) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        auto grad = composite.make_zero_grad();
-        ASSERT_EQ(grad.n_elem, composite.num_dim());
-        auto hess = composite.make_zero_hess();
-        ASSERT_EQ(hess.n_rows, composite.num_dim());
-        ASSERT_EQ(hess.n_cols, composite.num_dim());
-        composite.grad_hess_accumulate(v,grad,hess);
-        EXPECT_DOUBLE_EQ(dist0.grad(v[0]), grad[0]);
-        EXPECT_DOUBLE_EQ(dist1.grad(v[1]), grad[1]);
-        EXPECT_DOUBLE_EQ(dist2.grad(v[2]), grad[2]);
-        EXPECT_DOUBLE_EQ(dist0.grad2(v[0]), hess(0,0));
-        EXPECT_DOUBLE_EQ(dist1.grad2(v[1]), hess(1,1));
-        EXPECT_DOUBLE_EQ(dist2.grad2(v[2]), hess(2,2));
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto grad = composite.grad(v);
+        auto hess = composite.hess(v);
+        auto grad_acc = composite.make_zero_grad();
+        auto hess_acc = composite.make_zero_hess();
+        
+        composite.grad_hess_accumulate(v,grad_acc,hess_acc);
+        ASSERT_TRUE(grad_acc.is_finite());
+        ASSERT_TRUE(hess_acc.is_finite());
+        ASSERT_TRUE(arma::approx_equal(grad,grad_acc,"reldiff",1e-8))<<"Grad should matach grad_accumulate";        
+        ASSERT_TRUE(arma::approx_equal(hess,hess_acc,"reldiff",1e-8))<<"Hess2:"<<hess<<" should matach hess_accumulate:"<<hess_acc;
     }
 }
 
-TEST_F(CompositeDistCompositionTest, sample_bounds_test) {
-    prior_hessian::VecT lbound={0.2,0.3,0.4};
-    prior_hessian::VecT ubound={1.2,1.3,1.4};
-    composite.set_bounds(lbound,ubound);
-    for(int n=0; n < this->Ntest; n++)
-    {
+TYPED_TEST(CompositeDistTest, rllh_components) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
         auto v = composite.sample(env->get_rng());
-        for(prior_hessian::IdxT k=0;k<composite.num_dim();k++){
-            EXPECT_LE(lbound[k],v[k]);
-            EXPECT_GE(ubound[k],v[k]);
-        }
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto rllh = composite.rllh(v);
+        ASSERT_TRUE(std::isfinite(rllh));
+        auto rllh_components = composite.rllh_components(v);
+        ASSERT_EQ(rllh_components.n_elem, composite.num_components());
+        ASSERT_FLOAT_EQ(rllh,arma::sum(rllh_components))<<"rllh components should sum is:"<<arma::sum(rllh_components)<<" but should be rllh:"<<rllh;
     }
 }
 
-TEST_F(CompositeDistCompositionTest, sample_vector_repeatability) {
+TYPED_TEST(CompositeDistTest, llh_components) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    for(IdxT n=0; n<this->Ntest; n++) {
+        auto v = composite.sample(env->get_rng());
+        ASSERT_TRUE(composite.in_bounds(v));
+        auto llh = composite.llh(v);
+        ASSERT_TRUE(std::isfinite(llh));
+        auto llh_components = composite.llh_components(v);
+        ASSERT_EQ(llh_components.n_elem, composite.num_components());
+        ASSERT_FLOAT_EQ(llh,arma::sum(llh_components))<<"llh components should sum is:"<<arma::sum(llh_components)<<" but should be llh:"<<llh;
+    }
+}
+
+TYPED_TEST(CompositeDistTest, sample_repeatablity) {
+    CompositeDist &composite = this->composite;
+    if(!composite) return; //Ignore empty dists.
+    auto& rng = env->get_rng();
+    CompositeDist::AnyRngT any_rng(rng);
     env->reset_rng();
-    int N = this->Ntest;
-    auto sample = composite.sample(env->get_rng(),N);
-    ASSERT_EQ(sample.n_rows,composite.num_dim());
-    ASSERT_EQ(sample.n_cols,N);
+    auto v11 = composite.sample(rng);
+    auto v12 = composite.sample(any_rng);
+    ASSERT_TRUE(composite.in_bounds(v11));
+    ASSERT_TRUE(composite.in_bounds(v12));
     env->reset_rng();
-    for(int n=0; n < N; n++)
-    {
-        auto v = composite.sample(env->get_rng());
-        ASSERT_EQ(v.n_elem,composite.num_dim());
-        for(prior_hessian::IdxT k=0; k<composite.num_dim(); k++){
-            EXPECT_EQ(sample(k,n),v[k]);
-        }
-    }
+    auto v21 = composite.sample(any_rng);
+    auto v22 = composite.sample(rng);
+    EXPECT_TRUE(arma::all(v11==v21))<<"Random number generation not repeatable.";
+    EXPECT_TRUE(arma::all(v12==v22))<<"Random number generation not repeatable.";
 }
 
-TEST_F(CompositeDistCompositionTest, llh_components) {
-    for(int n=0; n < this->Ntest; n++)
-    {
-        auto v = composite.sample(env->get_rng());
-        auto llh_comp = composite.llh_components(v);
-        ASSERT_EQ(llh_comp.n_elem, composite.num_dim());
-        EXPECT_EQ(dist0.llh(v[0]), llh_comp[0]);
-        EXPECT_EQ(dist1.llh(v[1]), llh_comp[1]);
-        EXPECT_EQ(dist2.llh(v[2]), llh_comp[2]);
-    }
+TYPED_TEST(CompositeDistTest, bulk_sample_repeatablity) {
+    CompositeDist &composite = this->composite;
+    auto Ntest = this->Ntest;
+    if(!composite) return; //Ignore empty dists.
+    auto& rng = env->get_rng();
+    CompositeDist::AnyRngT any_rng(rng);
+    env->reset_rng();
+    auto v11 = composite.sample(rng,Ntest);
+    auto v12 = composite.sample(any_rng,Ntest);
+    ASSERT_TRUE(composite.in_bounds_all(v11));
+    ASSERT_TRUE(composite.in_bounds_all(v12));
+    env->reset_rng();
+    auto v21 = composite.sample(any_rng,Ntest);
+    auto v22 = composite.sample(rng,Ntest);
+    EXPECT_TRUE(arma::approx_equal(v11,v21,"absdiff",0))<<"Random number generation not repeatable.";
+    EXPECT_TRUE(arma::approx_equal(v12,v22,"absdiff",0))<<"Random number generation not repeatable.";
 }
-
-TEST_F(CompositeDistCompositionTest, rllh_components) {
-    for(int n=0; n < this->Ntest; n++)
-    {
-        auto v = composite.sample(env->get_rng());
-        auto rllh_comp = composite.rllh_components(v);
-        ASSERT_EQ(rllh_comp.n_elem, composite.num_dim());
-        EXPECT_EQ(dist0.rllh(v[0]), rllh_comp[0]);
-        EXPECT_EQ(dist1.rllh(v[1]), rllh_comp[1]);
-        EXPECT_EQ(dist2.rllh(v[2]), rllh_comp[2]);
-    }
-}*/

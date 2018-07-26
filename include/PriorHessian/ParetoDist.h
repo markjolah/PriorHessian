@@ -20,25 +20,39 @@ namespace prior_hessian {
 class ParetoDist : public UnivariateDist
 {
 public:
-    static const StringVecT param_names;
-    static constexpr IdxT num_params() { return 1; }
+    /* Static constant member data */
+    static const StringVecT param_names; //Cannonical names for parameters
+    static const VecT param_lbound; //Lower bound on valid parameter values 
+    static const VecT param_ubound; //Upper bound on valid parameter values
+    /* Static member functions */
+    static constexpr IdxT num_params() { return 2; }
+    static bool check_params(double min, double alpha); /* Check parameters are valid (in bounds) */    
+    static bool check_params(VecT &params); /* Check a vector of parameters is valid (in bounds) */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    static bool check_lbound(double min); /* Check the lbound (min) parameter */    
     
-    ParetoDist(double alpha=1.0, double lbound=1.0);
+    ParetoDist(double min=1.0, double alpha=1.0);
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {alpha_}; }
-    void set_params(const VecT &p) { alpha_ = check_alpha(p[0]); }
-    bool operator==(const ParetoDist &o) const { return _lbound==o._lbound && alpha_ == o.alpha_; }
+    VecT params() const { return {lbound(),_alpha}; }
+    void set_params(const VecT &p) 
+    { 
+        set_lbound(checked_min(p[0])); 
+        _alpha = checked_alpha(p[1]); 
+    }
+    bool operator==(const ParetoDist &o) const { return lbound()==o.lbound() && _alpha == o._alpha; }
     bool operator!=(const ParetoDist &o) const { return !this->operator==(o);}
 
-    double alpha() const { return alpha_; } 
-    void set_alpha(double val) { alpha_ = check_alpha(val); }
+    double alpha() const { return _alpha; } 
+    void set_min(double val) { set_lbound(checked_min(val)); }
+    void set_alpha(double val) { _alpha = checked_alpha(val); }
     
     void set_lbound(double lbound);
     
-    double mean() const { return (alpha_ <=1) ? INFINITY : alpha_*lbound()/(alpha_-1); }
-    double median() const { return lbound() * std::pow(2,1/alpha_); }
+    double mean() const { return (_alpha <=1) ? INFINITY : _alpha*lbound()/(_alpha-1); }
+    double median() const { return lbound() * std::pow(2,1/_alpha); }
     
     double cdf(double x) const;
     double icdf(double u) const;
@@ -51,11 +65,12 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
-protected:
-    static double check_alpha(double val);
-    static double check_lbound(double val);
    
-    double alpha_; //distribution shape
+private:
+    static double checked_min(double val);
+    static double checked_alpha(double val);
+
+    double _alpha; //distribution shape
     double llh_const;    
 
     double compute_llh_const() const;
@@ -93,53 +108,111 @@ namespace detail
 } /* namespace detail */
 
 inline
+bool ParetoDist::check_params(double param0, double param1)
+{
+    return std::isfinite(param0) && (param0 > 0) &&
+           std::isfinite(param1) && (param1 > 0);     
+}
+
+inline
+bool ParetoDist::check_params(VecT &params)
+{ 
+    return std::isfinite(params[0]) && (params[0] > 0) &&
+           std::isfinite(params[1]) && (params[1] > 0); 
+}
+
+template<class IterT>
+bool ParetoDist::check_params_iter(IterT &p)
+{ 
+    double p0 = *p++;
+    double p1 = *p++;
+    return check_params(p0,p1);
+}
+
+inline
+double ParetoDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return lbound();
+        case 1:
+            return _alpha;
+        default:
+            //Don't handle indexing errors.
+            return std::numeric_limits<double>::quiet_NaN();
+    }
+}
+
+inline
+void ParetoDist::set_param(int idx, double val)
+{ 
+    switch(idx){
+        case 0:
+            set_min(val);
+            return;
+        case 1:
+            set_alpha(val);
+            return;
+        default:
+            //Don't handle indexing errors.
+            return;
+    }
+}
+
+inline
 void ParetoDist::set_lbound(double lbound)
 { 
-    _lbound = lbound;
+    set_lbound_internal(lbound);
     llh_const = compute_llh_const();  //Pareto llh_const depends on lbound.
+}
+
+inline
+bool ParetoDist::check_lbound(double min)
+{
+    return std::isfinite(min) && min>0;
 }
 
 inline
 double ParetoDist::cdf(double x) const
 {
-    return 1-pow(lbound()/x,alpha_);
+    return 1-pow(lbound()/x,_alpha);
 }
 
 inline
 double ParetoDist::icdf(double u) const
 {
-    return lbound() / pow(1-u,1/alpha_);
+    return lbound() / pow(1-u,1/_alpha);
 }
 
 inline
 double ParetoDist::pdf(double x) const
 {
-    return alpha_/x * pow(lbound()/x,alpha_);
+    return _alpha/x * pow(lbound()/x,_alpha);
 }
 
 inline
 double ParetoDist::rllh(double x) const
 {
-    return -(alpha_+1)*log(x);
+    return -(_alpha+1)*log(x);
 }
 
 inline
 double ParetoDist::grad(double x) const
 {
-    return -(alpha_+1)/x;
+    return -(_alpha+1)/x;
 }
 
 inline
 double ParetoDist::grad2(double x) const
 {
-    return (alpha_+1)/(x*x);
+    return (_alpha+1)/(x*x);
 }
 
 inline
 void ParetoDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
     double x_inv = 1/x;
-    double ap1ox = (alpha_+1)*x_inv;
+    double ap1ox = (_alpha+1)*x_inv;
     g  -= ap1ox ;   // -(alpha+1)/x
     g2 += ap1ox*x_inv;  // (alpha+1)/x^2
 }
@@ -149,7 +222,7 @@ double ParetoDist::sample(RngT &rng) const
 {
     std::uniform_real_distribution<double> d;
     double u = 1-d(rng); // u is uniform on (0,1]
-    return lbound()/pow(u,1/alpha_) ;
+    return lbound()/pow(u,1/_alpha) ;
 }
 
 } /* namespace prior_hessian */

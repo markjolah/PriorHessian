@@ -40,6 +40,9 @@ void UnivariateDist::set_lbound(double lbound)
         throw InvalidOperationError("UnivariateDist: Unable to set lbound.  This object is not scalable or truncatable.");
 }
 
+
+
+
 void UnivariateDist::set_ubound(double ubound)
 {
     if(ubound != _ubound)

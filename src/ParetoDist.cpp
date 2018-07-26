@@ -13,12 +13,14 @@
 
 namespace prior_hessian {
 
-const StringVecT ParetoDist::param_names = { "alpha" };
+const StringVecT ParetoDist::param_names = {"min", "alpha" };
+const VecT ParetoDist::param_lbound= {0, 0}; //Lower bound on valid parameter values 
+const VecT ParetoDist::param_ubound= {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 /* Constructors */
-ParetoDist::ParetoDist(double alpha, double lbound) 
-    : UnivariateDist(check_lbound(lbound),INFINITY),
-      alpha_(check_alpha(alpha)),
+ParetoDist::ParetoDist(double min, double alpha) 
+    : UnivariateDist(checked_min(min),INFINITY),
+      _alpha(checked_alpha(alpha)),
       llh_const(compute_llh_const())
 { }
 
@@ -26,33 +28,10 @@ ParetoDist::ParetoDist(double alpha, double lbound)
     
 double ParetoDist::compute_llh_const() const
 {
-    return log(alpha_) + alpha_*log(lbound());
+    return log(_alpha) + _alpha*log(lbound());
 }
 
-double ParetoDist::get_param(int idx) const
-{ 
-    switch(idx){
-        case 0:
-            return alpha_;
-        default:
-            //Don't handle indexing errors.
-            return std::numeric_limits<double>::quiet_NaN();
-    }
-}
-
-void ParetoDist::set_param(int idx, double val)
-{ 
-    switch(idx){
-        case 0:
-            set_alpha(val);
-            return;
-        default:
-            //Don't handle indexing errors.
-            return;
-    }
-}
-
-double ParetoDist::check_alpha(double val)
+double ParetoDist::checked_alpha(double val)
 {
     if(!std::isfinite(val) || val <= 0) {
         std::ostringstream msg;
@@ -62,14 +41,14 @@ double ParetoDist::check_alpha(double val)
     return val;
 }
 
-double ParetoDist::check_lbound(double val)
+double ParetoDist::checked_min(double val)
 {
     if(!std::isfinite(val) || val <= 0) {
         std::ostringstream msg;
-        msg<<"ParetoDist: got bad lbound value:"<<val<<" Should be positive";
+        msg<<"ParetoDist: got bad min value:"<<val<<" Should be positive";
         throw ParameterValueError(msg.str());
     }
     return val;
 }
-    
+
 } /* namespace prior_hessian */

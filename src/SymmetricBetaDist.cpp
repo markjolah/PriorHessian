@@ -16,11 +16,13 @@
 namespace prior_hessian {
 
 const StringVecT SymmetricBetaDist::param_names = { "beta" };
+const VecT SymmetricBetaDist::param_lbound= {0}; //Lower bound on valid parameter values 
+const VecT SymmetricBetaDist::param_ubound= {INFINITY}; //Upper bound on valid parameter values
 
 /* Constructors */
 SymmetricBetaDist::SymmetricBetaDist(double beta) 
     : UnivariateDist(0,1),
-      _beta(beta),
+      _beta(checked_beta(beta)),
       llh_const(compute_llh_const())
 { }
 
@@ -49,29 +51,7 @@ double SymmetricBetaDist::compute_llh_const() const
     return -2*lgamma(_beta) - lgamma(2*_beta);//log(1/Beta(beta,beta))
 }
 
-double SymmetricBetaDist::get_param(int idx) const
-{ 
-    switch(idx){
-        case 0:
-            return _beta;
-        default:
-            //Don't handle indexing errors.
-            return std::numeric_limits<double>::quiet_NaN();
-    }
-}
-
-void SymmetricBetaDist::set_param(int idx, double val)
-{ 
-    switch(idx){
-        case 0:
-            set_beta(val);
-            return;
-        default:
-            return; //Don't handle indexing errors.
-    }
-}
-
-double SymmetricBetaDist::check_beta(double val)
+double SymmetricBetaDist::checked_beta(double val)
 {
     if(val<=0 || !std::isfinite(val)) {
         std::ostringstream msg;

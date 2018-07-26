@@ -11,6 +11,7 @@
 #include<utility>
 #include<memory>
 #include<unordered_map>
+#include<unordered_set>
 #include<sstream>
 
 #include<armadillo>
@@ -120,7 +121,7 @@ public:
     
     bool is_empty() const { return handle->num_dists()==0; }
     operator bool() const { return handle->num_dists()>0; }
-    IdxT num_component_dists() const { return handle->num_dists(); }
+    IdxT num_components() const { return handle->num_dists(); }
     TypeInfoVecT component_types() const { return handle->component_types(); }
     
     bool operator==(const CompositeDist &o) const;
@@ -128,24 +129,33 @@ public:
     
     /* Dimensionality and variable names */
     IdxT num_dim() const { return handle->num_dim(); }
-    UVecT components_num_dim() const { return handle->components_num_dim(); }
+    UVecT num_dim_components() const { return handle->num_dim_components(); }
     StringVecT dim_variables() const { return handle->dim_variables(); }
     void set_dim_variables(const StringVecT &vars)  { handle->set_dim_variables(vars); }
-
     
     /* Bounds */
     VecT lbound() const { return handle->lbound(); }
     VecT ubound() const { return handle->ubound(); }
-    bool in_bounds(const VecT &u) const { return arma::all(lbound()<u && u<ubound()); }
+    bool in_bounds(const VecT &u) const { return arma::all(lbound()<=u && u<=ubound()); }
+    /*Check all columns are in bounds vectors */
+    bool in_bounds_all(const MatT &u) const 
+    { 
+        return arma::all(arma::min(u,1)>=lbound()) &&arma::all(arma::max(u,1)<=ubound());
+    }
+    
     void set_lbound(const VecT &new_bound) { handle->set_lbound(new_bound); }
     void set_ubound(const VecT &new_bound) { handle->set_ubound(new_bound); }
     void set_bounds(const VecT &new_lbound,const VecT &new_ubound) { handle->set_bounds(new_lbound, new_ubound); }
 
     /* Distribution Parameters */
     IdxT num_params() const { return handle->num_params(); }
-    UVecT components_num_params() const { return handle->components_num_params(); }
+    UVecT num_params_components() const { return handle->num_params_components(); }
     VecT params() const { return handle->params(); } 
     void set_params(const VecT &new_params) { handle->set_params(new_params); }
+    bool check_params(const VecT &new_params) const { return handle->check_params(new_params); }
+    VecT params_lbound() const { return handle->params_lbound(); }
+    VecT params_ubound() const { return handle->params_ubound(); }
+    std::vector<VecT> params_components() const { return handle->params_components(); } /* Seperate parameters int a VecT for each component */
 
     /* Distribution Parameter Descriptions (names) */
     StringVecT param_names() const { return handle->param_names(); }
@@ -209,12 +219,11 @@ public:
 
     template<class RngT>
     MatT sample(RngT &&rng, IdxT num_samples) 
-        { 
+    { 
         AnyRngT anyrng{std::forward<RngT>(rng)};
         return handle->sample(anyrng,num_samples); 
     }
 
-    
     /* Per-component values for debugging and plotting purposes */
     VecT llh_components(const VecT &u) const { return handle->llh_components(u); }
     VecT rllh_components(const VecT &u) const { return handle->rllh_components(u); }
@@ -233,7 +242,7 @@ private:
         virtual IdxT num_dists() const = 0;
         virtual TypeInfoVecT component_types() const = 0;
         virtual IdxT num_dim() const = 0;
-        virtual UVecT components_num_dim() const = 0;
+        virtual UVecT num_dim_components() const = 0;
         virtual StringVecT dim_variables() const = 0;
         virtual void set_dim_variables(const StringVecT &vars) = 0;
         virtual VecT lbound() const = 0;
@@ -242,9 +251,13 @@ private:
         virtual void set_ubound(const VecT &hew_ubound) = 0;
         virtual void set_bounds(const VecT &hew_lbound,const VecT &hew_ubound) = 0;
         virtual IdxT num_params() const = 0;
-        virtual UVecT components_num_params() const = 0;
+        virtual UVecT num_params_components() const = 0;
         virtual VecT params() const = 0;        
         virtual void set_params(const VecT &params) = 0;
+        virtual bool check_params(const VecT &new_params) const = 0;
+        virtual VecT params_lbound() const = 0;
+        virtual VecT params_ubound() const = 0;
+        virtual std::vector<VecT> params_components() const = 0;
         virtual StringVecT param_names() const = 0;
         virtual double cdf(const VecT &u) const = 0;
         virtual double pdf(const VecT &u) const = 0;
@@ -286,8 +299,8 @@ private:
         IdxT num_dists() const override { return _num_dists; }
         IdxT num_dim() const override { return _num_dim; }
         IdxT num_params() const override { return _num_params; }
-        UVecT components_num_dim() const override { return {Ts::num_dim()...}; }
-        UVecT components_num_params() const override { return {Ts::num_params()...}; }
+        UVecT num_dim_components() const override { return {Ts::num_dim()...}; }
+        UVecT num_params_components() const override { return {Ts::num_params()...}; }
         TypeInfoVecT component_types() const override { return {std::type_index(typeid(Ts))...}; }
 
         StringVecT dim_variables() const override
@@ -320,11 +333,31 @@ private:
         VecT params() const override
         {
             VecT params(_num_params);
-            append_params(params.begin(),IndexT());
+            append_params(params.begin(),IndexT{});
             return params;
         }
         
-        void set_params(const VecT &params) override { set_params(params.begin(),IndexT()); }
+        void set_params(const VecT &params) override { set_params(params.begin(),IndexT{}); }
+        bool check_params(const VecT &new_params) const override { return check_params(new_params.begin(), IndexT{}); }
+        
+        VecT params_lbound() const override
+        { 
+            VecT lb(_num_params);
+            append_params_lbound(lb.begin(),IndexT{});
+            return lb;
+        }
+
+        VecT params_ubound() const override
+        { 
+            VecT lb(_num_params);
+            append_params_ubound(lb.begin(),IndexT{});
+            return lb;
+        }
+
+        std::vector<VecT> params_components() const override
+        {
+            return params_components(IndexT{});
+        }
         
         StringVecT param_names() const override
         {
@@ -402,8 +435,24 @@ private:
 
         template<class IterT, std::size_t... I> 
         void set_params(IterT p,std::index_sequence<I...>)
-        { meta::call_in_order( {(std::get<I>(dists).set_params_iter(p),0)...} ); }
-        
+        { meta::call_in_order( {(std::get<I>(dists).set_params_from_iter(p),0)...} ); }
+ 
+        template<class IterT, std::size_t... I> 
+        bool check_params(IterT p,std::index_sequence<I...>) const
+        { return meta::logical_and_in_order( {std::get<I>(dists).check_params_iter(p)...} ); }
+
+        template<class IterT, std::size_t... I> 
+        void append_params_lbound(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_params_lbound(p),0)...} ); }
+
+        template<class IterT, std::size_t... I> 
+        void append_params_ubound(IterT p, std::index_sequence<I...>) const
+        { meta::call_in_order( {(std::get<I>(dists).append_params_ubound(p),0)...} ); }
+ 
+        template<std::size_t... I> 
+        std::vector<VecT> params_components(std::index_sequence<I...>) const
+        { return {std::get<I>(dists).params()...}; }
+
         template<class IterT, std::size_t... I> 
         void append_param_names(IterT p, std::index_sequence<I...>) const
         { meta::call_in_order( {(std::get<I>(dists).append_param_names(p),0)...} ); }
@@ -497,8 +546,8 @@ private:
         IdxT num_dists() const override {return 0;}
         IdxT num_dim() const override {return 0;}
         IdxT num_params() const override {return 0;}
-        UVecT components_num_dim() const override {return {};}
-        UVecT components_num_params() const override {return {};}
+        UVecT num_dim_components() const override {return {};}
+        UVecT num_params_components() const override {return {};}
         TypeInfoVecT component_types() const override {return {};}
 
         StringVecT dim_variables() const override {return {};}
@@ -515,6 +564,10 @@ private:
         VecT params() const override {return {};}
         void set_params(const VecT &params) override
             {if(!params.is_empty()) throw RuntimeTypeError("Empty dist tuple cannot be set.");}
+        bool check_params(const VecT &) const override { return true; }        
+        VecT params_lbound() const override { return {}; }
+        VecT params_ubound() const override { return {}; }
+        std::vector<VecT> params_components() const override { return {}; }
         StringVecT param_names() const override {return {};}
         double cdf(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         double pdf(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
@@ -553,11 +606,11 @@ private:
         explicit ComponentDistAdaptor(const Dist &dist) 
             : ComponentDistAdaptor(dist, generate_var_name()) { }
         
-        ComponentDistAdaptor(Dist &&dist,  StringVecT &&var_name) 
-            : ComponentDistAdaptor(std::move(dist), std::move(var_name[0])) { }
-        
-        ComponentDistAdaptor(const Dist &dist, StringVecT var_name)  
-            : ComponentDistAdaptor(dist, std::move(var_name[0])) { }
+//         ComponentDistAdaptor(Dist &&dist,  StringVecT &&var_name) 
+//             : ComponentDistAdaptor(std::move(dist), std::move(var_name[0])) { }
+//         
+//         ComponentDistAdaptor(const Dist &dist, const StringVecT &var_name)  
+//             : ComponentDistAdaptor(dist, std::move(var_name[0])) { }
         
         ComponentDistAdaptor(Dist &&dist, std::string &&var_name)  
             : _dist(std::move(dist)), 
@@ -616,9 +669,15 @@ private:
         template<class IterT> void append_params(IterT& v) const 
         { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->get_param(n); }
         
-        template<class IterT> void set_params_iter(IterT& v) 
+        template<class IterT> void set_params_from_iter(IterT& v) 
         { for(IdxT n=0; n<Dist::num_params(); n++) this->set_param(n, *v++); }
+
+        template<class IterT> void append_params_lbound(IterT& v) const 
+        { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->param_lbound(n); }
         
+        template<class IterT> void append_params_ubound(IterT& v) const 
+        { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->param_ubound(n); }
+
         template<class IterT> void append_param_names(IterT& v) const
         { for(auto& n: Dist::param_names) *v++ = format_param_name(n); }
         
@@ -662,13 +721,7 @@ private:
     private:
         Dist _dist;
         std::string _var_name;
-        
-        static std::string generate_var_name() 
-        {
-            static IdxT count = 0;
-            return std::string("v") + std::to_string(count++);
-        }
-        
+               
         std::string format_param_name(const std::string &param_name) const 
         { return _var_name+'.'+param_name; }
     };
@@ -679,7 +732,12 @@ private:
 
     void initialize_from_handle(); //Called on every new handle initialization
     
-    
+    static std::string generate_var_name() 
+    {
+        static IdxT count = 0;
+        return std::string("v") + std::to_string(count++);
+    }
+   
     /* make_component_dist() */
     template<class DistT>
     meta::ReturnIfInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>

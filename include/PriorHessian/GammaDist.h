@@ -22,8 +22,16 @@ class GammaDist : public UnivariateDist
 {
 
 public:
-    static const StringVecT param_names;
+    /* Static constant member data */
+    static const StringVecT param_names; //Cannonical names for parameters
+    static const VecT param_lbound; //Lower bound on valid parameter values 
+    static const VecT param_ubound; //Upper bound on valid parameter values
+    /* Static member functions */
     static constexpr IdxT num_params() { return 2; }
+    static bool check_params(double shape, double scale);    /* Check a vector of parameters is valid (in bounds) */    
+    static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
     
     GammaDist(double scale=1.0, double shape=1.0);
     
@@ -32,16 +40,16 @@ public:
     VecT params() const { return {_scale, _shape}; }
     void set_params(const VecT &p) 
     { 
-        _scale = check_scale(p[0]);  
-        _shape = check_shape(p[1]); 
+        _scale = checked_scale(p[0]);  
+        _shape = checked_shape(p[1]); 
     }
     bool operator==(const GammaDist &o) const { return _scale == o._scale && _shape == o._shape; }
     bool operator!=(const GammaDist &o) const { return !this->operator==(o);}
 
     double scale() const { return _scale; }
     double shape() const { return _shape; }
-    void set_scale(double val) { _scale = check_scale(val); }
-    void set_shape(double val) { _shape = check_shape(val); }
+    void set_scale(double val) { _scale = checked_scale(val); }
+    void set_shape(double val) { _shape = checked_shape(val); }
         
     double mean() const { return _shape*_scale; }
     double median() const { return icdf(0.5); }
@@ -57,11 +65,11 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
-protected:
+private:
     using RngDistT = std::gamma_distribution<double>; //Used for RNG
     
-    static double check_scale(double val);
-    static double check_shape(double val);
+    static double checked_scale(double val);
+    static double checked_shape(double val);
 
     double _scale; //distribution scale
     double _shape; //distribution shape
@@ -101,6 +109,55 @@ namespace detail
     };
 } /* namespace detail */
 
+inline
+bool GammaDist::check_params(double param0, double param1)
+{
+    return std::isfinite(param0) && std::isfinite(param1) && param0>0 && param1>0;   
+}
+
+inline
+bool GammaDist::check_params(VecT &params)
+{ 
+    return params.is_finite() && params[0]>0 && params[1]>0; 
+}
+
+template<class IterT>
+bool GammaDist::check_params_iter(IterT &p)
+{ 
+    double scale = *p++;
+    double shape = *p++;
+    return check_params(scale,shape);
+}
+
+inline
+double GammaDist::get_param(int idx) const
+{ 
+    switch(idx){
+        case 0:
+            return _scale;
+        case 1:
+            return _shape;
+        default:
+            //Don't handle indexing errors.
+            return std::numeric_limits<double>::quiet_NaN();
+    }
+}
+
+inline
+void GammaDist::set_param(int idx, double val)
+{ 
+    switch(idx){
+        case 0:
+            set_scale(val);
+            return;
+        case 1:
+            set_shape(val);
+            return;
+        default:
+            //Don't handle indexing errors.
+            return;
+    }
+}
 
 inline
 double GammaDist::rllh(double x) const

@@ -18,12 +18,15 @@
 namespace prior_hessian {
 
 const StringVecT GammaDist::param_names = { "scale", "shape" };
+const VecT GammaDist::param_lbound= {0, 0}; //Lower bound on valid parameter values 
+const VecT GammaDist::param_ubound= {INFINITY, INFINITY}; //Upper bound on valid parameter values
+
 
 /* Constructors */
 GammaDist::GammaDist(double scale, double shape) 
     : UnivariateDist(0,INFINITY),
-      _scale(check_scale(scale)),
-      _shape(check_shape(shape)),
+      _scale(checked_scale(scale)),
+      _shape(checked_shape(shape)),
       llh_const(compute_llh_const())
 { }
 
@@ -49,38 +52,11 @@ double GammaDist::pdf(double x) const
 
 double GammaDist::compute_llh_const() const
 {
-    return - _shape*log(_scale) - lgamma(_shape);
+    return - _shape*log(_scale) - std::lgamma(_shape);
 }
 
-double GammaDist::get_param(int idx) const
-{ 
-    switch(idx){
-        case 0:
-            return _scale;
-        case 1:
-            return _shape;
-        default:
-            //Don't handle indexing errors.
-            return std::numeric_limits<double>::quiet_NaN();
-    }
-}
 
-void GammaDist::set_param(int idx, double val)
-{ 
-    switch(idx){
-        case 0:
-            set_scale(val);
-            return;
-        case 1:
-            set_shape(val);
-            return;
-        default:
-            //Don't handle indexing errors.
-            return;
-    }
-}
-
-double GammaDist::check_scale(double val)
+double GammaDist::checked_scale(double val)
 {
     if(!std::isfinite(val) || val <= 0) {
         std::ostringstream msg;
@@ -90,7 +66,7 @@ double GammaDist::check_scale(double val)
     return val;
 }
 
-double GammaDist::check_shape(double val)
+double GammaDist::checked_shape(double val)
 {
     if(!std::isfinite(val) || val <= 0) {
         std::ostringstream msg;
