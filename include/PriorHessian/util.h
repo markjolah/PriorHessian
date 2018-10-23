@@ -5,8 +5,8 @@
  * 
  * 
  */
-#ifndef _PRIOR_HESSIAN_UTIL_H
-#define _PRIOR_HESSIAN_UTIL_H
+#ifndef PRIOR_HESSIAN_UTIL_H
+#define PRIOR_HESSIAN_UTIL_H
 
 #include<cmath>
 #include<string>
@@ -15,6 +15,8 @@
 #include<typeindex>
 
 #include<armadillo>
+
+#include "PriorHessianError.h"
 
 /**
  * 
@@ -37,6 +39,14 @@ template<class T,class BaseT>
 template<class ReturnT, class T,class BaseT> 
     using ReturnIfSubclassT = typename std::enable_if<std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value,ReturnT>::type;
 
+    
+namespace constants {
+    extern const double sqrt2;
+    extern const double sqrt2_inv;
+    extern const double sqrt2pi;
+    extern const double sqrt2pi_inv;
+    extern const double log2pi;
+} /* namespace prior_hessian::constants */
 
 template<class T>
 T square(T t) 
@@ -44,5 +54,6 @@ T square(T t)
     return t*t;
 }
 
+
 } /* namespace prior_hessian */
-#endif /* _PRIOR_HESSIAN_UTIL_H */
+#endif /* PRIOR_HESSIAN_UTIL_H */

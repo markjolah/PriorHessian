@@ -3,8 +3,8 @@
  * @date 2017 - 2018
  * @brief UnivariateDist base class.
  */
-#ifndef _PRIOR_HESSIAN_UNIVARIATEDIST_H
-#define _PRIOR_HESSIAN_UNIVARIATEDIST_H
+#ifndef PRIOR_HESSIAN_UNIVARIATEDIST_H
+#define PRIOR_HESSIAN_UNIVARIATEDIST_H
 
 #include "PriorHessian/util.h"
 #include "PriorHessian/BaseDist.h"
@@ -26,7 +26,11 @@ public:
 
 protected:
     static void check_bounds(double lbound, double ubound);
-    void set_lbound_internal(double lbound) { _lbound = lbound; } /**< Unsafe: internally set _lbound unchecked.  For use by set_lbound functions of sub-classes only. */
+    /**
+     * Unsafe: internally set _lbound unchecked.  For use by set_lbound functions of sub-classes only. 
+     * Only used by ParetoDist. 
+     */
+    void set_lbound_internal(double lbound) { _lbound = lbound; } 
     
 private:
     double _lbound;
@@ -36,4 +40,4 @@ private:
 
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_UNIVARIATEDIST_H */
+#endif /* PRIOR_HESSIAN_UNIVARIATEDIST_H */

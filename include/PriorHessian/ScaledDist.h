@@ -4,8 +4,8 @@
  * @brief SemiInfiniteDist class declaration and templated methods
  * 
  */
-#ifndef _PRIOR_HESSIAN_SCALEDDIST_H
-#define _PRIOR_HESSIAN_SCALEDDIST_H
+#ifndef PRIOR_HESSIAN_SCALEDDIST_H
+#define PRIOR_HESSIAN_SCALEDDIST_H
 
 #include <cmath>
 
@@ -144,4 +144,4 @@ double ScaledDist<Dist>::convert_from_unitary_coords(double u) const
 
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_SCALEDDIST_H */
+#endif /* PRIOR_HESSIAN_SCALEDDIST_H */

@@ -13,9 +13,9 @@
 
 namespace prior_hessian {
 
-const StringVecT ParetoDist::param_names = {"min", "alpha" };
-const VecT ParetoDist::param_lbound= {0, 0}; //Lower bound on valid parameter values 
-const VecT ParetoDist::param_ubound= {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const StringVecT ParetoDist::_param_names = {"min", "alpha" };
+const VecT ParetoDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
+const VecT ParetoDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 /* Constructors */
 ParetoDist::ParetoDist(double min, double alpha) 

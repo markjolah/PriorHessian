@@ -66,17 +66,19 @@ namespace detail
 }
 
 /** The bounds-adapted distribution type for a given distribution type DistT
-* This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
-*/
-template<class DistT> using BoundsAdaptedDistT = typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
+ * This is the adapted version of the class, i.e., the class that allows truncation or scaling so that the lower and upper bounds are settable.
+ */
+template<class DistT> using BoundsAdaptedDistT = 
+    typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist;
 
+/* Helpers for make_adapted_bounded_dist() */
 namespace detail 
 {
     template<class... Ts,std::size_t... I>
     std::tuple<BoundsAdaptedDistT<Ts>...>
     make_adapted_bounded_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
     {
-        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(dists))...);
+        return std::make_tuple(make_adapted_bounded_dist(std::get<I>(std::move(dists)))...);
     }
 
     template<class... Ts,std::size_t... I>
@@ -87,9 +89,10 @@ namespace detail
     }
 } /* namespace detail */
 
-/** make_adapted_bounded_dist()
- * 
- * Can be replaced with constexpr if in c++17
+/** make_adapted_bounded_dist() [4-forms]
+ * If the given distribution is not bounded then the appropriate bounding distribution is wrapped arround it.
+ * We detect the boundedness of the distribution using detail::adaptable_bounds type-traits class.
+ * Can be replaced with constexpr if in c++17.  Uses SFINAE in c++14.
  */
 template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
 std::enable_if_t< detail::DistTraitsT<Dist>::adaptable_bounds, Dist>
@@ -117,12 +120,12 @@ make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
 }
 
 
-/* make_adapted_bounded_dist_tuple()
- * Accepts variadic set of distributions or a tuple of distributions
- *
+/* make_adapted_bounded_dist_tuple(...) [3-forms]
+ * Accepts variadic set of distributions or a tuple of distributions.  Each distribution can be already bounds adapted
+ * or not. Wraps, each unwraped distribution in the appropriate BoundsAdaptedDistT.
+ * Uses perfect-forwarding.
  * 
  */
-
 template<class... Ts>
 std::tuple<BoundsAdaptedDistT<Ts>...>
 make_adapted_bounded_dist_tuple(Ts&&... ts) 

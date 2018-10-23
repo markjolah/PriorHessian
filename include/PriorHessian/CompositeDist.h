@@ -5,8 +5,8 @@
  * 
  * 
  */
-#ifndef _PRIOR_HESSIAN_COMPOSITEDIST_H
-#define _PRIOR_HESSIAN_COMPOSITEDIST_H
+#ifndef PRIOR_HESSIAN_COMPOSITEDIST_H
+#define PRIOR_HESSIAN_COMPOSITEDIST_H
 
 #include<utility>
 #include<memory>
@@ -403,7 +403,7 @@ private:
 
         template<class IterT, std::size_t... I> 
         void append_dim_variables(IterT v, std::index_sequence<I...>) const
-        { meta::call_in_order( {(std::get<I>(dists).append_var_name(v),0)...} ); }
+        { meta::call_in_order( {(std::get<I>(dists).append_var_names(v),0)...} ); }
 
         template<class IterT, std::size_t... I> 
         void set_dim_variables(IterT v,std::index_sequence<I...>)
@@ -606,12 +606,6 @@ private:
         explicit ComponentDistAdaptor(const Dist &dist) 
             : ComponentDistAdaptor(dist, generate_var_name()) { }
         
-//         ComponentDistAdaptor(Dist &&dist,  StringVecT &&var_name) 
-//             : ComponentDistAdaptor(std::move(dist), std::move(var_name[0])) { }
-//         
-//         ComponentDistAdaptor(const Dist &dist, const StringVecT &var_name)  
-//             : ComponentDistAdaptor(dist, std::move(var_name[0])) { }
-        
         ComponentDistAdaptor(Dist &&dist, std::string &&var_name)  
             : _dist(std::move(dist)), 
               _var_name{std::move(var_name)}
@@ -656,7 +650,7 @@ private:
             _var_name = std::move(var_name);
         }
 
-        template<class IterT> void append_var_name(IterT &v) const { *v++ = _var_name; }
+        template<class IterT> void append_var_names(IterT &v) const { *v++ = _var_name; }
         template<class IterT> void set_var_name_iter(IterT &v) { _var_name = *v++; } 
         template<class IterT> void append_lbound(IterT &v) const { *v++ = this->lbound(); } 
         template<class IterT> void append_ubound(IterT &v) const { *v++ = this->ubound(); } 
@@ -673,13 +667,21 @@ private:
         { for(IdxT n=0; n<Dist::num_params(); n++) this->set_param(n, *v++); }
 
         template<class IterT> void append_params_lbound(IterT& v) const 
-        { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->param_lbound(n); }
+        {   
+            auto &plb = this->param_lbound();
+            for(IdxT n=0; n<Dist::num_params(); n++) *v++ = plb(n); 
+        }
         
         template<class IterT> void append_params_ubound(IterT& v) const 
-        { for(IdxT n=0; n<Dist::num_params(); n++) *v++ = this->param_ubound(n); }
+        { 
+            auto &pub = this->param_ubound();
+            for(IdxT n=0; n<Dist::num_params(); n++) *v++ = pub(n); 
+        }
 
         template<class IterT> void append_param_names(IterT& v) const
-        { for(auto& n: Dist::param_names) *v++ = format_param_name(n); }
+        { 
+            for(auto& n: Dist::param_names()) *v++ = format_param_name(n); 
+        }
         
         template<class IterT> double cdf_from_iter(IterT &u) const { return this->cdf(*u++); }
         template<class IterT> double pdf_from_iter(IterT &u) const { return this->pdf(*u++); }
@@ -728,7 +730,7 @@ private:
 
 private:    
     template<class DistT> using ComponentDistT = 
-        ComponentDistAdaptor<typename detail::dist_adaptor_traits<std::decay_t<DistT>>::bounds_adapted_dist>;
+        ComponentDistAdaptor<BoundsAdaptedDistT<DistT>>;
 
     void initialize_from_handle(); //Called on every new handle initialization
     
@@ -742,7 +744,7 @@ private:
     template<class DistT>
     meta::ReturnIfInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
     make_component_dist(DistT&& dist)
-    { return make_adapted_bounded_dist(dist); }
+    { return dist; }
     
     template<class DistT>
     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
@@ -750,7 +752,10 @@ private:
     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
     
     
-    /* make_component_dist_tuple() */
+    /* make_component_dist_tuple()
+     * Uses perfect forwarding.  1-form for (const&) one for (&&).  Each method has a helper template with extra integer parameters
+     * to enable iterating the tuple.
+     */
     template<class... Ts>
     std::tuple<ComponentDistT<Ts>...>
     make_component_dist_tuple(const std::tuple<Ts...>& dists)
@@ -802,4 +807,4 @@ CompositeDist::get_dist_tuple() const
 
 
 } /* namespace prior_hessian */
-#endif /* _PRIOR_HESSIAN_COMPOSITEDIST_H */
+#endif /* PRIOR_HESSIAN_COMPOSITEDIST_H */

@@ -3,6 +3,9 @@
  * @date 2018
  * @brief An environment for use in googletest that enables repeatable randomized testing
  */
+#ifndef TEST_HELPERS_RNG_ENVIRONMENT_H
+#define TEST_HELPERS_RNG_ENVIRONMENT_H
+
 #include<random>
 #include<iostream>
 #include "gtest/gtest.h"
@@ -47,6 +50,8 @@ public:
     
     double sample_real(double a, double b) 
     {
+        if( a == -INFINITY) a=std::numeric_limits<double>::lowest()/10;
+        if( b == INFINITY) b=std::numeric_limits<double>::max()/10;
         std::uniform_real_distribution<double> d(a,b);
         return d(rng);
     }
@@ -58,7 +63,7 @@ public:
         return d(rng);
     }
 
-    double sample_normal(double mean, double sigma) 
+    double sample_normal(double mean=0, double sigma=1) 
     {
         std::normal_distribution<double> d(mean,sigma);
         return d(rng);
@@ -83,3 +88,5 @@ public:
 };
 
 } /* namespace test_helper */
+
+#endif /* TEST_HELPERS_RNG_ENVIRONMENT_H */

@@ -4,11 +4,14 @@
  * @brief Main google test for prior_hessian
  */
 #include "test_prior_hessian.h"
+#include "PriorHessian/util.h"
+
+using namespace prior_hessian;
 
 /* Globals */
 test_helper::RngEnvironment *env = new test_helper::RngEnvironment; //Googletest wants to free env, so we need to appease its demands or face segfaults.
 
-void check_symmetric(const MatT &m)
+void check_symmetric(const arma::mat &m)
 {
     ASSERT_TRUE(m.is_square());
     IdxT N = m.n_rows;
@@ -19,7 +22,7 @@ void check_symmetric(const MatT &m)
     }
 }
 
-void check_positive_definite(const MatT &m)
+void check_positive_definite(const arma::mat &m)
 {
     auto R = m;
     ASSERT_TRUE(arma::chol(R,m))<<"Cholesky fail. Matrix not positive definite.";
@@ -36,10 +39,9 @@ int main(int argc, char **argv)
     } else {
         env->set_seed();
     }
-    ::testing::InitGoogleTest(&argc, argv);
-       
-    ::testing::AddGlobalTestEnvironment(env);
     
+    ::testing::AddGlobalTestEnvironment(env);
     ::testing::InitGoogleTest(&argc, argv);
+    
     return RUN_ALL_TESTS();
 }

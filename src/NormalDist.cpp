@@ -17,34 +17,28 @@
 namespace prior_hessian {
 
 /* Static member variables */
-const double NormalDist::sqrt2 =  ::sqrt(2);
-const double NormalDist::sqrt2pi_inv = 1./::sqrt(2*boost::math::double_constants::pi);
-const double NormalDist::log2pi = ::log(2*boost::math::double_constants::pi);
-
-const StringVecT NormalDist::param_names = { "mu", "sigma" };
-const VecT NormalDist::param_lbound= {-INFINITY, -INFINITY}; //Lower bound on valid parameter values 
-const VecT NormalDist::param_ubound= {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const StringVecT NormalDist::_param_names = { "mu", "sigma" };
+const VecT NormalDist::_param_lbound = {-INFINITY, 0}; //Lower bound on valid parameter values 
+const VecT NormalDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 
 
 /* Constructors */
 NormalDist::NormalDist(double mu, double sigma) 
-    : UnivariateDist(-INFINITY,INFINITY),
-      _mu(checked_mu(mu)),
-      _sigma(checked_sigma(sigma)),
-      sigma_inv(1/_sigma),
-      llh_const(compute_llh_const())
-{ }
+    : UnivariateDist(-INFINITY,INFINITY)
+{ 
+    set_params(mu,sigma);
+}
 
 /* Non-static member functions */
 double NormalDist::cdf(double x) const
 {
-    return .5*(1+boost::math::erf((x - _mu)/(sqrt2 * _sigma)));
+    return .5*(1 + boost::math::erf((x - _mu)*_sigma_inv*constants::sqrt2_inv));
 }
 
 double NormalDist::icdf(double u) const
 {
-    return _mu+_sigma*sqrt2*boost::math::erf_inv(2*u-1);
+    return mu() + sigma()*constants::sqrt2*boost::math::erf_inv(2*u-1);
 }
 
 double NormalDist::checked_mu(double val)
@@ -66,5 +60,10 @@ double NormalDist::checked_sigma(double val)
     }
     return val;
 }
-    
+
+double NormalDist::compute_llh_const() const
+{
+    return -log(sigma()) - .5*constants::log2pi;
+}
+
 } /* namespace prior_hessian */

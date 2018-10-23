@@ -5,6 +5,7 @@
  * 
  */
 #include "PriorHessian/GammaDist.h"
+#include "PriorHessian/util.h"
 #include "PriorHessian/PriorHessianError.h"
 
 #include <cmath>
@@ -17,9 +18,9 @@
 
 namespace prior_hessian {
 
-const StringVecT GammaDist::param_names = { "scale", "shape" };
-const VecT GammaDist::param_lbound= {0, 0}; //Lower bound on valid parameter values 
-const VecT GammaDist::param_ubound= {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const StringVecT GammaDist::_param_names = { "scale", "shape" };
+const VecT GammaDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
+const VecT GammaDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 
 /* Constructors */

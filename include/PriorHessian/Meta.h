@@ -5,10 +5,12 @@
  * 
  * 
  */
-#ifndef _PRIOR_HESSIAN_META_H
-#define _PRIOR_HESSIAN_META_H
-#include<initializer_list>
-#include<cstdint>
+#ifndef PRIOR_HESSIAN_META_H
+#define PRIOR_HESSIAN_META_H
+
+#include <functional>
+#include <initializer_list>
+#include <cstdint>
 
 namespace prior_hessian {
     
@@ -63,6 +65,20 @@ namespace meta {
     template<template <typename...> class ClassTemplate, typename... Ts>
     struct is_template_of<ClassTemplate, ClassTemplate<Ts...>> : std::true_type { };
 
+    /* overload for integer templates */
+    template<template <int...> class, typename>
+    struct is_numeric_template_of : std::false_type { };
+
+    template<template <int...> class ClassNumericTemplate, int... Is>
+    struct is_numeric_template_of<ClassNumericTemplate, ClassNumericTemplate<Is...>> : std::true_type { };
+
+    
+    template<class ReturnT, class BoolT> 
+    using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
+
+    template<bool val>
+    using ConstructableIf = std::enable_if_t<val,bool>; /* Uses a non-type template paramter for SFINAE */
+    
     template<class T,class BaseT> 
     using EnableIfSubclassT = std::enable_if_t<
         std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value >;
@@ -83,6 +99,10 @@ namespace meta {
     using EnableIfInstantiatedFromT = std::enable_if_t<
                 is_template_of<ClassTemplate, std::remove_reference_t<T>>::value >;
     
+    template<class T, template <int> class ClassTemplate> 
+    using EnableIfInstantiatedFromNumericT = std::enable_if_t<
+                is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value, std::remove_reference_t<T> >;
+                
     template<class T, template <typename...> class ClassTemplate> 
     using EnableIfNotInstantiatedFromT = std::enable_if_t<
                 !is_template_of<ClassTemplate, std::remove_reference_t<T>>::value >;
@@ -103,6 +123,13 @@ namespace meta {
     using ConstructableIfIsTemplateForAllT = std::enable_if_t< conjunction< 
         is_template_of<ClassTemplate,std::remove_reference_t<Ts>> ... >::value, bool>;
 
+    template<class SuperClass, class T> 
+    using ConstructableIfIsSuperClassT = std::enable_if_t< 
+        std::is_base_of<std::remove_reference_t<SuperClass>,std::remove_reference_t<T>>::value, bool>;
+    
+    template<class SuperClass, class... Ts> 
+    using ConstructableIfIsSuperClassForAllT = std::enable_if_t< conjunction< 
+        std::is_base_of<std::remove_reference_t<SuperClass>,std::remove_reference_t<Ts>>... >::value, bool>;
         
     template<class T> 
     using EnableIfIsNotTupleT = std::enable_if_t< !is_template_of<std::tuple,std::remove_reference_t<T>>::value >;
@@ -124,11 +151,11 @@ namespace meta {
         std::enable_if_t< !disjunction<is_template_of<std::tuple,std::remove_reference_t<Ts>>...>::value
                           && !disjunction<std::is_same<std::decay_t<Ts>,SelfT>...>::value, bool>;
     
-    template<class ReturnT, class BoolT> 
-    using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
+    template<class Dist, class BaseDist> 
+    using DerivedFrom = std::enable_if_t<std::is_base_of<std::decay_t<BaseDist>,std::decay_t<Dist>>::value,std::decay_t<Dist>>;
 
 }
 
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_META_H */
+#endif /* PRIOR_HESSIAN_META_H */

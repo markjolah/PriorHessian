@@ -15,6 +15,7 @@ file(GLOB GTEST_SRCS test_*.cpp)
 add_executable(${GTEST_EXE} ${GTEST_SRCS})
 target_link_libraries(${GTEST_EXE} ${PROJECT_NAME}::${PROJECT_NAME}) 
 target_link_libraries(${GTEST_EXE} GTest::GTest GTest::Main)
+# target_link_libraries(${GTEST_EXE} ${ARMADILLO_LIBRARIES})
 
 add_test(NAME GTest COMMAND ${GTEST_EXE})
 

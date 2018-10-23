@@ -4,8 +4,9 @@
  * @brief NormalDist class declaration and templated methods
  * 
  */
-#ifndef _PRIOR_HESSIAN_NORMALDIST_H
-#define _PRIOR_HESSIAN_NORMALDIST_H
+
+#ifndef PRIOR_HESSIAN_NORMALDIST_H
+#define PRIOR_HESSIAN_NORMALDIST_H
 
 #include <cmath>
 #include <random>
@@ -21,34 +22,34 @@ namespace prior_hessian {
 class NormalDist : public UnivariateDist
 {
 public:
-    /* Static constant member data */
-    static const StringVecT param_names; //Cannonical names for parameters
-    static const VecT param_lbound; //Lower bound on valid parameter values 
-    static const VecT param_ubound; //Upper bound on valid parameter values
     /* Static member functions */
     static constexpr IdxT num_params() { return 2; }
+    
+    static const StringVecT& param_names();
+    static const VecT& param_lbound();
+    static const VecT& param_ubound();
+    
     static bool check_params(double mu, double sigma); /* Check parameters are valid (in bounds) */    
-    static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    static bool check_params(const VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
     template<class IterT>
     static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
-    
+
+    /* Constructor */
     NormalDist(double mu=0.0, double sigma=1.0);
     
-    double mu() const { return _mu; }
-    double sigma() const { return _sigma; }
-    void set_mu(double val) { _mu = checked_mu(val); }
-    void set_sigma(double val) { _sigma = checked_sigma(val); }
-    bool operator==(const NormalDist &o) const { return _mu == o._mu && _sigma == o._sigma; }
+    /* Member functions */
+    double mu() const;
+    double sigma() const;
+    void set_mu(double val);
+    void set_sigma(double val);
+    bool operator==(const NormalDist &o) const { return mu() == o.mu() && sigma() == o.sigma(); }
     bool operator!=(const NormalDist &o) const { return !this->operator==(o);}
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {_mu, _sigma}; }
-    void set_params(const VecT &p)
-    { 
-        _mu = checked_mu(p[0]);  
-        _sigma = checked_sigma(p[1]); 
-    }
+    VecT params() const { return {mu(), sigma()}; }
+    void set_params(double mu, double sigma);
+    void set_params(const VecT &p);
     
     double mean() const { return _mu; }
     double median() const { return _mu; }
@@ -56,7 +57,7 @@ public:
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const { return rllh(x) + llh_const; }
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -65,21 +66,21 @@ public:
     template<class RngT>
     double sample(RngT &rng) const;
 
-protected:
+private:
     using RngDistT = std::normal_distribution<double>; //Used for RNG
 
-    static const double sqrt2;
-    static const double sqrt2pi_inv;
-    static const double log2pi;
+    static const StringVecT _param_names; //Cannonical names for parameters
+    static const VecT _param_lbound; //Lower bound on valid parameter values 
+    static const VecT _param_ubound; //Upper bound on valid parameter values
 
     static double checked_mu(double val);
     static double checked_sigma(double val);
    
     double _mu; //distribution mu
-    double _sigma; //distribution shape
-    double sigma_inv; //Pre-compute this to eliminate divisions in many computations
-    double llh_const;    
-
+    double _sigma_inv; //distribution shape
+    double _sigma; //Keep actual sigma also to preserve exact replication of input sigma. 1./(1./sigma) != sigma in general.
+    double llh_const;
+    
     double compute_llh_const() const;
 };
 
@@ -94,6 +95,7 @@ BoundedNormalDist make_bounded_normal_dist(double mu, double sigma, double lboun
 
 namespace detail
 {
+    /* Type traits for a bounded an non-bounded versions of distribution */
     template<class Dist>
     class dist_adaptor_traits;
     
@@ -114,16 +116,53 @@ namespace detail
     };
 } /* namespace detail */
 
+/* static methods */
 inline
-bool NormalDist::check_params(double param0, double param1)
+const StringVecT& NormalDist::param_names() 
+{ return _param_names; }
+
+inline
+const VecT& NormalDist::param_lbound() 
+{ return _param_lbound; }
+
+inline
+const VecT& NormalDist::param_ubound() 
+{ return _param_ubound; }
+ 
+
+/* non-static methods */
+inline
+double NormalDist::mu() const { return _mu; }
+inline
+double NormalDist::sigma() const { return _sigma; }
+inline
+void NormalDist::set_mu(double val) { _mu = checked_mu(val); }
+
+inline
+void NormalDist::set_sigma(double val) 
+{ 
+    _sigma = checked_sigma(val); 
+    _sigma_inv = 1./_sigma;
+    compute_llh_const();
+}
+inline
+void NormalDist::set_params(double _mu, double _sigma)
 {
-    return std::isfinite(param0) && std::isfinite(param1);     
+    set_mu(_mu);
+    set_sigma(_sigma);
+}
+
+    
+inline
+bool NormalDist::check_params(double mu, double sigma)
+{
+    return std::isfinite(mu) && std::isfinite(sigma) && sigma>0;     
 }
 
 inline
-bool NormalDist::check_params(VecT &params)
+bool NormalDist::check_params(const VecT &params)
 { 
-    return params.is_finite();     
+    return params.is_finite() && params(1)>0;
 }
 
 template<class IterT>
@@ -139,9 +178,9 @@ double NormalDist::get_param(int idx) const
 { 
     switch(idx){
         case 0:
-            return _mu;
+            return mu();
         case 1:
-            return _sigma;
+            return sigma();
         default:
             //Don't handle indexing errors.
             return std::numeric_limits<double>::quiet_NaN();
@@ -163,43 +202,47 @@ void NormalDist::set_param(int idx, double val)
     }
 }
 
+inline
+void NormalDist::set_params(const VecT &p)
+{ 
+    set_mu(p(0));
+    set_sigma(p(1));
+}
 
 inline
 double NormalDist::pdf(double x) const
 {
-    double val = (x - _mu)*sigma_inv;
-    return exp(-.5*val*val)*sigma_inv*sqrt2pi_inv;
-}
-
-inline
-double NormalDist::compute_llh_const() const
-{
-    return -log(_sigma) -.5*log2pi;
+    return exp(-.5*square((x - _mu)*_sigma_inv))*constants::sqrt2pi_inv*_sigma_inv;
 }
 
 inline
 double NormalDist::rllh(double x) const
 {
-    double val = (x - _mu)*sigma_inv;
-    return -.5*val*val;
+    return -.5*square((x - _mu)*_sigma_inv);
+}
+
+inline
+double NormalDist::llh(double x) const 
+{ 
+    return rllh(x) + llh_const;
 }
 
 inline
 double NormalDist::grad(double x) const
 {
-    return -(x - _mu)*sigma_inv*sigma_inv;
+    return -(x - _mu)*square(_sigma_inv);
 }
 
 inline
 double NormalDist::grad2(double ) const
 {
-    return -sigma_inv*sigma_inv;
+    return -square(_sigma_inv);
 }
 
 inline
 void NormalDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
-    double sigma_inv2 = sigma_inv*sigma_inv;
+    double sigma_inv2 = square(_sigma_inv);
     g  += -(x - _mu)*sigma_inv2;
     g2 += -sigma_inv2;
 }
@@ -207,10 +250,10 @@ void NormalDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 template<class RngT>
 double NormalDist::sample(RngT &rng) const
 {
-    RngDistT d(_mu,_sigma);
+    RngDistT d(mu(),sigma());
     return d(rng);
 }
     
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_NORMALDIST_H */
+#endif /* PRIOR_HESSIAN_NORMALDIST_H */

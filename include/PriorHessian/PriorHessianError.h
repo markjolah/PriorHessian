@@ -5,8 +5,8 @@
  * 
  * 
  */
-#ifndef _PRIOR_HESSIAN_PRIORHESSIANERROR_H
-#define _PRIOR_HESSIAN_PRIORHESSIANERROR_H
+#ifndef PRIOR_HESSIAN_PRIORHESSIANERROR_H
+#define PRIOR_HESSIAN_PRIORHESSIANERROR_H
 
 #include <exception>
 #include <string>
@@ -72,6 +72,11 @@ struct InvalidOperationError : public PriorHessianError
     InvalidOperationError(std::string message) : PriorHessianError("InvalidOperationError",message) {}
 };
 
+struct ParameterSizeError : public PriorHessianError 
+{
+    ParameterSizeError(std::string message) : PriorHessianError("ParameterSizeError",message) {}
+};
+
 struct ParameterValueError : public PriorHessianError 
 {
     ParameterValueError(std::string message) : PriorHessianError("ParameterValueError",message) {}
@@ -96,6 +101,12 @@ struct NumericalOverflowError : public PriorHessianError
     NumericalOverflowError(std::string message) : PriorHessianError("NumericalOverflowError",message) {}
 };
 
+struct NotImplementedError : public PriorHessianError 
+{
+    NotImplementedError(std::string message) : PriorHessianError("NotImplementedError",message) {}
+};
+
+
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_PRIORHESSIANERROR_H */
+#endif /* PRIOR_HESSIAN_PRIORHESSIANERROR_H */

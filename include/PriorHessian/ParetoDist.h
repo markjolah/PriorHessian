@@ -4,8 +4,8 @@
  * @brief ParetoDist class declaration and templated methods
  * 
  */
-#ifndef _PRIOR_HESSIAN_PARETODIST_H
-#define _PRIOR_HESSIAN_PARETODIST_H
+#ifndef PRIOR_HESSIAN_PARETODIST_H
+#define PRIOR_HESSIAN_PARETODIST_H
 
 #include <cmath>
 
@@ -19,11 +19,18 @@ namespace prior_hessian {
  */
 class ParetoDist : public UnivariateDist
 {
+    /* These paramter vectors are constant sized, but are handled by accessor functions
+     * so as to work generically together with multivariate distributions.
+     */
+    static const StringVecT _param_names; //Cannonical names for parameters
+    static const VecT _param_lbound; //Lower bound on valid parameter values 
+    static const VecT _param_ubound; //Upper bound on valid parameter values
 public:
     /* Static constant member data */
-    static const StringVecT param_names; //Cannonical names for parameters
-    static const VecT param_lbound; //Lower bound on valid parameter values 
-    static const VecT param_ubound; //Upper bound on valid parameter values
+    static const StringVecT& param_names() { return _param_names; }
+    static const VecT& param_lbound() { return _param_lbound; }
+    static const VecT& param_ubound() { return _param_ubound; }
+
     /* Static member functions */
     static constexpr IdxT num_params() { return 2; }
     static bool check_params(double min, double alpha); /* Check parameters are valid (in bounds) */    

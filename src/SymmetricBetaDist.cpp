@@ -15,9 +15,9 @@
 
 namespace prior_hessian {
 
-const StringVecT SymmetricBetaDist::param_names = { "beta" };
-const VecT SymmetricBetaDist::param_lbound= {0}; //Lower bound on valid parameter values 
-const VecT SymmetricBetaDist::param_ubound= {INFINITY}; //Upper bound on valid parameter values
+const StringVecT SymmetricBetaDist::_param_names = { "beta" };
+const VecT SymmetricBetaDist::_param_lbound = {0}; //Lower bound on valid parameter values 
+const VecT SymmetricBetaDist::_param_ubound = {INFINITY}; //Upper bound on valid parameter values
 
 /* Constructors */
 SymmetricBetaDist::SymmetricBetaDist(double beta) 

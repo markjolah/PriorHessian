@@ -2,42 +2,26 @@
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2018
  */
-#include "test_prior_hessian.h"
-
+#include "test_univariate.h"
 using namespace prior_hessian;
 
 
 TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
 
-template<class Dist>
-void check_univariate_dists_equal(const Dist &d1, const Dist &d2)
-{
-    auto Nparams = d1.num_params();
-    ASSERT_EQ(d1,d2);
-    ASSERT_EQ(Nparams, d2.num_params());
-    //parameters are equal
-    for(IdxT i=0; i<Nparams; i++) EXPECT_EQ(d1.get_param(i),d2.get_param(i));    
-    //Check repeatability of rng generation
-    env->reset_rng();
-    auto v1 = d1.sample(env->get_rng());
-    env->reset_rng();
-    auto v2 = d2.sample(env->get_rng());
-    EXPECT_EQ(v1,v2);
-}
 
 TYPED_TEST(UnivariateDistTest, copy_assignment) {
     SCOPED_TRACE("copy_assignment");
     auto &dist = this->dist;
     TypeParam dist_copy{};
     dist_copy = dist;
-    check_univariate_dists_equal(dist, dist_copy);
+    check_equal(dist, dist_copy);
 }
 
 TYPED_TEST(UnivariateDistTest, copy_construction) {
     SCOPED_TRACE("copy_construction");
     auto &dist = this->dist;
     TypeParam dist_copy(dist);
-    check_univariate_dists_equal(dist, dist_copy);
+    check_equal(dist, dist_copy);
 }
 
 TYPED_TEST(UnivariateDistTest, move_assignment) {
@@ -107,6 +91,25 @@ TYPED_TEST(UnivariateDistTest, set_params) {
         EXPECT_EQ(params[k],new_params[k]);
 }
 
+TYPED_TEST(UnivariateDistTest, param_lbound_ubound) {
+    auto &dist = this->dist;
+    auto param_lbound = dist.param_lbound();
+    auto param_ubound = dist.param_ubound();
+    EXPECT_TRUE( param_lbound.n_elem == dist.num_params());
+    EXPECT_TRUE( param_ubound.n_elem == dist.num_params());
+    EXPECT_TRUE( arma::all(param_lbound >= -INFINITY));
+    EXPECT_TRUE( arma::all(param_ubound <= INFINITY));
+    auto new_params = dist.params();
+    for(IdxT k=0; k<dist.num_params(); k++) new_params(k) = env->sample_real(param_lbound(k),param_ubound(k));
+    dist.set_params(new_params);
+    EXPECT_TRUE( arma::all(new_params==dist.params()));
+    EXPECT_THROW( dist.set_params(param_lbound), prior_hessian::ParameterValueError);
+    EXPECT_TRUE( arma::all(new_params==dist.params())); //check that params is not changed
+    EXPECT_THROW( dist.set_params(param_ubound), prior_hessian::ParameterValueError);
+    EXPECT_TRUE( arma::all(new_params==dist.params())); //check that params is not changed
+}
+
+
 TYPED_TEST(UnivariateDistTest, get_lbound_ubound) {
     auto &dist = this->dist;
     double lb = dist.lbound();
@@ -128,7 +131,7 @@ TYPED_TEST(UnivariateDistTest, equality_inequality) {
 
 TYPED_TEST(UnivariateDistTest, param_names) {
     auto &dist = this->dist;
-    auto &params = dist.param_names;
+    auto &params = dist.param_names();
     std::set<std::string> params_set(params.begin(),params.end());
     EXPECT_EQ(params.size(), params_set.size())<< "Parameter Names must be unique.";
     EXPECT_EQ(params.size(), dist.num_params());
@@ -142,6 +145,7 @@ TYPED_TEST(UnivariateDistTest, cdf) {
         double cdf = dist.cdf(v);
         EXPECT_TRUE(std::isfinite(cdf));
         EXPECT_LE(0,cdf);
+        EXPECT_LE(cdf,1);
     }
 }
 
@@ -173,6 +177,25 @@ TYPED_TEST(UnivariateDistTest, llh) {
     }
 }
 
+TYPED_TEST(UnivariateDistTest, rllh_constant) {
+    auto &dist = this->dist;
+    for(int n=0; n < this->Ntest; n++){
+        auto v1 = dist.sample(env->get_rng());
+        auto v2 = dist.sample(env->get_rng());
+        double rllh1 = dist.rllh(v1);
+        double rllh2 = dist.rllh(v2);
+        double llh1 = dist.llh(v1);
+        double llh2 = dist.llh(v2);
+        EXPECT_TRUE(std::isfinite(rllh1));
+        EXPECT_TRUE(std::isfinite(rllh2));
+        EXPECT_TRUE(std::isfinite(llh1));
+        EXPECT_TRUE(std::isfinite(llh2));
+        double delta1 = llh1 - rllh1;
+        double delta2 = llh2 - rllh2;
+        EXPECT_DOUBLE_EQ(delta1,delta2);
+    }
+}
+
 TYPED_TEST(UnivariateDistTest, grad) {
     auto &dist = this->dist;
     for(int n=0; n < this->Ntest; n++){
@@ -191,7 +214,7 @@ TYPED_TEST(UnivariateDistTest, grad2) {
     }
 }
 
-TYPED_TEST(UnivariateDistTest, grad_grad_accumulate) {
+TYPED_TEST(UnivariateDistTest, grad_grad2_accumulate) {
     auto &dist = this->dist;
     for(int n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());

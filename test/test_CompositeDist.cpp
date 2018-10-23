@@ -6,9 +6,77 @@
 #include "gtest/gtest.h"
 
 #include "test_prior_hessian.h"
+#include "test_univariate.h"
+#include "PriorHessian/NormalDist.h"
+#include "PriorHessian/GammaDist.h"
+#include "PriorHessian/ParetoDist.h"
+#include "PriorHessian/SymmetricBetaDist.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
+#include "PriorHessian/CompositeDist.h"
 
 using namespace prior_hessian;
 
+namespace detail {
+    template<class... Ts, size_t... Is>
+    void initialize_distribution_tuple(std::tuple<Ts...> &t, std::index_sequence<Is...> )
+    { meta::call_in_order<int>({(initialize_dist<Ts>(std::get<Is>(t)),0)... }); }
+    
+    template<class... Ts, size_t... Is>
+    CompositeDist construct_from_tuple(const std::tuple<Ts...> &t, std::index_sequence<Is...>)
+    { return CompositeDist{ std::get<Is>(t)... }; }
+
+    template<class... Ts, size_t... Is>
+    CompositeDist construct_from_tuple(std::tuple<Ts...> &&t, std::index_sequence<Is...>)
+    { return CompositeDist{ std::get<Is>(std::move(t))... }; }
+    
+    template<class... Ts, size_t... Is>
+    void initialize_from_dists(CompositeDist &dist, const std::tuple<Ts...>&ts, std::index_sequence<Is...>)
+    { return dist.initialize(std::get<Is>(ts)...); }
+
+    template<class... Ts, size_t... Is>
+    void initialize_from_dists(CompositeDist &dist, std::tuple<Ts...>&&ts, std::index_sequence<Is...>)
+    { return dist.initialize(std::get<Is>(ts)...); }
+}
+
+template<class... Ts>
+void initialize_distribution_tuple(std::tuple<Ts...> &t)
+{ if(sizeof...(Ts)) ::detail::initialize_distribution_tuple(t,std::index_sequence_for<Ts...>{}); }
+
+template<class... Ts>
+CompositeDist construct_from_tuple(const std::tuple<Ts...> &t)
+{ return ::detail::construct_from_tuple(t,std::index_sequence_for<Ts...>{}); }
+
+template<class... Ts>
+CompositeDist construct_from_tuple(std::tuple<Ts...> &&t)
+{ return ::detail::construct_from_tuple(std::move(t),std::index_sequence_for<Ts...>{}); }
+
+template<class... Ts>
+void initialize_from_dists(CompositeDist &dist, const std::tuple<Ts...>&ts)
+{ return ::detail::initialize_from_dists(dist, ts, std::index_sequence_for<Ts...>{}); }
+
+template<class... Ts>
+void initialize_from_dists(CompositeDist &dist, std::tuple<Ts...>&&ts)
+{ return ::detail::initialize_from_dists(dist, std::move(ts), std::index_sequence_for<Ts...>{}); }
+
+
+template<class TupleT>
+class CompositeDistTest : public ::testing::Test {
+public:    
+    TupleT dists;
+    CompositeDist composite;
+    static constexpr int Ntest = 100;
+    virtual void SetUp() override {
+        env->reset_rng();
+        initialize_distribution_tuple(dists);
+        composite.initialize(dists);
+    }
+};
+
+
+/* 
+ * List of type tuples to store in a composite dist 
+ * Tests the empty tuple base-case also
+ */
 using CompositeDistTestTs = ::testing::Types<
     std::tuple<NormalDist, GammaDist, ParetoDist, SymmetricBetaDist>,
     std::tuple<TruncatedDist<NormalDist>, NormalDist, TruncatedDist<GammaDist>>,

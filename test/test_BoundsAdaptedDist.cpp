@@ -2,9 +2,24 @@
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2018
  */
-#include "test_prior_hessian.h"
+#include "test_univariate.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
 
 using namespace prior_hessian;
+
+template<class Dist>
+class BoundsAdaptedDistTest: public ::testing::Test {
+public:
+    Dist orig_dist;
+    using BoundedDistT = BoundsAdaptedDistT<Dist>;
+    BoundedDistT dist;
+    static constexpr int Ntest = 100;
+    virtual void SetUp() override {
+        env->reset_rng();
+        orig_dist = make_dist<Dist>();
+        dist = make_adapted_bounded_dist(orig_dist);
+    }
+};
 
                                 
 TYPED_TEST_CASE(BoundsAdaptedDistTest, UnivariateDistTs);
@@ -93,8 +108,11 @@ TYPED_TEST(BoundsAdaptedDistTest, set_params) {
     dist.set_params(new_params);
     auto params = dist.params();
     EXPECT_EQ(params.n_elem,dist.num_params());
-    for(IdxT k=0; k<params.n_elem; k++)
-        EXPECT_EQ(params[k],new_params[k]);
+    for(IdxT k=0; k<params.n_elem; k++){
+//         std::printf("params[%llu]:%.12g new_params[%llu]:%.12g\n",k,params[k],k,new_params[k]);
+        bool eq = params[k]==new_params[k];
+        EXPECT_EQ(params[k],new_params[k])<<std::setprecision(19)<<params[k]<<" "<<std::setprecision(19)<<new_params[k]<<" "<<eq<<" "<<std::hexfloat<<params[k]<<" "<<std::hexfloat<<new_params[k];
+    }
 }
 
 TYPED_TEST(BoundsAdaptedDistTest, get_lbound_ubound) {
@@ -118,7 +136,7 @@ TYPED_TEST(BoundsAdaptedDistTest, equality_inequality) {
 
 TYPED_TEST(BoundsAdaptedDistTest, param_names) {
     auto &dist = this->dist;
-    auto &params = dist.param_names;
+    auto &params = dist.param_names();
     std::set<std::string> params_set(params.begin(),params.end());
     EXPECT_EQ(params.size(), params_set.size())<< "Parameter Names must be unique.";
     EXPECT_EQ(params.size(), dist.num_params());
