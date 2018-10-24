@@ -1,6 +1,6 @@
 /** @file GammaDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
+ * @date 2017 - 2018
  * @brief GammaDist class declaration and templated methods
  * 
  */
@@ -11,7 +11,6 @@
 #include <random>
 
 #include "PriorHessian/UnivariateDist.h"
-#include "PriorHessian/TruncatedDist.h"
 
 namespace prior_hessian {
 
@@ -83,37 +82,6 @@ private:
 
     double compute_llh_const() const;
 };
-
-/* A bounded gamma dist uses the TruncatedDist adaptor */
-using BoundedGammaDist = TruncatedDist<GammaDist>;
-
-inline
-BoundedGammaDist make_bounded_gamma_dist(double scale, double shape, double lbound, double ubound)
-{
-    return {GammaDist(scale, shape),lbound,ubound};
-}
-
-namespace detail
-{
-    template<class Dist>
-    class dist_adaptor_traits;
-    
-    template<>
-    class dist_adaptor_traits<GammaDist> {
-    public:
-        using bounds_adapted_dist = BoundedGammaDist;
-        
-        static constexpr bool adaptable_bounds = false;
-    };
-    
-    template<>
-    class dist_adaptor_traits<BoundedGammaDist> {
-    public:
-        using bounds_adapted_dist = BoundedGammaDist;
-        
-        static constexpr bool adaptable_bounds = true;
-    };
-} /* namespace detail */
 
 inline
 bool GammaDist::check_params(double param0, double param1)

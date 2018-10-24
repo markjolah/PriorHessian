@@ -13,7 +13,6 @@
 #include <boost/math/distributions/beta.hpp>
 
 #include "PriorHessian/UnivariateDist.h"
-#include "PriorHessian/ScaledDist.h"
 
 namespace prior_hessian {
 
@@ -76,38 +75,6 @@ private:
 
     double compute_llh_const() const;
 };
-
-/* A bounded normal dist uses the ScaledDist adaptor */
-using ScaledSymmetricBetaDist = ScaledDist<SymmetricBetaDist>;
-
-inline
-ScaledSymmetricBetaDist make_scaled_symmetric_beta_dist(double beta, double lbound, double ubound)
-{
-    return {SymmetricBetaDist(beta),lbound,ubound};
-}
-
-namespace detail
-{
-    template<class Dist>
-    class dist_adaptor_traits;
-    
-    template<>
-    class dist_adaptor_traits<SymmetricBetaDist> {
-    public:
-        using bounds_adapted_dist = ScaledSymmetricBetaDist;
-        
-        static constexpr bool adaptable_bounds = false;
-    };
-    
-    template<>
-    class dist_adaptor_traits<ScaledSymmetricBetaDist> {
-    public:
-        using bounds_adapted_dist = ScaledSymmetricBetaDist;
-        
-        static constexpr bool adaptable_bounds = true;
-    };
-} /* namespace detail */
-
 
 inline
 bool SymmetricBetaDist::check_params(double param0)

@@ -1,6 +1,6 @@
 /** @file NormalDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
+ * @date 2017 - 2018
  * @brief NormalDist class declaration and templated methods
  * 
  */
@@ -12,7 +12,6 @@
 #include <random>
 
 #include "PriorHessian/UnivariateDist.h"
-#include "PriorHessian/TruncatedDist.h"
 
 namespace prior_hessian {
 
@@ -83,38 +82,6 @@ private:
     
     double compute_llh_const() const;
 };
-
-/* A bounded normal dist uses the TruncatedDist adaptor */
-using BoundedNormalDist = TruncatedDist<NormalDist>;
-
-inline
-BoundedNormalDist make_bounded_normal_dist(double mu, double sigma, double lbound, double ubound)
-{
-    return {NormalDist(mu, sigma),lbound,ubound};
-}
-
-namespace detail
-{
-    /* Type traits for a bounded an non-bounded versions of distribution */
-    template<class Dist>
-    class dist_adaptor_traits;
-    
-    template<>
-    class dist_adaptor_traits<NormalDist> {
-    public:
-        using bounds_adapted_dist = BoundedNormalDist;
-        
-        static constexpr bool adaptable_bounds = false;
-    };
-    
-    template<>
-    class dist_adaptor_traits<BoundedNormalDist> {
-    public:
-        using bounds_adapted_dist = BoundedNormalDist;
-        
-        static constexpr bool adaptable_bounds = true;
-    };
-} /* namespace detail */
 
 /* static methods */
 inline

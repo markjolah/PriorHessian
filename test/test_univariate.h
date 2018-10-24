@@ -4,10 +4,10 @@
  * @brief Common include for all testing modules
  */
 #include "test_prior_hessian.h"
-#include "PriorHessian/NormalDist.h"
-#include "PriorHessian/GammaDist.h"
-#include "PriorHessian/ParetoDist.h"
-#include "PriorHessian/SymmetricBetaDist.h"
+#include "PriorHessian/TruncatedNormalDist.h"
+#include "PriorHessian/TruncatedGammaDist.h"
+#include "PriorHessian/TruncatedParetoDist.h"
+#include "PriorHessian/ScaledSymmetricBetaDist.h"
 
 using namespace prior_hessian;
 
@@ -84,9 +84,9 @@ check_equal(const Dist &d1, const Dist &d2)
 }
 
 using UnivariateDistTs = ::testing::Types<
-                                NormalDist, BoundedNormalDist,
-                                GammaDist, BoundedGammaDist,
-                                ParetoDist, BoundedParetoDist,
+                                NormalDist, TruncatedNormalDist,
+                                GammaDist, TruncatedGammaDist,
+                                ParetoDist, TruncatedParetoDist,
                                 SymmetricBetaDist, ScaledSymmetricBetaDist>;
                                         
 

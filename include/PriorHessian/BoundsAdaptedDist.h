@@ -45,19 +45,6 @@ namespace detail
         static constexpr bool adaptable_bounds = false;
     };
     
-    
-    /* Forward declaration of class template specializations for each distribution.
-     * TODO: Can this uglyness be eliminated/automated
-     */
-    class NormalDist;
-    template<> class dist_adaptor_traits<NormalDist>;
-    class GammaDist;
-    template<> class dist_adaptor_traits<GammaDist>;
-    class ParetoDist;
-    template<> class dist_adaptor_traits<ParetoDist>;
-    class SymmetricBetaDist;
-    template<> class dist_adaptor_traits<SymmetricBetaDist>;
-    
     /** Type traits class for distribution type DistT.  
     *
     * The traits class describes the Adaptor classes applicable to each individual distribution
@@ -104,20 +91,21 @@ std::enable_if_t< !detail::DistTraitsT<Dist>::adaptable_bounds, BoundsAdaptedDis
 make_adapted_bounded_dist(Dist &&dist)
 { return {std::forward<Dist>(dist)}; }
 
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+template<class Dist, class Vec, typename=meta::EnableIfIsNotTupleT<Dist>>
 std::enable_if_t<detail::DistTraitsT<Dist>::adaptable_bounds, Dist>
-make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
+make_adapted_bounded_dist(Dist &&dist, Vec &&lbound, Vec &&ubound)
 { 
-    dist.set_bounds(lbound,ubound);
+    dist.set_bounds(std::forward<Vec>(lbound),std::forward<Vec>(ubound));
     return dist; 
 }
 
-template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
+template<class Dist, class Vec, typename=meta::EnableIfIsNotTupleT<Dist>>
 std::enable_if_t<!detail::DistTraitsT<Dist>::adaptable_bounds, BoundsAdaptedDistT<Dist>>
-make_adapted_bounded_dist(Dist &&dist, double lbound, double ubound)
+make_adapted_bounded_dist(Dist &&dist, Vec &&lbound, Vec &&ubound)
 { 
-    return {std::forward<Dist>(dist),lbound,ubound}; 
+    return {std::forward<Dist>(dist),std::forward<Vec>(lbound),std::forward<Vec>(ubound)}; 
 }
+
 
 
 /* make_adapted_bounded_dist_tuple(...) [3-forms]

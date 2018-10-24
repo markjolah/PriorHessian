@@ -11,6 +11,7 @@
 
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
 
 namespace prior_hessian {
 
@@ -118,15 +119,15 @@ void TruncatedDist<Dist>::set_bounds(double lbound, double ubound)
 }
 
 template<class Dist>
-void TruncatedDist<Dist>::set_lbound(double lbound)
+void TruncatedDist<Dist>::set_lbound(double new_lbound)
 {
-    set_bounds(lbound, ubound());
+    set_bounds(new_lbound, ubound());
 }
 
 template<class Dist>
-void TruncatedDist<Dist>::set_ubound(double ubound)
+void TruncatedDist<Dist>::set_ubound(double new_ubound)
 {
-    set_bounds(lbound(), ubound);
+    set_bounds(lbound(), new_ubound);
 }
 
 template<class Dist>
@@ -157,7 +158,7 @@ template<class Dist>
 template<class RngT>
 double TruncatedDist<Dist>::sample(RngT &rng) const
 {
-    if(!_truncated) return Dist::sample(rng);
+    if(!truncated()) return Dist::sample(rng);
     //If truncated, the iCDF method is the most generally applicable and efficient.
     //One nice property is we only need to draw a single RNG vs a rejection strategy
     std::uniform_real_distribution<double> uniform;

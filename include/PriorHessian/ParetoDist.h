@@ -1,6 +1,6 @@
 /** @file ParetoDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
+ * @date 2017 - 2018
  * @brief ParetoDist class declaration and templated methods
  * 
  */
@@ -10,7 +10,6 @@
 #include <cmath>
 
 #include "PriorHessian/UnivariateDist.h"
-#include "PriorHessian/UpperTruncatedDist.h"
 
 namespace prior_hessian {
 
@@ -82,37 +81,6 @@ private:
 
     double compute_llh_const() const;
 };
-
-/* A bounded pareto dist uses the UpperTruncatedDist adaptor */
-using BoundedParetoDist = UpperTruncatedDist<ParetoDist>;
-
-inline
-BoundedParetoDist make_bounded_pareto_dist(double alpha, double lbound, double ubound)
-{
-    return {ParetoDist(alpha,lbound),ubound};
-}
-
-namespace detail
-{
-    template<class Dist>
-    class dist_adaptor_traits;
-    
-    template<>
-    class dist_adaptor_traits<ParetoDist> {
-    public:
-        using bounds_adapted_dist = BoundedParetoDist;
-        
-        static constexpr bool adaptable_bounds = false;
-    };
-    
-    template<>
-    class dist_adaptor_traits<BoundedParetoDist> {
-    public:
-        using bounds_adapted_dist = BoundedParetoDist;
-        
-        static constexpr bool adaptable_bounds = true;
-    };
-} /* namespace detail */
 
 inline
 bool ParetoDist::check_params(double param0, double param1)

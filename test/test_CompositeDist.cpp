@@ -7,10 +7,6 @@
 
 #include "test_prior_hessian.h"
 #include "test_univariate.h"
-#include "PriorHessian/NormalDist.h"
-#include "PriorHessian/GammaDist.h"
-#include "PriorHessian/ParetoDist.h"
-#include "PriorHessian/SymmetricBetaDist.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
 #include "PriorHessian/CompositeDist.h"
 

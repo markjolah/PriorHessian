@@ -11,6 +11,7 @@
 
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
+#include "PriorHessian/BoundsAdaptedDist.h"
 
 namespace prior_hessian {
 
