@@ -72,6 +72,15 @@ namespace meta {
     template<template <int...> class ClassNumericTemplate, int... Is>
     struct is_numeric_template_of<ClassNumericTemplate, ClassNumericTemplate<Is...>> : std::true_type { };
 
+    template<template <int...> class T, typename U>
+    class is_subclass_of_numeric_template {
+        template<int... Is>
+        static decltype(static_cast<const T<Is...>&>(std::declval<U>()), std::true_type{}) test(const T<Is...>&);
+        static std::false_type test(...);
+    public:
+        static constexpr bool value = decltype(is_subclass_of_numeric_template::test(std::declval<U>()))::value;
+    };
+        
     
     template<class ReturnT, class BoolT> 
     using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
@@ -83,9 +92,13 @@ namespace meta {
     using EnableIfSubclassT = std::enable_if_t<
         std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value >;
 
+    template<class T, template <int> class ClassNumericTemplate> 
+    using EnableIfSubclassOfNumericTemplateT = std::enable_if_t<
+        is_subclass_of_numeric_template<ClassNumericTemplate, std::remove_reference_t<T>>::value >;
+
+        
     template<class T,class SelfT> 
     using EnableIfNotIsSelfT = std::enable_if_t< !std::is_same<std::decay_t<T>,SelfT>::value >;
-
         
     template<class ReturnT, class T,class BaseT> 
     using ReturnIfSubclassT = std::enable_if_t<
@@ -119,7 +132,7 @@ namespace meta {
     using EnableIfIsTemplateForAllT = std::enable_if_t< conjunction< 
         is_template_of<ClassTemplate,std::remove_reference_t<Ts>> ... >::value >;
 
-    template<template <typename> class ClassTemplate, class... Ts> 
+    template<template <typename...> class ClassTemplate, class... Ts> 
     using ConstructableIfIsTemplateForAllT = std::enable_if_t< conjunction< 
         is_template_of<ClassTemplate,std::remove_reference_t<Ts>> ... >::value, bool>;
 

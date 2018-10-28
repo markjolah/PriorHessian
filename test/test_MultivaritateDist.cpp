@@ -4,8 +4,8 @@
  */
 #include "test_multivariate.h"
 
-using MultivariateDistTs = ::testing::Types<
-                                MultivariateNormalDist<2>,MultivariateNormalDist<4> >;
+// using MultivariateDistTs = ::testing::Types<
+//                                 MultivariateNormalDist<2>,MultivariateNormalDist<4> >;
                                 
 /* Type parameterized test fixtures */
 template<class Dist>
@@ -291,3 +291,11 @@ TYPED_TEST(MultivariateDistTest, grad_hess_accumulate) {
     }
 }
 
+TYPED_TEST(MultivariateDistTest, sample_in_bounds) {
+    auto &dist = this->dist;
+    for(int n=0; n < this->Ntest; n++){
+        auto v = dist.sample(env->get_rng());
+        EXPECT_TRUE(v.is_finite());
+        EXPECT_TRUE(dist.in_bounds(v));
+    }
+}

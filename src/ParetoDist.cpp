@@ -24,6 +24,12 @@ ParetoDist::ParetoDist(double min, double alpha)
       llh_const(compute_llh_const())
 { }
 
+ParetoDist::ParetoDist(const VecT &params) 
+    : UnivariateDist(checked_min(params[0]),INFINITY),
+      _alpha(checked_alpha(params[1])),
+      llh_const(compute_llh_const())
+{ }
+
 /* Non-static member functions */
     
 double ParetoDist::compute_llh_const() const

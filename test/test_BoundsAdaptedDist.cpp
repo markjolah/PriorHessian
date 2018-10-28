@@ -3,7 +3,6 @@
  * @date 2018
  */
 #include "test_univariate.h"
-#include "PriorHessian/BoundsAdaptedDist.h"
 
 using namespace prior_hessian;
 
@@ -150,6 +149,7 @@ TYPED_TEST(BoundsAdaptedDistTest, cdf) {
         double cdf = dist.cdf(v);
         EXPECT_TRUE(std::isfinite(cdf));
         EXPECT_LE(0,cdf);
+        EXPECT_LE(cdf,1);
     }
 }
 

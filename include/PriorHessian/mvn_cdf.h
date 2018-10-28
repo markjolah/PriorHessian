@@ -11,6 +11,8 @@
 #include<random>
 #include<cmath>
 
+#include "util.h"
+
 namespace prior_hessian {
 
 double unit_normal_cdf( double t );
@@ -31,12 +33,14 @@ double unit_normal_icdf( double u );
  *    October 1973, Volume 16, Number 10, page 638.
  */    
 double bvn_integral( double ah, double ak, double r );
+double bvn_integral_orig( double ah, double ak, double r );
 
 template<class Vec, class Mat>
 double bvn_cdf(const Vec &b, const Mat &sigma)
 {
     double rho = sigma(0,1) / sqrt(sigma(0,0)*sigma(1,1));
-    return 1. - bvn_integral(b(0),b(1),rho);
+    double integral = bvn_integral(-b(0),-b(1),rho);//Itergation of x,y coordinates in bvn_integral is inverted from normal CDF
+    return integral;
 }
 
 /** compute the multivariate normal cdf integral

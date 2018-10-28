@@ -34,15 +34,18 @@ public:
     static constexpr IdxT num_params() { return 2; }
     static bool check_params(double min, double alpha); /* Check parameters are valid (in bounds) */    
     static bool check_params(VecT &params); /* Check a vector of parameters is valid (in bounds) */    
-    template<class IterT>
-    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
     static bool check_lbound(double min); /* Check the lbound (min) parameter */    
     
     ParetoDist(double min=1.0, double alpha=1.0);
-    
+    ParetoDist(const VecT &params);
     double get_param(int idx) const;
     void set_param(int idx, double val);
     VecT params() const { return {lbound(),_alpha}; }
+    void set_params(double min, double alpha) 
+    { 
+        set_lbound(checked_min(min)); 
+        _alpha = checked_alpha(alpha); 
+    }
     void set_params(const VecT &p) 
     { 
         set_lbound(checked_min(p[0])); 
@@ -71,6 +74,13 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
+
+     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);   
+    
+    template<class IterT>
+    void set_params_iter(IterT &params);
    
 private:
     static double checked_min(double val);
@@ -198,6 +208,15 @@ double ParetoDist::sample(RngT &rng) const
     std::uniform_real_distribution<double> d;
     double u = 1-d(rng); // u is uniform on (0,1]
     return lbound()/pow(u,1/_alpha) ;
+}
+
+
+template<class IterT>
+void ParetoDist::set_params_iter(IterT &params)
+{
+    double min = *params++;
+    double alpha = *params++;
+    return set_params(min,alpha);
 }
 
 } /* namespace prior_hessian */

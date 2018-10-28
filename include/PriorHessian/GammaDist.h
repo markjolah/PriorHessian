@@ -35,8 +35,6 @@ public:
     static constexpr IdxT num_params() { return 2; }
     static bool check_params(double shape, double scale);    /* Check a vector of parameters is valid (in bounds) */    
     static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
-    template<class IterT>
-    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
     
     GammaDist(double scale=1.0, double shape=1.0);
     
@@ -47,6 +45,11 @@ public:
     { 
         _scale = checked_scale(p[0]);  
         _shape = checked_shape(p[1]); 
+    }
+    void set_params(double scale, double shape) 
+    { 
+        _scale = checked_scale(scale);  
+        _shape = checked_shape(shape); 
     }
     bool operator==(const GammaDist &o) const { return _scale == o._scale && _shape == o._shape; }
     bool operator!=(const GammaDist &o) const { return !this->operator==(o);}
@@ -70,6 +73,14 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
+
+     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);   
+    
+    template<class IterT>
+    void set_params_iter(IterT &params);
+    
 private:
     using RngDistT = std::gamma_distribution<double>; //Used for RNG
     
@@ -95,13 +106,6 @@ bool GammaDist::check_params(VecT &params)
     return params.is_finite() && params[0]>0 && params[1]>0; 
 }
 
-template<class IterT>
-bool GammaDist::check_params_iter(IterT &p)
-{ 
-    double scale = *p++;
-    double shape = *p++;
-    return check_params(scale,shape);
-}
 
 inline
 double GammaDist::get_param(int idx) const
@@ -165,6 +169,24 @@ double GammaDist::sample(RngT &rng) const
     RngDistT d(_shape,_scale);
     return d(rng);
 }
+
+/* Protected methods */
+template<class IterT>
+bool GammaDist::check_params_iter(IterT &p)
+{ 
+    double scale = *p++;
+    double shape = *p++;
+    return check_params(scale,shape);
+}
+
+template<class IterT>
+void GammaDist::set_params_iter(IterT &p)
+{ 
+    double scale = *p++;
+    double shape = *p++;
+    set_params(scale,shape);
+}
+
 
 } /* namespace prior_hessian */
 

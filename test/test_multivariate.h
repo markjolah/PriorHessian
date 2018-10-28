@@ -4,7 +4,7 @@
  * @brief 
  */
 #include "test_prior_hessian.h"
-#include "PriorHessian/MultivariateNormalDist.h"
+#include "PriorHessian/TruncatedMultivariateNormalDist.h"
 
 using namespace prior_hessian;
 
@@ -49,7 +49,7 @@ Dist make_dist()
 
 
 template<class Dist>
-meta::EnableIfSubclassT<Dist,MultivariateDist>
+meta::EnableIfSubclassOfNumericTemplateT<Dist,MultivariateDist>
 check_equal(const Dist &d1, const Dist &d2)
 {
     auto Nparams = d1.num_params();
@@ -68,5 +68,6 @@ check_equal(const Dist &d1, const Dist &d2)
 
                                         
 
-
+using MultivariateDistTs = ::testing::Types< MultivariateNormalDist<2>,
+                                             MultivariateNormalDist<4> >;
 

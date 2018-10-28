@@ -49,7 +49,7 @@ public:
     void set_lbound(double ubound);    
     void set_ubound(double ubound);    
 
-    double mean() const { throw PriorHessianError("NotImplemented::BOOO!!!"); }
+    double mean() const { throw NotImplementedError("Mean is not implemented for truncated distributions. No general-purpose efficient algorithm."); }
     double median() const {return Dist::icdf((Dist::cdf(this->lbound())+ubound_cdf)*.5); }
     
     double cdf(double x) const;

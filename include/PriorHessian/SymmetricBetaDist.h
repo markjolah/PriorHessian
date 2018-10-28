@@ -37,13 +37,12 @@ public:
     static constexpr IdxT num_params() { return 1; }
     static bool check_params(double beta); /* Check parameters are valid (in bounds) */    
     static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
-    template<class IterT>
-    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
     
     SymmetricBetaDist(double beta=1.0);
     double get_param(int idx) const;
     void set_param(int idx, double val);
     VecT params() const { return {_beta}; }
+    void set_params(double beta) { _beta = checked_beta(beta); }
     void set_params(const VecT &p) { _beta = checked_beta(p[0]); }
     bool operator==(const SymmetricBetaDist &o) const { return _beta == o._beta; }
     bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
@@ -65,6 +64,14 @@ public:
     
     template<class RngT>
     double sample(RngT &rng) const;
+
+     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);   
+    
+    template<class IterT>
+    void set_params_iter(IterT &params);
+    
 private:
     using RngDistT = boost::math::beta_distribution<double>;//Used for RNG
 
@@ -86,12 +93,6 @@ inline
 bool SymmetricBetaDist::check_params(VecT &params)
 { 
     return std::isfinite(params[0]) && params[0]>0;     
-}
-
-template<class IterT>
-bool SymmetricBetaDist::check_params_iter(IterT &p)
-{ 
-    return check_params(*p++);
 }
 
 inline
@@ -151,6 +152,19 @@ double SymmetricBetaDist::sample(RngT &rng) const
 {
     std::uniform_real_distribution<double> uni;
     return icdf(uni(rng));
+}
+
+/* Protected methods */
+template<class IterT>
+bool SymmetricBetaDist::check_params_iter(IterT &p)
+{ 
+    return check_params(*p++);
+}
+
+template<class IterT>
+void SymmetricBetaDist::set_params_iter(IterT &p)
+{ 
+    set_params(*p++);
 }
 
 } /* namespace prior_hessian */

@@ -30,6 +30,13 @@ NormalDist::NormalDist(double mu, double sigma)
     set_params(mu,sigma);
 }
 
+NormalDist::NormalDist(const VecT &params) 
+    : UnivariateDist(-INFINITY,INFINITY)
+{ 
+    set_params(params);
+}
+
+
 /* Non-static member functions */
 double NormalDist::cdf(double x) const
 {

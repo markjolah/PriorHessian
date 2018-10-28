@@ -19,9 +19,8 @@ CompositeDist::CompositeDist(const CompositeDist &o)
 { initialize_from_handle(); }
     
 CompositeDist::CompositeDist(CompositeDist &&o) 
-    : handle{std::move(o.handle)},
-      param_name_idx{std::move(o.param_name_idx)}
-{ }
+    : handle{std::move(o.handle)}
+{ initialize_from_handle(); }
 
 void CompositeDist::clear()
 {
@@ -41,7 +40,7 @@ CompositeDist& CompositeDist::operator=(CompositeDist &&o)
 {
     if(this == &o) return *this; //Ignore self-assignment
     handle = std::move(o.handle);
-    param_name_idx = std::move(o.param_name_idx);
+    initialize_from_handle();
     return *this;
 }
 
@@ -59,33 +58,97 @@ std::ostream& operator<<(std::ostream &out,const CompositeDist &comp_dist)
 {
     out<<"[CompositeDist]:\n";
     out<<"  NumComponentDists:"<<comp_dist.num_components()<<"\n";
+    out<<"  ComponentNames:[";
+    for(auto v: comp_dist.component_names()) out<<v<<",";
+    out<<"]\n";
     out<<"  NumDim:"<<comp_dist.num_dim()<<"\n";
     out<<"  ComponentNumDim:"<<comp_dist.num_dim_components().t();
     out<<"  LBound:"<<comp_dist.lbound().t();
     out<<"  UBound:"<<comp_dist.ubound().t();
-    auto vars=comp_dist.dim_variables();
-    out<<"  Vars:[";
-    for(auto v: vars) out<<v<<",";
+    out<<"  GlobalLBound:"<<comp_dist.global_lbound().t();
+    out<<"  GlobalUBound:"<<comp_dist.global_ubound().t();
+    out<<"  DimVars:[";
+    for(auto v: comp_dist.dim_variables()) out<<v<<",";
     out<<"]\n";
-
     out<<"  NumParams:"<<comp_dist.num_params()<<"\n";
     out<<"  ComponentNumParams:"<<comp_dist.num_params_components().t();
     out<<"  Params:"<<comp_dist.params().t();
-    auto param_names=comp_dist.param_names();
-    out<<"  ParamDesc:[";
-    for(auto &v: param_names) out<<v<<",";
+    out<<"  ParamsLbound:"<<comp_dist.params_lbound().t();
+    out<<"  ParamsUbound:"<<comp_dist.params_ubound().t();
+    out<<"  ParamNames:[";
+    for(auto &v: comp_dist.param_names()) out<<v<<",";
     out<<"]\n";
-    
     return out;
+}
+
+
+const StringVecT& CompositeDist::component_names() const
+{
+    if(!component_names_initialized) initialize_component_names();
+    return _component_names;
+}
+
+const StringVecT& CompositeDist::dim_variables() const
+{
+    if(!dim_variables_initialized) initialize_dim_variables();
+    return _dim_variables;
+}
+
+const StringVecT& CompositeDist::param_names() const
+{
+    if(!param_names_initialized) initialize_param_names();
+    return _param_names;
+}
+
+void CompositeDist::initialize_component_names() const
+{
+    _component_names.clear();
+    for(IdxT n=0; n<num_components(); n++) {
+        std::ostringstream name;
+        name<<"D"<<n+1;
+        _component_names.emplace_back(name.str());
+    }
+    component_names_initialized = true;
+}
+
+void CompositeDist::initialize_dim_variables() const
+{
+    _dim_variables.clear();
+    for(IdxT n=0; n<num_dim(); n++) {
+        std::ostringstream name;
+        name<<"v"<<n+1;
+        _dim_variables.emplace_back(name.str());
+    }
+    dim_variables_initialized = true;
+}
+
+void CompositeDist::initialize_param_names() const
+{
+    _param_names.clear();
+    const auto dist_ndim = num_params_components();
+    auto dist_names = component_names();
+    auto param_names = handle->param_names();
+    auto param_names_iter = param_names.begin();
+    for(IdxT n=0; n<num_components(); n++) { 
+        for(IdxT k=0; k<dist_ndim[n]; k++) {
+            std::ostringstream name;
+            name<<dist_names[n] << "_" << *param_names_iter++;
+            _param_names.emplace_back(name.str());
+        }
+    }
+    param_name_idx = initialize_param_name_idx(_param_names);
+    param_names_initialized = true;
 }
 
 bool CompositeDist::has_param(const std::string &name) const
 {
+    if(!param_names_initialized) initialize_param_names();
     return param_name_idx.find(name) != param_name_idx.end();
 }
 
 double CompositeDist::get_param_value(const std::string &name) const
 {
+    if(!param_names_initialized) initialize_param_names();
     auto it = param_name_idx.find(name);
     if(it == param_name_idx.end()) {
         std::ostringstream msg;
@@ -97,6 +160,7 @@ double CompositeDist::get_param_value(const std::string &name) const
 
 int CompositeDist::get_param_index(const std::string &name) const
 {
+    if(!param_names_initialized) initialize_param_names();
     auto it = param_name_idx.find(name);
     if(it == param_name_idx.end()) {
         std::ostringstream msg;
@@ -108,6 +172,7 @@ int CompositeDist::get_param_index(const std::string &name) const
 
 void CompositeDist::set_param_value(const std::string &name, double value)
 {
+    if(!param_names_initialized) initialize_param_names();
     auto it = param_name_idx.find(name);
     if(it == param_name_idx.end()) {
         std::ostringstream msg;
@@ -122,7 +187,9 @@ void CompositeDist::set_param_value(const std::string &name, double value)
 //Called on every new initialization
 void CompositeDist::initialize_from_handle()
 {
-    param_name_idx = initialize_param_name_idx(param_names());
+    component_names_initialized = false;
+    dim_variables_initialized = false;
+    param_names_initialized = false;
 }
 
 CompositeDist::ParamNameMapT 

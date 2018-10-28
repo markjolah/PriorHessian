@@ -30,11 +30,10 @@ public:
     
     static bool check_params(double mu, double sigma); /* Check parameters are valid (in bounds) */    
     static bool check_params(const VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
-    template<class IterT>
-    static bool check_params_iter(IterT &params);    /* Check a vector of parameters is valid (in bounds) */    
 
     /* Constructor */
     NormalDist(double mu=0.0, double sigma=1.0);
+    NormalDist(const VecT &params);
     
     /* Member functions */
     double mu() const;
@@ -65,6 +64,13 @@ public:
     template<class RngT>
     double sample(RngT &rng) const;
 
+     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);   
+    
+    template<class IterT>
+    void set_params_iter(IterT &params);
+    
 private:
     using RngDistT = std::normal_distribution<double>; //Used for RNG
 
@@ -130,14 +136,6 @@ inline
 bool NormalDist::check_params(const VecT &params)
 { 
     return params.is_finite() && params(1)>0;
-}
-
-template<class IterT>
-bool NormalDist::check_params_iter(IterT &params)
-{
-    double mu = *params++;
-    double sigma = *params++;
-    return check_params(mu,sigma);
 }
 
 inline
@@ -220,7 +218,26 @@ double NormalDist::sample(RngT &rng) const
     RngDistT d(mu(),sigma());
     return d(rng);
 }
-    
+ 
+ 
+/* Protected methods */
+template<class IterT>
+bool NormalDist::check_params_iter(IterT &params)
+{
+    double mu = *params++;
+    double sigma = *params++;
+    return check_params(mu,sigma);
+}
+
+template<class IterT>
+void NormalDist::set_params_iter(IterT &params)
+{
+    double mu = *params++;
+    double sigma = *params++;
+    return set_params(mu,sigma);
+}
+ 
+ 
 } /* namespace prior_hessian */
 
 #endif /* PRIOR_HESSIAN_NORMALDIST_H */

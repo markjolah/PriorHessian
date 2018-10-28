@@ -229,3 +229,12 @@ TYPED_TEST(UnivariateDistTest, grad_grad2_accumulate) {
         EXPECT_DOUBLE_EQ(grad2,grad2_acc);
     }
 }
+
+TYPED_TEST(UnivariateDistTest, sample_in_bounds) {
+    auto &dist = this->dist;
+    for(int n=0; n < this->Ntest; n++){
+        double v = dist.sample(env->get_rng());
+        EXPECT_TRUE(std::isfinite(v));
+        EXPECT_TRUE(dist.in_bounds(v));
+    }
+}

@@ -19,6 +19,7 @@ public:
 
     double lbound() const { return _lbound; }
     double ubound() const { return _ubound; }
+    bool in_bounds(double u) const; 
 
     void set_bounds(double lbound, double ubound);
     void set_lbound(double lbound);
@@ -37,6 +38,12 @@ private:
     double _ubound;
     
 };
+
+inline
+bool UnivariateDist::in_bounds(double u) const
+{
+    return _lbound<u && u<_ubound;
+}
 
 } /* namespace prior_hessian */
 

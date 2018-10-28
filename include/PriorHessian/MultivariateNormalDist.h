@@ -17,13 +17,16 @@ namespace prior_hessian {
  *
  */
 template<int Ndim> //, meta::ConstructableIf< (Ndim>=2) > = true>
-class MultivariateNormalDist : public MultivariateDist {
+class MultivariateNormalDist : public MultivariateDist<Ndim> {
+private:    
+    static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
     
 public:
-    static constexpr IdxT num_dim() { return Ndim; }
-    static constexpr IdxT num_params() { return _num_params; }
-
-    using NdimVecT = arma::Col<double>::fixed<Ndim>;
+    static constexpr IdxT num_params() {return _num_params;}
+    
+    using typename MultivariateDist<Ndim>::NdimVecT;
+    using MultivariateDist<Ndim>::num_dim;
+    
     using NdimMatT = arma::Mat<double>::fixed<Ndim,Ndim>;
     using NparamsVecT = arma::Col<double>::fixed<num_params()>;
 
@@ -39,16 +42,14 @@ public:
     static bool check_params(const Vec &mu, const Mat &sigma);
     template<class Vec>
     static bool check_params(const VecT &params);
-    template<class IterT>
-    static bool check_params_iter(IterT &params);
        
     const NdimVecT& mu() const;
     const NdimMatT& sigma() const;
     const NdimMatT& sigma_inv() const;
     const NdimMatT& sigma_chol() const;
     
-    template<class Vec> void set_mu(const Vec& val);
-    template<class Mat> void set_sigma(const Mat& val);
+    template<class Vec> void set_mu(Vec&& val);
+    template<class Mat> void set_sigma(Mat&& val);
     
     bool operator==(const MultivariateNormalDist<Ndim> &o) const;    
     bool operator!=(const MultivariateNormalDist<Ndim> &o) const { return !this->operator==(o);}
@@ -62,8 +63,13 @@ public:
     NparamsVecT params() const;
     template<class Vec>
     void set_params(const Vec &p);
+
     template<class Vec,class Mat>
-    void set_params(const Vec &mu, const Mat &sigma);
+    void set_params(Vec &&mu, Mat &&sigma);
+    
+    /* Import names from Dependent Base Class */
+//     using MultivariateDist<Ndim>::lbound;
+//     using MultivariateDist<Ndim>::ubound;
     
     VecT mean() const { return mu(); }
     VecT mode() const { return mu(); }
@@ -83,9 +89,19 @@ public:
     
     template<class RngT>
     NdimVecT sample(RngT &rng) const;
-    
+  
+protected:
+    /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    template<class IterT>
+    static bool check_params_iter(IterT &params);
+
+    template<class IterT>
+    void append_params(IterT &params);
+
+    template<class IterT>
+    void set_params_iter(IterT &params);
 private:    
-    static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
+//     static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
     static StringVecT _param_names; //Cannonical names for parameters
     static NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static NparamsVecT _param_ubound; //Upper bound on valid parameter values
@@ -119,42 +135,12 @@ private:
     void compute_constants();
 };
 
-/* Bounded Distribution Adaptor */
+// template<int Ndim>
+// constexpr IdxT MultivariateNormalDist<Ndim>::_num_params= Ndim+(Ndim*Ndim+Ndim)/2;
 
-
-// using BoundedMultivariateNormalDist = TruncatedMultivariateDist<MultivariateNormalDist>;
-// 
-// template<class Vec, class Mat, class Vec2>
-// BoundedMultivariateNormalDist 
-// make_bounded_multivariate_normal_dist(Vec &&mu, Mat &&sigma, Vec2 &&lbound, Vec2 &&ubound)
-// {
-//     return {MultivariateNormalDist(std::forward<Vec>(mu),std::forward<Mat>(sigma)),
-//                     std::forward<Vec2>(lbound),std::forward<Vec2>(ubound)};
-// }
-// 
-// 
-// namespace detail
-// {
-//     /* Type traits for a bounded an non-bounded versions of distribution */
-//     template<class Dist>
-//     class dist_adaptor_traits;
-//     
-//     template<>
-//     class dist_adaptor_traits<MultivariateNormalDist> {
-//     public:
-//         using bounds_adapted_dist = BoundedMultivariateNormalDist;
-//         
-//         static constexpr bool adaptable_bounds = false;
-//     };
-//     
-//     template<>
-//     class dist_adaptor_traits<BoundedMultivariateNormalDist> {
-//     public:
-//         using bounds_adapted_dist = BoundedMultivariateNormalDist;
-//         
-//         static constexpr bool adaptable_bounds = true;
-//     };
-// } /* namespace detail */
+// template<int Ndim>
+// constexpr IdxT MultivariateNormalDist<Ndim>::num_params() 
+// { return MultivariateNormalDist<Ndim>::_num_params; }
 
 
 /* Templated static member variables */
@@ -172,7 +158,7 @@ MultivariateNormalDist<Ndim>::_param_ubound;
 
 template<int Ndim>
 MultivariateNormalDist<Ndim>::MultivariateNormalDist() : 
-        MultivariateDist(Ndim),
+        MultivariateDist<Ndim>(),
         _mu(arma::fill::zeros), 
         _sigma(arma::fill::zeros)
 {
@@ -228,10 +214,11 @@ template<class IterT>
 bool MultivariateNormalDist<Ndim>::check_params_iter(IterT &params)
 {
     for(int k = 0; k<Ndim; k++) if( !std::isfinite(*params++)) return false;
-    MatT S(Ndim,Ndim);
+    NdimMatT S(Ndim,Ndim);
     for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
     return check_sigma(S);
 }
+
 
 /* private static methods */
 template<int Ndim>
@@ -369,12 +356,12 @@ MultivariateNormalDist<Ndim>::sigma_chol() const
 
 template<int Ndim>
 template<class Vec>
-void MultivariateNormalDist<Ndim>::set_mu(const Vec& val) 
-{ if(check_mu(val)) _mu = val; }
+void MultivariateNormalDist<Ndim>::set_mu(Vec&& val) 
+{ if(check_mu(val)) _mu = std::forward<Vec>(val); }
 
 template<int Ndim>
 template<class Mat>
-void MultivariateNormalDist<Ndim>::set_sigma(const Mat& val) 
+void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val) 
 { 
     try{
         _sigma_chol = arma::chol(val,"lower");
@@ -390,7 +377,7 @@ void MultivariateNormalDist<Ndim>::set_sigma(const Mat& val)
     } catch (std::runtime_error &e) {
         throw ParameterValueError("Sigma is not symmetric positive semi-definite with bounded eigenvalues.  Numerical inversion failure.");
     } 
-    _sigma = val; 
+    _sigma = std::forward<Mat>(val); 
     compute_constants();
 }
 
@@ -431,10 +418,21 @@ void MultivariateNormalDist<Ndim>::set_params(const Vec &p)
 
 template<int Ndim>
 template<class Vec,class Mat>
-void MultivariateNormalDist<Ndim>::set_params(const Vec &mu_val, const Mat &sigma_val)
+void MultivariateNormalDist<Ndim>::set_params(Vec &&mu_val, Mat &&sigma_val)
 { 
-    set_mu(mu_val);
-    set_sigma(sigma_val);
+    set_mu(std::forward<Vec>(mu_val));
+    set_sigma(std::forward<Mat>(sigma_val));
+}
+
+template<int Ndim>
+template<class IterT>
+void MultivariateNormalDist<Ndim>::set_params_iter(IterT &params)
+{
+    NdimVecT m;
+    std::copy_n(params.iter(),num_dim(),m.begin());
+    NdimMatT S(Ndim,Ndim);
+    for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
+    set_params(std::move(m),std::move(S));
 }
 
 
@@ -499,7 +497,7 @@ MultivariateNormalDist<Ndim>::grad(const Vec &x) const
 template<int Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
-MultivariateNormalDist<Ndim>::grad2(const Vec &x) const
+MultivariateNormalDist<Ndim>::grad2(const Vec &) const
 {
     return -sigma_inv().diag();
 }
@@ -507,7 +505,7 @@ MultivariateNormalDist<Ndim>::grad2(const Vec &x) const
 template<int Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimMatT 
-MultivariateNormalDist<Ndim>::hess(const Vec &x) const
+MultivariateNormalDist<Ndim>::hess(const Vec &) const
 {
     return -sigma_inv();
 }
