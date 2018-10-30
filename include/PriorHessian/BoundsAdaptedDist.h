@@ -84,7 +84,7 @@ namespace detail
 template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
 std::enable_if_t< detail::DistTraitsT<Dist>::adaptable_bounds, Dist>
 make_adapted_bounded_dist(Dist &&dist)
-{ return dist; }
+{ return std::forward<Dist>(dist); }
 
 template<class Dist, typename=meta::EnableIfIsNotTupleT<Dist>>
 std::enable_if_t< !detail::DistTraitsT<Dist>::adaptable_bounds, BoundsAdaptedDistT<Dist>>

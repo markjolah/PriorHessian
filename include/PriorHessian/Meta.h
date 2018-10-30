@@ -94,8 +94,11 @@ namespace meta {
 
     template<class T, template <int> class ClassNumericTemplate> 
     using EnableIfSubclassOfNumericTemplateT = std::enable_if_t<
-        is_subclass_of_numeric_template<ClassNumericTemplate, std::remove_reference_t<T>>::value >;
+        is_subclass_of_numeric_template<ClassNumericTemplate, std::remove_reference_t<T>>::value>;
 
+    template<class ReturnT, class T, template <int> class ClassNumericTemplate> 
+    using ReturnIfSubclassOfNumericTemplateT = std::enable_if_t<
+        is_subclass_of_numeric_template<ClassNumericTemplate, std::remove_reference_t<T>>::value, ReturnT>;
         
     template<class T,class SelfT> 
     using EnableIfNotIsSelfT = std::enable_if_t< !std::is_same<std::decay_t<T>,SelfT>::value >;
@@ -114,7 +117,11 @@ namespace meta {
     
     template<class T, template <int> class ClassTemplate> 
     using EnableIfInstantiatedFromNumericT = std::enable_if_t<
-                is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value, std::remove_reference_t<T> >;
+                is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value>;
+
+    template<class ReturnT, class T, template <int> class ClassTemplate> 
+    using ReturnIfInstantiatedFromNumericT = std::enable_if_t<
+                is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value, ReturnT>;
                 
     template<class T, template <typename...> class ClassTemplate> 
     using EnableIfNotInstantiatedFromT = std::enable_if_t<
@@ -143,6 +150,10 @@ namespace meta {
     template<class SuperClass, class... Ts> 
     using ConstructableIfIsSuperClassForAllT = std::enable_if_t< conjunction< 
         std::is_base_of<std::remove_reference_t<SuperClass>,std::remove_reference_t<Ts>>... >::value, bool>;
+
+    template<class T, template <int> class ClassTemplate> 
+    using ConstructableIfInstantiatedFromNumericT =std::enable_if_t<
+                is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value, bool >;
         
     template<class T> 
     using EnableIfIsNotTupleT = std::enable_if_t< !is_template_of<std::tuple,std::remove_reference_t<T>>::value >;

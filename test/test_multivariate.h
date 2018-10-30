@@ -3,13 +3,17 @@
  * @date 2016-2018
  * @brief 
  */
+
+#ifndef TEST_MULTIVARIATE_H
+#define TEST_MULTIVARIATE_H
+
 #include "test_prior_hessian.h"
 #include "PriorHessian/TruncatedMultivariateNormalDist.h"
 
 using namespace prior_hessian;
 
 template<class Dist>
-void initialize_dist(meta::EnableIfInstantiatedFromNumericT<Dist,MultivariateNormalDist> &d)
+void initialize_dist(meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateNormalDist> &d)
 {
     //hyper-params
     int N = d.num_dim();
@@ -39,8 +43,9 @@ void initialize_dist(meta::EnableIfInstantiatedFromNumericT<Dist,MultivariateNor
     d.set_sigma(cov);
 }
 
-template<class Dist> 
-Dist make_dist()
+template<class Dist>
+meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateDist>
+make_dist()
 {
     Dist dist;
     initialize_dist<Dist>(dist);
@@ -48,9 +53,10 @@ Dist make_dist()
 }
 
 
-template<class Dist>
-meta::EnableIfSubclassOfNumericTemplateT<Dist,MultivariateDist>
-check_equal(const Dist &d1, const Dist &d2)
+template<class Dist1, class Dist2>
+meta::ReturnIfSubclassOfNumericTemplateT<void, 
+    meta::ReturnIfSubclassOfNumericTemplateT<Dist1, Dist2,MultivariateDist>,MultivariateDist>
+check_equal(const Dist1 &d1, const Dist2 &d2)
 {
     auto Nparams = d1.num_params();
     ASSERT_EQ(d1,d2);
@@ -66,8 +72,8 @@ check_equal(const Dist &d1, const Dist &d2)
     EXPECT_TRUE(arma::all(v1==v2));
 }
 
-                                        
-
 using MultivariateDistTs = ::testing::Types< MultivariateNormalDist<2>,
                                              MultivariateNormalDist<4> >;
+
+#endif /* TEST_MULTIVARIATE_H */
 

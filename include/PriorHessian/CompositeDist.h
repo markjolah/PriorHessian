@@ -58,6 +58,7 @@ template<int> class MultivariateDist;
 
 class CompositeDist
 {
+public:
     template<class DistT, typename Enable=void>
     class ComponentDistAdaptor;
     
@@ -85,12 +86,30 @@ public:
     void initialize() { clear(); }
     void initialize(const std::tuple<>&) { clear(); }
     void initialize(std::tuple<>&&) { clear(); }
-    template<class... Ts, typename>
-    void initialize(Ts&&... dists);
-    template<class... Ts, typename>
-    void initialize(std::tuple<Ts...>&& dist_tuple);
-    template<class... Ts, typename>
-    void initialize(const std::tuple<Ts...>& dist_tuple);
+    template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
+    void initialize(Ts&&... dists)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
+        initialize_from_handle();
+    }
+
+    template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
+    void initialize(std::tuple<Ts...>&& dist_tuple)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
+        initialize_from_handle();
+    }
+
+    template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
+    void initialize(const std::tuple<Ts...>& dist_tuple)
+    {
+        handle = std::unique_ptr<DistTupleHandle>{ 
+                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
+        initialize_from_handle();
+    }
+
     
     CompositeDist(const CompositeDist &);
     CompositeDist& operator=(const CompositeDist &);     
@@ -276,8 +295,8 @@ private:
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
     public:  
-        explicit DistTuple(const std::tuple<Ts...> &_dists) : dists{std::move(_dists)} { }
-        explicit DistTuple(std::tuple<Ts...>&& _dists) : dists{_dists} { }
+        explicit DistTuple(const std::tuple<Ts...> &_dists) : dists{_dists} { }
+        explicit DistTuple(std::tuple<Ts...>&& _dists) : dists{std::move(_dists)} { }
         
         template<meta::ConstructableIfIsTemplateForAllT<ComponentDistAdaptor,Ts...> = true>
         explicit DistTuple(Ts&&... _dists) : dists{std::make_tuple(std::forward<Ts>(_dists)...)} { }
@@ -581,7 +600,7 @@ private:
         VecT llh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         VecT rllh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
     }; /* class EmptyDistTuple */
-
+public:
     /* Adaptor for UnivariateDists */
     template<class Dist>
     class ComponentDistAdaptor<Dist,meta::EnableIfSubclassT<Dist,UnivariateDist>> : public Dist {
@@ -655,7 +674,7 @@ private:
     template<class Dist>
     class ComponentDistAdaptor<Dist,meta::EnableIfSubclassOfNumericTemplateT<Dist,MultivariateDist>> : public Dist {
     public:
-        ComponentDistAdaptor() : ComponentDistAdaptor(Dist{}) { }        
+        ComponentDistAdaptor() : ComponentDistAdaptor(Dist{}) { }      
         explicit ComponentDistAdaptor(Dist &&dist) : Dist(std::move(dist)) { }
         explicit ComponentDistAdaptor(const Dist &dist) : Dist(dist) { }
                     
@@ -664,6 +683,12 @@ private:
         
         template<class IterT> void append_ubound(IterT &v) const 
         {  v = std::copy_n(this->ubound().begin(),Dist::num_dim(),v); }
+
+        template<class IterT> void append_global_lbound(IterT &v) const 
+        {  v = std::copy_n(this->global_lbound().begin(),Dist::num_dim(),v); }
+        
+        template<class IterT> void append_global_ubound(IterT &v) const 
+        {  v = std::copy_n(this->global_ubound().begin(),Dist::num_dim(),v); }
 
         template<class IterT> void set_lbound_from_iter(IterT& v) 
         { 
@@ -684,7 +709,7 @@ private:
             typename Dist::NdimVecT lb,ub;
             lb_iter = std::copy_n(lb_iter,Dist::num_dim(),lb.begin());
             ub_iter = std::copy_n(ub_iter,Dist::num_dim(),ub.begin());
-            this->set_lbounds(lb,ub); 
+            this->set_bounds(lb,ub); 
         }
         
         template<class IterT> void append_params(IterT& v) const 
@@ -723,7 +748,7 @@ private:
         { 
             IdxT N = Dist::num_dim();
             auto H=this->hess(u.subvec(k,k+N-1));
-            for(int j=k; j<k+N; j++) for(int i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
+            for(IdxT j=k; j<k+N; j++) for(IdxT i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
             k+=N;
         }
 
@@ -743,7 +768,7 @@ private:
             auto U = u.subvec(k,k+N-1);
             g.subvec(k,k+N-1) += this->grad(U);
             auto H = this->hess(U);
-            for(int j=k; j<k+N; j++) for(int i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
+            for(IdxT j=k; j<k+N; j++) for(IdxT i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
             k+=N;
         }
 
@@ -754,8 +779,6 @@ private:
 
     
 private:    
-    template<class DistT> using ComponentDistT = 
-        ComponentDistAdaptor<BoundsAdaptedDistT<DistT>>;
 
     void initialize_from_handle(); //Called on every new handle initialization
     
@@ -764,43 +787,70 @@ private:
         static IdxT count = 0;
         return std::string("v") + std::to_string(count++);
     }
-   
+
+public:
+    template<class DistT> using ComponentDistT = 
+                ComponentDistAdaptor<BoundsAdaptedDistT<std::remove_reference_t<DistT>>>;
+
     /* make_component_dist() */
+    //Null-op version if DistT is already wrapped in a ComponentDistAdaptor
     template<class DistT>
+    static
     meta::ReturnIfInstantiatedFromT<DistT,DistT,ComponentDistAdaptor>
     make_component_dist(DistT&& dist)
-    { return dist; }
-    
+    { return std::forward<DistT>(dist); }
+
     template<class DistT>
-    meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,
-            meta::ReturnIfSubclassT<DistT, DistT, UnivariateDist>,ComponentDistAdaptor>
+    static
+    meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
     make_component_dist(DistT&& dist)
     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
-    
+
+//     //Univariate wrapper
+//     template<class DistT>
+//     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,
+//             meta::ReturnIfSubclassT<DistT, DistT, UnivariateDist>,ComponentDistAdaptor>
+//     make_component_dist(DistT&& dist)
+//     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
+//     
+//     //Mutlivariate wrapper
+//     template<class DistT>
+//     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,
+//             meta::ReturnIfSubclassOfNumericTemplateT<DistT, DistT, MultivariateDist>,ComponentDistAdaptor>
+//     make_component_dist(DistT&& dist)
+//     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
+ 
     /* make_component_dist_tuple()
      * Uses perfect forwarding.  1-form for (const&) one for (&&).  Each method has a helper template with extra integer parameters
      * to enable iterating the tuple.
      */
     template<class... Ts>
+    static
     std::tuple<ComponentDistT<Ts>...>
     make_component_dist_tuple(const std::tuple<Ts...>& dists)
     { return make_component_dist_tuple(dists,std::index_sequence_for<Ts...>{}); }
     
+    //helper
     template<class... Ts,std::size_t... I>
+    static
     std::tuple<ComponentDistT<Ts>...>
     make_component_dist_tuple(const std::tuple<Ts...>& dists, std::index_sequence<I...> )
     { return std::make_tuple(make_component_dist(make_adapted_bounded_dist(std::get<I>(dists)))...); }
 
     template<class... Ts>
+    static
     std::tuple<ComponentDistT<Ts>...>
     make_component_dist_tuple(std::tuple<Ts...>&& dists)
     { return make_component_dist_tuple(std::move(dists),std::index_sequence_for<Ts...>{}); }
     
+    //helper
     template<class... Ts,std::size_t... I>
+    static
     std::tuple<ComponentDistT<Ts>...>
     make_component_dist_tuple(std::tuple<Ts...>&& dists, std::index_sequence<I...> )
-    { return std::make_tuple(make_component_dist(make_adapted_bounded_dist(std::get<I>(std::move(dists))))...); }    
-    
+    { return std::make_tuple(make_component_dist(make_adapted_bounded_dist(std::get<I>(dists)))...); }    
+
+private:     
     /* Private Memeber variables */
     std::unique_ptr<DistTupleHandle> handle;
 
@@ -819,34 +869,35 @@ private:
     void initialize_component_names() const;
     void initialize_dim_variables() const;
     void initialize_param_names() const;
+
 };
 
 /* CompositeDist<RngT> template methods */
 
-template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
-void CompositeDist::initialize(Ts&&... dists)
-{
-    handle = std::unique_ptr<DistTupleHandle>{ 
-                new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
-    initialize_from_handle();
-}
-
-template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
-void CompositeDist::initialize(std::tuple<Ts...>&& dist_tuple)
-{
-    handle = std::unique_ptr<DistTupleHandle>{ 
-                new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
-    initialize_from_handle();
-}
-
-
-template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
-void CompositeDist::initialize(const std::tuple<Ts...>& dist_tuple)
-{
-    handle = std::unique_ptr<DistTupleHandle>{ 
-                new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
-    initialize_from_handle();
-}
+// template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
+// void CompositeDist::initialize(Ts&&... dists)
+// {
+//     handle = std::unique_ptr<DistTupleHandle>{ 
+//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
+//     initialize_from_handle();
+// }
+// 
+// template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
+// void CompositeDist::initialize(std::tuple<Ts...>&& dist_tuple)
+// {
+//     handle = std::unique_ptr<DistTupleHandle>{ 
+//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
+//     initialize_from_handle();
+// }
+// 
+// 
+// template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
+// void CompositeDist::initialize(const std::tuple<Ts...>& dist_tuple)
+// {
+//     handle = std::unique_ptr<DistTupleHandle>{ 
+//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
+//     initialize_from_handle();
+// }
 
 template<class... Ts> 
 const std::tuple<Ts...>& 

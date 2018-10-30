@@ -4,6 +4,8 @@
  * @brief Main google test for prior_hessian
  */
 #include "test_prior_hessian.h"
+#include "test_univariate.h"
+#include "test_multivariate.h"
 #include "PriorHessian/util.h"
 
 using namespace prior_hessian;

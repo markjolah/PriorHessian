@@ -29,4 +29,7 @@ bool approx_equal(double a, double b, double eps)
     return m==0 || fabs(a-b)/m<eps;
 }
 
+// template<class Dist, typename=void> 
+// Dist make_dist();
+
 #endif /* TEST_PRIOR_HESSIAN_H */

@@ -90,7 +90,7 @@ public:
     template<class RngT>
     NdimVecT sample(RngT &rng) const;
   
-protected:
+// protected:
     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
     template<class IterT>
     static bool check_params_iter(IterT &params);
@@ -214,7 +214,7 @@ template<class IterT>
 bool MultivariateNormalDist<Ndim>::check_params_iter(IterT &params)
 {
     for(int k = 0; k<Ndim; k++) if( !std::isfinite(*params++)) return false;
-    NdimMatT S(Ndim,Ndim);
+    NdimMatT S;
     for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
     return check_sigma(S);
 }
@@ -429,8 +429,8 @@ template<class IterT>
 void MultivariateNormalDist<Ndim>::set_params_iter(IterT &params)
 {
     NdimVecT m;
-    std::copy_n(params.iter(),num_dim(),m.begin());
-    NdimMatT S(Ndim,Ndim);
+    params = std::copy_n(params,num_dim(),m.begin());
+    NdimMatT S;
     for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
     set_params(std::move(m),std::move(S));
 }

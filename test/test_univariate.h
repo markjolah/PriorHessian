@@ -3,6 +3,9 @@
  * @date 2016-2018
  * @brief Common include for all testing modules
  */
+#ifndef TEST_UNIVARIATE_H
+#define TEST_UNIVARIATE_H
+
 #include "test_prior_hessian.h"
 #include "PriorHessian/TruncatedNormalDist.h"
 #include "PriorHessian/TruncatedGammaDist.h"
@@ -57,17 +60,18 @@ void initialize_dist(meta::DerivedFrom<Dist,SymmetricBetaDist> &d)
 }
 
 /* Factory functions */
-template<class Dist> 
-Dist make_dist()
+template<class Dist>
+meta::ReturnIfSubclassT<Dist,Dist,UnivariateDist>
+make_dist()
 {
     Dist dist;
     initialize_dist<Dist>(dist);
     return dist;
 }
 
-template<class Dist>
-meta::EnableIfSubclassT<Dist,UnivariateDist>
-check_equal(const Dist &d1, const Dist &d2)
+template<class Dist1, class Dist2>
+meta::ReturnIfSubclassT<void,meta::ReturnIfSubclassT<Dist2,Dist1,UnivariateDist>,UnivariateDist>
+check_equal(const Dist1 &d1, const Dist2 &d2)
 {
     auto Nparams = d1.num_params();
     ASSERT_EQ(d1,d2);
@@ -101,3 +105,5 @@ public:
         dist = make_dist<Dist>();
     }
 };
+
+#endif /* TEST_UNIVARIATE_H */

@@ -7,6 +7,7 @@
 
 #include "test_prior_hessian.h"
 #include "test_univariate.h"
+#include "test_multivariate.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
 #include "PriorHessian/CompositeDist.h"
 
@@ -27,11 +28,11 @@ namespace detail {
     
     template<class... Ts, size_t... Is>
     void initialize_from_dists(CompositeDist &dist, const std::tuple<Ts...>&ts, std::index_sequence<Is...>)
-    { return dist.initialize(std::get<Is>(ts)...); }
+    { dist.initialize(std::get<Is>(ts)...); }
 
     template<class... Ts, size_t... Is>
     void initialize_from_dists(CompositeDist &dist, std::tuple<Ts...>&&ts, std::index_sequence<Is...>)
-    { return dist.initialize(std::get<Is>(ts)...); }
+    { dist.initialize(std::get<Is>(ts)...); }
 }
 
 template<class... Ts>
@@ -68,6 +69,87 @@ public:
     }
 };
 
+template<class Dist>
+class UnivariateCompositeComponentTest : public ::testing::Test {
+public:    
+    Dist dist;
+    virtual void SetUp() override {
+        env->reset_rng();
+        dist = make_dist<Dist>();
+    }
+};
+
+TYPED_TEST_CASE(UnivariateCompositeComponentTest, UnivariateDistTs);
+
+TYPED_TEST(UnivariateCompositeComponentTest, make_component_dist)
+{
+    SCOPED_TRACE("make_component_dist");
+    auto &dist = this->dist;
+    auto comp_dist= CompositeDist::make_component_dist(dist);
+    check_equal(dist,comp_dist);
+}
+
+template<class Dist>
+class MultivariateCompositeComponentTest : public ::testing::Test {
+public:    
+    Dist dist;
+    virtual void SetUp() override {
+        env->reset_rng();
+        dist = make_dist<Dist>();
+    }
+};
+
+TYPED_TEST_CASE(MultivariateCompositeComponentTest, MultivariateDistTs);
+
+TYPED_TEST(MultivariateCompositeComponentTest, make_adapted_bounded_dist)
+{
+    SCOPED_TRACE("make_adapted_bounded_dist");
+    auto &dist = this->dist;
+    auto b_dist= make_adapted_bounded_dist(dist);
+    check_equal(dist,b_dist);
+}
+
+TYPED_TEST(MultivariateCompositeComponentTest, make_adapted_bounded_dist_copy)
+{
+    SCOPED_TRACE("make_adapted_bounded_dist_copy");
+    auto &dist = this->dist;
+    BoundsAdaptedDistT<TypeParam> b_dist{make_adapted_bounded_dist(dist)};
+    check_equal(dist,b_dist);
+}
+
+
+TYPED_TEST(MultivariateCompositeComponentTest, make_component_adapted_bounded_dist)
+{
+    SCOPED_TRACE("make_component_adapted_bounded_dist");
+    auto &dist = this->dist;
+    CompositeDist::ComponentDistT<TypeParam> c_dist{make_adapted_bounded_dist(dist)};
+    check_equal(dist,c_dist);
+}
+
+TYPED_TEST(MultivariateCompositeComponentTest, make_component_dist)
+{
+    SCOPED_TRACE("make_component_adapted_bounded_dist");
+    auto &dist = this->dist;
+    auto c_dist=CompositeDist::make_component_dist(dist);
+    check_equal(dist,c_dist);
+}
+
+void check_composite_dists_equal(CompositeDist &d1, CompositeDist &d2)
+{
+    ASSERT_EQ((bool)d1,(bool)d2);
+    auto Ndim = d1.num_dim();
+    ASSERT_EQ(Ndim, d2.num_dim());
+    ASSERT_EQ(d1.num_components(), d2.num_components());
+    if(d1) { //Test rng-repeatability
+        env->reset_rng();
+        auto v = d1.sample(env->get_rng());
+        env->reset_rng();
+        auto v2 = d2.sample(env->get_rng());
+        ASSERT_EQ(v2.n_elem, Ndim);
+        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
+    }    
+    ASSERT_EQ(d1,d2);
+}
 
 /* 
  * List of type tuples to store in a composite dist 
@@ -76,8 +158,15 @@ public:
 using CompositeDistTestTs = ::testing::Types<
     std::tuple<NormalDist, GammaDist, ParetoDist, SymmetricBetaDist>,
     std::tuple<TruncatedDist<NormalDist>, NormalDist, TruncatedDist<GammaDist>>,
+    std::tuple<UpperTruncatedDist<ParetoDist>, TruncatedParetoDist, GammaDist, ScaledSymmetricBetaDist>,
     std::tuple<ParetoDist>,
-    std::tuple<>>;
+    std::tuple<>,
+    std::tuple<MultivariateNormalDist<2>>,
+    std::tuple<TruncatedMultivariateNormalDist<2>>,
+    std::tuple<MultivariateNormalDist<4>>,
+    std::tuple<NormalDist,MultivariateNormalDist<2>>,
+    std::tuple<NormalDist,MultivariateNormalDist<2>,TruncatedGammaDist,TruncatedMultivariateNormalDist<2>>
+    >;
                                           
 TYPED_TEST_CASE(CompositeDistTest, CompositeDistTestTs);
 
@@ -283,22 +372,6 @@ TYPED_TEST(CompositeDistTest, initialize_empty_rvalue_tuple) {
     ASSERT_EQ(composite.num_dim(),0);
 }
 
-void check_composite_dists_equal(CompositeDist &d1, CompositeDist &d2)
-{
-    ASSERT_EQ((bool)d1,(bool)d2);
-    auto Ndim = d1.num_dim();
-    ASSERT_EQ(Ndim, d2.num_dim());
-    ASSERT_EQ(d1.num_components(), d2.num_components());
-    if(d1) { //Test rng-repeatability
-        env->reset_rng();
-        auto v = d1.sample(env->get_rng());
-        env->reset_rng();
-        auto v2 = d2.sample(env->get_rng());
-        ASSERT_EQ(v2.n_elem, Ndim);
-        for(IdxT i=0; i < Ndim; i++) EXPECT_EQ(v[i],v2[i]);
-    }    
-    ASSERT_EQ(d1,d2);
-}
 
 TYPED_TEST(CompositeDistTest, initialize_from_tuple) {
     SCOPED_TRACE("initialize_from_tuple");

@@ -4,7 +4,7 @@ INSTALL_PATH=_install
 BUILD_PATH=_build
 NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
 COMMON_ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
-rm -rf $INSTALL_PATH $BUILD_PATH
+rm -rf $INSTALL_PATH/Debug
 
 set -e
 
