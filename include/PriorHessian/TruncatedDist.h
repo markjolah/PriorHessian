@@ -22,7 +22,7 @@ template<class Dist>
 class TruncatedDist : public Dist
 {
 public:
-    static constexpr const double min_bounds_cdf_delta = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
+    static constexpr const double min_bounds_pdf_integral = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
     
     TruncatedDist(): TruncatedDist(Dist{}) { }
     TruncatedDist(double lbound, double ubound) : TruncatedDist(Dist{}, lbound, ubound) { }
@@ -59,7 +59,7 @@ public:
     void set_ubound(double ubound);    
 
     double mean() const { throw NotImplementedError("Mean is not implemented for truncated distributions. No general-purpose efficient algorithm."); }
-    double median() const {return Dist::icdf(lbound_cdf+bounds_cdf_delta*.5); }
+    double median() const {return Dist::icdf(lbound_cdf+bounds_pdf_integral*.5); }
     double cdf(double x) const;
     double pdf(double x) const;
     double icdf(double u) const;
@@ -73,8 +73,8 @@ protected:
     bool _truncated = false;
 
     double lbound_cdf; // cdf(_lbound)
-    double bounds_cdf_delta; // (cdf(_ubound) - cdf(_lbound))
-    double llh_truncation_const;// -log(bounds_cdf_delta)   
+    double bounds_pdf_integral; // (cdf(_ubound) - cdf(_lbound))
+    double llh_truncation_const;// -log(bounds_pdf_integral)   
 };
 
 template<class Dist>
@@ -99,18 +99,18 @@ void TruncatedDist<Dist>::set_bounds(double lbound, double ubound)
     if(truncated) {
         lbound_cdf = (lbound==global_lbound()) ? 0 : Dist::cdf(lbound);
         double ubound_cdf = (ubound==global_ubound()) ? 1 : Dist::cdf(ubound);
-        bounds_cdf_delta = ubound_cdf - lbound_cdf;
-        if(bounds_cdf_delta<min_bounds_cdf_delta) {            
+        bounds_pdf_integral = ubound_cdf - lbound_cdf;
+        if(bounds_pdf_integral<min_bounds_pdf_integral) {            
             std::ostringstream msg;
             msg<<"TruncatedDist::set_bounds: bounds:["<<lbound<<","<<ubound<<"] with cdf:["<<lbound_cdf<<","<<ubound_cdf
-               <<"] have delta: "<<bounds_cdf_delta<<" < min_delta = "<<min_bounds_cdf_delta
-               <<".  Bounds cover too small a portation of the domain for accuarate truncation.";
+               <<"] have delta: "<<bounds_pdf_integral<<" < min_delta = "<<min_bounds_pdf_integral
+               <<".  Bounds cover too small a portion of the domain for accuarate truncation.";
             throw ParameterValueError(msg.str());
         }
-        llh_truncation_const = -log(bounds_cdf_delta);
+        llh_truncation_const = -log(bounds_pdf_integral);
     } else {
         lbound_cdf = 0;
-        bounds_cdf_delta = 1;
+        bounds_pdf_integral = 1;
         llh_truncation_const = 0;
     }
     _truncated = truncated;
@@ -133,24 +133,30 @@ void TruncatedDist<Dist>::set_ubound(double new_ubound)
 template<class Dist>
 double TruncatedDist<Dist>::cdf(double x) const
 {
-    return (this->Dist::cdf(x) - lbound_cdf) / bounds_cdf_delta;
+    return (this->Dist::cdf(x) - lbound_cdf) / bounds_pdf_integral;
 }
 
 template<class Dist>
 double TruncatedDist<Dist>::icdf(double u) const
 {
-    return this->Dist::icdf(lbound_cdf + u*bounds_cdf_delta);
+    return this->Dist::icdf(lbound_cdf + u*bounds_pdf_integral);
 }
 
 template<class Dist>
 double TruncatedDist<Dist>::pdf(double x) const
 {
-    return this->Dist::pdf(x) / bounds_cdf_delta;
+    return this->Dist::pdf(x) / bounds_pdf_integral;
 }
 
 template<class Dist>
 double TruncatedDist<Dist>::llh(double x) const
 {
+    if(!std::isfinite(x))        throw ParameterValueError("GOO1");
+    if(!std::isfinite(llh_truncation_const))        throw ParameterValueError("GOO2");
+    if(!std::isfinite(this->Dist::llh(x))){
+        std::cout<<"x: "<<x<<" llh: "<<this->Dist::llh(x)<<" params:"<<this->params().t()<<std::endl;
+//         throw ParameterValueError("GOO3");
+    }
     return this->Dist::llh(x) + llh_truncation_const;
 }
 

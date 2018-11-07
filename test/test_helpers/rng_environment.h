@@ -8,6 +8,7 @@
 
 #include<random>
 #include<iostream>
+#include<armadillo>
 #include "gtest/gtest.h"
 
 namespace test_helper {
@@ -20,6 +21,9 @@ class RngEnvironment : public ::testing::Environment
     SeedT seed = 0;
     RngT rng;
 public:
+    using IdxT = arma::uword;
+    using VecT = arma::Col<double>;
+    using MatT = arma::Mat<double>;
     SeedT get_seed() const {return seed;}
     
     void set_seed(SeedT _seed)
@@ -68,17 +72,55 @@ public:
         std::normal_distribution<double> d(mean,sigma);
         return d(rng);
     }
+
+    VecT sample_normal_vec(IdxT N, double mean=0, double sigma=1) 
+    {
+        VecT v(N);
+        std::normal_distribution<double> d(mean,sigma);
+        for(IdxT n=0; n<N; n++) v(n) = d(rng);
+        return v;
+    }
     
-    double sample_exponential(double lambda) 
+    double sample_exponential(double lambda=1) 
     {
         std::exponential_distribution<double> d(lambda);
         return d(rng);
     }
 
-    double sample_gamma(double alpha, double beta) 
+    VecT sample_exponential_vec(IdxT N, double lambda=1) 
     {
-        std::gamma_distribution<double> d(alpha,beta);
+        VecT v(N);
+        std::exponential_distribution<double> d(lambda);
+        for(IdxT n=0; n<N; n++) v(n) = d(rng);
+        return v;
+    }
+
+    double sample_gamma(double shape, double scale) 
+    {
+        std::gamma_distribution<double> d(shape,scale);
         return d(rng);
+    }
+
+    VecT sample_gamma_vec(IdxT N, double shape=1, double scale=1) 
+    {
+        VecT v(N);
+        std::gamma_distribution<double> d(shape,scale);
+        for(IdxT n=0; n<N; n++) v(n) = d(rng);
+        return v;
+    }
+    
+    MatT sample_orthonormal_mat(IdxT N)
+    {
+        MatT R(N,N);
+        std::normal_distribution<double> d(0,1);
+        for(IdxT i=0; i<N; i++) for(IdxT j=0; j<N; j++) R(j,i) = d(rng);
+        return arma::orth(R);
+    }
+    
+    MatT sample_sigma_mat(const VecT &sigma)
+    {
+        auto P = sample_orthonormal_mat(sigma.n_elem);
+        return P.t()*arma::diagmat(sigma)*P;
     }
 
     RngT& get_rng()

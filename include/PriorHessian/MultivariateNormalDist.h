@@ -25,9 +25,9 @@ public:
     static constexpr IdxT num_params() {return _num_params;}
     
     using typename MultivariateDist<Ndim>::NdimVecT;
+    using typename MultivariateDist<Ndim>::NdimMatT;
     using MultivariateDist<Ndim>::num_dim;
     
-    using NdimMatT = arma::Mat<double>::fixed<Ndim,Ndim>;
     using NparamsVecT = arma::Col<double>::fixed<num_params()>;
 
     MultivariateNormalDist();    //Default to unit Gaussian
@@ -46,7 +46,6 @@ public:
     const NdimVecT& mu() const;
     const NdimMatT& sigma() const;
     const NdimMatT& sigma_inv() const;
-    const NdimMatT& sigma_chol() const;
     
     template<class Vec> void set_mu(Vec&& val);
     template<class Mat> void set_sigma(Mat&& val);
@@ -67,10 +66,7 @@ public:
     template<class Vec,class Mat>
     void set_params(Vec &&mu, Mat &&sigma);
     
-    /* Import names from Dependent Base Class */
-//     using MultivariateDist<Ndim>::lbound;
-//     using MultivariateDist<Ndim>::ubound;
-    
+    /* Import names from Dependent Base Class */    
     VecT mean() const { return mu(); }
     VecT mode() const { return mu(); }
     
@@ -106,10 +102,6 @@ private:
     static NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static NparamsVecT _param_ubound; //Upper bound on valid parameter values
     
-
-    template<class Vec, class Mat>
-    static double compute_quadratic_from_symmetric(const Vec &v, const Mat &A);
-
     template<class Vec>
     static NdimMatT compressed_upper_triangular_to_full_matrix(const Vec &v);
 
@@ -128,19 +120,29 @@ private:
     NdimMatT _sigma_inv;
     NdimVecT _lbound;
     NdimVecT _ubound;
-    double logdet_sigma;
-    double llh_const;
     NdimMatT _sigma_chol; //cholesky decoposition of sigma (lower triangular form s.t. A*A.t()=sigma)
 
-    void compute_constants();
+    //Lazy computation of llh_const.  Most use-cases do not need it.
+    mutable double llh_const;
+    mutable bool llh_const_initialized;
+    void initialize_llh_const() const;
+    static double compute_llh_const(const NdimMatT &sigma);
 };
 
-// template<int Ndim>
-// constexpr IdxT MultivariateNormalDist<Ndim>::_num_params= Ndim+(Ndim*Ndim+Ndim)/2;
-
-// template<int Ndim>
-// constexpr IdxT MultivariateNormalDist<Ndim>::num_params() 
-// { return MultivariateNormalDist<Ndim>::_num_params; }
+namespace helpers 
+{
+    template<class Vec, class Mat>
+    double compute_quadratic_from_symmetric(IdxT Ndim, const Vec &v, const Mat &A)
+    {
+        double z=0;
+        for(IdxT c=0; c<Ndim; c++) {
+            double vc = v(c);
+            for(IdxT r=0; r<c; r++) z+= 2*vc*v(r)*A(r,c); //Account for both off-diagonal elements simultantously.
+            z+=square(vc)*A(c,c);
+        }
+        return z;
+    }
+}
 
 
 /* Templated static member variables */
@@ -165,7 +167,7 @@ MultivariateNormalDist<Ndim>::MultivariateNormalDist() :
     _sigma.diag().ones();
     _sigma_inv = _sigma;//sigma == sigma_inv == eye(Ndim)
     _sigma_chol = _sigma;
-    compute_constants();
+    llh_const_initialized = false;
 }
     
 template<int Ndim>
@@ -176,9 +178,7 @@ MultivariateNormalDist<Ndim>::MultivariateNormalDist(Vec &&mu, Mat &&sigma)
     set_sigma(std::forward<Mat>(sigma));
 }
     
-
 /* public static methods */
-
 template<int Ndim>
 template<class Vec>
 bool MultivariateNormalDist<Ndim>::check_mu(const Vec &mu)
@@ -190,8 +190,10 @@ template<int Ndim>
 template<class Mat>
 bool MultivariateNormalDist<Ndim>::check_sigma(const Mat &sigma)
 {
-    auto R = sigma;
-    return arma::chol(R,sigma);
+    if(!sigma.is_finite()) return false;
+    if(arma::any(sigma.diag()<=0)) return false;
+    NdimMatT R; 
+    return arma::chol(R,arma::symmatu(sigma));//sigma is upper triangular.
 }
 
 template<int Ndim>
@@ -215,24 +217,12 @@ bool MultivariateNormalDist<Ndim>::check_params_iter(IterT &params)
 {
     for(int k = 0; k<Ndim; k++) if( !std::isfinite(*params++)) return false;
     NdimMatT S;
-    for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
+    for(int j=0;j<Ndim;j++) for(int i=0;i<=j;i++) S(i,j) = *params++;
     return check_sigma(S);
 }
 
 
 /* private static methods */
-template<int Ndim>
-template<class Vec, class Mat>
-double MultivariateNormalDist<Ndim>::compute_quadratic_from_symmetric(const Vec &v, const Mat &A)
-{
-    double z=0;
-    for(int c=0; c<Ndim; c++) {
-        double vc = v(c);
-        for(int r=0; r<c; r++) z+= 2*vc*v(r)*A(r,c); //Account for both off-diagonal elements simultantously.
-        z+=square(vc)*A(c,c);
-    }
-    return z;
-}
 
 template<int Ndim>
 template<class Vec>
@@ -320,8 +310,8 @@ bool MultivariateNormalDist<Ndim>::init_param_names()
 template<int Ndim>
 bool MultivariateNormalDist<Ndim>::init_param_lbound()
 { 
-    _param_lbound.fill(-INFINITY);
-    for(IdxT c=1, k=Ndim; k<num_params(); k+=c++) _param_lbound(k)=0; //Diagonal elements of cov are positive
+    _param_lbound.fill(-INFINITY);    
+    for(IdxT c=1, k=Ndim; k<num_params(); k += ++c) _param_lbound(k)=0; //Diagonal elements of cov are positive
     return true;
 }
     
@@ -349,10 +339,10 @@ const typename MultivariateNormalDist<Ndim>::NdimMatT&
 MultivariateNormalDist<Ndim>::sigma_inv() const 
 { return _sigma_inv; }
 
-template<int Ndim>
-const typename MultivariateNormalDist<Ndim>::NdimMatT& 
-MultivariateNormalDist<Ndim>::sigma_chol() const 
-{ return _sigma_chol; }
+// template<int Ndim>
+// const typename MultivariateNormalDist<Ndim>::NdimMatT& 
+// MultivariateNormalDist<Ndim>::sigma_chol() const 
+// { return _sigma_chol; }
 
 template<int Ndim>
 template<class Vec>
@@ -363,13 +353,16 @@ template<int Ndim>
 template<class Mat>
 void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val) 
 { 
+    //Mat is upper-triangular symmetric, positive definite.
+    if(!val.is_finite()) throw ParameterValueError("Sigma matrix is not-finite.");
+    if(arma::any(val.diag()<=0)) throw ParameterValueError("Sigma matrix is not positive definite.");
     try{
-        _sigma_chol = arma::chol(val,"lower");
+        _sigma_chol = arma::chol(arma::symmatu(val),"lower");
     } catch (std::runtime_error &e) {
         throw ParameterValueError("Cholesky decomposition failure. Sigma is not positive definite.");
     }
     try {
-        _sigma_inv = arma::inv_sympd(val);
+        _sigma_inv = arma::inv_sympd(arma::symmatu(val));
     } catch (std::logic_error &e) {
         std::ostringstream msg;
         msg<<"Bad sigma size: "<<val.n_rows<<","<<val.n_cols<<"\n";
@@ -377,8 +370,8 @@ void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val)
     } catch (std::runtime_error &e) {
         throw ParameterValueError("Sigma is not symmetric positive semi-definite with bounded eigenvalues.  Numerical inversion failure.");
     } 
-    _sigma = std::forward<Mat>(val); 
-    compute_constants();
+    _sigma = arma::symmatu(std::forward<Mat>(val)); 
+    llh_const_initialized = false;
 }
 
 template<int Ndim>
@@ -429,25 +422,27 @@ template<class IterT>
 void MultivariateNormalDist<Ndim>::set_params_iter(IterT &params)
 {
     NdimVecT m;
-    params = std::copy_n(params,num_dim(),m.begin());
+    std::copy_n(params,Ndim,m.begin());
+    params+=Ndim;
     NdimMatT S;
-    for(int j=0;j<Ndim;j++) for(int i=0;i<Ndim;i++) S(j,i) = *params++;
+    for(int j=0;j<Ndim;j++) for(int i=0;i<=j;i++) S(i,j) = *params++;
     set_params(std::move(m),std::move(S));
 }
-
 
 template<int Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::cdf(Vec x) const
 {
-    return mvn_cdf((x-mu()).eval(), sigma_chol());
+    VecT z = x-mu();
+    double error;
+    return genz::mvn_cdf_genz(z, sigma(), error);
 }
 
 template<>
 template<class Vec>
 double MultivariateNormalDist<2>::cdf(Vec x) const
 {
-    return bvn_cdf((x-mu()).eval(), sigma());
+    return owen_bvn_cdf((x-mu()).eval(), sigma());
 }
 
 template<int Ndim>
@@ -460,30 +455,19 @@ double MultivariateNormalDist<Ndim>::pdf(const Vec &x) const
     return exp(llh(x));
 }
 
-
-//This should be called whenever sigma is changed.
-template<int Ndim>
-void MultivariateNormalDist<Ndim>::compute_constants()
-{
-    double sign;
-    arma::log_det(logdet_sigma, sign, sigma());
-    if(sign<0) throw ParameterValueError("Log determinant is negative.  Sigma is not positive definite.");
-    llh_const = .5*(logdet_sigma + Ndim*constants::log2pi);
-}
-
 template<int Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::llh(const Vec &x) const
 {
+    if(!llh_const_initialized) initialize_llh_const();
     return rllh(x) + llh_const;
 }
-
 
 template<int Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::rllh(const Vec &x) const
 {
-    return -.5*compute_quadratic_from_symmetric((x-mu()).eval(),sigma_inv());
+    return -.5*helpers::compute_quadratic_from_symmetric(num_dim(), (x-mu()).eval(), sigma_inv());
 }
 
 template<int Ndim>
@@ -537,7 +521,22 @@ MultivariateNormalDist<Ndim>::sample(RngT &rng) const
     return mu()+_sigma_chol*s;
 }
 
+template<int Ndim>
+double MultivariateNormalDist<Ndim>::compute_llh_const(const NdimMatT &sigma)
+{
+    double sign;
+    double logdet_sigma;
+    arma::log_det(logdet_sigma, sign, sigma);
+    if(sign<0) throw ParameterValueError("Log determinant is negative.  Sigma is not positive definite.");
+    return .5*(logdet_sigma + Ndim*constants::log2pi);
+}
 
+template<int Ndim>
+void MultivariateNormalDist<Ndim>::initialize_llh_const() const
+{
+    llh_const = compute_llh_const(sigma());
+    llh_const_initialized = true;
+}
 
 } /* namespace prior_hessian */
 

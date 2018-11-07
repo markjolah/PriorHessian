@@ -17,7 +17,7 @@ target_link_libraries(${GTEST_EXE} ${PROJECT_NAME}::${PROJECT_NAME})
 target_link_libraries(${GTEST_EXE} GTest::GTest GTest::Main)
 # target_link_libraries(${GTEST_EXE} ${ARMADILLO_LIBRARIES})
 
-add_executable(debug_bvn debug_bvn.cpp)
-target_link_libraries(debug_bvn ${PROJECT_NAME}::${PROJECT_NAME}) 
+# add_executable(debug_bvn debug_bvn.cpp)
+# target_link_libraries(debug_bvn ${PROJECT_NAME}::${PROJECT_NAME}) 
 
 add_test(NAME GTest COMMAND ${GTEST_EXE})

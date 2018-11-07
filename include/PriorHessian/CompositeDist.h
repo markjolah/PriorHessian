@@ -195,6 +195,7 @@ public:
         return g2;
     }
 
+    /* Returns hessian as an upper triangular matrix */
     MatT hess(const VecT &u) const
     {
         MatT h(num_dim(),num_dim(),arma::fill::zeros);
@@ -212,6 +213,8 @@ public:
     void grad2_accumulate(const VecT &theta, VecT &grad2) const { return handle->grad2_accumulate(theta,grad2); }
     void hess_accumulate(const VecT &theta, MatT &hess) const { return handle->hess_accumulate(theta,hess); }
     void grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const { return handle->grad_grad2_accumulate(theta,grad,grad2); }
+    
+    /* Returns hessian as an upper triangular matrix */
     void grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const { return handle->grad_hess_accumulate(theta,grad,hess); }
     //Convenience methods for the lazy.
     VecT make_zero_grad() const { return {num_dim(),arma::fill::zeros}; }
@@ -693,29 +696,32 @@ public:
         template<class IterT> void set_lbound_from_iter(IterT& v) 
         { 
             typename Dist::NdimVecT b;
-            v = std::copy_n(v,Dist::num_dim(),b.begin());
+            std::copy_n(v,Dist::num_dim(),b.begin());
+            v += Dist::num_dim();
             this->set_lbound(b); 
         }
         
         template<class IterT> void set_ubound_from_iter(IterT& v) 
         { 
             typename Dist::NdimVecT b;
-            v = std::copy_n(v,Dist::num_dim(),b.begin());
+            std::copy_n(v,Dist::num_dim(),b.begin());
+            v += Dist::num_dim();
             this->set_ubound(b); 
         }
         
         template<class IterT> void set_bounds_from_iter(IterT& lb_iter, IterT &ub_iter) 
         { 
             typename Dist::NdimVecT lb,ub;
-            lb_iter = std::copy_n(lb_iter,Dist::num_dim(),lb.begin());
-            ub_iter = std::copy_n(ub_iter,Dist::num_dim(),ub.begin());
+            std::copy_n(lb_iter,Dist::num_dim(),lb.begin());
+            std::copy_n(ub_iter,Dist::num_dim(),ub.begin());
+            lb_iter += Dist::num_dim();
+            ub_iter += Dist::num_dim();
             this->set_bounds(lb,ub); 
         }
         
         template<class IterT> void append_params(IterT& v) const 
         { v = std::copy_n(this->params().begin(), Dist::num_params(), v); }
         
-
         template<class IterT> void append_params_lbound(IterT& v) const 
         { v = std::copy_n(this->param_lbound().begin(), Dist::num_params(), v); }
         
@@ -725,10 +731,37 @@ public:
         template<class IterT> void append_param_names(IterT& v) const
         { v = std::copy_n(this->param_names().begin(), Dist::num_params(), v); }
         
-        template<class IterT> double cdf_from_iter(IterT &u) const { return this->cdf(*u++); }
-        template<class IterT> double pdf_from_iter(IterT &u) const { return this->pdf(*u++); }
-        template<class IterT> double llh_from_iter(IterT &u) const { return this->llh(*u++); }
-        template<class IterT> double rllh_from_iter(IterT &u) const { return this->rllh(*u++); }
+        template<class IterT> double cdf_from_iter(IterT &u) const 
+        { 
+            typename Dist::NdimVecT v;
+            std::copy_n(u, Dist::num_dim(), v.begin());
+            u+=Dist::num_dim();
+            return this->cdf(v); 
+        }
+        
+        template<class IterT> double pdf_from_iter(IterT &u) const
+        { 
+            typename Dist::NdimVecT v;
+            std::copy_n(u, Dist::num_dim(), v.begin());
+            u+=Dist::num_dim();
+            return this->pdf(v); 
+        }
+        
+        template<class IterT> double llh_from_iter(IterT &u) const         
+        { 
+            typename Dist::NdimVecT v;
+            std::copy_n(u, Dist::num_dim(), v.begin());
+            u+=Dist::num_dim();
+            return this->llh(v); 
+        }
+
+        template<class IterT> double rllh_from_iter(IterT &u) const 
+        { 
+            typename Dist::NdimVecT v;
+            std::copy_n(u, Dist::num_dim(), v.begin());
+            u+=Dist::num_dim();
+            return this->rllh(v); 
+        }
 
         void grad_accumulate_idx(const VecT &u, VecT &g, IdxT &k) const 
         { 
@@ -748,11 +781,10 @@ public:
         { 
             IdxT N = Dist::num_dim();
             auto H=this->hess(u.subvec(k,k+N-1));
-            for(IdxT j=k; j<k+N; j++) for(IdxT i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
+            for(IdxT j=0; j<N; j++) for(IdxT i=0; i<=j; i++) h(k+i,k+j) = H(i,j);
             k+=N;
         }
 
-        
         void grad_grad2_accumulate_idx(const VecT &u, VecT &g, VecT &g2, IdxT &k) const 
         { 
             IdxT N = Dist::num_dim();
@@ -768,13 +800,13 @@ public:
             auto U = u.subvec(k,k+N-1);
             g.subvec(k,k+N-1) += this->grad(U);
             auto H = this->hess(U);
-            for(IdxT j=k; j<k+N; j++) for(IdxT i=k; i<k+N; i++) h(k+i,k+j) = H(i,j);
+            for(IdxT j=0; j<N; j++) for(IdxT i=0; i<=j; i++) h(k+i,k+j) = H(i,j);
             k+=N;
         }
 
         template<class RngT, class IterT> 
         void append_sample(RngT &rng, IterT &v) 
-        { v = std::copy_n(this->sample(rng).begin(), Dist::num_params(), v); }
+        { v = std::copy_n(this->sample(rng).begin(), Dist::num_dim(), v); }
     };
 
     

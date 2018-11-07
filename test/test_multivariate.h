@@ -12,35 +12,19 @@
 
 using namespace prior_hessian;
 
+
 template<class Dist>
 void initialize_dist(meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateNormalDist> &d)
 {
     //hyper-params
     int N = d.num_dim();
-    double mu_mean = -3.0;
-    double mu_sigma = 17.0;
-    double sigma_scale = 3.0;
+    double mu_mean = 0.0;
+    double mu_sigma = 1.0;
+    double sigma_scale = 2.0;
     double sigma_shape = 2.0;
-    VecT mean(N);
-    MatT R(N,N);
-    VecT sigma(N);
-    for(int i=0; i<N; i++) {
-        mean(i) = env->sample_normal(mu_mean,mu_sigma);
-        sigma(i) = env->sample_gamma(sigma_scale,sigma_shape);
-    }
-    //Generate a random orthonormal matrix from a random matrix of standard normal variants.
-    for(int i=0; i<N; i++) for(int j=0; j<N; j++) R(j,i) = env->sample_normal(0,1);
-    MatT P = arma::orth(R);
-    MatT cov = P.t()*arma::diagmat(sigma)*P;
-//     std::cout<<"cov: "<<cov;
-//     auto ev = arma::eig_sym(cov);
-//     std::cout<<"eig_vals:"<<ev.t();
-//     auto _chol_u = arma::chol(cov,"upper");
-//     auto _chol_l = arma::chol(cov,"lower");
-//     std::cout<<"chol_u:"<<_chol_u;
-//     std::cout<<"chol_l:"<<_chol_l;
-    d.set_mu(mean);
-    d.set_sigma(cov);
+
+    d.set_mu(env->sample_normal_vec(N,mu_mean,mu_sigma));
+    d.set_sigma(env->sample_sigma_mat(env->sample_gamma_vec(N,sigma_scale,sigma_shape)));
 }
 
 template<class Dist>

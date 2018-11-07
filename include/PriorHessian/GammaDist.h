@@ -41,23 +41,15 @@ public:
     double get_param(int idx) const;
     void set_param(int idx, double val);
     VecT params() const { return {_scale, _shape}; }
-    void set_params(const VecT &p) 
-    { 
-        _scale = checked_scale(p[0]);  
-        _shape = checked_shape(p[1]); 
-    }
-    void set_params(double scale, double shape) 
-    { 
-        _scale = checked_scale(scale);  
-        _shape = checked_shape(shape); 
-    }
+    void set_params(const VecT &p);
+    void set_params(double scale, double shape);
     bool operator==(const GammaDist &o) const { return _scale == o._scale && _shape == o._shape; }
     bool operator!=(const GammaDist &o) const { return !this->operator==(o);}
 
     double scale() const { return _scale; }
     double shape() const { return _shape; }
-    void set_scale(double val) { _scale = checked_scale(val); }
-    void set_shape(double val) { _shape = checked_shape(val); }
+    void set_scale(double val);
+    void set_shape(double val);
         
     double mean() const { return _shape*_scale; }
     double median() const { return icdf(0.5); }
@@ -65,7 +57,7 @@ public:
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const { return rllh(x) + llh_const; }
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -89,9 +81,12 @@ private:
 
     double _scale; //distribution scale
     double _shape; //distribution shape
-    double llh_const;    
-
-    double compute_llh_const() const;
+    
+    //Lazy computation of llh_const.  Most use-cases do not need it.
+    mutable double llh_const;
+    mutable bool llh_const_initialized;
+    void initialize_llh_const() const;
+    static double compute_llh_const(double shape, double scale);
 };
 
 inline
@@ -105,7 +100,6 @@ bool GammaDist::check_params(VecT &params)
 { 
     return params.is_finite() && params[0]>0 && params[1]>0; 
 }
-
 
 inline
 double GammaDist::get_param(int idx) const

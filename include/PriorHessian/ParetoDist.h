@@ -38,35 +38,28 @@ public:
     
     ParetoDist(double min=1.0, double alpha=1.0);
     ParetoDist(const VecT &params);
+    
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {lbound(),_alpha}; }
-    void set_params(double min, double alpha) 
-    { 
-        set_lbound(checked_min(min)); 
-        _alpha = checked_alpha(alpha); 
-    }
-    void set_params(const VecT &p) 
-    { 
-        set_lbound(checked_min(p[0])); 
-        _alpha = checked_alpha(p[1]); 
-    }
-    bool operator==(const ParetoDist &o) const { return lbound()==o.lbound() && _alpha == o._alpha; }
+    VecT params() const { return {lbound(),alpha()}; }
+    void set_params(double min, double alpha); 
+    void set_params(const VecT &p);
+    bool operator==(const ParetoDist &o) const { return lbound()==o.lbound() && alpha() == o.alpha(); }
     bool operator!=(const ParetoDist &o) const { return !this->operator==(o);}
 
     double alpha() const { return _alpha; } 
-    void set_min(double val) { set_lbound(checked_min(val)); }
-    void set_alpha(double val) { _alpha = checked_alpha(val); }
+    void set_min(double val);
+    void set_alpha(double val);
     
     void set_lbound(double lbound);
     
-    double mean() const { return (_alpha <=1) ? INFINITY : _alpha*lbound()/(_alpha-1); }
-    double median() const { return lbound() * std::pow(2,1/_alpha); }
+    double mean() const;
+    double median() const;
     
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const { return rllh(x) + llh_const; }
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -87,9 +80,12 @@ private:
     static double checked_alpha(double val);
 
     double _alpha; //distribution shape
-    double llh_const;    
 
-    double compute_llh_const() const;
+    //Lazy computation of llh_const.  Most use-cases do not need it.
+    mutable double llh_const;
+    mutable bool llh_const_initialized;
+    void initialize_llh_const() const;
+    static double compute_llh_const(double lbound, double alpha);
 };
 
 inline
@@ -145,13 +141,6 @@ void ParetoDist::set_param(int idx, double val)
 }
 
 inline
-void ParetoDist::set_lbound(double lbound)
-{ 
-    set_lbound_internal(lbound);
-    llh_const = compute_llh_const();  //Pareto llh_const depends on lbound.
-}
-
-inline
 bool ParetoDist::check_lbound(double min)
 {
     return std::isfinite(min) && min>0;
@@ -160,13 +149,13 @@ bool ParetoDist::check_lbound(double min)
 inline
 double ParetoDist::cdf(double x) const
 {
-    return 1-pow(lbound()/x,_alpha);
+    return 1-pow(lbound()/x, alpha());
 }
 
 inline
 double ParetoDist::icdf(double u) const
 {
-    return lbound() / pow(1-u,1/_alpha);
+    return lbound() / pow(1-u,1/alpha());
 }
 
 inline
@@ -178,26 +167,26 @@ double ParetoDist::pdf(double x) const
 inline
 double ParetoDist::rllh(double x) const
 {
-    return -(_alpha+1)*log(x);
+    return -(alpha()+1)*log(x);
 }
 
 inline
 double ParetoDist::grad(double x) const
 {
-    return -(_alpha+1)/x;
+    return -(alpha()+1)/x;
 }
 
 inline
 double ParetoDist::grad2(double x) const
 {
-    return (_alpha+1)/(x*x);
+    return (alpha()+1)/(x*x);
 }
 
 inline
 void ParetoDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
     double x_inv = 1/x;
-    double ap1ox = (_alpha+1)*x_inv;
+    double ap1ox = (alpha()+1)*x_inv;
     g  -= ap1ox ;   // -(alpha+1)/x
     g2 += ap1ox*x_inv;  // (alpha+1)/x^2
 }
@@ -209,7 +198,6 @@ double ParetoDist::sample(RngT &rng) const
     double u = 1-d(rng); // u is uniform on (0,1]
     return lbound()/pow(u,1/_alpha) ;
 }
-
 
 template<class IterT>
 void ParetoDist::set_params_iter(IterT &params)

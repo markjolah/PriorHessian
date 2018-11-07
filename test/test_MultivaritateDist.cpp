@@ -117,14 +117,7 @@ TYPED_TEST(MultivariateDistTest, param_lbound_ubound) {
     EXPECT_TRUE( arma::all(new_params==dist.params())); //check that params is not changed
     EXPECT_THROW( dist.set_params(param_ubound), prior_hessian::ParameterValueError);
     EXPECT_TRUE( arma::all(new_params==dist.params())); //check that params is not changed
-    for(IdxT k=0; k<dist.num_params(); k++) new_params(k) = env->sample_real(param_lbound(k),param_ubound(k));
-    //Sampled paramters may not always be valid e.g. when sigma is not positive definite for MVN
-    try{
-        dist.set_params(new_params);
-        EXPECT_TRUE( arma::all(new_params==dist.params()));
-    } catch (prior_hessian::ParameterValueError &e) {
-        return;
-    }
+   
 }
 
 TYPED_TEST(MultivariateDistTest, get_lbound_ubound) {

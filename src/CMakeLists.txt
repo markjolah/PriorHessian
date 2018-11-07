@@ -1,7 +1,9 @@
 # PriorHessian/src
 # Main CMake for PriorHessian libraries
 
-file(GLOB SRCS *.cpp) 
+file(GLOB SRCS *.cpp)  #Gather all .cpp sources
+set(SRCS ${SRCS} mvndstpack.f) #Add fortran sources
+
 set(PUBLIC_HEADER_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/../include)
 #Debug only headers are not distrubted with non-debug builds
 set(PUBLIC_DEBUG_HEADER_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/../include/debug)

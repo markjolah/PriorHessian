@@ -91,6 +91,11 @@ struct ParameterNameUniquenessError : public PriorHessianError
     ParameterNameUniquenessError(std::string message) : PriorHessianError("ParameterNameError",message) {}
 };
 
+struct RuntimeConvergenceError : public PriorHessianError 
+{
+    RuntimeConvergenceError(std::string message) : PriorHessianError("RuntimeConvergenceError",message) {}
+};
+
 struct RuntimeSamplingError : public PriorHessianError 
 {
     RuntimeSamplingError(std::string message) : PriorHessianError("RuntimeSamplingError",message) {}

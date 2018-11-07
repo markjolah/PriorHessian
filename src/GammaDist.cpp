@@ -28,10 +28,37 @@ GammaDist::GammaDist(double scale, double shape)
     : UnivariateDist(0,INFINITY),
       _scale(checked_scale(scale)),
       _shape(checked_shape(shape)),
-      llh_const(compute_llh_const())
+      llh_const_initialized(false)
 { }
 
 /* Non-static member functions */
+
+void GammaDist::set_scale(double val) 
+{ 
+    _scale = checked_scale(val); 
+    llh_const_initialized = false;
+}
+
+void GammaDist::set_shape(double val) 
+{ 
+    _shape = checked_shape(val); 
+    llh_const_initialized = false;
+}
+
+void GammaDist::set_params(const VecT &p) 
+{ 
+    _scale = checked_scale(p[0]);  
+    _shape = checked_shape(p[1]); 
+    llh_const_initialized = false;
+}
+
+void GammaDist::set_params(double scale, double shape) 
+{ 
+    _scale = checked_scale(scale);  
+    _shape = checked_shape(shape); 
+    llh_const_initialized = false;
+}
+
 double GammaDist::cdf(double x) const
 {
    return boost::math::gamma_p(_shape, x / _scale);
@@ -51,11 +78,22 @@ double GammaDist::pdf(double x) const
     return boost::math::gamma_p_derivative(_shape, x*inv_scale) * inv_scale;
 }
 
-double GammaDist::compute_llh_const() const
-{
-    return - _shape*log(_scale) - std::lgamma(_shape);
+double GammaDist::llh(double x) const 
+{ 
+    if(!llh_const_initialized) initialize_llh_const();
+    return rllh(x) + llh_const; 
 }
 
+void GammaDist::initialize_llh_const() const
+{
+    llh_const = compute_llh_const(shape(),scale());
+    llh_const_initialized = true;
+}
+
+double GammaDist::compute_llh_const(double shape, double scale)
+{
+    return -shape*log(scale) - std::lgamma(shape);
+}
 
 double GammaDist::checked_scale(double val)
 {

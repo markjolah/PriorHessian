@@ -7,7 +7,7 @@
 # See: LICENCE file
 
 cmake_minimum_required( VERSION 3.8 )
-project(PriorHessian VERSION 0.1 LANGUAGES CXX)
+project(PriorHessian VERSION 0.1 LANGUAGES CXX Fortran)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_STATIC_LIBS "Build static libraries" ON)

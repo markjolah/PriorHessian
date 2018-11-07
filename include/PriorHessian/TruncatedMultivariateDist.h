@@ -8,6 +8,7 @@
 #define PRIOR_HESSIAN_TRUNCATEDMULTIVARIATEDIST_H
 
 #include <cmath>
+#include <bitset>
 
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/PriorHessianError.h"
@@ -23,7 +24,7 @@ class TruncatedMultivariateDist : public Dist
 {
 public:
     using typename Dist::NdimVecT;
-    static constexpr const double min_bounds_cdf_delta = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
+    static constexpr const double min_bounds_pdf_integral = 1.0e-8; /** minimum allowabale integral of pdf for a valid truncation*/
     
     TruncatedMultivariateDist(): TruncatedMultivariateDist(Dist{}) { }
     
@@ -49,6 +50,8 @@ public:
 
     const NdimVecT& lbound() const { return _truncated_lbound; }
     const NdimVecT& ubound() const { return _truncated_ubound; }
+    template<class Vec>
+    bool in_bounds(const Vec &u) const{ return arma::all(lbound()<=u) && arma::all(u<=ubound()); }
     const NdimVecT& global_lbound() const { return Dist::lbound(); }
     const NdimVecT& global_ubound() const { return Dist::ubound(); }
     bool truncated() const { return _truncated; }
@@ -83,11 +86,50 @@ protected:
     NdimVecT _truncated_ubound;
     bool _truncated = false;
 
-    double lbound_cdf; // cdf(_lbound)
-    double bounds_cdf_delta; // (cdf(_ubound) - cdf(_lbound))
-    double llh_truncation_const;// -log(bounds_cdf_delta)   
+    double compute_truncated_pdf_integral(const NdimVecT &lbound, const NdimVecT &ubound, double lbound_cdf) const;
+    double lbound_cdf; // cdf(lbound())
+    double bounds_pdf_integral; // integral of pdf over valid bounded polytope
+    double llh_truncation_const;// -log(bounds_pdf_integral)   
 };
 
+template<class Dist>
+double TruncatedMultivariateDist<Dist>::compute_truncated_pdf_integral(const NdimVecT &lbound, const NdimVecT &ubound, double lbound_cdf) const
+{
+    const IdxT N = Dist::num_dim();
+    if(lbound_cdf==0 && arma::all(lbound==-INFINITY)) return this->Dist::cdf(ubound);
+    double pdf_integral = (N%2==0) ? lbound_cdf : -lbound_cdf; //account for the lbound() vertex here.
+
+    //n iterates through all integers less than 2^N. we use the binary repr of N to choose ubound or lbound
+    // 0 bit = use ubound(k)
+    // 1 bit = use lbound(k)
+    // all 1's is skipped as we account for that in initial pdf_integral value
+    for(IdxT n=0; n<pow(2,N)-1; n++) {
+        IdxT b=n; //b is used as a binary repr.
+        IdxT k=0; //k is index we are considering
+        IdxT flips=0;
+        NdimVecT v = ubound;
+//         std::cout<<"N:"<<N<<" n:"<<n<<" ["<<std::bitset<8>(n)<<"]\n";
+        while(b && k<N) {
+//             std::cout<<"k:"<<k<<" b:"<<std::bitset<8>(b)<<"\n";
+            if(b&0x1) {
+                v(k) = lbound(k);
+                flips++;
+            }
+            k++;
+            b>>=1;
+        }
+//         std::cout<<"Ubound:"<<ubound.t();
+//         std::cout<<"     v:"<<v.t();
+//         std::cout<<"Lbound:"<<lbound.t();
+        double cdf_val = arma::any(v==-INFINITY) ? 0 : this->Dist::cdf(v);
+//         std::cout<<"   cdf:"<<cdf_val<<"\n";
+//         std::cout<<" flips:"<<flips<<"\n";
+        if(flips%2==1) cdf_val = -cdf_val; //odd number of flips
+        pdf_integral += cdf_val;
+    }
+    return pdf_integral;
+}
+        
 template<class Dist>
 template<class Vec, class Vec2>
 void TruncatedMultivariateDist<Dist>::set_bounds(const Vec &lbound, const Vec2 &ubound)
@@ -109,20 +151,20 @@ void TruncatedMultivariateDist<Dist>::set_bounds(const Vec &lbound, const Vec2 &
     }
     bool truncated = arma::any(lbound > global_lbound()) || arma::any(ubound < global_ubound());
     if(truncated) {
-        lbound_cdf = arma::all(lbound==global_lbound()) ? 0 : Dist::cdf(lbound);
-        double ubound_cdf = arma::all(ubound==global_ubound()) ? 1 : Dist::cdf(ubound);
-        bounds_cdf_delta = ubound_cdf - lbound_cdf;
-        if(bounds_cdf_delta < min_bounds_cdf_delta) {            
+        lbound_cdf = arma::any(lbound==-INFINITY) ? 0 : this->Dist::cdf(lbound);
+        bounds_pdf_integral = compute_truncated_pdf_integral(lbound,ubound,lbound_cdf);
+        if(!(bounds_pdf_integral > min_bounds_pdf_integral)) {            
             std::ostringstream msg;
-            msg<<"TruncatedMultivariateDist::set_bounds: params: ["<<this->params().t()<<"]\n bounds:[ ["<<lbound.t()<<"], ["<<ubound.t()<<"] ] with cdf:["<<lbound_cdf<<","<<ubound_cdf
-               <<"] have delta: "<<bounds_cdf_delta<<" < min_delta = "<<min_bounds_cdf_delta
-               <<".  Bounds cover too small a portation of the domain for accuarate truncation.";
+            msg<<"TruncatedMultivariateDist::set_bounds: params: ["<<this->params().t()<<"]\n bounds:[ ["<<lbound.t()<<"], ["<<ubound.t()<<"] ] with cdf:["<<lbound_cdf<<","<<this->Dist::cdf(ubound)
+               <<"] have pdf integral: "<<bounds_pdf_integral<<" < min_delta = "<<min_bounds_pdf_integral
+               <<".  Bounds cover too small a portion of the domain for accuarate truncation.";
             throw ParameterValueError(msg.str());
         }
-        llh_truncation_const = -log(bounds_cdf_delta);
+        llh_truncation_const = -log(bounds_pdf_integral);
+//         std::cout<<"trunc?:"<<truncated<<" lbound:"<<lbound.t()<<" ubound:"<<ubound.t()<<" lboundcdf:"<<this->Dist::cdf(lbound)<<" internal lbound_cdf:"<<lbound_cdf<<" uboundcdf:"<<this->Dist::cdf(ubound)
+//         <<" bounds_pdf_integral:"<<bounds_pdf_integral<<" llh_trunc:"<<llh_truncation_const<<"\n";
     } else {
-        lbound_cdf = 0;
-        bounds_cdf_delta = 1;
+        bounds_pdf_integral = 1;
         llh_truncation_const = 0;
     }
     _truncated = truncated;
@@ -148,14 +190,15 @@ template<class Dist>
 template<class Vec>
 double TruncatedMultivariateDist<Dist>::cdf(const Vec &x) const
 {
-    return (this->Dist::cdf(x) - lbound_cdf) / bounds_cdf_delta;
+    if(!truncated()) return this->Dist::cdf(x);
+    return compute_truncated_pdf_integral(lbound(),ubound(),lbound_cdf);
 }
 
 template<class Dist>
 template<class Vec>
 double TruncatedMultivariateDist<Dist>::pdf(const Vec &x) const
 {
-    return this->Dist::pdf(x) / bounds_cdf_delta;
+    return this->Dist::pdf(x) / bounds_pdf_integral;
 }
 
 template<class Dist>
@@ -172,11 +215,14 @@ TruncatedMultivariateDist<Dist>::sample(RngT &rng) const
 {
     if(!truncated()) return Dist::sample(rng);
     //If truncated, rejection sampling is the only universal multidimensionsal distribution.
-    const int MaxIter = 1000;
+    const int MaxIter = 100000;
     NdimVecT s;
     for(int n=0;n<MaxIter; n++){
         s=Dist::sample(rng);
-        if(this->in_bounds(s)) return s;
+        if(this->in_bounds(s)) {
+//             std::cout<<"Nsamples: "<<n<<"\n";
+            return s;
+        }
     }
     throw RuntimeSamplingError("Truncated distribution rejection sampling failure.  A more efficient method is required.");
 }

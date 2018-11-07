@@ -23,10 +23,16 @@ const VecT SymmetricBetaDist::_param_ubound = {INFINITY}; //Upper bound on valid
 SymmetricBetaDist::SymmetricBetaDist(double beta) 
     : UnivariateDist(0,1),
       _beta(checked_beta(beta)),
-      llh_const(compute_llh_const())
+      llh_const_initialized(false)
 { }
 
 /* Non-static member functions */
+void  SymmetricBetaDist::set_beta(double val) 
+{ 
+    _beta = checked_beta(val); 
+    llh_const_initialized = false;
+}
+
 double SymmetricBetaDist::cdf(double x) const
 {
     if(x==0) return 0;
@@ -46,9 +52,21 @@ double SymmetricBetaDist::pdf(double x) const
    return boost::math::ibeta_derivative(_beta, _beta, x);
 }
 
-double SymmetricBetaDist::compute_llh_const() const
+double SymmetricBetaDist::llh(double x) const 
+{ 
+    if(!llh_const_initialized) initialize_llh_const();
+    return rllh(x) + llh_const; 
+}
+
+void SymmetricBetaDist::initialize_llh_const() const
 {
-    return -2*lgamma(_beta) - lgamma(2*_beta);//log(1/Beta(beta,beta))
+    llh_const = compute_llh_const(beta());
+    llh_const_initialized = true;
+}
+
+double SymmetricBetaDist::compute_llh_const(double beta)
+{
+    return -2*lgamma(beta) - lgamma(2*beta);//log(1/Beta(beta,beta))
 }
 
 double SymmetricBetaDist::checked_beta(double val)

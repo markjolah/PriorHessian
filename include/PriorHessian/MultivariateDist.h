@@ -7,6 +7,7 @@
 #define PRIOR_HESSIAN_MULTIVARIATEDIST_H
 
 #include "PriorHessian/util.h"
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/BaseDist.h"
 
 namespace prior_hessian {
@@ -15,6 +16,7 @@ template<int Ndim>
 class MultivariateDist : public BaseDist {
 public:
     using NdimVecT = arma::Col<double>::fixed<Ndim>;
+    using NdimMatT = arma::Mat<double>::fixed<Ndim,Ndim>;
     static constexpr IdxT num_dim() { return Ndim; }
 
     MultivariateDist() : 
@@ -74,6 +76,22 @@ private:
     NdimVecT _lbound;
     NdimVecT _ubound;
 };
+
+template<class Dist>
+std::ostream& operator<<(std::ostream &out,const meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateDist> &dist)
+{
+    out<<"[Dist]:\n";
+    out<<"  ParamNames:[";
+    for(auto v: dist.param_names()) out<<v<<",";
+    out<<"]\n";
+    out<<"   Nparams:"<<dist.num_params()<<"\n";
+    out<<"   Params:"<<dist.params().t();
+    out<<"   Lbound:"<<dist.lbound()<<"\n";
+    out<<"   Ubound:"<<dist.ubound()<<"\n";
+    out<<"]\n";
+    return out;
+}
+
 
 template<int Ndim>
 template<class Vec>

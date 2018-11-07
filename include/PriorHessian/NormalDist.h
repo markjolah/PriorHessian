@@ -49,8 +49,8 @@ public:
     void set_params(double mu, double sigma);
     void set_params(const VecT &p);
     
-    double mean() const { return _mu; }
-    double median() const { return _mu; }
+    double mean() const { return mu(); }
+    double median() const { return mu(); }
     
     double cdf(double x) const;
     double icdf(double u) const;
@@ -84,9 +84,12 @@ private:
     double _mu; //distribution mu
     double _sigma_inv; //distribution shape
     double _sigma; //Keep actual sigma also to preserve exact replication of input sigma. 1./(1./sigma) != sigma in general.
-    double llh_const;
-    
-    double compute_llh_const() const;
+
+    //Lazy computation of llh_const.  Most use-cases do not need it.
+    mutable double llh_const;
+    mutable bool llh_const_initialized;
+    void initialize_llh_const() const;
+    static double compute_llh_const(double sigma);
 };
 
 /* static methods */
@@ -106,18 +109,13 @@ const VecT& NormalDist::param_ubound()
 /* non-static methods */
 inline
 double NormalDist::mu() const { return _mu; }
+
 inline
 double NormalDist::sigma() const { return _sigma; }
+
 inline
 void NormalDist::set_mu(double val) { _mu = checked_mu(val); }
 
-inline
-void NormalDist::set_sigma(double val) 
-{ 
-    _sigma = checked_sigma(val); 
-    _sigma_inv = 1./_sigma;
-    compute_llh_const();
-}
 inline
 void NormalDist::set_params(double _mu, double _sigma)
 {
@@ -125,7 +123,6 @@ void NormalDist::set_params(double _mu, double _sigma)
     set_sigma(_sigma);
 }
 
-    
 inline
 bool NormalDist::check_params(double mu, double sigma)
 {
@@ -184,12 +181,6 @@ inline
 double NormalDist::rllh(double x) const
 {
     return -.5*square((x - _mu)*_sigma_inv);
-}
-
-inline
-double NormalDist::llh(double x) const 
-{ 
-    return rllh(x) + llh_const;
 }
 
 inline

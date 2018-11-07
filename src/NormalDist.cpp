@@ -38,6 +38,14 @@ NormalDist::NormalDist(const VecT &params)
 
 
 /* Non-static member functions */
+
+void NormalDist::set_sigma(double val) 
+{ 
+    _sigma = checked_sigma(val); 
+    _sigma_inv = 1./_sigma;
+    llh_const_initialized = false;
+}
+
 double NormalDist::cdf(double x) const
 {
     return .5*(1 + boost::math::erf((x - _mu)*_sigma_inv*constants::sqrt2_inv));
@@ -68,9 +76,21 @@ double NormalDist::checked_sigma(double val)
     return val;
 }
 
-double NormalDist::compute_llh_const() const
+double NormalDist::llh(double x) const 
+{ 
+    if(!llh_const_initialized) initialize_llh_const(); //Lazy computation of llh_const.
+    return rllh(x) + llh_const;
+}
+
+void NormalDist::initialize_llh_const() const
 {
-    return -log(sigma()) - .5*constants::log2pi;
+    llh_const = compute_llh_const(sigma());
+    llh_const_initialized = true;
+}
+
+double NormalDist::compute_llh_const(double sigma)
+{
+    return -log(sigma) - .5*constants::log2pi;
 }
 
 } /* namespace prior_hessian */

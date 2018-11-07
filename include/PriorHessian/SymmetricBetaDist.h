@@ -39,16 +39,17 @@ public:
     static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
     
     SymmetricBetaDist(double beta=1.0);
-    double get_param(int idx) const;
-    void set_param(int idx, double val);
-    VecT params() const { return {_beta}; }
-    void set_params(double beta) { _beta = checked_beta(beta); }
-    void set_params(const VecT &p) { _beta = checked_beta(p[0]); }
-    bool operator==(const SymmetricBetaDist &o) const { return _beta == o._beta; }
-    bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
 
     double beta() const { return _beta; }
-    void set_beta(double val) { _beta = checked_beta(val); }
+    void set_beta(double val);
+
+    double get_param(int idx) const;
+    void set_param(int idx, double val);
+    VecT params() const { return {beta()}; }
+    void set_params(double beta) { set_beta(beta); }
+    void set_params(const VecT &p) { set_beta(p[0]); }
+    bool operator==(const SymmetricBetaDist &o) const { return beta() == o.beta(); }
+    bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
 
     double mean() const { return 1/2; }
     double median() const { return icdf(0.5); }
@@ -56,7 +57,7 @@ public:
     double cdf(double x) const;
     double icdf(double u) const;
     double pdf(double x) const;
-    double llh(double x) const { return rllh(x) + llh_const; }
+    double llh(double x) const;
     double rllh(double x) const;
     double grad(double x) const;
     double grad2(double x) const;
@@ -78,9 +79,12 @@ private:
     static double checked_beta(double val);
    
     double _beta; //distribution mean
-    double llh_const;    
-
-    double compute_llh_const() const;
+    
+    //Lazy computation of llh_const.  Most use-cases do not need it.
+    mutable double llh_const;
+    mutable bool llh_const_initialized;
+    void initialize_llh_const() const;
+    static double compute_llh_const(double beta);
 };
 
 inline
@@ -140,7 +144,7 @@ double SymmetricBetaDist::grad2(double x) const
 inline
 void SymmetricBetaDist::grad_grad2_accumulate(double x, double &g, double &g2) const
 {
-    double v= 1/(1-x);
+    double v = 1/(1-x);
     double x_inv = 1/x;
     double bm1 = _beta-1;
     g  += bm1*(x_inv-v); //(beta-1)*(1/z-1/(1-z))
