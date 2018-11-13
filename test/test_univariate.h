@@ -106,4 +106,15 @@ public:
     }
 };
 
+namespace detail {
+    template<class... Ts, size_t... Is>
+    void initialize_distribution_tuple(std::tuple<Ts...> &t, std::index_sequence<Is...> )
+    { prior_hessian::meta::call_in_order<int>({(initialize_dist<Ts>(std::get<Is>(t)),0)... }); }    
+}
+
+template<class... Ts>
+void initialize_distribution_tuple(std::tuple<Ts...> &t)
+{ if(sizeof...(Ts)) ::detail::initialize_distribution_tuple(t,std::index_sequence_for<Ts...>{}); }
+
+
 #endif /* TEST_UNIVARIATE_H */

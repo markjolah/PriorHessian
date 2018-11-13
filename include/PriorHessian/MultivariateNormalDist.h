@@ -41,7 +41,7 @@ public:
     template<class Vec, class Mat>
     static bool check_params(const Vec &mu, const Mat &sigma);
     template<class Vec>
-    static bool check_params(const VecT &params);
+    static bool check_params(const Vec &params);
        
     const NdimVecT& mu() const;
     const NdimMatT& sigma() const;
@@ -51,7 +51,7 @@ public:
     template<class Mat> void set_sigma(Mat&& val);
     
     bool operator==(const MultivariateNormalDist<Ndim> &o) const;    
-    bool operator!=(const MultivariateNormalDist<Ndim> &o) const { return !this->operator==(o);}
+    bool operator!=(const MultivariateNormalDist<Ndim> &o) const { return !this->operator==(o); }
     
     static const StringVecT& param_names();
     static const VecT& param_lbound();
@@ -92,7 +92,7 @@ public:
     static bool check_params_iter(IterT &params);
 
     template<class IterT>
-    void append_params(IterT &params);
+    void append_params(IterT &params) const;
 
     template<class IterT>
     void set_params_iter(IterT &params);
@@ -205,7 +205,7 @@ bool MultivariateNormalDist<Ndim>::check_params(const Vec &mu, const Mat &sigma)
 
 template<int Ndim>
 template<class Vec>
-bool MultivariateNormalDist<Ndim>::check_params(const VecT &params)
+bool MultivariateNormalDist<Ndim>::check_params(const Vec &params)
 {
     return check_mu(params.head(Ndim)) && 
             check_sigma(compressed_upper_triangular_to_full_matrix(params.tail(num_params()-Ndim)));

@@ -6,18 +6,14 @@
 #include "gtest/gtest.h"
 
 #include "test_prior_hessian.h"
-#include "test_univariate.h"
 #include "test_multivariate.h"
+#include "test_univariate.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
 #include "PriorHessian/CompositeDist.h"
 
 using namespace prior_hessian;
 
 namespace detail {
-    template<class... Ts, size_t... Is>
-    void initialize_distribution_tuple(std::tuple<Ts...> &t, std::index_sequence<Is...> )
-    { meta::call_in_order<int>({(initialize_dist<Ts>(std::get<Is>(t)),0)... }); }
-    
     template<class... Ts, size_t... Is>
     CompositeDist construct_from_tuple(const std::tuple<Ts...> &t, std::index_sequence<Is...>)
     { return CompositeDist{ std::get<Is>(t)... }; }
@@ -34,10 +30,6 @@ namespace detail {
     void initialize_from_dists(CompositeDist &dist, std::tuple<Ts...>&&ts, std::index_sequence<Is...>)
     { dist.initialize(std::get<Is>(ts)...); }
 }
-
-template<class... Ts>
-void initialize_distribution_tuple(std::tuple<Ts...> &t)
-{ if(sizeof...(Ts)) ::detail::initialize_distribution_tuple(t,std::index_sequence_for<Ts...>{}); }
 
 template<class... Ts>
 CompositeDist construct_from_tuple(const std::tuple<Ts...> &t)
@@ -561,7 +553,7 @@ TYPED_TEST(CompositeDistTest, in_bounds_set_bounds) {
     ASSERT_LE(c2,d2);
 
 //     std::cout<<"val1: "<<val1.t()<<" c1:"<<c1<<"\n";
-//     std::cout<<"val2: "<<val1.t()<<" c2:"<<c2<<"\n";
+//     std::cout<<"val2: "<<val2.t()<<" c2:"<<c2<<"\n";
 //     std::cout<<"new_lb: "<<new_lb.t()<<" d1:"<<d1<<"\n";
 //     std::cout<<"new_ub: "<<new_ub.t()<<" d2:"<<d2<<"\n";
 
@@ -570,6 +562,7 @@ TYPED_TEST(CompositeDistTest, in_bounds_set_bounds) {
     VecT old_s;
     for(IdxT n=0;n<this->Ntest;n++) {
         auto s = composite.sample(env->get_rng());
+//         std::cout<<"s:"<<s.t();
         ASSERT_TRUE(composite.in_bounds(s));
         if(n>0) {ASSERT_TRUE(!arma::all(s==old_s));}
         old_s = s;

@@ -76,6 +76,19 @@ namespace detail
     }
 } /* namespace detail */
 
+namespace meta {
+    template<class... DistTs>
+    struct all_dists_are_bounded
+    {
+        static constexpr bool value = meta::logical_and_in_order({detail::dist_adaptor_traits<std::decay_t<DistTs>>::value...});
+    };
+
+    template<class... DistTs>
+    using ConstructableIfAllDistsAreBoundedT = std::enable_if<all_dists_are_bounded<DistTs...>::value,bool>;
+    template<class... DistTs>
+    using ConstructableIfNotAllDistsAreBoundedT = std::enable_if<!all_dists_are_bounded<DistTs...>::value,bool>;
+} /* namespace prior_hessian::meta */
+
 /** make_adapted_bounded_dist() [4-forms]
  * If the given distribution is not bounded then the appropriate bounding distribution is wrapped arround it.
  * We detect the boundedness of the distribution using detail::adaptable_bounds type-traits class.

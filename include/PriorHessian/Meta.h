@@ -80,13 +80,28 @@ namespace meta {
     public:
         static constexpr bool value = decltype(is_subclass_of_numeric_template::test(std::declval<U>()))::value;
     };
-        
+      
+    
+    template<template <template <int> class, class...> class T, typename U>
+    class is_copula {
+        template<template <int> class Tmp, class... Dists>
+        static decltype(static_cast<const T<Tmp, Dists...> &>(std::declval<U>()), std::true_type{}) test(const T<Tmp, Dists...>&);
+        static std::false_type test(...);
+    public:
+        static constexpr bool value = decltype(is_copula::test(std::declval<U>()))::value;
+    };
+    
+    template<template <template <int> class, class...> class CopulaT, class U>
+    using ConstructableIfIsCopulaT = std::enable_if_t<is_copula<CopulaT,U>::value ,bool>;
     
     template<class ReturnT, class BoolT> 
     using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
 
     template<bool val>
     using ConstructableIf = std::enable_if_t<val,bool>; /* Uses a non-type template paramter for SFINAE */
+    
+    template<bool val>
+    using ConstructableIfNot = std::enable_if_t<!val,bool>; /* Uses a non-type template paramter for SFINAE */
     
     template<class T,class BaseT> 
     using EnableIfSubclassT = std::enable_if_t<

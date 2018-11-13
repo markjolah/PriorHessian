@@ -65,12 +65,21 @@ protected:
     template<class Vec>
     static void check_bounds(const Vec &lbound, const Vec &ubound)
     {
-    if( !arma::all(lbound < ubound) ){ //This comparison checks for NaNs    
-        std::ostringstream msg;
-        msg<<"UnivariateDist::set_bounds: Invalid bounds lbound:"<<lbound.t()<<" ubound:"<<ubound.t();
-        throw ParameterValueError(msg.str());
+        if( !arma::all(lbound < ubound) ){ //This comparison checks for NaNs    
+            std::ostringstream msg;
+            msg<<"UnivariateDist::set_bounds: Invalid bounds lbound:"<<lbound.t()<<" ubound:"<<ubound.t();
+            throw ParameterValueError(msg.str());
+        }
     }
-}
+    
+    template<class Vec>
+    void initialize_bounds(const Vec &lbound, const Vec &ubound)
+    {
+        if(arma::any(lbound > ubound))
+            throw InvalidOperationError("MultivariateDist: initialize_bounds: got bad bounds");
+        _lbound = lbound;
+        _ubound = ubound;
+    }
     
 private:
     NdimVecT _lbound;

@@ -6,13 +6,15 @@
 #ifndef TEST_PRIOR_HESSIAN_H
 #define TEST_PRIOR_HESSIAN_H
 
+#include <random>
+#include <type_traits>
+
+#include <armadillo>
 
 #include "gtest/gtest.h"
 #include "test_helpers/rng_environment.h"
-#include <random>
-#include <type_traits>
-#include <armadillo>
 
+#include "PriorHessian/Meta.h"
 
 /* Globals */
 extern test_helper::RngEnvironment *env;
@@ -28,8 +30,5 @@ bool approx_equal(double a, double b, double eps)
     
     return m==0 || fabs(a-b)/m<eps;
 }
-
-// template<class Dist, typename=void> 
-// Dist make_dist();
 
 #endif /* TEST_PRIOR_HESSIAN_H */
