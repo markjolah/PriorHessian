@@ -5,10 +5,12 @@
 #include <cmath>
 #include "gtest/gtest.h"
 
+#include "test_multivariate.h"
 #include "test_univariate.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
 #include "PriorHessian/AMHCopula.h"
 #include "PriorHessian/CopulaDist.h"
+#include "PriorHessian/CompositeDist.h"
 
 
 using namespace prior_hessian;
@@ -28,14 +30,16 @@ public:
     
     MarginalDistTupleT marginals;
     CopulaT copula;
-    CopulaDistT copula_dist;
+    CopulaDistT dist;
+    CompositeDist composite; //To be used for comparaison
     static constexpr int Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         initialize_distribution_tuple(marginals);
         initialize_copula(copula);
-        copula_dist.initialize_copula(copula);
-        copula_dist.initialize_marginals(marginals);
+        dist.initialize_copula(copula);
+        dist.initialize_marginals(marginals);
+        composite.initialize(marginals);
     }
 };
 
@@ -45,8 +49,37 @@ using CopulaDistTestTs = ::testing::Types<
     
 TYPED_TEST_CASE(CopulaDistTest, CopulaDistTestTs);
 
-TYPED_TEST(CopulaDistTest, num_components) {
-    auto &copula_dist = this->copula_dist;
-    EXPECT_EQ(copula_dist.num_components(),std::tuple_size<typename TypeParam::MarginalDistTupleT>::value);
+TYPED_TEST(CopulaDistTest, num_components) 
+{
+    auto &dist = this->dist;
+    EXPECT_EQ(dist.num_components(),std::tuple_size<typename TypeParam::MarginalDistTupleT>::value);
 }
 
+TYPED_TEST(CopulaDistTest, num_dim) 
+{
+    auto &dist = this->dist;
+    EXPECT_EQ(dist.num_dim(),std::tuple_size<typename TypeParam::MarginalDistTupleT>::value);
+}
+
+TYPED_TEST(CopulaDistTest, num_params) 
+{
+    auto &dist = this->dist;
+    auto &composite = this->composite;
+    EXPECT_EQ(dist.num_params(),1+composite.num_params());
+}
+
+
+// TYPED_TEST(CopulaDistTest, copy_assignment) {
+//     SCOPED_TRACE("copy_assignment");
+//     auto &dist = this->dist;
+//     TypeParam dist_copy{};
+//     dist_copy = dist;
+//     check_equal(dist, dist_copy);
+// }
+// 
+// TYPED_TEST(CopulaDistTest, copy_construction) {
+//     SCOPED_TRACE("copy_construction");
+//     auto &dist = this->dist;
+//     TypeParam dist_copy(dist);
+//     check_equal(dist, dist_copy);
+// }

@@ -21,33 +21,39 @@ namespace prior_hessian {
  */
 class SymmetricBetaDist : public UnivariateDist
 {
-    /* These paramter vectors are constant sized, but are handled by accessor functions
-     * so as to work generically together with multivariate distributions.
-     */
-    static const StringVecT _param_names; //Cannonical names for parameters
-    static const VecT _param_lbound; //Lower bound on valid parameter values 
-    static const VecT _param_ubound; //Upper bound on valid parameter values
+    static constexpr IdxT _num_params = 1;
 public:
+    using NparamsVecT = arma::Col<double>::fixed<_num_params>;
+     
     /* Static constant member data */
+    static constexpr IdxT num_params() { return _num_params; }
+    static constexpr double lbound() { return 0; }
+    static constexpr double ubound() { return 1; }
+    static bool in_bounds(double u) { return  lbound() < u && u < ubound(); }
+    
     static const StringVecT& param_names() { return _param_names; }
     static const VecT& param_lbound() { return _param_lbound; }
     static const VecT& param_ubound() { return _param_ubound; }
 
-    /* Static member functions */
-    static constexpr IdxT num_params() { return 1; }
     static bool check_params(double beta); /* Check parameters are valid (in bounds) */    
-    static bool check_params(VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    template<class Vec>
+    static bool check_params(Vec &p) { return check_params(p(0)); }    /* Check a vector of parameters is valid (in bounds) */    
     
-    SymmetricBetaDist(double beta=1.0);
+    SymmetricBetaDist() : SymmetricBetaDist(1.0) {}
+    explicit SymmetricBetaDist(double beta);
+    template<class Vec, meta::ConstructableIfNotSelfT<Vec,SymmetricBetaDist> = true>
+    explicit SymmetricBetaDist(const Vec &params) : SymmetricBetaDist(params(0)) { }
 
     double beta() const { return _beta; }
     void set_beta(double val);
 
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {beta()}; }
+    NparamsVecT params() const { return {beta()}; }
     void set_params(double beta) { set_beta(beta); }
-    void set_params(const VecT &p) { set_beta(p[0]); }
+
+    template<class Vec>
+    void set_params(const Vec &p) { set_beta(p[0]); }
     bool operator==(const SymmetricBetaDist &o) const { return beta() == o.beta(); }
     bool operator!=(const SymmetricBetaDist &o) const { return !this->operator==(o);}
 
@@ -76,6 +82,10 @@ public:
 private:
     using RngDistT = boost::math::beta_distribution<double>;//Used for RNG
 
+    static const StringVecT _param_names; //Cannonical names for parameters
+    static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
+    static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
+
     static double checked_beta(double val);
    
     double _beta; //distribution mean
@@ -91,12 +101,6 @@ inline
 bool SymmetricBetaDist::check_params(double param0)
 {
     return std::isfinite(param0) && param0>0;     
-}
-
-inline
-bool SymmetricBetaDist::check_params(VecT &params)
-{ 
-    return std::isfinite(params[0]) && params[0]>0;     
 }
 
 inline

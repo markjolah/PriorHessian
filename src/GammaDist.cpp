@@ -14,18 +14,16 @@
 
 #include <boost/math/special_functions/gamma.hpp>
 
-
-
 namespace prior_hessian {
 
 const StringVecT GammaDist::_param_names = { "scale", "shape" };
-const VecT GammaDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
-const VecT GammaDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const GammaDist::NparamsVecT GammaDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
+const GammaDist::NparamsVecT GammaDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 
 /* Constructors */
 GammaDist::GammaDist(double scale, double shape) 
-    : UnivariateDist(0,INFINITY),
+    : UnivariateDist(),
       _scale(checked_scale(scale)),
       _shape(checked_shape(shape)),
       llh_const_initialized(false)
@@ -42,13 +40,6 @@ void GammaDist::set_scale(double val)
 void GammaDist::set_shape(double val) 
 { 
     _shape = checked_shape(val); 
-    llh_const_initialized = false;
-}
-
-void GammaDist::set_params(const VecT &p) 
-{ 
-    _scale = checked_scale(p[0]);  
-    _shape = checked_shape(p[1]); 
     llh_const_initialized = false;
 }
 

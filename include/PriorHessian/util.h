@@ -48,4 +48,10 @@ T square(T t)
 
 
 } /* namespace prior_hessian */
+
+// namespace arma {
+// template<typename eT>
+// template<uword fixed_n_elem>
+// const arma::uword Col<eT>::fixed<fixed_n_elem>::n_elem=fixed_n_elem;
+// }
 #endif /* PRIOR_HESSIAN_UTIL_H */

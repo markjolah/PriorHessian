@@ -93,8 +93,8 @@ public:
     const NdimVecT& ubound() const { return _truncated_ubound; }
     template<class Vec>
     bool in_bounds(const Vec &u) const{ return arma::all(lbound()<=u) && arma::all(u<=ubound()); }
-    const NdimVecT& global_lbound() const { return Dist::lbound(); }
-    const NdimVecT& global_ubound() const { return Dist::ubound(); }
+    static const NdimVecT& global_lbound() { return Dist::lbound(); }
+    static const NdimVecT& global_ubound() { return Dist::ubound(); }
     bool truncated() const { return _truncated; }
     bool operator==(const TruncatedMultivariateDist<Dist> &o) const 
     { 

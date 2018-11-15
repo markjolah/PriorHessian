@@ -103,9 +103,12 @@ namespace meta {
     template<bool val>
     using ConstructableIfNot = std::enable_if_t<!val,bool>; /* Uses a non-type template paramter for SFINAE */
     
+    template<class T, class SelfT>
+    using ConstructableIfNotSelfT = std::enable_if_t<!std::is_same<std::decay_t<T>,SelfT>::value,bool>; /* Uses a non-type template paramter for SFINAE */
+    
     template<class T,class BaseT> 
     using EnableIfSubclassT = std::enable_if_t<
-        std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value >;
+        std::is_base_of<std::remove_reference_t<BaseT>,std::remove_reference_t<T>>::value>;
 
     template<class T, template <int> class ClassNumericTemplate> 
     using EnableIfSubclassOfNumericTemplateT = std::enable_if_t<

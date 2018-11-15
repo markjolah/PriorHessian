@@ -9,6 +9,7 @@
 
 #include <cmath>
 
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/UnivariateDist.h"
 
 namespace prior_hessian {
@@ -18,39 +19,45 @@ namespace prior_hessian {
  */
 class ParetoDist : public UnivariateDist
 {
-    /* These paramter vectors are constant sized, but are handled by accessor functions
-     * so as to work generically together with multivariate distributions.
-     */
-    static const StringVecT _param_names; //Cannonical names for parameters
-    static const VecT _param_lbound; //Lower bound on valid parameter values 
-    static const VecT _param_ubound; //Upper bound on valid parameter values
+    static constexpr IdxT _num_params = 2;
 public:
+    using NparamsVecT = arma::Col<double>::fixed<_num_params>;
+    static constexpr IdxT num_params() { return _num_params; }
+    static constexpr double global_lbound() { return 0; }
+    static constexpr double ubound() { return INFINITY; }
+    bool in_bounds(double u) const { return  lbound() < u && u < ubound(); }
+
     /* Static constant member data */
     static const StringVecT& param_names() { return _param_names; }
-    static const VecT& param_lbound() { return _param_lbound; }
-    static const VecT& param_ubound() { return _param_ubound; }
+    static const NparamsVecT& param_lbound() { return _param_lbound; }
+    static const NparamsVecT& param_ubound() { return _param_ubound; }
 
     /* Static member functions */
-    static constexpr IdxT num_params() { return 2; }
     static bool check_params(double min, double alpha); /* Check parameters are valid (in bounds) */    
-    static bool check_params(VecT &params); /* Check a vector of parameters is valid (in bounds) */    
+    template<class Vec>
+    static bool check_params(const Vec &params) { return check_params(params(0),params(1)); } /* Check a vector of parameters is valid (in bounds) */    
     static bool check_lbound(double min); /* Check the lbound (min) parameter */    
-    
-    ParetoDist(double min=1.0, double alpha=1.0);
-    ParetoDist(const VecT &params);
+
+    ParetoDist() : ParetoDist(1.0,1.0) { }
+    ParetoDist(double min, double alpha);
+    template<class Vec, meta::ConstructableIfNotSelfT<Vec,ParetoDist> = true>
+    explicit ParetoDist(const Vec &params) : ParetoDist(params(0),params(1)) { }
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {lbound(),alpha()}; }
-    void set_params(double min, double alpha); 
-    void set_params(const VecT &p);
-    bool operator==(const ParetoDist &o) const { return lbound()==o.lbound() && alpha() == o.alpha(); }
-    bool operator!=(const ParetoDist &o) const { return !this->operator==(o);}
+    NparamsVecT params() const { return {lbound(),alpha()}; }
+    void set_params(double min, double alpha);
+    template<class Vec>
+    void set_params(const Vec &p) { set_params(p(0),p(1)); }
+    bool operator==(const ParetoDist &o) const { return min()==o.min() && alpha() == o.alpha(); }
+    bool operator!=(const ParetoDist &o) const { return !this->operator==(o); }
 
     double alpha() const { return _alpha; } 
+    double min() const { return _min; } 
     void set_min(double val);
     void set_alpha(double val);
     
+    double lbound() const { return _min; }
     void set_lbound(double lbound);
     
     double mean() const;
@@ -76,9 +83,14 @@ public:
     void set_params_iter(IterT &params);
    
 private:
+    static const StringVecT _param_names; //Cannonical names for parameters
+    static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
+    static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
+
     static double checked_min(double val);
     static double checked_alpha(double val);
 
+    double _min;
     double _alpha; //distribution shape
 
     //Lazy computation of llh_const.  Most use-cases do not need it.
@@ -93,13 +105,6 @@ bool ParetoDist::check_params(double param0, double param1)
 {
     return std::isfinite(param0) && (param0 > 0) &&
            std::isfinite(param1) && (param1 > 0);     
-}
-
-inline
-bool ParetoDist::check_params(VecT &params)
-{ 
-    return std::isfinite(params[0]) && (params[0] > 0) &&
-           std::isfinite(params[1]) && (params[1] > 0); 
 }
 
 template<class IterT>

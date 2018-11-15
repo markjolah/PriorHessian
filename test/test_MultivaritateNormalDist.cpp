@@ -51,7 +51,7 @@ TYPED_TEST(MultivariateNormalDistTest, sigma_inv) {
     auto sigma_inv = dist.sigma_inv();
     EXPECT_EQ(static_cast<const arma::uword>(sigma_inv.n_rows),dist.num_dim());
     EXPECT_EQ(static_cast<const arma::uword>(sigma_inv.n_cols),dist.num_dim());
-    EXPECT_TRUE(arma::all(arma::all(sigma_inv == sigma_inv_true)));
+    EXPECT_TRUE(arma::all(arma::all(arma::symmatu(sigma_inv) == arma::symmatu(sigma_inv_true))));
 }
 
 TYPED_TEST(MultivariateNormalDistTest, set_sigma_inv) {
@@ -67,7 +67,7 @@ TYPED_TEST(MultivariateNormalDistTest, set_sigma_inv) {
     auto new_sigma_inv = arma::inv_sympd(arma::symmatu(new_sigma)).eval();
     EXPECT_EQ(static_cast<const arma::uword>(sigma_inv.n_rows),dist.num_dim());
     EXPECT_EQ(static_cast<const arma::uword>(sigma_inv.n_cols),dist.num_dim());
-    EXPECT_TRUE(arma::all(arma::all(sigma_inv == new_sigma_inv)));
+    EXPECT_TRUE(arma::all(arma::all(arma::symmatu(sigma_inv) == arma::symmatu(new_sigma_inv))));
 }
 
 TYPED_TEST(MultivariateNormalDistTest, set_params) {

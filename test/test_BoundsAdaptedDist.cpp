@@ -105,7 +105,7 @@ TYPED_TEST(BoundsAdaptedDistTest, set_params) {
     for(IdxT k=0; k<new_params.n_elem; k++)
         new_params[k] += 1./double(k+1);
     dist.set_params(new_params);
-    auto params = dist.params();
+    const auto& params = dist.params();
     EXPECT_EQ(params.n_elem,dist.num_params());
     for(IdxT k=0; k<params.n_elem; k++){
 //         std::printf("params[%llu]:%.12g new_params[%llu]:%.12g\n",k,params[k],k,new_params[k]);

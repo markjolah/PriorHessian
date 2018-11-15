@@ -16,6 +16,7 @@
 *
 *     Test program for MVNDST
 *
+      IMPLICIT NONE
       DOUBLE PRECISION ABSEPS, RELEPS, VAL, ERR
       INTEGER N, NN, I, J, K, IJ, MAXPTS, IFT
       PARAMETER ( N = 5, NN = ( N - 1 )*N/2, MAXPTS = 5000*N*N*N )
@@ -28,7 +29,7 @@
       DATA (INFIN(I), I=1,N)/ 1, 2     , 1     , 1     , 0     /
       DATA (CORREL(I),I=1,NN)/-0.707107,0.0,0.5,0.0,2*0.5,0.0,3*0.5/
       PRINT '(''               Test of MVNDST'')'
-      PRINT '(''size of INTEGER: '',I2)',SIZEOF(INTEGER)
+      PRINT '(''size of INTEGER: '',I2)',SIZEOF(N)
       PRINT '(12X, ''Requested Accuracy '',F8.5)', MAX(ABSEPS,RELEPS)
       PRINT '(''           Number of Dimensions is '',I2)', N
       PRINT '(''     Maximum # of Function Values is '',I7)', MAXPTS
@@ -140,7 +141,7 @@
          VALUE = 0
          ERROR = 1
       ELSE
-         INFORM = MVNDNT(N, CORREL, LOWER, UPPER, INFIN, INFIS, D, E)
+         INFORM=INT(MVNDNT(N, CORREL, LOWER, UPPER, INFIN, INFIS, D, E))
          IF ( N-INFIS .EQ. 0 ) THEN
             VALUE = 1
             ERROR = 0
@@ -545,7 +546,7 @@
       K = 1
       DO I = 2, NDIM
          IF ( I .LE. KLIM ) THEN
-            K = MOD( C(NP, MIN(NDIM-1,KLIM-1))*DBLE(K), DBLE(P(NP)) )
+            K = INT(MOD(C(NP, MIN(NDIM-1,KLIM-1))*DBLE(K), DBLE(P(NP))))
             VK(I) = K*VK(1)
          ELSE
             VK(I) = INT( P(NP)*2**( DBLE(I-KLIM)/(NDIM-KLIM+1) ) ) 
@@ -727,7 +728,7 @@
       SUMKRO = 0
       NK = MIN( NDIM, KLIM )
       DO J = 1, NK - 1
-         JP = J + MVNUNI()*( NK + 1 - J ) 
+         JP = J + INT(MVNUNI()*( NK + 1 - J )) 
          XT = VK(J)
          VK(J) = VK(JP)
          VK(JP) = XT
@@ -974,9 +975,9 @@
 *   R   REAL, correlation coefficient
 *   LG  INTEGER, number of Gauss Rule Points and Weights
 *
-      DOUBLE PRECISION BVN, SH, SK, R, ZERO, TWOPI 
+      DOUBLE PRECISION BVN, SH, SK, R,  TWOPI 
       INTEGER I, LG, NG
-      PARAMETER ( ZERO = 0, TWOPI = 6.283185307179586D0 ) 
+      PARAMETER (TWOPI = 6.283185307179586D0 ) 
       DOUBLE PRECISION X(10,3), W(10,3), AS, A, B, C, D, RS, XS
       DOUBLE PRECISION MVNPHI, SN, ASR, H, K, BS, HS, HK
       SAVE X, W

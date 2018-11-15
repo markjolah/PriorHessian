@@ -19,14 +19,14 @@
 #include "PriorHessian/Meta.h"
 #include "PriorHessian/util.h"
 #include "PriorHessian/PriorHessianError.h"
+#include "PriorHessian/UnivariateDist.h"
+#include "PriorHessian/MultivariateDist.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
 
 #include "PriorHessian/AnyRng/AnyRng.h"
 
 namespace prior_hessian {
 
-class UnivariateDist;
-template<int> class MultivariateDist;
 /** @brief A probability distribution made of independent component distributions composing groups of 1 or more variables.
  * 
  * CompositeDist is a world unto itself.
@@ -675,7 +675,7 @@ public:
 
      /* Adaptor for MultivariateDists */
     template<class Dist>
-    class ComponentDistAdaptor<Dist,meta::EnableIfSubclassOfNumericTemplateT<Dist,MultivariateDist>> : public Dist {
+    class ComponentDistAdaptor<Dist,meta::EnableIfSubclassT<Dist,MultivariateDist>> : public Dist {
     public:
         ComponentDistAdaptor() : ComponentDistAdaptor(Dist{}) { }      
         explicit ComponentDistAdaptor(Dist &&dist) : Dist(std::move(dist)) { }
@@ -837,20 +837,6 @@ public:
     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,DistT,ComponentDistAdaptor>
     make_component_dist(DistT&& dist)
     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
-
-//     //Univariate wrapper
-//     template<class DistT>
-//     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,
-//             meta::ReturnIfSubclassT<DistT, DistT, UnivariateDist>,ComponentDistAdaptor>
-//     make_component_dist(DistT&& dist)
-//     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
-//     
-//     //Mutlivariate wrapper
-//     template<class DistT>
-//     meta::ReturnIfNotInstantiatedFromT<ComponentDistT<DistT>,
-//             meta::ReturnIfSubclassOfNumericTemplateT<DistT, DistT, MultivariateDist>,ComponentDistAdaptor>
-//     make_component_dist(DistT&& dist)
-//     { return ComponentDistT<DistT>{make_adapted_bounded_dist(std::forward<DistT>(dist))}; }
  
     /* make_component_dist_tuple()
      * Uses perfect forwarding.  1-form for (const&) one for (&&).  Each method has a helper template with extra integer parameters

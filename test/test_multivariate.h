@@ -14,7 +14,7 @@ using namespace prior_hessian;
 
 
 template<class Dist>
-void initialize_dist(meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateNormalDist> &d)
+void initialize_dist(meta::ReturnIfSubclassT<Dist,Dist,MultivariateDist> &d)
 {
     //hyper-params
     int N = d.num_dim();
@@ -28,7 +28,7 @@ void initialize_dist(meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,Multivar
 }
 
 template<class Dist>
-meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateDist>
+meta::ReturnIfSubclassT<Dist,Dist,MultivariateDist>
 make_dist()
 {
     Dist dist;
@@ -38,8 +38,8 @@ make_dist()
 
 
 template<class Dist1, class Dist2>
-meta::ReturnIfSubclassOfNumericTemplateT<void, 
-    meta::ReturnIfSubclassOfNumericTemplateT<Dist1, Dist2,MultivariateDist>,MultivariateDist>
+meta::ReturnIfSubclassT<void, 
+    meta::ReturnIfSubclassT<Dist1, Dist2, MultivariateDist>,MultivariateDist>
 check_equal(const Dist1 &d1, const Dist2 &d2)
 {
     auto Nparams = d1.num_params();

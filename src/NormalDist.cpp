@@ -18,24 +18,17 @@ namespace prior_hessian {
 
 /* Static member variables */
 const StringVecT NormalDist::_param_names = { "mu", "sigma" };
-const VecT NormalDist::_param_lbound = {-INFINITY, 0}; //Lower bound on valid parameter values 
-const VecT NormalDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const NormalDist::NparamsVecT NormalDist::_param_lbound = {-INFINITY, 0}; //Lower bound on valid parameter values 
+const NormalDist::NparamsVecT NormalDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 
 
 /* Constructors */
 NormalDist::NormalDist(double mu, double sigma) 
-    : UnivariateDist(-INFINITY,INFINITY)
+    : UnivariateDist()
 { 
     set_params(mu,sigma);
 }
-
-NormalDist::NormalDist(const VecT &params) 
-    : UnivariateDist(-INFINITY,INFINITY)
-{ 
-    set_params(params);
-}
-
 
 /* Non-static member functions */
 

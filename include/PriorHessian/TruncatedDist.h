@@ -23,15 +23,17 @@ class TruncatedDist : public Dist
 {
 public:
     static constexpr const double min_bounds_pdf_integral = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
+    static double global_lbound() { return Dist::lbound(); }
+    static double global_ubound() { return Dist::ubound(); }
     
     TruncatedDist(): TruncatedDist(Dist{}) { }
     TruncatedDist(double lbound, double ubound) : TruncatedDist(Dist{}, lbound, ubound) { }
 
     template<typename=meta::EnableIfNotIsSelfT<Dist,TruncatedDist>>
-    TruncatedDist(const Dist &dist) : TruncatedDist(dist, dist.lbound(), dist.ubound()) { }
+    TruncatedDist(const Dist &dist) : TruncatedDist(dist, Dist::lbound(), Dist::ubound()) { }
     
     template<typename=meta::EnableIfNotIsSelfT<Dist,TruncatedDist>>
-    TruncatedDist(Dist &&dist) : TruncatedDist(std::move(dist), dist.lbound(), dist.ubound()) { }
+    TruncatedDist(Dist &&dist) : TruncatedDist(std::move(dist), Dist::lbound(), Dist::ubound()) { }
     
     TruncatedDist(const Dist &dist, double lbound, double ubound) 
         : Dist(dist)
@@ -43,8 +45,6 @@ public:
 
     double lbound() const { return _truncated_lbound; }
     double ubound() const { return _truncated_ubound; }
-    double global_lbound() const { return Dist::lbound(); }
-    double global_ubound() const { return Dist::ubound(); }
     bool truncated() const { return _truncated; }
     bool operator==(const TruncatedDist<Dist> &o) const 
     { 

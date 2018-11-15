@@ -12,54 +12,45 @@
 
 namespace prior_hessian {
 
-template<int Ndim>
 class MultivariateDist : public BaseDist {
 public:
-    using NdimVecT = arma::Col<double>::fixed<Ndim>;
-    using NdimMatT = arma::Mat<double>::fixed<Ndim,Ndim>;
-    static constexpr IdxT num_dim() { return Ndim; }
 
-    MultivariateDist() : 
-        _lbound(),
-        _ubound()
-    { 
-        _lbound.fill(-INFINITY);
-        _ubound.fill(INFINITY);
-    }
+    MultivariateDist() {}
     
-    template<class Vec>
-    MultivariateDist(Vec &&lbound, Vec &&ubound) : 
-        _lbound(std::forward<Vec>(lbound)),
-        _ubound(std::forward<Vec>(ubound))
-    { 
-        check_bounds(lbound,ubound); 
-    }
+//     template<class Vec>
+//     MultivariateDist(Vec &&lbound, Vec &&ubound) : 
+//         _lbound(std::forward<Vec>(lbound)),
+//         _ubound(std::forward<Vec>(ubound))
+//     { 
+//         check_bounds(lbound,ubound); 
+//     }
+// 
+//     const NdimVecT& lbound() const { return _lbound; }
+//     const NdimVecT& ubound() const { return _ubound; }
 
-    const NdimVecT& lbound() const { return _lbound; }
-    const NdimVecT& ubound() const { return _ubound; }
-    template<class Vec>
-    bool in_bounds(const Vec &u) const; 
-    
-    template<class Vec>
-    void set_bounds(const Vec &lbound, const Vec &ubound)
-    {
-        if(arma::any(lbound != _lbound) || arma::any(ubound != _ubound))
-            throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
-    }
-    
-    template<class Vec>
-    void set_lbound(const Vec &lbound)
-    {
-        if(arma::any(lbound != _lbound))
-            throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
-    }
-
-    template<class Vec>
-    void set_ubound(const Vec &ubound)
-    {
-        if(arma::any(ubound != _ubound))
-            throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
-    }
+//     template<class Vec>
+//     bool in_bounds(const Vec &u) const; 
+//     
+//     template<class Vec>
+//     void set_bounds(const Vec &lbound, const Vec &ubound)
+//     {
+//         if(arma::any(lbound != _lbound) || arma::any(ubound != _ubound))
+//             throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
+//     }
+//     
+//     template<class Vec>
+//     void set_lbound(const Vec &lbound)
+//     {
+//         if(arma::any(lbound != _lbound))
+//             throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
+//     }
+// 
+//     template<class Vec>
+//     void set_ubound(const Vec &ubound)
+//     {
+//         if(arma::any(ubound != _ubound))
+//             throw InvalidOperationError("MultivariateDist: Unable to set bounds.  This object is not scalable or truncatable.");
+//     }
 
 protected:
     template<class Vec>
@@ -72,42 +63,42 @@ protected:
         }
     }
     
-    template<class Vec>
-    void initialize_bounds(const Vec &lbound, const Vec &ubound)
-    {
-        if(arma::any(lbound > ubound))
-            throw InvalidOperationError("MultivariateDist: initialize_bounds: got bad bounds");
-        _lbound = lbound;
-        _ubound = ubound;
-    }
-    
-private:
-    NdimVecT _lbound;
-    NdimVecT _ubound;
+//     template<class Vec>
+//     void initialize_bounds(const Vec &lbound, const Vec &ubound)
+//     {
+//         if(arma::any(lbound > ubound))
+//             throw InvalidOperationError("MultivariateDist: initialize_bounds: got bad bounds");
+//         _lbound = lbound;
+//         _ubound = ubound;
+//     }
+//     
+// private:
+//     NdimVecT _lbound;
+//     NdimVecT _ubound;
 };
 
-template<class Dist>
-std::ostream& operator<<(std::ostream &out,const meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateDist> &dist)
-{
-    out<<"[Dist]:\n";
-    out<<"  ParamNames:[";
-    for(auto v: dist.param_names()) out<<v<<",";
-    out<<"]\n";
-    out<<"   Nparams:"<<dist.num_params()<<"\n";
-    out<<"   Params:"<<dist.params().t();
-    out<<"   Lbound:"<<dist.lbound()<<"\n";
-    out<<"   Ubound:"<<dist.ubound()<<"\n";
-    out<<"]\n";
-    return out;
-}
+// template<class Dist>
+// std::ostream& operator<<(std::ostream &out,const meta::ReturnIfSubclassOfNumericTemplateT<Dist,Dist,MultivariateDist> &dist)
+// {
+//     out<<"[Dist]:\n";
+//     out<<"  ParamNames:[";
+//     for(auto v: dist.param_names()) out<<v<<",";
+//     out<<"]\n";
+//     out<<"   Nparams:"<<dist.num_params()<<"\n";
+//     out<<"   Params:"<<dist.params().t();
+//     out<<"   Lbound:"<<dist.lbound()<<"\n";
+//     out<<"   Ubound:"<<dist.ubound()<<"\n";
+//     out<<"]\n";
+//     return out;
+// }
 
 
-template<int Ndim>
-template<class Vec>
-bool MultivariateDist<Ndim>::in_bounds(const Vec &u) const
-{
-    return arma::all(lbound()<=u) && arma::all(u<=ubound());
-}
+// template<int Ndim>
+// template<class Vec>
+// bool MultivariateDist<Ndim>::in_bounds(const Vec &u) const
+// {
+//     return arma::all(lbound()<=u) && arma::all(u<=ubound());
+// }
 
 } /* namespace prior_hessian */
 

@@ -20,24 +20,33 @@ namespace prior_hessian {
  */
 class NormalDist : public UnivariateDist
 {
+    static constexpr IdxT _num_params = 2;
 public:
+    using NparamsVecT = arma::Col<double>::fixed<_num_params>;
+
     /* Static member functions */
-    static constexpr IdxT num_params() { return 2; }
+    static constexpr IdxT num_params() { return _num_params; }
+    static constexpr double lbound() { return -INFINITY; }
+    static constexpr double ubound() { return INFINITY; }
+    static bool in_bounds(double u) { return  lbound() < u && u < ubound(); }
     
-    static const StringVecT& param_names();
-    static const VecT& param_lbound();
-    static const VecT& param_ubound();
+    static const StringVecT& param_names() { return _param_names; }
+    static const NparamsVecT& param_lbound() { return _param_lbound; }
+    static const NparamsVecT& param_ubound() { return _param_ubound; }
     
     static bool check_params(double mu, double sigma); /* Check parameters are valid (in bounds) */    
-    static bool check_params(const VecT &params);    /* Check a vector of parameters is valid (in bounds) */    
+    template<class Vec>
+    static bool check_params(const Vec &p) { return check_params(p(0),p(1)); }    /* Check a vector of parameters is valid (in bounds) */    
 
     /* Constructor */
-    NormalDist(double mu=0.0, double sigma=1.0);
-    NormalDist(const VecT &params);
+    NormalDist(double mu, double sigma);
+    NormalDist() : NormalDist(0.0, 1.0) {}
+    template<class Vec, meta::ConstructableIfNotSelfT<Vec,NormalDist> = true>
+    explicit NormalDist(const Vec &params) : NormalDist(params(0),params(1)) { }
     
     /* Member functions */
-    double mu() const;
-    double sigma() const;
+    double mu() const { return _mu; }
+    double sigma() const { return _sigma; }
     void set_mu(double val);
     void set_sigma(double val);
     bool operator==(const NormalDist &o) const { return mu() == o.mu() && sigma() == o.sigma(); }
@@ -45,9 +54,10 @@ public:
     
     double get_param(int idx) const;
     void set_param(int idx, double val);
-    VecT params() const { return {mu(), sigma()}; }
+    NparamsVecT params() const { return {mu(), sigma()}; }
     void set_params(double mu, double sigma);
-    void set_params(const VecT &p);
+    template<class Vec>
+    void set_params(const Vec &p) { set_params(p(0),p(1)); }
     
     double mean() const { return mu(); }
     double median() const { return mu(); }
@@ -75,8 +85,8 @@ private:
     using RngDistT = std::normal_distribution<double>; //Used for RNG
 
     static const StringVecT _param_names; //Cannonical names for parameters
-    static const VecT _param_lbound; //Lower bound on valid parameter values 
-    static const VecT _param_ubound; //Upper bound on valid parameter values
+    static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
+    static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
 
     static double checked_mu(double val);
     static double checked_sigma(double val);
@@ -92,29 +102,11 @@ private:
     static double compute_llh_const(double sigma);
 };
 
-/* static methods */
-inline
-const StringVecT& NormalDist::param_names() 
-{ return _param_names; }
-
-inline
-const VecT& NormalDist::param_lbound() 
-{ return _param_lbound; }
-
-inline
-const VecT& NormalDist::param_ubound() 
-{ return _param_ubound; }
- 
 
 /* non-static methods */
 inline
-double NormalDist::mu() const { return _mu; }
-
-inline
-double NormalDist::sigma() const { return _sigma; }
-
-inline
-void NormalDist::set_mu(double val) { _mu = checked_mu(val); }
+void NormalDist::set_mu(double val) 
+{ _mu = checked_mu(val); }
 
 inline
 void NormalDist::set_params(double _mu, double _sigma)
@@ -127,12 +119,6 @@ inline
 bool NormalDist::check_params(double mu, double sigma)
 {
     return std::isfinite(mu) && std::isfinite(sigma) && sigma>0;     
-}
-
-inline
-bool NormalDist::check_params(const VecT &params)
-{ 
-    return params.is_finite() && params(1)>0;
 }
 
 inline
@@ -162,13 +148,6 @@ void NormalDist::set_param(int idx, double val)
         default:
             return; //Don't handle indexing errors.
     }
-}
-
-inline
-void NormalDist::set_params(const VecT &p)
-{ 
-    set_mu(p(0));
-    set_sigma(p(1));
 }
 
 inline

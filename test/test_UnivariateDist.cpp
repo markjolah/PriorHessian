@@ -73,7 +73,7 @@ TYPED_TEST(UnivariateDistTest, move_construction) {
 
 TYPED_TEST(UnivariateDistTest, get_params) {
     auto &dist = this->dist;
-    auto params = dist.params();    
+    typename TypeParam::NparamsVecT params = dist.params();    
     EXPECT_EQ(params.n_elem,dist.num_params());
     for(IdxT i=0; i<dist.num_params(); i++)
         EXPECT_EQ(params[i],dist.get_param(i));
@@ -81,7 +81,7 @@ TYPED_TEST(UnivariateDistTest, get_params) {
 
 TYPED_TEST(UnivariateDistTest, set_params) {
     auto &dist = this->dist;
-    auto new_params = dist.params();
+    typename TypeParam::NparamsVecT new_params = dist.params();
     for(IdxT k=0; k<new_params.n_elem; k++)
         new_params[k] += 1./double(k+1);
     dist.set_params(new_params);

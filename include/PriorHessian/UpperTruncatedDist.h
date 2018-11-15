@@ -35,7 +35,7 @@ public:
     UpperTruncatedDist(Dist &&dist, double ubound) : Dist(std::move(dist)) { set_ubound(ubound); }
 
     double ubound() const { return _truncated_ubound; }
-    double global_ubound() const { return Dist::ubound(); }
+    static double global_ubound() { return Dist::ubound(); }
     bool truncated() const { return _truncated; }
     bool operator==(const UpperTruncatedDist<Dist> &o) const 
     { 

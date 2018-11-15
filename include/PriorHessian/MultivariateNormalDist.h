@@ -17,22 +17,25 @@ namespace prior_hessian {
  *
  */
 template<int Ndim> //, meta::ConstructableIf< (Ndim>=2) > = true>
-class MultivariateNormalDist : public MultivariateDist<Ndim> {
-private:    
+class MultivariateNormalDist : public MultivariateDist
+{
     static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
     
 public:
+    using NdimVecT = arma::Col<double>::fixed<Ndim>;
+    using NdimMatT = arma::Mat<double>::fixed<Ndim,Ndim>;
+    using NparamsVecT = arma::Col<double>::fixed<_num_params>;
+    
     static constexpr IdxT num_params() {return _num_params;}
-    
-    using typename MultivariateDist<Ndim>::NdimVecT;
-    using typename MultivariateDist<Ndim>::NdimMatT;
-    using MultivariateDist<Ndim>::num_dim;
-    
-    using NparamsVecT = arma::Col<double>::fixed<num_params()>;
+    static constexpr IdxT num_dim() {return Ndim;}
+    static const NdimVecT& lbound();
+    static const NdimVecT& ubound();
+    template<class Vec>
+    static bool in_bounds(const Vec &u) { return  arma::all(lbound() < u) && arma::all(u < ubound()); }
 
-    MultivariateNormalDist();    //Default to unit Gaussian
-    template<class Vec, class Mat>
-    MultivariateNormalDist(Vec &&mu, Mat &&sigma);
+    static const StringVecT& param_names();
+    static const NparamsVecT& param_lbound();
+    static const NparamsVecT& param_ubound();
     
     template<class Vec>
     static bool check_mu(const Vec &mu);
@@ -42,7 +45,11 @@ public:
     static bool check_params(const Vec &mu, const Mat &sigma);
     template<class Vec>
     static bool check_params(const Vec &params);
-       
+
+    MultivariateNormalDist();    //Default to unit Gaussian
+    template<class Vec, class Mat>
+    MultivariateNormalDist(Vec &&mu, Mat &&sigma);
+
     const NdimVecT& mu() const;
     const NdimMatT& sigma() const;
     const NdimMatT& sigma_inv() const;
@@ -52,11 +59,7 @@ public:
     
     bool operator==(const MultivariateNormalDist<Ndim> &o) const;    
     bool operator!=(const MultivariateNormalDist<Ndim> &o) const { return !this->operator==(o); }
-    
-    static const StringVecT& param_names();
-    static const VecT& param_lbound();
-    static const VecT& param_ubound();
-        
+            
     double get_param(int idx) const;
  
     NparamsVecT params() const;
@@ -67,10 +70,10 @@ public:
     void set_params(Vec &&mu, Mat &&sigma);
     
     /* Import names from Dependent Base Class */    
-    VecT mean() const { return mu(); }
-    VecT mode() const { return mu(); }
+    NdimVecT mean() const { return mu(); }
+    NdimVecT mode() const { return mu(); }
     
-    template<class Vec> double cdf(Vec x) const; // Not implemented. Too expensive.
+    template<class Vec> double cdf(Vec x) const;
     template<class Vec> double pdf(const Vec &x) const;
     template<class Vec> double llh(const Vec &x) const;
     template<class Vec> double rllh(const Vec &x) const;
@@ -86,7 +89,6 @@ public:
     template<class RngT>
     NdimVecT sample(RngT &rng) const;
   
-// protected:
     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
     template<class IterT>
     static bool check_params_iter(IterT &params);
@@ -96,11 +98,13 @@ public:
 
     template<class IterT>
     void set_params_iter(IterT &params);
+
 private:    
-//     static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
     static StringVecT _param_names; //Cannonical names for parameters
     static NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static NparamsVecT _param_ubound; //Upper bound on valid parameter values
+    static NdimVecT _lbound;
+    static NdimVecT _ubound;
     
     template<class Vec>
     static NdimMatT compressed_upper_triangular_to_full_matrix(const Vec &v);
@@ -112,14 +116,14 @@ private:
     static bool init_param_names();
     static bool init_param_lbound();
     static bool init_param_ubound();
+    static bool init_lbound();
+    static bool init_ubound();
     
     /* Non-static private members
      */
     NdimVecT _mu;
     NdimMatT _sigma;
     NdimMatT _sigma_inv;
-    NdimVecT _lbound;
-    NdimVecT _ubound;
     NdimMatT _sigma_chol; //cholesky decoposition of sigma (lower triangular form s.t. A*A.t()=sigma)
 
     //Lazy computation of llh_const.  Most use-cases do not need it.
@@ -156,11 +160,19 @@ MultivariateNormalDist<Ndim>::_param_lbound;
 template<int Ndim>
 typename MultivariateNormalDist<Ndim>::NparamsVecT 
 MultivariateNormalDist<Ndim>::_param_ubound;
+
+template<int Ndim>
+typename MultivariateNormalDist<Ndim>::NdimVecT 
+MultivariateNormalDist<Ndim>::_lbound;
+
+template<int Ndim>
+typename MultivariateNormalDist<Ndim>::NdimVecT 
+MultivariateNormalDist<Ndim>::_ubound;
 /* Constructors */
 
 template<int Ndim>
 MultivariateNormalDist<Ndim>::MultivariateNormalDist() : 
-        MultivariateDist<Ndim>(),
+        MultivariateDist(),
         _mu(arma::fill::zeros), 
         _sigma(arma::fill::zeros)
 {
@@ -258,26 +270,47 @@ MultivariateNormalDist<Ndim>::full_matrix_to_compressed_upper_triangular(const M
 template<int Ndim>
 const StringVecT& MultivariateNormalDist<Ndim>::param_names()
 { 
-    static bool _dummy = init_param_names(); //Run initialization only once
-    (void) _dummy; //Prevent an unsed variable warning
+    static bool initialized = init_param_names(); //Run initialization only once
+    (void) initialized; //Prevent an unsed variable warning
     return _param_names; 
 }
 
 template<int Ndim>
-const VecT& MultivariateNormalDist<Ndim>::param_lbound()
+const typename MultivariateNormalDist<Ndim>::NparamsVecT& 
+MultivariateNormalDist<Ndim>::param_lbound()
 { 
-    static bool _dummy = init_param_lbound(); //Run initialization only once
-    (void) _dummy; //Prevent an unsed variable warning
+    static bool initialized = init_param_lbound(); //Run initialization only once
+    (void) initialized; //Prevent an unsed variable warning
     return _param_lbound;
 }
 
 template<int Ndim>
-const VecT& MultivariateNormalDist<Ndim>::param_ubound()
+const typename MultivariateNormalDist<Ndim>::NparamsVecT& 
+MultivariateNormalDist<Ndim>::param_ubound()
 { 
-    static bool _dummy = init_param_ubound(); //Run initialization only once
-    (void) _dummy; //Prevent an unsed variable warning
+    static bool initialized = init_param_ubound(); //Run initialization only once
+    (void) initialized; //Prevent an unsed variable warning
     return _param_ubound;
 }
+
+template<int Ndim>
+const typename MultivariateNormalDist<Ndim>::NdimVecT& 
+MultivariateNormalDist<Ndim>::lbound()
+{ 
+    static bool initialized = init_lbound(); //Run initialization only once
+    (void) initialized; //Prevent an unsed variable warning
+    return _lbound;
+}
+
+template<int Ndim>
+const typename MultivariateNormalDist<Ndim>::NdimVecT& 
+MultivariateNormalDist<Ndim>::ubound()
+{ 
+    static bool initialized = init_ubound(); //Run initialization only once
+    (void) initialized; //Prevent an unsed variable warning
+    return _ubound;
+}
+
 
 //translate linear idx into covariance matrix sigma using the ordering of an upper-triangular 
 // matrix in col-major form.
@@ -301,7 +334,7 @@ bool MultivariateNormalDist<Ndim>::init_param_names()
     }
     for(int c=0;c<Ndim;c++) for(int r=0;r<=c;r++) {
         std::ostringstream name;
-        name<<"sigma_"<<r+1<<"_"<<c+1;
+        name<<"sigma_"<<r<<"_"<<c;
         _param_names.emplace_back(name.str());
     }
     return true;
@@ -321,7 +354,21 @@ bool MultivariateNormalDist<Ndim>::init_param_ubound()
     _param_ubound.fill(INFINITY);
     return true;
 }
-    
+
+template<int Ndim>
+bool MultivariateNormalDist<Ndim>::init_lbound()
+{ 
+    _lbound.fill(-INFINITY);
+    return true;
+}
+
+template<int Ndim>
+bool MultivariateNormalDist<Ndim>::init_ubound()
+{ 
+    _ubound.fill(INFINITY);
+    return true;
+}
+
 /* Non-static methods */
 
 template<int Ndim>
@@ -362,7 +409,7 @@ void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val)
         throw ParameterValueError("Cholesky decomposition failure. Sigma is not positive definite.");
     }
     try {
-        _sigma_inv = arma::inv_sympd(arma::symmatu(val));
+        _sigma_inv = arma::symmatu(arma::inv_sympd(arma::symmatu(val)));
     } catch (std::logic_error &e) {
         std::ostringstream msg;
         msg<<"Bad sigma size: "<<val.n_rows<<","<<val.n_cols<<"\n";

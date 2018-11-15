@@ -23,18 +23,21 @@ public:
     ScaledDist(double lbound, double ubound) : ScaledDist(Dist{}, lbound, ubound) { }
 
     template<typename=meta::EnableIfNotIsSelfT<Dist,ScaledDist>>
-    ScaledDist(const Dist &dist) : ScaledDist(dist, dist.lbound(), dist.ubound()) { }
+    ScaledDist(const Dist &dist) : ScaledDist(dist, Dist::lbound(), Dist::ubound()) { }
     
     template<typename=meta::EnableIfNotIsSelfT<Dist,ScaledDist>>
-    ScaledDist(Dist &&dist) : ScaledDist(std::move(dist), dist.lbound(), dist.ubound()) { }
+    ScaledDist(Dist &&dist) : ScaledDist(std::move(dist), Dist::lbound(), Dist::ubound()) { }
 
     ScaledDist(const Dist &dist, double lbound, double ubound) : Dist(dist) { set_bounds(lbound,ubound); }
     ScaledDist(Dist &&dist, double lbound, double ubound) : Dist(std::move(dist)) { set_bounds(lbound,ubound); }
 
     double lbound() const { return _scaled_lbound; }
     double ubound() const { return _scaled_ubound; }
-    double unscaled_lbound() const { return Dist::lbound(); }
-    double unscaled_ubound() const { return Dist::ubound(); }
+    static double unscaled_lbound() { return Dist::lbound(); }
+    static double unscaled_ubound() { return Dist::ubound(); }
+    static double global_lbound() { return -INFINITY; } /* Lower-bound for valid lbound values */
+    static double global_ubound() { return INFINITY; } /* Upper-bound for valid ubound values */
+    
     bool operator==(const ScaledDist<Dist> &o) const 
     { 
         return _scaled_lbound==o._scaled_lbound && _scaled_ubound==o._scaled_ubound && 
@@ -50,7 +53,6 @@ public:
     double mean() const { return convert_from_unitary_coords(Dist::mean()); }
     double median() const { return convert_from_unitary_coords(Dist::median()); }
 
-    
     double cdf(double x) const;
     double pdf(double x) const;
     double icdf(double u) const;

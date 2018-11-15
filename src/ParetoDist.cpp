@@ -14,26 +14,21 @@
 namespace prior_hessian {
 
 const StringVecT ParetoDist::_param_names = {"min", "alpha" };
-const VecT ParetoDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
-const VecT ParetoDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
+const ParetoDist::NparamsVecT ParetoDist::_param_lbound = {0, 0}; //Lower bound on valid parameter values 
+const ParetoDist::NparamsVecT ParetoDist::_param_ubound = {INFINITY, INFINITY}; //Upper bound on valid parameter values
 
 /* Constructors */
 ParetoDist::ParetoDist(double min, double alpha) 
-    : UnivariateDist(checked_min(min),INFINITY),
+    : UnivariateDist(),
+      _min(checked_min(min)),
       _alpha(checked_alpha(alpha)),
-      llh_const_initialized(false)
-{ }
-
-ParetoDist::ParetoDist(const VecT &params) 
-    : UnivariateDist(checked_min(params[0]),INFINITY),
-      _alpha(checked_alpha(params[1])),
       llh_const_initialized(false)
 { }
 
 /* Non-static member functions */
 void ParetoDist::set_min(double val) 
 { 
-    set_lbound(checked_min(val)); 
+    _min = checked_min(val);
     llh_const_initialized = false;    
 }
 
@@ -45,24 +40,16 @@ void ParetoDist::set_alpha(double val)
 
 void ParetoDist::set_params(double min, double alpha) 
 { 
-    set_lbound(checked_min(min)); 
+    _min = checked_min(min);
     _alpha = checked_alpha(alpha); 
-    llh_const_initialized = false;
-}
-
-void ParetoDist::set_params(const VecT &p) 
-{ 
-    set_lbound(checked_min(p[0])); 
-    _alpha = checked_alpha(p[1]); 
     llh_const_initialized = false;
 }
 
 void ParetoDist::set_lbound(double lbound)
 { 
-    set_lbound_internal(lbound);
+    _min = checked_min(lbound);
     llh_const_initialized = false;  //Pareto llh_const depends on lbound.
 }
-
 
 double ParetoDist::mean() const 
 { 
@@ -73,7 +60,6 @@ double ParetoDist::median() const
 { 
     return lbound() * std::pow(2,1/alpha()); 
 }
-
 
 double ParetoDist::llh(double x) const 
 { 
