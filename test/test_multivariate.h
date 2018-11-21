@@ -46,6 +46,9 @@ check_equal(const Dist1 &d1, const Dist2 &d2)
     ASSERT_EQ(d1,d2);
     ASSERT_EQ(Nparams, d2.num_params());
     //parameters are equal
+    auto params1 = d1.params();
+    auto params2 = d2.params();
+    EXPECT_TRUE(arma::all(params1 == params2));
     for(IdxT i=0; i<Nparams; i++) EXPECT_EQ(d1.get_param(i),d2.get_param(i));    
     //Check repeatability of rng generation
     env->reset_rng();
