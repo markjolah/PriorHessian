@@ -77,9 +77,11 @@ public:
      /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
     template<class IterT>
     static bool check_params_iter(IterT &params);   
-    
+    template<class IterT>
+    void append_params_iter(IterT &params) const;    
     template<class IterT>
     void set_params_iter(IterT &params);
+
     
 private:
     using RngDistT = std::normal_distribution<double>; //Used for RNG
@@ -198,6 +200,14 @@ bool NormalDist::check_params_iter(IterT &params)
     double sigma = *params++;
     return check_params(mu,sigma);
 }
+
+template<class IterT>
+void NormalDist::append_params_iter(IterT &params) const
+{
+    *params++ = mu();
+    *params++ = sigma();
+}
+ 
 
 template<class IterT>
 void NormalDist::set_params_iter(IterT &params)

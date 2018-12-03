@@ -44,8 +44,8 @@ public:
 };
 
 using CopulaDistTestTs = ::testing::Types<
-    CopulaDist<AMHCopula, TruncatedNormalDist, TruncatedNormalDist>,
-    CopulaDist<AMHCopula, TruncatedGammaDist, TruncatedGammaDist>>;
+    CopulaDist<AMHCopula, TruncatedNormalDist, TruncatedNormalDist>>;
+//     CopulaDist<AMHCopula, TruncatedGammaDist, TruncatedGammaDist>>;
     
 TYPED_TEST_CASE(CopulaDistTest, CopulaDistTestTs);
 

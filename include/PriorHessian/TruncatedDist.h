@@ -22,6 +22,7 @@ template<class Dist>
 class TruncatedDist : public Dist
 {
 public:
+    static constexpr IdxT num_params() { return Dist::num_params(); } 
     static constexpr const double min_bounds_pdf_integral = 1.0e-8; /** minimum allowabale delta in cdf for a valid truncation*/
     static double global_lbound() { return Dist::lbound(); }
     static double global_ubound() { return Dist::ubound(); }

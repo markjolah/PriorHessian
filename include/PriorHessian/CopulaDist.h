@@ -7,6 +7,7 @@
 #define PRIOR_HESSIAN_COPULADIST_H
 
 #include "PriorHessian/util.h"
+#include "PriorHessian/Meta.h"
 #include "PriorHessian/UnivariateDist.h"
 #include "PriorHessian/MultivariateDist.h"
 #include "PriorHessian/BoundsAdaptedDist.h"
@@ -79,7 +80,7 @@ public:
 //     NdimVecT mean() const;
 //     NdimVecT mode() const;
     
-    template<class Vec> double cdf(Vec x) const;
+    template<class Vec> double cdf(const Vec &x) const;
     template<class Vec> double pdf(const Vec &x) const;
     template<class Vec> double llh(const Vec &x) const;
     template<class Vec> double rllh(const Vec &x) const;
@@ -125,7 +126,7 @@ private:
     template<std::size_t... I>
     static NdimVecT marginal_num_params(std::index_sequence<I...>);
     template<class IterT, std::size_t... I>
-    static bool check_marginal_params(Iter &params_it, std::index_sequence<I...>);
+    static bool check_marginal_params(IterT &params_it, std::index_sequence<I...>);
     
     template<std::size_t... I>
     NdimVecT marginal_lbound(std::index_sequence<I...>) const; 
@@ -148,10 +149,10 @@ private:
     template<class InIter,class OutIter, std::size_t... I>
     void compute_marginal_pdf(InIter in_it, OutIter out_it, std::index_sequence<I...>) const;
     template<class InIter,class OutIter, std::size_t... I>
-    void compute_marginal_icdf(InIter in_it, OutIter out_it, sstd::index_sequence<I...>) const;
+    void compute_marginal_icdf(InIter in_it, OutIter out_it, std::index_sequence<I...>) const;
     
-    template<std::size_t... I>
-    bool marginals_are_equal(std::index_sequence<I...>) const; //helper for operator=()
+    template<class OCopulaT, std::size_t... I>
+    bool marginals_are_equal(const OCopulaT &o,std::index_sequence<I...>) const; //helper for operator=()
 
     /* private member variables */
     CopulaT copula;
@@ -315,7 +316,7 @@ void CopulaDist<CopulaTemplate,MarginalDistTs...>::set_ubound(const Vec& new_ubo
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 bool CopulaDist<CopulaTemplate,MarginalDistTs...>::operator==(const CopulaDist<CopulaTemplate,MarginalDistTs...> &o) const
 {
-    return copula == o.copula && marginals_are_equal(IndexT{});
+    return copula == o.copula && marginals_are_equal(o,IndexT{});
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
@@ -323,7 +324,8 @@ typename CopulaDist<CopulaTemplate,MarginalDistTs...>::NparamsVecT
 CopulaDist<CopulaTemplate,MarginalDistTs...>::params() const
 {
     NparamsVecT p;
-    append_marginal_params(p.begin(),IndexT{});
+    auto it = p.begin();
+    append_marginal_params(it,IndexT{});
     return p;
 }
 
@@ -343,7 +345,7 @@ template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class Vec>
 void CopulaDist<CopulaTemplate,MarginalDistTs...>::set_params(const Vec &params)
 {
-    void it = params.begin();
+    auto it = params.begin();
     copula.set_theta(*it++);
     set_marginal_params(it,IndexT{});
 }
@@ -352,12 +354,12 @@ template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class IterT>
 bool CopulaDist<CopulaTemplate,MarginalDistTs...>::check_params_iter(IterT &params_it)
 {
-    return copula.check_params_iter(params_it) && marginal_check_params(params_it,IndexT{});
+    return check_params_iter(params_it) && marginal_check_params(params_it,IndexT{});
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class IterT>
-void set_params_iter(IterT &params_it)
+void CopulaDist<CopulaTemplate,MarginalDistTs...>::set_params_iter(IterT &params_it)
 {
     copula.set_theta(*params_it++);
     marginal_set_params(params_it,IndexT{});
@@ -478,8 +480,10 @@ void CopulaDist<CopulaTemplate,MarginalDistTs...>::grad_hess_accumulate(const Ve
     hess += H;
 }
 
+template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class RngT>
-NdimVecT sample(RngT &rng) const
+typename CopulaDist<CopulaTemplate,MarginalDistTs...>::NdimVecT 
+CopulaDist<CopulaTemplate,MarginalDistTs...>::sample(RngT &rng) const
 {
     auto u = copula.sample(rng);
     compute_marginal_icdf(u.begin(),u.begin(),IndexT{});
@@ -598,7 +602,7 @@ CopulaDist<CopulaTemplate,MarginalDistTs...>::marginal_param_names(std::index_se
     StringVecT names;
     names.reserve(num_params());    
     auto iter = names.begin();
-    meta::call_in_order({(iter = std::copy_n(MarginalDistT<I>::param_names().begin(),MarginalDistT<I>::num_params(),iter), 0)... });
+    meta::call_in_order({(iter = std::copy_n(MarginalDistT<I>::param_names().begin(),MarginalDistT<I>::num_params_static(),iter), 0)... });
     return names;
 }
 
@@ -612,7 +616,7 @@ CopulaDist<CopulaTemplate,MarginalDistTs...>::marginal_num_params(std::index_seq
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class IterT, std::size_t... I>
-bool CopulaDist<CopulaTemplate,MarginalDistTs...>::check_marginal_params(Iter &params_it, std::index_sequence<I...>)
+bool CopulaDist<CopulaTemplate,MarginalDistTs...>::check_marginal_params(IterT &params_it, std::index_sequence<I...>)
 {
     return meta::logical_and_in_order({MarginalDistT<I>::check_params_iter(params_it)...});
 }
@@ -659,7 +663,7 @@ template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class Iter, std::size_t... I>
 void CopulaDist<CopulaTemplate,MarginalDistTs...>::append_marginal_params(Iter &it, std::index_sequence<I...>) const
 {
-    meta::call_in_order({(it = std::copy_n(std::get<I>(marginals).params().begin(),MarginalDistT<I>::num_params(),it) ,0)...});
+    meta::call_in_order({(std::get<I>(marginals).append_params_iter(it),0)...});
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
@@ -670,8 +674,8 @@ void CopulaDist<CopulaTemplate,MarginalDistTs...>::set_marginal_params(Iter &it,
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
-template<std::size_t... I>
-bool CopulaDist<CopulaTemplate,MarginalDistTs...>::marginals_are_equal(std::index_sequence<I...>) const
+template<class OCopulaT, std::size_t... I>
+bool CopulaDist<CopulaTemplate,MarginalDistTs...>::marginals_are_equal(const OCopulaT &o, std::index_sequence<I...>) const
 {
     return meta::logical_and_in_order({std::get<I>(marginals) == std::get<I>(o.marginals)...});
 }
@@ -680,21 +684,21 @@ template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class InIter,class OutIter,std::size_t... I>
 void CopulaDist<CopulaTemplate,MarginalDistTs...>::compute_marginal_cdf(InIter in_it, OutIter out_it, std::index_sequence<I...>) const
 {
-    meta::call_in_order({(*out_it++ = std::get<I>(marginals).cdf(*in_it++),0)});
+    meta::call_in_order({(*out_it++ = std::get<I>(marginals).cdf(*in_it++),0)...});
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class InIter,class OutIter,std::size_t... I>
 void CopulaDist<CopulaTemplate,MarginalDistTs...>::compute_marginal_pdf(InIter in_it, OutIter out_it, std::index_sequence<I...>) const
 {
-    meta::call_in_order({(*out_it++ = std::get<I>(marginals).pdf(*in_it++),0)});
+    meta::call_in_order({(*out_it++ = std::get<I>(marginals).pdf(*in_it++),0)...});
 }
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 template<class InIter,class OutIter,std::size_t... I>
 void CopulaDist<CopulaTemplate,MarginalDistTs...>::compute_marginal_icdf(InIter in_it, OutIter out_it, std::index_sequence<I...>) const
 {
-    meta::call_in_order({(*out_it++ = std::get<I>(marginals).icdf(*in_it++),0)});
+    meta::call_in_order({(*out_it++ = std::get<I>(marginals).icdf(*in_it++),0)...});
 }
 
 
