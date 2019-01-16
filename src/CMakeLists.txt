@@ -2,16 +2,15 @@
 # Main CMake for PriorHessian libraries
 
 file(GLOB SRCS *.cpp)  #Gather all .cpp sources
-set(SRCS ${SRCS} mvndstpack.f) #Add fortran sources
-
-set(PUBLIC_HEADER_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/../include)
-#Debug only headers are not distrubted with non-debug builds
-set(PUBLIC_DEBUG_HEADER_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/../include/debug)
+list(APPEND SRCS mvndstpack.f) #Add fortran sources
 
 include(AddSharedStaticLibraries)
-add_shared_static_libraries("${SRCS}" ${PROJECT_NAME}) 
+add_shared_static_libraries(SOURCES ${SRCS}
+                            PUBLIC_HEADER_DIR ${CMAKE_CURRENT_LIST_DIR}/../include
+                            PUBLIC_DEBUG_HEADER_DIR ${CMAKE_CURRENT_LIST_DIR}/../include/debug
+                            RETURN_TARGETS lib_targets)
 
-foreach(target ${LIB_TARGETS})
+foreach(target ${lib_targets})
     target_compile_features(${target} PUBLIC cxx_std_14) #C++14 required for variadic templates support.
     target_compile_options(${target} INTERFACE $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-parameter>)
     target_include_directories(${target} PUBLIC $<BUILD_INTERFACE:${PUBLIC_HEADER_SRC_DIR}> 
@@ -20,10 +19,10 @@ foreach(target ${LIB_TARGETS})
     target_link_libraries(${target} PUBLIC Boost::boost) #For Boost header-only libraries
 endforeach()
 
-install(TARGETS ${LIB_TARGETS} EXPORT ${PROJECT_NAME}Targets
-        LIBRARY DESTINATION lib COMPONENT Runtime
-        ARCHIVE DESTINATION lib COMPONENT Development)
-
-install(DIRECTORY ${PUBLIC_HEADER_SRC_DIR}/ DESTINATION include COMPONENT Development)
-install(DIRECTORY ${PUBLIC_DEBUG_HEADER_SRC_DIR}/ DESTINATION include CONFIGURATIONS Debug COMPONENT Development)
-
+# install(TARGETS ${lib_targets} EXPORT ${PROJECT_NAME}Targets
+#         LIBRARY DESTINATION lib COMPONENT Runtime
+#         ARCHIVE DESTINATION lib COMPONENT Development)
+#
+# install(DIRECTORY ${PUBLIC_HEADER_SRC_DIR}/ DESTINATION include COMPONENT Development)
+# install(DIRECTORY ${PUBLIC_DEBUG_HEADER_SRC_DIR}/ DESTINATION include CONFIGURATIONS Debug COMPONENT Development)
+#
