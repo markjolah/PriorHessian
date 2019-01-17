@@ -180,9 +180,24 @@ void CompositeDist::set_param_value(const std::string &name, double value)
         throw ParameterNameError(msg.str());
     }
     auto ps = params();
-    ps[it->second]=value;
+    ps[it->second] = value;
     set_params(ps);
 }
+
+void CompositeDist::rename_param(const std::string &old_name,std::string new_name)
+{
+    if(!param_names_initialized) initialize_param_names();
+    auto it = param_name_idx.find(old_name);
+    if(it == param_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No parameter found named:"<<old_name;
+        throw ParameterNameError(msg.str());
+    }
+    auto ps = param_names();
+    ps[it->second] = new_name;
+    set_param_names(ps);
+}
+
 
 //Called on every new initialization
 void CompositeDist::initialize_from_handle()

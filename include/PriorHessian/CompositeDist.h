@@ -175,7 +175,8 @@ public:
     double get_param_value(const std::string &name) const; 
     int get_param_index(const std::string &name) const; 
     void set_param_value(const std::string &name, double value);
-    
+    void rename_param(const std::string &old_name,std::string new_name);
+
     //Functions mapped over underlying distributions
     double cdf(const VecT &u) const { return handle->cdf(u); }
     double pdf(const VecT &u) const { return handle->pdf(u); }
