@@ -293,6 +293,154 @@ TYPED_TEST(CompositeDistTest, move_assignment) {
     }
 }
 
+//Check lazily constructed name lists are preserved on copy_construction
+TYPED_TEST(CompositeDistTest, names_copy_construction) {
+    CompositeDist &composite = this->composite;
+    auto comps = composite.component_names();
+    auto vars = composite.dim_variables();
+    auto params = composite.param_names();
+    for(auto &n: comps) n+="_comp";
+    for(auto &n: vars) n+="_var";
+    for(auto &n: params) n+="_param";
+    composite.set_component_names(comps);
+    composite.set_dim_variables(vars);
+    composite.set_param_names(params);
+
+    CompositeDist dist_copy{composite};
+
+    auto comps2 = composite.component_names();
+    auto vars2 = composite.dim_variables();
+    auto params2 = composite.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+
+    comps2 = dist_copy.component_names();
+    vars2 = dist_copy.dim_variables();
+    params2 = dist_copy.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+}
+
+//Check lazily constructed name lists are preserved on move_construction
+TYPED_TEST(CompositeDistTest, names_move_construction) {
+    CompositeDist &composite = this->composite;
+    auto comps = composite.component_names();
+    auto vars = composite.dim_variables();
+    auto params = composite.param_names();
+    for(auto &n: comps) n+="_comp";
+    for(auto &n: vars) n+="_var";
+    for(auto &n: params) n+="_param";
+    composite.set_component_names(comps);
+    composite.set_dim_variables(vars);
+    composite.set_param_names(params);
+
+
+    auto comps2 = composite.component_names();
+    auto vars2 = composite.dim_variables();
+    auto params2 = composite.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+
+    CompositeDist dist_copy{std::move(composite)};
+
+    comps2 = dist_copy.component_names();
+    vars2 = dist_copy.dim_variables();
+    params2 = dist_copy.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+}
+
+//Check lazily constructed name lists are preserved on copy assignment
+TYPED_TEST(CompositeDistTest, names_copy_assignment) {
+    CompositeDist &composite = this->composite;
+    CompositeDist dist_copy{std::make_tuple(prior_hessian::NormalDist{})}; //Make something useful to force compiler to do something.
+    auto comps = composite.component_names();
+    auto vars = composite.dim_variables();
+    auto params = composite.param_names();
+    for(auto &n: comps) n+="_comp";
+    for(auto &n: vars) n+="_var";
+    for(auto &n: params) n+="_param";
+    composite.set_component_names(comps);
+    composite.set_dim_variables(vars);
+    composite.set_param_names(params);
+
+    dist_copy = composite;
+
+    auto comps2 = composite.component_names();
+    auto vars2 = composite.dim_variables();
+    auto params2 = composite.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+
+    comps2 = dist_copy.component_names();
+    vars2 = dist_copy.dim_variables();
+    params2 = dist_copy.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+}
+
+
+//Check lazily constructed name lists are preserved on move assignment
+TYPED_TEST(CompositeDistTest, names_move_assignment) {
+    CompositeDist &composite = this->composite;
+    CompositeDist dist_copy{std::make_tuple(prior_hessian::NormalDist{})}; //Make something useful to force compiler to do something.
+    auto comps = composite.component_names();
+    auto vars = composite.dim_variables();
+    auto params = composite.param_names();
+    for(auto &n: comps) n+="_comp";
+    for(auto &n: vars) n+="_var";
+    for(auto &n: params) n+="_param";
+    composite.set_component_names(comps);
+    composite.set_dim_variables(vars);
+    composite.set_param_names(params);
+
+    auto comps2 = composite.component_names();
+    auto vars2 = composite.dim_variables();
+    auto params2 = composite.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+
+    dist_copy = std::move(composite);
+
+    comps2 = dist_copy.component_names();
+    vars2 = dist_copy.dim_variables();
+    params2 = dist_copy.param_names();
+    ASSERT_EQ(comps.size(),comps2.size());
+    for(IdxT i=0; i<comps.size(); i++) EXPECT_EQ(comps[i],comps2[i]);
+    ASSERT_EQ(vars.size(),vars2.size());
+    for(IdxT i=0; i<vars.size(); i++) EXPECT_EQ(vars[i],vars2[i]);
+    ASSERT_EQ(params.size(),params2.size());
+    for(IdxT i=0; i<params.size(); i++) EXPECT_EQ(params[i],params2[i]);
+}
+
 TYPED_TEST(CompositeDistTest, num_components) {
     CompositeDist &composite = this->composite;
     EXPECT_EQ(composite.num_components(),std::tuple_size<TypeParam>::value);
@@ -532,7 +680,7 @@ TYPED_TEST(CompositeDistTest, set_bounds) {
     ASSERT_TRUE(composite.in_bounds(new_ub));
     ASSERT_TRUE(!composite.in_bounds(ub) || arma::all(ub==composite.ubound()));
 }
-
+/*
 TYPED_TEST(CompositeDistTest, in_bounds_set_bounds) {
     CompositeDist &composite = this->composite;
     if(!composite) return;
@@ -567,7 +715,7 @@ TYPED_TEST(CompositeDistTest, in_bounds_set_bounds) {
         if(n>0) {ASSERT_TRUE(!arma::all(s==old_s));}
         old_s = s;
     }
-}    
+}    */
 
 /* Distribution Parameters */
 TYPED_TEST(CompositeDistTest, num_params_components) {

@@ -1,6 +1,6 @@
 /** @file TruncatedParetoDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief ParetoDist class declaration and templated methods
  * 
  */
@@ -16,9 +16,9 @@ namespace prior_hessian {
 using TruncatedParetoDist = UpperTruncatedDist<ParetoDist>;
 
 inline
-TruncatedParetoDist make_bounded_pareto_dist(double alpha, double lbound, double ubound)
+TruncatedParetoDist make_bounded_pareto_dist(double alpha, std::pair<double,double> bounds)
 {
-    return {ParetoDist(alpha,lbound),ubound};
+    return {ParetoDist(bounds.first,alpha),bounds.second};
 }
 
 namespace detail

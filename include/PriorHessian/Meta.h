@@ -132,7 +132,11 @@ namespace meta {
     template<class T, template <typename...> class ClassTemplate> 
     using EnableIfInstantiatedFromT = std::enable_if_t<
                 is_template_of<ClassTemplate, std::remove_reference_t<T>>::value >;
-    
+
+//     template<class T, template <typename...> class ClassTemplate>
+//     using DisableIfInstantiatedFromT = std::enable_if_t<
+//                 !is_template_of<ClassTemplate, std::remove_reference_t<T>>::value >;
+
     template<class T, template <int> class ClassTemplate> 
     using EnableIfInstantiatedFromNumericT = std::enable_if_t<
                 is_numeric_template_of<ClassTemplate, std::remove_reference_t<T>>::value>;
@@ -188,12 +192,23 @@ namespace meta {
         std::enable_if_t< !is_template_of<std::tuple,std::remove_reference_t<T>>::value
                           && !std::is_same<std::decay_t<T>,SelfT>::value >;
 
-    template<class SelfT, class... Ts> 
-    using ConstructableIfAllAreNotTupleAndAreNotSelfT = 
+    template<class T, class... Ts>
+    using ConstructableIfAllAreNotTupleAndAreNotT =
         std::enable_if_t< !disjunction<is_template_of<std::tuple,std::remove_reference_t<Ts>>...>::value
-                          && !disjunction<std::is_same<std::decay_t<Ts>,SelfT>...>::value, bool>;
-    
-    template<class Dist, class BaseDist> 
+                       && !disjunction<std::is_same<std::decay_t<Ts>,T>...>::value, bool>;
+
+//     template<class T1, class T2, class... Ts>
+//     using ConstructableIfAllAreNotTupleAndAreNotEitherTs =
+//         std::enable_if_t< !disjunction<is_template_of<std::tuple,std::remove_reference_t<Ts>>...>::value
+//                        && !disjunction<std::is_same<std::decay_t<Ts>,T1>...>::value
+//                        && !disjunction<std::is_same<std::decay_t<Ts>,T2>...>::value, bool>;
+
+//     template<class T1, class T2, class... Ts>
+//     using ConstructableIfAllAreNotTupleAndAreNotEitherTs =
+//         std::enable_if_t<!disjunction<std::is_same<std::decay_t<Ts>,T2>...>::value, bool>;
+
+
+    template<class Dist, class BaseDist>
     using DerivedFrom = std::enable_if_t<std::is_base_of<std::decay_t<BaseDist>,std::decay_t<Dist>>::value,std::decay_t<Dist>>;
 
 }

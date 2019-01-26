@@ -1,6 +1,6 @@
 /** @file UnivariateDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief UnivariateDist base class.
  */
 #ifndef PRIOR_HESSIAN_UNIVARIATEDIST_H

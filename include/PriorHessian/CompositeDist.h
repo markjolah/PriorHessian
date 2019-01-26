@@ -53,6 +53,7 @@ namespace prior_hessian {
  *   template< class RngT > double sample(RngT &rng) const;
  * }
  * 
+ * dim_variables and param_names are lazily computed.  If they are not accessed, they are not created.
  * 
  */
 
@@ -67,29 +68,31 @@ public:
     
     CompositeDist();
     
-    /** @brief Initialize from a tuple of of UnivariateDist's or MulitvariateDist's */
-    template<class... Ts, meta::ConstructableIfAllAreNotTupleAndAreNotSelfT<CompositeDist,Ts...> = true>
-    explicit CompositeDist(Ts&&... dists)   
+    /** @brief Construct from a variadic list of subclasses of UnivariateDist's or MulitvariateDist's */
+    template<class... Ts, meta::ConstructableIfAllAreNotTupleAndAreNotT<CompositeDist, Ts...> = true>
+    explicit CompositeDist(Ts&&... dists)
         : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} }
     { initialize_from_handle(); }
-    
+
+    /** @brief Construct from a rvalue tuple of subclasses of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
     explicit CompositeDist(std::tuple<Ts...>&& dist_tuple)
         : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} }
     { initialize_from_handle(); }
 
+    /** @brief Construct from a lvalue tuple of subclasses of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
     explicit CompositeDist(const std::tuple<Ts...>& dist_tuple)
         : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} }
     { initialize_from_handle(); }
     
-    void initialize() { clear(); }
-    void initialize(const std::tuple<>&) { clear(); }
-    void initialize(std::tuple<>&&) { clear(); }
+    void initialize() { clear(); } /** @brief Initialize to the empty state. */
+    void initialize(const std::tuple<>&) { clear(); } /** @brief Initialize of an empty lvalue tuple produces the empty state. */
+    void initialize(std::tuple<>&&) { clear(); } /** @brief Initialize of an empty rvalue tuple produces the empty state. */
     template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
     void initialize(Ts&&... dists)
     {
-        handle = std::unique_ptr<DistTupleHandle>{ 
+        handle = std::unique_ptr<DistTupleHandle>{
                     new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
         initialize_from_handle();
     }
@@ -97,7 +100,7 @@ public:
     template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
     void initialize(std::tuple<Ts...>&& dist_tuple)
     {
-        handle = std::unique_ptr<DistTupleHandle>{ 
+        handle = std::unique_ptr<DistTupleHandle>{
                     new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
         initialize_from_handle();
     }
@@ -105,7 +108,7 @@ public:
     template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
     void initialize(const std::tuple<Ts...>& dist_tuple)
     {
-        handle = std::unique_ptr<DistTupleHandle>{ 
+        handle = std::unique_ptr<DistTupleHandle>{
                     new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
         initialize_from_handle();
     }
@@ -315,7 +318,7 @@ private:
         IdxT num_params() const override { return _num_params; }
         UVecT num_dim_components() const override { return {Ts::num_dim()...}; }
         UVecT num_params_components() const override { return {Ts::num_params()...}; }
-        TypeInfoVecT component_types() const override { return {std::type_index(typeid(Ts))...}; }
+        TypeInfoVecT component_types() const override { return {std::type_index(typeid(typename Ts::ComponentDistT))...}; }
 
         VecT lbound() const override
         {
@@ -609,6 +612,7 @@ public:
     template<class Dist>
     class ComponentDistAdaptor<Dist,meta::EnableIfSubclassT<Dist,UnivariateDist>> : public Dist {
     public:
+        using ComponentDistT = Dist;
         ComponentDistAdaptor() : ComponentDistAdaptor(Dist{}) { }
         explicit ComponentDistAdaptor(Dist &&dist) : Dist(std::move(dist)) { }
         explicit ComponentDistAdaptor(const Dist &dist) : Dist(dist) { }
@@ -678,6 +682,7 @@ public:
     template<class Dist>
     class ComponentDistAdaptor<Dist,meta::EnableIfSubclassT<Dist,MultivariateDist>> : public Dist {
     public:
+        using ComponentDistT = Dist;
         ComponentDistAdaptor() : ComponentDistAdaptor(Dist{}) { }      
         explicit ComponentDistAdaptor(Dist &&dist) : Dist(std::move(dist)) { }
         explicit ComponentDistAdaptor(const Dist &dist) : Dist(dist) { }
@@ -918,6 +923,12 @@ private:
 //     initialize_from_handle();
 // }
 
+
+
+
+
+
+
 template<class... Ts> 
 const std::tuple<Ts...>& 
 CompositeDist::get_dist_tuple() const 
@@ -968,6 +979,8 @@ void CompositeDist::set_param_names(StringVec &&names)
     param_name_idx = initialize_param_name_idx(param_names());
     param_names_initialized = true;
 }
+
+std::ostream& operator<<(std::ostream &out, const CompositeDist &dist);
 
 /* Protected methods */
 

@@ -1,6 +1,6 @@
 /** @file MultivariateNormalDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief MultivariateNormalDist base class.
  */
 #ifndef PRIOR_HESSIAN_MULTIVARIATENORMALDIST_H
@@ -271,7 +271,7 @@ template<int Ndim>
 const StringVecT& MultivariateNormalDist<Ndim>::param_names()
 { 
     static bool initialized = init_param_names(); //Run initialization only once
-    (void) initialized; //Prevent an unsed variable warning
+    (void) initialized; //Prevent an unused variable warning
     return _param_names; 
 }
 
@@ -280,7 +280,7 @@ const typename MultivariateNormalDist<Ndim>::NparamsVecT&
 MultivariateNormalDist<Ndim>::param_lbound()
 { 
     static bool initialized = init_param_lbound(); //Run initialization only once
-    (void) initialized; //Prevent an unsed variable warning
+    (void) initialized; //Prevent an unused variable warning
     return _param_lbound;
 }
 
@@ -289,7 +289,7 @@ const typename MultivariateNormalDist<Ndim>::NparamsVecT&
 MultivariateNormalDist<Ndim>::param_ubound()
 { 
     static bool initialized = init_param_ubound(); //Run initialization only once
-    (void) initialized; //Prevent an unsed variable warning
+    (void) initialized; //Prevent an unused variable warning
     return _param_ubound;
 }
 
@@ -298,7 +298,7 @@ const typename MultivariateNormalDist<Ndim>::NdimVecT&
 MultivariateNormalDist<Ndim>::lbound()
 { 
     static bool initialized = init_lbound(); //Run initialization only once
-    (void) initialized; //Prevent an unsed variable warning
+    (void) initialized; //Prevent an unused variable warning
     return _lbound;
 }
 
@@ -307,7 +307,7 @@ const typename MultivariateNormalDist<Ndim>::NdimVecT&
 MultivariateNormalDist<Ndim>::ubound()
 { 
     static bool initialized = init_ubound(); //Run initialization only once
-    (void) initialized; //Prevent an unsed variable warning
+    (void) initialized; //Prevent an unused variable warning
     return _ubound;
 }
 
@@ -319,7 +319,7 @@ void  MultivariateNormalDist<Ndim>::idx_to_row_col(int idx, int &row, int &col)
 {
     col = 0;
     int s = 0;
-    while(s+col < idx) s+= ++col; //Find the colum, keeping truck of the total s of previous elements in previous columns
+    while(s+col < idx) s+= ++col; //Find the column, keeping truck of the total s of previous elements in previous columns
     row = idx-s;        
 }
 

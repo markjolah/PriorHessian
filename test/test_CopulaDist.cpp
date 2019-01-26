@@ -69,13 +69,13 @@ TYPED_TEST(CopulaDistTest, num_params)
 }
 
 
-TYPED_TEST(CopulaDistTest, copy_assignment) {
-    SCOPED_TRACE("copy_assignment");
-    auto &dist = this->dist;
-    TypeParam dist_copy{};
-    dist_copy = dist;
-    check_equal(dist, dist_copy);
-}
+// TYPED_TEST(CopulaDistTest, copy_assignment) {
+//     SCOPED_TRACE("copy_assignment");
+//     auto &dist = this->dist;
+//     TypeParam dist_copy{};
+//     dist_copy = dist;
+//     check_equal(dist, dist_copy);
+// }
 
 // TYPED_TEST(CopulaDistTest, copy_construction) {
 //     SCOPED_TRACE("copy_construction");

@@ -1,6 +1,6 @@
 /** @file NormalDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief NormalDist class declaration and templated methods
  * 
  */

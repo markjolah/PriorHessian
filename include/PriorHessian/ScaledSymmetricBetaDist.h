@@ -1,6 +1,6 @@
 /** @file ScaledSymmetricBetaDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief SymmetricBetaDist class declaration and templated methods
  * 
  */
@@ -15,9 +15,9 @@ namespace prior_hessian {
 using ScaledSymmetricBetaDist = ScaledDist<SymmetricBetaDist>;
 
 inline
-ScaledSymmetricBetaDist make_scaled_symmetric_beta_dist(double beta, double lbound, double ubound)
+ScaledSymmetricBetaDist make_scaled_symmetric_beta_dist(double beta, std::pair<double,double> bounds)
 {
-    return {SymmetricBetaDist(beta),lbound,ubound};
+    return {SymmetricBetaDist(beta),bounds.first,bounds.second};
 }
 
 namespace detail

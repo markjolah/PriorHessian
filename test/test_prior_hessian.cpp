@@ -31,19 +31,22 @@ void check_positive_definite(const arma::mat &m)
 }
 
 
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
     if(argc>2 && !strncmp("--seed",argv[1],6)){
         char* end;
-        env->set_seed(strtoull(argv[2],&end,0));
-        argc-=2;
-        argv+=2;
+        auto seed = strtoull(argv[2],&end,0);
+        env->set_seed(seed);
+        //Pass on seed to G-test as command line argument
+        const int N=30;
+        char buf[N];
+        snprintf(buf,N,"--gtest_random_seed=%llu",seed);
+        argv[2] = buf;
+        argc--; argv++;
     } else {
         env->set_seed();
     }
-    
     ::testing::AddGlobalTestEnvironment(env);
     ::testing::InitGoogleTest(&argc, argv);
-    
     return RUN_ALL_TESTS();
 }

@@ -17,9 +17,9 @@ namespace prior_hessian {
 using TruncatedNormalDist = TruncatedDist<NormalDist>;
 
 inline
-TruncatedNormalDist make_bounded_normal_dist(double mu, double sigma, double lbound, double ubound)
+TruncatedNormalDist make_bounded_normal_dist(double mu, double sigma, std::pair<double,double> bounds)
 {
-    return {NormalDist(mu, sigma),lbound,ubound};
+    return {NormalDist(mu, sigma),bounds.first,bounds.second};
 }
 
 namespace detail

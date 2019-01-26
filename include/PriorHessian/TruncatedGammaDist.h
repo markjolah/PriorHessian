@@ -1,6 +1,6 @@
 /** @file TruncatedGammaDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief TruncatedGammaDist class declaration and templated methods
  * 
  */
@@ -15,9 +15,9 @@ namespace prior_hessian {
 using TruncatedGammaDist = TruncatedDist<GammaDist>;
 
 inline
-TruncatedGammaDist make_bounded_gamma_dist(double scale, double shape, double lbound, double ubound)
+TruncatedGammaDist make_bounded_gamma_dist(double scale, double shape,  std::pair<double,double> bounds)
 {
-    return {GammaDist(scale, shape),lbound,ubound};
+    return {GammaDist(scale, shape),bounds.first,bounds.second};
 }
 
 namespace detail

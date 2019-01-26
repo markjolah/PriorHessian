@@ -1,6 +1,6 @@
 /** @file CompositeDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief CompositeDist and associated classes and nested classes
  * 
  * 
@@ -15,13 +15,26 @@ CompositeDist::CompositeDist()
 { initialize_from_handle(); }
     
 CompositeDist::CompositeDist(const CompositeDist &o) 
-    : handle{o.handle->clone()}
-{ initialize_from_handle(); }
+    : handle{o.handle->clone()},
+      component_names_initialized(o.component_names_initialized),
+      dim_variables_initialized(o.dim_variables_initialized),
+      param_names_initialized(o.param_names_initialized)
+{
+    if(component_names_initialized) _component_names = o._component_names;
+    if(dim_variables_initialized) _dim_variables = o._dim_variables;
+    if(param_names_initialized) _param_names = o._param_names;
+}
     
 CompositeDist::CompositeDist(CompositeDist &&o) 
-    : handle{std::move(o.handle)}
-{ initialize_from_handle(); }
-
+    : handle{std::move(o.handle)},
+      component_names_initialized(o.component_names_initialized),
+      dim_variables_initialized(o.dim_variables_initialized),
+      param_names_initialized(o.param_names_initialized)
+{
+    if(component_names_initialized) _component_names = std::move(o._component_names);
+    if(dim_variables_initialized) _dim_variables = std::move(o._dim_variables);
+    if(param_names_initialized) _param_names = std::move(o._param_names);
+}
 void CompositeDist::clear()
 {
     handle = std::unique_ptr<DistTupleHandle>{new EmptyDistTuple{}};
@@ -32,7 +45,12 @@ CompositeDist& CompositeDist::operator=(const CompositeDist &o)
 {
     if(this == &o) return *this; //Ignore self-assignment
     handle = o.handle->clone();
-    initialize_from_handle();
+    component_names_initialized = o.component_names_initialized;
+    dim_variables_initialized = o.dim_variables_initialized;
+    param_names_initialized = o.param_names_initialized;
+    if(component_names_initialized) _component_names = o._component_names;
+    if(dim_variables_initialized) _dim_variables = o._dim_variables;
+    if(param_names_initialized) _param_names = o._param_names;
     return *this;
 }
 
@@ -40,7 +58,12 @@ CompositeDist& CompositeDist::operator=(CompositeDist &&o)
 {
     if(this == &o) return *this; //Ignore self-assignment
     handle = std::move(o.handle);
-    initialize_from_handle();
+    component_names_initialized = o.component_names_initialized;
+    dim_variables_initialized = o.dim_variables_initialized;
+    param_names_initialized = o.param_names_initialized;
+    if(component_names_initialized) _component_names = std::move(o._component_names);
+    if(dim_variables_initialized) _dim_variables = std::move(o._dim_variables);
+    if(param_names_initialized) _param_names = std::move(o._param_names);
     return *this;
 }
 
@@ -221,5 +244,6 @@ CompositeDist::initialize_param_name_idx(const StringVecT &names)
     }
     return name_idx;
 }
+
 
 } /* namespace prior_hessian */
