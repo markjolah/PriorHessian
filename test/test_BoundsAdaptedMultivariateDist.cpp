@@ -34,7 +34,7 @@ TYPED_TEST(BoundsAdaptedMultivariateDistTest, copy_assignment) {
 TYPED_TEST(BoundsAdaptedMultivariateDistTest, copy_construction) {
     SCOPED_TRACE("copy_construction");
     auto &dist = this->dist;
-    auto dist_copy{dist};
+    auto dist_copy(dist);
     check_equal(dist, dist_copy);
 }
 

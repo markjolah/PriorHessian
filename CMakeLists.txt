@@ -1,7 +1,8 @@
-# PriorHessian - library for fast computation of log-likelihoods, and derivatives, of multivariate priors defined with Archemedian copulas.
+# PriorHessian - Main CMakeLists.txt
+# A library for fast computation of log-likelihoods, and derivatives, of multivariate priors defined with Archemedian copulas.
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
-# Copyright 2017-2018
+# Copyright 2017-2019
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
 # See: LICENCE file
@@ -16,25 +17,20 @@ if(${CMAKE_BUILD_TYPE} MATCHES Debug)
 else()
     option(BUILD_TESTING "Build testing framework" OFF)
 endif()
+option(OPT_INSTALL_TESTING "Install testing executables" OFF)
+option(OPT_EXPORT_BUILD_TREE "Configure the package so it is usable from the build tree.  Useful for development." OFF)
+option(OPT_ARMADILLO_INT64 "Use 64-bit integers for Armadillo, Blas, and Lapack." ON)
 
 message(STATUS "OPTION: BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 message(STATUS "OPTION: BUILD_STATIC_LIBS: ${BUILD_STATIC_LIBS}")
 message(STATUS "OPTION: BUILD_TESTING: ${BUILD_TESTING}")
+message(STATUS "OPTION: OPT_INSTALL_TESTING: ${OPT_INSTALL_TESTING}")
+message(STATUS "OPTION: OPT_EXPORT_BUILD_TREE: ${OPT_EXPORT_BUILD_TREE}")
+message(STATUS "OPTION: OPT_ARMADILLO_INT64: ${OPT_ARMADILLO_INT64}")
 
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_LIST_DIR}/cmake/UncommonCMakeModules)
 
 ### Dependencies
-# Armadillo
-find_package(Armadillo REQUIRED)
-add_definitions(-DARMA_USE_CXX11)
-add_definitions(-DARMA_DONT_USE_LAPACK -DARMA_DONT_USE_BLAS -DARMA_DONT_USE_OPENMP -DARMA_DONT_USE_HDF5) #disable unused dependencies
-set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS $<$<CONFIG:Debug>:ARMA_PRINT_ERRORS>)
-set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS $<$<NOT:$<CONFIG:Debug>>:ARMA_NO_DEBUG>)
-
-# Boost configure.  We require boost::math
-find_package(Boost REQUIRED)
-
-### External dependencies
 include(AddExternalDependency)
 #BacktraceException allows for exceptions that encode a backtrace for debugging
 set(DEPENDENT_LIBRARY_TYPES SHARED)
@@ -43,13 +39,31 @@ if(BUILD_STATIC_LIBS)
 endif()
 add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git ${DEPENDENT_LIBRARY_TYPES})
 
+# Boost configure.  We require boost::math
+find_package(Boost REQUIRED)
+
+# Find Blas and Lapack using pkg-config in cross-compilation aware way.  Using local FindBLAS.cmake and FindLAPACK.cmake.
+if(OPT_ARMADILLO_INT64)
+    set(ARMADILLO_INT64_COMPONENT INT64) #Enable INT64 interface for armadillo, Blas and Lapack
+else()
+    set(ARMADILLO_INT64_COMPONENT)
+endif()
+find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
+find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
+find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${ARMADILLO_INT64_COMPONENT})
+add_compile_definitions(${ARMADILLO_PRIVATE_COMPILE_DEFINITIONS})
+
+
 ### CFLAGS
 #Configure standard CFlags and definitions for debug builds
 include(ConfigureDebugBuilds)
 
 ### PackageConfig Exports
 include(ExportPackageWizzard)
-export_package_wizzard()
+set(EXPORTED_FIND_MODULES FindArmadillo.cmake FindBLAS.cmake FindLAPACK.cmake MakePkgConfigTarget.cmake)
+list(TRANSFORM EXPORTED_FIND_MODULES PREPEND cmake/UncommonCMakeModules/)
+export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_INT64_COMPONENT}
+                       FIND_MODULES ${EXPORTED_FIND_MODULES})
 
 ### Source directories
 add_subdirectory(src)

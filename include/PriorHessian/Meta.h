@@ -8,6 +8,18 @@
 #ifndef PRIOR_HESSIAN_META_H
 #define PRIOR_HESSIAN_META_H
 
+#define GCC_VERSION (__GNUC__ * 100 + __GNUC_MINOR__ * 10 + __GNUC_PATCHLEVEL__)
+
+#if GCC_VERSION > 500
+//Enable constexpr functions with loops
+#define PRIOR_HESSIAN_META_CONSTEXPR constexpr
+#define PRIOR_HESSIAN_META_HAS_CONSTEXPR 1
+#else
+//Disable constexpr functions with loops
+#define PRIOR_HESSIAN_META_CONSTEXPR
+#define PRIOR_HESSIAN_META_HAS_CONSTEXPR 0
+#endif
+
 #include <functional>
 #include <initializer_list>
 #include <cstdint>
@@ -30,21 +42,25 @@ namespace meta {
     { }
 
     template <class InputIterator, class ResultT, class BinaryOperation>
-    constexpr ResultT constexpr_accumulate (InputIterator first, InputIterator last, ResultT init, BinaryOperation op)
+    PRIOR_HESSIAN_META_CONSTEXPR
+    ResultT constexpr_accumulate (InputIterator first, InputIterator last, ResultT init, BinaryOperation op)
     {
         for(; first!=last; ++first)  init = op(init, *first);
         return init;
     }
 
-    constexpr inline bool logical_and_in_order(std::initializer_list<bool> L) 
+    PRIOR_HESSIAN_META_CONSTEXPR
+    inline bool logical_and_in_order(std::initializer_list<bool> L)
     { return constexpr_accumulate(L.begin(),L.end(),true,std::logical_and<bool>()); }
     
     template<class T>
-    constexpr T sum_in_order(std::initializer_list<T> L) 
+    PRIOR_HESSIAN_META_CONSTEXPR
+    T sum_in_order(std::initializer_list<T> L)
     { return constexpr_accumulate(L.begin(),L.end(),T{0},std::plus<T>()); }
     
     template<class T>
-    constexpr T prod_in_order(std::initializer_list<T> L) 
+    PRIOR_HESSIAN_META_CONSTEXPR
+    T prod_in_order(std::initializer_list<T> L)
     { return constexpr_accumulate(L.begin(),L.end(),T{1},std::multiplies<T>()); }
     
     template<class...> struct conjunction : std::true_type { };

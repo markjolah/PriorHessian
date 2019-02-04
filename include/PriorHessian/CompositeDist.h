@@ -32,8 +32,8 @@ namespace prior_hessian {
  * CompositeDist is a world unto itself.
  * 
  * class UnivariateDistInterface {
- *   static constexpr IdxT num_dim();
- *   static constexpr IdxT num_params();
+ *   static CONSTEXPR IdxT num_dim();
+ *   static CONSTEXPR IdxT num_params();
  *   static const StringVecT param_names;
  *   double lbound() const; 
  *   double ubound() const;
@@ -296,11 +296,20 @@ private:
     {        
         using IndexT = std::index_sequence_for<Ts...>;
         constexpr static IdxT _num_dists = sizeof...(Ts);
+        using StaticSizeArrayT = std::array<IdxT,_num_dists>;
+
+#if PRIOR_HESSIAN_META_HAS_CONSTEXPR
         constexpr static IdxT _num_dim = meta::sum_in_order({Ts::num_dim()...});
         constexpr static IdxT _num_params = meta::sum_in_order({Ts::num_params()...});
-        using StaticSizeArrayT = std::array<IdxT,_num_dists>;
-        constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}}; 
-        constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}}; 
+        constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}};
+        constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}};
+#else
+        //Define as normal static methods
+        static const IdxT _num_dim;
+        static const IdxT _num_params;
+        static const StaticSizeArrayT _component_num_dim;
+        static const StaticSizeArrayT _component_num_params;
+#endif
     public:  
         explicit DistTuple(const std::tuple<Ts...> &_dists) : dists{_dists} { }
         explicit DistTuple(std::tuple<Ts...>&& _dists) : dists{std::move(_dists)} { }
@@ -896,37 +905,19 @@ private:
 
 };
 
-/* CompositeDist<RngT> template methods */
 
-// template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
-// void CompositeDist::initialize(Ts&&... dists)
-// {
-//     handle = std::unique_ptr<DistTupleHandle>{ 
-//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
-//     initialize_from_handle();
-// }
-// 
-// template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
-// void CompositeDist::initialize(std::tuple<Ts...>&& dist_tuple)
-// {
-//     handle = std::unique_ptr<DistTupleHandle>{ 
-//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
-//     initialize_from_handle();
-// }
-// 
-// 
-// template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
-// void CompositeDist::initialize(const std::tuple<Ts...>& dist_tuple)
-// {
-//     handle = std::unique_ptr<DistTupleHandle>{ 
-//                 new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
-//     initialize_from_handle();
-// }
-
-
-
-
-
+#if !PRIOR_HESSIAN_META_HAS_CONSTEXPR
+template<class... Ts>
+const IdxT CompositeDist::DistTuple<Ts...>::_num_dim = meta::sum_in_order({Ts::num_dim()...});
+template<class... Ts>
+const IdxT CompositeDist::DistTuple<Ts...>::_num_params = meta::sum_in_order({Ts::num_params()...});
+template<class... Ts>
+const typename CompositeDist::DistTuple<Ts...>::StaticSizeArrayT
+CompositeDist::DistTuple<Ts...>::_component_num_dim = {{Ts::num_dim()...}};
+template<class... Ts>
+const typename CompositeDist::DistTuple<Ts...>::StaticSizeArrayT
+CompositeDist::DistTuple<Ts...>::_component_num_params = {{Ts::num_params()...}};
+#endif
 
 
 template<class... Ts> 

@@ -22,12 +22,21 @@ template<template <int> class CopulaTemplate, class... MarginalDistTs>
 class CopulaDist : public MultivariateDist {
     using IndexT = std::index_sequence_for<MarginalDistTs...>;
     static constexpr IdxT _num_dim =  sizeof...(MarginalDistTs);
-    static constexpr IdxT _num_params = CopulaTemplate<_num_dim>::num_params() + meta::sum_in_order({MarginalDistTs::num_params()...});
+#if PRIOR_HESSIAN_META_HAS_CONSTEXPR
+    constexpr static IdxT _num_params = CopulaTemplate<_num_dim>::num_params() + meta::sum_in_order({MarginalDistTs::num_params()...});
+#else
+    static const IdxT _num_params;
+#endif
 public:
     using NdimVecT = arma::Col<double>::fixed<_num_dim>;
     using NdimMatT = arma::Mat<double>::fixed<_num_dim,_num_dim>;
-    using NparamsVecT = arma::Col<double>::fixed<_num_params>;
-
+#if PRIOR_HESSIAN_META_HAS_CONSTEXPR
+    using NparamsVecT = arma::Col<double>::fixed<_num_params>; //Use fixed sized type
+    static constexpr IdxT num_params() {return _num_params;}
+#else
+    using NparamsVecT = arma::Col<double>;  //Use variable sized type
+    static IdxT num_params() {return _num_params;}
+#endif
     using MarginalDistTupleT = std::tuple<MarginalDistTs...>;    
     using CopulaT = CopulaTemplate<_num_dim>;
     
@@ -36,7 +45,6 @@ public:
     
     static constexpr IdxT num_components() { return _num_dim; }
     static constexpr IdxT num_dim() { return _num_dim; }
-    static constexpr IdxT num_params() {return _num_params;}
     
     template<class Vec>
     static bool check_params(const Vec &params);
@@ -161,12 +169,17 @@ private:
     NdimVecT _ubound;
 };
 
+#if !PRIOR_HESSIAN_META_HAS_CONSTEXPR
+template<template <int> class CopulaTemplate, class... MarginalDistTs>
+const IdxT CopulaDist<CopulaTemplate, MarginalDistTs...>::_num_params =
+    CopulaTemplate<CopulaDist<CopulaTemplate, MarginalDistTs...>::_num_dim>::num_params() + meta::sum_in_order({MarginalDistTs::num_params()...});
+#endif
+
 } /* namespace prior_hessian::CopulaDistImpl */
 
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>
 using CopulaDist = CopulaDistImpl::CopulaDist<CopulaTemplate, BoundsAdaptedDistT<MarginalDistTs>...>;
-
 
 
 template<template <int> class CopulaTemplate, class... MarginalDistTs>

@@ -34,7 +34,7 @@ TYPED_TEST(BoundsAdaptedDistTest, copy_assignment) {
 TYPED_TEST(BoundsAdaptedDistTest, copy_construction) {
     SCOPED_TRACE("copy_construction");
     auto &dist = this->dist;
-    auto dist_copy{dist};
+    auto dist_copy(dist);
     check_equal(dist, dist_copy);
 }
 
@@ -110,7 +110,7 @@ TYPED_TEST(BoundsAdaptedDistTest, set_params) {
     for(IdxT k=0; k<params.n_elem; k++){
 //         std::printf("params[%llu]:%.12g new_params[%llu]:%.12g\n",k,params[k],k,new_params[k]);
         bool eq = params[k]==new_params[k];
-        EXPECT_EQ(params[k],new_params[k])<<std::setprecision(19)<<params[k]<<" "<<std::setprecision(19)<<new_params[k]<<" "<<eq<<" "<<std::hexfloat<<params[k]<<" "<<std::hexfloat<<new_params[k];
+        EXPECT_EQ(params[k],new_params[k])<<std::setprecision(19)<<params[k]<<" "<<std::setprecision(19)<<new_params[k]<<" "<<eq<<" "<<std::scientific<<params[k]<<" "<<std::scientific<<new_params[k];
     }
 }
 
