@@ -3,7 +3,6 @@
 #PriorHessianConfig.cmake
 
 ### Find dependencies
-
 include(CMakeFindDependencyMacro)
 set_and_check(PACKAGE_FIND_MODULES_PATH @PACKAGE_FIND_MODULES_PATH@)
 list(INSERT CMAKE_MODULE_PATH 0 ${PACKAGE_FIND_MODULES_PATH})
