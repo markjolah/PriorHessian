@@ -20,6 +20,9 @@ add_shared_static_libraries(SOURCES ${SRCS}
 #Custom target settings for each lib_target from add_shared_static_libraries
 foreach(target IN LISTS lib_targets)
     target_compile_options(${target} INTERFACE $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-parameter>)
+    #Boost extendend precision math has problems with older GCC compilers
+    target_compile_options(${target} PUBLIC $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:${CMAKE_CXX_COMPILER_VERSION},5>,$<COMPILE_LANGUAGE:CXX>>:-fext-numeric-literals>)
+
     if(OPT_ARMADILLO_INT64)
         target_link_libraries(${target} INTERFACE LAPACK::LapackInt64 BLAS::BlasInt64)
     else()
