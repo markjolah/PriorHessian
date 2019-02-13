@@ -10,7 +10,12 @@ target_link_libraries(${TEST_TARGET} PUBLIC ${PROJECT_NAME}::${PROJECT_NAME})
 target_link_libraries(${TEST_TARGET} PUBLIC GTest::GTest)
 set_target_properties(${TEST_TARGET} PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 add_test(NAME GTest COMMAND ${TEST_TARGET})
-
+if(WIN32 AND CMAKE_CROSSCOMPILING)
+    #Need the -O1 optimization inlining to reduce the number of symbols
+    get_target_property(_opts ${TEST_TARGET} COMPILE_OPTIONS)
+    string(REPLACE "-O0" "-O1" _opts "${_opts}")
+    set_target_properties(${TEST_TARGET} PROPERTIES COMPILE_OPTIONS ${_opts})
+endif()
 if(OPT_INSTALL_TESTING)
     if(WIN32)
         set(TESTING_INSTALL_DESTINATION bin)
