@@ -13,7 +13,7 @@ if [ ! -d "$INSTALL_PREFIX" ]; then
 fi
 
 if [ -z "$FC" ]; then
-    FC="gfortran"
+    FC=$(find /usr/bin -name gfortran* -print -quit)
 fi
 
 WORK_DIR=_work
