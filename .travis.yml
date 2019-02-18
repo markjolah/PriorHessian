@@ -23,8 +23,8 @@ matrix:
           #- OPT_ARMADILLO_INT64=On
 
       ##Documentation build
-      - env: DOC=On PDFDOC=On DOPT_ARMADILLO_64=Off
-        script: ./scripts/pdf-doc-build.sh -DOPT_ARMADILLO_64=${OPT_ARMADILLO_INT64}
+      - env: DOC=On PDFDOC=On DOPT_ARMADILLO_INT64=Off
+        script: ./scripts/pdf-doc-build.sh -DOPT_ARMADILLO_INT64=${OPT_ARMADILLO_INT64}
         dist: xenial #supports newer doxygen
 
 #MATRIX_EVAL allows CC and CXX to be set before dependencies are installed
