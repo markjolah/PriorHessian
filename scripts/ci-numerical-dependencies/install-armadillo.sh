@@ -38,6 +38,9 @@ mkdir -p $REPOS_DIR
 cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
+if [ ! -d $BUILD_PATH ]; then
+    mkdir -p ${BUILD_PATH}
+fi
 cmake -H. -B $BUILD_PATH ${CMAKE_ARGS}
 cd $BUILD_PATH
 make all -- -j$NUM_PROCS
