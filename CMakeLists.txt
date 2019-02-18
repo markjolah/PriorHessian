@@ -8,6 +8,9 @@
 # See: LICENCE file
 
 cmake_minimum_required( VERSION 3.9 )
+
+message(STATUS "ENV{FC}:$ENV{FC}")
+message(STATUS "CMAKE_Fortran_COMPILER:${CMAKE_Fortran_COMPILER}")
 project(PriorHessian VERSION 0.2 LANGUAGES CXX Fortran)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
