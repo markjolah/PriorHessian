@@ -10,6 +10,7 @@ BUILD_PATH=${SCRIPT_DIR}/../_build/documentation
 INSTALL_PATH=${SCRIPT_DIR}/../_install.documentation
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
 ARGS="${ARGS} -DOPT_DOC=On"
+ARGS="${ARGS} -DBUILD_TESTING=Off"
 
 set -ex
 rm -rf $BUILD_PATH

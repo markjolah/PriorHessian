@@ -18,9 +18,9 @@ matrix:
       - env:
           - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
           - OPT_ARMADILLO_INT64=Off
-      #- env:
-          #- MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-          #- OPT_ARMADILLO_INT64=On
+      - env:
+          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+          - OPT_ARMADILLO_INT64=Off
 
       ##Documentation build
       - env: DOC=On PDFDOC=On DOPT_ARMADILLO_INT64=Off
@@ -36,14 +36,13 @@ before_install:
 install:
     - if [ "${DOC}" == "On" ]; then sudo apt-get install -y doxygen graphviz; fi
     - if [ "${PDFDOC}" == "On" ]; then sudo apt-get install -y doxygen-latex; fi
-    - if [ "${CXX}" == "g++-4.9" ];   then sudo apt-get install -y g++-4.9;   fi
-    - if [ "${CXX}" == "g++-5" ];     then sudo apt-get install -y g++-5;     fi
-    - if [ "${CXX}" == "g++-6" ];     then sudo apt-get install -y g++-6;     fi
-    - if [ "${CXX}" == "g++-7" ];     then sudo apt-get install -y g++-7;     fi
-    - if [ "${CXX}" == "clang++-5" ]; then sudo apt-get install -y clang-5.0; fi
+    - if [ "${CXX}" == "g++-4.9" ];   then sudo apt-get install -y g++-4.9 gfortran-4.9;   fi
+    - if [ "${CXX}" == "g++-5" ];     then sudo apt-get install -y g++-5 gfortran-5;     fi
+    - if [ "${CXX}" == "g++-6" ];     then sudo apt-get install -y g++-6 gfortran-6;     fi
+    - if [ "${CXX}" == "g++-7" ];     then sudo apt-get install -y g++-7 gfortran-7;     fi
     - if [ "${OPT_ARMADILLO_INT64}" == "Off" ]; then sudo apt-get install -y libblas-dev libblas3 liblapack3 liblapack-dev; fi
     - sudo apt-get install -y libarmadillo-dev
-    - ./scripts/travis-trusty-install-gtest.sh
+    - if [ -z "$DOC" ]; then ./scripts/travis-trusty-install-gtest.sh; fi
 
 script:
     - ./scripts/travis-build-test.sh
