@@ -56,7 +56,7 @@ endif()
 find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
 find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
 find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${ARMADILLO_INT64_COMPONENT})
-add_compile_definitions(${ARMADILLO_PRIVATE_COMPILE_DEFINITIONS})
+set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS ${ARMADILLO_PRIVATE_COMPILE_DEFINITIONS})
 
 
 ### CFLAGS
@@ -65,8 +65,10 @@ include(ConfigureDebugBuilds)
 
 ### PackageConfig Exports
 include(ExportPackageWizzard)
-set(EXPORTED_FIND_MODULES FindArmadillo.cmake FindBLAS.cmake FindLAPACK.cmake MakePkgConfigTarget.cmake)
-list(TRANSFORM EXPORTED_FIND_MODULES PREPEND cmake/UncommonCMakeModules/)
+set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
+                          cmake/UncommonCMakeModules/FindBLAS.cmake
+                          cmake/UncommonCMakeModules/FindLAPACK.cmake
+                          cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
 export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_INT64_COMPONENT}
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
 
