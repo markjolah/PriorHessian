@@ -40,5 +40,7 @@ mkdir -p $REPOS_DIR
 cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
-/usr/bin/cmake -H. -B $BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
-/usr/bin/cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS
+cmake -H. -B $BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
+cd $BUILD_PATH
+make all -- -j$NUM_PROCS
+sudo make install
