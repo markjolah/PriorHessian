@@ -16,10 +16,10 @@ matrix:
           #- MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
           #- OPT_ARMADILLO_INT64=On
       - env:
-          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=gfortran-4.9"
           - OPT_ARMADILLO_INT64=Off
       - env:
-          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && FC=gfortran-7"
           - OPT_ARMADILLO_INT64=Off
 
       ##Documentation build
