@@ -9,6 +9,7 @@ ARGS="${ARGS} -DBUILD_TESTING=On"
 
 set -ex
 rm -rf $INSTALL_PATH $BUILD_PATH
-cmake -H${SRC_PATH} -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH ${ARGS}
-cmake --build $BUILD_PATH/Debug --target install -- -j${NUM_PROCS}
-ctest ${PWD} $BUILD_PATH/Debug -V -j${NUM_PROCS}
+cmake -H${SRC_PATH} -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH ${ARGS} $@
+cmake --build $BUILD_PATH/test --target all -- -j${NUM_PROCS}
+cmake --build $BUILD_PATH/test --target test -- -j${NUM_PROCS}
+# ctest ${PWD} $BUILD_PATH -V -j${NUM_PROCS}
