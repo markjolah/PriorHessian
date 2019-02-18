@@ -38,5 +38,5 @@ mkdir -p $REPOS_DIR
 cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
-cmake -H. -B $BUILD_PATH ${CMAKE_ARGS}
-cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS
+/usr/bin/cmake -H. -B $BUILD_PATH ${CMAKE_ARGS}
+/usr/bin/cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS
