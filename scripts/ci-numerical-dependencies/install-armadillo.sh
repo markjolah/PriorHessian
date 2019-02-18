@@ -22,7 +22,7 @@ BUILD_PATH=_build
 PKG_URL="https://gitlab.com/conradsnicta/armadillo-code.git"
 PKG_BRANCH="9.300.x"
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
-REPOS_DIR=$WORK_DIR/$PKG_NAME
+REPOS_DIR=$(realpath $WORK_DIR/$PKG_NAME)
 
 CMAKE_ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX"
 CMAKE_ARGS="${CMAKE_ARGS} -DARMA_USE_HDF5=Off"

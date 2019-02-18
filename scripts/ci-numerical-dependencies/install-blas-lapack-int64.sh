@@ -23,7 +23,7 @@ PKG_URL="https://github.com/Reference-LAPACK/lapack-release.git"
 PKG_BRANCH="lapack-3.8.0"
 FFLAGS="$FFLAGS -fdefault-integer-8" #Force 64-bit integer support
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
-REPOS_DIR=$WORK_DIR/$PKG_NAME
+REPOS_DIR=$(realpath $WORK_DIR/$PKG_NAME)
 
 CMAKE_ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX"
 CMAKE_ARGS="${CMAKE_ARGS} -DBUILD_SHARED_LIBS=On -DBUILD_STATIC_LIBS=Off"
