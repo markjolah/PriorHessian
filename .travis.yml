@@ -41,7 +41,7 @@ install:
     - if [ "${CXX}" == "g++-6" ];     then sudo apt-get install -y g++-6;     fi
     - if [ "${CXX}" == "g++-7" ];     then sudo apt-get install -y g++-7;     fi
     - if [ "${CXX}" == "clang++-5" ]; then sudo apt-get install -y clang-5.0; fi
-    - if [ "${OPT_ARMADILLO_INT64}" == "Off" ]; then sudo apt-get -y libblas-dev libblas3 liblapack3 liblapack-dev; fi
+    - if [ "${OPT_ARMADILLO_INT64}" == "Off" ]; then sudo apt-get install -y libblas-dev libblas3 liblapack3 liblapack-dev; fi
     - sudo apt-get install -y libarmadillo-dev
     - ./scripts/travis-trusty-install-gtest.sh
 
