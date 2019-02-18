@@ -16,6 +16,9 @@ matrix:
           #- MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
           #- OPT_ARMADILLO_INT64=On
       - env:
+          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=gfortran"
+          - OPT_ARMADILLO_INT64=Off
+      - env:
           - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=gfortran-4.9"
           - OPT_ARMADILLO_INT64=Off
       - env:
@@ -23,7 +26,7 @@ matrix:
           - OPT_ARMADILLO_INT64=Off
 
       ##Documentation build
-      - env: DOC=On PDFDOC=On DOPT_ARMADILLO_INT64=Off
+      - env: DOC=On PDFDOC=On DOPT_ARMADILLO_INT64=Off FC=gfortran
         script: ./scripts/pdf-doc-build.sh -DOPT_ARMADILLO_INT64=${OPT_ARMADILLO_INT64}
         dist: xenial #supports newer doxygen
 
