@@ -6,10 +6,10 @@
 if [ -z "$1" ]; then
     INSTALL_PREFIX="/"
 else
-    INSTALL_PREFIX=$(realpath $1)
-fi
-if [ ! -d "$INSTALL_PREFIX" ]; then
-    mkdir -p $INSTALL_PREFIX
+    if [ ! -d "$1" ]; then
+        mkdir -p $1
+    fi
+    INSTALL_PREFIX=$(cd $1; pwd)
 fi
 
 if [ -z "$FC" ]; then
@@ -21,9 +21,9 @@ PKG_NAME=LAPACK
 BUILD_PATH=_build
 PKG_URL="https://github.com/Reference-LAPACK/lapack-release.git"
 PKG_BRANCH="lapack-3.8.0"
-FFLAGS="$FFLAGS -fdefault-integer-8" #Force 64-bit integer support
+FFLAGS="-fdefault-integer-8 $FFLAGS" #Force 64-bit integer support
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
-REPOS_DIR=$(realpath $WORK_DIR/$PKG_NAME)
+REPOS_DIR=$WORK_DIR/$PKG_NAME
 
 CMAKE_ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX"
 CMAKE_ARGS="${CMAKE_ARGS} -DBUILD_SHARED_LIBS=On -DBUILD_STATIC_LIBS=Off"
@@ -40,10 +40,12 @@ mkdir -p $REPOS_DIR
 cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
-if [ ! -d $BUILD_PATH ]; then
-    mkdir -p ${BUILD_PATH}
+if [ ! -d "$(pwd)/$BUILD_PATH" ]; then
+    mkdir -p $BUILD_PATH
 fi
-cmake -H$REPOS_DIR -B$BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
+echo "$(pwd)"
+echo "BUILD_PATH:${BUILD_PATH}"
+cmake . -B$BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
 cd $BUILD_PATH
-make all -- -j$NUM_PROCS
+make all -j$NUM_PROCS
 sudo make install

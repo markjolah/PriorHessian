@@ -6,14 +6,10 @@
 if [ -z "$1" ]; then
     INSTALL_PREFIX="/"
 else
-    INSTALL_PREFIX=$(realpath $1)
-fi
-if [ ! -d "$INSTALL_PREFIX" ]; then
-    mkdir -p $INSTALL_PREFIX
-fi
-
-if [ -z "$FC" ]; then
-    FC="gfortran"
+    if [ ! -d "$1" ]; then
+        mkdir -p $1
+    fi
+    INSTALL_PREFIX=$(cd $1; pwd)
 fi
 
 WORK_DIR=_work
@@ -22,7 +18,7 @@ BUILD_PATH=_build
 PKG_URL="https://gitlab.com/conradsnicta/armadillo-code.git"
 PKG_BRANCH="9.300.x"
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
-REPOS_DIR=$(realpath $WORK_DIR/$PKG_NAME)
+REPOS_DIR=$WORK_DIR/$PKG_NAME
 
 CMAKE_ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX"
 CMAKE_ARGS="${CMAKE_ARGS} -DARMA_USE_HDF5=Off"
@@ -39,9 +35,9 @@ cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
 if [ ! -d $BUILD_PATH ]; then
-    mkdir -p ${BUILD_PATH}
+    mkdir -p $BUILD_PATH
 fi
-cmake -H$REPOS_DIR -B$BUILD_PATH  ${CMAKE_ARGS}
+cmake . -B$BUILD_PATH ${CMAKE_ARGS}
 cd $BUILD_PATH
-make all -- -j$NUM_PROCS
+make all -j$NUM_PROCS
 sudo make install
