@@ -4,7 +4,7 @@
 # Copyright 2017-2018
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
-# See: LICENCE file
+# See: LICENSE file
 #
 # Prepare cmake package configuration and target export files so that
 # this package can be found both from the install tree and the build tree
@@ -68,11 +68,6 @@ if(NOT DEFINED ARG_EXPORT_TARGETS_NAME)
     set(ARG_EXPORT_TARGETS_NAME ${ARG_NAME}Targets)
 endif()
 
-if(NOT ${ARG_EXPORT_TARGETS_NAME})
-    message(AUTHOR_WARNING "[export_package_wizzard] No EXPORT_TARGETS_NAME Targets specified or EXPORT_TARGETS_NAME:${EXPORT_TARGETS_NAME} not found.  Disabling Exports.")
-    return()
-endif()
-
 if(NOT ARG_PACKAGE_CONFIG_TEMPLATE)
     find_file(ARG_PACKAGE_CONFIG_TEMPLATE PackageConfig.cmake.in PATHS "${CMAKE_SOURCE_DIR}/cmake"
               PATH_SUFFIXES Modules modules Templates templates NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -93,7 +88,7 @@ if(NOT ARG_EXPORTED_BUILD_TYPES)
     string(TOLOWER "${CMAKE_BUILD_TYPE}" ARG_EXPORTED_BUILD_TYPES)
 endif()
 if(NOT ARG_EXPORTED_BUILD_TYPES)
-    message(FATAL_ERROR "No Exported build-types provided or CMAKE_BUILDT_TYPE is not set")
+    message(FATAL_ERROR "No Exported build-types provided or EXPORTED_BUILD_TYPES is not set")
 endif()
 
 if(NOT ARG_CONFIG_INSTALL_DIR)
