@@ -65,6 +65,9 @@ set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS ${ARMADILLO_PRIVATE_C
 #Configure standard CFlags and definitions for debug builds
 include(ConfigureDebugBuilds)
 
+### Source directories
+add_subdirectory(src)
+
 ### PackageConfig Exports
 include(ExportPackageWizzard)
 set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
@@ -73,9 +76,6 @@ set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
                           cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
 export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_INT64_COMPONENT}
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
-
-### Source directories
-add_subdirectory(src)
 
 ### Testing
 if(BUILD_TESTING)
