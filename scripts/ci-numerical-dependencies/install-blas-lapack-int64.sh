@@ -43,7 +43,7 @@ cd $PKG_NAME
 if [ ! -d $BUILD_PATH ]; then
     mkdir -p ${BUILD_PATH}
 fi
-cmake -H. -B $BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
+cmake -H$REPOS_DIR -B$BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
 cd $BUILD_PATH
 make all -- -j$NUM_PROCS
 sudo make install

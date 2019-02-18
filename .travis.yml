@@ -39,6 +39,7 @@ before_install:
 
 install:
     - if [ "${DOC}" == "On" ]; then sudo apt-get install -y doxygen graphviz; fi
+    - if [ "${DOC}" == "On" ]; then sudo apt-get install -y gfortran; fi
     - if [ "${PDFDOC}" == "On" ]; then sudo apt-get install -y doxygen-latex; fi
     - if [ "${CXX}" == "g++-4.9" ];   then sudo apt-get install -y g++-4.9 gfortran-4.9;   fi
     - if [ "${CXX}" == "g++-5" ];     then sudo apt-get install -y g++-5 gfortran-5;     fi
