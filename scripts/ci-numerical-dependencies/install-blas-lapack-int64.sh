@@ -45,7 +45,7 @@ if [ ! -d "$(pwd)/$BUILD_PATH" ]; then
 fi
 echo "$(pwd)"
 echo "BUILD_PATH:${BUILD_PATH}"
-cmake . -B$BUILD_PATH -DCMAKE_Fortan_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
+cmake . -B$BUILD_PATH -DCMAKE_Fortran_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
 cd $BUILD_PATH
 make all -j$NUM_PROCS
 sudo make install
