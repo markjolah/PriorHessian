@@ -29,7 +29,6 @@ fi
 echo "using CMAKE_ARGS:${CMAKE_ARGS}"
 
 set -ex
-${FC} --version
 mkdir -p $REPOS_DIR
 cd $WORK_DIR
 git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
