@@ -1,7 +1,10 @@
 #!/bin/bash
-# install-blas-lapack-int64.sh <INSTALL_PREFIX> <CMAKE-ARGS...>
+# install-blas-lapack.sh <INSTALL_PREFIX> <CMAKE-ARGS...>
 #
 # Download, configure and install armadillo.  If install prefix is omitted, defaults to root.
+#
+# Environment variables:
+# INT64=1 - for 64-bit integer support
 #
 if [ -z "$1" ]; then
     INSTALL_PREFIX="/usr"
@@ -21,7 +24,9 @@ PKG_NAME=LAPACK
 BUILD_PATH=_build
 PKG_URL="https://github.com/Reference-LAPACK/lapack-release.git"
 PKG_BRANCH="lapack-3.8.0"
-FFLAGS="-fdefault-integer-8 $FFLAGS" #Force 64-bit integer support
+if [ "${INT64,,}" == "on" ] || [ "${INT64}" -eq 1 ]; then
+    FFLAGS="-fdefault-integer-8 $FFLAGS" #Force 64-bit integer support
+fi
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
 REPOS_DIR=$WORK_DIR/$PKG_NAME
 

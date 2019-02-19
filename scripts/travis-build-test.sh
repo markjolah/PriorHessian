@@ -7,7 +7,7 @@
 #  BUILD_TYPE
 #  OPT_ARMADILLO_INT64
 #
-PACKAGE_NAME=BacktraceException
+PACKAGE_NAME=PriorHessian
 if [ -z "$BUILD_TYPE" ]; then
     BUILD_TYPE="Release"
 fi
