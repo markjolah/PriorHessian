@@ -16,15 +16,14 @@ matrix:
           #- MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
           #- OPT_ARMADILLO_INT64=On
       - env:
-          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=/usr/bin/gfortran-4.9"
           - OPT_ARMADILLO_INT64=On
-      - env:
           - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=/usr/bin/gfortran-4.9"
-          - OPT_ARMADILLO_INT64=Off
-          - FC=gfortran-4.9
       - env:
-          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && FC=/usr/bin/gfortran-7"
           - OPT_ARMADILLO_INT64=Off
+          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=/usr/bin/gfortran-4.9"
+      - env:
+          - OPT_ARMADILLO_INT64=On
+          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && FC=/usr/bin/gfortran-7"
 
       ##Documentation build
       - env: DOC=On PDFDOC=On DOPT_ARMADILLO_INT64=Off FC=gfortran
