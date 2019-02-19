@@ -1,0 +1,20 @@
+<map id="prior_hessian::square" name="prior_hessian::square">
+<area shape="rect" id="node2" href="$namespaceprior__hessian_1_1helpers.html#a5d1bbe705c849e9c225a831c853be8a7" title="prior_hessian::helpers\l::compute_quadratic_from\l_symmetric" alt="" coords="206,8,370,60"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1NormalDist.html#a5ea017ef0f5cd34304248c399b4136f3" title="prior_hessian::NormalDist\l::grad" alt="" coords="439,360,603,399"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1SymmetricBetaDist.html#a66a2fb38407bc9592fd30eaceb6581b6" title="prior_hessian::Symmetric\lBetaDist::grad2" alt="" coords="208,95,368,133"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1NormalDist.html#ab346dd5512cd0ff79d3a8b9e63618126" title="prior_hessian::NormalDist\l::grad2" alt="" coords="439,423,603,461"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1AMHCopula.html#af87cadcd28d6af3fa8249932f7d01ec7" title="prior_hessian::AMHCopula\l::grad2" alt="" coords="203,180,373,219"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1NormalDist.html#a8c28e95235a2def2e86c299e4ebe8afb" title="prior_hessian::NormalDist\l::grad_grad2_accumulate" alt="" coords="439,297,603,336"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1AMHCopula.html#a324c075c80fb95ed8b69bd601e6a4de6" title="prior_hessian::AMHCopula\l::hess" alt="" coords="203,243,373,281"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1NormalDist.html#aaa9f65a188d99f432558ae6545e9c060" title="prior_hessian::NormalDist::pdf" alt="" coords="195,565,381,591"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1NormalDist.html#ab03d24df91ee8865e77ee8322151099f" title="prior_hessian::NormalDist\l::rllh" alt="" coords="206,480,370,519"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1MultivariateNormalDist.html#a4512a641c493e33dfb93b5087e473c76" title="prior_hessian::Multivariate\lNormalDist::rllh" alt="" coords="437,5,604,44"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1MultivariateNormalDist.html#afdec8e6a453a2c69e0d84833d6b3e5ae" title="prior_hessian::Multivariate\lNormalDist::mode" alt="" coords="1093,35,1260,73"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1MultivariateNormalDist.html#a3540b1bcafd58fe26de858c0a4aef3db" title="prior_hessian::Multivariate\lNormalDist::llh" alt="" coords="662,35,829,73"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1MultivariateNormalDist.html#a67cba536341528564330b17dcbe5faff" title="prior_hessian::Multivariate\lNormalDist::pdf" alt="" coords="879,35,1045,73"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1NormalDist.html#a01e959b4aea2b94bc05fc42c9abeed3c" title="prior_hessian::NormalDist\l::median" alt="" coords="663,452,827,491"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1SymmetricBetaDist.html#a642a881868f0f031bacc87877714cf8d" title="prior_hessian::Symmetric\lBetaDist::median" alt="" coords="441,68,601,107"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1AMHCopula.html#a5f5ab047fa0c58b93e7b8e072bc9c682" title="prior_hessian::AMHCopula\l::set_params_iter" alt="" coords="660,183,831,221"/>
+<area shape="rect" id="node14" href="$classprior__hessian_1_1AMHCopula.html#a7c3f0e7eb7f4c8eecd37563c35e1f819" title="prior_hessian::AMHCopula\l::grad" alt="" coords="435,183,606,221"/>
+<area shape="rect" id="node19" href="$classprior__hessian_1_1NormalDist.html#a7776d18fd17739446c2848a9452b81f7" title="prior_hessian::NormalDist::llh" alt="" coords="429,537,612,563"/>
+</map>

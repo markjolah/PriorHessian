@@ -1,0 +1,6 @@
+<map id="prior_hessian::AMHCopula::num_dim" name="prior_hessian::AMHCopula::num_dim">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1AMHCopula.html#a19aecc89d6a1d6c46aa595a13999cfb2" title="prior_hessian::AMHCopula\l::d1_igen" alt="" coords="224,5,395,44"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1AMHCopula.html#a9fc68a651139c1c7d28a8144562a09f3" title="prior_hessian::AMHCopula\l::ddim_gen" alt="" coords="224,68,395,107"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1AMHCopula.html#ad1ce11681554712db7a56bb4cb54c3e9" title="prior_hessian::AMHCopula::llh" alt="" coords="443,43,632,68"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1AMHCopula.html#a5f5ab047fa0c58b93e7b8e072bc9c682" title="prior_hessian::AMHCopula\l::set_params_iter" alt="" coords="680,36,851,75"/>
+</map>

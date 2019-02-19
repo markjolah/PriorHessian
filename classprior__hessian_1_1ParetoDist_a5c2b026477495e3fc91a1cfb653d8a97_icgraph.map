@@ -1,0 +1,21 @@
+<map id="prior_hessian::ParetoDist::set_alpha" name="prior_hessian::ParetoDist::set_alpha">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1ParetoDist.html#acef10b17c003468838f548ed255d7e1f" title="prior_hessian::ParetoDist::min" alt="" coords="213,164,400,190"/>
+<area shape="rect" id="node20" href="$classprior__hessian_1_1ParetoDist.html#acea61a99a86906efba7fed853e408a59" title="prior_hessian::ParetoDist\l::set_param" alt="" coords="227,56,387,95"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1ParetoDist.html#a941f8b98fe55483d7823aa33863ee050" title="prior_hessian::ParetoDist\l::operator==" alt="" coords="448,118,608,156"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1ParetoDist.html#a1ba58cb0d518475ce29eb619f82f7575" title="prior_hessian::ParetoDist\l::param_ubound" alt="" coords="448,180,608,219"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1ParetoDist.html#abc9e60af487bda1a9ec5f7e55e38682c" title="prior_hessian::ParetoDist\l::set_params_iter" alt="" coords="448,270,608,308"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1ParetoDist.html#ae862cdfd4b588e2f97fcbaccc0decb08" title="prior_hessian::ParetoDist\l::operator!=" alt="" coords="656,118,816,156"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1ParetoDist.html#ad117226a3ad1eee827886fc7ba38acbf" title="prior_hessian::ParetoDist\l::lbound" alt="" coords="656,322,816,360"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1ParetoDist.html#afe706cb12ce6f667e7a3a9eb7311ef65" title="prior_hessian::ParetoDist::cdf" alt="" coords="864,154,1047,179"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1ParetoDist.html#adc9bafea285be38186ec4ad161850b56" title="prior_hessian::ParetoDist\l::get_param" alt="" coords="875,503,1035,542"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1ParetoDist.html#a9d1040a7a5ca261feebe56f42e5698ea" title="prior_hessian::ParetoDist\l::icdf" alt="" coords="875,203,1035,242"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1ParetoDist.html#ae3776388549cf35e9fea96963624cf6e" title="prior_hessian::ParetoDist\l::in_bounds" alt="" coords="875,266,1035,304"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1ParetoDist.html#a0f7ee813a098cd3fc9c7669cda6a340c" title="prior_hessian::ParetoDist::llh" alt="" coords="866,328,1045,354"/>
+<area shape="rect" id="node14" href="$classprior__hessian_1_1ParetoDist.html#a0a1e20b0aa6c7b52c134fc2341b5fdd4" title="prior_hessian::ParetoDist\l::mean" alt="" coords="875,378,1035,416"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1ParetoDist.html#a74af41636088b6c727107c60dd9c81b2" title="prior_hessian::ParetoDist\l::median" alt="" coords="875,440,1035,479"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1ParetoDist.html#af5791e2cef16b34e1bbdeec24b13d22e" title="prior_hessian::ParetoDist\l::params" alt="" coords="875,615,1035,654"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1ParetoDist.html#a07cc43c2b299fc07660684f34f32d4ee" title="prior_hessian::ParetoDist::pdf" alt="" coords="864,566,1047,591"/>
+<area shape="rect" id="node19" href="$classprior__hessian_1_1ParetoDist.html#abe706f0786b5e8ef20b7caff07ffad0c" title="prior_hessian::ParetoDist\l::sample" alt="" coords="875,91,1035,130"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1ParetoDist.html#a572ad9f28d83da610e1b81c88876563a" title="prior_hessian::ParetoDist\l::ParetoDist" alt="" coords="1095,268,1255,307"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1ParetoDist.html#ad90392cbacf44f0760b46e80a2676a08" title="prior_hessian::ParetoDist\l::check_params" alt="" coords="1095,615,1255,654"/>
+</map>

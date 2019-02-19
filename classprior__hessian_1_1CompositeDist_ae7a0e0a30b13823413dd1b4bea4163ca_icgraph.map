@@ -1,0 +1,5 @@
+<map id="prior_hessian::CompositeDist::set_bounds" name="prior_hessian::CompositeDist::set_bounds">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#a24bac25ae8c0330b8a3aacadffc9d5ae" title="prior_hessian::Composite\lDist::rllh_components" alt="" coords="232,5,395,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3.html#a1cb151ed3a8fdb310c8755512cbcb2ec" title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, UnivariateDist \&gt; \&gt;::set\l_bounds_from_iter" alt="" coords="216,68,411,147"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec.html#a2eda163908ce9d7dc56d2c329b888ad0" title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, MultivariateDist \&gt; \&gt;\l::set_bounds_from_iter" alt="" coords="216,171,411,249"/>
+</map>

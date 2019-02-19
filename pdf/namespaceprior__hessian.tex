@@ -1,0 +1,1042 @@
+\hypertarget{namespaceprior__hessian}{}\subsection{prior\+\_\+hessian Namespace Reference}
+\label{namespaceprior__hessian}\index{prior\+\_\+hessian@{prior\+\_\+hessian}}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1constants}{constants}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1CopulaDistImpl}{Copula\+Dist\+Impl}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1detail}{detail}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1genz}{genz}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1helpers}{helpers}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1mcmc}{mcmc}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1meta}{meta}
+\begin{DoxyCompactList}\small\item\em Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions. \end{DoxyCompactList}\item 
+ \hyperlink{namespaceprior__hessian_1_1polylog}{polylog}
+\end{DoxyCompactItemize}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1AMHCopula}{A\+M\+H\+Copula}
+\item 
+class \hyperlink{classprior__hessian_1_1ArchimedeanCopula}{Archimedean\+Copula}
+\item 
+class \hyperlink{classprior__hessian_1_1BaseDist}{Base\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist}
+\begin{DoxyCompactList}\small\item\em A probability distribution made of independent component distributions composing groups of 1 or more variables. \end{DoxyCompactList}\item 
+struct \hyperlink{structprior__hessian_1_1eulerian__number}{eulerian\+\_\+number}
+\item 
+struct \hyperlink{structprior__hessian_1_1eulerian__number_3_010_00_01M_01_4}{eulerian\+\_\+number$<$ 0, M $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1GammaDist}{Gamma\+Dist}
+\begin{DoxyCompactList}\small\item\em Single parameter beta distribution where  = , leading to symmetric bounded distribution. \end{DoxyCompactList}\item 
+struct \hyperlink{structprior__hessian_1_1IndexError}{Index\+Error}
+\begin{DoxyCompactList}\small\item\em Indicates a index access was out of bounds. \end{DoxyCompactList}\item 
+struct \hyperlink{structprior__hessian_1_1InvalidOperationError}{Invalid\+Operation\+Error}
+\item 
+class \hyperlink{classprior__hessian_1_1MultivariateDist}{Multivariate\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1MultivariateNormalDist}{Multivariate\+Normal\+Dist}
+\begin{DoxyCompactList}\small\item\em Multivariate Normal distribution. \end{DoxyCompactList}\item 
+class \hyperlink{classprior__hessian_1_1NormalDist}{Normal\+Dist}
+\begin{DoxyCompactList}\small\item\em Normal distribution with truncation. \end{DoxyCompactList}\item 
+struct \hyperlink{structprior__hessian_1_1NotImplementedError}{Not\+Implemented\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1NumericalOverflowError}{Numerical\+Overflow\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1ParameterNameError}{Parameter\+Name\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1ParameterNameUniquenessError}{Parameter\+Name\+Uniqueness\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1ParameterSizeError}{Parameter\+Size\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1ParameterValueError}{Parameter\+Value\+Error}
+\item 
+class \hyperlink{classprior__hessian_1_1ParetoDist}{Pareto\+Dist}
+\begin{DoxyCompactList}\small\item\em Pareto dist with infinite upper bound. \end{DoxyCompactList}\item 
+class \hyperlink{classprior__hessian_1_1PriorHessianError}{Prior\+Hessian\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1RuntimeConvergenceError}{Runtime\+Convergence\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1RuntimeSamplingError}{Runtime\+Sampling\+Error}
+\item 
+struct \hyperlink{structprior__hessian_1_1RuntimeTypeError}{Runtime\+Type\+Error}
+\item 
+class \hyperlink{classprior__hessian_1_1ScaledDist}{Scaled\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1SymmetricBetaDist}{Symmetric\+Beta\+Dist}
+\begin{DoxyCompactList}\small\item\em Single parameter beta distribution where  = , leading to symmetric bounded distribution. \end{DoxyCompactList}\item 
+class \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1TruncatedMultivariateDist}{Truncated\+Multivariate\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}
+\item 
+class \hyperlink{classprior__hessian_1_1UpperTruncatedDist}{Upper\+Truncated\+Dist}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class DistT $>$ }\\using \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT} = typename \hyperlink{classprior__hessian_1_1detail_1_1dist__adaptor__traits}{detail\+::dist\+\_\+adaptor\+\_\+traits}$<$ std\+::decay\+\_\+t$<$ DistT $>$$>$\+::bounds\+\_\+adapted\+\_\+dist
+\item 
+{\footnotesize template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_a40a0589f5be3c61e4c4854fcefe8855f}{Copula\+Dist} = \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}{Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Marginal\+Dist\+Ts $>$... $>$
+\item 
+using \hyperlink{namespaceprior__hessian_ae84776b8f8ed86c14a5ce47a29b7a1be}{Scaled\+Symmetric\+Beta\+Dist} = \hyperlink{classprior__hessian_1_1ScaledDist}{Scaled\+Dist}$<$ \hyperlink{classprior__hessian_1_1SymmetricBetaDist}{Symmetric\+Beta\+Dist} $>$
+\item 
+using \hyperlink{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}{Truncated\+Gamma\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}$<$ \hyperlink{classprior__hessian_1_1GammaDist}{Gamma\+Dist} $>$
+\item 
+{\footnotesize template$<$int Ndim$>$ }\\using \hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedMultivariateDist}{Truncated\+Multivariate\+Dist}$<$ \hyperlink{classprior__hessian_1_1MultivariateNormalDist}{Multivariate\+Normal\+Dist}$<$ Ndim $>$$>$
+\item 
+using \hyperlink{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}{Truncated\+Normal\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}$<$ \hyperlink{classprior__hessian_1_1NormalDist}{Normal\+Dist} $>$
+\item 
+using \hyperlink{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}{Truncated\+Pareto\+Dist} = \hyperlink{classprior__hessian_1_1UpperTruncatedDist}{Upper\+Truncated\+Dist}$<$ \hyperlink{classprior__hessian_1_1ParetoDist}{Pareto\+Dist} $>$
+\item 
+using \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} = arma\+::uword
+\item 
+using \hyperlink{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}{U\+VecT} = arma\+::\+Col$<$ \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} $>$
+\item 
+using \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} = arma\+::\+Col$<$ double $>$
+\item 
+using \hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} = arma\+::\+Mat$<$ double $>$
+\item 
+using \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} = std\+::vector$<$ std\+::string $>$
+\item 
+using \hyperlink{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}{Type\+Info\+VecT} = std\+::vector$<$ std\+::type\+\_\+index $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&comp\+\_\+dist)
+\item 
+double \hyperlink{namespaceprior__hessian_ad0373e8965088cd5481ca019aed56a87}{unit\+\_\+normal\+\_\+cdf} (double t)
+\item 
+double \hyperlink{namespaceprior__hessian_ab76971b5aff40010d5c63fba454349b9}{unit\+\_\+normal\+\_\+icdf} (double u)
+\item 
+double \hyperlink{namespaceprior__hessian_a860bd0a9eccd25bccf6e1c002022052f}{bounded} (double x)
+\item 
+double \hyperlink{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5}{owen\+\_\+t\+\_\+integral} (double h, double a, double gh)
+\item 
+double \hyperlink{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}{owen\+\_\+b\+\_\+integral} (double h, double k, double r)
+\item 
+double \hyperlink{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a}{donnelly\+\_\+bvn\+\_\+integral} (double ah, double ak, double r)
+\item 
+double \hyperlink{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig} (double ah, double ak, double r)
+\item 
+{\footnotesize template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{detail\+::\+Dist\+TraitsT}$<$ Dist $>$\+::adaptable\+\_\+bounds, Dist $>$ \hyperlink{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist)
+\item 
+{\footnotesize template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{detail\+::\+Dist\+TraitsT}$<$ Dist $>$\+::adaptable\+\_\+bounds, \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Dist $>$ $>$ \hyperlink{namespaceprior__hessian_aac9684eb25c8e9eb2b10640931a08285}{make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist)
+\item 
+{\footnotesize template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{detail\+::\+Dist\+TraitsT}$<$ Dist $>$\+::adaptable\+\_\+bounds, Dist $>$ \hyperlink{namespaceprior__hessian_ace3ed32ae08101fa6cddfb56cc39f3a9}{make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)
+\item 
+{\footnotesize template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!\hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{detail\+::\+Dist\+TraitsT}$<$ Dist $>$\+::adaptable\+\_\+bounds, \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Dist $>$ $>$ \hyperlink{namespaceprior__hessian_ab331d08c528526111610cf1407ca43c1}{make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a55f558964ebfac8734141e232a376bb7}{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (Ts \&\&...ts)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a95fddb21432915b6b47579b4ad05602f}{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a277a764f9d5df7ff208e9052de05f067}{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists)
+\item 
+{\footnotesize template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ }\\\hyperlink{namespaceprior__hessian_a40a0589f5be3c61e4c4854fcefe8855f}{Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \hyperlink{namespaceprior__hessian_a0cfb582e76e0bbae3498707a8458cb78}{make\+\_\+copula\+\_\+dist} (Copula\+Template$<$ sizeof...(Marginal\+Dist\+Ts)$>$ \&\&copula, Marginal\+Dist\+Ts \&\&...dists)
+\item 
+{\footnotesize template$<$long N$>$ }\\\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{namespaceprior__hessian_a05bb4a53732758396a2dc1125da71df5}{eulerian\+\_\+polynomial} ()
+\item 
+double \hyperlink{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda}{owen\+\_\+t\+\_\+integral} (double h, double a)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a0f8b4ec070533193c3f402bbcc2b8b2b}{donnelly\+\_\+bvn\+\_\+cdf} (const Vec \&b, const Mat \&sigma)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892}{owen\+\_\+bvn\+\_\+cdf} (const Vec \&b, const Mat \&sigma)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_abadcc969aeb37b0c2f1e69c75731ec65}{mc\+\_\+mvn\+\_\+integral} (const Vec \&a, const Vec \&b, const Mat \&U, double \&error, int \&niter)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b}{mc\+\_\+mvn\+\_\+cdf\+\_\+core} (const Vec \&b, const Mat \&U, double \&error, int \&niter)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}{mc\+\_\+mvn\+\_\+cdf} (const Vec \&b, const Mat \&S, double \&error)
+\item 
+\hyperlink{namespaceprior__hessian_ae84776b8f8ed86c14a5ce47a29b7a1be}{Scaled\+Symmetric\+Beta\+Dist} \hyperlink{namespaceprior__hessian_a2dd8c3c31f349117f96fdddc94d54dd8}{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist} (double beta, std\+::pair$<$ double, double $>$ bounds)
+\item 
+\hyperlink{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}{Truncated\+Gamma\+Dist} \hyperlink{namespaceprior__hessian_abd1783a43cab6f6855e54eb1faab39d4}{make\+\_\+bounded\+\_\+gamma\+\_\+dist} (double scale, double shape, std\+::pair$<$ double, double $>$ bounds)
+\item 
+{\footnotesize template$<$int Ndim, class Vec , class Mat , class Vec2 $>$ }\\\hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist}$<$ Ndim $>$ \hyperlink{namespaceprior__hessian_a51a85cfe6ac613ed9b703e10280c1bbb}{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist} (Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)
+\item 
+\hyperlink{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}{Truncated\+Normal\+Dist} \hyperlink{namespaceprior__hessian_a14ebf8db869f2c1e45781e41e69b3420}{make\+\_\+bounded\+\_\+normal\+\_\+dist} (double mu, double sigma, std\+::pair$<$ double, double $>$ bounds)
+\item 
+\hyperlink{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}{Truncated\+Pareto\+Dist} \hyperlink{namespaceprior__hessian_ae6d920b436127ce4698e75575581eed5}{make\+\_\+bounded\+\_\+pareto\+\_\+dist} (double alpha, std\+::pair$<$ double, double $>$ bounds)
+\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6}{square} (T t)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Typedef Documentation}
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Bounds\+Adapted\+DistT@{Bounds\+Adapted\+DistT}}
+\index{Bounds\+Adapted\+DistT@{Bounds\+Adapted\+DistT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Bounds\+Adapted\+DistT}{BoundsAdaptedDistT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class DistT $>$ using {\bf prior\+\_\+hessian\+::\+Bounds\+Adapted\+DistT} = typedef typename {\bf detail\+::dist\+\_\+adaptor\+\_\+traits}$<$std\+::decay\+\_\+t$<$DistT$>$$>$\+::bounds\+\_\+adapted\+\_\+dist}\hypertarget{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{}\label{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}
+The bounds-\/adapted distribution type for a given distribution type DistT This is the adapted version of the class, i.\+e., the class that allows truncation or scaling so that the lower and upper bounds are settable. 
+
+Definition at line 59 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Copula\+Dist@{Copula\+Dist}}
+\index{Copula\+Dist@{Copula\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Copula\+Dist}{CopulaDist}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist} = typedef {\bf Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$Copula\+Template, {\bf Bounds\+Adapted\+DistT}$<$Marginal\+Dist\+Ts$>$...$>$}\hypertarget{namespaceprior__hessian_a40a0589f5be3c61e4c4854fcefe8855f}{}\label{namespaceprior__hessian_a40a0589f5be3c61e4c4854fcefe8855f}
+
+
+Definition at line 182 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!IdxT@{IdxT}}
+\index{IdxT@{IdxT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{IdxT}{IdxT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+IdxT} = typedef arma\+::uword}\hypertarget{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{}\label{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}
+
+
+Definition at line 30 of file util.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!MatT@{MatT}}
+\index{MatT@{MatT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{MatT}{MatT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+MatT} = typedef arma\+::\+Mat$<$double$>$}\hypertarget{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{}\label{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}
+
+
+Definition at line 33 of file util.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}}
+\index{Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Scaled\+Symmetric\+Beta\+Dist}{ScaledSymmetricBetaDist}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Scaled\+Symmetric\+Beta\+Dist} = typedef {\bf Scaled\+Dist}$<${\bf Symmetric\+Beta\+Dist}$>$}\hypertarget{namespaceprior__hessian_ae84776b8f8ed86c14a5ce47a29b7a1be}{}\label{namespaceprior__hessian_ae84776b8f8ed86c14a5ce47a29b7a1be}
+
+
+Definition at line 15 of file Scaled\+Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!String\+VecT@{String\+VecT}}
+\index{String\+VecT@{String\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{String\+VecT}{StringVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+String\+VecT} = typedef std\+::vector$<$std\+::string$>$}\hypertarget{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{}\label{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}
+
+
+Definition at line 34 of file util.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}}
+\index{Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Truncated\+Gamma\+Dist}{TruncatedGammaDist}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Truncated\+Gamma\+Dist} = typedef {\bf Truncated\+Dist}$<${\bf Gamma\+Dist}$>$}\hypertarget{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}{}\label{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}
+
+
+Definition at line 15 of file Truncated\+Gamma\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}}
+\index{Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Truncated\+Multivariate\+Normal\+Dist}{TruncatedMultivariateNormalDist}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Normal\+Dist} = typedef {\bf Truncated\+Multivariate\+Dist}$<${\bf Multivariate\+Normal\+Dist}$<$Ndim$>$$>$}\hypertarget{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{}\label{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}
+
+
+Definition at line 18 of file Truncated\+Multivariate\+Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Normal\+Dist@{Truncated\+Normal\+Dist}}
+\index{Truncated\+Normal\+Dist@{Truncated\+Normal\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Truncated\+Normal\+Dist}{TruncatedNormalDist}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Truncated\+Normal\+Dist} = typedef {\bf Truncated\+Dist}$<${\bf Normal\+Dist}$>$}\hypertarget{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}{}\label{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}
+
+
+Definition at line 17 of file Truncated\+Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Pareto\+Dist@{Truncated\+Pareto\+Dist}}
+\index{Truncated\+Pareto\+Dist@{Truncated\+Pareto\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Truncated\+Pareto\+Dist}{TruncatedParetoDist}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Truncated\+Pareto\+Dist} = typedef {\bf Upper\+Truncated\+Dist}$<${\bf Pareto\+Dist}$>$}\hypertarget{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}{}\label{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}
+
+
+Definition at line 16 of file Truncated\+Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!Type\+Info\+VecT@{Type\+Info\+VecT}}
+\index{Type\+Info\+VecT@{Type\+Info\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{Type\+Info\+VecT}{TypeInfoVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Type\+Info\+VecT} = typedef std\+::vector$<$std\+::type\+\_\+index$>$}\hypertarget{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}{}\label{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}
+
+
+Definition at line 35 of file util.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!U\+VecT@{U\+VecT}}
+\index{U\+VecT@{U\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{U\+VecT}{UVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+U\+VecT} = typedef arma\+::\+Col$<${\bf IdxT}$>$}\hypertarget{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}{}\label{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}
+
+
+Definition at line 31 of file util.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!VecT@{VecT}}
+\index{VecT@{VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{VecT}{VecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+VecT} = typedef arma\+::\+Col$<$double$>$}\hypertarget{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{}\label{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}
+
+
+Definition at line 32 of file util.\+h.
+
+
+
+\subsubsection{Function Documentation}
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!bounded@{bounded}}
+\index{bounded@{bounded}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{bounded(double x)}{bounded(double x)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::bounded (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a860bd0a9eccd25bccf6e1c002022052f}{}\label{namespaceprior__hessian_a860bd0a9eccd25bccf6e1c002022052f}
+
+
+Definition at line 42 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+Referenced by donnelly\+\_\+bvn\+\_\+integral().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a860bd0a9eccd25bccf6e1c002022052f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}}
+\index{donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{donnelly\+\_\+bvn\+\_\+cdf(const Vec \&b, const Mat \&sigma)}{donnelly_bvn_cdf(const Vec &b, const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , class Mat $>$ double prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+cdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{b, }
+\item[{const Mat \&}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a0f8b4ec070533193c3f402bbcc2b8b2b}{}\label{namespaceprior__hessian_a0f8b4ec070533193c3f402bbcc2b8b2b}
+
+
+Definition at line 55 of file mvn\+\_\+cdf.\+h.
+
+
+
+References donnelly\+\_\+bvn\+\_\+integral().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a0f8b4ec070533193c3f402bbcc2b8b2b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+integral@{donnelly\+\_\+bvn\+\_\+integral}}
+\index{donnelly\+\_\+bvn\+\_\+integral@{donnelly\+\_\+bvn\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{donnelly\+\_\+bvn\+\_\+integral(double ah, double ak, double r)}{donnelly_bvn_integral(double ah, double ak, double r)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+integral (
+\begin{DoxyParamCaption}
+\item[{double}]{ah, }
+\item[{double}]{ak, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a}{}\label{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a}
+compute the bivariate normal cdf integral computes the probability for two normal variates X and Y whose correlation is R, that AH $<$= X and AK $<$= Y.
+
+Adapted to modern C++ with efficiency improvements by\+: Mark Olah (\href{mailto:mjo@cs.unm}{\tt mjo@cs.\+unm} D\+OT edu) 10/2018
+
+Reference\+: Thomas Donnelly, Algorithm 462\+: Bivariate Normal Distribution, Communications of the A\+CM, October 1973, Volume 16, Number 10, page 638.
+
+compute the upper-\/right tail of the bivariate normal distribution computes the probability for two normal variates X and Y whose correlation is R, that AH $<$= X and AK $<$= Y.
+
+Adapted to modern C++ with efficiency improvements by\+: Mark Olah (\href{mailto:mjo@cs.unm}{\tt mjo@cs.\+unm} D\+OT edu) 10/2018
+
+Reference\+: Thomas Donnelly, Algorithm 462\+: Bivariate Normal Distribution, Communications of the A\+CM, October 1973, Volume 16, Number 10, page 638. 
+
+Definition at line 161 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+References bounded(), and unit\+\_\+normal\+\_\+cdf().
+
+
+
+Referenced by donnelly\+\_\+bvn\+\_\+cdf(), and owen\+\_\+t\+\_\+integral().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+integral\+\_\+orig@{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}}
+\index{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig@{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig(double ah, double ak, double r)}{donnelly_bvn_integral_orig(double ah, double ak, double r)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+integral\+\_\+orig (
+\begin{DoxyParamCaption}
+\item[{double}]{ah, }
+\item[{double}]{ak, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}{}\label{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}
+
+
+Definition at line 271 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+References unit\+\_\+normal\+\_\+cdf().
+
+
+
+Referenced by owen\+\_\+t\+\_\+integral().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}}
+\index{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{eulerian\+\_\+polynomial()}{eulerian_polynomial()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$long N$>$ {\bf VecT} prior\+\_\+hessian\+::eulerian\+\_\+polynomial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a05bb4a53732758396a2dc1125da71df5}{}\label{namespaceprior__hessian_a05bb4a53732758396a2dc1125da71df5}
+
+
+Definition at line 33 of file Eulerian\+Polynomial.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist(\+Dist \&\&dist)}{make_adapted_bounded_dist(Dist &&dist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ std\+::enable\+\_\+if\+\_\+t$<$ {\bf detail\+::\+Dist\+TraitsT}$<$Dist$>$\+::adaptable\+\_\+bounds, Dist$>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Dist \&\&}]{dist}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{}\label{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}
+\hyperlink{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{make\+\_\+adapted\+\_\+bounded\+\_\+dist()} \mbox{[}4-\/forms\mbox{]} If the given distribution is not bounded then the appropriate bounding distribution is wrapped arround it. We detect the boundedness of the distribution using detail\+::adaptable\+\_\+bounds type-\/traits class. Can be replaced with constexpr if in c++17. Uses S\+F\+I\+N\+AE in c++14. 
+
+Definition at line 99 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(), make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(), prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist(), prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple(), and make\+\_\+copula\+\_\+dist().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist(\+Dist \&\&dist)}{make_adapted_bounded_dist(Dist &&dist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ std\+::enable\+\_\+if\+\_\+t$<$ !{\bf detail\+::\+Dist\+TraitsT}$<$Dist$>$\+::adaptable\+\_\+bounds, {\bf Bounds\+Adapted\+DistT}$<$Dist$>$ $>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Dist \&\&}]{dist}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_aac9684eb25c8e9eb2b10640931a08285}{}\label{namespaceprior__hessian_aac9684eb25c8e9eb2b10640931a08285}
+
+
+Definition at line 104 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist(\+Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)}{make_adapted_bounded_dist(Dist &&dist, Vec &&lbound, Vec &&ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ std\+::enable\+\_\+if\+\_\+t$<${\bf detail\+::\+Dist\+TraitsT}$<$Dist$>$\+::adaptable\+\_\+bounds, Dist$>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Dist \&\&}]{dist, }
+\item[{Vec \&\&}]{lbound, }
+\item[{Vec \&\&}]{ubound}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ace3ed32ae08101fa6cddfb56cc39f3a9}{}\label{namespaceprior__hessian_ace3ed32ae08101fa6cddfb56cc39f3a9}
+
+
+Definition at line 109 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist(\+Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)}{make_adapted_bounded_dist(Dist &&dist, Vec &&lbound, Vec &&ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ std\+::enable\+\_\+if\+\_\+t$<$!{\bf detail\+::\+Dist\+TraitsT}$<$Dist$>$\+::adaptable\+\_\+bounds, {\bf Bounds\+Adapted\+DistT}$<$Dist$>$ $>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Dist \&\&}]{dist, }
+\item[{Vec \&\&}]{lbound, }
+\item[{Vec \&\&}]{ubound}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ab331d08c528526111610cf1407ca43c1}{}\label{namespaceprior__hessian_ab331d08c528526111610cf1407ca43c1}
+
+
+Definition at line 117 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(\+Ts \&\&...\+ts)}{make_adapted_bounded_dist_tuple(Ts &&...ts)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ std\+::tuple$<${\bf Bounds\+Adapted\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{Ts \&\&...}]{ts}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a55f558964ebfac8734141e232a376bb7}{}\label{namespaceprior__hessian_a55f558964ebfac8734141e232a376bb7}
+
+
+Definition at line 132 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+References make\+\_\+adapted\+\_\+bounded\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a55f558964ebfac8734141e232a376bb7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(std\+::tuple$<$ Ts... $>$ \&\&dists)}{make_adapted_bounded_dist_tuple(std::tuple< Ts... > &&dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ std\+::tuple$<${\bf Bounds\+Adapted\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dists}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a95fddb21432915b6b47579b4ad05602f}{}\label{namespaceprior__hessian_a95fddb21432915b6b47579b4ad05602f}
+
+
+Definition at line 139 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a95fddb21432915b6b47579b4ad05602f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(const std\+::tuple$<$ Ts... $>$ \&dists)}{make_adapted_bounded_dist_tuple(const std::tuple< Ts... > &dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ std\+::tuple$<${\bf Bounds\+Adapted\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dists}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a277a764f9d5df7ff208e9052de05f067}{}\label{namespaceprior__hessian_a277a764f9d5df7ff208e9052de05f067}
+
+
+Definition at line 146 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a277a764f9d5df7ff208e9052de05f067_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+gamma\+\_\+dist@{make\+\_\+bounded\+\_\+gamma\+\_\+dist}}
+\index{make\+\_\+bounded\+\_\+gamma\+\_\+dist@{make\+\_\+bounded\+\_\+gamma\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+gamma\+\_\+dist(double scale, double shape, std\+::pair$<$ double, double $>$ bounds)}{make_bounded_gamma_dist(double scale, double shape, std::pair< double, double > bounds)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Truncated\+Gamma\+Dist} prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+gamma\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{double}]{scale, }
+\item[{double}]{shape, }
+\item[{std\+::pair$<$ double, double $>$}]{bounds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_abd1783a43cab6f6855e54eb1faab39d4}{}\label{namespaceprior__hessian_abd1783a43cab6f6855e54eb1faab39d4}
+
+
+Definition at line 18 of file Truncated\+Gamma\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}}
+\index{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist(\+Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)}{make_bounded_multivariate_normal_dist(Vec &&mu, Mat &&sigma, Vec2 &&lbound, Vec2 &&ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim, class Vec , class Mat , class Vec2 $>$ {\bf Truncated\+Multivariate\+Normal\+Dist}$<$Ndim$>$ prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Vec \&\&}]{mu, }
+\item[{Mat \&\&}]{sigma, }
+\item[{Vec2 \&\&}]{lbound, }
+\item[{Vec2 \&\&}]{ubound}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a51a85cfe6ac613ed9b703e10280c1bbb}{}\label{namespaceprior__hessian_a51a85cfe6ac613ed9b703e10280c1bbb}
+
+
+Definition at line 22 of file Truncated\+Multivariate\+Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+normal\+\_\+dist}}
+\index{make\+\_\+bounded\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+normal\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+normal\+\_\+dist(double mu, double sigma, std\+::pair$<$ double, double $>$ bounds)}{make_bounded_normal_dist(double mu, double sigma, std::pair< double, double > bounds)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Truncated\+Normal\+Dist} prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+normal\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{double}]{mu, }
+\item[{double}]{sigma, }
+\item[{std\+::pair$<$ double, double $>$}]{bounds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_a14ebf8db869f2c1e45781e41e69b3420}{}\label{namespaceprior__hessian_a14ebf8db869f2c1e45781e41e69b3420}
+
+
+Definition at line 20 of file Truncated\+Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+pareto\+\_\+dist@{make\+\_\+bounded\+\_\+pareto\+\_\+dist}}
+\index{make\+\_\+bounded\+\_\+pareto\+\_\+dist@{make\+\_\+bounded\+\_\+pareto\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+pareto\+\_\+dist(double alpha, std\+::pair$<$ double, double $>$ bounds)}{make_bounded_pareto_dist(double alpha, std::pair< double, double > bounds)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Truncated\+Pareto\+Dist} prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+pareto\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{std\+::pair$<$ double, double $>$}]{bounds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_ae6d920b436127ce4698e75575581eed5}{}\label{namespaceprior__hessian_ae6d920b436127ce4698e75575581eed5}
+
+
+Definition at line 19 of file Truncated\+Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}}
+\index{make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+copula\+\_\+dist(\+Copula\+Template$<$ sizeof...(\+Marginal\+Dist\+Ts)$>$ \&\&copula, Marginal\+Dist\+Ts \&\&...\+dists)}{make_copula_dist(CopulaTemplate< sizeof...(MarginalDistTs)> &&copula, MarginalDistTs &&...dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ {\bf Copula\+Dist}$<$Copula\+Template,Marginal\+Dist\+Ts...$>$ prior\+\_\+hessian\+::make\+\_\+copula\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{Copula\+Template$<$ sizeof...(Marginal\+Dist\+Ts)$>$ \&\&}]{copula, }
+\item[{Marginal\+Dist\+Ts \&\&...}]{dists}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a0cfb582e76e0bbae3498707a8458cb78}{}\label{namespaceprior__hessian_a0cfb582e76e0bbae3498707a8458cb78}
+
+
+Definition at line 187 of file Copula\+Dist.\+h.
+
+
+
+References make\+\_\+adapted\+\_\+bounded\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{namespaceprior__hessian_a0cfb582e76e0bbae3498707a8458cb78_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}}
+\index{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist(double beta, std\+::pair$<$ double, double $>$ bounds)}{make_scaled_symmetric_beta_dist(double beta, std::pair< double, double > bounds)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scaled\+Symmetric\+Beta\+Dist} prior\+\_\+hessian\+::make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{double}]{beta, }
+\item[{std\+::pair$<$ double, double $>$}]{bounds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_a2dd8c3c31f349117f96fdddc94d54dd8}{}\label{namespaceprior__hessian_a2dd8c3c31f349117f96fdddc94d54dd8}
+
+
+Definition at line 18 of file Scaled\+Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+cdf@{mc\+\_\+mvn\+\_\+cdf}}
+\index{mc\+\_\+mvn\+\_\+cdf@{mc\+\_\+mvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{mc\+\_\+mvn\+\_\+cdf(const Vec \&b, const Mat \&\+S, double \&error)}{mc_mvn_cdf(const Vec &b, const Mat &S, double &error)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , class Mat $>$ double prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+cdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{b, }
+\item[{const Mat \&}]{S, }
+\item[{double \&}]{error}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}{}\label{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}
+
+
+Definition at line 171 of file mvn\+\_\+cdf.\+h.
+
+
+
+References mc\+\_\+mvn\+\_\+cdf\+\_\+core().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a923402e085c726e416b02817a6d47337_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+cdf\+\_\+core@{mc\+\_\+mvn\+\_\+cdf\+\_\+core}}
+\index{mc\+\_\+mvn\+\_\+cdf\+\_\+core@{mc\+\_\+mvn\+\_\+cdf\+\_\+core}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{mc\+\_\+mvn\+\_\+cdf\+\_\+core(const Vec \&b, const Mat \&\+U, double \&error, int \&niter)}{mc_mvn_cdf_core(const Vec &b, const Mat &U, double &error, int &niter)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , class Mat $>$ double prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+cdf\+\_\+core (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{b, }
+\item[{const Mat \&}]{U, }
+\item[{double \&}]{error, }
+\item[{int \&}]{niter}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b}{}\label{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b}
+For the cdf a=-\/\+Infinity, so d=0. 
+
+Definition at line 130 of file mvn\+\_\+cdf.\+h.
+
+
+
+References unit\+\_\+normal\+\_\+cdf(), and unit\+\_\+normal\+\_\+icdf().
+
+
+
+Referenced by mc\+\_\+mvn\+\_\+cdf().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+integral@{mc\+\_\+mvn\+\_\+integral}}
+\index{mc\+\_\+mvn\+\_\+integral@{mc\+\_\+mvn\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{mc\+\_\+mvn\+\_\+integral(const Vec \&a, const Vec \&b, const Mat \&\+U, double \&error, int \&niter)}{mc_mvn_integral(const Vec &a, const Vec &b, const Mat &U, double &error, int &niter)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , class Mat $>$ double prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+integral (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{a, }
+\item[{const Vec \&}]{b, }
+\item[{const Mat \&}]{U, }
+\item[{double \&}]{error, }
+\item[{int \&}]{niter}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_abadcc969aeb37b0c2f1e69c75731ec65}{}\label{namespaceprior__hessian_abadcc969aeb37b0c2f1e69c75731ec65}
+compute the multivariate normal cdf integral 
+
+Definition at line 81 of file mvn\+\_\+cdf.\+h.
+
+
+
+References unit\+\_\+normal\+\_\+cdf(), and unit\+\_\+normal\+\_\+icdf().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{namespaceprior__hessian_abadcc969aeb37b0c2f1e69c75731ec65_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{operator$<$$<$(std\+::ostream \&out, const Composite\+Dist \&comp\+\_\+dist)}{operator<<(std::ostream &out, const CompositeDist &comp_dist)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream \& prior\+\_\+hessian\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Composite\+Dist} \&}]{comp\+\_\+dist}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b}{}\label{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b}
+
+
+Definition at line 80 of file Composite\+Dist.\+cpp.
+
+
+
+References prior\+\_\+hessian\+::\+Composite\+Dist\+::component\+\_\+names(), prior\+\_\+hessian\+::\+Composite\+Dist\+::dim\+\_\+variables(), prior\+\_\+hessian\+::\+Composite\+Dist\+::global\+\_\+lbound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::global\+\_\+ubound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::lbound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+dim(), prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+dim\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+params(), prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+params\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::param\+\_\+names(), prior\+\_\+hessian\+::\+Composite\+Dist\+::params(), prior\+\_\+hessian\+::\+Composite\+Dist\+::params\+\_\+lbound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::params\+\_\+ubound(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::ubound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+param\+\_\+names().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}}
+\index{owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{owen\+\_\+b\+\_\+integral(double h, double k, double r)}{owen_b_integral(double h, double k, double r)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::owen\+\_\+b\+\_\+integral (
+\begin{DoxyParamCaption}
+\item[{double}]{h, }
+\item[{double}]{k, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}{}\label{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}
+
+
+Definition at line 110 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+References owen\+\_\+t\+\_\+integral(), and unit\+\_\+normal\+\_\+cdf().
+
+
+
+Referenced by owen\+\_\+bvn\+\_\+cdf(), and owen\+\_\+t\+\_\+integral().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}}
+\index{owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{owen\+\_\+bvn\+\_\+cdf(const Vec \&b, const Mat \&sigma)}{owen_bvn_cdf(const Vec &b, const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , class Mat $>$ double prior\+\_\+hessian\+::owen\+\_\+bvn\+\_\+cdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{b, }
+\item[{const Mat \&}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892}{}\label{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892}
+
+
+Definition at line 67 of file mvn\+\_\+cdf.\+h.
+
+
+
+References owen\+\_\+b\+\_\+integral().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist$<$ Ndim $>$\+::cdf().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}}
+\index{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{owen\+\_\+t\+\_\+integral(double h, double a)}{owen_t_integral(double h, double a)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::owen\+\_\+t\+\_\+integral (
+\begin{DoxyParamCaption}
+\item[{double}]{h, }
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda}{}\label{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda}
+
+
+Definition at line 26 of file mvn\+\_\+cdf.\+h.
+
+
+
+References donnelly\+\_\+bvn\+\_\+integral(), donnelly\+\_\+bvn\+\_\+integral\+\_\+orig(), owen\+\_\+b\+\_\+integral(), owen\+\_\+t\+\_\+integral(), and unit\+\_\+normal\+\_\+cdf().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}}
+\index{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{owen\+\_\+t\+\_\+integral(double h, double a, double gh)}{owen_t_integral(double h, double a, double gh)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::owen\+\_\+t\+\_\+integral (
+\begin{DoxyParamCaption}
+\item[{double}]{h, }
+\item[{double}]{a, }
+\item[{double}]{gh}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5}{}\label{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5}
+
+
+Definition at line 54 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+References unit\+\_\+normal\+\_\+cdf().
+
+
+
+Referenced by owen\+\_\+b\+\_\+integral(), and owen\+\_\+t\+\_\+integral().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!square@{square}}
+\index{square@{square}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{square(\+T t)}{square(T t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T prior\+\_\+hessian\+::square (
+\begin{DoxyParamCaption}
+\item[{T}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6}{}\label{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6}
+
+
+Definition at line 46 of file util.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::helpers\+::compute\+\_\+quadratic\+\_\+from\+\_\+symmetric(), prior\+\_\+hessian\+::\+Normal\+Dist\+::grad(), prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::grad2(), prior\+\_\+hessian\+::\+Normal\+Dist\+::grad2(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad2(), prior\+\_\+hessian\+::\+Normal\+Dist\+::grad\+\_\+grad2\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::hess(), prior\+\_\+hessian\+::\+Normal\+Dist\+::pdf(), and prior\+\_\+hessian\+::\+Normal\+Dist\+::rllh().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}}
+\index{unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{unit\+\_\+normal\+\_\+cdf(double t)}{unit_normal_cdf(double t)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::unit\+\_\+normal\+\_\+cdf (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ad0373e8965088cd5481ca019aed56a87}{}\label{namespaceprior__hessian_ad0373e8965088cd5481ca019aed56a87}
+area of the lower tail of the unit normal curve below t. 
+
+Definition at line 28 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+Referenced by donnelly\+\_\+bvn\+\_\+integral(), donnelly\+\_\+bvn\+\_\+integral\+\_\+orig(), mc\+\_\+mvn\+\_\+cdf\+\_\+core(), mc\+\_\+mvn\+\_\+integral(), owen\+\_\+b\+\_\+integral(), and owen\+\_\+t\+\_\+integral().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_ad0373e8965088cd5481ca019aed56a87_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}}
+\index{unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}!prior\+\_\+hessian@{prior\+\_\+hessian}}
+\paragraph[{\texorpdfstring{unit\+\_\+normal\+\_\+icdf(double u)}{unit_normal_icdf(double u)}}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::unit\+\_\+normal\+\_\+icdf (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_ab76971b5aff40010d5c63fba454349b9}{}\label{namespaceprior__hessian_ab76971b5aff40010d5c63fba454349b9}
+
+
+Definition at line 35 of file mvn\+\_\+cdf.\+cpp.
+
+
+
+References prior\+\_\+hessian\+::constants\+::sqrt2.
+
+
+
+Referenced by mc\+\_\+mvn\+\_\+cdf\+\_\+core(), and mc\+\_\+mvn\+\_\+integral().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_ab76971b5aff40010d5c63fba454349b9_icgraph}
+\end{center}
+\end{figure}
+
+

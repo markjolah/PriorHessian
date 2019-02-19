@@ -1,0 +1,56 @@
+\hypertarget{CopulaDist_8h}{}\subsection{Copula\+Dist.\+h File Reference}
+\label{CopulaDist_8h}\index{Copula\+Dist.\+h@{Copula\+Dist.\+h}}
+
+
+Copula\+Dist base class.  
+
+
+{\ttfamily \#include \char`\"{}Prior\+Hessian/util.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Meta.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Univariate\+Dist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Multivariate\+Dist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Bounds\+Adapted\+Dist.\+h\char`\"{}}\\*
+Include dependency graph for Copula\+Dist.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{CopulaDist_8h__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01CopulaDistImpl_1_1CopulaDist_3_01Cop7279db6753e87d864b5bda4f78bd9862}{prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Dist\+Ts... $>$ $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceprior__hessian}{prior\+\_\+hessian}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1CopulaDistImpl}{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1detail}{prior\+\_\+hessian\+::detail}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_a40a0589f5be3c61e4c4854fcefe8855f}{prior\+\_\+hessian\+::\+Copula\+Dist} = Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Bounds\+Adapted\+DistT$<$ Marginal\+Dist\+Ts $>$... $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ }\\Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \hyperlink{namespaceprior__hessian_a0cfb582e76e0bbae3498707a8458cb78}{prior\+\_\+hessian\+::make\+\_\+copula\+\_\+dist} (Copula\+Template$<$ sizeof...(Marginal\+Dist\+Ts)$>$ \&\&copula, Marginal\+Dist\+Ts \&\&...dists)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Copula\+Dist base class. 
+
+\begin{DoxyAuthor}{Author}
+Mark J. Olah (mjo@cs.\+unm D\+OT edu) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2017-\/2019 
+\end{DoxyDate}

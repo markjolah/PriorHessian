@@ -1,0 +1,6 @@
+<map id="prior_hessian::AMHCopula::grad2" name="prior_hessian::AMHCopula::grad2">
+<area shape="rect" id="node2" href="$namespaceprior__hessian.html#a706cb136b90f16dd920118eb59ef1ad6" title="prior_hessian::square" alt="" coords="239,5,380,31"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1AMHCopula.html#a11696b4a8cef12a30706cd745820b201" title="prior_hessian::AMHCopula\l::theta" alt="" coords="224,55,395,93"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1AMHCopula.html#a80bcb09b15bdb3c404f028772932c081" title="prior_hessian::AMHCopula\l::set_theta" alt="" coords="443,55,613,93"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1AMHCopula.html#a9d4b8453eedea358f829f8d4c911d8c4" title="prior_hessian::AMHCopula\l::check_theta" alt="" coords="661,55,832,93"/>
+</map>

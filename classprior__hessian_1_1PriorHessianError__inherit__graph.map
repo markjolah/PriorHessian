@@ -1,0 +1,14 @@
+<map id="prior_hessian::PriorHessianError" name="prior_hessian::PriorHessianError">
+<area shape="rect" id="node3" href="$structprior__hessian_1_1IndexError.html" title="Indicates a index access was out of bounds. " alt="" coords="405,5,565,31"/>
+<area shape="rect" id="node4" href="$structprior__hessian_1_1InvalidOperationError.html" title="prior_hessian::InvalidOperation\lError" alt="" coords="388,55,581,93"/>
+<area shape="rect" id="node5" href="$structprior__hessian_1_1NotImplementedError.html" title="prior_hessian::NotImplemented\lError" alt="" coords="388,117,581,156"/>
+<area shape="rect" id="node6" href="$structprior__hessian_1_1NumericalOverflowError.html" title="prior_hessian::Numerical\lOverflowError" alt="" coords="405,180,564,219"/>
+<area shape="rect" id="node7" href="$structprior__hessian_1_1ParameterNameError.html" title="prior_hessian::Parameter\lNameError" alt="" coords="405,243,565,281"/>
+<area shape="rect" id="node8" href="$structprior__hessian_1_1ParameterNameUniquenessError.html" title="prior_hessian::Parameter\lNameUniquenessError" alt="" coords="405,305,565,344"/>
+<area shape="rect" id="node9" href="$structprior__hessian_1_1ParameterSizeError.html" title="prior_hessian::Parameter\lSizeError" alt="" coords="405,368,565,407"/>
+<area shape="rect" id="node10" href="$structprior__hessian_1_1ParameterValueError.html" title="prior_hessian::Parameter\lValueError" alt="" coords="405,431,565,469"/>
+<area shape="rect" id="node11" href="$structprior__hessian_1_1RuntimeConvergenceError.html" title="prior_hessian::RuntimeConvergence\lError" alt="" coords="373,493,596,532"/>
+<area shape="rect" id="node12" href="$structprior__hessian_1_1RuntimeSamplingError.html" title="prior_hessian::RuntimeSampling\lError" alt="" coords="384,556,585,595"/>
+<area shape="rect" id="node13" href="$structprior__hessian_1_1RuntimeTypeError.html" title="prior_hessian::RuntimeType\lError" alt="" coords="397,619,573,657"/>
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,312,103,337"/>
+</map>

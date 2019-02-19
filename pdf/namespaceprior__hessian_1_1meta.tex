@@ -1,0 +1,519 @@
+\hypertarget{namespaceprior__hessian_1_1meta}{}\subsection{prior\+\_\+hessian\+:\+:meta Namespace Reference}
+\label{namespaceprior__hessian_1_1meta}\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+
+
+Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions.  
+
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1all__dists__are__bounded}{all\+\_\+dists\+\_\+are\+\_\+bounded}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1conjunction}{conjunction}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1conjunction_3_01B1_01_4}{conjunction$<$ B1 $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1conjunction_3_01B1_00_01Bn_8_8_8_01_4}{conjunction$<$ B1, Bn... $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1disjunction}{disjunction}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1disjunction_3_01B1_01_4}{disjunction$<$ B1 $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1disjunction_3_01B1_00_01Bn_8_8_8_01_4}{disjunction$<$ B1, Bn... $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1meta_1_1is__copula}{is\+\_\+copula}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1is__numeric__template__of}{is\+\_\+numeric\+\_\+template\+\_\+of}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1is__numeric__template__of_3_01ClassNumericTemplate_00_01ClassNum9ff24e61e3d3187d075a4a72dee66cb3}{is\+\_\+numeric\+\_\+template\+\_\+of$<$ Class\+Numeric\+Template, Class\+Numeric\+Template$<$ Is... $>$ $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1meta_1_1is__subclass__of__numeric__template}{is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1is__template__of_3_01ClassTemplate_00_01ClassTemplate_3_01Ts_8_8_8_01_4_01_4}{is\+\_\+template\+\_\+of$<$ Class\+Template, Class\+Template$<$ Ts... $>$ $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a1f28a9142fc5442b2ba3cf722169578a}{Constructable\+If\+All\+Dists\+Are\+BoundedT} = std\+::enable\+\_\+if$<$ \hyperlink{structprior__hessian_1_1meta_1_1all__dists__are__bounded}{all\+\_\+dists\+\_\+are\+\_\+bounded}$<$ Dist\+Ts... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class... Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a33414fea85f38ec07f5b6a750be5656b}{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT} = std\+::enable\+\_\+if$<$!\hyperlink{structprior__hessian_1_1meta_1_1all__dists__are__bounded}{all\+\_\+dists\+\_\+are\+\_\+bounded}$<$ Dist\+Ts... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$template$<$ template$<$ int $>$ class, class... $>$ class CopulaT, class U $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a18d532e255e9785cca33c9bf8b932adf}{Constructable\+If\+Is\+CopulaT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{classprior__hessian_1_1meta_1_1is__copula}{is\+\_\+copula}$<$ CopulaT, U $>$\+::value,bool $>$
+\item 
+{\footnotesize template$<$class ReturnT , class BoolT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a3fb9317007d5f1b3825cbfd69d491374}{Return\+IfT} = std\+::enable\+\_\+if\+\_\+t$<$ Bool\+T\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$bool val$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_aa8f9847c6c56ca1f8530657d74bb9a99}{Constructable\+If} = std\+::enable\+\_\+if\+\_\+t$<$ val, bool $>$
+\item 
+{\footnotesize template$<$bool val$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a23667341714ecaa72ef51dafae35ee60}{Constructable\+If\+Not} = std\+::enable\+\_\+if\+\_\+t$<$!val, bool $>$
+\item 
+{\footnotesize template$<$class T , class SelfT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a1aa5afbb3de8629472e4cd3fbabf13ae}{Constructable\+If\+Not\+SelfT} = std\+::enable\+\_\+if\+\_\+t$<$!std\+::is\+\_\+same$<$ std\+::decay\+\_\+t$<$ T $>$, SelfT $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class T , class BaseT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_abc650c6661b53cac162bce78cc6c4830}{Enable\+If\+SubclassT} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::remove\+\_\+reference\+\_\+t$<$ BaseT $>$, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class T , template$<$ int $>$ class Class\+Numeric\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a722a7d9905845f2dd08a95b2ddecc10e}{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{classprior__hessian_1_1meta_1_1is__subclass__of__numeric__template}{is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}$<$ Class\+Numeric\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class ReturnT , class T , template$<$ int $>$ class Class\+Numeric\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a05320676e0242ae8def463a1afee362c}{Return\+If\+Subclass\+Of\+Numeric\+TemplateT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{classprior__hessian_1_1meta_1_1is__subclass__of__numeric__template}{is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}$<$ Class\+Numeric\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$class T , class SelfT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_ad84d45d1d36f0fbf216f1380d638d22a}{Enable\+If\+Not\+Is\+SelfT} = std\+::enable\+\_\+if\+\_\+t$<$ !std\+::is\+\_\+same$<$ std\+::decay\+\_\+t$<$ T $>$, SelfT $>$\+::value $>$
+\item 
+{\footnotesize template$<$class ReturnT , class T , class BaseT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a955cdfa0e628ca7f179af6ab70e87cdd}{Return\+If\+SubclassT} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::remove\+\_\+reference\+\_\+t$<$ BaseT $>$, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$class BaseT , class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a0413ae4eb881eabac578a1283fbff570}{Enable\+If\+Is\+Superclass\+Of\+AllT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1conjunction}{conjunction}$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::remove\+\_\+reference\+\_\+t$<$ BaseT $>$, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value $>$
+\item 
+{\footnotesize template$<$class T , template$<$ typename... $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_aeab241d6ef85931a7a35a030036ad6b0}{Enable\+If\+Instantiated\+FromT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class T , template$<$ int $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a4b18f40222c75d1a3f9955464799c452}{Enable\+If\+Instantiated\+From\+NumericT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__numeric__template__of}{is\+\_\+numeric\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class ReturnT , class T , template$<$ int $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a408d81bee769664002f490e4a08b9944}{Return\+If\+Instantiated\+From\+NumericT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__numeric__template__of}{is\+\_\+numeric\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$class T , template$<$ typename... $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a4d2b4afd50ec9adfdf0ad0ba0f690360}{Enable\+If\+Not\+Instantiated\+FromT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class ReturnT , class TestT , template$<$ typename... $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_ab7bb340f7fc79b7a874c3d407fca091d}{Return\+If\+Instantiated\+FromT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ TestT $>$$>$\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$class ReturnT , class TestT , template$<$ typename... $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_aea50a7973fa87d00d93e526c23d14549}{Return\+If\+Not\+Instantiated\+FromT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ TestT $>$$>$\+::value, ReturnT $>$
+\item 
+{\footnotesize template$<$template$<$ typename $>$ class Class\+Template, class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a6c1ba653f64db9c1887e74c50ab257b1}{Enable\+If\+Is\+Template\+For\+AllT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1conjunction}{conjunction}$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value $>$
+\item 
+{\footnotesize template$<$template$<$ typename... $>$ class Class\+Template, class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a48175b9bfd69aa8a555323c758403a62}{Constructable\+If\+Is\+Template\+For\+AllT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1conjunction}{conjunction}$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class Super\+Class , class T $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_ac41c6affb6f4ae3fb6ea0abd23a3b10d}{Constructable\+If\+Is\+Super\+ClassT} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::remove\+\_\+reference\+\_\+t$<$ Super\+Class $>$, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class Super\+Class , class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a4e077ce0021239d133049cf40e8f163e}{Constructable\+If\+Is\+Super\+Class\+For\+AllT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1conjunction}{conjunction}$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::remove\+\_\+reference\+\_\+t$<$ Super\+Class $>$, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class T , template$<$ int $>$ class Class\+Template$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_af9f0f80d3bced7421046f8eed53d21f1}{Constructable\+If\+Instantiated\+From\+NumericT} = std\+::enable\+\_\+if\+\_\+t$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__numeric__template__of}{is\+\_\+numeric\+\_\+template\+\_\+of}$<$ Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a3ea8e11b3e91986909abe98764a02990}{Enable\+If\+Is\+Not\+TupleT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ std\+::tuple, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value $>$
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a20687a1e7c6127dea649f7719ff455d3}{Enable\+If\+Non\+Empty} = std\+::enable\+\_\+if\+\_\+t$<$ (sizeof...(Ts)$>$0) $>$
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a4c0f2ff12f5d30e05ef9ca55a3f35318}{Enable\+If\+All\+Are\+Not\+TupleT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1disjunction}{disjunction}$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ std\+::tuple, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value $>$
+\item 
+{\footnotesize template$<$class SelfT , class T $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a334715ebe83bc8b5ece276b960071701}{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ std\+::tuple, std\+::remove\+\_\+reference\+\_\+t$<$ T $>$$>$\+::value \&\&!std\+::is\+\_\+same$<$ std\+::decay\+\_\+t$<$ T $>$, SelfT $>$\+::value $>$
+\item 
+{\footnotesize template$<$class T , class... Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a5eaabc649c9629ae8f49d45c3141c4b5}{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT} = std\+::enable\+\_\+if\+\_\+t$<$ !\hyperlink{structprior__hessian_1_1meta_1_1disjunction}{disjunction}$<$ \hyperlink{structprior__hessian_1_1meta_1_1is__template__of}{is\+\_\+template\+\_\+of}$<$ std\+::tuple, std\+::remove\+\_\+reference\+\_\+t$<$ Ts $>$$>$... $>$\+::value \&\&!\hyperlink{structprior__hessian_1_1meta_1_1disjunction}{disjunction}$<$ std\+::is\+\_\+same$<$ std\+::decay\+\_\+t$<$ Ts $>$, T $>$... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class Dist , class Base\+Dist $>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a7dcd55f8c696cfac1fe7872289c4d3e1}{Derived\+From} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::decay\+\_\+t$<$ \hyperlink{classprior__hessian_1_1BaseDist}{Base\+Dist} $>$, std\+::decay\+\_\+t$<$ Dist $>$$>$\+::value, std\+::decay\+\_\+t$<$ Dist $>$$>$
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2}{call\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ T $>$)
+\item 
+{\footnotesize template$<$class Input\+Iterator , class ResultT , class Binary\+Operation $>$ }\\\hyperlink{Meta_8h_a4f9105f0c435f5a50cc6000252e92575}{P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} ResultT \hyperlink{namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041}{constexpr\+\_\+accumulate} (Input\+Iterator first, Input\+Iterator last, ResultT init, Binary\+Operation op)
+\item 
+\hyperlink{Meta_8h_a4f9105f0c435f5a50cc6000252e92575}{P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} bool \hyperlink{namespaceprior__hessian_1_1meta_add11951e7edc2c231ca52c32ac0ee07b}{logical\+\_\+and\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ bool $>$ L)
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{Meta_8h_a4f9105f0c435f5a50cc6000252e92575}{P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} T \hyperlink{namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f}{sum\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ T $>$ L)
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{Meta_8h_a4f9105f0c435f5a50cc6000252e92575}{P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} T \hyperlink{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639}{prod\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ T $>$ L)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions. 
+
+These class templates are intended to be used in variadic template functions to sequence the order of calls as a std\+::initializer\+\_\+list. 
+
+\subsubsection{Typedef Documentation}
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If@{Constructable\+If}}
+\index{Constructable\+If@{Constructable\+If}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If}{ConstructableIf}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$bool val$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If} = typedef std\+::enable\+\_\+if\+\_\+t$<$val,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_aa8f9847c6c56ca1f8530657d74bb9a99}{}\label{namespaceprior__hessian_1_1meta_aa8f9847c6c56ca1f8530657d74bb9a99}
+
+
+Definition at line 117 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}}
+\index{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}{ConstructableIfAllAreNotTupleAndAreNotT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf disjunction}$<${\bf is\+\_\+template\+\_\+of}$<$std\+::tuple,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$...$>$\+::value \&\& !{\bf disjunction}$<$std\+::is\+\_\+same$<$std\+::decay\+\_\+t$<$Ts$>$,T$>$...$>$\+::value, bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a5eaabc649c9629ae8f49d45c3141c4b5}{}\label{namespaceprior__hessian_1_1meta_a5eaabc649c9629ae8f49d45c3141c4b5}
+
+
+Definition at line 214 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}}
+\index{Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+All\+Dists\+Are\+BoundedT}{ConstructableIfAllDistsAreBoundedT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+All\+Dists\+Are\+BoundedT} = typedef std\+::enable\+\_\+if$<${\bf all\+\_\+dists\+\_\+are\+\_\+bounded}$<$Dist\+Ts...$>$\+::value,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a1f28a9142fc5442b2ba3cf722169578a}{}\label{namespaceprior__hessian_1_1meta_a1f28a9142fc5442b2ba3cf722169578a}
+
+
+Definition at line 87 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}}
+\index{Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Instantiated\+From\+NumericT}{ConstructableIfInstantiatedFromNumericT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , template$<$ int $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Instantiated\+From\+NumericT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+numeric\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value, bool $>$}\hypertarget{namespaceprior__hessian_1_1meta_af9f0f80d3bced7421046f8eed53d21f1}{}\label{namespaceprior__hessian_1_1meta_af9f0f80d3bced7421046f8eed53d21f1}
+
+
+Definition at line 194 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}}
+\index{Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Is\+CopulaT}{ConstructableIfIsCopulaT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ template$<$ int $>$ class, class... $>$ class CopulaT, class U $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Is\+CopulaT} = typedef std\+::enable\+\_\+if\+\_\+t$<${\bf is\+\_\+copula}$<$CopulaT,U$>$\+::value ,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a18d532e255e9785cca33c9bf8b932adf}{}\label{namespaceprior__hessian_1_1meta_a18d532e255e9785cca33c9bf8b932adf}
+
+
+Definition at line 111 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}}
+\index{Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Is\+Super\+Class\+For\+AllT}{ConstructableIfIsSuperClassForAllT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Super\+Class , class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Is\+Super\+Class\+For\+AllT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf conjunction}$<$ std\+::is\+\_\+base\+\_\+of$<$std\+::remove\+\_\+reference\+\_\+t$<$Super\+Class$>$,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$... $>$\+::value, bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a4e077ce0021239d133049cf40e8f163e}{}\label{namespaceprior__hessian_1_1meta_a4e077ce0021239d133049cf40e8f163e}
+
+
+Definition at line 190 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}}
+\index{Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Is\+Super\+ClassT}{ConstructableIfIsSuperClassT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Super\+Class , class T $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Is\+Super\+ClassT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$std\+::remove\+\_\+reference\+\_\+t$<$Super\+Class$>$,std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value, bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_ac41c6affb6f4ae3fb6ea0abd23a3b10d}{}\label{namespaceprior__hessian_1_1meta_ac41c6affb6f4ae3fb6ea0abd23a3b10d}
+
+
+Definition at line 186 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}}
+\index{Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Is\+Template\+For\+AllT}{ConstructableIfIsTemplateForAllT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename... $>$ class Class\+Template, class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Is\+Template\+For\+AllT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf conjunction}$<$ {\bf is\+\_\+template\+\_\+of}$<$Class\+Template,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$ ... $>$\+::value, bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a48175b9bfd69aa8a555323c758403a62}{}\label{namespaceprior__hessian_1_1meta_a48175b9bfd69aa8a555323c758403a62}
+
+
+Definition at line 182 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not@{Constructable\+If\+Not}}
+\index{Constructable\+If\+Not@{Constructable\+If\+Not}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Not}{ConstructableIfNot}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$bool val$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Not} = typedef std\+::enable\+\_\+if\+\_\+t$<$!val,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a23667341714ecaa72ef51dafae35ee60}{}\label{namespaceprior__hessian_1_1meta_a23667341714ecaa72ef51dafae35ee60}
+
+
+Definition at line 120 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}}
+\index{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}{ConstructableIfNotAllDistsAreBoundedT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT} = typedef std\+::enable\+\_\+if$<$!{\bf all\+\_\+dists\+\_\+are\+\_\+bounded}$<$Dist\+Ts...$>$\+::value,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a33414fea85f38ec07f5b6a750be5656b}{}\label{namespaceprior__hessian_1_1meta_a33414fea85f38ec07f5b6a750be5656b}
+
+
+Definition at line 89 of file Bounds\+Adapted\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}}
+\index{Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Constructable\+If\+Not\+SelfT}{ConstructableIfNotSelfT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class SelfT $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Not\+SelfT} = typedef std\+::enable\+\_\+if\+\_\+t$<$!std\+::is\+\_\+same$<$std\+::decay\+\_\+t$<$T$>$,SelfT$>$\+::value,bool$>$}\hypertarget{namespaceprior__hessian_1_1meta_a1aa5afbb3de8629472e4cd3fbabf13ae}{}\label{namespaceprior__hessian_1_1meta_a1aa5afbb3de8629472e4cd3fbabf13ae}
+
+
+Definition at line 123 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Derived\+From@{Derived\+From}}
+\index{Derived\+From@{Derived\+From}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Derived\+From}{DerivedFrom}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Dist , class Base\+Dist $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Derived\+From} = typedef std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+base\+\_\+of$<$std\+::decay\+\_\+t$<${\bf Base\+Dist}$>$,std\+::decay\+\_\+t$<$Dist$>$$>$\+::value,std\+::decay\+\_\+t$<$Dist$>$$>$}\hypertarget{namespaceprior__hessian_1_1meta_a7dcd55f8c696cfac1fe7872289c4d3e1}{}\label{namespaceprior__hessian_1_1meta_a7dcd55f8c696cfac1fe7872289c4d3e1}
+
+
+Definition at line 228 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}}
+\index{Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+All\+Are\+Not\+TupleT}{EnableIfAllAreNotTupleT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+All\+Are\+Not\+TupleT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf disjunction}$<$ {\bf is\+\_\+template\+\_\+of}$<$std\+::tuple,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$... $>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a4c0f2ff12f5d30e05ef9ca55a3f35318}{}\label{namespaceprior__hessian_1_1meta_a4c0f2ff12f5d30e05ef9ca55a3f35318}
+
+
+Definition at line 204 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}}
+\index{Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Instantiated\+From\+NumericT}{EnableIfInstantiatedFromNumericT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , template$<$ int $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Instantiated\+From\+NumericT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+numeric\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value$>$}\hypertarget{namespaceprior__hessian_1_1meta_a4b18f40222c75d1a3f9955464799c452}{}\label{namespaceprior__hessian_1_1meta_a4b18f40222c75d1a3f9955464799c452}
+
+
+Definition at line 158 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}}
+\index{Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Instantiated\+FromT}{EnableIfInstantiatedFromT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , template$<$ typename... $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Instantiated\+FromT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_aeab241d6ef85931a7a35a030036ad6b0}{}\label{namespaceprior__hessian_1_1meta_aeab241d6ef85931a7a35a030036ad6b0}
+
+
+Definition at line 150 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}}
+\index{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}{EnableIfIsNotTupleAndIsNotSelfT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class SelfT , class T $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf is\+\_\+template\+\_\+of}$<$std\+::tuple,std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value \&\& !std\+::is\+\_\+same$<$std\+::decay\+\_\+t$<$T$>$,SelfT$>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a334715ebe83bc8b5ece276b960071701}{}\label{namespaceprior__hessian_1_1meta_a334715ebe83bc8b5ece276b960071701}
+
+
+Definition at line 209 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}}
+\index{Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Is\+Not\+TupleT}{EnableIfIsNotTupleT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Is\+Not\+TupleT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf is\+\_\+template\+\_\+of}$<$std\+::tuple,std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a3ea8e11b3e91986909abe98764a02990}{}\label{namespaceprior__hessian_1_1meta_a3ea8e11b3e91986909abe98764a02990}
+
+
+Definition at line 197 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}}
+\index{Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Is\+Superclass\+Of\+AllT}{EnableIfIsSuperclassOfAllT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class BaseT , class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Is\+Superclass\+Of\+AllT} = typedef std\+::enable\+\_\+if\+\_\+t$<${\bf conjunction}$<$ std\+::is\+\_\+base\+\_\+of$<$std\+::remove\+\_\+reference\+\_\+t$<$BaseT$>$,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$ ... $>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a0413ae4eb881eabac578a1283fbff570}{}\label{namespaceprior__hessian_1_1meta_a0413ae4eb881eabac578a1283fbff570}
+
+
+Definition at line 146 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}}
+\index{Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Is\+Template\+For\+AllT}{EnableIfIsTemplateForAllT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename $>$ class Class\+Template, class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Is\+Template\+For\+AllT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf conjunction}$<$ {\bf is\+\_\+template\+\_\+of}$<$Class\+Template,std\+::remove\+\_\+reference\+\_\+t$<$Ts$>$$>$ ... $>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a6c1ba653f64db9c1887e74c50ab257b1}{}\label{namespaceprior__hessian_1_1meta_a6c1ba653f64db9c1887e74c50ab257b1}
+
+
+Definition at line 178 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}}
+\index{Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Non\+Empty}{EnableIfNonEmpty}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Non\+Empty} = typedef std\+::enable\+\_\+if\+\_\+t$<$ (sizeof...(Ts)$>$0) $>$}\hypertarget{namespaceprior__hessian_1_1meta_a20687a1e7c6127dea649f7719ff455d3}{}\label{namespaceprior__hessian_1_1meta_a20687a1e7c6127dea649f7719ff455d3}
+
+
+Definition at line 200 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}}
+\index{Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Not\+Instantiated\+FromT}{EnableIfNotInstantiatedFromT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , template$<$ typename... $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Not\+Instantiated\+FromT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf is\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_a4d2b4afd50ec9adfdf0ad0ba0f690360}{}\label{namespaceprior__hessian_1_1meta_a4d2b4afd50ec9adfdf0ad0ba0f690360}
+
+
+Definition at line 166 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}}
+\index{Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Not\+Is\+SelfT}{EnableIfNotIsSelfT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class SelfT $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Not\+Is\+SelfT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !std\+::is\+\_\+same$<$std\+::decay\+\_\+t$<$T$>$,SelfT$>$\+::value $>$}\hypertarget{namespaceprior__hessian_1_1meta_ad84d45d1d36f0fbf216f1380d638d22a}{}\label{namespaceprior__hessian_1_1meta_ad84d45d1d36f0fbf216f1380d638d22a}
+
+
+Definition at line 138 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}}
+\index{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}{EnableIfSubclassOfNumericTemplateT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , template$<$ int $>$ class Class\+Numeric\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+Subclass\+Of\+Numeric\+TemplateT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}$<$Class\+Numeric\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value$>$}\hypertarget{namespaceprior__hessian_1_1meta_a722a7d9905845f2dd08a95b2ddecc10e}{}\label{namespaceprior__hessian_1_1meta_a722a7d9905845f2dd08a95b2ddecc10e}
+
+
+Definition at line 131 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+SubclassT@{Enable\+If\+SubclassT}}
+\index{Enable\+If\+SubclassT@{Enable\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Enable\+If\+SubclassT}{EnableIfSubclassT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class BaseT $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Enable\+If\+SubclassT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$std\+::remove\+\_\+reference\+\_\+t$<$BaseT$>$,std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value$>$}\hypertarget{namespaceprior__hessian_1_1meta_abc650c6661b53cac162bce78cc6c4830}{}\label{namespaceprior__hessian_1_1meta_abc650c6661b53cac162bce78cc6c4830}
+
+
+Definition at line 127 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}}
+\index{Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+If\+Instantiated\+From\+NumericT}{ReturnIfInstantiatedFromNumericT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class T , template$<$ int $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+If\+Instantiated\+From\+NumericT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+numeric\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value, ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_a408d81bee769664002f490e4a08b9944}{}\label{namespaceprior__hessian_1_1meta_a408d81bee769664002f490e4a08b9944}
+
+
+Definition at line 162 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}}
+\index{Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+If\+Instantiated\+FromT}{ReturnIfInstantiatedFromT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class TestT , template$<$ typename... $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+If\+Instantiated\+FromT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$TestT$>$$>$\+::value, ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_ab7bb340f7fc79b7a874c3d407fca091d}{}\label{namespaceprior__hessian_1_1meta_ab7bb340f7fc79b7a874c3d407fca091d}
+
+
+Definition at line 170 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}}
+\index{Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+If\+Not\+Instantiated\+FromT}{ReturnIfNotInstantiatedFromT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class TestT , template$<$ typename... $>$ class Class\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+If\+Not\+Instantiated\+FromT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ !{\bf is\+\_\+template\+\_\+of}$<$Class\+Template, std\+::remove\+\_\+reference\+\_\+t$<$TestT$>$$>$\+::value, ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_aea50a7973fa87d00d93e526c23d14549}{}\label{namespaceprior__hessian_1_1meta_aea50a7973fa87d00d93e526c23d14549}
+
+
+Definition at line 174 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}}
+\index{Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}{ReturnIfSubclassOfNumericTemplateT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class T , template$<$ int $>$ class Class\+Numeric\+Template$>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+If\+Subclass\+Of\+Numeric\+TemplateT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ {\bf is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}$<$Class\+Numeric\+Template, std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value, ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_a05320676e0242ae8def463a1afee362c}{}\label{namespaceprior__hessian_1_1meta_a05320676e0242ae8def463a1afee362c}
+
+
+Definition at line 135 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+SubclassT@{Return\+If\+SubclassT}}
+\index{Return\+If\+SubclassT@{Return\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+If\+SubclassT}{ReturnIfSubclassT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class T , class BaseT $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+If\+SubclassT} = typedef std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+base\+\_\+of$<$std\+::remove\+\_\+reference\+\_\+t$<$BaseT$>$,std\+::remove\+\_\+reference\+\_\+t$<$T$>$$>$\+::value, ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_a955cdfa0e628ca7f179af6ab70e87cdd}{}\label{namespaceprior__hessian_1_1meta_a955cdfa0e628ca7f179af6ab70e87cdd}
+
+
+Definition at line 142 of file Meta.\+h.
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+IfT@{Return\+IfT}}
+\index{Return\+IfT@{Return\+IfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{Return\+IfT}{ReturnIfT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class ReturnT , class BoolT $>$ using {\bf prior\+\_\+hessian\+::meta\+::\+Return\+IfT} = typedef std\+::enable\+\_\+if\+\_\+t$<$Bool\+T\+::value,ReturnT$>$}\hypertarget{namespaceprior__hessian_1_1meta_a3fb9317007d5f1b3825cbfd69d491374}{}\label{namespaceprior__hessian_1_1meta_a3fb9317007d5f1b3825cbfd69d491374}
+
+
+Definition at line 114 of file Meta.\+h.
+
+
+
+\subsubsection{Function Documentation}
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}}
+\index{call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{call\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ T $>$)}{call_in_order(std::initializer_list< T >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void prior\+\_\+hessian\+::meta\+::call\+\_\+in\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{std\+::initializer\+\_\+list$<$ T $>$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2}{}\label{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2}
+N\+O\+OP function which is used to ensure call order on a variadic sequence of function calls 
+
+Definition at line 41 of file Meta.\+h.
+
+
+
+References P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}}
+\index{constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{constexpr\+\_\+accumulate(\+Input\+Iterator first, Input\+Iterator last, Result\+T init, Binary\+Operation op)}{constexpr_accumulate(InputIterator first, InputIterator last, ResultT init, BinaryOperation op)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Input\+Iterator , class ResultT , class Binary\+Operation $>$ {\bf P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} ResultT prior\+\_\+hessian\+::meta\+::constexpr\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{Input\+Iterator}]{first, }
+\item[{Input\+Iterator}]{last, }
+\item[{ResultT}]{init, }
+\item[{Binary\+Operation}]{op}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041}{}\label{namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041}
+
+
+Definition at line 46 of file Meta.\+h.
+
+
+
+References P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR.
+
+
+
+Referenced by logical\+\_\+and\+\_\+in\+\_\+order(), prod\+\_\+in\+\_\+order(), and sum\+\_\+in\+\_\+order().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}}
+\index{logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{logical\+\_\+and\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ bool $>$ L)}{logical_and_in_order(std::initializer_list< bool > L)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} bool prior\+\_\+hessian\+::meta\+::logical\+\_\+and\+\_\+in\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{std\+::initializer\+\_\+list$<$ bool $>$}]{L}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_1_1meta_add11951e7edc2c231ca52c32ac0ee07b}{}\label{namespaceprior__hessian_1_1meta_add11951e7edc2c231ca52c32ac0ee07b}
+
+
+Definition at line 53 of file Meta.\+h.
+
+
+
+References constexpr\+\_\+accumulate(), and P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{namespaceprior__hessian_1_1meta_add11951e7edc2c231ca52c32ac0ee07b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1meta_add11951e7edc2c231ca52c32ac0ee07b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!prod\+\_\+in\+\_\+order@{prod\+\_\+in\+\_\+order}}
+\index{prod\+\_\+in\+\_\+order@{prod\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{prod\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ T $>$ L)}{prod_in_order(std::initializer_list< T > L)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} T prior\+\_\+hessian\+::meta\+::prod\+\_\+in\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{std\+::initializer\+\_\+list$<$ T $>$}]{L}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639}{}\label{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639}
+
+
+Definition at line 63 of file Meta.\+h.
+
+
+
+References constexpr\+\_\+accumulate().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}}
+\index{sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
+\paragraph[{\texorpdfstring{sum\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ T $>$ L)}{sum_in_order(std::initializer_list< T > L)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} T prior\+\_\+hessian\+::meta\+::sum\+\_\+in\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{std\+::initializer\+\_\+list$<$ T $>$}]{L}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f}{}\label{namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f}
+
+
+Definition at line 58 of file Meta.\+h.
+
+
+
+References constexpr\+\_\+accumulate(), and P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f_icgraph}
+\end{center}
+\end{figure}
+
+

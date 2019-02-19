@@ -1,0 +1,19 @@
+<map id="prior_hessian::GammaDist::median" name="prior_hessian::GammaDist::median">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1GammaDist.html#abdc4e134ab9887665f063ba2031499e3" title="prior_hessian::GammaDist::cdf" alt="" coords="221,19,410,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1GammaDist.html#a9000e6fd6599a8c687ebd2c670a2cfde" title="prior_hessian::GammaDist\l::check_params_iter" alt="" coords="232,68,399,107"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1GammaDist.html#aa8ebf56666a40c3778462a6ff036b4e3" title="prior_hessian::GammaDist\l::grad" alt="" coords="232,295,399,333"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1GammaDist.html#a56d9a1006a32bdb6184fc50e69327e5b" title="prior_hessian::GammaDist\l::grad2" alt="" coords="232,357,399,396"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1GammaDist.html#a6e6149eb5bcf65a64c31f8b8dac5054c" title="prior_hessian::GammaDist\l::grad_grad2_accumulate" alt="" coords="232,420,399,459"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1GammaDist.html#a6a57fffb433fa1ac1284619c42651b46" title="prior_hessian::GammaDist\l::icdf" alt="" coords="232,483,399,521"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1GammaDist.html#ac823fcaa609dab7cb782ec63626b1529" title="prior_hessian::GammaDist::llh" alt="" coords="222,193,409,219"/>
+<area shape="rect" id="node14" href="$classprior__hessian_1_1GammaDist.html#a39fee270e1ff80a3125cfdfb4920adb9" title="prior_hessian::GammaDist\l::rllh" alt="" coords="459,280,625,319"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1GammaDist.html#a39dfbff78fec9e25d9e2cdfaf0301b68" title="prior_hessian::GammaDist::pdf" alt="" coords="220,545,411,571"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1GammaDist.html#a43b441f59ff1a5506110585ffde4adf3" title="prior_hessian::GammaDist\l::sample" alt="" coords="232,595,399,633"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1GammaDist.html#ace2701b4efc741de9c4ecf71f513b844" title="prior_hessian::GammaDist\l::set_params_iter" alt="" coords="232,131,399,169"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1GammaDist.html#aee83cfdf65aa5f0c9aab22e6a34a5294" title="prior_hessian::GammaDist\l::check_params" alt="" coords="459,5,625,44"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1GammaDist.html#a455e42461877165e4101f9f7f33ae84d" title="prior_hessian::GammaDist\l::scale" alt="" coords="459,68,625,107"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1GammaDist.html#a2c8b6939f7920e2e81532b5c1970567a" title="prior_hessian::GammaDist\l::shape" alt="" coords="459,131,625,169"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1GammaDist.html#a7560c2b0a336870b19240f6bea0eb023" title="prior_hessian::GammaDist\l::set_scale" alt="" coords="673,99,840,137"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1GammaDist.html#aea1effd3a5de08430650cc345312b8bd" title="prior_hessian::GammaDist\l::set_shape" alt="" coords="673,161,840,200"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1GammaDist.html#aebc6101c1e09881dacfee4da4c950d40" title="prior_hessian::GammaDist\l::set_params" alt="" coords="459,217,625,256"/>
+</map>

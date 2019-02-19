@@ -1,0 +1,66 @@
+\href{https://travis-ci.org/markjolah/PriorHessian}{\tt }
+
+\subsection*{Prior Hessian}
+
+Library for fast computation of log-\/likelihoods, and derivatives, of multivariate priors defined as composites of univariate distributions and multivariate distributions especially Archimedean copulas.
+
+\subsubsection*{Documentation}
+
+The Prior\+Hessian Doxygen documentation can be build with the {\ttfamily O\+P\+T\+\_\+\+D\+OC} C\+Make option and is also available on online\+:
+\begin{DoxyItemize}
+\item \href{https://markjolah.github.io/PriorHessian/index.html}{\tt Prior\+Hessian H\+T\+ML Manual}
+\item \href{https://markjolah.github.io/PriorHessian/pdf/PriorHessian-0.2-reference.pdf}{\tt Prior\+Hessian P\+DF Manual}
+\item \href{https://github.com/markjolah/PriorHessian}{\tt Prior\+Hessian github repository}
+\end{DoxyItemize}
+
+\subsubsection*{Installation}
+
+The Prior\+Hessian library uses C\+Make and is designed to be installed either to a base system, or run from within an arbitrary install prefix. The default build script will install to the {\ttfamily \+\_\+install} directory underneath the repository root. \begin{DoxyVerb}$ ./build.sh <cmake-extra-opts>
+\end{DoxyVerb}
+
+
+\subsubsection*{Dependencies}
+
+
+\begin{DoxyItemize}
+\item \href{http://arma.sourceforge.net/docs.html}{\tt {\itshape Armadillo}} -\/ A high-\/performance array library for C++.
+\item {\itshape B\+L\+AS} -\/ A B\+L\+AS implemenation\+: \href{http://www.netlib.org/blas/}{\tt Netlib B\+L\+AS reference} or \href{https://www.openblas.net/}{\tt {\itshape Open\+Blas}}
+\item {\itshape L\+A\+P\+A\+CK} -\/ A Lapack implemenation\+: \href{http://www.netlib.org/lapack/}{\tt Netlib L\+A\+P\+A\+CK reference}
+\end{DoxyItemize}
+
+Note the {\ttfamily O\+P\+T\+\_\+\+A\+R\+M\+A\+D\+I\+L\+L\+O\+\_\+\+I\+N\+T64} C\+Make option controls whether Armadillo uses B\+L\+AS and L\+A\+P\+A\+CK libraries that use 64-\/bit interger indexing. Matlab uses 64-\/bit by default, and to link Prior\+Hessian to Matlab M\+EX libraries, this option must be on. Many linux systems only provide 32-\/bit integer versions of B\+L\+AS and Lapack, and the option can be disabled if Matlab support is not a concern and 64-\/bit support is difficult to manage on
+
+\paragraph*{External Projects}
+
+These packages are specialized C\+Make projects. If they are not currently installed on the development machines we use the \href{https://github.com/markjolah/UncommonCMakeModules/blob/master/AddExternalDependency.cmake}{\tt Add\+External\+Dependency.\+cmake} which will automatically download, configure, build and install to the {\ttfamily C\+M\+A\+K\+E\+\_\+\+I\+N\+S\+T\+A\+L\+L\+\_\+\+P\+R\+E\+F\+IX}, enabling their use through the normal C\+Make {\ttfamily find\+\_\+package()} system.
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/markjolah/BacktraceException}{\tt Backtrace\+Exception} -\/ For exception backtraces when debugging (especially in Matlab).
+\end{DoxyItemize}
+
+\subsubsection*{Motivation}
+
+For many likelihood-\/based methods, they can be extended to Bayesian methods like M\+AP Estimation and M\+C\+MC Posterior sampling, by incorporating a prior. This prior must provide fast methods for computing log-\/likelihood and it\textquotesingle{}s derivatives over the parameter space. The prior log-\/likelihood, as well as it\textquotesingle{}s gradient and hessian are then added to the equivalent quantities from the likelihood to create a Bayesian objective for M\+AP Estimation.
+
+\subsubsection*{Static Polymorphism}
+
+The Prior\+Hessian library is designed using static polymorphism (templates), and as such avoids virtual functions for small-\/grained tasks, and instead uses templates, which allow many small functions to be inlined. This aggressive inlining by the compiler produces log-\/likelihood, gradient, and hessian functions that are nearly as fast as hand-\/coded functions. But our flexible \mbox{[}{\ttfamily Composite\+Dist}\mbox{]}() class is able to be easily created with any mix of \mbox{[}{\ttfamily Univariate\+Dist}\mbox{]}() and \mbox{[}{\ttfamily Multivariate\+Dist}\mbox{]}() elements.
+
+In \href{https://github.com/markjolah/Mappel}{\tt Mappel} we use this ability to create heterogeneous priors for each Model\textquotesingle{}s parameters, (e.\+g., \mbox{[}x,y,I,bg,sigma\mbox{]}).
+
+Functionally, the Prior\+Hessian library stores sequences of distributions as {\ttfamily std\+::tuples}. Using this approach as opposed to the runtime polymorphism of using {\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$Base$>$$>$} gains several advantages. Most importantly, without the need for virtual functions, the tuple-\/based approach has the ability to inline the many small computational functions that must be combined for every call to compute the log-\/likelihood or other computationally important quantities.
+
+\subsubsection*{Computations available}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily cdf} -\/ cumulative distribution function
+\item {\ttfamily pdf} -\/ probability density function
+\item {\ttfamily llh} -\/ log-\/likelihood (log of pdf)
+\item {\ttfamily rllh} -\/ relative log-\/likelihood (log of pdf without constant terms)
+\item {\ttfamily grad} -\/ derivative of log-\/likelihood (or equivalently of relative-\/llh)
+\item {\ttfamily grad2} -\/ 2nd-\/derivative of log-\/likelihood
+\end{DoxyItemize}
+
+\subsubsection*{Including Prior\+Hessian as an External\+Project}

@@ -1,0 +1,151 @@
+\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData}{}\subsection{prior\+\_\+hessian\+:\+:mcmc\+:\+:M\+C\+M\+C\+Data$<$ Ndim $>$ Class Template Reference}
+\label{classprior__hessian_1_1mcmc_1_1MCMCData}\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Ndim $>$@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Ndim $>$}}
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Truncated\+Multivariate\+Dist.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:mcmc\+:\+:M\+C\+M\+C\+Data$<$ Ndim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{classprior__hessian_1_1mcmc_1_1MCMCData__inherit__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a2d9e789ebad080d8af3b0a221c529099}{Ndim\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ Ndim $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_abacd5710cd385ab3c9737be39b3dcbf4}{M\+C\+M\+C\+Data} ()
+\item 
+\hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_ae2873b620b752ef00d4a8a38f7fd9b2b}{M\+C\+M\+C\+Data} (const \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData}{M\+C\+M\+C\+Data}$<$ Ndim $>$ \&o)
+\item 
+\hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData}{M\+C\+M\+C\+Data}$<$ Ndim $>$ \& \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a1d3228c1cd3d56cf4b6087e2e27b50ad}{operator=} (const \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData}{M\+C\+M\+C\+Data}$<$ Ndim $>$ \&o)
+\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a2d9e789ebad080d8af3b0a221c529099}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a97efdedc5edd49ece7550418f122ad4d}{sample}
+\item 
+double \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a5d6330749b57307761c9b7124b94f337}{rllh}
+\item 
+int \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_ad6cd36c82044f291c2d6f061acc960dd}{nsample} =0
+\item 
+std\+::mutex \hyperlink{classprior__hessian_1_1mcmc_1_1MCMCData_a3a3367abe6e642f25b12abb66f3b2dc6}{mutex}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$int Ndim$>$\\*
+class prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Ndim $>$}
+
+
+
+Definition at line 22 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!Ndim\+VecT@{Ndim\+VecT}}
+\index{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{Ndim\+VecT}{NdimVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::{\bf Ndim\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$Ndim$>$}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_a2d9e789ebad080d8af3b0a221c529099}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_a2d9e789ebad080d8af3b0a221c529099}
+
+
+Definition at line 24 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!M\+C\+M\+C\+Data@{M\+C\+M\+C\+Data}}
+\index{M\+C\+M\+C\+Data@{M\+C\+M\+C\+Data}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{M\+C\+M\+C\+Data()}{MCMCData()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::{\bf M\+C\+M\+C\+Data} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_abacd5710cd385ab3c9737be39b3dcbf4}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_abacd5710cd385ab3c9737be39b3dcbf4}
+
+
+Definition at line 25 of file Truncated\+Multivariate\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!M\+C\+M\+C\+Data@{M\+C\+M\+C\+Data}}
+\index{M\+C\+M\+C\+Data@{M\+C\+M\+C\+Data}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{M\+C\+M\+C\+Data(const M\+C\+M\+C\+Data$<$ Ndim $>$ \&o)}{MCMCData(const MCMCData< Ndim > &o)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::{\bf M\+C\+M\+C\+Data} (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\+C\+M\+C\+Data}$<$ Ndim $>$ \&}]{o}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_ae2873b620b752ef00d4a8a38f7fd9b2b}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_ae2873b620b752ef00d4a8a38f7fd9b2b}
+
+
+Definition at line 26 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!operator=@{operator=}}
+\index{operator=@{operator=}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{operator=(const M\+C\+M\+C\+Data$<$ Ndim $>$ \&o)}{operator=(const MCMCData< Ndim > &o)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf M\+C\+M\+C\+Data}$<$Ndim$>$\& {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\+C\+M\+C\+Data}$<$ Ndim $>$ \&}]{o}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_a1d3228c1cd3d56cf4b6087e2e27b50ad}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_a1d3228c1cd3d56cf4b6087e2e27b50ad}
+
+
+Definition at line 37 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!mutex@{mutex}}
+\index{mutex@{mutex}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{mutex}{mutex}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ std\+::mutex {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::mutex\hspace{0.3cm}{\ttfamily [mutable]}}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_a3a3367abe6e642f25b12abb66f3b2dc6}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_a3a3367abe6e642f25b12abb66f3b2dc6}
+
+
+Definition at line 51 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::\+M\+C\+M\+C\+Data(), and prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::operator=().
+
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!nsample@{nsample}}
+\index{nsample@{nsample}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{nsample}{nsample}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ int {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::nsample =0}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_ad6cd36c82044f291c2d6f061acc960dd}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_ad6cd36c82044f291c2d6f061acc960dd}
+
+
+Definition at line 50 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::\+M\+C\+M\+C\+Data(), and prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::operator=().
+
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{rllh}{rllh}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::rllh}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_a5d6330749b57307761c9b7124b94f337}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_a5d6330749b57307761c9b7124b94f337}
+
+
+Definition at line 49 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::\+M\+C\+M\+C\+Data(), prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::operator=(), and prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist$<$ Dist $>$\+::sample().
+
+\index{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data@{prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}}
+\paragraph[{\texorpdfstring{sample}{sample}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}$<$ Ndim $>$\+::sample}\hypertarget{classprior__hessian_1_1mcmc_1_1MCMCData_a97efdedc5edd49ece7550418f122ad4d}{}\label{classprior__hessian_1_1mcmc_1_1MCMCData_a97efdedc5edd49ece7550418f122ad4d}
+
+
+Definition at line 48 of file Truncated\+Multivariate\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::\+M\+C\+M\+C\+Data(), prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist$<$ Dist $>$\+::mean(), prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Dist\+::num\+\_\+dim()$>$\+::operator=(), and prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist$<$ Dist $>$\+::sample().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{TruncatedMultivariateDist_8h}{Truncated\+Multivariate\+Dist.\+h}\end{DoxyCompactItemize}

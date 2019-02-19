@@ -1,0 +1,76 @@
+\hypertarget{mvn__cdf_8h}{}\subsection{mvn\+\_\+cdf.\+h File Reference}
+\label{mvn__cdf_8h}\index{mvn\+\_\+cdf.\+h@{mvn\+\_\+cdf.\+h}}
+
+
+Numerical computation of multivariate normal cdfs in 2,3 and higher dims.  
+
+
+{\ttfamily \#include $<$iomanip$>$}\\*
+{\ttfamily \#include $<$random$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/util.\+h\char`\"{}}\\*
+Include dependency graph for mvn\+\_\+cdf.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mvn__cdf_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{mvn__cdf_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceprior__hessian}{prior\+\_\+hessian}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1genz}{prior\+\_\+hessian\+::genz}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1genz_1_1fortran}{prior\+\_\+hessian\+::genz\+::fortran}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{namespaceprior__hessian_ad0373e8965088cd5481ca019aed56a87}{prior\+\_\+hessian\+::unit\+\_\+normal\+\_\+cdf} (double t)
+\item 
+double \hyperlink{namespaceprior__hessian_ab76971b5aff40010d5c63fba454349b9}{prior\+\_\+hessian\+::unit\+\_\+normal\+\_\+icdf} (double u)
+\item 
+double \hyperlink{namespaceprior__hessian_a31c9cb28381da665bdef9a77b4858fc5}{prior\+\_\+hessian\+::owen\+\_\+t\+\_\+integral} (double h, double a, double gh)
+\item 
+double \hyperlink{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda}{prior\+\_\+hessian\+::owen\+\_\+t\+\_\+integral} (double h, double a)
+\item 
+double \hyperlink{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}{prior\+\_\+hessian\+::owen\+\_\+b\+\_\+integral} (double h, double k, double r)
+\item 
+double \hyperlink{namespaceprior__hessian_ae87209106163a600fbde211815f83b5a}{prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+integral} (double ah, double ak, double r)
+\item 
+double \hyperlink{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}{prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+integral\+\_\+orig} (double ah, double ak, double r)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a0f8b4ec070533193c3f402bbcc2b8b2b}{prior\+\_\+hessian\+::donnelly\+\_\+bvn\+\_\+cdf} (const Vec \&b, const Mat \&sigma)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a5f7ff26e783adec5fd8ba5e290a7c892}{prior\+\_\+hessian\+::owen\+\_\+bvn\+\_\+cdf} (const Vec \&b, const Mat \&sigma)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_abadcc969aeb37b0c2f1e69c75731ec65}{prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+integral} (const Vec \&a, const Vec \&b, const Mat \&U, double \&error, int \&niter)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_af30ccf313fd6eced8ae174f6a0d8457b}{prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+cdf\+\_\+core} (const Vec \&b, const Mat \&U, double \&error, int \&niter)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}{prior\+\_\+hessian\+::mc\+\_\+mvn\+\_\+cdf} (const Vec \&b, const Mat \&S, double \&error)
+\item 
+int \hyperlink{namespaceprior__hessian_1_1genz_1_1fortran_a3aa3e81ace64048700679aa6ab8f0879}{prior\+\_\+hessian\+::genz\+::fortran\+::mvndst\+\_\+} (int $\ast$n, double lower\mbox{[}$\,$\mbox{]}, double upper\mbox{[}$\,$\mbox{]}, int infin\mbox{[}$\,$\mbox{]}, double correl\mbox{[}$\,$\mbox{]}, int $\ast$maxpts, double $\ast$abseps, double $\ast$releps, double $\ast$error, double $\ast$value, int $\ast$inform)
+\item 
+{\footnotesize template$<$class Vec , class Mat $>$ }\\double \hyperlink{namespaceprior__hessian_1_1genz_a5462d1271384fa7431ee84709c0f8a88}{prior\+\_\+hessian\+::genz\+::mvn\+\_\+cdf\+\_\+genz} (const Vec \&b, const Mat \&S, double \&error)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Numerical computation of multivariate normal cdfs in 2,3 and higher dims. 
+
+\begin{DoxyAuthor}{Author}
+Mark J. Olah (mjo@cs.\+unm D\+OT edu) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10-\/2017 
+\end{DoxyDate}

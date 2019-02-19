@@ -1,0 +1,21 @@
+<map id="prior_hessian::SymmetricBetaDist::median" name="prior_hessian::SymmetricBetaDist::median">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1SymmetricBetaDist.html#af1ec7c9d55329f63a44807752e74d746" title="prior_hessian::Symmetric\lBetaDist::cdf" alt="" coords="237,5,397,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1SymmetricBetaDist.html#ae44cf9a26f2f8649b8f29c7ca8e7ef24" title="prior_hessian::Symmetric\lBetaDist::check_params_iter" alt="" coords="228,68,407,107"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1SymmetricBetaDist.html#a039bcc1dfc99119dc5acf535a5369edc" title="prior_hessian::Symmetric\lBetaDist::grad" alt="" coords="237,131,397,169"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1SymmetricBetaDist.html#a66a2fb38407bc9592fd30eaceb6581b6" title="prior_hessian::Symmetric\lBetaDist::grad2" alt="" coords="237,193,397,232"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1SymmetricBetaDist.html#a7a5be166cc094953083b8bcbdf239be3" title="prior_hessian::Symmetric\lBetaDist::grad_grad2_accumulate" alt="" coords="213,256,421,295"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1SymmetricBetaDist.html#a541de90660b38fe706b8656ea10b3db5" title="prior_hessian::Symmetric\lBetaDist::icdf" alt="" coords="471,552,631,591"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1SymmetricBetaDist.html#a705d0521091fc93418588af78d85cc52" title="prior_hessian::Symmetric\lBetaDist::llh" alt="" coords="237,381,397,420"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1SymmetricBetaDist.html#aaeb20e0c35223789304c4de29aa0461b" title="prior_hessian::Symmetric\lBetaDist::rllh" alt="" coords="471,439,631,477"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1SymmetricBetaDist.html#a2db7bdb8013ac523f58d2b252ea0dbb4" title="prior_hessian::Symmetric\lBetaDist::params" alt="" coords="237,319,397,357"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1SymmetricBetaDist.html#a6eb4a96ac9d8b7662ca5479da4c632d3" title="prior_hessian::Symmetric\lBetaDist::pdf" alt="" coords="237,547,397,585"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1SymmetricBetaDist.html#a85c544524b8b02e31d5394289b227a4c" title="prior_hessian::Symmetric\lBetaDist::sample" alt="" coords="237,609,397,648"/>
+<area shape="rect" id="node19" href="$classprior__hessian_1_1SymmetricBetaDist.html#a50df68faf7f3205ddc19b0664593cdb8" title="prior_hessian::Symmetric\lBetaDist::set_params_iter" alt="" coords="469,640,632,679"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1SymmetricBetaDist.html#a9b43cde8d440d3680ef052a38cea9f47" title="prior_hessian::Symmetric\lBetaDist::check_params" alt="" coords="471,68,631,107"/>
+<area shape="rect" id="node7" href="$namespaceprior__hessian.html#a706cb136b90f16dd920118eb59ef1ad6" title="prior_hessian::square" alt="" coords="480,200,621,225"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1SymmetricBetaDist.html#a1e726eb12d98240778d7c0bfaafc7edd" title="prior_hessian::Symmetric\lBetaDist::beta" alt="" coords="471,376,631,415"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1SymmetricBetaDist.html#a286000c0198e921b56821c4552afdaa4" title="prior_hessian::Symmetric\lBetaDist::get_param" alt="" coords="680,408,840,447"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1SymmetricBetaDist.html#a45a39dc6a12ec1af15a1701023101f1f" title="prior_hessian::Symmetric\lBetaDist::set_beta" alt="" coords="888,465,1048,504"/>
+<area shape="rect" id="node14" href="$classprior__hessian_1_1SymmetricBetaDist.html#a5ea7086046d4558c83b2211503501fca" title="prior_hessian::Symmetric\lBetaDist::set_param" alt="" coords="680,345,840,384"/>
+<area shape="rect" id="node20" href="$classprior__hessian_1_1SymmetricBetaDist.html#a8f54c616932761272dad23e3da2be005" title="prior_hessian::Symmetric\lBetaDist::set_params" alt="" coords="680,565,840,604"/>
+</map>

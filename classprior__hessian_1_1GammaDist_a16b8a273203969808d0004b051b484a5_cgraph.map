@@ -1,0 +1,9 @@
+<map id="prior_hessian::GammaDist::param_ubound" name="prior_hessian::GammaDist::param_ubound">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1GammaDist.html#aee83cfdf65aa5f0c9aab22e6a34a5294" title="prior_hessian::GammaDist\l::check_params" alt="" coords="220,5,387,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1GammaDist.html#aba5c79517670be73685664a3832bf372" title="prior_hessian::GammaDist\l::GammaDist" alt="" coords="220,68,387,107"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1GammaDist.html#a8d30af8f996353fdae1d19a43bf6b016" title="prior_hessian::GammaDist\l::params" alt="" coords="220,131,387,169"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1GammaDist.html#a455e42461877165e4101f9f7f33ae84d" title="prior_hessian::GammaDist\l::scale" alt="" coords="220,193,387,232"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1GammaDist.html#a2c8b6939f7920e2e81532b5c1970567a" title="prior_hessian::GammaDist\l::shape" alt="" coords="220,256,387,295"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1GammaDist.html#a7560c2b0a336870b19240f6bea0eb023" title="prior_hessian::GammaDist\l::set_scale" alt="" coords="435,224,601,263"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1GammaDist.html#aea1effd3a5de08430650cc345312b8bd" title="prior_hessian::GammaDist\l::set_shape" alt="" coords="435,287,601,325"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="prior_hessian::CopulaDistImpl::CopulaDist::set_bounds" name="prior_hessian::CopulaDistImpl::CopulaDist::set_bounds">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#aad110f1a85e7611fd098aa51c2104015" title="prior_hessian::CopulaDist\lImpl::CopulaDist::global_ubound" alt="" coords="236,96,437,135"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#abdb39f0c5f7f5f4b16bf501e6083d5b6" title="prior_hessian::CopulaDist\lImpl::CopulaDist::ubound" alt="" coords="716,124,880,163"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#a26cd71990978df0ddae24dae5148c880" title="prior_hessian::CopulaDist\lImpl::CopulaDist::num_dim" alt="" coords="492,33,661,72"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#a4b010ffe2c2acd4dc75c80b32312254d" title="prior_hessian::CopulaDist\lImpl::CopulaDist::set_ubound" alt="" coords="485,96,668,135"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#ac0819ccaeef1afd7a123338823e8fb3c" title="prior_hessian::CopulaDist\lImpl::CopulaDist::set_lbound" alt="" coords="928,124,1107,163"/>
+</map>

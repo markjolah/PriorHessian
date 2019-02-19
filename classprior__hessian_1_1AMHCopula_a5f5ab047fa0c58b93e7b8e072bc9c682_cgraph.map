@@ -1,0 +1,27 @@
+<map id="prior_hessian::AMHCopula::set_params_iter" name="prior_hessian::AMHCopula::set_params_iter">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1AMHCopula.html#aa18585757cb2d4b0723ed80258281278" title="prior_hessian::AMHCopula::cdf" alt="" coords="469,305,661,331"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1AMHCopula.html#a80bcb09b15bdb3c404f028772932c081" title="prior_hessian::AMHCopula\l::set_theta" alt="" coords="1169,96,1340,135"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1AMHCopula.html#a19aecc89d6a1d6c46aa595a13999cfb2" title="prior_hessian::AMHCopula\l::d1_igen" alt="" coords="480,443,651,481"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1AMHCopula.html#a9fc68a651139c1c7d28a8144562a09f3" title="prior_hessian::AMHCopula\l::ddim_gen" alt="" coords="480,364,651,403"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1AMHCopula.html#a2c3506804bb44c972b94cf100404e2c6" title="prior_hessian::AMHCopula::gen" alt="" coords="224,508,421,533"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1AMHCopula.html#a7c3f0e7eb7f4c8eecd37563c35e1f819" title="prior_hessian::AMHCopula\l::grad" alt="" coords="237,89,408,128"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1AMHCopula.html#af87cadcd28d6af3fa8249932f7d01ec7" title="prior_hessian::AMHCopula\l::grad2" alt="" coords="480,115,651,153"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1AMHCopula.html#a324c075c80fb95ed8b69bd601e6a4de6" title="prior_hessian::AMHCopula\l::hess" alt="" coords="480,191,651,229"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1AMHCopula.html#a8d5daac3653a101d7068ef9dc0591002" title="prior_hessian::AMHCopula\l::igen" alt="" coords="237,557,408,596"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1AMHCopula.html#ad1ce11681554712db7a56bb4cb54c3e9" title="prior_hessian::AMHCopula::llh" alt="" coords="228,407,417,432"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1AMHCopula.html#a8129324c2c30bd4900396198b0c9b957" title="prior_hessian::AMHCopula::pdf" alt="" coords="709,255,903,280"/>
+<area shape="rect" id="node19" href="$classprior__hessian_1_1AMHCopula.html#a4c1752aeba875e7ab9563a1a7cd1524b" title="prior_hessian::AMHCopula\l::rllh" alt="" coords="237,620,408,659"/>
+<area shape="rect" id="node20" href="$classprior__hessian_1_1AMHCopula.html#ab0031223c39aec7287cc3cfa3160f6e8" title="prior_hessian::AMHCopula\l::rllh_const" alt="" coords="237,683,408,721"/>
+<area shape="rect" id="node21" href="$classprior__hessian_1_1AMHCopula.html#aee053f024e655950ad677d53e01d6b4f" title="prior_hessian::AMHCopula\l::rllh_d2theta_accumulate" alt="" coords="237,745,408,784"/>
+<area shape="rect" id="node22" href="$classprior__hessian_1_1AMHCopula.html#a8602b8b27ee8b50be3dc979f8b229406" title="prior_hessian::AMHCopula\l::rllh_dtheta_accumulate" alt="" coords="237,808,408,847"/>
+<area shape="rect" id="node23" href="$classprior__hessian_1_1AMHCopula.html#ad86ca50954d51be0a25a9523f4d7ff5a" title="prior_hessian::AMHCopula\l::rllh_grad_accumulate" alt="" coords="237,871,408,909"/>
+<area shape="rect" id="node24" href="$classprior__hessian_1_1AMHCopula.html#ae6aab20b3c845dfe2dd699df724755eb" title="prior_hessian::AMHCopula\l::rllh_grad_grad2_accumulate" alt="" coords="229,933,416,972"/>
+<area shape="rect" id="node25" href="$classprior__hessian_1_1AMHCopula.html#ab869b33caebfb6ae4e94f180c8f851bb" title="prior_hessian::AMHCopula\l::rllh_grad_hess_accumulate" alt="" coords="233,996,413,1035"/>
+<area shape="rect" id="node26" href="$classprior__hessian_1_1AMHCopula.html#a96b5928f1be384c8d0a4efb09b8e49a1" title="prior_hessian::AMHCopula\l::sample" alt="" coords="237,1059,408,1097"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1AMHCopula.html#a11696b4a8cef12a30706cd745820b201" title="prior_hessian::AMHCopula\l::theta" alt="" coords="951,223,1121,261"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1AMHCopula.html#a9d4b8453eedea358f829f8d4c911d8c4" title="prior_hessian::AMHCopula\l::check_theta" alt="" coords="1388,96,1559,135"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1AMHCopula.html#a38e091a72ecb8c9df42e88017b2d347e" title="prior_hessian::AMHCopula\l::igen_sum" alt="" coords="721,557,891,596"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1AMHCopula.html#aaacec957c8d8e24df1100aee2694fe3a" title="prior_hessian::AMHCopula\l::num_dim" alt="" coords="721,356,891,395"/>
+<area shape="rect" id="node9" href="$namespaceprior__hessian_1_1polylog.html#abb5fc2ad3b1509f49ea4b2fc05d916bb" title="prior_hessian::polylog\l::polylog" alt="" coords="735,419,877,457"/>
+<area shape="rect" id="node14" href="$namespaceprior__hessian.html#a706cb136b90f16dd920118eb59ef1ad6" title="prior_hessian::square" alt="" coords="735,153,877,179"/>
+</map>

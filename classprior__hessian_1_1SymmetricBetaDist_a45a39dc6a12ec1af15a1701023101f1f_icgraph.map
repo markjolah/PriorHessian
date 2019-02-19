@@ -1,0 +1,12 @@
+<map id="prior_hessian::SymmetricBetaDist::set_beta" name="prior_hessian::SymmetricBetaDist::set_beta">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1SymmetricBetaDist.html#a1e726eb12d98240778d7c0bfaafc7edd" title="prior_hessian::Symmetric\lBetaDist::beta" alt="" coords="423,131,583,169"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1SymmetricBetaDist.html#a5ea7086046d4558c83b2211503501fca" title="prior_hessian::Symmetric\lBetaDist::set_param" alt="" coords="213,188,373,227"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1SymmetricBetaDist.html#a8f54c616932761272dad23e3da2be005" title="prior_hessian::Symmetric\lBetaDist::set_params" alt="" coords="213,251,373,289"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1SymmetricBetaDist.html#a705d0521091fc93418588af78d85cc52" title="prior_hessian::Symmetric\lBetaDist::llh" alt="" coords="632,68,792,107"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1SymmetricBetaDist.html#ad4d4bd09ccdf88bb70a66064fc3a9a9d" title="prior_hessian::Symmetric\lBetaDist::operator==" alt="" coords="632,5,792,44"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1SymmetricBetaDist.html#a59cc29572feb20c003130c417249809d" title="prior_hessian::Symmetric\lBetaDist::param_ubound" alt="" coords="632,131,792,169"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1SymmetricBetaDist.html#a2db7bdb8013ac523f58d2b252ea0dbb4" title="prior_hessian::Symmetric\lBetaDist::params" alt="" coords="632,193,792,232"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1SymmetricBetaDist.html#a642a881868f0f031bacc87877714cf8d" title="prior_hessian::Symmetric\lBetaDist::median" alt="" coords="840,193,1000,232"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1SymmetricBetaDist.html#afdc7ff36dab9f6a2de9f53f12ca87973" title="prior_hessian::Symmetric\lBetaDist::operator!=" alt="" coords="840,5,1000,44"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1SymmetricBetaDist.html#a50df68faf7f3205ddc19b0664593cdb8" title="prior_hessian::Symmetric\lBetaDist::set_params_iter" alt="" coords="421,251,584,289"/>
+</map>

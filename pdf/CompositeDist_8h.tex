@@ -1,0 +1,79 @@
+\hypertarget{CompositeDist_8h}{}\subsection{Composite\+Dist.\+h File Reference}
+\label{CompositeDist_8h}\index{Composite\+Dist.\+h@{Composite\+Dist.\+h}}
+
+
+The Frank copula computations.  
+
+
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\\*
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\\*
+{\ttfamily \#include $<$sstream$>$}\\*
+{\ttfamily \#include $<$armadillo$>$}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Meta.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/util.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Prior\+Hessian\+Error.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Univariate\+Dist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Multivariate\+Dist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Bounds\+Adapted\+Dist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Any\+Rng/\+Any\+Rng.\+h\char`\"{}}\\*
+Include dependency graph for Composite\+Dist.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{CompositeDist_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{CompositeDist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist}{prior\+\_\+hessian\+::\+Composite\+Dist}
+\begin{DoxyCompactList}\small\item\em A probability distribution made of independent component distributions composing groups of 1 or more variables. \end{DoxyCompactList}\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist\+T, Enable $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3}{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec}{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceprior__hessian}{prior\+\_\+hessian}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{namespaceprior__hessian_ab26e9ddc3b6a5caccf5d75e1a1e1af1b}{prior\+\_\+hessian\+::operator$<$$<$} (std\+::ostream \&out, const Composite\+Dist \&comp\+\_\+dist)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The Frank copula computations. 
+
+\begin{DoxyAuthor}{Author}
+Mark J. Olah (mjo@cs.\+unm D\+OT edu) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10-\/2017 
+\end{DoxyDate}
+
+
+\subsubsection{Class Documentation}
+\index{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor}}\label{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}
+\hypertarget{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{}
+\paragraph{class prior\+\_\+hessian\+:\+:Composite\+Dist\+:\+:Component\+Dist\+Adaptor}
+\subsubsection*{template$<$class DistT, typename Enable = void$>$\\*
+class prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist\+T, Enable $>$}
+
+
+
+Definition at line 64 of file Composite\+Dist.\+h.
+

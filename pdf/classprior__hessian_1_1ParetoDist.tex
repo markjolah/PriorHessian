@@ -1,0 +1,1439 @@
+\hypertarget{classprior__hessian_1_1ParetoDist}{}\subsection{prior\+\_\+hessian\+:\+:Pareto\+Dist Class Reference}
+\label{classprior__hessian_1_1ParetoDist}\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+
+
+Pareto dist with infinite upper bound.  
+
+
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Pareto\+Dist.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:Pareto\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1ParetoDist__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for prior\+\_\+hessian\+:\+:Pareto\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1ParetoDist__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}{Nparams\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ \+\_\+num\+\_\+params $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classprior__hessian_1_1ParetoDist_ae3776388549cf35e9fea96963624cf6e}{in\+\_\+bounds} (double u) const 
+\item 
+\hyperlink{classprior__hessian_1_1ParetoDist_a4a7caa4bc82a462a9d4af8e0ea9524e2}{Pareto\+Dist} ()
+\item 
+\hyperlink{classprior__hessian_1_1ParetoDist_a524d7d1ed76f0aa914cef3cab13cee29}{Pareto\+Dist} (double \hyperlink{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{min}, double \hyperlink{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}{alpha})
+\item 
+{\footnotesize template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Pareto\+Dist $>$  = true$>$ }\\\hyperlink{classprior__hessian_1_1ParetoDist_a572ad9f28d83da610e1b81c88876563a}{Pareto\+Dist} (const Vec \&\hyperlink{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{params})
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_adc9bafea285be38186ec4ad161850b56}{get\+\_\+param} (int idx) const 
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_acea61a99a86906efba7fed853e408a59}{set\+\_\+param} (int idx, double val)
+\item 
+\hyperlink{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}{Nparams\+VecT} \hyperlink{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{params} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_a218ebbdec10fbdfcaabdd79dd180b39e}{set\+\_\+params} (double \hyperlink{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{min}, double \hyperlink{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}{alpha})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1ParetoDist_a74dcc842d45232132e27ffb14feb12f1}{set\+\_\+params} (const Vec \&p)
+\item 
+bool \hyperlink{classprior__hessian_1_1ParetoDist_a941f8b98fe55483d7823aa33863ee050}{operator==} (const \hyperlink{classprior__hessian_1_1ParetoDist}{Pareto\+Dist} \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1ParetoDist_ae862cdfd4b588e2f97fcbaccc0decb08}{operator!=} (const \hyperlink{classprior__hessian_1_1ParetoDist}{Pareto\+Dist} \&o) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}{alpha} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{min} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_ace279cdfa7dbdcd8805ddb2ec4b46ee2}{set\+\_\+min} (double val)
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_a5c2b026477495e3fc91a1cfb653d8a97}{set\+\_\+alpha} (double val)
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf}{lbound} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_ac755ccef13fd2552861c27bf6c1cc29d}{set\+\_\+lbound} (double \hyperlink{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf}{lbound})
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a0a1e20b0aa6c7b52c134fc2341b5fdd4}{mean} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a74af41636088b6c727107c60dd9c81b2}{median} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_afe706cb12ce6f667e7a3a9eb7311ef65}{cdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a9d1040a7a5ca261feebe56f42e5698ea}{icdf} (double u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a07cc43c2b299fc07660684f34f32d4ee}{pdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a0f7ee813a098cd3fc9c7669cda6a340c}{llh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a609ed75305325062ebd80dcfaa487c69}{rllh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a3f802550dfcad6f0e3a8ca2e93709fe9}{grad} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1ParetoDist_a24a4aaa7a8edb42009d0fa8390cb4a8f}{grad2} (double x) const 
+\item 
+void \hyperlink{classprior__hessian_1_1ParetoDist_a20c3f90ec9ac4b5bfd179a7c97ab36e7}{grad\+\_\+grad2\+\_\+accumulate} (double x, double \&g, double \&g2) const 
+\item 
+{\footnotesize template$<$class RngT $>$ }\\double \hyperlink{classprior__hessian_1_1ParetoDist_abe706f0786b5e8ef20b7caff07ffad0c}{sample} (RngT \&rng) const 
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1ParetoDist_abc9e60af487bda1a9ec5f7e55e38682c}{set\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{params})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1ParetoDist_a2759f02a408c3864cdd5936862a12121}{num\+\_\+params} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1ParetoDist_afaf6389512ecba524697151f26a5ab84}{global\+\_\+lbound} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1ParetoDist_ae7edad795835ac57ed7046212e7b5fb6}{ubound} ()
+\item 
+static const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1ParetoDist_abc4bf6790233c0657571521c5580ed9e}{param\+\_\+names} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1ParetoDist_a270308467a63598f248e54e141866957}{param\+\_\+lbound} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1ParetoDist_a1ba58cb0d518475ce29eb619f82f7575}{param\+\_\+ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1ParetoDist_abac82051de116baf787e442c705e96c3}{check\+\_\+params} (double \hyperlink{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{min}, double \hyperlink{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}{alpha})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static bool \hyperlink{classprior__hessian_1_1ParetoDist_ad90392cbacf44f0760b46e80a2676a08}{check\+\_\+params} (const Vec \&\hyperlink{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{params})
+\item 
+static bool \hyperlink{classprior__hessian_1_1ParetoDist_aac45000bf5c6356b22ef148fdfe2cebe}{check\+\_\+lbound} (double \hyperlink{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{min})
+\item 
+{\footnotesize template$<$class IterT $>$ }\\static bool \hyperlink{classprior__hessian_1_1ParetoDist_a0923e8b25145eed6042aa933aa4354e5}{check\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{params})
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{num\+\_\+dim} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{check\+\_\+bounds} (double \hyperlink{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf}{lbound}, double \hyperlink{classprior__hessian_1_1ParetoDist_ae7edad795835ac57ed7046212e7b5fb6}{ubound})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Pareto dist with infinite upper bound. 
+
+
+
+Definition at line 20 of file Pareto\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!Nparams\+VecT@{Nparams\+VecT}}
+\index{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Pareto\+Dist\+::\+Nparams\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+params$>$}\hypertarget{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}{}\label{classprior__hessian_1_1ParetoDist_a6ef572f82d7444830703d10f25007c3b}
+
+
+Definition at line 24 of file Pareto\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!Pareto\+Dist@{Pareto\+Dist}}
+\index{Pareto\+Dist@{Pareto\+Dist}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{Pareto\+Dist()}{ParetoDist()}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Pareto\+Dist\+::\+Pareto\+Dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a4a7caa4bc82a462a9d4af8e0ea9524e2}{}\label{classprior__hessian_1_1ParetoDist_a4a7caa4bc82a462a9d4af8e0ea9524e2}
+
+
+Definition at line 41 of file Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!Pareto\+Dist@{Pareto\+Dist}}
+\index{Pareto\+Dist@{Pareto\+Dist}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{Pareto\+Dist(double min, double alpha)}{ParetoDist(double min, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Pareto\+Dist\+::\+Pareto\+Dist (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_a524d7d1ed76f0aa914cef3cab13cee29}{}\label{classprior__hessian_1_1ParetoDist_a524d7d1ed76f0aa914cef3cab13cee29}
+
+
+Definition at line 21 of file Pareto\+Dist.\+cpp.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!Pareto\+Dist@{Pareto\+Dist}}
+\index{Pareto\+Dist@{Pareto\+Dist}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{Pareto\+Dist(const Vec \&params)}{ParetoDist(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Pareto\+Dist $>$  = true$>$ prior\+\_\+hessian\+::\+Pareto\+Dist\+::\+Pareto\+Dist (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1ParetoDist_a572ad9f28d83da610e1b81c88876563a}{}\label{classprior__hessian_1_1ParetoDist_a572ad9f28d83da610e1b81c88876563a}
+
+
+Definition at line 44 of file Pareto\+Dist.\+h.
+
+
+
+References get\+\_\+param(), and set\+\_\+param().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a572ad9f28d83da610e1b81c88876563a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!alpha@{alpha}}
+\index{alpha@{alpha}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{alpha() const }{alpha() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::alpha (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}{}\label{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80}
+
+
+Definition at line 55 of file Pareto\+Dist.\+h.
+
+
+
+Referenced by cdf(), grad(), grad2(), grad\+\_\+grad2\+\_\+accumulate(), icdf(), llh(), median(), operator==(), param\+\_\+ubound(), params(), rllh(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ac610ecf8ce6df7b8b48c383e89706b80_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{cdf(double x) const }{cdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::cdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_afe706cb12ce6f667e7a3a9eb7311ef65}{}\label{classprior__hessian_1_1ParetoDist_afe706cb12ce6f667e7a3a9eb7311ef65}
+
+
+Definition at line 155 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), and lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_afe706cb12ce6f667e7a3a9eb7311ef65_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_afe706cb12ce6f667e7a3a9eb7311ef65_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!check\+\_\+bounds@{check\+\_\+bounds}}
+\index{check\+\_\+bounds@{check\+\_\+bounds}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+bounds(double lbound, double ubound)}{check_bounds(double lbound, double ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Univariate\+Dist\+::check\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{lbound, }
+\item[{double}]{ubound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{}\label{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}
+
+
+Definition at line 22 of file Univariate\+Dist.\+cpp.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Univariate\+Dist\+::\+Univariate\+Dist().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!check\+\_\+lbound@{check\+\_\+lbound}}
+\index{check\+\_\+lbound@{check\+\_\+lbound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+lbound(double min)}{check_lbound(double min)}}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::check\+\_\+lbound (
+\begin{DoxyParamCaption}
+\item[{double}]{min}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_aac45000bf5c6356b22ef148fdfe2cebe}{}\label{classprior__hessian_1_1ParetoDist_aac45000bf5c6356b22ef148fdfe2cebe}
+
+
+Definition at line 149 of file Pareto\+Dist.\+h.
+
+
+
+Referenced by check\+\_\+params().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_aac45000bf5c6356b22ef148fdfe2cebe_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(double min, double alpha)}{check_params(double min, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_abac82051de116baf787e442c705e96c3}{}\label{classprior__hessian_1_1ParetoDist_abac82051de116baf787e442c705e96c3}
+
+
+Definition at line 104 of file Pareto\+Dist.\+h.
+
+
+
+Referenced by check\+\_\+params\+\_\+iter(), and param\+\_\+ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_abac82051de116baf787e442c705e96c3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&params)}{check_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ static bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_ad90392cbacf44f0760b46e80a2676a08}{}\label{classprior__hessian_1_1ParetoDist_ad90392cbacf44f0760b46e80a2676a08}
+
+
+Definition at line 38 of file Pareto\+Dist.\+h.
+
+
+
+References check\+\_\+lbound(), check\+\_\+params(), and params().
+
+
+
+Referenced by check\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ad90392cbacf44f0760b46e80a2676a08_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classprior__hessian_1_1ParetoDist_ad90392cbacf44f0760b46e80a2676a08_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
+\index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::check\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_a0923e8b25145eed6042aa933aa4354e5}{}\label{classprior__hessian_1_1ParetoDist_a0923e8b25145eed6042aa933aa4354e5}
+
+
+Definition at line 111 of file Pareto\+Dist.\+h.
+
+
+
+References check\+\_\+params().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0923e8b25145eed6042aa933aa4354e5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0923e8b25145eed6042aa933aa4354e5_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!get\+\_\+param@{get\+\_\+param}}
+\index{get\+\_\+param@{get\+\_\+param}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+param(int idx) const }{get_param(int idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::get\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_adc9bafea285be38186ec4ad161850b56}{}\label{classprior__hessian_1_1ParetoDist_adc9bafea285be38186ec4ad161850b56}
+
+
+Definition at line 119 of file Pareto\+Dist.\+h.
+
+
+
+References lbound().
+
+
+
+Referenced by Pareto\+Dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_adc9bafea285be38186ec4ad161850b56_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_adc9bafea285be38186ec4ad161850b56_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!global\+\_\+lbound@{global\+\_\+lbound}}
+\index{global\+\_\+lbound@{global\+\_\+lbound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{global\+\_\+lbound()}{global_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Pareto\+Dist\+::global\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_afaf6389512ecba524697151f26a5ab84}{}\label{classprior__hessian_1_1ParetoDist_afaf6389512ecba524697151f26a5ab84}
+
+
+Definition at line 26 of file Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{grad(double x) const }{grad(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::grad (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a3f802550dfcad6f0e3a8ca2e93709fe9}{}\label{classprior__hessian_1_1ParetoDist_a3f802550dfcad6f0e3a8ca2e93709fe9}
+
+
+Definition at line 179 of file Pareto\+Dist.\+h.
+
+
+
+References alpha().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a3f802550dfcad6f0e3a8ca2e93709fe9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a3f802550dfcad6f0e3a8ca2e93709fe9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{grad2(double x) const }{grad2(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a24a4aaa7a8edb42009d0fa8390cb4a8f}{}\label{classprior__hessian_1_1ParetoDist_a24a4aaa7a8edb42009d0fa8390cb4a8f}
+
+
+Definition at line 185 of file Pareto\+Dist.\+h.
+
+
+
+References alpha().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a24a4aaa7a8edb42009d0fa8390cb4a8f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a24a4aaa7a8edb42009d0fa8390cb4a8f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
+\index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(double x, double \&g, double \&g2) const }{grad_grad2_accumulate(double x, double &g, double &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double \&}]{g, }
+\item[{double \&}]{g2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a20c3f90ec9ac4b5bfd179a7c97ab36e7}{}\label{classprior__hessian_1_1ParetoDist_a20c3f90ec9ac4b5bfd179a7c97ab36e7}
+
+
+Definition at line 191 of file Pareto\+Dist.\+h.
+
+
+
+References alpha().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a20c3f90ec9ac4b5bfd179a7c97ab36e7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a20c3f90ec9ac4b5bfd179a7c97ab36e7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!icdf@{icdf}}
+\index{icdf@{icdf}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{icdf(double u) const }{icdf(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::icdf (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a9d1040a7a5ca261feebe56f42e5698ea}{}\label{classprior__hessian_1_1ParetoDist_a9d1040a7a5ca261feebe56f42e5698ea}
+
+
+Definition at line 161 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), and lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a9d1040a7a5ca261feebe56f42e5698ea_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a9d1040a7a5ca261feebe56f42e5698ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}}
+\index{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{in\+\_\+bounds(double u) const }{in_bounds(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::in\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_ae3776388549cf35e9fea96963624cf6e}{}\label{classprior__hessian_1_1ParetoDist_ae3776388549cf35e9fea96963624cf6e}
+
+
+Definition at line 28 of file Pareto\+Dist.\+h.
+
+
+
+References lbound(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ae3776388549cf35e9fea96963624cf6e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!lbound@{lbound}}
+\index{lbound@{lbound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{lbound() const }{lbound() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf}{}\label{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf}
+
+
+Definition at line 60 of file Pareto\+Dist.\+h.
+
+
+
+References cdf(), check\+\_\+params\+\_\+iter(), grad(), grad2(), grad\+\_\+grad2\+\_\+accumulate(), icdf(), llh(), mean(), median(), params(), pdf(), rllh(), sample(), set\+\_\+lbound(), and set\+\_\+params\+\_\+iter().
+
+
+
+Referenced by cdf(), get\+\_\+param(), icdf(), in\+\_\+bounds(), llh(), mean(), median(), params(), pdf(), and sample().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ad117226a3ad1eee827886fc7ba38acbf_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{llh(double x) const }{llh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::llh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1ParetoDist_a0f7ee813a098cd3fc9c7669cda6a340c}{}\label{classprior__hessian_1_1ParetoDist_a0f7ee813a098cd3fc9c7669cda6a340c}
+
+
+Definition at line 64 of file Pareto\+Dist.\+cpp.
+
+
+
+References alpha(), lbound(), and rllh().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0f7ee813a098cd3fc9c7669cda6a340c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0f7ee813a098cd3fc9c7669cda6a340c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!mean@{mean}}
+\index{mean@{mean}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{mean() const }{mean() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1ParetoDist_a0a1e20b0aa6c7b52c134fc2341b5fdd4}{}\label{classprior__hessian_1_1ParetoDist_a0a1e20b0aa6c7b52c134fc2341b5fdd4}
+
+
+Definition at line 54 of file Pareto\+Dist.\+cpp.
+
+
+
+References lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0a1e20b0aa6c7b52c134fc2341b5fdd4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a0a1e20b0aa6c7b52c134fc2341b5fdd4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!median@{median}}
+\index{median@{median}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{median() const }{median() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::median (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1ParetoDist_a74af41636088b6c727107c60dd9c81b2}{}\label{classprior__hessian_1_1ParetoDist_a74af41636088b6c727107c60dd9c81b2}
+
+
+Definition at line 59 of file Pareto\+Dist.\+cpp.
+
+
+
+References alpha(), and lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a74af41636088b6c727107c60dd9c81b2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a74af41636088b6c727107c60dd9c81b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!min@{min}}
+\index{min@{min}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{min() const }{min() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}{}\label{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f}
+
+
+Definition at line 56 of file Pareto\+Dist.\+h.
+
+
+
+References set\+\_\+alpha(), and set\+\_\+min().
+
+
+
+Referenced by operator==(), param\+\_\+ubound(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_acef10b17c003468838f548ed255d7e1f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Univariate\+Dist\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{}\label{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}
+
+
+Definition at line 17 of file Univariate\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Pareto\+Dist\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_a2759f02a408c3864cdd5936862a12121}{}\label{classprior__hessian_1_1ParetoDist_a2759f02a408c3864cdd5936862a12121}
+
+
+Definition at line 25 of file Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{operator"!=(const Pareto\+Dist \&o) const }{operator!=(const ParetoDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pareto\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_ae862cdfd4b588e2f97fcbaccc0decb08}{}\label{classprior__hessian_1_1ParetoDist_ae862cdfd4b588e2f97fcbaccc0decb08}
+
+
+Definition at line 53 of file Pareto\+Dist.\+h.
+
+
+
+References operator==().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ae862cdfd4b588e2f97fcbaccc0decb08_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{operator==(const Pareto\+Dist \&o) const }{operator==(const ParetoDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Pareto\+Dist\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pareto\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a941f8b98fe55483d7823aa33863ee050}{}\label{classprior__hessian_1_1ParetoDist_a941f8b98fe55483d7823aa33863ee050}
+
+
+Definition at line 52 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), and min().
+
+
+
+Referenced by operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a941f8b98fe55483d7823aa33863ee050_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a941f8b98fe55483d7823aa33863ee050_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!param\+\_\+lbound@{param\+\_\+lbound}}
+\index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf Nparams\+VecT}\& prior\+\_\+hessian\+::\+Pareto\+Dist\+::param\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_a270308467a63598f248e54e141866957}{}\label{classprior__hessian_1_1ParetoDist_a270308467a63598f248e54e141866957}
+
+
+Definition at line 32 of file Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf String\+VecT}\& prior\+\_\+hessian\+::\+Pareto\+Dist\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_abc4bf6790233c0657571521c5580ed9e}{}\label{classprior__hessian_1_1ParetoDist_abc4bf6790233c0657571521c5580ed9e}
+
+
+Definition at line 31 of file Pareto\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!param\+\_\+ubound@{param\+\_\+ubound}}
+\index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf Nparams\+VecT}\& prior\+\_\+hessian\+::\+Pareto\+Dist\+::param\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_a1ba58cb0d518475ce29eb619f82f7575}{}\label{classprior__hessian_1_1ParetoDist_a1ba58cb0d518475ce29eb619f82f7575}
+
+
+Definition at line 33 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), check\+\_\+params(), and min().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a1ba58cb0d518475ce29eb619f82f7575_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!params@{params}}
+\index{params@{params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nparams\+VecT} prior\+\_\+hessian\+::\+Pareto\+Dist\+::params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}{}\label{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e}
+
+
+Definition at line 48 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), lbound(), and set\+\_\+params().
+
+
+
+Referenced by check\+\_\+params(), and lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_af5791e2cef16b34e1bbdeec24b13d22e_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{pdf(double x) const }{pdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::pdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a07cc43c2b299fc07660684f34f32d4ee}{}\label{classprior__hessian_1_1ParetoDist_a07cc43c2b299fc07660684f34f32d4ee}
+
+
+Definition at line 167 of file Pareto\+Dist.\+h.
+
+
+
+References lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a07cc43c2b299fc07660684f34f32d4ee_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a07cc43c2b299fc07660684f34f32d4ee_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{rllh(double x) const }{rllh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Pareto\+Dist\+::rllh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a609ed75305325062ebd80dcfaa487c69}{}\label{classprior__hessian_1_1ParetoDist_a609ed75305325062ebd80dcfaa487c69}
+
+
+Definition at line 173 of file Pareto\+Dist.\+h.
+
+
+
+References alpha().
+
+
+
+Referenced by lbound(), and llh().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a609ed75305325062ebd80dcfaa487c69_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a609ed75305325062ebd80dcfaa487c69_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class RngT $>$ double prior\+\_\+hessian\+::\+Pareto\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&}]{rng}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1ParetoDist_abe706f0786b5e8ef20b7caff07ffad0c}{}\label{classprior__hessian_1_1ParetoDist_abe706f0786b5e8ef20b7caff07ffad0c}
+
+
+Definition at line 200 of file Pareto\+Dist.\+h.
+
+
+
+References lbound().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_abe706f0786b5e8ef20b7caff07ffad0c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_abe706f0786b5e8ef20b7caff07ffad0c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+alpha@{set\+\_\+alpha}}
+\index{set\+\_\+alpha@{set\+\_\+alpha}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+alpha(double val)}{set_alpha(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+alpha (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_a5c2b026477495e3fc91a1cfb653d8a97}{}\label{classprior__hessian_1_1ParetoDist_a5c2b026477495e3fc91a1cfb653d8a97}
+
+
+Definition at line 35 of file Pareto\+Dist.\+cpp.
+
+
+
+Referenced by min(), and set\+\_\+param().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a5c2b026477495e3fc91a1cfb653d8a97_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+lbound@{set\+\_\+lbound}}
+\index{set\+\_\+lbound@{set\+\_\+lbound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+lbound(double lbound)}{set_lbound(double lbound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+lbound (
+\begin{DoxyParamCaption}
+\item[{double}]{lbound}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_ac755ccef13fd2552861c27bf6c1cc29d}{}\label{classprior__hessian_1_1ParetoDist_ac755ccef13fd2552861c27bf6c1cc29d}
+
+
+Definition at line 48 of file Pareto\+Dist.\+cpp.
+
+
+
+Referenced by lbound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ac755ccef13fd2552861c27bf6c1cc29d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+min@{set\+\_\+min}}
+\index{set\+\_\+min@{set\+\_\+min}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+min(double val)}{set_min(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+min (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_ace279cdfa7dbdcd8805ddb2ec4b46ee2}{}\label{classprior__hessian_1_1ParetoDist_ace279cdfa7dbdcd8805ddb2ec4b46ee2}
+
+
+Definition at line 29 of file Pareto\+Dist.\+cpp.
+
+
+
+Referenced by min(), and set\+\_\+param().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ace279cdfa7dbdcd8805ddb2ec4b46ee2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+param@{set\+\_\+param}}
+\index{set\+\_\+param@{set\+\_\+param}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+param(int idx, double val)}{set_param(int idx, double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_acea61a99a86906efba7fed853e408a59}{}\label{classprior__hessian_1_1ParetoDist_acea61a99a86906efba7fed853e408a59}
+
+
+Definition at line 133 of file Pareto\+Dist.\+h.
+
+
+
+References set\+\_\+alpha(), and set\+\_\+min().
+
+
+
+Referenced by Pareto\+Dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_acea61a99a86906efba7fed853e408a59_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_acea61a99a86906efba7fed853e408a59_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(double min, double alpha)}{set_params(double min, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_a218ebbdec10fbdfcaabdd79dd180b39e}{}\label{classprior__hessian_1_1ParetoDist_a218ebbdec10fbdfcaabdd79dd180b39e}
+
+
+Definition at line 41 of file Pareto\+Dist.\+cpp.
+
+
+
+Referenced by params(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_a218ebbdec10fbdfcaabdd79dd180b39e_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&p)}{set_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1ParetoDist_a74dcc842d45232132e27ffb14feb12f1}{}\label{classprior__hessian_1_1ParetoDist_a74dcc842d45232132e27ffb14feb12f1}
+
+
+Definition at line 51 of file Pareto\+Dist.\+h.
+
+
+
+References set\+\_\+params().
+
+
+
+Referenced by set\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classprior__hessian_1_1ParetoDist_a74dcc842d45232132e27ffb14feb12f1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classprior__hessian_1_1ParetoDist_a74dcc842d45232132e27ffb14feb12f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
+\index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ void prior\+\_\+hessian\+::\+Pareto\+Dist\+::set\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1ParetoDist_abc9e60af487bda1a9ec5f7e55e38682c}{}\label{classprior__hessian_1_1ParetoDist_abc9e60af487bda1a9ec5f7e55e38682c}
+
+
+Definition at line 208 of file Pareto\+Dist.\+h.
+
+
+
+References alpha(), min(), and set\+\_\+params().
+
+
+
+Referenced by lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_abc9e60af487bda1a9ec5f7e55e38682c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_abc9e60af487bda1a9ec5f7e55e38682c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}!ubound@{ubound}}
+\index{ubound@{ubound}!prior\+\_\+hessian\+::\+Pareto\+Dist@{prior\+\_\+hessian\+::\+Pareto\+Dist}}
+\paragraph[{\texorpdfstring{ubound()}{ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Pareto\+Dist\+::ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1ParetoDist_ae7edad795835ac57ed7046212e7b5fb6}{}\label{classprior__hessian_1_1ParetoDist_ae7edad795835ac57ed7046212e7b5fb6}
+
+
+Definition at line 27 of file Pareto\+Dist.\+h.
+
+
+
+Referenced by in\+\_\+bounds().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1ParetoDist_ae7edad795835ac57ed7046212e7b5fb6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ParetoDist_8h}{Pareto\+Dist.\+h}\item 
+\hyperlink{ParetoDist_8cpp}{Pareto\+Dist.\+cpp}\end{DoxyCompactItemize}

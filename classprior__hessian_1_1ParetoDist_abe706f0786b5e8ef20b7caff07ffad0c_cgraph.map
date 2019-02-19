@@ -1,0 +1,23 @@
+<map id="prior_hessian::ParetoDist::sample" name="prior_hessian::ParetoDist::sample">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1ParetoDist.html#ad117226a3ad1eee827886fc7ba38acbf" title="prior_hessian::ParetoDist\l::lbound" alt="" coords="213,391,373,430"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1ParetoDist.html#afe706cb12ce6f667e7a3a9eb7311ef65" title="prior_hessian::ParetoDist::cdf" alt="" coords="421,19,604,45"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1ParetoDist.html#a0923e8b25145eed6042aa933aa4354e5" title="prior_hessian::ParetoDist\l::check_params_iter" alt="" coords="433,69,593,107"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1ParetoDist.html#a3f802550dfcad6f0e3a8ca2e93709fe9" title="prior_hessian::ParetoDist\l::grad" alt="" coords="665,121,825,159"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1ParetoDist.html#a24a4aaa7a8edb42009d0fa8390cb4a8f" title="prior_hessian::ParetoDist\l::grad2" alt="" coords="665,183,825,222"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1ParetoDist.html#a20c3f90ec9ac4b5bfd179a7c97ab36e7" title="prior_hessian::ParetoDist\l::grad_grad2_accumulate" alt="" coords="664,246,827,285"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1ParetoDist.html#a9d1040a7a5ca261feebe56f42e5698ea" title="prior_hessian::ParetoDist\l::icdf" alt="" coords="433,285,593,323"/>
+<area shape="rect" id="node11" href="$classprior__hessian_1_1ParetoDist.html#a0f7ee813a098cd3fc9c7669cda6a340c" title="prior_hessian::ParetoDist::llh" alt="" coords="423,347,602,373"/>
+<area shape="rect" id="node12" href="$classprior__hessian_1_1ParetoDist.html#a609ed75305325062ebd80dcfaa487c69" title="prior_hessian::ParetoDist\l::rllh" alt="" coords="665,411,825,450"/>
+<area shape="rect" id="node13" href="$classprior__hessian_1_1ParetoDist.html#a0a1e20b0aa6c7b52c134fc2341b5fdd4" title="prior_hessian::ParetoDist\l::mean" alt="" coords="433,449,593,487"/>
+<area shape="rect" id="node14" href="$classprior__hessian_1_1ParetoDist.html#a74af41636088b6c727107c60dd9c81b2" title="prior_hessian::ParetoDist\l::median" alt="" coords="433,511,593,550"/>
+<area shape="rect" id="node15" href="$classprior__hessian_1_1ParetoDist.html#af5791e2cef16b34e1bbdeec24b13d22e" title="prior_hessian::ParetoDist\l::params" alt="" coords="433,574,593,613"/>
+<area shape="rect" id="node17" href="$classprior__hessian_1_1ParetoDist.html#a07cc43c2b299fc07660684f34f32d4ee" title="prior_hessian::ParetoDist::pdf" alt="" coords="421,637,604,662"/>
+<area shape="rect" id="node18" href="$classprior__hessian_1_1ParetoDist.html#ac755ccef13fd2552861c27bf6c1cc29d" title="prior_hessian::ParetoDist\l::set_lbound" alt="" coords="433,686,593,725"/>
+<area shape="rect" id="node19" href="$classprior__hessian_1_1ParetoDist.html#abc9e60af487bda1a9ec5f7e55e38682c" title="prior_hessian::ParetoDist\l::set_params_iter" alt="" coords="433,749,593,787"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1ParetoDist.html#ac610ecf8ce6df7b8b48c383e89706b80" title="prior_hessian::ParetoDist\l::alpha" alt="" coords="887,329,1047,367"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1ParetoDist.html#abac82051de116baf787e442c705e96c3" title="prior_hessian::ParetoDist\l::check_params" alt="" coords="665,58,825,97"/>
+<area shape="rect" id="node16" href="$classprior__hessian_1_1ParetoDist.html#a218ebbdec10fbdfcaabdd79dd180b39e" title="prior_hessian::ParetoDist\l::set_params" alt="" coords="665,623,825,662"/>
+<area shape="rect" id="node20" href="$classprior__hessian_1_1ParetoDist.html#acef10b17c003468838f548ed255d7e1f" title="prior_hessian::ParetoDist::min" alt="" coords="652,755,839,781"/>
+<area shape="rect" id="node21" href="$classprior__hessian_1_1ParetoDist.html#a5c2b026477495e3fc91a1cfb653d8a97" title="prior_hessian::ParetoDist\l::set_alpha" alt="" coords="887,717,1047,755"/>
+<area shape="rect" id="node22" href="$classprior__hessian_1_1ParetoDist.html#ace279cdfa7dbdcd8805ddb2ec4b46ee2" title="prior_hessian::ParetoDist\l::set_min" alt="" coords="887,779,1047,818"/>
+</map>

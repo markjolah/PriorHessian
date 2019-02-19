@@ -1,0 +1,1131 @@
+\hypertarget{classprior__hessian_1_1SymmetricBetaDist}{}\subsection{prior\+\_\+hessian\+:\+:Symmetric\+Beta\+Dist Class Reference}
+\label{classprior__hessian_1_1SymmetricBetaDist}\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+
+
+Single parameter beta distribution where  = , leading to symmetric bounded distribution.  
+
+
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Symmetric\+Beta\+Dist.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:Symmetric\+Beta\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1SymmetricBetaDist__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for prior\+\_\+hessian\+:\+:Symmetric\+Beta\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1SymmetricBetaDist__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a62959cfb48b557fde35822b1c0d9a48d}{Nparams\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ \+\_\+num\+\_\+params $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a46ce349ecb150c81dfa0ebbb2c5b524c}{Symmetric\+Beta\+Dist} ()
+\item 
+\hyperlink{classprior__hessian_1_1SymmetricBetaDist_acf050eacdd32b4e78f2ae14e13416219}{Symmetric\+Beta\+Dist} (double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}{beta})
+\item 
+{\footnotesize template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Symmetric\+Beta\+Dist $>$  = true$>$ }\\\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a0c6b331bfa9bd61d57c6804c01457435}{Symmetric\+Beta\+Dist} (const Vec \&\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}{params})
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}{beta} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a45a39dc6a12ec1af15a1701023101f1f}{set\+\_\+beta} (double val)
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a286000c0198e921b56821c4552afdaa4}{get\+\_\+param} (int idx) const 
+\item 
+void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a5ea7086046d4558c83b2211503501fca}{set\+\_\+param} (int idx, double val)
+\item 
+\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a62959cfb48b557fde35822b1c0d9a48d}{Nparams\+VecT} \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}{params} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a8f54c616932761272dad23e3da2be005}{set\+\_\+params} (double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}{beta})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a1f774edc4e8701e8410559a3ff90c193}{set\+\_\+params} (const Vec \&p)
+\item 
+bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ad4d4bd09ccdf88bb70a66064fc3a9a9d}{operator==} (const \hyperlink{classprior__hessian_1_1SymmetricBetaDist}{Symmetric\+Beta\+Dist} \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_afdc7ff36dab9f6a2de9f53f12ca87973}{operator!=} (const \hyperlink{classprior__hessian_1_1SymmetricBetaDist}{Symmetric\+Beta\+Dist} \&o) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a9b6ecbdfd6656dd19d3d066a726d8db6}{mean} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a642a881868f0f031bacc87877714cf8d}{median} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_af1ec7c9d55329f63a44807752e74d746}{cdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a541de90660b38fe706b8656ea10b3db5}{icdf} (double u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a6eb4a96ac9d8b7662ca5479da4c632d3}{pdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a705d0521091fc93418588af78d85cc52}{llh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_aaeb20e0c35223789304c4de29aa0461b}{rllh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a039bcc1dfc99119dc5acf535a5369edc}{grad} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a66a2fb38407bc9592fd30eaceb6581b6}{grad2} (double x) const 
+\item 
+void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a7a5be166cc094953083b8bcbdf239be3}{grad\+\_\+grad2\+\_\+accumulate} (double x, double \&g, double \&g2) const 
+\item 
+{\footnotesize template$<$class RngT $>$ }\\double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a85c544524b8b02e31d5394289b227a4c}{sample} (RngT \&rng) const 
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a50df68faf7f3205ddc19b0664593cdb8}{set\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}{params})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ae97856abf1dcb2d53ca8fa1dda024143}{num\+\_\+params} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a744ee31960d652c397f1b9ac1df4f1e6}{lbound} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ad1766580dc336913711d6e1ed94a7f7a}{ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_adb2019dedddd7dcc5e1dae1207d8684d}{in\+\_\+bounds} (double u)
+\item 
+static const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ace8b0b0489adef1d211be04bff12b7d8}{param\+\_\+names} ()
+\item 
+static const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \& \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ae4fc7c25b61f508900a0b65fb78515ec}{param\+\_\+lbound} ()
+\item 
+static const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \& \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a59cc29572feb20c003130c417249809d}{param\+\_\+ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a9b43cde8d440d3680ef052a38cea9f47}{check\+\_\+params} (double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}{beta})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a686b74070adcb5df2815741d586b242b}{check\+\_\+params} (Vec \&p)
+\item 
+{\footnotesize template$<$class IterT $>$ }\\static bool \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ae44cf9a26f2f8649b8f29c7ca8e7ef24}{check\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}{params})
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{num\+\_\+dim} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{check\+\_\+bounds} (double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_a744ee31960d652c397f1b9ac1df4f1e6}{lbound}, double \hyperlink{classprior__hessian_1_1SymmetricBetaDist_ad1766580dc336913711d6e1ed94a7f7a}{ubound})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Single parameter beta distribution where  = , leading to symmetric bounded distribution. 
+
+
+
+Definition at line 22 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!Nparams\+VecT@{Nparams\+VecT}}
+\index{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::\+Nparams\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+params$>$}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a62959cfb48b557fde35822b1c0d9a48d}{}\label{classprior__hessian_1_1SymmetricBetaDist_a62959cfb48b557fde35822b1c0d9a48d}
+
+
+Definition at line 26 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}}
+\index{Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{Symmetric\+Beta\+Dist()}{SymmetricBetaDist()}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::\+Symmetric\+Beta\+Dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a46ce349ecb150c81dfa0ebbb2c5b524c}{}\label{classprior__hessian_1_1SymmetricBetaDist_a46ce349ecb150c81dfa0ebbb2c5b524c}
+
+
+Definition at line 42 of file Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}}
+\index{Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{Symmetric\+Beta\+Dist(double beta)}{SymmetricBetaDist(double beta)}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::\+Symmetric\+Beta\+Dist (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_acf050eacdd32b4e78f2ae14e13416219}{}\label{classprior__hessian_1_1SymmetricBetaDist_acf050eacdd32b4e78f2ae14e13416219}
+
+
+Definition at line 23 of file Symmetric\+Beta\+Dist.\+cpp.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}}
+\index{Symmetric\+Beta\+Dist@{Symmetric\+Beta\+Dist}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{Symmetric\+Beta\+Dist(const Vec \&params)}{SymmetricBetaDist(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Symmetric\+Beta\+Dist $>$  = true$>$ prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::\+Symmetric\+Beta\+Dist (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a0c6b331bfa9bd61d57c6804c01457435}{}\label{classprior__hessian_1_1SymmetricBetaDist_a0c6b331bfa9bd61d57c6804c01457435}
+
+
+Definition at line 45 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!beta@{beta}}
+\index{beta@{beta}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{beta() const }{beta() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::beta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}{}\label{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd}
+
+
+Definition at line 47 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References get\+\_\+param(), set\+\_\+beta(), and set\+\_\+param().
+
+
+
+Referenced by llh(), operator==(), param\+\_\+ubound(), and params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a1e726eb12d98240778d7c0bfaafc7edd_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{cdf(double x) const }{cdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::cdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_af1ec7c9d55329f63a44807752e74d746}{}\label{classprior__hessian_1_1SymmetricBetaDist_af1ec7c9d55329f63a44807752e74d746}
+
+
+Definition at line 36 of file Symmetric\+Beta\+Dist.\+cpp.
+
+
+
+Referenced by median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_af1ec7c9d55329f63a44807752e74d746_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!check\+\_\+bounds@{check\+\_\+bounds}}
+\index{check\+\_\+bounds@{check\+\_\+bounds}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+bounds(double lbound, double ubound)}{check_bounds(double lbound, double ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Univariate\+Dist\+::check\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{lbound, }
+\item[{double}]{ubound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{}\label{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}
+
+
+Definition at line 22 of file Univariate\+Dist.\+cpp.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Univariate\+Dist\+::\+Univariate\+Dist().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(double beta)}{check_params(double beta)}}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a9b43cde8d440d3680ef052a38cea9f47}{}\label{classprior__hessian_1_1SymmetricBetaDist_a9b43cde8d440d3680ef052a38cea9f47}
+
+
+Definition at line 101 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by check\+\_\+params\+\_\+iter(), and param\+\_\+ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a9b43cde8d440d3680ef052a38cea9f47_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(\+Vec \&p)}{check_params(Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ static bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{Vec \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a686b74070adcb5df2815741d586b242b}{}\label{classprior__hessian_1_1SymmetricBetaDist_a686b74070adcb5df2815741d586b242b}
+
+
+Definition at line 40 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References check\+\_\+params().
+
+
+
+Referenced by check\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classprior__hessian_1_1SymmetricBetaDist_a686b74070adcb5df2815741d586b242b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classprior__hessian_1_1SymmetricBetaDist_a686b74070adcb5df2815741d586b242b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
+\index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::check\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ae44cf9a26f2f8649b8f29c7ca8e7ef24}{}\label{classprior__hessian_1_1SymmetricBetaDist_ae44cf9a26f2f8649b8f29c7ca8e7ef24}
+
+
+Definition at line 167 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References check\+\_\+params().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_ae44cf9a26f2f8649b8f29c7ca8e7ef24_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_ae44cf9a26f2f8649b8f29c7ca8e7ef24_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!get\+\_\+param@{get\+\_\+param}}
+\index{get\+\_\+param@{get\+\_\+param}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+param(int idx) const }{get_param(int idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::get\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a286000c0198e921b56821c4552afdaa4}{}\label{classprior__hessian_1_1SymmetricBetaDist_a286000c0198e921b56821c4552afdaa4}
+
+
+Definition at line 107 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by beta().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a286000c0198e921b56821c4552afdaa4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{grad(double x) const }{grad(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::grad (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a039bcc1dfc99119dc5acf535a5369edc}{}\label{classprior__hessian_1_1SymmetricBetaDist_a039bcc1dfc99119dc5acf535a5369edc}
+
+
+Definition at line 137 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a039bcc1dfc99119dc5acf535a5369edc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{grad2(double x) const }{grad2(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a66a2fb38407bc9592fd30eaceb6581b6}{}\label{classprior__hessian_1_1SymmetricBetaDist_a66a2fb38407bc9592fd30eaceb6581b6}
+
+
+Definition at line 143 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::square().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classprior__hessian_1_1SymmetricBetaDist_a66a2fb38407bc9592fd30eaceb6581b6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a66a2fb38407bc9592fd30eaceb6581b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
+\index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(double x, double \&g, double \&g2) const }{grad_grad2_accumulate(double x, double &g, double &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double \&}]{g, }
+\item[{double \&}]{g2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a7a5be166cc094953083b8bcbdf239be3}{}\label{classprior__hessian_1_1SymmetricBetaDist_a7a5be166cc094953083b8bcbdf239be3}
+
+
+Definition at line 149 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a7a5be166cc094953083b8bcbdf239be3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!icdf@{icdf}}
+\index{icdf@{icdf}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{icdf(double u) const }{icdf(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::icdf (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a541de90660b38fe706b8656ea10b3db5}{}\label{classprior__hessian_1_1SymmetricBetaDist_a541de90660b38fe706b8656ea10b3db5}
+
+
+Definition at line 43 of file Symmetric\+Beta\+Dist.\+cpp.
+
+
+
+Referenced by median(), and sample().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a541de90660b38fe706b8656ea10b3db5_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}}
+\index{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{in\+\_\+bounds(double u)}{in_bounds(double u)}}]{\setlength{\rightskip}{0pt plus 5cm}static bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::in\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_adb2019dedddd7dcc5e1dae1207d8684d}{}\label{classprior__hessian_1_1SymmetricBetaDist_adb2019dedddd7dcc5e1dae1207d8684d}
+
+
+Definition at line 32 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References lbound(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_adb2019dedddd7dcc5e1dae1207d8684d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!lbound@{lbound}}
+\index{lbound@{lbound}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{lbound()}{lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a744ee31960d652c397f1b9ac1df4f1e6}{}\label{classprior__hessian_1_1SymmetricBetaDist_a744ee31960d652c397f1b9ac1df4f1e6}
+
+
+Definition at line 30 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by in\+\_\+bounds().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a744ee31960d652c397f1b9ac1df4f1e6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{llh(double x) const }{llh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::llh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a705d0521091fc93418588af78d85cc52}{}\label{classprior__hessian_1_1SymmetricBetaDist_a705d0521091fc93418588af78d85cc52}
+
+
+Definition at line 55 of file Symmetric\+Beta\+Dist.\+cpp.
+
+
+
+References beta(), and rllh().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a705d0521091fc93418588af78d85cc52_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a705d0521091fc93418588af78d85cc52_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!mean@{mean}}
+\index{mean@{mean}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{mean() const }{mean() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a9b6ecbdfd6656dd19d3d066a726d8db6}{}\label{classprior__hessian_1_1SymmetricBetaDist_a9b6ecbdfd6656dd19d3d066a726d8db6}
+
+
+Definition at line 60 of file Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!median@{median}}
+\index{median@{median}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{median() const }{median() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::median (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a642a881868f0f031bacc87877714cf8d}{}\label{classprior__hessian_1_1SymmetricBetaDist_a642a881868f0f031bacc87877714cf8d}
+
+
+Definition at line 61 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References cdf(), check\+\_\+params\+\_\+iter(), grad(), grad2(), grad\+\_\+grad2\+\_\+accumulate(), icdf(), llh(), params(), pdf(), rllh(), sample(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a642a881868f0f031bacc87877714cf8d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Univariate\+Dist\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{}\label{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}
+
+
+Definition at line 17 of file Univariate\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ae97856abf1dcb2d53ca8fa1dda024143}{}\label{classprior__hessian_1_1SymmetricBetaDist_ae97856abf1dcb2d53ca8fa1dda024143}
+
+
+Definition at line 29 of file Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{operator"!=(const Symmetric\+Beta\+Dist \&o) const }{operator!=(const SymmetricBetaDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Symmetric\+Beta\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_afdc7ff36dab9f6a2de9f53f12ca87973}{}\label{classprior__hessian_1_1SymmetricBetaDist_afdc7ff36dab9f6a2de9f53f12ca87973}
+
+
+Definition at line 58 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References operator==().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_afdc7ff36dab9f6a2de9f53f12ca87973_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{operator==(const Symmetric\+Beta\+Dist \&o) const }{operator==(const SymmetricBetaDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Symmetric\+Beta\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ad4d4bd09ccdf88bb70a66064fc3a9a9d}{}\label{classprior__hessian_1_1SymmetricBetaDist_ad4d4bd09ccdf88bb70a66064fc3a9a9d}
+
+
+Definition at line 57 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References beta().
+
+
+
+Referenced by operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_ad4d4bd09ccdf88bb70a66064fc3a9a9d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_ad4d4bd09ccdf88bb70a66064fc3a9a9d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!param\+\_\+lbound@{param\+\_\+lbound}}
+\index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf VecT}\& prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::param\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ae4fc7c25b61f508900a0b65fb78515ec}{}\label{classprior__hessian_1_1SymmetricBetaDist_ae4fc7c25b61f508900a0b65fb78515ec}
+
+
+Definition at line 35 of file Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf String\+VecT}\& prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ace8b0b0489adef1d211be04bff12b7d8}{}\label{classprior__hessian_1_1SymmetricBetaDist_ace8b0b0489adef1d211be04bff12b7d8}
+
+
+Definition at line 34 of file Symmetric\+Beta\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!param\+\_\+ubound@{param\+\_\+ubound}}
+\index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf VecT}\& prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::param\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a59cc29572feb20c003130c417249809d}{}\label{classprior__hessian_1_1SymmetricBetaDist_a59cc29572feb20c003130c417249809d}
+
+
+Definition at line 36 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References beta(), and check\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a59cc29572feb20c003130c417249809d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!params@{params}}
+\index{params@{params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nparams\+VecT} prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}{}\label{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4}
+
+
+Definition at line 52 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References beta().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a2db7bdb8013ac523f58d2b252ea0dbb4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{pdf(double x) const }{pdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::pdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a6eb4a96ac9d8b7662ca5479da4c632d3}{}\label{classprior__hessian_1_1SymmetricBetaDist_a6eb4a96ac9d8b7662ca5479da4c632d3}
+
+
+Definition at line 50 of file Symmetric\+Beta\+Dist.\+cpp.
+
+
+
+Referenced by median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a6eb4a96ac9d8b7662ca5479da4c632d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{rllh(double x) const }{rllh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::rllh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_aaeb20e0c35223789304c4de29aa0461b}{}\label{classprior__hessian_1_1SymmetricBetaDist_aaeb20e0c35223789304c4de29aa0461b}
+
+
+Definition at line 131 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by llh(), and median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_aaeb20e0c35223789304c4de29aa0461b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class RngT $>$ double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&}]{rng}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a85c544524b8b02e31d5394289b227a4c}{}\label{classprior__hessian_1_1SymmetricBetaDist_a85c544524b8b02e31d5394289b227a4c}
+
+
+Definition at line 159 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References icdf().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a85c544524b8b02e31d5394289b227a4c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a85c544524b8b02e31d5394289b227a4c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!set\+\_\+beta@{set\+\_\+beta}}
+\index{set\+\_\+beta@{set\+\_\+beta}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+beta(double val)}{set_beta(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::set\+\_\+beta (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a45a39dc6a12ec1af15a1701023101f1f}{}\label{classprior__hessian_1_1SymmetricBetaDist_a45a39dc6a12ec1af15a1701023101f1f}
+
+
+Definition at line 30 of file Symmetric\+Beta\+Dist.\+cpp.
+
+
+
+Referenced by beta(), set\+\_\+param(), and set\+\_\+params().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a45a39dc6a12ec1af15a1701023101f1f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!set\+\_\+param@{set\+\_\+param}}
+\index{set\+\_\+param@{set\+\_\+param}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+param(int idx, double val)}{set_param(int idx, double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::set\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a5ea7086046d4558c83b2211503501fca}{}\label{classprior__hessian_1_1SymmetricBetaDist_a5ea7086046d4558c83b2211503501fca}
+
+
+Definition at line 119 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References set\+\_\+beta().
+
+
+
+Referenced by beta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a5ea7086046d4558c83b2211503501fca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a5ea7086046d4558c83b2211503501fca_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(double beta)}{set_params(double beta)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a8f54c616932761272dad23e3da2be005}{}\label{classprior__hessian_1_1SymmetricBetaDist_a8f54c616932761272dad23e3da2be005}
+
+
+Definition at line 53 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References set\+\_\+beta().
+
+
+
+Referenced by set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a8f54c616932761272dad23e3da2be005_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a8f54c616932761272dad23e3da2be005_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&p)}{set_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a1f774edc4e8701e8410559a3ff90c193}{}\label{classprior__hessian_1_1SymmetricBetaDist_a1f774edc4e8701e8410559a3ff90c193}
+
+
+Definition at line 56 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References set\+\_\+beta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a1f774edc4e8701e8410559a3ff90c193_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
+\index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ void prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::set\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_a50df68faf7f3205ddc19b0664593cdb8}{}\label{classprior__hessian_1_1SymmetricBetaDist_a50df68faf7f3205ddc19b0664593cdb8}
+
+
+Definition at line 173 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+References set\+\_\+params().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a50df68faf7f3205ddc19b0664593cdb8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_a50df68faf7f3205ddc19b0664593cdb8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}!ubound@{ubound}}
+\index{ubound@{ubound}!prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist@{prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}}
+\paragraph[{\texorpdfstring{ubound()}{ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist\+::ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1SymmetricBetaDist_ad1766580dc336913711d6e1ed94a7f7a}{}\label{classprior__hessian_1_1SymmetricBetaDist_ad1766580dc336913711d6e1ed94a7f7a}
+
+
+Definition at line 31 of file Symmetric\+Beta\+Dist.\+h.
+
+
+
+Referenced by in\+\_\+bounds().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1SymmetricBetaDist_ad1766580dc336913711d6e1ed94a7f7a_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SymmetricBetaDist_8h}{Symmetric\+Beta\+Dist.\+h}\item 
+\hyperlink{SymmetricBetaDist_8cpp}{Symmetric\+Beta\+Dist.\+cpp}\end{DoxyCompactItemize}

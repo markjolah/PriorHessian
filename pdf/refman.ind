@@ -1,0 +1,2277 @@
+\begin{theindex}
+
+  \item {\+\_\+scaled\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{343}
+  \item {\+\_\+scaled\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{343}
+  \item {\+\_\+truncated}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{375}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+  \item {\+\_\+truncated\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{375}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+  \item {\+\_\+truncated\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{376}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{382}
+
+  \indexspace
+
+  \item {A\+M\+H\+Copula}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{48}
+  \item {A\+M\+H\+Copula.\+h}, \hyperpage{395}
+  \item {A\+S\+S\+E\+R\+T\+\_\+\+S\+E\+T\+UP}
+    \subitem {Prior\+Hessian\+Error.\+h}, \hyperpage{424}
+  \item {adaptable\+\_\+bounds}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits}, 
+		\hyperpage{172}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Dist\+Ts... $>$ $>$}, 
+		\hyperpage{173}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Gamma\+Dist $>$}, 
+		\hyperpage{174}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{175}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Normal\+Dist $>$}, 
+		\hyperpage{176}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Pareto\+Dist $>$}, 
+		\hyperpage{177}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Scaled\+Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{178}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{179}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Gamma\+Dist $>$}, 
+		\hyperpage{180}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{181}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Normal\+Dist $>$}, 
+		\hyperpage{182}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Pareto\+Dist $>$}, 
+		\hyperpage{183}
+  \item {alpha}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{287}
+  \item {Any\+RngT}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{92}
+  \item {append\+\_\+global\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{69}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{80}
+  \item {append\+\_\+global\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{69}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{80}
+  \item {append\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{69}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{81}
+  \item {append\+\_\+param\+\_\+names}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{70}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{81}
+  \item {append\+\_\+params}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{49}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{70}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{82}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{224}
+  \item {append\+\_\+params\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{252}
+  \item {append\+\_\+params\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{71}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{82}
+  \item {append\+\_\+params\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{71}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{82}
+  \item {append\+\_\+sample}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{71}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{82}
+  \item {append\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{71}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{83}
+  \item {Archimedean\+Copula.\+h}, \hyperpage{395}
+
+  \indexspace
+
+  \item {Base\+Dist.\+h}, \hyperpage{397}
+  \item {beta}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{347}
+  \item {bounded}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+  \item {bounds\+\_\+adapted\+\_\+dist}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits}, 
+		\hyperpage{171}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Dist\+Ts... $>$ $>$}, 
+		\hyperpage{172}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Gamma\+Dist $>$}, 
+		\hyperpage{173}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{174}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Normal\+Dist $>$}, 
+		\hyperpage{175}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Pareto\+Dist $>$}, 
+		\hyperpage{176}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Scaled\+Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{177}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{178}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Gamma\+Dist $>$}, 
+		\hyperpage{179}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{180}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Normal\+Dist $>$}, 
+		\hyperpage{181}
+    \subitem {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Pareto\+Dist $>$}, 
+		\hyperpage{182}
+  \item {bounds\+\_\+pdf\+\_\+integral}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{376}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{382}
+  \item {Bounds\+Adapted\+Dist.\+h}, \hyperpage{397}
+  \item {Bounds\+Adapted\+DistT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+
+  \indexspace
+
+  \item {call\+\_\+in\+\_\+order}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{39}
+  \item {cdf}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{49}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{95}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{141}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{190}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{224, 225}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{252}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{288}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{331}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{347}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{366}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{379}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{388}
+  \item {cdf\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{72}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{83}
+  \item {check\+\_\+bounds}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{141}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{191}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Dist}, 
+		\hyperpage{219}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{225}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{252}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{289}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{348}
+    \subitem {prior\+\_\+hessian\+::\+Univariate\+Dist}, 
+		\hyperpage{384}
+  \item {check\+\_\+copula\+\_\+theta}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{141}
+  \item {check\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{290}
+  \item {check\+\_\+mu}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{225}
+  \item {check\+\_\+params}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{50}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{95}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{141}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{191}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{225, 226}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{253}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, 
+		\hyperpage{290, 291}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{348}
+  \item {check\+\_\+params\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{50}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{142}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{192}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{227}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{254}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{292}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{349}
+  \item {check\+\_\+sigma}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{228}
+  \item {check\+\_\+theta}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{50}
+  \item {clear}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{95}
+  \item {component\+\_\+names}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{96}
+  \item {component\+\_\+types}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{96}
+  \item {Component\+Dist\+Adaptor}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{68}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{80}
+  \item {Component\+DistT}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{92}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{68}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{80}
+  \item {Composite\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, 
+		\hyperpage{93, 94}
+  \item {Composite\+Dist.\+cpp}, \hyperpage{400}
+  \item {Composite\+Dist.\+h}, \hyperpage{401}
+  \item {compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}
+    \subitem {prior\+\_\+hessian\+::helpers}, \hyperpage{32}
+  \item {compute\+\_\+truncated\+\_\+pdf\+\_\+integral}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{379}
+  \item {condition}
+    \subitem {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{207}
+    \subitem {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{210}
+    \subitem {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{274}
+    \subitem {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{276}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{278}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{280}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{282}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{284}
+    \subitem {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{321}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{323}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{325}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, 
+		\hyperpage{327}
+  \item {constexpr\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{39}
+  \item {Constructable\+If}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+All\+Dists\+Are\+BoundedT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Instantiated\+From\+NumericT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Is\+CopulaT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Is\+Super\+Class\+For\+AllT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Is\+Super\+ClassT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Is\+Template\+For\+AllT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Not}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{36}
+  \item {Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Constructable\+If\+Not\+SelfT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {convert\+\_\+from\+\_\+unitary\+\_\+coords}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{331}
+  \item {convert\+\_\+to\+\_\+unitary\+\_\+coords}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{332}
+  \item {copula.\+h}, \hyperpage{403}
+  \item {Copula\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{140}
+  \item {Copula\+Dist.\+h}, \hyperpage{403}
+  \item {CopulaT}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{139}
+
+  \indexspace
+
+  \item {d1\+\_\+igen}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{51}
+  \item {d1\+\_\+igen\+\_\+ui}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{162}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{167}
+  \item {d2\+\_\+igen\+\_\+ui}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{162}
+  \item {D\+E\+B\+U\+G\+\_\+\+A\+S\+S\+E\+RT}
+    \subitem {Prior\+Hessian\+Error.\+h}, \hyperpage{424}
+  \item {ddim\+\_\+gen}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{52}
+  \item {Derived\+From}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {dim\+\_\+variables}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{97}
+  \item {Dist\+TraitsT}
+    \subitem {prior\+\_\+hessian\+::detail}, \hyperpage{29}
+  \item {donnelly\+\_\+bvn\+\_\+cdf}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+  \item {donnelly\+\_\+bvn\+\_\+integral}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+  \item {donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}
+    \subitem {prior\+\_\+hessian}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Enable\+If\+All\+Are\+Not\+TupleT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Instantiated\+From\+NumericT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Instantiated\+FromT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Is\+Not\+TupleT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Is\+Superclass\+Of\+AllT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{37}
+  \item {Enable\+If\+Is\+Template\+For\+AllT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Enable\+If\+Non\+Empty}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Enable\+If\+Not\+Instantiated\+FromT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Enable\+If\+Not\+Is\+SelfT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Enable\+If\+SubclassT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {eta\+\_\+0n\+\_\+1n\+\_\+t}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{164}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{183}
+  \item {eta\+\_\+n\+\_\+np1\+\_\+t}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+Gen\+Terms}, 
+		\hyperpage{161}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+Gen\+Terms}, 
+		\hyperpage{166}
+  \item {eulerian\+\_\+polynomial}
+    \subitem {prior\+\_\+hessian}, \hyperpage{17}
+    \subitem {prior\+\_\+hessian\+::detail}, \hyperpage{29}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 0 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 1 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 2 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 3 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 4 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 5 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
+  \item {eulerian\+\_\+polynomial$<$ 6 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {eulerian\+\_\+polynomial$<$ 7 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {eulerian\+\_\+polynomial$<$ 8 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {eulerian\+\_\+polynomial$<$ 9 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {Eulerian\+Polynomial.\+h}, \hyperpage{404}
+
+  \indexspace
+
+  \item {G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON}
+    \subitem {Meta.\+h}, \hyperpage{411}
+  \item {Gamma\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, 
+		\hyperpage{189, 190}
+  \item {Gamma\+Dist.\+cpp}, \hyperpage{405}
+  \item {Gamma\+Dist.\+h}, \hyperpage{406}
+  \item {gen}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{52}
+  \item {get\+\_\+copula\+\_\+theta}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{142}
+  \item {get\+\_\+dist\+\_\+tuple}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{97}
+  \item {get\+\_\+param}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{192}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{228}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{255}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{293}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{350}
+  \item {get\+\_\+param\+\_\+index}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{98}
+  \item {get\+\_\+param\+\_\+value}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{98}
+  \item {global\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{99}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{143}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{294}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{333}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{366}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+  \item {global\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{99}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{143}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{333}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{366}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{388}
+  \item {grad}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{53}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{99}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{144}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{193}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{228}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{255}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{294}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{350}
+  \item {grad2}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{53}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{101}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{145}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{193}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{229}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{256}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{295}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{351}
+  \item {grad2\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{102}
+  \item {grad2\+\_\+accumulate\+\_\+idx}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{72}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{84}
+  \item {grad\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{103}
+  \item {grad\+\_\+accumulate\+\_\+idx}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{73}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{84}
+  \item {grad\+\_\+grad2\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{103}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{145}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{193}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{230}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{257}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{296}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{351}
+  \item {grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{73}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{84}
+  \item {grad\+\_\+hess\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{104}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{145}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{231}
+  \item {grad\+\_\+hess\+\_\+accumulate\+\_\+idx}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{74}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{85}
+
+  \indexspace
+
+  \item {has\+\_\+param}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{104}
+  \item {hess}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{54}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{105}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{146}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{231}
+  \item {hess\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{106}
+  \item {hess\+\_\+accumulate\+\_\+idx}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{74}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{85}
+
+  \indexspace
+
+  \item {icdf}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{194}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{257}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{297}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{333}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{352}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{367}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{388}
+  \item {IdxT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {ieta\+\_\+21\+\_\+ui}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{162}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{167}
+  \item {igen}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{55}
+  \item {igen\+\_\+sum}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{55}
+  \item {in\+\_\+bounds}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{106}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{194}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{232}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{258}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{298}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{352}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+  \item {in\+\_\+bounds\+\_\+all}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{106}
+  \item {Index\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{207}
+  \item {initialize}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, 
+		\hyperpage{107--109}
+  \item {initialize\+\_\+copula}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{146}
+  \item {initialize\+\_\+marginals}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{147}
+  \item {Invalid\+Operation\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{209}
+  \item {is\+\_\+empty}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{109}
+  \item {ixi\+\_\+1\+\_\+ui}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{162}
+
+  \indexspace
+
+  \item {lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{110}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{147}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{195}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{233}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{258}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{299}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{334}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{353}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{367}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+  \item {lbound\+\_\+cdf}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{376}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{382}
+  \item {llh}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{56}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{110}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{147}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{195}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{234}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{259}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{301}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{335}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{353}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{368}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{389}
+  \item {llh\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{111}
+  \item {llh\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{74}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{86}
+  \item {llh\+\_\+scaling\+\_\+const}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{343}
+  \item {llh\+\_\+truncation\+\_\+const}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{376}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{382}
+  \item {log2pi}
+    \subitem {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+  \item {log\+\_\+dn\+\_\+gen\+\_\+t}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+Gen\+Terms}, 
+		\hyperpage{161}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{164}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+Gen\+Terms}, 
+		\hyperpage{166}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{183}
+  \item {logical\+\_\+and\+\_\+in\+\_\+order}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{40}
+
+  \indexspace
+
+  \item {M\+C\+M\+C\+Data}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{217}
+  \item {make\+\_\+adapted\+\_\+bounded\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{17, 18}
+  \item {make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}
+    \subitem {prior\+\_\+hessian}, \hyperpage{18, 19}
+    \subitem {prior\+\_\+hessian\+::detail}, \hyperpage{29, 30}
+  \item {make\+\_\+bounded\+\_\+gamma\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{19}
+  \item {make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{19}
+  \item {make\+\_\+bounded\+\_\+normal\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{19}
+  \item {make\+\_\+bounded\+\_\+pareto\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{19}
+  \item {make\+\_\+component\+\_\+dist}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, 
+		\hyperpage{111, 112}
+  \item {make\+\_\+component\+\_\+dist\+\_\+tuple}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, 
+		\hyperpage{112--114}
+  \item {make\+\_\+copula\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{20}
+  \item {make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{20}
+  \item {make\+\_\+zero\+\_\+grad}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{114}
+  \item {make\+\_\+zero\+\_\+hess}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{114}
+  \item {Marginal\+Dist\+TupleT}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{139}
+  \item {Marginal\+DistT}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{139}
+  \item {MatT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {mc\+\_\+mvn\+\_\+cdf}
+    \subitem {prior\+\_\+hessian}, \hyperpage{20}
+  \item {mc\+\_\+mvn\+\_\+cdf\+\_\+core}
+    \subitem {prior\+\_\+hessian}, \hyperpage{20}
+  \item {mc\+\_\+mvn\+\_\+integral}
+    \subitem {prior\+\_\+hessian}, \hyperpage{21}
+  \item {mean}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{196}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{234}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{259}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{302}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{335}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{354}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{368}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{389}
+  \item {median}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{196}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{260}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{304}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{336}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{354}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{368}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{389}
+  \item {Meta.\+h}, \hyperpage{408}
+    \subitem {G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON}, \hyperpage{411}
+    \subitem {P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR}, 
+		\hyperpage{411}
+    \subitem {P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+H\+A\+S\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR}, 
+		\hyperpage{411}
+  \item {min}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{305}
+  \item {min\+\_\+bounds\+\_\+pdf\+\_\+integral}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{376}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{382}
+  \item {mode}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{235}
+  \item {mu}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{235}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{260}
+  \item {Multivariate\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Dist}, 
+		\hyperpage{219}
+  \item {Multivariate\+Dist.\+h}, \hyperpage{412}
+  \item {Multivariate\+Normal\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{223}
+  \item {Multivariate\+Normal\+Dist.\+h}, \hyperpage{413}
+  \item {mutex}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{218}
+  \item {mvn\+\_\+cdf.\+cpp}, \hyperpage{414}
+  \item {mvn\+\_\+cdf.\+h}, \hyperpage{415}
+  \item {mvn\+\_\+cdf\+\_\+genz}
+    \subitem {prior\+\_\+hessian\+::genz}, \hyperpage{31}
+  \item {mvndst\+\_\+}
+    \subitem {prior\+\_\+hessian\+::genz\+::fortran}, \hyperpage{32}
+
+  \indexspace
+
+  \item {Ndim\+MatT}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{48}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{139}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{222}
+  \item {Ndim\+VecT}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{48}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{140}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{222}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{217}
+  \item {Normal\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{251}
+  \item {Normal\+Dist.\+cpp}, \hyperpage{417}
+  \item {Normal\+Dist.\+h}, \hyperpage{418}
+  \item {Not\+Implemented\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{273}
+  \item {Nparams\+VecT}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{140}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{189}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{223}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{250}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{286}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{346}
+  \item {nsample}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{218}
+  \item {num\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{115}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{148}
+  \item {num\+\_\+dim}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{56}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{115}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{148}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{197}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{236}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{261}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{306}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{354}
+    \subitem {prior\+\_\+hessian\+::\+Univariate\+Dist}, 
+		\hyperpage{384}
+  \item {num\+\_\+dim\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{116}
+  \item {num\+\_\+params}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{57}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{117}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{149}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{197}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{237}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{261}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{306}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{354}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{369}
+  \item {num\+\_\+params\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{117}
+  \item {Numerical\+Overflow\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{275}
+
+  \indexspace
+
+  \item {operator bool}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{117}
+  \item {operator!=}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{57}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{117}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{149}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{197}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{237}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{261}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{306}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{336}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{355}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{369}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{390}
+  \item {operator$<$$<$}
+    \subitem {prior\+\_\+hessian}, \hyperpage{22}
+  \item {operator=}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{118}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{217}
+  \item {operator==}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{57}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{118}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{151}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{197}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{238}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{262}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{307}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{337}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{355}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{369}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{390}
+  \item {owen\+\_\+b\+\_\+integral}
+    \subitem {prior\+\_\+hessian}, \hyperpage{23}
+  \item {owen\+\_\+bvn\+\_\+cdf}
+    \subitem {prior\+\_\+hessian}, \hyperpage{24}
+  \item {owen\+\_\+t\+\_\+integral}
+    \subitem {prior\+\_\+hessian}, \hyperpage{25}
+
+  \indexspace
+
+  \item {P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR}
+    \subitem {Meta.\+h}, \hyperpage{411}
+  \item {P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+H\+A\+S\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR}
+    \subitem {Meta.\+h}, \hyperpage{411}
+  \item {param\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{57}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{152}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{198}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{238}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{262}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{307}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{355}
+  \item {param\+\_\+names}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{58}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{119}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{152}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{198}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{239}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{263}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{308}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{356}
+  \item {param\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{58}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{153}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{198}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{239}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{263}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{308}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{356}
+  \item {Parameter\+Name\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{277}
+  \item {Parameter\+Name\+Uniqueness\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{279}
+  \item {Parameter\+Size\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{281}
+  \item {Parameter\+Value\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{283}
+  \item {params}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{120}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{153}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{198}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{239}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{263}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{308}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{356}
+  \item {params\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{121}
+  \item {params\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{122}
+  \item {params\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{122}
+  \item {Pareto\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{287}
+  \item {Pareto\+Dist.\+cpp}, \hyperpage{419}
+  \item {Pareto\+Dist.\+h}, \hyperpage{420}
+  \item {pdf}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{58}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{122}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{154}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{199}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{240}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{264}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{309}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{337}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{357}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{370}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{380}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{391}
+  \item {pdf\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{75}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{86}
+  \item {Poly\+Log.\+h}, \hyperpage{421}
+  \item {polylog}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {polylog$<$ 1 $>$}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+  \item {prior\+\_\+hessian}, \hyperpage{11}
+    \subitem {bounded}, \hyperpage{15}
+    \subitem {Bounds\+Adapted\+DistT}, \hyperpage{14}
+    \subitem {Copula\+Dist}, \hyperpage{14}
+    \subitem {donnelly\+\_\+bvn\+\_\+cdf}, \hyperpage{15}
+    \subitem {donnelly\+\_\+bvn\+\_\+integral}, \hyperpage{15}
+    \subitem {donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}, 
+		\hyperpage{16}
+    \subitem {eulerian\+\_\+polynomial}, \hyperpage{17}
+    \subitem {IdxT}, \hyperpage{14}
+    \subitem {make\+\_\+adapted\+\_\+bounded\+\_\+dist}, 
+		\hyperpage{17, 18}
+    \subitem {make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}, 
+		\hyperpage{18, 19}
+    \subitem {make\+\_\+bounded\+\_\+gamma\+\_\+dist}, \hyperpage{19}
+    \subitem {make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}, 
+		\hyperpage{19}
+    \subitem {make\+\_\+bounded\+\_\+normal\+\_\+dist}, \hyperpage{19}
+    \subitem {make\+\_\+bounded\+\_\+pareto\+\_\+dist}, \hyperpage{19}
+    \subitem {make\+\_\+copula\+\_\+dist}, \hyperpage{20}
+    \subitem {make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}, 
+		\hyperpage{20}
+    \subitem {MatT}, \hyperpage{14}
+    \subitem {mc\+\_\+mvn\+\_\+cdf}, \hyperpage{20}
+    \subitem {mc\+\_\+mvn\+\_\+cdf\+\_\+core}, \hyperpage{20}
+    \subitem {mc\+\_\+mvn\+\_\+integral}, \hyperpage{21}
+    \subitem {operator$<$$<$}, \hyperpage{22}
+    \subitem {owen\+\_\+b\+\_\+integral}, \hyperpage{23}
+    \subitem {owen\+\_\+bvn\+\_\+cdf}, \hyperpage{24}
+    \subitem {owen\+\_\+t\+\_\+integral}, \hyperpage{25}
+    \subitem {Scaled\+Symmetric\+Beta\+Dist}, \hyperpage{14}
+    \subitem {square}, \hyperpage{26}
+    \subitem {String\+VecT}, \hyperpage{14}
+    \subitem {Truncated\+Gamma\+Dist}, \hyperpage{14}
+    \subitem {Truncated\+Multivariate\+Normal\+Dist}, \hyperpage{14}
+    \subitem {Truncated\+Normal\+Dist}, \hyperpage{14}
+    \subitem {Truncated\+Pareto\+Dist}, \hyperpage{14}
+    \subitem {Type\+Info\+VecT}, \hyperpage{15}
+    \subitem {U\+VecT}, \hyperpage{15}
+    \subitem {unit\+\_\+normal\+\_\+cdf}, \hyperpage{26}
+    \subitem {unit\+\_\+normal\+\_\+icdf}, \hyperpage{27}
+    \subitem {VecT}, \hyperpage{15}
+  \item {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}
+    \subitem {A\+M\+H\+Copula}, \hyperpage{48}
+    \subitem {append\+\_\+params}, \hyperpage{49}
+    \subitem {cdf}, \hyperpage{49}
+    \subitem {check\+\_\+params}, \hyperpage{50}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{50}
+    \subitem {check\+\_\+theta}, \hyperpage{50}
+    \subitem {d1\+\_\+igen}, \hyperpage{51}
+    \subitem {ddim\+\_\+gen}, \hyperpage{52}
+    \subitem {gen}, \hyperpage{52}
+    \subitem {grad}, \hyperpage{53}
+    \subitem {grad2}, \hyperpage{53}
+    \subitem {hess}, \hyperpage{54}
+    \subitem {igen}, \hyperpage{55}
+    \subitem {igen\+\_\+sum}, \hyperpage{55}
+    \subitem {llh}, \hyperpage{56}
+    \subitem {Ndim\+MatT}, \hyperpage{48}
+    \subitem {Ndim\+VecT}, \hyperpage{48}
+    \subitem {num\+\_\+dim}, \hyperpage{56}
+    \subitem {num\+\_\+params}, \hyperpage{57}
+    \subitem {operator!=}, \hyperpage{57}
+    \subitem {operator==}, \hyperpage{57}
+    \subitem {param\+\_\+lbound}, \hyperpage{57}
+    \subitem {param\+\_\+names}, \hyperpage{58}
+    \subitem {param\+\_\+ubound}, \hyperpage{58}
+    \subitem {pdf}, \hyperpage{58}
+    \subitem {rllh}, \hyperpage{59}
+    \subitem {rllh\+\_\+const}, \hyperpage{59}
+    \subitem {rllh\+\_\+d2theta\+\_\+accumulate}, \hyperpage{59}
+    \subitem {rllh\+\_\+dtheta\+\_\+accumulate}, \hyperpage{60}
+    \subitem {rllh\+\_\+grad\+\_\+accumulate}, \hyperpage{60}
+    \subitem {rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}, 
+		\hyperpage{60}
+    \subitem {rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}, \hyperpage{61}
+    \subitem {sample}, \hyperpage{61}
+    \subitem {set\+\_\+params}, \hyperpage{61}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{62}
+    \subitem {set\+\_\+theta}, \hyperpage{62}
+    \subitem {theta}, \hyperpage{63}
+  \item {prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$}, 
+		\hyperpage{46}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula}, \hyperpage{64}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+Gen\+Terms}, 
+		\hyperpage{159}
+    \subitem {eta\+\_\+n\+\_\+np1\+\_\+t}, \hyperpage{161}
+    \subitem {log\+\_\+dn\+\_\+gen\+\_\+t}, \hyperpage{161}
+    \subitem {xi\+\_\+n\+\_\+t}, \hyperpage{161}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{161}
+    \subitem {d1\+\_\+igen\+\_\+ui}, \hyperpage{162}
+    \subitem {d2\+\_\+igen\+\_\+ui}, \hyperpage{162}
+    \subitem {ieta\+\_\+21\+\_\+ui}, \hyperpage{162}
+    \subitem {ixi\+\_\+1\+\_\+ui}, \hyperpage{162}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{163}
+    \subitem {eta\+\_\+0n\+\_\+1n\+\_\+t}, \hyperpage{164}
+    \subitem {log\+\_\+dn\+\_\+gen\+\_\+t}, \hyperpage{164}
+    \subitem {xi\+\_\+0n\+\_\+t}, \hyperpage{164}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{164}
+    \subitem {sum\+\_\+d10\+\_\+igen\+\_\+u}, \hyperpage{165}
+    \subitem {sum\+\_\+d20\+\_\+igen\+\_\+u}, \hyperpage{165}
+    \subitem {sum\+\_\+ieta\+\_\+01\+\_\+11\+\_\+u}, \hyperpage{165}
+    \subitem {sum\+\_\+ixi\+\_\+01\+\_\+u}, \hyperpage{165}
+    \subitem {sum\+\_\+log\+\_\+d1\+\_\+igen\+\_\+u}, \hyperpage{165}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+Gen\+Terms}, 
+		\hyperpage{166}
+    \subitem {eta\+\_\+n\+\_\+np1\+\_\+t}, \hyperpage{166}
+    \subitem {log\+\_\+dn\+\_\+gen\+\_\+t}, \hyperpage{166}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{167}
+    \subitem {d1\+\_\+igen\+\_\+ui}, \hyperpage{167}
+    \subitem {ieta\+\_\+21\+\_\+ui}, \hyperpage{167}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{183}
+    \subitem {eta\+\_\+0n\+\_\+1n\+\_\+t}, \hyperpage{183}
+    \subitem {log\+\_\+dn\+\_\+gen\+\_\+t}, \hyperpage{183}
+  \item {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{184}
+    \subitem {sum\+\_\+d10\+\_\+igen\+\_\+u}, \hyperpage{184}
+    \subitem {sum\+\_\+ieta\+\_\+01\+\_\+11\+\_\+u}, \hyperpage{184}
+    \subitem {sum\+\_\+log\+\_\+d1\+\_\+igen\+\_\+u}, \hyperpage{185}
+  \item {prior\+\_\+hessian\+::\+Base\+Dist}, \hyperpage{65}
+  \item {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{89}
+    \subitem {Any\+RngT}, \hyperpage{92}
+    \subitem {cdf}, \hyperpage{95}
+    \subitem {check\+\_\+params}, \hyperpage{95}
+    \subitem {clear}, \hyperpage{95}
+    \subitem {component\+\_\+names}, \hyperpage{96}
+    \subitem {component\+\_\+types}, \hyperpage{96}
+    \subitem {Component\+DistT}, \hyperpage{92}
+    \subitem {Composite\+Dist}, \hyperpage{93, 94}
+    \subitem {dim\+\_\+variables}, \hyperpage{97}
+    \subitem {get\+\_\+dist\+\_\+tuple}, \hyperpage{97}
+    \subitem {get\+\_\+param\+\_\+index}, \hyperpage{98}
+    \subitem {get\+\_\+param\+\_\+value}, \hyperpage{98}
+    \subitem {global\+\_\+lbound}, \hyperpage{99}
+    \subitem {global\+\_\+ubound}, \hyperpage{99}
+    \subitem {grad}, \hyperpage{99}
+    \subitem {grad2}, \hyperpage{101}
+    \subitem {grad2\+\_\+accumulate}, \hyperpage{102}
+    \subitem {grad\+\_\+accumulate}, \hyperpage{103}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{103}
+    \subitem {grad\+\_\+hess\+\_\+accumulate}, \hyperpage{104}
+    \subitem {has\+\_\+param}, \hyperpage{104}
+    \subitem {hess}, \hyperpage{105}
+    \subitem {hess\+\_\+accumulate}, \hyperpage{106}
+    \subitem {in\+\_\+bounds}, \hyperpage{106}
+    \subitem {in\+\_\+bounds\+\_\+all}, \hyperpage{106}
+    \subitem {initialize}, \hyperpage{107--109}
+    \subitem {is\+\_\+empty}, \hyperpage{109}
+    \subitem {lbound}, \hyperpage{110}
+    \subitem {llh}, \hyperpage{110}
+    \subitem {llh\+\_\+components}, \hyperpage{111}
+    \subitem {make\+\_\+component\+\_\+dist}, \hyperpage{111, 112}
+    \subitem {make\+\_\+component\+\_\+dist\+\_\+tuple}, 
+		\hyperpage{112--114}
+    \subitem {make\+\_\+zero\+\_\+grad}, \hyperpage{114}
+    \subitem {make\+\_\+zero\+\_\+hess}, \hyperpage{114}
+    \subitem {num\+\_\+components}, \hyperpage{115}
+    \subitem {num\+\_\+dim}, \hyperpage{115}
+    \subitem {num\+\_\+dim\+\_\+components}, \hyperpage{116}
+    \subitem {num\+\_\+params}, \hyperpage{117}
+    \subitem {num\+\_\+params\+\_\+components}, \hyperpage{117}
+    \subitem {operator bool}, \hyperpage{117}
+    \subitem {operator!=}, \hyperpage{117}
+    \subitem {operator=}, \hyperpage{118}
+    \subitem {operator==}, \hyperpage{118}
+    \subitem {param\+\_\+names}, \hyperpage{119}
+    \subitem {params}, \hyperpage{120}
+    \subitem {params\+\_\+components}, \hyperpage{121}
+    \subitem {params\+\_\+lbound}, \hyperpage{122}
+    \subitem {params\+\_\+ubound}, \hyperpage{122}
+    \subitem {pdf}, \hyperpage{122}
+    \subitem {rename\+\_\+param}, \hyperpage{123}
+    \subitem {rllh}, \hyperpage{124}
+    \subitem {rllh\+\_\+components}, \hyperpage{125}
+    \subitem {sample}, \hyperpage{126, 127}
+    \subitem {set\+\_\+bounds}, \hyperpage{127}
+    \subitem {set\+\_\+component\+\_\+names}, \hyperpage{128}
+    \subitem {set\+\_\+dim\+\_\+variables}, \hyperpage{128}
+    \subitem {set\+\_\+lbound}, \hyperpage{129}
+    \subitem {set\+\_\+param\+\_\+names}, \hyperpage{130}
+    \subitem {set\+\_\+param\+\_\+value}, \hyperpage{131}
+    \subitem {set\+\_\+params}, \hyperpage{132}
+    \subitem {set\+\_\+ubound}, \hyperpage{132}
+    \subitem {ubound}, \hyperpage{133}
+  \item {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor}, 
+		\hyperpage{92}, \hyperpage{403}
+  \item {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{66}
+    \subitem {append\+\_\+global\+\_\+lbound}, \hyperpage{69}
+    \subitem {append\+\_\+global\+\_\+ubound}, \hyperpage{69}
+    \subitem {append\+\_\+lbound}, \hyperpage{69}
+    \subitem {append\+\_\+param\+\_\+names}, \hyperpage{70}
+    \subitem {append\+\_\+params}, \hyperpage{70}
+    \subitem {append\+\_\+params\+\_\+lbound}, \hyperpage{71}
+    \subitem {append\+\_\+params\+\_\+ubound}, \hyperpage{71}
+    \subitem {append\+\_\+sample}, \hyperpage{71}
+    \subitem {append\+\_\+ubound}, \hyperpage{71}
+    \subitem {cdf\+\_\+from\+\_\+iter}, \hyperpage{72}
+    \subitem {Component\+Dist\+Adaptor}, \hyperpage{68}
+    \subitem {Component\+DistT}, \hyperpage{68}
+    \subitem {grad2\+\_\+accumulate\+\_\+idx}, \hyperpage{72}
+    \subitem {grad\+\_\+accumulate\+\_\+idx}, \hyperpage{73}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}, \hyperpage{73}
+    \subitem {grad\+\_\+hess\+\_\+accumulate\+\_\+idx}, \hyperpage{74}
+    \subitem {hess\+\_\+accumulate\+\_\+idx}, \hyperpage{74}
+    \subitem {llh\+\_\+from\+\_\+iter}, \hyperpage{74}
+    \subitem {pdf\+\_\+from\+\_\+iter}, \hyperpage{75}
+    \subitem {rllh\+\_\+from\+\_\+iter}, \hyperpage{75}
+    \subitem {set\+\_\+bounds\+\_\+from\+\_\+iter}, \hyperpage{76}
+    \subitem {set\+\_\+lbound\+\_\+from\+\_\+iter}, \hyperpage{76}
+    \subitem {set\+\_\+ubound\+\_\+from\+\_\+iter}, \hyperpage{77}
+  \item {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{78}
+    \subitem {append\+\_\+global\+\_\+lbound}, \hyperpage{80}
+    \subitem {append\+\_\+global\+\_\+ubound}, \hyperpage{80}
+    \subitem {append\+\_\+lbound}, \hyperpage{81}
+    \subitem {append\+\_\+param\+\_\+names}, \hyperpage{81}
+    \subitem {append\+\_\+params}, \hyperpage{82}
+    \subitem {append\+\_\+params\+\_\+lbound}, \hyperpage{82}
+    \subitem {append\+\_\+params\+\_\+ubound}, \hyperpage{82}
+    \subitem {append\+\_\+sample}, \hyperpage{82}
+    \subitem {append\+\_\+ubound}, \hyperpage{83}
+    \subitem {cdf\+\_\+from\+\_\+iter}, \hyperpage{83}
+    \subitem {Component\+Dist\+Adaptor}, \hyperpage{80}
+    \subitem {Component\+DistT}, \hyperpage{80}
+    \subitem {grad2\+\_\+accumulate\+\_\+idx}, \hyperpage{84}
+    \subitem {grad\+\_\+accumulate\+\_\+idx}, \hyperpage{84}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}, \hyperpage{84}
+    \subitem {grad\+\_\+hess\+\_\+accumulate\+\_\+idx}, \hyperpage{85}
+    \subitem {hess\+\_\+accumulate\+\_\+idx}, \hyperpage{85}
+    \subitem {llh\+\_\+from\+\_\+iter}, \hyperpage{86}
+    \subitem {pdf\+\_\+from\+\_\+iter}, \hyperpage{86}
+    \subitem {rllh\+\_\+from\+\_\+iter}, \hyperpage{87}
+    \subitem {set\+\_\+bounds\+\_\+from\+\_\+iter}, \hyperpage{87}
+    \subitem {set\+\_\+lbound\+\_\+from\+\_\+iter}, \hyperpage{88}
+    \subitem {set\+\_\+ubound\+\_\+from\+\_\+iter}, \hyperpage{88}
+  \item {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl}, \hyperpage{28}
+  \item {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}
+    \subitem {cdf}, \hyperpage{141}
+    \subitem {check\+\_\+bounds}, \hyperpage{141}
+    \subitem {check\+\_\+copula\+\_\+theta}, \hyperpage{141}
+    \subitem {check\+\_\+params}, \hyperpage{141}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{142}
+    \subitem {Copula\+Dist}, \hyperpage{140}
+    \subitem {CopulaT}, \hyperpage{139}
+    \subitem {get\+\_\+copula\+\_\+theta}, \hyperpage{142}
+    \subitem {global\+\_\+lbound}, \hyperpage{143}
+    \subitem {global\+\_\+ubound}, \hyperpage{143}
+    \subitem {grad}, \hyperpage{144}
+    \subitem {grad2}, \hyperpage{145}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{145}
+    \subitem {grad\+\_\+hess\+\_\+accumulate}, \hyperpage{145}
+    \subitem {hess}, \hyperpage{146}
+    \subitem {initialize\+\_\+copula}, \hyperpage{146}
+    \subitem {initialize\+\_\+marginals}, \hyperpage{147}
+    \subitem {lbound}, \hyperpage{147}
+    \subitem {llh}, \hyperpage{147}
+    \subitem {Marginal\+Dist\+TupleT}, \hyperpage{139}
+    \subitem {Marginal\+DistT}, \hyperpage{139}
+    \subitem {Ndim\+MatT}, \hyperpage{139}
+    \subitem {Ndim\+VecT}, \hyperpage{140}
+    \subitem {Nparams\+VecT}, \hyperpage{140}
+    \subitem {num\+\_\+components}, \hyperpage{148}
+    \subitem {num\+\_\+dim}, \hyperpage{148}
+    \subitem {num\+\_\+params}, \hyperpage{149}
+    \subitem {operator!=}, \hyperpage{149}
+    \subitem {operator==}, \hyperpage{151}
+    \subitem {param\+\_\+lbound}, \hyperpage{152}
+    \subitem {param\+\_\+names}, \hyperpage{152}
+    \subitem {param\+\_\+ubound}, \hyperpage{153}
+    \subitem {params}, \hyperpage{153}
+    \subitem {pdf}, \hyperpage{154}
+    \subitem {rllh}, \hyperpage{154}
+    \subitem {sample}, \hyperpage{154}
+    \subitem {set\+\_\+bounds}, \hyperpage{155}
+    \subitem {set\+\_\+copula\+\_\+theta}, \hyperpage{155}
+    \subitem {set\+\_\+lbound}, \hyperpage{156}
+    \subitem {set\+\_\+params}, \hyperpage{157}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{157}
+    \subitem {set\+\_\+ubound}, \hyperpage{157}
+    \subitem {ubound}, \hyperpage{158}
+  \item {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$}, 
+		\hyperpage{137}
+  \item {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{187}
+    \subitem {cdf}, \hyperpage{190}
+    \subitem {check\+\_\+bounds}, \hyperpage{191}
+    \subitem {check\+\_\+params}, \hyperpage{191}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{192}
+    \subitem {Gamma\+Dist}, \hyperpage{189, 190}
+    \subitem {get\+\_\+param}, \hyperpage{192}
+    \subitem {grad}, \hyperpage{193}
+    \subitem {grad2}, \hyperpage{193}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{193}
+    \subitem {icdf}, \hyperpage{194}
+    \subitem {in\+\_\+bounds}, \hyperpage{194}
+    \subitem {lbound}, \hyperpage{195}
+    \subitem {llh}, \hyperpage{195}
+    \subitem {mean}, \hyperpage{196}
+    \subitem {median}, \hyperpage{196}
+    \subitem {Nparams\+VecT}, \hyperpage{189}
+    \subitem {num\+\_\+dim}, \hyperpage{197}
+    \subitem {num\+\_\+params}, \hyperpage{197}
+    \subitem {operator!=}, \hyperpage{197}
+    \subitem {operator==}, \hyperpage{197}
+    \subitem {param\+\_\+lbound}, \hyperpage{198}
+    \subitem {param\+\_\+names}, \hyperpage{198}
+    \subitem {param\+\_\+ubound}, \hyperpage{198}
+    \subitem {params}, \hyperpage{198}
+    \subitem {pdf}, \hyperpage{199}
+    \subitem {rllh}, \hyperpage{199}
+    \subitem {sample}, \hyperpage{199}
+    \subitem {scale}, \hyperpage{200}
+    \subitem {set\+\_\+param}, \hyperpage{200}
+    \subitem {set\+\_\+params}, \hyperpage{201, 202}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{202}
+    \subitem {set\+\_\+scale}, \hyperpage{202}
+    \subitem {set\+\_\+shape}, \hyperpage{203}
+    \subitem {shape}, \hyperpage{203}
+    \subitem {ubound}, \hyperpage{204}
+  \item {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{205}
+    \subitem {condition}, \hyperpage{207}
+    \subitem {Index\+Error}, \hyperpage{207}
+    \subitem {what}, \hyperpage{207}
+    \subitem {what\+\_\+}, \hyperpage{207}
+    \subitem {what\+\_\+str}, \hyperpage{207}
+  \item {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{208}
+    \subitem {condition}, \hyperpage{210}
+    \subitem {Invalid\+Operation\+Error}, \hyperpage{209}
+    \subitem {what}, \hyperpage{210}
+    \subitem {what\+\_\+}, \hyperpage{210}
+    \subitem {what\+\_\+str}, \hyperpage{210}
+  \item {prior\+\_\+hessian\+::\+Multivariate\+Dist}, \hyperpage{218}
+    \subitem {check\+\_\+bounds}, \hyperpage{219}
+    \subitem {Multivariate\+Dist}, \hyperpage{219}
+  \item {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}
+    \subitem {append\+\_\+params}, \hyperpage{224}
+    \subitem {cdf}, \hyperpage{224, 225}
+    \subitem {check\+\_\+bounds}, \hyperpage{225}
+    \subitem {check\+\_\+mu}, \hyperpage{225}
+    \subitem {check\+\_\+params}, \hyperpage{225, 226}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{227}
+    \subitem {check\+\_\+sigma}, \hyperpage{228}
+    \subitem {get\+\_\+param}, \hyperpage{228}
+    \subitem {grad}, \hyperpage{228}
+    \subitem {grad2}, \hyperpage{229}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{230}
+    \subitem {grad\+\_\+hess\+\_\+accumulate}, \hyperpage{231}
+    \subitem {hess}, \hyperpage{231}
+    \subitem {in\+\_\+bounds}, \hyperpage{232}
+    \subitem {lbound}, \hyperpage{233}
+    \subitem {llh}, \hyperpage{234}
+    \subitem {mean}, \hyperpage{234}
+    \subitem {mode}, \hyperpage{235}
+    \subitem {mu}, \hyperpage{235}
+    \subitem {Multivariate\+Normal\+Dist}, \hyperpage{223}
+    \subitem {Ndim\+MatT}, \hyperpage{222}
+    \subitem {Ndim\+VecT}, \hyperpage{222}
+    \subitem {Nparams\+VecT}, \hyperpage{223}
+    \subitem {num\+\_\+dim}, \hyperpage{236}
+    \subitem {num\+\_\+params}, \hyperpage{237}
+    \subitem {operator!=}, \hyperpage{237}
+    \subitem {operator==}, \hyperpage{238}
+    \subitem {param\+\_\+lbound}, \hyperpage{238}
+    \subitem {param\+\_\+names}, \hyperpage{239}
+    \subitem {param\+\_\+ubound}, \hyperpage{239}
+    \subitem {params}, \hyperpage{239}
+    \subitem {pdf}, \hyperpage{240}
+    \subitem {rllh}, \hyperpage{241}
+    \subitem {sample}, \hyperpage{242}
+    \subitem {set\+\_\+mu}, \hyperpage{243}
+    \subitem {set\+\_\+params}, \hyperpage{243, 244}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{245}
+    \subitem {set\+\_\+sigma}, \hyperpage{245}
+    \subitem {sigma}, \hyperpage{246}
+    \subitem {sigma\+\_\+inv}, \hyperpage{246}
+    \subitem {ubound}, \hyperpage{247}
+  \item {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist$<$ Ndim $>$}, 
+		\hyperpage{220}
+  \item {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{248}
+    \subitem {append\+\_\+params\+\_\+iter}, \hyperpage{252}
+    \subitem {cdf}, \hyperpage{252}
+    \subitem {check\+\_\+bounds}, \hyperpage{252}
+    \subitem {check\+\_\+params}, \hyperpage{253}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{254}
+    \subitem {get\+\_\+param}, \hyperpage{255}
+    \subitem {grad}, \hyperpage{255}
+    \subitem {grad2}, \hyperpage{256}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{257}
+    \subitem {icdf}, \hyperpage{257}
+    \subitem {in\+\_\+bounds}, \hyperpage{258}
+    \subitem {lbound}, \hyperpage{258}
+    \subitem {llh}, \hyperpage{259}
+    \subitem {mean}, \hyperpage{259}
+    \subitem {median}, \hyperpage{260}
+    \subitem {mu}, \hyperpage{260}
+    \subitem {Normal\+Dist}, \hyperpage{251}
+    \subitem {Nparams\+VecT}, \hyperpage{250}
+    \subitem {num\+\_\+dim}, \hyperpage{261}
+    \subitem {num\+\_\+params}, \hyperpage{261}
+    \subitem {operator!=}, \hyperpage{261}
+    \subitem {operator==}, \hyperpage{262}
+    \subitem {param\+\_\+lbound}, \hyperpage{262}
+    \subitem {param\+\_\+names}, \hyperpage{263}
+    \subitem {param\+\_\+ubound}, \hyperpage{263}
+    \subitem {params}, \hyperpage{263}
+    \subitem {pdf}, \hyperpage{264}
+    \subitem {rllh}, \hyperpage{264}
+    \subitem {sample}, \hyperpage{265}
+    \subitem {set\+\_\+mu}, \hyperpage{266}
+    \subitem {set\+\_\+param}, \hyperpage{266}
+    \subitem {set\+\_\+params}, \hyperpage{267, 268}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{269}
+    \subitem {set\+\_\+sigma}, \hyperpage{269}
+    \subitem {sigma}, \hyperpage{270}
+    \subitem {ubound}, \hyperpage{271}
+  \item {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{272}
+    \subitem {condition}, \hyperpage{274}
+    \subitem {Not\+Implemented\+Error}, \hyperpage{273}
+    \subitem {what}, \hyperpage{274}
+    \subitem {what\+\_\+}, \hyperpage{274}
+    \subitem {what\+\_\+str}, \hyperpage{274}
+  \item {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{274}
+    \subitem {condition}, \hyperpage{276}
+    \subitem {Numerical\+Overflow\+Error}, \hyperpage{275}
+    \subitem {what}, \hyperpage{276}
+    \subitem {what\+\_\+}, \hyperpage{276}
+    \subitem {what\+\_\+str}, \hyperpage{276}
+  \item {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{276}
+    \subitem {condition}, \hyperpage{278}
+    \subitem {Parameter\+Name\+Error}, \hyperpage{277}
+    \subitem {what}, \hyperpage{278}
+    \subitem {what\+\_\+}, \hyperpage{278}
+    \subitem {what\+\_\+str}, \hyperpage{278}
+  \item {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{278}
+    \subitem {condition}, \hyperpage{280}
+    \subitem {Parameter\+Name\+Uniqueness\+Error}, \hyperpage{279}
+    \subitem {what}, \hyperpage{280}
+    \subitem {what\+\_\+}, \hyperpage{280}
+    \subitem {what\+\_\+str}, \hyperpage{280}
+  \item {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{280}
+    \subitem {condition}, \hyperpage{282}
+    \subitem {Parameter\+Size\+Error}, \hyperpage{281}
+    \subitem {what}, \hyperpage{282}
+    \subitem {what\+\_\+}, \hyperpage{282}
+    \subitem {what\+\_\+str}, \hyperpage{282}
+  \item {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{282}
+    \subitem {condition}, \hyperpage{284}
+    \subitem {Parameter\+Value\+Error}, \hyperpage{283}
+    \subitem {what}, \hyperpage{284}
+    \subitem {what\+\_\+}, \hyperpage{284}
+    \subitem {what\+\_\+str}, \hyperpage{284}
+  \item {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{284}
+    \subitem {alpha}, \hyperpage{287}
+    \subitem {cdf}, \hyperpage{288}
+    \subitem {check\+\_\+bounds}, \hyperpage{289}
+    \subitem {check\+\_\+lbound}, \hyperpage{290}
+    \subitem {check\+\_\+params}, \hyperpage{290, 291}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{292}
+    \subitem {get\+\_\+param}, \hyperpage{293}
+    \subitem {global\+\_\+lbound}, \hyperpage{294}
+    \subitem {grad}, \hyperpage{294}
+    \subitem {grad2}, \hyperpage{295}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{296}
+    \subitem {icdf}, \hyperpage{297}
+    \subitem {in\+\_\+bounds}, \hyperpage{298}
+    \subitem {lbound}, \hyperpage{299}
+    \subitem {llh}, \hyperpage{301}
+    \subitem {mean}, \hyperpage{302}
+    \subitem {median}, \hyperpage{304}
+    \subitem {min}, \hyperpage{305}
+    \subitem {Nparams\+VecT}, \hyperpage{286}
+    \subitem {num\+\_\+dim}, \hyperpage{306}
+    \subitem {num\+\_\+params}, \hyperpage{306}
+    \subitem {operator!=}, \hyperpage{306}
+    \subitem {operator==}, \hyperpage{307}
+    \subitem {param\+\_\+lbound}, \hyperpage{307}
+    \subitem {param\+\_\+names}, \hyperpage{308}
+    \subitem {param\+\_\+ubound}, \hyperpage{308}
+    \subitem {params}, \hyperpage{308}
+    \subitem {Pareto\+Dist}, \hyperpage{287}
+    \subitem {pdf}, \hyperpage{309}
+    \subitem {rllh}, \hyperpage{311}
+    \subitem {sample}, \hyperpage{312}
+    \subitem {set\+\_\+alpha}, \hyperpage{313}
+    \subitem {set\+\_\+lbound}, \hyperpage{314}
+    \subitem {set\+\_\+min}, \hyperpage{314}
+    \subitem {set\+\_\+param}, \hyperpage{315}
+    \subitem {set\+\_\+params}, \hyperpage{316}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{317}
+    \subitem {ubound}, \hyperpage{318}
+  \item {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{319}
+    \subitem {condition}, \hyperpage{321}
+    \subitem {Prior\+Hessian\+Error}, \hyperpage{320}
+    \subitem {what}, \hyperpage{321}
+    \subitem {what\+\_\+}, \hyperpage{321}
+    \subitem {what\+\_\+str}, \hyperpage{321}
+  \item {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{321}
+    \subitem {condition}, \hyperpage{323}
+    \subitem {Runtime\+Convergence\+Error}, \hyperpage{322}
+    \subitem {what}, \hyperpage{323}
+    \subitem {what\+\_\+}, \hyperpage{323}
+    \subitem {what\+\_\+str}, \hyperpage{323}
+  \item {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{323}
+    \subitem {condition}, \hyperpage{325}
+    \subitem {Runtime\+Sampling\+Error}, \hyperpage{324}
+    \subitem {what}, \hyperpage{325}
+    \subitem {what\+\_\+}, \hyperpage{325}
+    \subitem {what\+\_\+str}, \hyperpage{325}
+  \item {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, \hyperpage{325}
+    \subitem {condition}, \hyperpage{327}
+    \subitem {Runtime\+Type\+Error}, \hyperpage{326}
+    \subitem {what}, \hyperpage{327}
+    \subitem {what\+\_\+}, \hyperpage{327}
+    \subitem {what\+\_\+str}, \hyperpage{327}
+  \item {prior\+\_\+hessian\+::\+Scaled\+Dist}
+    \subitem {\+\_\+scaled\+\_\+lbound}, \hyperpage{343}
+    \subitem {\+\_\+scaled\+\_\+ubound}, \hyperpage{343}
+    \subitem {cdf}, \hyperpage{331}
+    \subitem {convert\+\_\+from\+\_\+unitary\+\_\+coords}, 
+		\hyperpage{331}
+    \subitem {convert\+\_\+to\+\_\+unitary\+\_\+coords}, 
+		\hyperpage{332}
+    \subitem {global\+\_\+lbound}, \hyperpage{333}
+    \subitem {global\+\_\+ubound}, \hyperpage{333}
+    \subitem {icdf}, \hyperpage{333}
+    \subitem {lbound}, \hyperpage{334}
+    \subitem {llh}, \hyperpage{335}
+    \subitem {llh\+\_\+scaling\+\_\+const}, \hyperpage{343}
+    \subitem {mean}, \hyperpage{335}
+    \subitem {median}, \hyperpage{336}
+    \subitem {operator!=}, \hyperpage{336}
+    \subitem {operator==}, \hyperpage{337}
+    \subitem {pdf}, \hyperpage{337}
+    \subitem {sample}, \hyperpage{338}
+    \subitem {Scaled\+Dist}, \hyperpage{329, 330}
+    \subitem {scaling\+\_\+ratio}, \hyperpage{343}
+    \subitem {set\+\_\+bounds}, \hyperpage{339}
+    \subitem {set\+\_\+lbound}, \hyperpage{340}
+    \subitem {set\+\_\+ubound}, \hyperpage{340}
+    \subitem {ubound}, \hyperpage{341}
+    \subitem {unscaled\+\_\+lbound}, \hyperpage{342}
+    \subitem {unscaled\+\_\+ubound}, \hyperpage{342}
+  \item {prior\+\_\+hessian\+::\+Scaled\+Dist$<$ Dist $>$}, 
+		\hyperpage{327}
+  \item {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{344}
+    \subitem {beta}, \hyperpage{347}
+    \subitem {cdf}, \hyperpage{347}
+    \subitem {check\+\_\+bounds}, \hyperpage{348}
+    \subitem {check\+\_\+params}, \hyperpage{348}
+    \subitem {check\+\_\+params\+\_\+iter}, \hyperpage{349}
+    \subitem {get\+\_\+param}, \hyperpage{350}
+    \subitem {grad}, \hyperpage{350}
+    \subitem {grad2}, \hyperpage{351}
+    \subitem {grad\+\_\+grad2\+\_\+accumulate}, \hyperpage{351}
+    \subitem {icdf}, \hyperpage{352}
+    \subitem {in\+\_\+bounds}, \hyperpage{352}
+    \subitem {lbound}, \hyperpage{353}
+    \subitem {llh}, \hyperpage{353}
+    \subitem {mean}, \hyperpage{354}
+    \subitem {median}, \hyperpage{354}
+    \subitem {Nparams\+VecT}, \hyperpage{346}
+    \subitem {num\+\_\+dim}, \hyperpage{354}
+    \subitem {num\+\_\+params}, \hyperpage{354}
+    \subitem {operator!=}, \hyperpage{355}
+    \subitem {operator==}, \hyperpage{355}
+    \subitem {param\+\_\+lbound}, \hyperpage{355}
+    \subitem {param\+\_\+names}, \hyperpage{356}
+    \subitem {param\+\_\+ubound}, \hyperpage{356}
+    \subitem {params}, \hyperpage{356}
+    \subitem {pdf}, \hyperpage{357}
+    \subitem {rllh}, \hyperpage{357}
+    \subitem {sample}, \hyperpage{357}
+    \subitem {set\+\_\+beta}, \hyperpage{358}
+    \subitem {set\+\_\+param}, \hyperpage{358}
+    \subitem {set\+\_\+params}, \hyperpage{359, 360}
+    \subitem {set\+\_\+params\+\_\+iter}, \hyperpage{360}
+    \subitem {Symmetric\+Beta\+Dist}, \hyperpage{346}
+    \subitem {ubound}, \hyperpage{361}
+  \item {prior\+\_\+hessian\+::\+Truncated\+Dist}
+    \subitem {\+\_\+truncated}, \hyperpage{375}
+    \subitem {\+\_\+truncated\+\_\+lbound}, \hyperpage{375}
+    \subitem {\+\_\+truncated\+\_\+ubound}, \hyperpage{376}
+    \subitem {bounds\+\_\+pdf\+\_\+integral}, \hyperpage{376}
+    \subitem {cdf}, \hyperpage{366}
+    \subitem {global\+\_\+lbound}, \hyperpage{366}
+    \subitem {global\+\_\+ubound}, \hyperpage{366}
+    \subitem {icdf}, \hyperpage{367}
+    \subitem {lbound}, \hyperpage{367}
+    \subitem {lbound\+\_\+cdf}, \hyperpage{376}
+    \subitem {llh}, \hyperpage{368}
+    \subitem {llh\+\_\+truncation\+\_\+const}, \hyperpage{376}
+    \subitem {mean}, \hyperpage{368}
+    \subitem {median}, \hyperpage{368}
+    \subitem {min\+\_\+bounds\+\_\+pdf\+\_\+integral}, \hyperpage{376}
+    \subitem {num\+\_\+params}, \hyperpage{369}
+    \subitem {operator!=}, \hyperpage{369}
+    \subitem {operator==}, \hyperpage{369}
+    \subitem {pdf}, \hyperpage{370}
+    \subitem {sample}, \hyperpage{370}
+    \subitem {set\+\_\+bounds}, \hyperpage{371}
+    \subitem {set\+\_\+lbound}, \hyperpage{372}
+    \subitem {set\+\_\+ubound}, \hyperpage{373}
+    \subitem {truncated}, \hyperpage{374}
+    \subitem {Truncated\+Dist}, \hyperpage{363--365}
+    \subitem {ubound}, \hyperpage{375}
+  \item {prior\+\_\+hessian\+::\+Truncated\+Dist$<$ Dist $>$}, 
+		\hyperpage{361}
+  \item {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}
+    \subitem {\+\_\+truncated}, \hyperpage{381}
+    \subitem {\+\_\+truncated\+\_\+lbound}, \hyperpage{381}
+    \subitem {\+\_\+truncated\+\_\+ubound}, \hyperpage{382}
+    \subitem {bounds\+\_\+pdf\+\_\+integral}, \hyperpage{382}
+    \subitem {cdf}, \hyperpage{379}
+    \subitem {compute\+\_\+truncated\+\_\+pdf\+\_\+integral}, 
+		\hyperpage{379}
+    \subitem {global\+\_\+lbound}, \hyperpage{380}
+    \subitem {global\+\_\+ubound}, \hyperpage{380}
+    \subitem {in\+\_\+bounds}, \hyperpage{380}
+    \subitem {lbound}, \hyperpage{380}
+    \subitem {lbound\+\_\+cdf}, \hyperpage{382}
+    \subitem {llh}, \hyperpage{380}
+    \subitem {llh\+\_\+truncation\+\_\+const}, \hyperpage{382}
+    \subitem {mean}, \hyperpage{380}
+    \subitem {min\+\_\+bounds\+\_\+pdf\+\_\+integral}, \hyperpage{382}
+    \subitem {operator!=}, \hyperpage{380}
+    \subitem {operator==}, \hyperpage{380}
+    \subitem {pdf}, \hyperpage{380}
+    \subitem {sample}, \hyperpage{381}
+    \subitem {set\+\_\+bounds}, \hyperpage{381}
+    \subitem {set\+\_\+lbound}, \hyperpage{381}
+    \subitem {set\+\_\+ubound}, \hyperpage{381}
+    \subitem {truncated}, \hyperpage{381}
+    \subitem {Truncated\+Multivariate\+Dist}, \hyperpage{379}
+    \subitem {ubound}, \hyperpage{381}
+  \item {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist$<$ Dist $>$}, 
+		\hyperpage{377}
+  \item {prior\+\_\+hessian\+::\+Univariate\+Dist}, \hyperpage{383}
+    \subitem {check\+\_\+bounds}, \hyperpage{384}
+    \subitem {num\+\_\+dim}, \hyperpage{384}
+    \subitem {Univariate\+Dist}, \hyperpage{384}
+  \item {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}
+    \subitem {cdf}, \hyperpage{388}
+    \subitem {global\+\_\+ubound}, \hyperpage{388}
+    \subitem {icdf}, \hyperpage{388}
+    \subitem {llh}, \hyperpage{389}
+    \subitem {mean}, \hyperpage{389}
+    \subitem {median}, \hyperpage{389}
+    \subitem {operator!=}, \hyperpage{390}
+    \subitem {operator==}, \hyperpage{390}
+    \subitem {pdf}, \hyperpage{391}
+    \subitem {sample}, \hyperpage{391}
+    \subitem {set\+\_\+bounds}, \hyperpage{392}
+    \subitem {set\+\_\+lbound}, \hyperpage{392}
+    \subitem {set\+\_\+ubound}, \hyperpage{393}
+    \subitem {truncated}, \hyperpage{394}
+    \subitem {ubound}, \hyperpage{394}
+    \subitem {Upper\+Truncated\+Dist}, \hyperpage{386, 387}
+  \item {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist$<$ Dist $>$}, 
+		\hyperpage{385}
+  \item {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+    \subitem {log2pi}, \hyperpage{28}
+    \subitem {sqrt2}, \hyperpage{28}
+    \subitem {sqrt2\+\_\+inv}, \hyperpage{28}
+    \subitem {sqrt2pi}, \hyperpage{28}
+    \subitem {sqrt2pi\+\_\+inv}, \hyperpage{28}
+  \item {prior\+\_\+hessian\+::detail}, \hyperpage{29}
+    \subitem {Dist\+TraitsT}, \hyperpage{29}
+    \subitem {eulerian\+\_\+polynomial}, \hyperpage{29}
+    \subitem {make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}, 
+		\hyperpage{29, 30}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{172}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{171}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Dist\+Ts... $>$ $>$}, 
+		\hyperpage{172}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{173}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{172}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Dist $>$}, 
+		\hyperpage{171}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Gamma\+Dist $>$}, 
+		\hyperpage{173}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{174}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{173}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{174}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{175}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{174}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Normal\+Dist $>$}, 
+		\hyperpage{175}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{176}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{175}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Pareto\+Dist $>$}, 
+		\hyperpage{176}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{177}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{176}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Scaled\+Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{177}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{178}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{177}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Symmetric\+Beta\+Dist $>$}, 
+		\hyperpage{178}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{179}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{178}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Gamma\+Dist $>$}, 
+		\hyperpage{179}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{180}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{179}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}, 
+		\hyperpage{180}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{181}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{180}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Normal\+Dist $>$}, 
+		\hyperpage{181}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{182}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{181}
+  \item {prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Pareto\+Dist $>$}, 
+		\hyperpage{182}
+    \subitem {adaptable\+\_\+bounds}, \hyperpage{183}
+    \subitem {bounds\+\_\+adapted\+\_\+dist}, \hyperpage{182}
+  \item {prior\+\_\+hessian\+::eulerian\+\_\+number$<$ 0, M $>$}, 
+		\hyperpage{186}
+  \item {prior\+\_\+hessian\+::eulerian\+\_\+number$<$ N, M $>$}, 
+		\hyperpage{185}
+  \item {prior\+\_\+hessian\+::genz}, \hyperpage{31}
+    \subitem {mvn\+\_\+cdf\+\_\+genz}, \hyperpage{31}
+  \item {prior\+\_\+hessian\+::genz\+::fortran}, \hyperpage{32}
+    \subitem {mvndst\+\_\+}, \hyperpage{32}
+  \item {prior\+\_\+hessian\+::helpers}, \hyperpage{32}
+    \subitem {compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}, 
+		\hyperpage{32}
+  \item {prior\+\_\+hessian\+::mcmc}, \hyperpage{33}
+  \item {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}
+    \subitem {M\+C\+M\+C\+Data}, \hyperpage{217}
+    \subitem {mutex}, \hyperpage{218}
+    \subitem {Ndim\+VecT}, \hyperpage{217}
+    \subitem {nsample}, \hyperpage{218}
+    \subitem {operator=}, \hyperpage{217}
+    \subitem {rllh}, \hyperpage{218}
+    \subitem {sample}, \hyperpage{218}
+  \item {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data$<$ Ndim $>$}, 
+		\hyperpage{216}
+  \item {prior\+\_\+hessian\+::meta}, \hyperpage{33}
+    \subitem {call\+\_\+in\+\_\+order}, \hyperpage{39}
+    \subitem {constexpr\+\_\+accumulate}, \hyperpage{39}
+    \subitem {Constructable\+If}, \hyperpage{36}
+    \subitem {Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}, 
+		\hyperpage{36}
+    \subitem {Constructable\+If\+All\+Dists\+Are\+BoundedT}, 
+		\hyperpage{36}
+    \subitem {Constructable\+If\+Instantiated\+From\+NumericT}, 
+		\hyperpage{36}
+    \subitem {Constructable\+If\+Is\+CopulaT}, \hyperpage{36}
+    \subitem {Constructable\+If\+Is\+Super\+Class\+For\+AllT}, 
+		\hyperpage{36}
+    \subitem {Constructable\+If\+Is\+Super\+ClassT}, \hyperpage{36}
+    \subitem {Constructable\+If\+Is\+Template\+For\+AllT}, 
+		\hyperpage{36}
+    \subitem {Constructable\+If\+Not}, \hyperpage{36}
+    \subitem {Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}, 
+		\hyperpage{37}
+    \subitem {Constructable\+If\+Not\+SelfT}, \hyperpage{37}
+    \subitem {Derived\+From}, \hyperpage{37}
+    \subitem {Enable\+If\+All\+Are\+Not\+TupleT}, \hyperpage{37}
+    \subitem {Enable\+If\+Instantiated\+From\+NumericT}, \hyperpage{37}
+    \subitem {Enable\+If\+Instantiated\+FromT}, \hyperpage{37}
+    \subitem {Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}, 
+		\hyperpage{37}
+    \subitem {Enable\+If\+Is\+Not\+TupleT}, \hyperpage{37}
+    \subitem {Enable\+If\+Is\+Superclass\+Of\+AllT}, \hyperpage{37}
+    \subitem {Enable\+If\+Is\+Template\+For\+AllT}, \hyperpage{38}
+    \subitem {Enable\+If\+Non\+Empty}, \hyperpage{38}
+    \subitem {Enable\+If\+Not\+Instantiated\+FromT}, \hyperpage{38}
+    \subitem {Enable\+If\+Not\+Is\+SelfT}, \hyperpage{38}
+    \subitem {Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}, 
+		\hyperpage{38}
+    \subitem {Enable\+If\+SubclassT}, \hyperpage{38}
+    \subitem {logical\+\_\+and\+\_\+in\+\_\+order}, \hyperpage{40}
+    \subitem {prod\+\_\+in\+\_\+order}, \hyperpage{41}
+    \subitem {Return\+If\+Instantiated\+From\+NumericT}, \hyperpage{38}
+    \subitem {Return\+If\+Instantiated\+FromT}, \hyperpage{38}
+    \subitem {Return\+If\+Not\+Instantiated\+FromT}, \hyperpage{38}
+    \subitem {Return\+If\+Subclass\+Of\+Numeric\+TemplateT}, 
+		\hyperpage{39}
+    \subitem {Return\+If\+SubclassT}, \hyperpage{39}
+    \subitem {Return\+IfT}, \hyperpage{39}
+    \subitem {sum\+\_\+in\+\_\+order}, \hyperpage{41}
+  \item {prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}
+    \subitem {value}, \hyperpage{45}
+  \item {prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts $>$}, 
+		\hyperpage{45}
+  \item {prior\+\_\+hessian\+::meta\+::conjunction$<$ B1 $>$}, 
+		\hyperpage{135}
+  \item {prior\+\_\+hessian\+::meta\+::conjunction$<$ B1, Bn... $>$}, 
+		\hyperpage{136}
+  \item {prior\+\_\+hessian\+::meta\+::conjunction$<$... $>$}, 
+		\hyperpage{134}
+  \item {prior\+\_\+hessian\+::meta\+::disjunction$<$ B1 $>$}, 
+		\hyperpage{169}
+  \item {prior\+\_\+hessian\+::meta\+::disjunction$<$ B1, Bn... $>$}, 
+		\hyperpage{170}
+  \item {prior\+\_\+hessian\+::meta\+::disjunction$<$... $>$}, 
+		\hyperpage{168}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+copula}
+    \subitem {value}, \hyperpage{211}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+copula$<$ T, U $>$}, 
+		\hyperpage{210}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+numeric\+\_\+template\+\_\+of$<$ class, typename $>$}, 
+		\hyperpage{211}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+numeric\+\_\+template\+\_\+of$<$ Class\+Numeric\+Template, Class\+Numeric\+Template$<$ Is... $>$ $>$}, 
+		\hyperpage{212}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}
+    \subitem {value}, \hyperpage{214}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template$<$ T, U $>$}, 
+		\hyperpage{213}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+template\+\_\+of$<$ class, typename $>$}, 
+		\hyperpage{214}
+  \item {prior\+\_\+hessian\+::meta\+::is\+\_\+template\+\_\+of$<$ Class\+Template, Class\+Template$<$ Ts... $>$ $>$}, 
+		\hyperpage{215}
+  \item {prior\+\_\+hessian\+::polylog}, \hyperpage{42}
+    \subitem {eulerian\+\_\+polynomial}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 0 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 1 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 2 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 3 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 4 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 5 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 6 $>$}, \hyperpage{44}
+    \subitem {eulerian\+\_\+polynomial$<$ 7 $>$}, \hyperpage{44}
+    \subitem {eulerian\+\_\+polynomial$<$ 8 $>$}, \hyperpage{44}
+    \subitem {eulerian\+\_\+polynomial$<$ 9 $>$}, \hyperpage{44}
+    \subitem {polylog}, \hyperpage{44}
+    \subitem {polylog$<$ 1 $>$}, \hyperpage{44}
+  \item {Prior\+Hessian\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{320}
+  \item {Prior\+Hessian\+Error.\+h}, \hyperpage{422}
+    \subitem {A\+S\+S\+E\+R\+T\+\_\+\+S\+E\+T\+UP}, \hyperpage{424}
+    \subitem {D\+E\+B\+U\+G\+\_\+\+A\+S\+S\+E\+RT}, \hyperpage{424}
+  \item {prod\+\_\+in\+\_\+order}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{41}
+
+  \indexspace
+
+  \item {R\+E\+A\+D\+M\+E.\+md}, \hyperpage{424}
+  \item {rename\+\_\+param}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{123}
+  \item {Return\+If\+Instantiated\+From\+NumericT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Return\+If\+Instantiated\+FromT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Return\+If\+Not\+Instantiated\+FromT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{38}
+  \item {Return\+If\+Subclass\+Of\+Numeric\+TemplateT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{39}
+  \item {Return\+If\+SubclassT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{39}
+  \item {Return\+IfT}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{39}
+  \item {rllh}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{59}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{124}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{154}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{199}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{241}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{264}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{311}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{357}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{218}
+  \item {rllh\+\_\+components}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{125}
+  \item {rllh\+\_\+const}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{59}
+  \item {rllh\+\_\+d2theta\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{59}
+  \item {rllh\+\_\+dtheta\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{60}
+  \item {rllh\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{75}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{87}
+  \item {rllh\+\_\+grad\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{60}
+  \item {rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{60}
+  \item {rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{61}
+  \item {Runtime\+Convergence\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{322}
+  \item {Runtime\+Sampling\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{324}
+  \item {Runtime\+Type\+Error}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, 
+		\hyperpage{326}
+
+  \indexspace
+
+  \item {sample}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{61}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, 
+		\hyperpage{126, 127}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{154}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{199}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{242}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{265}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{312}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{338}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{357}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{370}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{391}
+    \subitem {prior\+\_\+hessian\+::mcmc\+::\+M\+C\+M\+C\+Data}, 
+		\hyperpage{218}
+  \item {scale}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{200}
+  \item {Scaled\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, 
+		\hyperpage{329, 330}
+  \item {Scaled\+Dist.\+h}, \hyperpage{424}
+  \item {Scaled\+Symmetric\+Beta\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {Scaled\+Symmetric\+Beta\+Dist.\+h}, \hyperpage{425}
+  \item {scaling\+\_\+ratio}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{343}
+  \item {set\+\_\+alpha}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{313}
+  \item {set\+\_\+beta}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{358}
+  \item {set\+\_\+bounds}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{127}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{155}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{339}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{371}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{392}
+  \item {set\+\_\+bounds\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{76}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{87}
+  \item {set\+\_\+component\+\_\+names}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{128}
+  \item {set\+\_\+copula\+\_\+theta}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{155}
+  \item {set\+\_\+dim\+\_\+variables}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{128}
+  \item {set\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{129}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{156}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{314}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{340}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{372}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{392}
+  \item {set\+\_\+lbound\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{76}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{88}
+  \item {set\+\_\+min}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{314}
+  \item {set\+\_\+mu}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{243}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{266}
+  \item {set\+\_\+param}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{200}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{266}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{315}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{358}
+  \item {set\+\_\+param\+\_\+names}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{130}
+  \item {set\+\_\+param\+\_\+value}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{131}
+  \item {set\+\_\+params}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{61}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{132}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{157}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, 
+		\hyperpage{201, 202}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{243, 244}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, 
+		\hyperpage{267, 268}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{316}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{359, 360}
+  \item {set\+\_\+params\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{62}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{157}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{202}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{245}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{269}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{317}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{360}
+  \item {set\+\_\+scale}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{202}
+  \item {set\+\_\+shape}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{203}
+  \item {set\+\_\+sigma}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{245}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{269}
+  \item {set\+\_\+theta}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{62}
+  \item {set\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{132}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{157}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{340}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{373}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{393}
+  \item {set\+\_\+ubound\+\_\+from\+\_\+iter}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}, 
+		\hyperpage{77}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}, 
+		\hyperpage{88}
+  \item {shape}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{203}
+  \item {sigma}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{246}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{270}
+  \item {sigma\+\_\+inv}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{246}
+  \item {sqrt2}
+    \subitem {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+  \item {sqrt2\+\_\+inv}
+    \subitem {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+  \item {sqrt2pi}
+    \subitem {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+  \item {sqrt2pi\+\_\+inv}
+    \subitem {prior\+\_\+hessian\+::constants}, \hyperpage{28}
+  \item {square}
+    \subitem {prior\+\_\+hessian}, \hyperpage{26}
+  \item {String\+VecT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {sum\+\_\+d10\+\_\+igen\+\_\+u}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{165}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{184}
+  \item {sum\+\_\+d20\+\_\+igen\+\_\+u}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{165}
+  \item {sum\+\_\+ieta\+\_\+01\+\_\+11\+\_\+u}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{165}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{184}
+  \item {sum\+\_\+in\+\_\+order}
+    \subitem {prior\+\_\+hessian\+::meta}, \hyperpage{41}
+  \item {sum\+\_\+ixi\+\_\+01\+\_\+u}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{165}
+  \item {sum\+\_\+log\+\_\+d1\+\_\+igen\+\_\+u}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{165}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D\+Theta\+\_\+\+I\+Gen\+Terms}, 
+		\hyperpage{185}
+  \item {Symmetric\+Beta\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{346}
+  \item {Symmetric\+Beta\+Dist.\+cpp}, \hyperpage{426}
+  \item {Symmetric\+Beta\+Dist.\+h}, \hyperpage{427}
+
+  \indexspace
+
+  \item {theta}
+    \subitem {prior\+\_\+hessian\+::\+A\+M\+H\+Copula}, \hyperpage{63}
+  \item {truncated}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{374}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{394}
+  \item {Truncated\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, 
+		\hyperpage{363--365}
+  \item {Truncated\+Dist.\+h}, \hyperpage{429}
+  \item {Truncated\+Gamma\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {Truncated\+Gamma\+Dist.\+h}, \hyperpage{430}
+  \item {Truncated\+Multivariate\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{379}
+  \item {Truncated\+Multivariate\+Dist.\+h}, \hyperpage{431}
+  \item {Truncated\+Multivariate\+Normal\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {Truncated\+Multivariate\+Normal\+Dist.\+h}, \hyperpage{433}
+  \item {Truncated\+Normal\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {Truncated\+Normal\+Dist.\+h}, \hyperpage{434}
+  \item {Truncated\+Pareto\+Dist}
+    \subitem {prior\+\_\+hessian}, \hyperpage{14}
+  \item {Truncated\+Pareto\+Dist.\+h}, \hyperpage{435}
+  \item {Type\+Info\+VecT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+
+  \indexspace
+
+  \item {U\+VecT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+  \item {ubound}
+    \subitem {prior\+\_\+hessian\+::\+Composite\+Dist}, \hyperpage{133}
+    \subitem {prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}, 
+		\hyperpage{158}
+    \subitem {prior\+\_\+hessian\+::\+Gamma\+Dist}, \hyperpage{204}
+    \subitem {prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}, 
+		\hyperpage{247}
+    \subitem {prior\+\_\+hessian\+::\+Normal\+Dist}, \hyperpage{271}
+    \subitem {prior\+\_\+hessian\+::\+Pareto\+Dist}, \hyperpage{318}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{341}
+    \subitem {prior\+\_\+hessian\+::\+Symmetric\+Beta\+Dist}, 
+		\hyperpage{361}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Dist}, \hyperpage{375}
+    \subitem {prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Dist}, 
+		\hyperpage{381}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{394}
+  \item {unit\+\_\+normal\+\_\+cdf}
+    \subitem {prior\+\_\+hessian}, \hyperpage{26}
+  \item {unit\+\_\+normal\+\_\+icdf}
+    \subitem {prior\+\_\+hessian}, \hyperpage{27}
+  \item {Univariate\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Univariate\+Dist}, 
+		\hyperpage{384}
+  \item {Univariate\+Dist.\+cpp}, \hyperpage{436}
+  \item {Univariate\+Dist.\+h}, \hyperpage{437}
+  \item {unscaled\+\_\+lbound}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{342}
+  \item {unscaled\+\_\+ubound}
+    \subitem {prior\+\_\+hessian\+::\+Scaled\+Dist}, \hyperpage{342}
+  \item {Upper\+Truncated\+Dist}
+    \subitem {prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}, 
+		\hyperpage{386, 387}
+  \item {Upper\+Truncated\+Dist.\+h}, \hyperpage{438}
+  \item {util.\+cpp}, \hyperpage{440}
+  \item {util.\+h}, \hyperpage{441}
+
+  \indexspace
+
+  \item {value}
+    \subitem {prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}, 
+		\hyperpage{45}
+    \subitem {prior\+\_\+hessian\+::meta\+::is\+\_\+copula}, 
+		\hyperpage{211}
+    \subitem {prior\+\_\+hessian\+::meta\+::is\+\_\+subclass\+\_\+of\+\_\+numeric\+\_\+template}, 
+		\hyperpage{214}
+  \item {VecT}
+    \subitem {prior\+\_\+hessian}, \hyperpage{15}
+
+  \indexspace
+
+  \item {what}
+    \subitem {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{207}
+    \subitem {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{210}
+    \subitem {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{274}
+    \subitem {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{276}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{278}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{280}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{282}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{284}
+    \subitem {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{321}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{323}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{325}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, 
+		\hyperpage{327}
+  \item {what\+\_\+}
+    \subitem {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{207}
+    \subitem {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{210}
+    \subitem {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{274}
+    \subitem {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{276}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{278}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{280}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{282}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{284}
+    \subitem {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{321}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{323}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{325}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, 
+		\hyperpage{327}
+  \item {what\+\_\+str}
+    \subitem {prior\+\_\+hessian\+::\+Index\+Error}, \hyperpage{207}
+    \subitem {prior\+\_\+hessian\+::\+Invalid\+Operation\+Error}, 
+		\hyperpage{210}
+    \subitem {prior\+\_\+hessian\+::\+Not\+Implemented\+Error}, 
+		\hyperpage{274}
+    \subitem {prior\+\_\+hessian\+::\+Numerical\+Overflow\+Error}, 
+		\hyperpage{276}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Error}, 
+		\hyperpage{278}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Name\+Uniqueness\+Error}, 
+		\hyperpage{280}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Size\+Error}, 
+		\hyperpage{282}
+    \subitem {prior\+\_\+hessian\+::\+Parameter\+Value\+Error}, 
+		\hyperpage{284}
+    \subitem {prior\+\_\+hessian\+::\+Prior\+Hessian\+Error}, 
+		\hyperpage{321}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Convergence\+Error}, 
+		\hyperpage{323}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Sampling\+Error}, 
+		\hyperpage{325}
+    \subitem {prior\+\_\+hessian\+::\+Runtime\+Type\+Error}, 
+		\hyperpage{327}
+
+  \indexspace
+
+  \item {xi\+\_\+0n\+\_\+t}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+Theta\+\_\+\+Gen\+Terms}, 
+		\hyperpage{164}
+  \item {xi\+\_\+n\+\_\+t}
+    \subitem {prior\+\_\+hessian\+::\+Archimedean\+Copula\+::\+D2\+\_\+\+Gen\+Terms}, 
+		\hyperpage{161}
+
+\end{theindex}

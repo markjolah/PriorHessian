@@ -1,0 +1,5 @@
+<map id="prior_hessian::CompositeDist::make_component_dist_tuple" name="prior_hessian::CompositeDist::make_component_dist_tuple">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#ac63d64a9a02d66d2f678b3ae4ba492b7" title="Construct from a rvalue tuple of subclasses of UnivariateDist&#39;s or MulitvariateDist&#39;s. " alt="" coords="282,5,445,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#a48a23f3dbb74242f8b7b44a4332f014e" title="prior_hessian::Composite\lDist::initialize" alt="" coords="282,68,445,107"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1CompositeDist.html#a67a3e5c72be64eabc4716a73a1a4eb91" title="prior_hessian::Composite\lDist::make_component_dist_tuple" alt="" coords="260,131,467,169"/>
+</map>

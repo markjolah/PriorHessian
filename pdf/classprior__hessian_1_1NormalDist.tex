@@ -1,0 +1,1387 @@
+\hypertarget{classprior__hessian_1_1NormalDist}{}\subsection{prior\+\_\+hessian\+:\+:Normal\+Dist Class Reference}
+\label{classprior__hessian_1_1NormalDist}\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+
+
+Normal distribution with truncation.  
+
+
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Normal\+Dist.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:Normal\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1NormalDist__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for prior\+\_\+hessian\+:\+:Normal\+Dist\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classprior__hessian_1_1NormalDist__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}{Nparams\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ \+\_\+num\+\_\+params $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1NormalDist_a73a47151970398a524eeaf0983463932}{Normal\+Dist} (double \hyperlink{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}{mu}, double \hyperlink{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}{sigma})
+\item 
+\hyperlink{classprior__hessian_1_1NormalDist_ab9cb95afad0a45d4b588c3c8ea847805}{Normal\+Dist} ()
+\item 
+{\footnotesize template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Normal\+Dist $>$  = true$>$ }\\\hyperlink{classprior__hessian_1_1NormalDist_a0eb6e0db72b51cb8718d23ad317a7d0e}{Normal\+Dist} (const Vec \&\hyperlink{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{params})
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}{mu} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}{sigma} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1NormalDist_a078a35e8ded3164ca701e1a1b6918f39}{set\+\_\+mu} (double val)
+\item 
+void \hyperlink{classprior__hessian_1_1NormalDist_aa72eaaeda9a2fe0475ee78f08359d096}{set\+\_\+sigma} (double val)
+\item 
+bool \hyperlink{classprior__hessian_1_1NormalDist_aa90f1b24ee10d8692ab29b2ab019d6f7}{operator==} (const \hyperlink{classprior__hessian_1_1NormalDist}{Normal\+Dist} \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1NormalDist_ade1454cb5b7e913871723f174acd9dcc}{operator!=} (const \hyperlink{classprior__hessian_1_1NormalDist}{Normal\+Dist} \&o) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a83016bf93c57e8acba0d749c2f7a0bac}{get\+\_\+param} (int idx) const 
+\item 
+void \hyperlink{classprior__hessian_1_1NormalDist_a91ba326ab256fdbf6491e8caedf33f48}{set\+\_\+param} (int idx, double val)
+\item 
+\hyperlink{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}{Nparams\+VecT} \hyperlink{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{params} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1NormalDist_a352979a2485cd990786ae53db6d64123}{set\+\_\+params} (double \hyperlink{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}{mu}, double \hyperlink{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}{sigma})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1NormalDist_ac0039773c163a8b2b3540996cccb4d5f}{set\+\_\+params} (const Vec \&p)
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a461705e4f29f8f968c4dd21d217fa797}{mean} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a01e959b4aea2b94bc05fc42c9abeed3c}{median} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a821fd9870aabac911bfc7d024a82ee4e}{cdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_ab9b17827daed20f82cb7bc0e40fe62e4}{icdf} (double u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_aaa9f65a188d99f432558ae6545e9c060}{pdf} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a7776d18fd17739446c2848a9452b81f7}{llh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_ab03d24df91ee8865e77ee8322151099f}{rllh} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_a5ea017ef0f5cd34304248c399b4136f3}{grad} (double x) const 
+\item 
+double \hyperlink{classprior__hessian_1_1NormalDist_ab346dd5512cd0ff79d3a8b9e63618126}{grad2} (double x) const 
+\item 
+void \hyperlink{classprior__hessian_1_1NormalDist_a8c28e95235a2def2e86c299e4ebe8afb}{grad\+\_\+grad2\+\_\+accumulate} (double x, double \&g, double \&g2) const 
+\item 
+{\footnotesize template$<$class RngT $>$ }\\double \hyperlink{classprior__hessian_1_1NormalDist_a1f75e2644054b23d804b7be394ed5a2b}{sample} (RngT \&rng) const 
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1NormalDist_abf71571c6e5ed7c496f8a5ff556d998c}{append\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{params}) const 
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1NormalDist_a78eea7f027f4dc2024adc00f7cb8cce1}{set\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{params})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1NormalDist_a3d31648d22593e52f23ba117ec7c619d}{num\+\_\+params} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1NormalDist_a014544348da49767680758831c48ef85}{lbound} ()
+\item 
+static constexpr double \hyperlink{classprior__hessian_1_1NormalDist_a2da1def4f2ddde1507b978e2e79eaf9c}{ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1NormalDist_a4c1157acd77d2e90e1ce655bff8649e6}{in\+\_\+bounds} (double u)
+\item 
+static const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1NormalDist_ae962f4c58bfac4361a5d4a23a9d3abaa}{param\+\_\+names} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1NormalDist_a7fd0a024a702d62711eaac00755fc0bd}{param\+\_\+lbound} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1NormalDist_aa85e47b9c557fb7d9c19a3b5da5e0c44}{param\+\_\+ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1NormalDist_ab774425212fe4eaeacf31930d65596f6}{check\+\_\+params} (double \hyperlink{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}{mu}, double \hyperlink{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}{sigma})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static bool \hyperlink{classprior__hessian_1_1NormalDist_aba53a32ad2b95b1c04c45cd258147754}{check\+\_\+params} (const Vec \&p)
+\item 
+{\footnotesize template$<$class IterT $>$ }\\static bool \hyperlink{classprior__hessian_1_1NormalDist_ab0fa4841ce15ec70c8a8d876e5ea890f}{check\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{params})
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{num\+\_\+dim} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{check\+\_\+bounds} (double \hyperlink{classprior__hessian_1_1NormalDist_a014544348da49767680758831c48ef85}{lbound}, double \hyperlink{classprior__hessian_1_1NormalDist_a2da1def4f2ddde1507b978e2e79eaf9c}{ubound})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Normal distribution with truncation. 
+
+
+
+Definition at line 21 of file Normal\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!Nparams\+VecT@{Nparams\+VecT}}
+\index{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Normal\+Dist\+::\+Nparams\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+params$>$}\hypertarget{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}{}\label{classprior__hessian_1_1NormalDist_a3a82189e42c48ff21ad49d85c7d9cf5d}
+
+
+Definition at line 25 of file Normal\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!Normal\+Dist@{Normal\+Dist}}
+\index{Normal\+Dist@{Normal\+Dist}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{Normal\+Dist(double mu, double sigma)}{NormalDist(double mu, double sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Normal\+Dist\+::\+Normal\+Dist (
+\begin{DoxyParamCaption}
+\item[{double}]{mu, }
+\item[{double}]{sigma}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1NormalDist_a73a47151970398a524eeaf0983463932}{}\label{classprior__hessian_1_1NormalDist_a73a47151970398a524eeaf0983463932}
+
+
+Definition at line 27 of file Normal\+Dist.\+cpp.
+
+
+
+References set\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a73a47151970398a524eeaf0983463932_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!Normal\+Dist@{Normal\+Dist}}
+\index{Normal\+Dist@{Normal\+Dist}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{Normal\+Dist()}{NormalDist()}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Normal\+Dist\+::\+Normal\+Dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_ab9cb95afad0a45d4b588c3c8ea847805}{}\label{classprior__hessian_1_1NormalDist_ab9cb95afad0a45d4b588c3c8ea847805}
+
+
+Definition at line 43 of file Normal\+Dist.\+h.
+
+
+
+Referenced by check\+\_\+params().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab9cb95afad0a45d4b588c3c8ea847805_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!Normal\+Dist@{Normal\+Dist}}
+\index{Normal\+Dist@{Normal\+Dist}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{Normal\+Dist(const Vec \&params)}{NormalDist(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec , meta\+::\+Constructable\+If\+Not\+Self\+T$<$ Vec, Normal\+Dist $>$  = true$>$ prior\+\_\+hessian\+::\+Normal\+Dist\+::\+Normal\+Dist (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1NormalDist_a0eb6e0db72b51cb8718d23ad317a7d0e}{}\label{classprior__hessian_1_1NormalDist_a0eb6e0db72b51cb8718d23ad317a7d0e}
+
+
+Definition at line 45 of file Normal\+Dist.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!append\+\_\+params\+\_\+iter@{append\+\_\+params\+\_\+iter}}
+\index{append\+\_\+params\+\_\+iter@{append\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{append\+\_\+params\+\_\+iter(\+Iter\+T \&params) const }{append_params_iter(IterT &params) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ void prior\+\_\+hessian\+::\+Normal\+Dist\+::append\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1NormalDist_abf71571c6e5ed7c496f8a5ff556d998c}{}\label{classprior__hessian_1_1NormalDist_abf71571c6e5ed7c496f8a5ff556d998c}
+
+
+Definition at line 205 of file Normal\+Dist.\+h.
+
+
+
+References mu(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_abf71571c6e5ed7c496f8a5ff556d998c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_abf71571c6e5ed7c496f8a5ff556d998c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{cdf(double x) const }{cdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::cdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1NormalDist_a821fd9870aabac911bfc7d024a82ee4e}{}\label{classprior__hessian_1_1NormalDist_a821fd9870aabac911bfc7d024a82ee4e}
+
+
+Definition at line 42 of file Normal\+Dist.\+cpp.
+
+
+
+References prior\+\_\+hessian\+::constants\+::sqrt2\+\_\+inv.
+
+
+
+Referenced by median().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a821fd9870aabac911bfc7d024a82ee4e_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!check\+\_\+bounds@{check\+\_\+bounds}}
+\index{check\+\_\+bounds@{check\+\_\+bounds}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+bounds(double lbound, double ubound)}{check_bounds(double lbound, double ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Univariate\+Dist\+::check\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{lbound, }
+\item[{double}]{ubound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}{}\label{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8}
+
+
+Definition at line 22 of file Univariate\+Dist.\+cpp.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Univariate\+Dist\+::\+Univariate\+Dist().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1UnivariateDist_aec85554be4019eb2c5d92203a4e6d9f8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(double mu, double sigma)}{check_params(double mu, double sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Normal\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{mu, }
+\item[{double}]{sigma}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_ab774425212fe4eaeacf31930d65596f6}{}\label{classprior__hessian_1_1NormalDist_ab774425212fe4eaeacf31930d65596f6}
+
+
+Definition at line 121 of file Normal\+Dist.\+h.
+
+
+
+Referenced by check\+\_\+params\+\_\+iter(), and param\+\_\+ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab774425212fe4eaeacf31930d65596f6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&p)}{check_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ static bool prior\+\_\+hessian\+::\+Normal\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_aba53a32ad2b95b1c04c45cd258147754}{}\label{classprior__hessian_1_1NormalDist_aba53a32ad2b95b1c04c45cd258147754}
+
+
+Definition at line 39 of file Normal\+Dist.\+h.
+
+
+
+References check\+\_\+params(), and Normal\+Dist().
+
+
+
+Referenced by check\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aba53a32ad2b95b1c04c45cd258147754_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classprior__hessian_1_1NormalDist_aba53a32ad2b95b1c04c45cd258147754_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
+\index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ bool prior\+\_\+hessian\+::\+Normal\+Dist\+::check\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_ab0fa4841ce15ec70c8a8d876e5ea890f}{}\label{classprior__hessian_1_1NormalDist_ab0fa4841ce15ec70c8a8d876e5ea890f}
+
+
+Definition at line 197 of file Normal\+Dist.\+h.
+
+
+
+References check\+\_\+params(), mu(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab0fa4841ce15ec70c8a8d876e5ea890f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab0fa4841ce15ec70c8a8d876e5ea890f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!get\+\_\+param@{get\+\_\+param}}
+\index{get\+\_\+param@{get\+\_\+param}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+param(int idx) const }{get_param(int idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::get\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a83016bf93c57e8acba0d749c2f7a0bac}{}\label{classprior__hessian_1_1NormalDist_a83016bf93c57e8acba0d749c2f7a0bac}
+
+
+Definition at line 127 of file Normal\+Dist.\+h.
+
+
+
+References mu(), and sigma().
+
+
+
+Referenced by operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a83016bf93c57e8acba0d749c2f7a0bac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a83016bf93c57e8acba0d749c2f7a0bac_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{grad(double x) const }{grad(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::grad (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a5ea017ef0f5cd34304248c399b4136f3}{}\label{classprior__hessian_1_1NormalDist_a5ea017ef0f5cd34304248c399b4136f3}
+
+
+Definition at line 168 of file Normal\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::square().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classprior__hessian_1_1NormalDist_a5ea017ef0f5cd34304248c399b4136f3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a5ea017ef0f5cd34304248c399b4136f3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{grad2(double x) const }{grad2(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_ab346dd5512cd0ff79d3a8b9e63618126}{}\label{classprior__hessian_1_1NormalDist_ab346dd5512cd0ff79d3a8b9e63618126}
+
+
+Definition at line 174 of file Normal\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::square().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classprior__hessian_1_1NormalDist_ab346dd5512cd0ff79d3a8b9e63618126_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab346dd5512cd0ff79d3a8b9e63618126_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
+\index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(double x, double \&g, double \&g2) const }{grad_grad2_accumulate(double x, double &g, double &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Normal\+Dist\+::grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double \&}]{g, }
+\item[{double \&}]{g2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a8c28e95235a2def2e86c299e4ebe8afb}{}\label{classprior__hessian_1_1NormalDist_a8c28e95235a2def2e86c299e4ebe8afb}
+
+
+Definition at line 180 of file Normal\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::square().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classprior__hessian_1_1NormalDist_a8c28e95235a2def2e86c299e4ebe8afb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a8c28e95235a2def2e86c299e4ebe8afb_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!icdf@{icdf}}
+\index{icdf@{icdf}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{icdf(double u) const }{icdf(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::icdf (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1NormalDist_ab9b17827daed20f82cb7bc0e40fe62e4}{}\label{classprior__hessian_1_1NormalDist_ab9b17827daed20f82cb7bc0e40fe62e4}
+
+
+Definition at line 47 of file Normal\+Dist.\+cpp.
+
+
+
+References mu(), sigma(), and prior\+\_\+hessian\+::constants\+::sqrt2.
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab9b17827daed20f82cb7bc0e40fe62e4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab9b17827daed20f82cb7bc0e40fe62e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}}
+\index{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{in\+\_\+bounds(double u)}{in_bounds(double u)}}]{\setlength{\rightskip}{0pt plus 5cm}static bool prior\+\_\+hessian\+::\+Normal\+Dist\+::in\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_a4c1157acd77d2e90e1ce655bff8649e6}{}\label{classprior__hessian_1_1NormalDist_a4c1157acd77d2e90e1ce655bff8649e6}
+
+
+Definition at line 31 of file Normal\+Dist.\+h.
+
+
+
+References lbound(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a4c1157acd77d2e90e1ce655bff8649e6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!lbound@{lbound}}
+\index{lbound@{lbound}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{lbound()}{lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Normal\+Dist\+::lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_a014544348da49767680758831c48ef85}{}\label{classprior__hessian_1_1NormalDist_a014544348da49767680758831c48ef85}
+
+
+Definition at line 29 of file Normal\+Dist.\+h.
+
+
+
+Referenced by in\+\_\+bounds().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a014544348da49767680758831c48ef85_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{llh(double x) const }{llh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::llh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1NormalDist_a7776d18fd17739446c2848a9452b81f7}{}\label{classprior__hessian_1_1NormalDist_a7776d18fd17739446c2848a9452b81f7}
+
+
+Definition at line 72 of file Normal\+Dist.\+cpp.
+
+
+
+References prior\+\_\+hessian\+::constants\+::log2pi, rllh(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a7776d18fd17739446c2848a9452b81f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a7776d18fd17739446c2848a9452b81f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!mean@{mean}}
+\index{mean@{mean}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{mean() const }{mean() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a461705e4f29f8f968c4dd21d217fa797}{}\label{classprior__hessian_1_1NormalDist_a461705e4f29f8f968c4dd21d217fa797}
+
+
+Definition at line 62 of file Normal\+Dist.\+h.
+
+
+
+References mu().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a461705e4f29f8f968c4dd21d217fa797_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!median@{median}}
+\index{median@{median}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{median() const }{median() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::median (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a01e959b4aea2b94bc05fc42c9abeed3c}{}\label{classprior__hessian_1_1NormalDist_a01e959b4aea2b94bc05fc42c9abeed3c}
+
+
+Definition at line 63 of file Normal\+Dist.\+h.
+
+
+
+References append\+\_\+params\+\_\+iter(), cdf(), check\+\_\+params\+\_\+iter(), grad(), grad2(), grad\+\_\+grad2\+\_\+accumulate(), icdf(), llh(), mu(), params(), pdf(), rllh(), sample(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a01e959b4aea2b94bc05fc42c9abeed3c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!mu@{mu}}
+\index{mu@{mu}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{mu() const }{mu() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::mu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}{}\label{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc}
+
+
+Definition at line 48 of file Normal\+Dist.\+h.
+
+
+
+Referenced by append\+\_\+params\+\_\+iter(), check\+\_\+params\+\_\+iter(), get\+\_\+param(), icdf(), mean(), median(), operator==(), param\+\_\+ubound(), params(), sample(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a33b6cc4357406f8d0dd017fc1088e1bc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Univariate\+Dist\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}{}\label{classprior__hessian_1_1UnivariateDist_a688fb42b0a1908ecb758c568c0d8462f}
+
+
+Definition at line 17 of file Univariate\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr {\bf IdxT} prior\+\_\+hessian\+::\+Normal\+Dist\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_a3d31648d22593e52f23ba117ec7c619d}{}\label{classprior__hessian_1_1NormalDist_a3d31648d22593e52f23ba117ec7c619d}
+
+
+Definition at line 28 of file Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{operator"!=(const Normal\+Dist \&o) const }{operator!=(const NormalDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Normal\+Dist\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Normal\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_ade1454cb5b7e913871723f174acd9dcc}{}\label{classprior__hessian_1_1NormalDist_ade1454cb5b7e913871723f174acd9dcc}
+
+
+Definition at line 53 of file Normal\+Dist.\+h.
+
+
+
+References get\+\_\+param(), operator==(), and set\+\_\+param().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ade1454cb5b7e913871723f174acd9dcc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{operator==(const Normal\+Dist \&o) const }{operator==(const NormalDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Normal\+Dist\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Normal\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_aa90f1b24ee10d8692ab29b2ab019d6f7}{}\label{classprior__hessian_1_1NormalDist_aa90f1b24ee10d8692ab29b2ab019d6f7}
+
+
+Definition at line 52 of file Normal\+Dist.\+h.
+
+
+
+References mu(), and sigma().
+
+
+
+Referenced by operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aa90f1b24ee10d8692ab29b2ab019d6f7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aa90f1b24ee10d8692ab29b2ab019d6f7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!param\+\_\+lbound@{param\+\_\+lbound}}
+\index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf Nparams\+VecT}\& prior\+\_\+hessian\+::\+Normal\+Dist\+::param\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_a7fd0a024a702d62711eaac00755fc0bd}{}\label{classprior__hessian_1_1NormalDist_a7fd0a024a702d62711eaac00755fc0bd}
+
+
+Definition at line 34 of file Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf String\+VecT}\& prior\+\_\+hessian\+::\+Normal\+Dist\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_ae962f4c58bfac4361a5d4a23a9d3abaa}{}\label{classprior__hessian_1_1NormalDist_ae962f4c58bfac4361a5d4a23a9d3abaa}
+
+
+Definition at line 33 of file Normal\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!param\+\_\+ubound@{param\+\_\+ubound}}
+\index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static const {\bf Nparams\+VecT}\& prior\+\_\+hessian\+::\+Normal\+Dist\+::param\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_aa85e47b9c557fb7d9c19a3b5da5e0c44}{}\label{classprior__hessian_1_1NormalDist_aa85e47b9c557fb7d9c19a3b5da5e0c44}
+
+
+Definition at line 35 of file Normal\+Dist.\+h.
+
+
+
+References check\+\_\+params(), mu(), and sigma().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aa85e47b9c557fb7d9c19a3b5da5e0c44_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!params@{params}}
+\index{params@{params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nparams\+VecT} prior\+\_\+hessian\+::\+Normal\+Dist\+::params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}{}\label{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436}
+
+
+Definition at line 57 of file Normal\+Dist.\+h.
+
+
+
+References mu(), set\+\_\+params(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aaea8964b1f62318c047e3c75ac104436_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{pdf(double x) const }{pdf(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::pdf (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_aaa9f65a188d99f432558ae6545e9c060}{}\label{classprior__hessian_1_1NormalDist_aaa9f65a188d99f432558ae6545e9c060}
+
+
+Definition at line 156 of file Normal\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::constants\+::sqrt2pi\+\_\+inv, and prior\+\_\+hessian\+::square().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aaa9f65a188d99f432558ae6545e9c060_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aaa9f65a188d99f432558ae6545e9c060_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{rllh(double x) const }{rllh(double x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::rllh (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_ab03d24df91ee8865e77ee8322151099f}{}\label{classprior__hessian_1_1NormalDist_ab03d24df91ee8865e77ee8322151099f}
+
+
+Definition at line 162 of file Normal\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::square().
+
+
+
+Referenced by llh(), and median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classprior__hessian_1_1NormalDist_ab03d24df91ee8865e77ee8322151099f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_ab03d24df91ee8865e77ee8322151099f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class RngT $>$ double prior\+\_\+hessian\+::\+Normal\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&}]{rng}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1NormalDist_a1f75e2644054b23d804b7be394ed5a2b}{}\label{classprior__hessian_1_1NormalDist_a1f75e2644054b23d804b7be394ed5a2b}
+
+
+Definition at line 188 of file Normal\+Dist.\+h.
+
+
+
+References mu(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a1f75e2644054b23d804b7be394ed5a2b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a1f75e2644054b23d804b7be394ed5a2b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+mu@{set\+\_\+mu}}
+\index{set\+\_\+mu@{set\+\_\+mu}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+mu(double val)}{set_mu(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+mu (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a078a35e8ded3164ca701e1a1b6918f39}{}\label{classprior__hessian_1_1NormalDist_a078a35e8ded3164ca701e1a1b6918f39}
+
+
+Definition at line 110 of file Normal\+Dist.\+h.
+
+
+
+Referenced by set\+\_\+param(), set\+\_\+params(), and sigma().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a078a35e8ded3164ca701e1a1b6918f39_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+param@{set\+\_\+param}}
+\index{set\+\_\+param@{set\+\_\+param}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+param(int idx, double val)}{set_param(int idx, double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a91ba326ab256fdbf6491e8caedf33f48}{}\label{classprior__hessian_1_1NormalDist_a91ba326ab256fdbf6491e8caedf33f48}
+
+
+Definition at line 141 of file Normal\+Dist.\+h.
+
+
+
+References set\+\_\+mu(), and set\+\_\+sigma().
+
+
+
+Referenced by operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a91ba326ab256fdbf6491e8caedf33f48_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a91ba326ab256fdbf6491e8caedf33f48_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(double mu, double sigma)}{set_params(double mu, double sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{double}]{mu, }
+\item[{double}]{sigma}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_a352979a2485cd990786ae53db6d64123}{}\label{classprior__hessian_1_1NormalDist_a352979a2485cd990786ae53db6d64123}
+
+
+Definition at line 114 of file Normal\+Dist.\+h.
+
+
+
+References set\+\_\+mu(), and set\+\_\+sigma().
+
+
+
+Referenced by Normal\+Dist(), params(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a352979a2485cd990786ae53db6d64123_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a352979a2485cd990786ae53db6d64123_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&p)}{set_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_ac0039773c163a8b2b3540996cccb4d5f}{}\label{classprior__hessian_1_1NormalDist_ac0039773c163a8b2b3540996cccb4d5f}
+
+
+Definition at line 60 of file Normal\+Dist.\+h.
+
+
+
+References set\+\_\+params().
+
+
+
+Referenced by set\+\_\+params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classprior__hessian_1_1NormalDist_ac0039773c163a8b2b3540996cccb4d5f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classprior__hessian_1_1NormalDist_ac0039773c163a8b2b3540996cccb4d5f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
+\index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class IterT $>$ void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1NormalDist_a78eea7f027f4dc2024adc00f7cb8cce1}{}\label{classprior__hessian_1_1NormalDist_a78eea7f027f4dc2024adc00f7cb8cce1}
+
+
+Definition at line 213 of file Normal\+Dist.\+h.
+
+
+
+References mu(), set\+\_\+params(), and sigma().
+
+
+
+Referenced by median().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a78eea7f027f4dc2024adc00f7cb8cce1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a78eea7f027f4dc2024adc00f7cb8cce1_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!set\+\_\+sigma@{set\+\_\+sigma}}
+\index{set\+\_\+sigma@{set\+\_\+sigma}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+sigma(double val)}{set_sigma(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Normal\+Dist\+::set\+\_\+sigma (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1NormalDist_aa72eaaeda9a2fe0475ee78f08359d096}{}\label{classprior__hessian_1_1NormalDist_aa72eaaeda9a2fe0475ee78f08359d096}
+
+
+Definition at line 35 of file Normal\+Dist.\+cpp.
+
+
+
+Referenced by set\+\_\+param(), set\+\_\+params(), and sigma().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_aa72eaaeda9a2fe0475ee78f08359d096_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!sigma@{sigma}}
+\index{sigma@{sigma}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{sigma() const }{sigma() const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Normal\+Dist\+::sigma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}{}\label{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7}
+
+
+Definition at line 49 of file Normal\+Dist.\+h.
+
+
+
+References set\+\_\+mu(), and set\+\_\+sigma().
+
+
+
+Referenced by append\+\_\+params\+\_\+iter(), check\+\_\+params\+\_\+iter(), get\+\_\+param(), icdf(), llh(), operator==(), param\+\_\+ubound(), params(), sample(), and set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_adfc5ab11dc02672d9ef08eda487f97a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}!ubound@{ubound}}
+\index{ubound@{ubound}!prior\+\_\+hessian\+::\+Normal\+Dist@{prior\+\_\+hessian\+::\+Normal\+Dist}}
+\paragraph[{\texorpdfstring{ubound()}{ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}static constexpr double prior\+\_\+hessian\+::\+Normal\+Dist\+::ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1NormalDist_a2da1def4f2ddde1507b978e2e79eaf9c}{}\label{classprior__hessian_1_1NormalDist_a2da1def4f2ddde1507b978e2e79eaf9c}
+
+
+Definition at line 30 of file Normal\+Dist.\+h.
+
+
+
+Referenced by in\+\_\+bounds().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1NormalDist_a2da1def4f2ddde1507b978e2e79eaf9c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{NormalDist_8h}{Normal\+Dist.\+h}\item 
+\hyperlink{NormalDist_8cpp}{Normal\+Dist.\+cpp}\end{DoxyCompactItemize}

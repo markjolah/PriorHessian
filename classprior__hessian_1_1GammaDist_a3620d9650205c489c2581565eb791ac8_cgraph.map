@@ -1,0 +1,6 @@
+<map id="prior_hessian::GammaDist::GammaDist" name="prior_hessian::GammaDist::GammaDist">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1GammaDist.html#a180dd2c755813ec0542e8eed7b25f1fb" title="prior_hessian::GammaDist\l::get_param" alt="" coords="220,5,387,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1GammaDist.html#ae251e9c7554efbd780205a142750b604" title="prior_hessian::GammaDist\l::set_param" alt="" coords="220,68,387,107"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1GammaDist.html#a7560c2b0a336870b19240f6bea0eb023" title="prior_hessian::GammaDist\l::set_scale" alt="" coords="435,36,601,75"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1GammaDist.html#aea1effd3a5de08430650cc345312b8bd" title="prior_hessian::GammaDist\l::set_shape" alt="" coords="435,99,601,137"/>
+</map>

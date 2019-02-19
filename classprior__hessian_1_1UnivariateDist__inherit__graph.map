@@ -1,0 +1,7 @@
+<map id="prior_hessian::UnivariateDist" name="prior_hessian::UnivariateDist">
+<area shape="rect" id="node3" href="$classprior__hessian_1_1GammaDist.html" title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. " alt="" coords="433,5,600,31"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1NormalDist.html" title="Normal distribution with truncation. " alt="" coords="435,55,599,80"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1ParetoDist.html" title="Pareto dist with infinite upper bound. " alt="" coords="437,104,597,129"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1SymmetricBetaDist.html" title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. " alt="" coords="437,153,597,192"/>
+<area shape="rect" id="node2" href="$classprior__hessian_1_1BaseDist.html" title="prior_hessian::BaseDist" alt="" coords="5,80,157,105"/>
+</map>

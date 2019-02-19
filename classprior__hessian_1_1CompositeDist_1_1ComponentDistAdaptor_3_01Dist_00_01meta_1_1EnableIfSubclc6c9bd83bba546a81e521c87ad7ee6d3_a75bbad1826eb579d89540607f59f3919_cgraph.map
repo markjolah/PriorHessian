@@ -1,0 +1,7 @@
+<map id="prior_hessian::CompositeDist::ComponentDistAdaptor&lt; Dist, meta::EnableIfSubclassT&lt; Dist, UnivariateDist &gt; &gt;::append_param_names" name="prior_hessian::CompositeDist::ComponentDistAdaptor&lt; Dist, meta::EnableIfSubclassT&lt; Dist, UnivariateDist &gt; &gt;::append_param_names">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#ae7ca30fd19fb59ebe241873443b9faed" title="prior_hessian::Composite\lDist::param_names" alt="" coords="257,100,420,139"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#a5f59bcbe24d659084fbe3dc188011779" title="prior_hessian::Composite\lDist::component_names" alt="" coords="484,5,647,44"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1CompositeDist.html#a6faf6fbb059017af5756d4327bb504bc" title="prior_hessian::Composite\lDist::num_components" alt="" coords="484,68,647,107"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1CompositeDist.html#ad532e3fe9e7293fef7b293d3c94a1ddc" title="prior_hessian::Composite\lDist::num_dim" alt="" coords="484,131,647,169"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1CompositeDist.html#a389c0e5459eeacc5f35afdf14d6a38d7" title="prior_hessian::Composite\lDist::num_params_components" alt="" coords="468,193,663,232"/>
+</map>

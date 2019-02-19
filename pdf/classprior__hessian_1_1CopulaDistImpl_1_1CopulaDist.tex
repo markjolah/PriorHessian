@@ -1,0 +1,1222 @@
+\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}{}\subsection{prior\+\_\+hessian\+:\+:Copula\+Dist\+Impl\+:\+:Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$ Class Template Reference}
+\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$}}
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Copula\+Dist.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:Copula\+Dist\+Impl\+:\+:Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for prior\+\_\+hessian\+:\+:Copula\+Dist\+Impl\+:\+:Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ \+\_\+num\+\_\+dim $>$
+\item 
+using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a7f046aa9054ecf384b9f4ae157acfa49}{Ndim\+MatT} = arma\+::\+Mat$<$ double $>$\+::fixed$<$ \+\_\+num\+\_\+dim, \+\_\+num\+\_\+dim $>$
+\item 
+using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}{Nparams\+VecT} = arma\+::\+Col$<$ double $>$
+\item 
+using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_acf46fae43d481ed82a2147433e5f2ff6}{Marginal\+Dist\+TupleT} = std\+::tuple$<$ Marginal\+Dist\+Ts... $>$
+\item 
+using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5525f8d14c3a1b3caf2f09d0e86a650f}{CopulaT} = Copula\+Template$<$ \+\_\+num\+\_\+dim $>$
+\item 
+{\footnotesize template$<$size\+\_\+t I$>$ }\\using \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa2817fd47846a28d6b751940ab1b0376}{Marginal\+DistT} = std\+::tuple\+\_\+element$<$ I, \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_acf46fae43d481ed82a2147433e5f2ff6}{Marginal\+Dist\+TupleT} $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac77b528427c1e073e24db35b00790983}{Copula\+Dist} ()
+\item 
+{\footnotesize template$<$class Copula , class... Dist\+Ts, std\+::enable\+\_\+if\+\_\+t$<$ sizeof...(\+Dist\+Ts)==sizeof...(\+Marginal\+Dist\+Ts), bool $>$ Enable = true$>$ }\\\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a65c4d1fa447c2b40b3b12e04aeaff596}{Copula\+Dist} (Copula \&\&copula, Dist\+Ts \&\&...dists)
+\item 
+void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ae565171062d170680b6a107add0fc287}{initialize\+\_\+copula} (const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5525f8d14c3a1b3caf2f09d0e86a650f}{CopulaT} \&\+\_\+copula)
+\item 
+void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a48d0317eb851b464c87d2210e9eaaf62}{initialize\+\_\+marginals} (const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_acf46fae43d481ed82a2147433e5f2ff6}{Marginal\+Dist\+TupleT} \&dists)
+\item 
+\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}{lbound} () const 
+\item 
+\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}{ubound} () const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5f8f42efd9f709625cf60836fa473b9}{set\+\_\+bounds} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}{lbound}, const Vec2 \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}{ubound})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac0819ccaeef1afd7a123338823e8fb3c}{set\+\_\+lbound} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}{lbound})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b010ffe2c2acd4dc75c80b32312254d}{set\+\_\+ubound} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}{ubound})
+\item 
+bool \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9dca9ab8ba47ecef1a7784fe77c8c40f}{operator==} (const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}{Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5cd91617bed91a4c401ad05f52958010}{operator!=} (const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist}{Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&o) const 
+\item 
+\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}{Nparams\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{params} () const 
+\item 
+double \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5299ecbf6aed216acfb8d67e8bfc6aff}{get\+\_\+copula\+\_\+theta} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0cfc287d14f8d0821ea4ad7fa254eeec}{set\+\_\+copula\+\_\+theta} (double theta)
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6ab1f6755caac5e7127ec8c6e6ed2c06}{set\+\_\+params} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{params})
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a75da47e40ee64dd49fe5c84c2df07ebe}{cdf} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa35ac17e403f5f7a74852abca16c2847}{pdf} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab0a3b61bdc3afe2d6b3ff7f076b7fd60}{llh} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aef86eb508c0190d05e541c6e394c6392}{rllh} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa6fce557f6d86ff9df39f172919bf52d}{grad} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac4d5df1415cd5fa8b2e1abee571db37c}{grad2} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a7f046aa9054ecf384b9f4ae157acfa49}{Ndim\+MatT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9053b04a2b0dd8eab62e407307f77a86}{hess} (const Vec \&x) const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a8d948333196942aad176ee4eee195de6}{grad\+\_\+grad2\+\_\+accumulate} (const Vec \&x, Vec2 \&g, Vec2 \&g2) const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 , class Mat $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a80d981a32437ea7ab542d4e2685fbbda}{grad\+\_\+hess\+\_\+accumulate} (const Vec \&x, Vec2 \&g, Mat \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9053b04a2b0dd8eab62e407307f77a86}{hess}) const 
+\item 
+{\footnotesize template$<$class RngT $>$ }\\\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa79a7674b1f33b2fb8ca4bba4e158221}{sample} (RngT \&rng) const 
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3c76fabe7fefc83aa19454951c1513dd}{set\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{params})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a371e1bc1823bdeb3783e5ce3c38ba0e4}{num\+\_\+params} ()
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a58218394a4f213053e28925678ace6d4}{num\+\_\+components} ()
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a26cd71990978df0ddae24dae5148c880}{num\+\_\+dim} ()
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static bool \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3a8fbb171c6540d89e6c8c27dc8d1175}{check\+\_\+params} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{params})
+\item 
+static bool \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6484b17ff956fe0af53e4232662b9b21}{check\+\_\+copula\+\_\+theta} (double theta)
+\item 
+static const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a28a1d28de9af3e174cdab7aa45449a11}{param\+\_\+names} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5d68fea6a3f3d7f47c83ab43cd46ec8}{param\+\_\+lbound} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}{Nparams\+VecT} \& \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9635080f5cae6bba6be7569db4810bfc}{param\+\_\+ubound} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \& \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab751cebc3c628c353729c8f079ffb984}{global\+\_\+lbound} ()
+\item 
+static const \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{Ndim\+VecT} \& \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aad110f1a85e7611fd098aa51c2104015}{global\+\_\+ubound} ()
+\item 
+{\footnotesize template$<$class IterT $>$ }\\static bool \hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_afec9ea96312bb7b4e4d0fc5afe95ec58}{check\+\_\+params\+\_\+iter} (IterT \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{params})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static void \hyperlink{classprior__hessian_1_1MultivariateDist_afdc57126708d3ef19be759496aceeda6}{check\+\_\+bounds} (const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}{lbound}, const Vec \&\hyperlink{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}{ubound})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$\\*
+class prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$}
+
+
+
+Definition at line 22 of file Copula\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!CopulaT@{CopulaT}}
+\index{CopulaT@{CopulaT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{CopulaT}{CopulaT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf CopulaT} =  Copula\+Template$<$\+\_\+num\+\_\+dim$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5525f8d14c3a1b3caf2f09d0e86a650f}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5525f8d14c3a1b3caf2f09d0e86a650f}
+
+
+Definition at line 41 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Marginal\+DistT@{Marginal\+DistT}}
+\index{Marginal\+DistT@{Marginal\+DistT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Marginal\+DistT}{MarginalDistT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$size\+\_\+t I$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Marginal\+DistT} =  std\+::tuple\+\_\+element$<$I,{\bf Marginal\+Dist\+TupleT}$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa2817fd47846a28d6b751940ab1b0376}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa2817fd47846a28d6b751940ab1b0376}
+
+
+Definition at line 44 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Marginal\+Dist\+TupleT@{Marginal\+Dist\+TupleT}}
+\index{Marginal\+Dist\+TupleT@{Marginal\+Dist\+TupleT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Marginal\+Dist\+TupleT}{MarginalDistTupleT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Marginal\+Dist\+TupleT} =  std\+::tuple$<$Marginal\+Dist\+Ts...$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_acf46fae43d481ed82a2147433e5f2ff6}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_acf46fae43d481ed82a2147433e5f2ff6}
+
+
+Definition at line 40 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Ndim\+MatT@{Ndim\+MatT}}
+\index{Ndim\+MatT@{Ndim\+MatT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Ndim\+MatT}{NdimMatT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Ndim\+MatT} =  arma\+::\+Mat$<$double$>$\+::fixed$<$\+\_\+num\+\_\+dim,\+\_\+num\+\_\+dim$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a7f046aa9054ecf384b9f4ae157acfa49}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a7f046aa9054ecf384b9f4ae157acfa49}
+
+
+Definition at line 32 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Ndim\+VecT@{Ndim\+VecT}}
+\index{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Ndim\+VecT}{NdimVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Ndim\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+dim$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a94fa53fddcc81dcefec387f68294472d}
+
+
+Definition at line 31 of file Copula\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Nparams\+VecT@{Nparams\+VecT}}
+\index{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ using {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Nparams\+VecT} =  arma\+::\+Col$<$double$>$}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab23894c0a0c555b0b759e3c77df6a987}
+
+
+Definition at line 37 of file Copula\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Copula\+Dist@{Copula\+Dist}}
+\index{Copula\+Dist@{Copula\+Dist}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Copula\+Dist()}{CopulaDist()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Copula\+Dist} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac77b528427c1e073e24db35b00790983}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac77b528427c1e073e24db35b00790983}
+
+
+Definition at line 242 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac77b528427c1e073e24db35b00790983_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!Copula\+Dist@{Copula\+Dist}}
+\index{Copula\+Dist@{Copula\+Dist}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{Copula\+Dist(\+Copula \&\&copula, Dist\+Ts \&\&...\+dists)}{CopulaDist(Copula &&copula, DistTs &&...dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Copula , class... Dist\+Ts, std\+::enable\+\_\+if\+\_\+t$<$ sizeof...(\+Dist\+Ts)==sizeof...(\+Marginal\+Dist\+Ts), bool $>$ Enable$>$ {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::{\bf Copula\+Dist} (
+\begin{DoxyParamCaption}
+\item[{Copula \&\&}]{copula, }
+\item[{Dist\+Ts \&\&...}]{dists}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a65c4d1fa447c2b40b3b12e04aeaff596}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a65c4d1fa447c2b40b3b12e04aeaff596}
+
+
+Definition at line 233 of file Copula\+Dist.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{cdf(const Vec \&x) const }{cdf(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::cdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a75da47e40ee64dd49fe5c84c2df07ebe}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a75da47e40ee64dd49fe5c84c2df07ebe}
+
+
+Definition at line 385 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a75da47e40ee64dd49fe5c84c2df07ebe_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!check\+\_\+bounds@{check\+\_\+bounds}}
+\index{check\+\_\+bounds@{check\+\_\+bounds}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+bounds(const Vec \&lbound, const Vec \&ubound)}{check_bounds(const Vec &lbound, const Vec &ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Vec $>$ static void prior\+\_\+hessian\+::\+Multivariate\+Dist\+::check\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{lbound, }
+\item[{const Vec \&}]{ubound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}\hypertarget{classprior__hessian_1_1MultivariateDist_afdc57126708d3ef19be759496aceeda6}{}\label{classprior__hessian_1_1MultivariateDist_afdc57126708d3ef19be759496aceeda6}
+
+
+Definition at line 57 of file Multivariate\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!check\+\_\+copula\+\_\+theta@{check\+\_\+copula\+\_\+theta}}
+\index{check\+\_\+copula\+\_\+theta@{check\+\_\+copula\+\_\+theta}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+copula\+\_\+theta(double theta)}{check_copula_theta(double theta)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ static bool {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+copula\+\_\+theta (
+\begin{DoxyParamCaption}
+\item[{double}]{theta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6484b17ff956fe0af53e4232662b9b21}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6484b17ff956fe0af53e4232662b9b21}
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6484b17ff956fe0af53e4232662b9b21_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&params)}{check_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ static bool {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3a8fbb171c6540d89e6c8c27dc8d1175}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3a8fbb171c6540d89e6c8c27dc8d1175}
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3a8fbb171c6540d89e6c8c27dc8d1175_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
+\index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class IterT $>$ bool {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_afec9ea96312bb7b4e4d0fc5afe95ec58}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_afec9ea96312bb7b4e4d0fc5afe95ec58}
+
+
+Definition at line 368 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_afec9ea96312bb7b4e4d0fc5afe95ec58_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!get\+\_\+copula\+\_\+theta@{get\+\_\+copula\+\_\+theta}}
+\index{get\+\_\+copula\+\_\+theta@{get\+\_\+copula\+\_\+theta}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+copula\+\_\+theta() const }{get_copula_theta() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ double {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::get\+\_\+copula\+\_\+theta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5299ecbf6aed216acfb8d67e8bfc6aff}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5299ecbf6aed216acfb8d67e8bfc6aff}
+
+
+Definition at line 346 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5299ecbf6aed216acfb8d67e8bfc6aff_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!global\+\_\+lbound@{global\+\_\+lbound}}
+\index{global\+\_\+lbound@{global\+\_\+lbound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{global\+\_\+lbound()}{global_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab751cebc3c628c353729c8f079ffb984}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab751cebc3c628c353729c8f079ffb984}
+
+
+Definition at line 536 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+bounds(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+lbound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab751cebc3c628c353729c8f079ffb984_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!global\+\_\+ubound@{global\+\_\+ubound}}
+\index{global\+\_\+ubound@{global\+\_\+ubound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{global\+\_\+ubound()}{global_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aad110f1a85e7611fd098aa51c2104015}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aad110f1a85e7611fd098aa51c2104015}
+
+
+Definition at line 545 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::meta\+::call\+\_\+in\+\_\+order(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::cdf(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::lbound(), prior\+\_\+hessian\+::meta\+::logical\+\_\+and\+\_\+in\+\_\+order(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+components(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+params(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::pdf(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+bounds(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+lbound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+params\+\_\+iter(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+bounds(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aad110f1a85e7611fd098aa51c2104015_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aad110f1a85e7611fd098aa51c2104015_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{grad(const Vec \&x) const }{grad(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa6fce557f6d86ff9df39f172919bf52d}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa6fce557f6d86ff9df39f172919bf52d}
+
+
+Definition at line 428 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa6fce557f6d86ff9df39f172919bf52d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{grad2(const Vec \&x) const }{grad2(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac4d5df1415cd5fa8b2e1abee571db37c}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac4d5df1415cd5fa8b2e1abee571db37c}
+
+
+Definition at line 440 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac4d5df1415cd5fa8b2e1abee571db37c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
+\index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(const Vec \&x, Vec2 \&g, Vec2 \&g2) const }{grad_grad2_accumulate(const Vec &x, Vec2 &g, Vec2 &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x, }
+\item[{Vec2 \&}]{g, }
+\item[{Vec2 \&}]{g2}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a8d948333196942aad176ee4eee195de6}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a8d948333196942aad176ee4eee195de6}
+
+
+Definition at line 466 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a8d948333196942aad176ee4eee195de6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}}
+\index{grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+hess\+\_\+accumulate(const Vec \&x, Vec2 \&g, Mat \&hess) const }{grad_hess_accumulate(const Vec &x, Vec2 &g, Mat &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec , class Vec2 , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad\+\_\+hess\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x, }
+\item[{Vec2 \&}]{g, }
+\item[{Mat \&}]{hess}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a80d981a32437ea7ab542d4e2685fbbda}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a80d981a32437ea7ab542d4e2685fbbda}
+
+
+Definition at line 481 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a80d981a32437ea7ab542d4e2685fbbda_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!hess@{hess}}
+\index{hess@{hess}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{hess(const Vec \&x) const }{hess(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+MatT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::hess (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9053b04a2b0dd8eab62e407307f77a86}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9053b04a2b0dd8eab62e407307f77a86}
+
+
+Definition at line 452 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9053b04a2b0dd8eab62e407307f77a86_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!initialize\+\_\+copula@{initialize\+\_\+copula}}
+\index{initialize\+\_\+copula@{initialize\+\_\+copula}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{initialize\+\_\+copula(const Copula\+T \&\+\_\+copula)}{initialize_copula(const CopulaT &_copula)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::initialize\+\_\+copula (
+\begin{DoxyParamCaption}
+\item[{const {\bf CopulaT} \&}]{\+\_\+copula}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ae565171062d170680b6a107add0fc287}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ae565171062d170680b6a107add0fc287}
+
+
+Definition at line 255 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ae565171062d170680b6a107add0fc287_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!initialize\+\_\+marginals@{initialize\+\_\+marginals}}
+\index{initialize\+\_\+marginals@{initialize\+\_\+marginals}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{initialize\+\_\+marginals(const Marginal\+Dist\+Tuple\+T \&dists)}{initialize_marginals(const MarginalDistTupleT &dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::initialize\+\_\+marginals (
+\begin{DoxyParamCaption}
+\item[{const {\bf Marginal\+Dist\+TupleT} \&}]{dists}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a48d0317eb851b464c87d2210e9eaaf62}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a48d0317eb851b464c87d2210e9eaaf62}
+
+
+Definition at line 262 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a48d0317eb851b464c87d2210e9eaaf62_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!lbound@{lbound}}
+\index{lbound@{lbound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{lbound() const }{lbound() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d}
+
+
+Definition at line 67 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b7bf2f72c81574d9e19a2cd629f264d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{llh(const Vec \&x) const }{llh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::llh (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab0a3b61bdc3afe2d6b3ff7f076b7fd60}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab0a3b61bdc3afe2d6b3ff7f076b7fd60}
+
+
+Definition at line 405 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ab0a3b61bdc3afe2d6b3ff7f076b7fd60_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!num\+\_\+components@{num\+\_\+components}}
+\index{num\+\_\+components@{num\+\_\+components}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+components()}{num_components()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a58218394a4f213053e28925678ace6d4}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a58218394a4f213053e28925678ace6d4}
+
+
+Definition at line 46 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a58218394a4f213053e28925678ace6d4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a26cd71990978df0ddae24dae5148c880}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a26cd71990978df0ddae24dae5148c880}
+
+
+Definition at line 47 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+copula\+\_\+theta(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+params(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::\+Copula\+Dist(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+lbound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::initialize\+\_\+copula(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::initialize\+\_\+marginals(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+lbound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+names(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::params().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a26cd71990978df0ddae24dae5148c880_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ static {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a371e1bc1823bdeb3783e5ce3c38ba0e4}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a371e1bc1823bdeb3783e5ce3c38ba0e4}
+
+
+Definition at line 38 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a371e1bc1823bdeb3783e5ce3c38ba0e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{operator"!=(const Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&o) const }{operator!=(const CopulaDist< CopulaTemplate, MarginalDistTs... > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ bool {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5cd91617bed91a4c401ad05f52958010}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5cd91617bed91a4c401ad05f52958010}
+
+
+Definition at line 80 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::cdf(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::check\+\_\+params\+\_\+iter(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::get\+\_\+copula\+\_\+theta(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad2(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad\+\_\+grad2\+\_\+accumulate(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::grad\+\_\+hess\+\_\+accumulate(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::hess(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::llh(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+params(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator==(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::params(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::pdf(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::rllh(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::sample(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+copula\+\_\+theta(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+params(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+params\+\_\+iter(), and prior\+\_\+hessian\+::meta\+::sum\+\_\+in\+\_\+order().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a5cd91617bed91a4c401ad05f52958010_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{operator==(const Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&o) const }{operator==(const CopulaDist< CopulaTemplate, MarginalDistTs... > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ bool {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$ \&}]{o}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9dca9ab8ba47ecef1a7784fe77c8c40f}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9dca9ab8ba47ecef1a7784fe77c8c40f}
+
+
+Definition at line 330 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9dca9ab8ba47ecef1a7784fe77c8c40f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!param\+\_\+lbound@{param\+\_\+lbound}}
+\index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5d68fea6a3f3d7f47c83ab43cd46ec8}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5d68fea6a3f3d7f47c83ab43cd46ec8}
+
+
+Definition at line 518 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5d68fea6a3f3d7f47c83ab43cd46ec8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ const {\bf String\+VecT} \& {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a28a1d28de9af3e174cdab7aa45449a11}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a28a1d28de9af3e174cdab7aa45449a11}
+
+
+Definition at line 509 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a28a1d28de9af3e174cdab7aa45449a11_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!param\+\_\+ubound@{param\+\_\+ubound}}
+\index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ const {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::param\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9635080f5cae6bba6be7569db4810bfc}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9635080f5cae6bba6be7569db4810bfc}
+
+
+Definition at line 527 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a9635080f5cae6bba6be7569db4810bfc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!params@{params}}
+\index{params@{params}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Nparams\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2}
+
+
+Definition at line 337 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::num\+\_\+dim(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0ca7e24c5dba13279c613c95434b46a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{pdf(const Vec \&x) const }{pdf(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::pdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa35ac17e403f5f7a74852abca16c2847}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa35ac17e403f5f7a74852abca16c2847}
+
+
+Definition at line 394 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa35ac17e403f5f7a74852abca16c2847_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{rllh(const Vec \&x) const }{rllh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::rllh (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aef86eb508c0190d05e541c6e394c6392}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aef86eb508c0190d05e541c6e394c6392}
+
+
+Definition at line 416 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aef86eb508c0190d05e541c6e394c6392_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class RngT $>$ {\bf Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts... $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&}]{rng}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa79a7674b1f33b2fb8ca4bba4e158221}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa79a7674b1f33b2fb8ca4bba4e158221}
+
+
+Definition at line 499 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_aa79a7674b1f33b2fb8ca4bba4e158221_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+bounds@{set\+\_\+bounds}}
+\index{set\+\_\+bounds@{set\+\_\+bounds}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+bounds(const Vec \&lbound, const Vec2 \&ubound)}{set_bounds(const Vec &lbound, const Vec2 &ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{lbound, }
+\item[{const Vec2 \&}]{ubound}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5f8f42efd9f709625cf60836fa473b9}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5f8f42efd9f709625cf60836fa473b9}
+
+
+Definition at line 271 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+lbound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5f8f42efd9f709625cf60836fa473b9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ad5f8f42efd9f709625cf60836fa473b9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+copula\+\_\+theta@{set\+\_\+copula\+\_\+theta}}
+\index{set\+\_\+copula\+\_\+theta@{set\+\_\+copula\+\_\+theta}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+copula\+\_\+theta(double theta)}{set_copula_theta(double theta)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+copula\+\_\+theta (
+\begin{DoxyParamCaption}
+\item[{double}]{theta}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0cfc287d14f8d0821ea4ad7fa254eeec}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0cfc287d14f8d0821ea4ad7fa254eeec}
+
+
+Definition at line 352 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a0cfc287d14f8d0821ea4ad7fa254eeec_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+lbound@{set\+\_\+lbound}}
+\index{set\+\_\+lbound@{set\+\_\+lbound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+lbound(const Vec \&lbound)}{set_lbound(const Vec &lbound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+lbound (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{lbound}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac0819ccaeef1afd7a123338823e8fb3c}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac0819ccaeef1afd7a123338823e8fb3c}
+
+
+Definition at line 295 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+lbound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac0819ccaeef1afd7a123338823e8fb3c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_ac0819ccaeef1afd7a123338823e8fb3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&params)}{set_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6ab1f6755caac5e7127ec8c6e6ed2c06}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6ab1f6755caac5e7127ec8c6e6ed2c06}
+
+
+Definition at line 359 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a6ab1f6755caac5e7127ec8c6e6ed2c06_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
+\index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3c76fabe7fefc83aa19454951c1513dd}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3c76fabe7fefc83aa19454951c1513dd}
+
+
+Definition at line 375 of file Copula\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a3c76fabe7fefc83aa19454951c1513dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!set\+\_\+ubound@{set\+\_\+ubound}}
+\index{set\+\_\+ubound@{set\+\_\+ubound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+ubound(const Vec \&ubound)}{set_ubound(const Vec &ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+ubound (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{ubound}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b010ffe2c2acd4dc75c80b32312254d}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b010ffe2c2acd4dc75c80b32312254d}
+
+
+Definition at line 313 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::lbound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b010ffe2c2acd4dc75c80b32312254d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_a4b010ffe2c2acd4dc75c80b32312254d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}!ubound@{ubound}}
+\index{ubound@{ubound}!prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}}
+\paragraph[{\texorpdfstring{ubound() const }{ubound() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ int $>$ class Copula\+Template, class... Marginal\+Dist\+Ts$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist}$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}{}\label{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6}
+
+
+Definition at line 68 of file Copula\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::lbound(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator==(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+bounds(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+lbound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+ubound().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::global\+\_\+ubound(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::set\+\_\+lbound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist_abdb39f0c5f7f5f4b16bf501e6083d5b6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{CopulaDist_8h}{Copula\+Dist.\+h}\end{DoxyCompactItemize}

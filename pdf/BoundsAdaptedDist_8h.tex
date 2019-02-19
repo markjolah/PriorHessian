@@ -1,0 +1,107 @@
+\hypertarget{BoundsAdaptedDist_8h}{}\subsection{Bounds\+Adapted\+Dist.\+h File Reference}
+\label{BoundsAdaptedDist_8h}\index{Bounds\+Adapted\+Dist.\+h@{Bounds\+Adapted\+Dist.\+h}}
+
+
+Functions and type-\/traits to enable easy wrapping of distributions in bounds-\/modifiable adapters.  
+
+
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$tuple$>$}\\*
+{\ttfamily \#include $<$type\+\_\+traits$>$}\\*
+{\ttfamily \#include \char`\"{}Prior\+Hessian/\+Meta.\+h\char`\"{}}\\*
+Include dependency graph for Bounds\+Adapted\+Dist.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{BoundsAdaptedDist_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{BoundsAdaptedDist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1detail_1_1dist__adaptor__traits}{prior\+\_\+hessian\+::detail\+::dist\+\_\+adaptor\+\_\+traits$<$ Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1meta_1_1all__dists__are__bounded}{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceprior__hessian}{prior\+\_\+hessian}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1detail}{prior\+\_\+hessian\+::detail}
+\item 
+ \hyperlink{namespaceprior__hessian_1_1meta}{prior\+\_\+hessian\+::meta}
+\begin{DoxyCompactList}\small\item\em Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class DistT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{prior\+\_\+hessian\+::detail\+::\+Dist\+TraitsT} = detail\+::dist\+\_\+adaptor\+\_\+traits$<$ std\+::decay\+\_\+t$<$ DistT $>$$>$
+\item 
+{\footnotesize template$<$class DistT $>$ }\\using \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{prior\+\_\+hessian\+::\+Bounds\+Adapted\+DistT} = typename detail\+::dist\+\_\+adaptor\+\_\+traits$<$ std\+::decay\+\_\+t$<$ DistT $>$$>$\+::bounds\+\_\+adapted\+\_\+dist
+\item 
+{\footnotesize template$<$class... Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a1f28a9142fc5442b2ba3cf722169578a}{prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+All\+Dists\+Are\+BoundedT} = std\+::enable\+\_\+if$<$ all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts... $>$\+::value, bool $>$
+\item 
+{\footnotesize template$<$class... Dist\+Ts$>$ }\\using \hyperlink{namespaceprior__hessian_1_1meta_a33414fea85f38ec07f5b6a750be5656b}{prior\+\_\+hessian\+::meta\+::\+Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT} = std\+::enable\+\_\+if$<$!all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts... $>$\+::value, bool $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\std\+::tuple$<$ Bounds\+Adapted\+DistT$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3}{prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\std\+::tuple$<$ Bounds\+Adapted\+DistT$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_1_1detail_a112a6e8be541a29b2c8b366f26e6d72e}{prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ detail\+::\+Dist\+TraitsT$<$ Dist $>$\+::adaptable\+\_\+bounds, Dist $>$ \hyperlink{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist)
+\item 
+{\footnotesize template$<$class Dist , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ !detail\+::\+Dist\+TraitsT$<$ Dist $>$\+::adaptable\+\_\+bounds, Bounds\+Adapted\+DistT$<$ Dist $>$ $>$ \hyperlink{namespaceprior__hessian_aac9684eb25c8e9eb2b10640931a08285}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist)
+\item 
+{\footnotesize template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ detail\+::\+Dist\+TraitsT$<$ Dist $>$\+::adaptable\+\_\+bounds, Dist $>$ \hyperlink{namespaceprior__hessian_ace3ed32ae08101fa6cddfb56cc39f3a9}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)
+\item 
+{\footnotesize template$<$class Dist , class Vec , typename  = meta\+::\+Enable\+If\+Is\+Not\+Tuple\+T$<$\+Dist$>$$>$ }\\std\+::enable\+\_\+if\+\_\+t$<$!detail\+::\+Dist\+TraitsT$<$ Dist $>$\+::adaptable\+\_\+bounds, Bounds\+Adapted\+DistT$<$ Dist $>$ $>$ \hyperlink{namespaceprior__hessian_ab331d08c528526111610cf1407ca43c1}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist} (Dist \&\&dist, Vec \&\&lbound, Vec \&\&ubound)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ Bounds\+Adapted\+DistT$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a55f558964ebfac8734141e232a376bb7}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (Ts \&\&...ts)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ Bounds\+Adapted\+DistT$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a95fddb21432915b6b47579b4ad05602f}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\std\+::tuple$<$ Bounds\+Adapted\+DistT$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_a277a764f9d5df7ff208e9052de05f067}{prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Functions and type-\/traits to enable easy wrapping of distributions in bounds-\/modifiable adapters. 
+
+\begin{DoxyAuthor}{Author}
+Mark J. Olah (mjo@cs.\+unm D\+OT edu) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018 The bounds-\/adapted version of a distribution is a distribution that has been wrapped by an adapter-\/class that modifies the distribution so that the bounds can be set to finite values.
+\end{DoxyDate}
+The main types of adapters are
+\begin{DoxyItemize}
+\item Truncated\+Dist\+:
+\begin{DoxyItemize}
+\item Has global\+\_\+ubound and global\+\_\+lbound which may both be infinite (e.\+g., with the Normal\+Dist)
+\item Adapts distributions\+: Normal\+Dist, Gamma\+Dist
+\end{DoxyItemize}
+\item Upper\+Truncted\+Dist\+: Adapts distributions which already have an inherit lower-\/bound as a parameter
+\begin{DoxyItemize}
+\item Adapts distributions\+: Parato\+Dist
+\end{DoxyItemize}
+\item Scaled\+Dist\+:
+\begin{DoxyItemize}
+\item Adapts distributions with finite domain like the Beta distribution by scaling them to arbitrary finite bounds
+\item Adapts distributions\+: Beta\+Dist, Symmetric\+Beta\+Dist
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Functions\+: make\+\_\+adapted\+\_\+bounded\+\_\+dist
+\begin{DoxyItemize}
+\item Make a bounds-\/adapted version of given distribution make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple -\/
+\item Make a tuple of bounds-\/adapted version of given distributions 
+\end{DoxyItemize}

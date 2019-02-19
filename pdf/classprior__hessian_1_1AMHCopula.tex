@@ -1,0 +1,1190 @@
+\hypertarget{classprior__hessian_1_1AMHCopula}{}\subsection{prior\+\_\+hessian\+:\+:A\+M\+H\+Copula$<$ Ndim $>$ Class Template Reference}
+\label{classprior__hessian_1_1AMHCopula}\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$}}
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+A\+M\+H\+Copula.\+h$>$}
+
+
+
+Inheritance diagram for prior\+\_\+hessian\+:\+:A\+M\+H\+Copula$<$ Ndim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classprior__hessian_1_1AMHCopula__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for prior\+\_\+hessian\+:\+:A\+M\+H\+Copula$<$ Ndim $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classprior__hessian_1_1AMHCopula__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}{Ndim\+VecT} = arma\+::\+Col$<$ double $>$\+::fixed$<$ Ndim $>$
+\item 
+using \hyperlink{classprior__hessian_1_1AMHCopula_a258252a11a49d2c73e19696b2e0e683d}{Ndim\+MatT} = arma\+::\+Mat$<$ double $>$\+::fixed$<$ Ndim, Ndim $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1AMHCopula_aea48377467c59f5f882e88f6611a8b56}{A\+M\+H\+Copula} ()
+\item 
+\hyperlink{classprior__hessian_1_1AMHCopula_a47d4b9c294f1a41069d8991513e81351}{A\+M\+H\+Copula} (double \hyperlink{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}{theta})
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}{theta} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1AMHCopula_a80bcb09b15bdb3c404f028772932c081}{set\+\_\+theta} (double val)
+\item 
+bool \hyperlink{classprior__hessian_1_1AMHCopula_a29ff4d88263399c4ee76233644c0de9f}{operator==} (const \hyperlink{classprior__hessian_1_1AMHCopula}{A\+M\+H\+Copula}$<$ Ndim $>$ \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1AMHCopula_a52be601283a5a2dc619492d74fad860f}{operator!=} (const \hyperlink{classprior__hessian_1_1AMHCopula}{A\+M\+H\+Copula}$<$ Ndim $>$ \&o) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_a20cebde68e635d3ad7d0ad67fbcd711e}{set\+\_\+params} (const Vec \&params)
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_a244661696f89f48e7466f095c1d3c536}{append\+\_\+params} (IterT \&params)
+\item 
+{\footnotesize template$<$class IterT $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_a5f5ab047fa0c58b93e7b8e072bc9c682}{set\+\_\+params\+\_\+iter} (IterT \&params)
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1AMHCopula_aa18585757cb2d4b0723ed80258281278}{cdf} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1AMHCopula_a8129324c2c30bd4900396198b0c9b957}{pdf} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1AMHCopula_ad1ce11681554712db7a56bb4cb54c3e9}{llh} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh} (const Vec \&u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_ab0031223c39aec7287cc3cfa3160f6e8}{rllh\+\_\+const} () const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}{grad} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7}{grad2} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\\hyperlink{classprior__hessian_1_1AMHCopula_a258252a11a49d2c73e19696b2e0e683d}{Ndim\+MatT} \hyperlink{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6}{hess} (const Vec \&u) const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_ad86ca50954d51be0a25a9523f4d7ff5a}{rllh\+\_\+grad\+\_\+accumulate} (const Vec \&u, double \&\hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh}, Vec2 \&\hyperlink{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}{grad}) const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_ae6aab20b3c845dfe2dd699df724755eb}{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate} (const Vec \&u, double \&\hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh}, Vec2 \&\hyperlink{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}{grad}, Vec2 \&\hyperlink{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7}{grad2}) const 
+\item 
+{\footnotesize template$<$class Vec , class Vec2 , class Mat $>$ }\\void \hyperlink{classprior__hessian_1_1AMHCopula_ab869b33caebfb6ae4e94f180c8f851bb}{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate} (const Vec \&u, double \&\hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh}, Vec2 \&\hyperlink{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}{grad}, Mat \&\hyperlink{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6}{hess}) const 
+\item 
+{\footnotesize template$<$class RngT $>$ }\\\hyperlink{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}{Ndim\+VecT} \hyperlink{classprior__hessian_1_1AMHCopula_a96b5928f1be384c8d0a4efb09b8e49a1}{sample} (RngT \&rng) const 
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_a2c3506804bb44c972b94cf100404e2c6}{gen} (double t) const 
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_a9fc68a651139c1c7d28a8144562a09f3}{ddim\+\_\+gen} (double t) const 
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_a8d5daac3653a101d7068ef9dc0591002}{igen} (double u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1AMHCopula_a19aecc89d6a1d6c46aa595a13999cfb2}{d1\+\_\+igen} (double u) const 
+\item 
+{\footnotesize template$<$class Vec $>$ }\\double \hyperlink{classprior__hessian_1_1AMHCopula_a38e091a72ecb8c9df42e88017b2d347e}{igen\+\_\+sum} (const Vec \&u)
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1AMHCopula_a9982c3f1b0c8c8a44731e162c8783022}{param\+\_\+names} ()
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1AMHCopula_ade20f55d6cbc96e29988da774b6a7cc0}{num\+\_\+params} ()
+\item 
+static constexpr \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1AMHCopula_aaacec957c8d8e24df1100aee2694fe3a}{num\+\_\+dim} ()
+\item 
+static double \hyperlink{classprior__hessian_1_1AMHCopula_ae714c397e21c45b8f57e3ea58659a068}{param\+\_\+lbound} ()
+\item 
+static double \hyperlink{classprior__hessian_1_1AMHCopula_a7bb6324e170cdc4cc9b1721cd12e99e5}{param\+\_\+ubound} ()
+\item 
+static bool \hyperlink{classprior__hessian_1_1AMHCopula_a9d4b8453eedea358f829f8d4c911d8c4}{check\+\_\+theta} (double val)
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static bool \hyperlink{classprior__hessian_1_1AMHCopula_a7052e693079deb29636e505aa37072a5}{check\+\_\+params} (const Vec \&params)
+\item 
+{\footnotesize template$<$class IterT $>$ }\\static bool \hyperlink{classprior__hessian_1_1AMHCopula_a5878ce4111fcb580ed74d5100aafc37b}{check\+\_\+params\+\_\+iter} (IterT \&params)
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static void \hyperlink{classprior__hessian_1_1AMHCopula_a8602b8b27ee8b50be3dc979f8b229406}{rllh\+\_\+dtheta\+\_\+accumulate} (double \hyperlink{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}{theta}, const Vec \&u, double \&\hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh}, double \&dtheta)
+\item 
+{\footnotesize template$<$class Vec $>$ }\\static void \hyperlink{classprior__hessian_1_1AMHCopula_aee053f024e655950ad677d53e01d6b4f}{rllh\+\_\+d2theta\+\_\+accumulate} (double \hyperlink{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}{theta}, const Vec \&u, double \&\hyperlink{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{rllh}, double \&dtheta, double \&d2theta)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$int Ndim$>$\\*
+class prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$}
+
+
+
+Definition at line 18 of file A\+M\+H\+Copula.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!Ndim\+MatT@{Ndim\+MatT}}
+\index{Ndim\+MatT@{Ndim\+MatT}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{Ndim\+MatT}{NdimMatT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+MatT} =  arma\+::\+Mat$<$double$>$\+::fixed$<$Ndim,Ndim$>$}\hypertarget{classprior__hessian_1_1AMHCopula_a258252a11a49d2c73e19696b2e0e683d}{}\label{classprior__hessian_1_1AMHCopula_a258252a11a49d2c73e19696b2e0e683d}
+
+
+Definition at line 27 of file A\+M\+H\+Copula.\+h.
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!Ndim\+VecT@{Ndim\+VecT}}
+\index{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{Ndim\+VecT}{NdimVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$Ndim$>$}\hypertarget{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}{}\label{classprior__hessian_1_1AMHCopula_aee8626a3e27e52d8bfecc5201808660a}
+
+
+Definition at line 26 of file A\+M\+H\+Copula.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}}
+\index{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{A\+M\+H\+Copula()}{AMHCopula()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf A\+M\+H\+Copula} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_aea48377467c59f5f882e88f6611a8b56}{}\label{classprior__hessian_1_1AMHCopula_aea48377467c59f5f882e88f6611a8b56}
+
+
+Definition at line 35 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_aea48377467c59f5f882e88f6611a8b56_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}}
+\index{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{A\+M\+H\+Copula(double theta)}{AMHCopula(double theta)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf A\+M\+H\+Copula} (
+\begin{DoxyParamCaption}
+\item[{double}]{theta}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1AMHCopula_a47d4b9c294f1a41069d8991513e81351}{}\label{classprior__hessian_1_1AMHCopula_a47d4b9c294f1a41069d8991513e81351}
+
+
+Definition at line 169 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a47d4b9c294f1a41069d8991513e81351_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!append\+\_\+params@{append\+\_\+params}}
+\index{append\+\_\+params@{append\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{append\+\_\+params(\+Iter\+T \&params)}{append_params(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::append\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a244661696f89f48e7466f095c1d3c536}{}\label{classprior__hessian_1_1AMHCopula_a244661696f89f48e7466f095c1d3c536}
+
+
+Definition at line 51 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a244661696f89f48e7466f095c1d3c536_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{cdf(const Vec \&u) const }{cdf(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::cdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_aa18585757cb2d4b0723ed80258281278}{}\label{classprior__hessian_1_1AMHCopula_aa18585757cb2d4b0723ed80258281278}
+
+
+Definition at line 194 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_aa18585757cb2d4b0723ed80258281278_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_aa18585757cb2d4b0723ed80258281278_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&params)}{check_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ static bool {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a7052e693079deb29636e505aa37072a5}{}\label{classprior__hessian_1_1AMHCopula_a7052e693079deb29636e505aa37072a5}
+
+
+Definition at line 45 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a7052e693079deb29636e505aa37072a5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
+\index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ static bool {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::check\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a5878ce4111fcb580ed74d5100aafc37b}{}\label{classprior__hessian_1_1AMHCopula_a5878ce4111fcb580ed74d5100aafc37b}
+
+
+Definition at line 49 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a5878ce4111fcb580ed74d5100aafc37b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+theta@{check\+\_\+theta}}
+\index{check\+\_\+theta@{check\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{check\+\_\+theta(double val)}{check_theta(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::check\+\_\+theta (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a9d4b8453eedea358f829f8d4c911d8c4}{}\label{classprior__hessian_1_1AMHCopula_a9d4b8453eedea358f829f8d4c911d8c4}
+
+
+Definition at line 163 of file A\+M\+H\+Copula.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+params(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+params\+\_\+iter(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::param\+\_\+ubound(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+theta().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a9d4b8453eedea358f829f8d4c911d8c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!d1\+\_\+igen@{d1\+\_\+igen}}
+\index{d1\+\_\+igen@{d1\+\_\+igen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{d1\+\_\+igen(double u) const }{d1_igen(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::d1\+\_\+igen (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a19aecc89d6a1d6c46aa595a13999cfb2}{}\label{classprior__hessian_1_1AMHCopula_a19aecc89d6a1d6c46aa595a13999cfb2}
+
+
+Definition at line 284 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen\+\_\+sum(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::num\+\_\+dim(), prior\+\_\+hessian\+::polylog\+::polylog(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::llh(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a19aecc89d6a1d6c46aa595a13999cfb2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a19aecc89d6a1d6c46aa595a13999cfb2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!ddim\+\_\+gen@{ddim\+\_\+gen}}
+\index{ddim\+\_\+gen@{ddim\+\_\+gen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{ddim\+\_\+gen(double t) const }{ddim_gen(double t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::ddim\+\_\+gen (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a9fc68a651139c1c7d28a8144562a09f3}{}\label{classprior__hessian_1_1AMHCopula_a9fc68a651139c1c7d28a8144562a09f3}
+
+
+Definition at line 270 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::num\+\_\+dim(), and prior\+\_\+hessian\+::polylog\+::polylog().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::llh(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a9fc68a651139c1c7d28a8144562a09f3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a9fc68a651139c1c7d28a8144562a09f3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!gen@{gen}}
+\index{gen@{gen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{gen(double t) const }{gen(double t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::gen (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a2c3506804bb44c972b94cf100404e2c6}{}\label{classprior__hessian_1_1AMHCopula_a2c3506804bb44c972b94cf100404e2c6}
+
+
+Definition at line 265 of file A\+M\+H\+Copula.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a2c3506804bb44c972b94cf100404e2c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{grad(const Vec \&u) const }{grad(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::grad (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}{}\label{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819}
+
+
+Definition at line 220 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad2(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a7c3f0e7eb7f4c8eecd37563c35e1f819_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{grad2(const Vec \&u) const }{grad2(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7}{}\label{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7}
+
+
+Definition at line 234 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::square(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_af87cadcd28d6af3fa8249932f7d01ec7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!hess@{hess}}
+\index{hess@{hess}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{hess(const Vec \&u) const }{hess(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+MatT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::hess (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6}{}\label{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6}
+
+
+Definition at line 248 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::square(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a324c075c80fb95ed8b69bd601e6a4de6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!igen@{igen}}
+\index{igen@{igen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{igen(double u) const }{igen(double u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::igen (
+\begin{DoxyParamCaption}
+\item[{double}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a8d5daac3653a101d7068ef9dc0591002}{}\label{classprior__hessian_1_1AMHCopula_a8d5daac3653a101d7068ef9dc0591002}
+
+
+Definition at line 279 of file A\+M\+H\+Copula.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a8d5daac3653a101d7068ef9dc0591002_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!igen\+\_\+sum@{igen\+\_\+sum}}
+\index{igen\+\_\+sum@{igen\+\_\+sum}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{igen\+\_\+sum(const Vec \&u)}{igen_sum(const Vec &u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::igen\+\_\+sum (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a38e091a72ecb8c9df42e88017b2d347e}{}\label{classprior__hessian_1_1AMHCopula_a38e091a72ecb8c9df42e88017b2d347e}
+
+
+Definition at line 97 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen\+\_\+sum(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::d1\+\_\+igen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen\+\_\+sum(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::llh().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a38e091a72ecb8c9df42e88017b2d347e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a38e091a72ecb8c9df42e88017b2d347e_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{llh(const Vec \&u) const }{llh(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::llh (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_ad1ce11681554712db7a56bb4cb54c3e9}{}\label{classprior__hessian_1_1AMHCopula_ad1ce11681554712db7a56bb4cb54c3e9}
+
+
+Definition at line 210 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::d1\+\_\+igen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::ddim\+\_\+gen(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen\+\_\+sum().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ad1ce11681554712db7a56bb4cb54c3e9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ad1ce11681554712db7a56bb4cb54c3e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_aaacec957c8d8e24df1100aee2694fe3a}{}\label{classprior__hessian_1_1AMHCopula_aaacec957c8d8e24df1100aee2694fe3a}
+
+
+Definition at line 30 of file A\+M\+H\+Copula.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::d1\+\_\+igen(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::ddim\+\_\+gen().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_aaacec957c8d8e24df1100aee2694fe3a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_ade20f55d6cbc96e29988da774b6a7cc0}{}\label{classprior__hessian_1_1AMHCopula_ade20f55d6cbc96e29988da774b6a7cc0}
+
+
+Definition at line 29 of file A\+M\+H\+Copula.\+h.
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{operator"!=(const A\+M\+H\+Copula$<$ Ndim $>$ \&o) const }{operator!=(const AMHCopula< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf A\+M\+H\+Copula}$<$ Ndim $>$ \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a52be601283a5a2dc619492d74fad860f}{}\label{classprior__hessian_1_1AMHCopula_a52be601283a5a2dc619492d74fad860f}
+
+
+Definition at line 42 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a52be601283a5a2dc619492d74fad860f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{operator==(const A\+M\+H\+Copula$<$ Ndim $>$ \&o) const }{operator==(const AMHCopula< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf A\+M\+H\+Copula}$<$ Ndim $>$ \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a29ff4d88263399c4ee76233644c0de9f}{}\label{classprior__hessian_1_1AMHCopula_a29ff4d88263399c4ee76233644c0de9f}
+
+
+Definition at line 41 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a29ff4d88263399c4ee76233644c0de9f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+lbound@{param\+\_\+lbound}}
+\index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::param\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_ae714c397e21c45b8f57e3ea58659a068}{}\label{classprior__hessian_1_1AMHCopula_ae714c397e21c45b8f57e3ea58659a068}
+
+
+Definition at line 31 of file A\+M\+H\+Copula.\+h.
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static const {\bf String\+VecT}\& {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a9982c3f1b0c8c8a44731e162c8783022}{}\label{classprior__hessian_1_1AMHCopula_a9982c3f1b0c8c8a44731e162c8783022}
+
+
+Definition at line 28 of file A\+M\+H\+Copula.\+h.
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+ubound@{param\+\_\+ubound}}
+\index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::param\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a7bb6324e170cdc4cc9b1721cd12e99e5}{}\label{classprior__hessian_1_1AMHCopula_a7bb6324e170cdc4cc9b1721cd12e99e5}
+
+
+Definition at line 32 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a7bb6324e170cdc4cc9b1721cd12e99e5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{pdf(const Vec \&u) const }{pdf(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::pdf (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a8129324c2c30bd4900396198b0c9b957}{}\label{classprior__hessian_1_1AMHCopula_a8129324c2c30bd4900396198b0c9b957}
+
+
+Definition at line 202 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a8129324c2c30bd4900396198b0c9b957_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a8129324c2c30bd4900396198b0c9b957_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh(const Vec \&u) const }{rllh(const Vec &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}{}\label{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a4c1752aeba875e7ab9563a1a7cd1524b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+const@{rllh\+\_\+const}}
+\index{rllh\+\_\+const@{rllh\+\_\+const}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+const() const }{rllh_const() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+const (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_ab0031223c39aec7287cc3cfa3160f6e8}{}\label{classprior__hessian_1_1AMHCopula_ab0031223c39aec7287cc3cfa3160f6e8}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ab0031223c39aec7287cc3cfa3160f6e8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}}
+\index{rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+d2theta\+\_\+accumulate(double theta, const Vec \&u, double \&rllh, double \&dtheta, double \&d2theta)}{rllh_d2theta_accumulate(double theta, const Vec &u, double &rllh, double &dtheta, double &d2theta)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ static void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+d2theta\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{double}]{theta, }
+\item[{const Vec \&}]{u, }
+\item[{double \&}]{rllh, }
+\item[{double \&}]{dtheta, }
+\item[{double \&}]{d2theta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_aee053f024e655950ad677d53e01d6b4f}{}\label{classprior__hessian_1_1AMHCopula_aee053f024e655950ad677d53e01d6b4f}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_aee053f024e655950ad677d53e01d6b4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+dtheta\+\_\+accumulate@{rllh\+\_\+dtheta\+\_\+accumulate}}
+\index{rllh\+\_\+dtheta\+\_\+accumulate@{rllh\+\_\+dtheta\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+dtheta\+\_\+accumulate(double theta, const Vec \&u, double \&rllh, double \&dtheta)}{rllh_dtheta_accumulate(double theta, const Vec &u, double &rllh, double &dtheta)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ static void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+dtheta\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{double}]{theta, }
+\item[{const Vec \&}]{u, }
+\item[{double \&}]{rllh, }
+\item[{double \&}]{dtheta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1AMHCopula_a8602b8b27ee8b50be3dc979f8b229406}{}\label{classprior__hessian_1_1AMHCopula_a8602b8b27ee8b50be3dc979f8b229406}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a8602b8b27ee8b50be3dc979f8b229406_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+accumulate@{rllh\+\_\+grad\+\_\+accumulate}}
+\index{rllh\+\_\+grad\+\_\+accumulate@{rllh\+\_\+grad\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+grad\+\_\+accumulate(const Vec \&u, double \&rllh, Vec2 \&grad) const }{rllh_grad_accumulate(const Vec &u, double &rllh, Vec2 &grad) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u, }
+\item[{double \&}]{rllh, }
+\item[{Vec2 \&}]{grad}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_ad86ca50954d51be0a25a9523f4d7ff5a}{}\label{classprior__hessian_1_1AMHCopula_ad86ca50954d51be0a25a9523f4d7ff5a}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ad86ca50954d51be0a25a9523f4d7ff5a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}}
+\index{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate(const Vec \&u, double \&rllh, Vec2 \&grad, Vec2 \&grad2) const }{rllh_grad_grad2_accumulate(const Vec &u, double &rllh, Vec2 &grad, Vec2 &grad2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u, }
+\item[{double \&}]{rllh, }
+\item[{Vec2 \&}]{grad, }
+\item[{Vec2 \&}]{grad2}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_ae6aab20b3c845dfe2dd699df724755eb}{}\label{classprior__hessian_1_1AMHCopula_ae6aab20b3c845dfe2dd699df724755eb}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ae6aab20b3c845dfe2dd699df724755eb_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+hess\+\_\+accumulate@{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}}
+\index{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate@{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate(const Vec \&u, double \&rllh, Vec2 \&grad, Mat \&hess) const }{rllh_grad_hess_accumulate(const Vec &u, double &rllh, Vec2 &grad, Mat &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Vec2 , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+hess\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{u, }
+\item[{double \&}]{rllh, }
+\item[{Vec2 \&}]{grad, }
+\item[{Mat \&}]{hess}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_ab869b33caebfb6ae4e94f180c8f851bb}{}\label{classprior__hessian_1_1AMHCopula_ab869b33caebfb6ae4e94f180c8f851bb}
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_ab869b33caebfb6ae4e94f180c8f851bb_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class RngT $>$ {\bf A\+M\+H\+Copula}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&}]{rng}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1AMHCopula_a96b5928f1be384c8d0a4efb09b8e49a1}{}\label{classprior__hessian_1_1AMHCopula_a96b5928f1be384c8d0a4efb09b8e49a1}
+
+
+Definition at line 596 of file A\+M\+H\+Copula.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a96b5928f1be384c8d0a4efb09b8e49a1_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&params)}{set_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const Vec \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a20cebde68e635d3ad7d0ad67fbcd711e}{}\label{classprior__hessian_1_1AMHCopula_a20cebde68e635d3ad7d0ad67fbcd711e}
+
+
+Definition at line 47 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a20cebde68e635d3ad7d0ad67fbcd711e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
+\index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter (
+\begin{DoxyParamCaption}
+\item[{IterT \&}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a5f5ab047fa0c58b93e7b8e072bc9c682}{}\label{classprior__hessian_1_1AMHCopula_a5f5ab047fa0c58b93e7b8e072bc9c682}
+
+
+Definition at line 53 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::cdf(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::d1\+\_\+igen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::ddim\+\_\+gen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::gen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad2(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::hess(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::llh(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::pdf(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+const(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+d2theta\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+dtheta\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::rllh\+\_\+grad\+\_\+hess\+\_\+accumulate(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::sample(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a5f5ab047fa0c58b93e7b8e072bc9c682_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+theta@{set\+\_\+theta}}
+\index{set\+\_\+theta@{set\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{set\+\_\+theta(double val)}{set_theta(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ void {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::set\+\_\+theta (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1AMHCopula_a80bcb09b15bdb3c404f028772932c081}{}\label{classprior__hessian_1_1AMHCopula_a80bcb09b15bdb3c404f028772932c081}
+
+
+Definition at line 175 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::check\+\_\+theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::\+A\+M\+H\+Copula(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::theta().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a80bcb09b15bdb3c404f028772932c081_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a80bcb09b15bdb3c404f028772932c081_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!theta@{theta}}
+\index{theta@{theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}}
+\paragraph[{\texorpdfstring{theta() const }{theta() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+A\+M\+H\+Copula}$<$ Ndim $>$\+::theta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}{}\label{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201}
+
+
+Definition at line 38 of file A\+M\+H\+Copula.\+h.
+
+
+
+References prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::set\+\_\+theta().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::\+A\+M\+H\+Copula(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::append\+\_\+params(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::cdf(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::d1\+\_\+igen(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::grad2(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::hess(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::igen\+\_\+sum(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::operator!=(), prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::operator==(), and prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$\+::pdf().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1AMHCopula_a11696b4a8cef12a30706cd745820b201_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AMHCopula_8h}{A\+M\+H\+Copula.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="prior_hessian::MultivariateNormalDist::set_params_iter" name="prior_hessian::MultivariateNormalDist::set_params_iter">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1MultivariateNormalDist.html#af968e071050a9b2ba4b4ef96b206602b" title="prior_hessian::Multivariate\lNormalDist::set_params" alt="" coords="231,68,397,107"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1MultivariateNormalDist.html#a9a2d3e50448adb594ed60a92d2942943" title="prior_hessian::Multivariate\lNormalDist::num_params" alt="" coords="445,5,612,44"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1MultivariateNormalDist.html#a3a232f67a79457c91ce1c061a19d18bc" title="prior_hessian::Multivariate\lNormalDist::set_mu" alt="" coords="445,68,612,107"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1MultivariateNormalDist.html#aecd463f33fd68330ae245c2ad05e7b2f" title="prior_hessian::Multivariate\lNormalDist::set_sigma" alt="" coords="445,131,612,169"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1MultivariateNormalDist.html#af202c613f03a8d07d9ab80ead9f4064b" title="prior_hessian::Multivariate\lNormalDist::check_mu" alt="" coords="660,68,827,107"/>
+</map>

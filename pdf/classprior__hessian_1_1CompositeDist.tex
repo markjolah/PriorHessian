@@ -1,0 +1,2415 @@
+\hypertarget{classprior__hessian_1_1CompositeDist}{}\subsection{prior\+\_\+hessian\+:\+:Composite\+Dist Class Reference}
+\label{classprior__hessian_1_1CompositeDist}\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+
+
+A probability distribution made of independent component distributions composing groups of 1 or more variables.  
+
+
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+Prior\+Hessian/include/\+Prior\+Hessian/\+Composite\+Dist.\+h$>$}
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{Component\+Dist\+Adaptor}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec}{Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}
+\item 
+class \hyperlink{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3}{Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classprior__hessian_1_1CompositeDist_aa770eb02f04ec95a1e32044bb071281b}{Any\+RngT} = any\+\_\+rng\+::\+Any\+Rng$<$ std\+::size\+\_\+t $>$
+\item 
+{\footnotesize template$<$class DistT $>$ }\\using \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT} = \hyperlink{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{Component\+Dist\+Adaptor}$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ std\+::remove\+\_\+reference\+\_\+t$<$ DistT $>$$>$$>$
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist_a0a97c92fc8649f39063fb66070b0c49c}{Composite\+Dist} ()
+\item 
+{\footnotesize template$<$class... Ts, meta\+::\+Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+Not\+T$<$ Composite\+Dist, Ts... $>$  = true$>$ }\\\hyperlink{classprior__hessian_1_1CompositeDist_a60f58ad66846c3e1ac4a5ab68f615ee4}{Composite\+Dist} (Ts \&\&...dists)
+\begin{DoxyCompactList}\small\item\em Construct from a variadic list of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Ts$>$ }\\\hyperlink{classprior__hessian_1_1CompositeDist_ac63d64a9a02d66d2f678b3ae4ba492b7}{Composite\+Dist} (std\+::tuple$<$ Ts... $>$ \&\&dist\+\_\+tuple)
+\begin{DoxyCompactList}\small\item\em Construct from a rvalue tuple of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Ts$>$ }\\\hyperlink{classprior__hessian_1_1CompositeDist_ab80e73297dff1dece54e7605a50b66ba}{Composite\+Dist} (const std\+::tuple$<$ Ts... $>$ \&dist\+\_\+tuple)
+\begin{DoxyCompactList}\small\item\em Construct from a lvalue tuple of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a23f28c6f0f08830056525325a61d820d}{initialize} ()
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_aff238c9365b9c1167781858af7a7bbd8}{initialize} (const std\+::tuple$<$$>$ \&)
+\begin{DoxyCompactList}\small\item\em Initialize to the empty state. \end{DoxyCompactList}\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_ab39931b60a2c54778e10d5b3904b240f}{initialize} (std\+::tuple$<$$>$ \&\&)
+\begin{DoxyCompactList}\small\item\em Initialize of an empty lvalue tuple produces the empty state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Ts, typename  = meta\+::\+Enable\+If\+All\+Are\+Not\+Tuple\+T$<$\+Ts...$>$$>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_a752ffdacab596d293cb93f67efa43899}{initialize} (Ts \&\&...dists)
+\begin{DoxyCompactList}\small\item\em Initialize of an empty rvalue tuple produces the empty state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Ts, typename  = meta\+::\+Enable\+If\+All\+Are\+Not\+Tuple\+T$<$\+Ts...$>$$>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_a48a23f3dbb74242f8b7b44a4332f014e}{initialize} (std\+::tuple$<$ Ts... $>$ \&\&dist\+\_\+tuple)
+\item 
+{\footnotesize template$<$class... Ts, typename  = meta\+::\+Enable\+If\+Non\+Empty$<$\+Ts...$>$$>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_aeddc98db980f2eb517059478130bc16b}{initialize} (const std\+::tuple$<$ Ts... $>$ \&dist\+\_\+tuple)
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist_aaebf74a5f97315a1d70679a0a85a9529}{Composite\+Dist} (const \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&)
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \& \hyperlink{classprior__hessian_1_1CompositeDist_a1cc23d388e8601c84fe0e912ca171214}{operator=} (const \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&)
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist_af864ac6021b8638cbceeb3bb705f76c9}{Composite\+Dist} (\hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&\&)
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \& \hyperlink{classprior__hessian_1_1CompositeDist_a43e7e3e64b7cfa61fdfecc00dc6b0892}{operator=} (\hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&\&)
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_abb88cadec39226df790848e811928021}{clear} ()
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\const std\+::tuple$<$ Ts... $>$ \& \hyperlink{classprior__hessian_1_1CompositeDist_a6c7455474c3ffd782329ad3bafb2b710}{get\+\_\+dist\+\_\+tuple} () const 
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_a56d7b1a0e8195d369cc99c7c2d4d392f}{is\+\_\+empty} () const 
+\item 
+\hyperlink{classprior__hessian_1_1CompositeDist_ae5125cf951624e169436c71d01a11783}{operator bool} () const 
+\item 
+\hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CompositeDist_a6faf6fbb059017af5756d4327bb504bc}{num\+\_\+components} () const 
+\item 
+\hyperlink{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}{Type\+Info\+VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ad796a4f6b17cc35f936dee7d7d9a9a43}{component\+\_\+types} () const 
+\item 
+const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1CompositeDist_a5f59bcbe24d659084fbe3dc188011779}{component\+\_\+names} () const 
+\item 
+{\footnotesize template$<$class String\+Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3}{set\+\_\+component\+\_\+names} (String\+Vec \&\&names)
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_a4928ff87d363bf6c4a650fdebfe301be}{operator==} (const \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&o) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_a250487f51401fa1d367e5ef5eb92c072}{operator!=} (const \hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} \&o) const 
+\item 
+\hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CompositeDist_ad532e3fe9e7293fef7b293d3c94a1ddc}{num\+\_\+dim} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}{U\+VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ab33784dcc2971ebaae40e6138bd1e4c2}{num\+\_\+dim\+\_\+components} () const 
+\item 
+const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1CompositeDist_a9c8cf14584b037663fe8ef27f77e3bcf}{dim\+\_\+variables} () const 
+\item 
+{\footnotesize template$<$class String\+Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_a6a84d1519fcee908bd41abd4a989f666}{set\+\_\+dim\+\_\+variables} (String\+Vec \&\&vars)
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a46c83acc63b87837f3c4cb425e312d67}{lbound} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_aab0290d9dd418c2e7deb26e9f37eb74f}{ubound} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a4034220fc10fed2ff9ebe2f81061ab2f}{global\+\_\+lbound} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a7e98f7f421d90f4b640e956ddf38987c}{global\+\_\+ubound} () const 
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_aad4dece0c6d7857cbe3e9121aa7cc040}{in\+\_\+bounds} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_ac7063be5346f042c0312d5729aa0883c}{in\+\_\+bounds\+\_\+all} (const \hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \&u) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a249e33b8a48cd337f3529cc30bf443ff}{set\+\_\+lbound} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+bound)
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a8399071596edc8ef270d4e3337576c5d}{set\+\_\+ubound} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+bound)
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_ae7a0e0a30b13823413dd1b4bea4163ca}{set\+\_\+bounds} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+lbound, const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+ubound)
+\item 
+\hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} \hyperlink{classprior__hessian_1_1CompositeDist_ae7742f32d7e64ca2c7b55132a8ae6895}{num\+\_\+params} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}{U\+VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a389c0e5459eeacc5f35afdf14d6a38d7}{num\+\_\+params\+\_\+components} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_adc8761a6b3dda7ffe7d1694cebcd21f5}{params} () const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a8f0b1c79d0d4319adf783fe4fdbf7eb0}{set\+\_\+params} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+params)
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_aad146947bd3ba5620cf30e5d98a98d6c}{check\+\_\+params} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&new\+\_\+params) const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a3520120621a69469e885ba64f08ede3a}{params\+\_\+lbound} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ab9eac2d70f484d2d0d4ead6a21d6f798}{params\+\_\+ubound} () const 
+\item 
+std\+::vector$<$ \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a927fed39b2b4e87714c728d6e7b11e8b}{params\+\_\+components} () const 
+\item 
+const \hyperlink{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{String\+VecT} \& \hyperlink{classprior__hessian_1_1CompositeDist_ae7ca30fd19fb59ebe241873443b9faed}{param\+\_\+names} () const 
+\item 
+{\footnotesize template$<$class String\+Vec $>$ }\\void \hyperlink{classprior__hessian_1_1CompositeDist_a38c4fdacf927824117d202422b04013c}{set\+\_\+param\+\_\+names} (String\+Vec \&\&vars)
+\item 
+bool \hyperlink{classprior__hessian_1_1CompositeDist_a6216610bfbcc92a40c7fa43ae60bd5af}{has\+\_\+param} (const std\+::string \&name) const 
+\item 
+double \hyperlink{classprior__hessian_1_1CompositeDist_a25183fbeb28704eca9f7fe31dccb7640}{get\+\_\+param\+\_\+value} (const std\+::string \&name) const 
+\item 
+int \hyperlink{classprior__hessian_1_1CompositeDist_af8d9b349da5f5842e04f0ca7443c7363}{get\+\_\+param\+\_\+index} (const std\+::string \&name) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a2b9cc7f1661dbd1bbd6f37c462781d5f}{set\+\_\+param\+\_\+value} (const std\+::string \&name, double value)
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_ace0aaa3698d76aba6a47f9061ff98902}{rename\+\_\+param} (const std\+::string \&old\+\_\+name, std\+::string new\+\_\+name)
+\item 
+double \hyperlink{classprior__hessian_1_1CompositeDist_a7e3a117e6140580cb93e359a92506678}{cdf} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1CompositeDist_abbde55c133989f566801967484ccb2b8}{pdf} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1CompositeDist_ad1192b84b64c7f43fc5623bb1a121833}{llh} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+double \hyperlink{classprior__hessian_1_1CompositeDist_ae7186f83597ca44698b178cef6144f78}{rllh} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}{grad} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92}{grad2} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+\hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \hyperlink{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d}{hess} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a4223b3a02f160b2d4e0b800df2ff423d}{grad\+\_\+accumulate} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&theta, \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&\hyperlink{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}{grad}) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_ac7e221c84be0edb0aebe3fb0231d99b2}{grad2\+\_\+accumulate} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&theta, \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&\hyperlink{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92}{grad2}) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_ade8ffdd5d98d1d299eec50fa0b95b867}{hess\+\_\+accumulate} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&theta, \hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \&\hyperlink{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d}{hess}) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a33df256e69cfe0b95fdc15ded7f94945}{grad\+\_\+grad2\+\_\+accumulate} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&theta, \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&\hyperlink{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}{grad}, \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&\hyperlink{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92}{grad2}) const 
+\item 
+void \hyperlink{classprior__hessian_1_1CompositeDist_a3ad4ba9da5767951e5f0832c37f3ecff}{grad\+\_\+hess\+\_\+accumulate} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&theta, \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&\hyperlink{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}{grad}, \hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \&\hyperlink{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d}{hess}) const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ac27bd3125d941aa9e83b2c900e63d4fc}{make\+\_\+zero\+\_\+grad} () const 
+\item 
+\hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \hyperlink{classprior__hessian_1_1CompositeDist_ab92419cbc26b5fdd32cf5edffe54453f}{make\+\_\+zero\+\_\+hess} () const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56}{sample} (\hyperlink{classprior__hessian_1_1CompositeDist_aa770eb02f04ec95a1e32044bb071281b}{Any\+RngT} \&rng)
+\item 
+\hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \hyperlink{classprior__hessian_1_1CompositeDist_ab67e4f2136cfe541216bae9871763d96}{sample} (\hyperlink{classprior__hessian_1_1CompositeDist_aa770eb02f04ec95a1e32044bb071281b}{Any\+RngT} \&rng, \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} num\+\_\+samples)
+\item 
+{\footnotesize template$<$class RngT $>$ }\\\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ad16fff66b154a712fc35bcf9be72219a}{sample} (RngT \&\&rng)
+\item 
+{\footnotesize template$<$class RngT $>$ }\\\hyperlink{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{MatT} \hyperlink{classprior__hessian_1_1CompositeDist_ab4b704c38ba580c08876a993e61e6b5c}{sample} (RngT \&\&rng, \hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} num\+\_\+samples)
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_ad6be77e5400716e31a3ff0327b929787}{llh\+\_\+components} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\item 
+\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{classprior__hessian_1_1CompositeDist_a24bac25ae8c0330b8a3aacadffc9d5ae}{rllh\+\_\+components} (const \hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \&u) const 
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class DistT $>$ }\\static \hyperlink{namespaceprior__hessian_1_1meta_ab7bb340f7fc79b7a874c3d407fca091d}{meta\+::\+Return\+If\+Instantiated\+FromT}$<$ DistT, DistT, \hyperlink{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{Component\+Dist\+Adaptor} $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a9473495959c5c652e0eb20fe33545441}{make\+\_\+component\+\_\+dist} (DistT \&\&dist)
+\item 
+{\footnotesize template$<$class DistT $>$ }\\static \hyperlink{namespaceprior__hessian_1_1meta_aea50a7973fa87d00d93e526c23d14549}{meta\+::\+Return\+If\+Not\+Instantiated\+FromT}$<$ \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT}$<$ DistT $>$, DistT, \hyperlink{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{Component\+Dist\+Adaptor} $>$ \hyperlink{classprior__hessian_1_1CompositeDist_ac035adf066e3b04c42485248be85fd85}{make\+\_\+component\+\_\+dist} (DistT \&\&dist)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\static std\+::tuple$<$ \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT}$<$ Ts $>$... $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a0a2be1ee1e4b13310575089c3cacbe23}{make\+\_\+component\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists)
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\static std\+::tuple$<$ \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT}$<$ Ts $>$... $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a203677b1eebcc71684aeb1776b8b343a}{make\+\_\+component\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\static std\+::tuple$<$ \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT}$<$ Ts $>$... $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a67a3e5c72be64eabc4716a73a1a4eb91}{make\+\_\+component\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists)
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\static std\+::tuple$<$ \hyperlink{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{Component\+DistT}$<$ Ts $>$... $>$ \hyperlink{classprior__hessian_1_1CompositeDist_a44c6ec3b0e740206e737f707378600c8}{make\+\_\+component\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+A probability distribution made of independent component distributions composing groups of 1 or more variables. 
+
+\hyperlink{classprior__hessian_1_1CompositeDist}{Composite\+Dist} is a world unto itself.
+
+class Univariate\+Dist\+Interface \{ static C\+O\+N\+S\+T\+E\+X\+PR IdxT \hyperlink{classprior__hessian_1_1CompositeDist_ad532e3fe9e7293fef7b293d3c94a1ddc}{num\+\_\+dim()}; static C\+O\+N\+S\+T\+E\+X\+PR IdxT \hyperlink{classprior__hessian_1_1CompositeDist_ae7742f32d7e64ca2c7b55132a8ae6895}{num\+\_\+params()}; static const String\+VecT param\+\_\+names; double \hyperlink{classprior__hessian_1_1CompositeDist_a46c83acc63b87837f3c4cb425e312d67}{lbound() const}; double \hyperlink{classprior__hessian_1_1CompositeDist_aab0290d9dd418c2e7deb26e9f37eb74f}{ubound() const}; void set\+\_\+bounds(double lbound, double ubound); void set\+\_\+lbound(double lbound); void set\+\_\+ubound(double ubound); double get\+\_\+param(int idx) const; void set\+\_\+param(int idx, double val); double cdf(double x) const; double icdf(double u) const; double pdf(double x) const; double llh(double x) const; double rllh(double x) const; double grad(double x) const; double grad2(double x) const; void grad\+\_\+grad2\+\_\+accumulate(double x, double \&g, double \&g2) const; template$<$ class Rng\+T $>$ double sample(\+Rng\+T \&rng) const; \}
+
+dim\+\_\+variables and param\+\_\+names are lazily computed. If they are not accessed, they are not created. 
+
+Definition at line 60 of file Composite\+Dist.\+h.
+
+
+
+\subsubsection{Class Documentation}
+\index{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor}}\label{classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}
+\hypertarget{classprior__hessian_1_1CompositeDist_classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor}{}
+\paragraph{class prior\+\_\+hessian\+:\+:Composite\+Dist\+:\+:Component\+Dist\+Adaptor}
+\subsubsection*{template$<$class DistT, typename Enable = void$>$\\*
+class prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist\+T, Enable $>$}
+
+
+
+Definition at line 64 of file Composite\+Dist.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Any\+RngT@{Any\+RngT}}
+\index{Any\+RngT@{Any\+RngT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Any\+RngT}{AnyRngT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Any\+RngT} =  any\+\_\+rng\+::\+Any\+Rng$<$std\+::size\+\_\+t$>$}\hypertarget{classprior__hessian_1_1CompositeDist_aa770eb02f04ec95a1e32044bb071281b}{}\label{classprior__hessian_1_1CompositeDist_aa770eb02f04ec95a1e32044bb071281b}
+
+
+Definition at line 67 of file Composite\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Component\+DistT@{Component\+DistT}}
+\index{Component\+DistT@{Component\+DistT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Component\+DistT}{ComponentDistT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class DistT $>$ using {\bf prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+DistT} =  {\bf Component\+Dist\+Adaptor}$<${\bf Bounds\+Adapted\+DistT}$<$std\+::remove\+\_\+reference\+\_\+t$<$DistT$>$$>$$>$}\hypertarget{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}{}\label{classprior__hessian_1_1CompositeDist_ab9b58a9ef851c7d5453273785d915c34}
+
+
+Definition at line 840 of file Composite\+Dist.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist()}{CompositeDist()}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a0a97c92fc8649f39063fb66070b0c49c}{}\label{classprior__hessian_1_1CompositeDist_a0a97c92fc8649f39063fb66070b0c49c}
+
+
+Definition at line 13 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by initialize().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a0a97c92fc8649f39063fb66070b0c49c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist(\+Ts \&\&...\+dists)}{CompositeDist(Ts &&...dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, meta\+::\+Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+Not\+T$<$ Composite\+Dist, Ts... $>$  = true$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+\item[{Ts \&\&...}]{dists}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1CompositeDist_a60f58ad66846c3e1ac4a5ab68f615ee4}{}\label{classprior__hessian_1_1CompositeDist_a60f58ad66846c3e1ac4a5ab68f615ee4}
+
+
+Construct from a variadic list of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. 
+
+
+
+Definition at line 73 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a60f58ad66846c3e1ac4a5ab68f615ee4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist(std\+::tuple$<$ Ts... $>$ \&\&dist\+\_\+tuple)}{CompositeDist(std::tuple< Ts... > &&dist_tuple)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dist\+\_\+tuple}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1CompositeDist_ac63d64a9a02d66d2f678b3ae4ba492b7}{}\label{classprior__hessian_1_1CompositeDist_ac63d64a9a02d66d2f678b3ae4ba492b7}
+
+
+Construct from a rvalue tuple of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. 
+
+
+
+Definition at line 79 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ac63d64a9a02d66d2f678b3ae4ba492b7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist(const std\+::tuple$<$ Ts... $>$ \&dist\+\_\+tuple)}{CompositeDist(const std::tuple< Ts... > &dist_tuple)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dist\+\_\+tuple}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab80e73297dff1dece54e7605a50b66ba}{}\label{classprior__hessian_1_1CompositeDist_ab80e73297dff1dece54e7605a50b66ba}
+
+
+Construct from a lvalue tuple of subclasses of \hyperlink{classprior__hessian_1_1UnivariateDist}{Univariate\+Dist}\textquotesingle{}s or Mulitvariate\+Dist\textquotesingle{}s. 
+
+
+
+Definition at line 85 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab80e73297dff1dece54e7605a50b66ba_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist(const Composite\+Dist \&)}{CompositeDist(const CompositeDist &)}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+\item[{const {\bf Composite\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_aaebf74a5f97315a1d70679a0a85a9529}{}\label{classprior__hessian_1_1CompositeDist_aaebf74a5f97315a1d70679a0a85a9529}
+
+
+Definition at line 17 of file Composite\+Dist.\+cpp.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}}
+\index{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{Composite\+Dist(\+Composite\+Dist \&\&)}{CompositeDist(CompositeDist &&)}}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Composite\+Dist (
+\begin{DoxyParamCaption}
+\item[{{\bf Composite\+Dist} \&\&}]{o}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_af864ac6021b8638cbceeb3bb705f76c9}{}\label{classprior__hessian_1_1CompositeDist_af864ac6021b8638cbceeb3bb705f76c9}
+
+
+Definition at line 28 of file Composite\+Dist.\+cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!cdf@{cdf}}
+\index{cdf@{cdf}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{cdf(const Vec\+T \&u) const }{cdf(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Composite\+Dist\+::cdf (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a7e3a117e6140580cb93e359a92506678}{}\label{classprior__hessian_1_1CompositeDist_a7e3a117e6140580cb93e359a92506678}
+
+
+Definition at line 184 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::cdf\+\_\+from\+\_\+iter(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::cdf\+\_\+from\+\_\+iter(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a7e3a117e6140580cb93e359a92506678_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!check\+\_\+params@{check\+\_\+params}}
+\index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec\+T \&new\+\_\+params) const }{check_params(const VecT &new_params) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::check\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{new\+\_\+params}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aad146947bd3ba5620cf30e5d98a98d6c}{}\label{classprior__hessian_1_1CompositeDist_aad146947bd3ba5620cf30e5d98a98d6c}
+
+
+Definition at line 166 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aad146947bd3ba5620cf30e5d98a98d6c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!clear@{clear}}
+\index{clear@{clear}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_abb88cadec39226df790848e811928021}{}\label{classprior__hessian_1_1CompositeDist_abb88cadec39226df790848e811928021}
+
+
+Definition at line 38 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by initialize().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_abb88cadec39226df790848e811928021_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!component\+\_\+names@{component\+\_\+names}}
+\index{component\+\_\+names@{component\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{component\+\_\+names() const }{component_names() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf String\+VecT} \& prior\+\_\+hessian\+::\+Composite\+Dist\+::component\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a5f59bcbe24d659084fbe3dc188011779}{}\label{classprior__hessian_1_1CompositeDist_a5f59bcbe24d659084fbe3dc188011779}
+
+
+Definition at line 108 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by component\+\_\+types(), prior\+\_\+hessian\+::operator$<$$<$(), and param\+\_\+names().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a5f59bcbe24d659084fbe3dc188011779_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!component\+\_\+types@{component\+\_\+types}}
+\index{component\+\_\+types@{component\+\_\+types}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{component\+\_\+types() const }{component_types() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Type\+Info\+VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::component\+\_\+types (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ad796a4f6b17cc35f936dee7d7d9a9a43}{}\label{classprior__hessian_1_1CompositeDist_ad796a4f6b17cc35f936dee7d7d9a9a43}
+
+
+Definition at line 130 of file Composite\+Dist.\+h.
+
+
+
+References component\+\_\+names(), operator==(), and set\+\_\+component\+\_\+names().
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ad796a4f6b17cc35f936dee7d7d9a9a43_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ad796a4f6b17cc35f936dee7d7d9a9a43_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!dim\+\_\+variables@{dim\+\_\+variables}}
+\index{dim\+\_\+variables@{dim\+\_\+variables}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{dim\+\_\+variables() const }{dim_variables() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf String\+VecT} \& prior\+\_\+hessian\+::\+Composite\+Dist\+::dim\+\_\+variables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a9c8cf14584b037663fe8ef27f77e3bcf}{}\label{classprior__hessian_1_1CompositeDist_a9c8cf14584b037663fe8ef27f77e3bcf}
+
+
+Definition at line 114 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by num\+\_\+dim\+\_\+components(), and prior\+\_\+hessian\+::operator$<$$<$().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a9c8cf14584b037663fe8ef27f77e3bcf_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}}
+\index{get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+dist\+\_\+tuple() const }{get_dist_tuple() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ const std\+::tuple$<$ Ts... $>$ \& prior\+\_\+hessian\+::\+Composite\+Dist\+::get\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a6c7455474c3ffd782329ad3bafb2b710}{}\label{classprior__hessian_1_1CompositeDist_a6c7455474c3ffd782329ad3bafb2b710}
+
+
+Definition at line 925 of file Composite\+Dist.\+h.
+
+
+
+Referenced by initialize().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a6c7455474c3ffd782329ad3bafb2b710_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+param\+\_\+index@{get\+\_\+param\+\_\+index}}
+\index{get\+\_\+param\+\_\+index@{get\+\_\+param\+\_\+index}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+param\+\_\+index(const std\+::string \&name) const }{get_param_index(const std::string &name) const }}]{\setlength{\rightskip}{0pt plus 5cm}int prior\+\_\+hessian\+::\+Composite\+Dist\+::get\+\_\+param\+\_\+index (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_af8d9b349da5f5842e04f0ca7443c7363}{}\label{classprior__hessian_1_1CompositeDist_af8d9b349da5f5842e04f0ca7443c7363}
+
+
+Definition at line 184 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by params\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_af8d9b349da5f5842e04f0ca7443c7363_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+param\+\_\+value@{get\+\_\+param\+\_\+value}}
+\index{get\+\_\+param\+\_\+value@{get\+\_\+param\+\_\+value}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{get\+\_\+param\+\_\+value(const std\+::string \&name) const }{get_param_value(const std::string &name) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Composite\+Dist\+::get\+\_\+param\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a25183fbeb28704eca9f7fe31dccb7640}{}\label{classprior__hessian_1_1CompositeDist_a25183fbeb28704eca9f7fe31dccb7640}
+
+
+Definition at line 172 of file Composite\+Dist.\+cpp.
+
+
+
+References params().
+
+
+
+Referenced by params\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a25183fbeb28704eca9f7fe31dccb7640_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a25183fbeb28704eca9f7fe31dccb7640_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!global\+\_\+lbound@{global\+\_\+lbound}}
+\index{global\+\_\+lbound@{global\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{global\+\_\+lbound() const }{global_lbound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::global\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a4034220fc10fed2ff9ebe2f81061ab2f}{}\label{classprior__hessian_1_1CompositeDist_a4034220fc10fed2ff9ebe2f81061ab2f}
+
+
+Definition at line 148 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+global\+\_\+lbound(), prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a4034220fc10fed2ff9ebe2f81061ab2f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!global\+\_\+ubound@{global\+\_\+ubound}}
+\index{global\+\_\+ubound@{global\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{global\+\_\+ubound() const }{global_ubound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::global\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a7e98f7f421d90f4b640e956ddf38987c}{}\label{classprior__hessian_1_1CompositeDist_a7e98f7f421d90f4b640e956ddf38987c}
+
+
+Definition at line 149 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+global\+\_\+ubound(), prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a7e98f7f421d90f4b640e956ddf38987c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad@{grad}}
+\index{grad@{grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad(const Vec\+T \&u) const }{grad(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::grad (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}{}\label{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3}
+
+
+Definition at line 188 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::grad\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad\+\_\+grad2\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad\+\_\+hess\+\_\+accumulate\+\_\+idx(), and rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aaa6bfd95f5914c0f68d67cd97ff40db3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad2@{grad2}}
+\index{grad2@{grad2}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad2(const Vec\+T \&u) const }{grad2(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::grad2 (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92}{}\label{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92}
+
+
+Definition at line 195 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::grad2\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad2\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad\+\_\+grad2\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::hess\+\_\+accumulate\+\_\+idx(), and rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a90a25995e3e72cc958f188c78fc76d92_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad2\+\_\+accumulate@{grad2\+\_\+accumulate}}
+\index{grad2\+\_\+accumulate@{grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad2\+\_\+accumulate(const Vec\+T \&theta, Vec\+T \&grad2) const }{grad2_accumulate(const VecT &theta, VecT &grad2) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{theta, }
+\item[{{\bf VecT} \&}]{grad2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ac7e221c84be0edb0aebe3fb0231d99b2}{}\label{classprior__hessian_1_1CompositeDist_ac7e221c84be0edb0aebe3fb0231d99b2}
+
+
+Definition at line 217 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ac7e221c84be0edb0aebe3fb0231d99b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad\+\_\+accumulate@{grad\+\_\+accumulate}}
+\index{grad\+\_\+accumulate@{grad\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+accumulate(const Vec\+T \&theta, Vec\+T \&grad) const }{grad_accumulate(const VecT &theta, VecT &grad) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::grad\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{theta, }
+\item[{{\bf VecT} \&}]{grad}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a4223b3a02f160b2d4e0b800df2ff423d}{}\label{classprior__hessian_1_1CompositeDist_a4223b3a02f160b2d4e0b800df2ff423d}
+
+
+Definition at line 216 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a4223b3a02f160b2d4e0b800df2ff423d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
+\index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(const Vec\+T \&theta, Vec\+T \&grad, Vec\+T \&grad2) const }{grad_grad2_accumulate(const VecT &theta, VecT &grad, VecT &grad2) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::grad\+\_\+grad2\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{theta, }
+\item[{{\bf VecT} \&}]{grad, }
+\item[{{\bf VecT} \&}]{grad2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a33df256e69cfe0b95fdc15ded7f94945}{}\label{classprior__hessian_1_1CompositeDist_a33df256e69cfe0b95fdc15ded7f94945}
+
+
+Definition at line 219 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::grad\+\_\+grad2\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::grad\+\_\+hess\+\_\+accumulate\+\_\+idx(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a33df256e69cfe0b95fdc15ded7f94945_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}}
+\index{grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{grad\+\_\+hess\+\_\+accumulate(const Vec\+T \&theta, Vec\+T \&grad, Mat\+T \&hess) const }{grad_hess_accumulate(const VecT &theta, VecT &grad, MatT &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::grad\+\_\+hess\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{theta, }
+\item[{{\bf VecT} \&}]{grad, }
+\item[{{\bf MatT} \&}]{hess}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a3ad4ba9da5767951e5f0832c37f3ecff}{}\label{classprior__hessian_1_1CompositeDist_a3ad4ba9da5767951e5f0832c37f3ecff}
+
+
+Definition at line 222 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a3ad4ba9da5767951e5f0832c37f3ecff_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!has\+\_\+param@{has\+\_\+param}}
+\index{has\+\_\+param@{has\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{has\+\_\+param(const std\+::string \&name) const }{has_param(const std::string &name) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::has\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a6216610bfbcc92a40c7fa43ae60bd5af}{}\label{classprior__hessian_1_1CompositeDist_a6216610bfbcc92a40c7fa43ae60bd5af}
+
+
+Definition at line 166 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by params\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a6216610bfbcc92a40c7fa43ae60bd5af_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!hess@{hess}}
+\index{hess@{hess}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{hess(const Vec\+T \&u) const }{hess(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MatT} prior\+\_\+hessian\+::\+Composite\+Dist\+::hess (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d}{}\label{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d}
+
+
+Definition at line 203 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::grad\+\_\+hess\+\_\+accumulate\+\_\+idx(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::hess\+\_\+accumulate\+\_\+idx(), and rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab8c1ff058081ab81620e24b0e3e85f5d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!hess\+\_\+accumulate@{hess\+\_\+accumulate}}
+\index{hess\+\_\+accumulate@{hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{hess\+\_\+accumulate(const Vec\+T \&theta, Mat\+T \&hess) const }{hess_accumulate(const VecT &theta, MatT &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::hess\+\_\+accumulate (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{theta, }
+\item[{{\bf MatT} \&}]{hess}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ade8ffdd5d98d1d299eec50fa0b95b867}{}\label{classprior__hessian_1_1CompositeDist_ade8ffdd5d98d1d299eec50fa0b95b867}
+
+
+Definition at line 218 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ade8ffdd5d98d1d299eec50fa0b95b867_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}}
+\index{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{in\+\_\+bounds(const Vec\+T \&u) const }{in_bounds(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::in\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aad4dece0c6d7857cbe3e9121aa7cc040}{}\label{classprior__hessian_1_1CompositeDist_aad4dece0c6d7857cbe3e9121aa7cc040}
+
+
+Definition at line 150 of file Composite\+Dist.\+h.
+
+
+
+References lbound(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aad4dece0c6d7857cbe3e9121aa7cc040_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}}
+\index{in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{in\+\_\+bounds\+\_\+all(const Mat\+T \&u) const }{in_bounds_all(const MatT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::in\+\_\+bounds\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{const {\bf MatT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ac7063be5346f042c0312d5729aa0883c}{}\label{classprior__hessian_1_1CompositeDist_ac7063be5346f042c0312d5729aa0883c}
+
+
+Definition at line 152 of file Composite\+Dist.\+h.
+
+
+
+References lbound(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ac7063be5346f042c0312d5729aa0883c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize()}{initialize()}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a23f28c6f0f08830056525325a61d820d}{}\label{classprior__hessian_1_1CompositeDist_a23f28c6f0f08830056525325a61d820d}
+
+
+Definition at line 89 of file Composite\+Dist.\+h.
+
+
+
+References clear().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a23f28c6f0f08830056525325a61d820d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize(const std\+::tuple$<$$>$ \&)}{initialize(const std::tuple<> &)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$$>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aff238c9365b9c1167781858af7a7bbd8}{}\label{classprior__hessian_1_1CompositeDist_aff238c9365b9c1167781858af7a7bbd8}
+
+
+Initialize to the empty state. 
+
+
+
+Definition at line 90 of file Composite\+Dist.\+h.
+
+
+
+References clear().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aff238c9365b9c1167781858af7a7bbd8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize(std\+::tuple$<$$>$ \&\&)}{initialize(std::tuple<> &&)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$$>$ \&\&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab39931b60a2c54778e10d5b3904b240f}{}\label{classprior__hessian_1_1CompositeDist_ab39931b60a2c54778e10d5b3904b240f}
+
+
+Initialize of an empty lvalue tuple produces the empty state. 
+
+
+
+Definition at line 91 of file Composite\+Dist.\+h.
+
+
+
+References clear().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab39931b60a2c54778e10d5b3904b240f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize(\+Ts \&\&...\+dists)}{initialize(Ts &&...dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, typename  = meta\+::\+Enable\+If\+All\+Are\+Not\+Tuple\+T$<$\+Ts...$>$$>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+\item[{Ts \&\&...}]{dists}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a752ffdacab596d293cb93f67efa43899}{}\label{classprior__hessian_1_1CompositeDist_a752ffdacab596d293cb93f67efa43899}
+
+
+Initialize of an empty rvalue tuple produces the empty state. 
+
+
+
+Definition at line 93 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a752ffdacab596d293cb93f67efa43899_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize(std\+::tuple$<$ Ts... $>$ \&\&dist\+\_\+tuple)}{initialize(std::tuple< Ts... > &&dist_tuple)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, typename  = meta\+::\+Enable\+If\+All\+Are\+Not\+Tuple\+T$<$\+Ts...$>$$>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dist\+\_\+tuple}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a48a23f3dbb74242f8b7b44a4332f014e}{}\label{classprior__hessian_1_1CompositeDist_a48a23f3dbb74242f8b7b44a4332f014e}
+
+
+Definition at line 101 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a48a23f3dbb74242f8b7b44a4332f014e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}}
+\index{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{initialize(const std\+::tuple$<$ Ts... $>$ \&dist\+\_\+tuple)}{initialize(const std::tuple< Ts... > &dist_tuple)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, typename  = meta\+::\+Enable\+If\+Non\+Empty$<$\+Ts...$>$$>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::initialize (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dist\+\_\+tuple}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aeddc98db980f2eb517059478130bc16b}{}\label{classprior__hessian_1_1CompositeDist_aeddc98db980f2eb517059478130bc16b}
+
+
+Definition at line 109 of file Composite\+Dist.\+h.
+
+
+
+References clear(), Composite\+Dist(), get\+\_\+dist\+\_\+tuple(), make\+\_\+component\+\_\+dist\+\_\+tuple(), and operator=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aeddc98db980f2eb517059478130bc16b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{is\+\_\+empty() const }{is_empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::is\+\_\+empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a56d7b1a0e8195d369cc99c7c2d4d392f}{}\label{classprior__hessian_1_1CompositeDist_a56d7b1a0e8195d369cc99c7c2d4d392f}
+
+
+Definition at line 127 of file Composite\+Dist.\+h.
+
+
+
+Referenced by operator==().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a56d7b1a0e8195d369cc99c7c2d4d392f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!lbound@{lbound}}
+\index{lbound@{lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{lbound() const }{lbound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a46c83acc63b87837f3c4cb425e312d67}{}\label{classprior__hessian_1_1CompositeDist_a46c83acc63b87837f3c4cb425e312d67}
+
+
+Definition at line 146 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+global\+\_\+lbound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+lbound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+lbound(), in\+\_\+bounds(), in\+\_\+bounds\+\_\+all(), prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a46c83acc63b87837f3c4cb425e312d67_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!llh@{llh}}
+\index{llh@{llh}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{llh(const Vec\+T \&u) const }{llh(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Composite\+Dist\+::llh (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ad1192b84b64c7f43fc5623bb1a121833}{}\label{classprior__hessian_1_1CompositeDist_ad1192b84b64c7f43fc5623bb1a121833}
+
+
+Definition at line 186 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::llh\+\_\+from\+\_\+iter(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::llh\+\_\+from\+\_\+iter(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ad1192b84b64c7f43fc5623bb1a121833_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!llh\+\_\+components@{llh\+\_\+components}}
+\index{llh\+\_\+components@{llh\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{llh\+\_\+components(const Vec\+T \&u) const }{llh_components(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::llh\+\_\+components (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ad6be77e5400716e31a3ff0327b929787}{}\label{classprior__hessian_1_1CompositeDist_ad6be77e5400716e31a3ff0327b929787}
+
+
+Definition at line 245 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ad6be77e5400716e31a3ff0327b929787_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}}
+\index{make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist(\+Dist\+T \&\&dist)}{make_component_dist(DistT &&dist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class DistT $>$ static {\bf meta\+::\+Return\+If\+Instantiated\+FromT}$<$DistT,DistT,{\bf Component\+Dist\+Adaptor}$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{DistT \&\&}]{dist}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_a9473495959c5c652e0eb20fe33545441}{}\label{classprior__hessian_1_1CompositeDist_a9473495959c5c652e0eb20fe33545441}
+
+
+Definition at line 847 of file Composite\+Dist.\+h.
+
+
+
+Referenced by Composite\+Dist(), initialize(), and make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a9473495959c5c652e0eb20fe33545441_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}}
+\index{make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist(\+Dist\+T \&\&dist)}{make_component_dist(DistT &&dist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class DistT $>$ static {\bf meta\+::\+Return\+If\+Not\+Instantiated\+FromT}$<${\bf Component\+DistT}$<$DistT$>$,DistT,{\bf Component\+Dist\+Adaptor}$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{DistT \&\&}]{dist}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_ac035adf066e3b04c42485248be85fd85}{}\label{classprior__hessian_1_1CompositeDist_ac035adf066e3b04c42485248be85fd85}
+
+
+Definition at line 853 of file Composite\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ac035adf066e3b04c42485248be85fd85_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist\+\_\+tuple(const std\+::tuple$<$ Ts... $>$ \&dists)}{make_component_dist_tuple(const std::tuple< Ts... > &dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ static std\+::tuple$<${\bf Component\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dists}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_a0a2be1ee1e4b13310575089c3cacbe23}{}\label{classprior__hessian_1_1CompositeDist_a0a2be1ee1e4b13310575089c3cacbe23}
+
+
+Definition at line 863 of file Composite\+Dist.\+h.
+
+
+
+Referenced by Composite\+Dist(), initialize(), and make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a0a2be1ee1e4b13310575089c3cacbe23_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist\+\_\+tuple(const std\+::tuple$<$ Ts... $>$ \&dists, std\+::index\+\_\+sequence$<$ I... $>$)}{make_component_dist_tuple(const std::tuple< Ts... > &dists, std::index_sequence< I... >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, std\+::size\+\_\+t... I$>$ static std\+::tuple$<${\bf Component\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dists, }
+\item[{std\+::index\+\_\+sequence$<$ I... $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_a203677b1eebcc71684aeb1776b8b343a}{}\label{classprior__hessian_1_1CompositeDist_a203677b1eebcc71684aeb1776b8b343a}
+
+
+Definition at line 870 of file Composite\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist(), and make\+\_\+component\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a203677b1eebcc71684aeb1776b8b343a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist\+\_\+tuple(std\+::tuple$<$ Ts... $>$ \&\&dists)}{make_component_dist_tuple(std::tuple< Ts... > &&dists)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ static std\+::tuple$<${\bf Component\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dists}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_a67a3e5c72be64eabc4716a73a1a4eb91}{}\label{classprior__hessian_1_1CompositeDist_a67a3e5c72be64eabc4716a73a1a4eb91}
+
+
+Definition at line 876 of file Composite\+Dist.\+h.
+
+
+
+References make\+\_\+component\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a67a3e5c72be64eabc4716a73a1a4eb91_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+component\+\_\+dist\+\_\+tuple(std\+::tuple$<$ Ts... $>$ \&\&dists, std\+::index\+\_\+sequence$<$ I... $>$)}{make_component_dist_tuple(std::tuple< Ts... > &&dists, std::index_sequence< I... >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, std\+::size\+\_\+t... I$>$ static std\+::tuple$<${\bf Component\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dists, }
+\item[{std\+::index\+\_\+sequence$<$ I... $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1CompositeDist_a44c6ec3b0e740206e737f707378600c8}{}\label{classprior__hessian_1_1CompositeDist_a44c6ec3b0e740206e737f707378600c8}
+
+
+Definition at line 883 of file Composite\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist(), make\+\_\+component\+\_\+dist(), and prior\+\_\+hessian\+::meta\+::sum\+\_\+in\+\_\+order().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a44c6ec3b0e740206e737f707378600c8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}}
+\index{make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+zero\+\_\+grad() const }{make_zero_grad() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+zero\+\_\+grad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ac27bd3125d941aa9e83b2c900e63d4fc}{}\label{classprior__hessian_1_1CompositeDist_ac27bd3125d941aa9e83b2c900e63d4fc}
+
+
+Definition at line 224 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ac27bd3125d941aa9e83b2c900e63d4fc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}}
+\index{make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{make\+\_\+zero\+\_\+hess() const }{make_zero_hess() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MatT} prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+zero\+\_\+hess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab92419cbc26b5fdd32cf5edffe54453f}{}\label{classprior__hessian_1_1CompositeDist_ab92419cbc26b5fdd32cf5edffe54453f}
+
+
+Definition at line 225 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab92419cbc26b5fdd32cf5edffe54453f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+components@{num\+\_\+components}}
+\index{num\+\_\+components@{num\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+components() const }{num_components() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IdxT} prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a6faf6fbb059017af5756d4327bb504bc}{}\label{classprior__hessian_1_1CompositeDist_a6faf6fbb059017af5756d4327bb504bc}
+
+
+Definition at line 129 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), param\+\_\+names(), and set\+\_\+component\+\_\+names().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a6faf6fbb059017af5756d4327bb504bc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
+\index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim() const }{num_dim() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IdxT} prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ad532e3fe9e7293fef7b293d3c94a1ddc}{}\label{classprior__hessian_1_1CompositeDist_ad532e3fe9e7293fef7b293d3c94a1ddc}
+
+
+Definition at line 139 of file Composite\+Dist.\+h.
+
+
+
+Referenced by grad(), grad2(), hess(), make\+\_\+zero\+\_\+grad(), make\+\_\+zero\+\_\+hess(), prior\+\_\+hessian\+::operator$<$$<$(), param\+\_\+names(), rllh\+\_\+components(), and set\+\_\+dim\+\_\+variables().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ad532e3fe9e7293fef7b293d3c94a1ddc_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}}
+\index{num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+dim\+\_\+components() const }{num_dim_components() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+dim\+\_\+components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab33784dcc2971ebaae40e6138bd1e4c2}{}\label{classprior__hessian_1_1CompositeDist_ab33784dcc2971ebaae40e6138bd1e4c2}
+
+
+Definition at line 140 of file Composite\+Dist.\+h.
+
+
+
+References dim\+\_\+variables(), and set\+\_\+dim\+\_\+variables().
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab33784dcc2971ebaae40e6138bd1e4c2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab33784dcc2971ebaae40e6138bd1e4c2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+params@{num\+\_\+params}}
+\index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params() const }{num_params() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IdxT} prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ae7742f32d7e64ca2c7b55132a8ae6895}{}\label{classprior__hessian_1_1CompositeDist_ae7742f32d7e64ca2c7b55132a8ae6895}
+
+
+Definition at line 162 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), rllh\+\_\+components(), and set\+\_\+param\+\_\+names().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ae7742f32d7e64ca2c7b55132a8ae6895_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+params\+\_\+components@{num\+\_\+params\+\_\+components}}
+\index{num\+\_\+params\+\_\+components@{num\+\_\+params\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{num\+\_\+params\+\_\+components() const }{num_params_components() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::num\+\_\+params\+\_\+components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a389c0e5459eeacc5f35afdf14d6a38d7}{}\label{classprior__hessian_1_1CompositeDist_a389c0e5459eeacc5f35afdf14d6a38d7}
+
+
+Definition at line 163 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), param\+\_\+names(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a389c0e5459eeacc5f35afdf14d6a38d7_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{operator bool() const }{operator bool() const }}]{\setlength{\rightskip}{0pt plus 5cm}prior\+\_\+hessian\+::\+Composite\+Dist\+::operator bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ae5125cf951624e169436c71d01a11783}{}\label{classprior__hessian_1_1CompositeDist_ae5125cf951624e169436c71d01a11783}
+
+
+Definition at line 128 of file Composite\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{operator"!=(const Composite\+Dist \&o) const }{operator!=(const CompositeDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Composite\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a250487f51401fa1d367e5ef5eb92c072}{}\label{classprior__hessian_1_1CompositeDist_a250487f51401fa1d367e5ef5eb92c072}
+
+
+Definition at line 136 of file Composite\+Dist.\+h.
+
+
+
+References operator==().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a250487f51401fa1d367e5ef5eb92c072_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator=@{operator=}}
+\index{operator=@{operator=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{operator=(const Composite\+Dist \&)}{operator=(const CompositeDist &)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Composite\+Dist} \& prior\+\_\+hessian\+::\+Composite\+Dist\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Composite\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a1cc23d388e8601c84fe0e912ca171214}{}\label{classprior__hessian_1_1CompositeDist_a1cc23d388e8601c84fe0e912ca171214}
+
+
+Definition at line 44 of file Composite\+Dist.\+cpp.
+
+
+
+Referenced by initialize().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a1cc23d388e8601c84fe0e912ca171214_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator=@{operator=}}
+\index{operator=@{operator=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{operator=(\+Composite\+Dist \&\&)}{operator=(CompositeDist &&)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Composite\+Dist} \& prior\+\_\+hessian\+::\+Composite\+Dist\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Composite\+Dist} \&\&}]{o}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a43e7e3e64b7cfa61fdfecc00dc6b0892}{}\label{classprior__hessian_1_1CompositeDist_a43e7e3e64b7cfa61fdfecc00dc6b0892}
+
+
+Definition at line 57 of file Composite\+Dist.\+cpp.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator==@{operator==}}
+\index{operator==@{operator==}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{operator==(const Composite\+Dist \&o) const }{operator==(const CompositeDist &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool prior\+\_\+hessian\+::\+Composite\+Dist\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Composite\+Dist} \&}]{o}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_a4928ff87d363bf6c4a650fdebfe301be}{}\label{classprior__hessian_1_1CompositeDist_a4928ff87d363bf6c4a650fdebfe301be}
+
+
+Definition at line 70 of file Composite\+Dist.\+cpp.
+
+
+
+References is\+\_\+empty().
+
+
+
+Referenced by component\+\_\+types(), and operator!=().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a4928ff87d363bf6c4a650fdebfe301be_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a4928ff87d363bf6c4a650fdebfe301be_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!param\+\_\+names@{param\+\_\+names}}
+\index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{param\+\_\+names() const }{param_names() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf String\+VecT} \& prior\+\_\+hessian\+::\+Composite\+Dist\+::param\+\_\+names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classprior__hessian_1_1CompositeDist_ae7ca30fd19fb59ebe241873443b9faed}{}\label{classprior__hessian_1_1CompositeDist_ae7ca30fd19fb59ebe241873443b9faed}
+
+
+Definition at line 120 of file Composite\+Dist.\+cpp.
+
+
+
+References component\+\_\+names(), num\+\_\+components(), num\+\_\+dim(), and num\+\_\+params\+\_\+components().
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+param\+\_\+names(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+param\+\_\+names(), prior\+\_\+hessian\+::operator$<$$<$(), params\+\_\+components(), rename\+\_\+param(), rllh\+\_\+components(), and set\+\_\+param\+\_\+names().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ae7ca30fd19fb59ebe241873443b9faed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ae7ca30fd19fb59ebe241873443b9faed_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params@{params}}
+\index{params@{params}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::params (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_adc8761a6b3dda7ffe7d1694cebcd21f5}{}\label{classprior__hessian_1_1CompositeDist_adc8761a6b3dda7ffe7d1694cebcd21f5}
+
+
+Definition at line 164 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+params(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+params(), get\+\_\+param\+\_\+value(), prior\+\_\+hessian\+::operator$<$$<$(), rllh\+\_\+components(), and set\+\_\+param\+\_\+value().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_adc8761a6b3dda7ffe7d1694cebcd21f5_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params\+\_\+components@{params\+\_\+components}}
+\index{params\+\_\+components@{params\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{params\+\_\+components() const }{params_components() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf VecT}$>$ prior\+\_\+hessian\+::\+Composite\+Dist\+::params\+\_\+components (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a927fed39b2b4e87714c728d6e7b11e8b}{}\label{classprior__hessian_1_1CompositeDist_a927fed39b2b4e87714c728d6e7b11e8b}
+
+
+Definition at line 169 of file Composite\+Dist.\+h.
+
+
+
+References get\+\_\+param\+\_\+index(), get\+\_\+param\+\_\+value(), has\+\_\+param(), param\+\_\+names(), rename\+\_\+param(), set\+\_\+param\+\_\+names(), and set\+\_\+param\+\_\+value().
+
+
+
+Referenced by rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a927fed39b2b4e87714c728d6e7b11e8b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a927fed39b2b4e87714c728d6e7b11e8b_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params\+\_\+lbound@{params\+\_\+lbound}}
+\index{params\+\_\+lbound@{params\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{params\+\_\+lbound() const }{params_lbound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::params\+\_\+lbound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a3520120621a69469e885ba64f08ede3a}{}\label{classprior__hessian_1_1CompositeDist_a3520120621a69469e885ba64f08ede3a}
+
+
+Definition at line 167 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a3520120621a69469e885ba64f08ede3a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params\+\_\+ubound@{params\+\_\+ubound}}
+\index{params\+\_\+ubound@{params\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{params\+\_\+ubound() const }{params_ubound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::params\+\_\+ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab9eac2d70f484d2d0d4ead6a21d6f798}{}\label{classprior__hessian_1_1CompositeDist_ab9eac2d70f484d2d0d4ead6a21d6f798}
+
+
+Definition at line 168 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ab9eac2d70f484d2d0d4ead6a21d6f798_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!pdf@{pdf}}
+\index{pdf@{pdf}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{pdf(const Vec\+T \&u) const }{pdf(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Composite\+Dist\+::pdf (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_abbde55c133989f566801967484ccb2b8}{}\label{classprior__hessian_1_1CompositeDist_abbde55c133989f566801967484ccb2b8}
+
+
+Definition at line 185 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::pdf\+\_\+from\+\_\+iter(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::pdf\+\_\+from\+\_\+iter(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_abbde55c133989f566801967484ccb2b8_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rename\+\_\+param@{rename\+\_\+param}}
+\index{rename\+\_\+param@{rename\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{rename\+\_\+param(const std\+::string \&old\+\_\+name, std\+::string new\+\_\+name)}{rename_param(const std::string &old_name, std::string new_name)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::rename\+\_\+param (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{old\+\_\+name, }
+\item[{std\+::string}]{new\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_ace0aaa3698d76aba6a47f9061ff98902}{}\label{classprior__hessian_1_1CompositeDist_ace0aaa3698d76aba6a47f9061ff98902}
+
+
+Definition at line 210 of file Composite\+Dist.\+cpp.
+
+
+
+References param\+\_\+names(), and set\+\_\+param\+\_\+names().
+
+
+
+Referenced by params\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ace0aaa3698d76aba6a47f9061ff98902_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ace0aaa3698d76aba6a47f9061ff98902_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rllh@{rllh}}
+\index{rllh@{rllh}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{rllh(const Vec\+T \&u) const }{rllh(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}double prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ae7186f83597ca44698b178cef6144f78}{}\label{classprior__hessian_1_1CompositeDist_ae7186f83597ca44698b178cef6144f78}
+
+
+Definition at line 187 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::rllh\+\_\+from\+\_\+iter(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::rllh\+\_\+from\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ae7186f83597ca44698b178cef6144f78_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rllh\+\_\+components@{rllh\+\_\+components}}
+\index{rllh\+\_\+components@{rllh\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{rllh\+\_\+components(const Vec\+T \&u) const }{rllh_components(const VecT &u) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{u}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a24bac25ae8c0330b8a3aacadffc9d5ae}{}\label{classprior__hessian_1_1CompositeDist_a24bac25ae8c0330b8a3aacadffc9d5ae}
+
+
+Definition at line 246 of file Composite\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::meta\+::call\+\_\+in\+\_\+order(), cdf(), check\+\_\+params(), component\+\_\+types(), global\+\_\+lbound(), global\+\_\+ubound(), grad(), grad2(), grad2\+\_\+accumulate(), grad\+\_\+accumulate(), grad\+\_\+grad2\+\_\+accumulate(), grad\+\_\+hess\+\_\+accumulate(), hess(), hess\+\_\+accumulate(), lbound(), llh(), llh\+\_\+components(), prior\+\_\+hessian\+::meta\+::logical\+\_\+and\+\_\+in\+\_\+order(), num\+\_\+dim(), num\+\_\+dim\+\_\+components(), num\+\_\+params(), num\+\_\+params\+\_\+components(), param\+\_\+names(), params(), params\+\_\+components(), params\+\_\+lbound(), params\+\_\+ubound(), pdf(), prior\+\_\+hessian\+::meta\+::prod\+\_\+in\+\_\+order(), rllh(), sample(), set\+\_\+bounds(), set\+\_\+lbound(), set\+\_\+param\+\_\+names(), set\+\_\+params(), set\+\_\+ubound(), prior\+\_\+hessian\+::meta\+::sum\+\_\+in\+\_\+order(), and ubound().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classprior__hessian_1_1CompositeDist_a24bac25ae8c0330b8a3aacadffc9d5ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Any\+Rng\+T \&rng)}{sample(AnyRngT &rng)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{{\bf Any\+RngT} \&}]{rng}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56}{}\label{classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56}
+
+
+Definition at line 227 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+sample(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+sample(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Any\+Rng\+T \&rng, Idx\+T num\+\_\+samples)}{sample(AnyRngT &rng, IdxT num_samples)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MatT} prior\+\_\+hessian\+::\+Composite\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{{\bf Any\+RngT} \&}]{rng, }
+\item[{{\bf IdxT}}]{num\+\_\+samples}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab67e4f2136cfe541216bae9871763d96}{}\label{classprior__hessian_1_1CompositeDist_ab67e4f2136cfe541216bae9871763d96}
+
+
+Definition at line 228 of file Composite\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&\&rng)}{sample(RngT &&rng)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class RngT $>$ {\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&\&}]{rng}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ad16fff66b154a712fc35bcf9be72219a}{}\label{classprior__hessian_1_1CompositeDist_ad16fff66b154a712fc35bcf9be72219a}
+
+
+Definition at line 231 of file Composite\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}}
+\index{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&\&rng, Idx\+T num\+\_\+samples)}{sample(RngT &&rng, IdxT num_samples)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class RngT $>$ {\bf MatT} prior\+\_\+hessian\+::\+Composite\+Dist\+::sample (
+\begin{DoxyParamCaption}
+\item[{RngT \&\&}]{rng, }
+\item[{{\bf IdxT}}]{num\+\_\+samples}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ab4b704c38ba580c08876a993e61e6b5c}{}\label{classprior__hessian_1_1CompositeDist_ab4b704c38ba580c08876a993e61e6b5c}
+
+
+Definition at line 238 of file Composite\+Dist.\+h.
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+bounds@{set\+\_\+bounds}}
+\index{set\+\_\+bounds@{set\+\_\+bounds}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+bounds(const Vec\+T \&new\+\_\+lbound, const Vec\+T \&new\+\_\+ubound)}{set_bounds(const VecT &new_lbound, const VecT &new_ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+bounds (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{new\+\_\+lbound, }
+\item[{const {\bf VecT} \&}]{new\+\_\+ubound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_ae7a0e0a30b13823413dd1b4bea4163ca}{}\label{classprior__hessian_1_1CompositeDist_ae7a0e0a30b13823413dd1b4bea4163ca}
+
+
+Definition at line 159 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::set\+\_\+bounds\+\_\+from\+\_\+iter(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::set\+\_\+bounds\+\_\+from\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_ae7a0e0a30b13823413dd1b4bea4163ca_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+component\+\_\+names@{set\+\_\+component\+\_\+names}}
+\index{set\+\_\+component\+\_\+names@{set\+\_\+component\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+component\+\_\+names(\+String\+Vec \&\&names)}{set_component_names(StringVec &&names)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class String\+Vec $>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+component\+\_\+names (
+\begin{DoxyParamCaption}
+\item[{String\+Vec \&\&}]{names}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3}{}\label{classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3}
+
+
+Definition at line 938 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+components().
+
+
+
+Referenced by component\+\_\+types().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}}
+\index{set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+dim\+\_\+variables(\+String\+Vec \&\&vars)}{set_dim_variables(StringVec &&vars)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class String\+Vec $>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+dim\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{String\+Vec \&\&}]{vars}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a6a84d1519fcee908bd41abd4a989f666}{}\label{classprior__hessian_1_1CompositeDist_a6a84d1519fcee908bd41abd4a989f666}
+
+
+Definition at line 950 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+dim().
+
+
+
+Referenced by num\+\_\+dim\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a6a84d1519fcee908bd41abd4a989f666_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a6a84d1519fcee908bd41abd4a989f666_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+lbound@{set\+\_\+lbound}}
+\index{set\+\_\+lbound@{set\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+lbound(const Vec\+T \&new\+\_\+bound)}{set_lbound(const VecT &new_bound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+lbound (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{new\+\_\+bound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a249e33b8a48cd337f3529cc30bf443ff}{}\label{classprior__hessian_1_1CompositeDist_a249e33b8a48cd337f3529cc30bf443ff}
+
+
+Definition at line 157 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::set\+\_\+lbound\+\_\+from\+\_\+iter(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::set\+\_\+lbound\+\_\+from\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a249e33b8a48cd337f3529cc30bf443ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+param\+\_\+names@{set\+\_\+param\+\_\+names}}
+\index{set\+\_\+param\+\_\+names@{set\+\_\+param\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+param\+\_\+names(\+String\+Vec \&\&vars)}{set_param_names(StringVec &&vars)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class String\+Vec $>$ void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+param\+\_\+names (
+\begin{DoxyParamCaption}
+\item[{String\+Vec \&\&}]{vars}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a38c4fdacf927824117d202422b04013c}{}\label{classprior__hessian_1_1CompositeDist_a38c4fdacf927824117d202422b04013c}
+
+
+Definition at line 962 of file Composite\+Dist.\+h.
+
+
+
+References num\+\_\+params(), prior\+\_\+hessian\+::operator$<$$<$(), and param\+\_\+names().
+
+
+
+Referenced by params\+\_\+components(), rename\+\_\+param(), and rllh\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a38c4fdacf927824117d202422b04013c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a38c4fdacf927824117d202422b04013c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+param\+\_\+value@{set\+\_\+param\+\_\+value}}
+\index{set\+\_\+param\+\_\+value@{set\+\_\+param\+\_\+value}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+param\+\_\+value(const std\+::string \&name, double value)}{set_param_value(const std::string &name, double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+param\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classprior__hessian_1_1CompositeDist_a2b9cc7f1661dbd1bbd6f37c462781d5f}{}\label{classprior__hessian_1_1CompositeDist_a2b9cc7f1661dbd1bbd6f37c462781d5f}
+
+
+Definition at line 196 of file Composite\+Dist.\+cpp.
+
+
+
+References params(), and set\+\_\+params().
+
+
+
+Referenced by params\+\_\+components().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a2b9cc7f1661dbd1bbd6f37c462781d5f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a2b9cc7f1661dbd1bbd6f37c462781d5f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec\+T \&new\+\_\+params)}{set_params(const VecT &new_params)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{new\+\_\+params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a8f0b1c79d0d4319adf783fe4fdbf7eb0}{}\label{classprior__hessian_1_1CompositeDist_a8f0b1c79d0d4319adf783fe4fdbf7eb0}
+
+
+Definition at line 165 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components(), and set\+\_\+param\+\_\+value().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a8f0b1c79d0d4319adf783fe4fdbf7eb0_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+ubound@{set\+\_\+ubound}}
+\index{set\+\_\+ubound@{set\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{set\+\_\+ubound(const Vec\+T \&new\+\_\+bound)}{set_ubound(const VecT &new_bound)}}]{\setlength{\rightskip}{0pt plus 5cm}void prior\+\_\+hessian\+::\+Composite\+Dist\+::set\+\_\+ubound (
+\begin{DoxyParamCaption}
+\item[{const {\bf VecT} \&}]{new\+\_\+bound}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_a8399071596edc8ef270d4e3337576c5d}{}\label{classprior__hessian_1_1CompositeDist_a8399071596edc8ef270d4e3337576c5d}
+
+
+Definition at line 158 of file Composite\+Dist.\+h.
+
+
+
+Referenced by rllh\+\_\+components(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::set\+\_\+ubound\+\_\+from\+\_\+iter(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::set\+\_\+ubound\+\_\+from\+\_\+iter().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_a8399071596edc8ef270d4e3337576c5d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!ubound@{ubound}}
+\index{ubound@{ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}}
+\paragraph[{\texorpdfstring{ubound() const }{ubound() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VecT} prior\+\_\+hessian\+::\+Composite\+Dist\+::ubound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1CompositeDist_aab0290d9dd418c2e7deb26e9f37eb74f}{}\label{classprior__hessian_1_1CompositeDist_aab0290d9dd418c2e7deb26e9f37eb74f}
+
+
+Definition at line 147 of file Composite\+Dist.\+h.
+
+
+
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+global\+\_\+ubound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$\+::append\+\_\+ubound(), prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$\+::append\+\_\+ubound(), in\+\_\+bounds(), in\+\_\+bounds\+\_\+all(), prior\+\_\+hessian\+::operator$<$$<$(), and rllh\+\_\+components().
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classprior__hessian_1_1CompositeDist_aab0290d9dd418c2e7deb26e9f37eb74f_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{CompositeDist_8h}{Composite\+Dist.\+h}\item 
+\hyperlink{CompositeDist_8cpp}{Composite\+Dist.\+cpp}\end{DoxyCompactItemize}

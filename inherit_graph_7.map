@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec.html" title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, MultivariateDist \&gt; \&gt;" alt="" coords="96,5,291,71"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3.html" title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, UnivariateDist \&gt; \&gt;" alt="" coords="96,95,291,160"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1ScaledDist.html" title="prior_hessian::ScaledDist\l\&lt; Dist \&gt;" alt="" coords="112,184,275,223"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1TruncatedDist.html" title="prior_hessian::Truncated\lDist\&lt; Dist \&gt;" alt="" coords="114,247,273,285"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1TruncatedMultivariateDist.html" title="prior_hessian::Truncated\lMultivariateDist\&lt; Dist \&gt;" alt="" coords="114,309,273,348"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1UpperTruncatedDist.html" title="prior_hessian::UpperTruncated\lDist\&lt; Dist \&gt;" alt="" coords="97,372,289,411"/>
+</map>

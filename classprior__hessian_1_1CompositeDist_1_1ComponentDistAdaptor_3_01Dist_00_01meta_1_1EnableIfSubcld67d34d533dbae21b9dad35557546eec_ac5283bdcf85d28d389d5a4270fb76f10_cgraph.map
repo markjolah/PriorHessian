@@ -1,0 +1,5 @@
+<map id="prior_hessian::CompositeDist::ComponentDistAdaptor&lt; Dist, meta::EnableIfSubclassT&lt; Dist, MultivariateDist &gt; &gt;::grad_hess_accumulate_idx" name="prior_hessian::CompositeDist::ComponentDistAdaptor&lt; Dist, meta::EnableIfSubclassT&lt; Dist, MultivariateDist &gt; &gt;::grad_hess_accumulate_idx">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#aaa6bfd95f5914c0f68d67cd97ff40db3" title="prior_hessian::Composite\lDist::grad" alt="" coords="248,5,411,44"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1CompositeDist.html#ab8c1ff058081ab81620e24b0e3e85f5d" title="prior_hessian::Composite\lDist::hess" alt="" coords="248,68,411,107"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#ad532e3fe9e7293fef7b293d3c94a1ddc" title="prior_hessian::Composite\lDist::num_dim" alt="" coords="459,37,621,76"/>
+</map>

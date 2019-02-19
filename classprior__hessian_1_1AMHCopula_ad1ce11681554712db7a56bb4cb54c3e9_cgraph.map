@@ -1,0 +1,10 @@
+<map id="prior_hessian::AMHCopula::llh" name="prior_hessian::AMHCopula::llh">
+<area shape="rect" id="node2" href="$classprior__hessian_1_1AMHCopula.html#a19aecc89d6a1d6c46aa595a13999cfb2" title="prior_hessian::AMHCopula\l::d1_igen" alt="" coords="243,87,413,125"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1AMHCopula.html#a38e091a72ecb8c9df42e88017b2d347e" title="prior_hessian::AMHCopula\l::igen_sum" alt="" coords="461,29,632,68"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1AMHCopula.html#a9fc68a651139c1c7d28a8144562a09f3" title="prior_hessian::AMHCopula\l::ddim_gen" alt="" coords="243,149,413,188"/>
+<area shape="rect" id="node4" href="$classprior__hessian_1_1AMHCopula.html#a11696b4a8cef12a30706cd745820b201" title="prior_hessian::AMHCopula\l::theta" alt="" coords="680,59,851,97"/>
+<area shape="rect" id="node7" href="$classprior__hessian_1_1AMHCopula.html#aaacec957c8d8e24df1100aee2694fe3a" title="prior_hessian::AMHCopula\l::num_dim" alt="" coords="461,144,632,183"/>
+<area shape="rect" id="node8" href="$namespaceprior__hessian_1_1polylog.html#abb5fc2ad3b1509f49ea4b2fc05d916bb" title="prior_hessian::polylog\l::polylog" alt="" coords="475,207,618,245"/>
+<area shape="rect" id="node5" href="$classprior__hessian_1_1AMHCopula.html#a80bcb09b15bdb3c404f028772932c081" title="prior_hessian::AMHCopula\l::set_theta" alt="" coords="899,59,1069,97"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1AMHCopula.html#a9d4b8453eedea358f829f8d4c911d8c4" title="prior_hessian::AMHCopula\l::check_theta" alt="" coords="1117,59,1288,97"/>
+</map>

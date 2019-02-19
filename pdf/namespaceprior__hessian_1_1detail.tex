@@ -1,0 +1,138 @@
+\hypertarget{namespaceprior__hessian_1_1detail}{}\subsection{prior\+\_\+hessian\+:\+:detail Namespace Reference}
+\label{namespaceprior__hessian_1_1detail}\index{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classprior__hessian_1_1detail_1_1dist__adaptor__traits}{dist\+\_\+adaptor\+\_\+traits}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01CopulaDistImpl_1_1CopulaDist_3_01Cop7279db6753e87d864b5bda4f78bd9862}{dist\+\_\+adaptor\+\_\+traits$<$ Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Dist\+Ts... $>$ $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01GammaDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Gamma\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01MultivariateNormalDist_3_01Ndim_01_4_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01NormalDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Normal\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01ParetoDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Pareto\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01ScaledSymmetricBetaDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Scaled\+Symmetric\+Beta\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01SymmetricBetaDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Symmetric\+Beta\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01TruncatedGammaDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Gamma\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01TruncatedMultivariateNormalDist_3_01Ndim_01_4_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Multivariate\+Normal\+Dist$<$ Ndim $>$ $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01TruncatedNormalDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Normal\+Dist $>$}
+\item 
+struct \hyperlink{structprior__hessian_1_1detail_1_1dist__adaptor__traits_3_01TruncatedParetoDist_01_4}{dist\+\_\+adaptor\+\_\+traits$<$ Truncated\+Pareto\+Dist $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class DistT $>$ }\\using \hyperlink{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{Dist\+TraitsT} = \hyperlink{classprior__hessian_1_1detail_1_1dist__adaptor__traits}{detail\+::dist\+\_\+adaptor\+\_\+traits}$<$ std\+::decay\+\_\+t$<$ DistT $>$$>$
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\std\+::tuple$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3}{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (std\+::tuple$<$ Ts... $>$ \&\&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$class... Ts, std\+::size\+\_\+t... I$>$ }\\std\+::tuple$<$ \hyperlink{namespaceprior__hessian_a919f0d7f51ea845224ca7f03983508a9}{Bounds\+Adapted\+DistT}$<$ Ts $>$... $>$ \hyperlink{namespaceprior__hessian_1_1detail_a112a6e8be541a29b2c8b366f26e6d72e}{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple} (const std\+::tuple$<$ Ts... $>$ \&dists, std\+::index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$long N, long... I$>$ }\\\hyperlink{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{VecT} \hyperlink{namespaceprior__hessian_1_1detail_a94c4015a4b09f513fc7de59a15c9247c}{eulerian\+\_\+polynomial} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Typedef Documentation}
+\index{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!Dist\+TraitsT@{Dist\+TraitsT}}
+\index{Dist\+TraitsT@{Dist\+TraitsT}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}}
+\paragraph[{\texorpdfstring{Dist\+TraitsT}{DistTraitsT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class DistT $>$ using {\bf prior\+\_\+hessian\+::detail\+::\+Dist\+TraitsT} = typedef {\bf detail\+::dist\+\_\+adaptor\+\_\+traits}$<$std\+::decay\+\_\+t$<$DistT$>$$>$}\hypertarget{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}{}\label{namespaceprior__hessian_1_1detail_a00684f44608e5a5bf76458d81159f924}
+Type traits class for distribution type DistT.
+
+The traits class describes the Adaptor classes applicable to each individual distribution 
+
+Definition at line 52 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+\subsubsection{Function Documentation}
+\index{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}}
+\index{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}}
+\paragraph[{\texorpdfstring{eulerian\+\_\+polynomial()}{eulerian_polynomial()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$long N, long... I$>$ {\bf VecT} prior\+\_\+hessian\+::detail\+::eulerian\+\_\+polynomial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1detail_a94c4015a4b09f513fc7de59a15c9247c}{}\label{namespaceprior__hessian_1_1detail_a94c4015a4b09f513fc7de59a15c9247c}
+
+
+Definition at line 26 of file Eulerian\+Polynomial.\+h.
+
+\index{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(std\+::tuple$<$ Ts... $>$ \&\&dists, std\+::index\+\_\+sequence$<$ I... $>$)}{make_adapted_bounded_dist_tuple(std::tuple< Ts... > &&dists, std::index_sequence< I... >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, std\+::size\+\_\+t... I$>$ std\+::tuple$<${\bf Bounds\+Adapted\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{std\+::tuple$<$ Ts... $>$ \&\&}]{dists, }
+\item[{std\+::index\+\_\+sequence$<$ I... $>$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3}{}\label{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3}
+
+
+Definition at line 66 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist().
+
+
+
+Referenced by prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1detail_a13ee7e8b01109559d15a98dcdc1949d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}}
+\index{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}}
+\paragraph[{\texorpdfstring{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple(const std\+::tuple$<$ Ts... $>$ \&dists, std\+::index\+\_\+sequence$<$ I... $>$)}{make_adapted_bounded_dist_tuple(const std::tuple< Ts... > &dists, std::index_sequence< I... >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts, std\+::size\+\_\+t... I$>$ std\+::tuple$<${\bf Bounds\+Adapted\+DistT}$<$Ts$>$...$>$ prior\+\_\+hessian\+::detail\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple (
+\begin{DoxyParamCaption}
+\item[{const std\+::tuple$<$ Ts... $>$ \&}]{dists, }
+\item[{std\+::index\+\_\+sequence$<$ I... $>$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{namespaceprior__hessian_1_1detail_a112a6e8be541a29b2c8b366f26e6d72e}{}\label{namespaceprior__hessian_1_1detail_a112a6e8be541a29b2c8b366f26e6d72e}
+
+
+Definition at line 73 of file Bounds\+Adapted\+Dist.\+h.
+
+
+
+References prior\+\_\+hessian\+::make\+\_\+adapted\+\_\+bounded\+\_\+dist().
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceprior__hessian_1_1detail_a112a6e8be541a29b2c8b366f26e6d72e_cgraph}
+\end{center}
+\end{figure}
+
+
