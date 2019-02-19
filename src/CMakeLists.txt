@@ -28,6 +28,6 @@ foreach(target IN LISTS lib_targets)
     else()
         target_link_libraries(${target} INTERFACE LAPACK::Lapack BLAS::Blas)
     endif()
-    target_link_libraries(${target} INTERFACE Armadillo::Armadillo)
+    target_link_libraries(${target} PUBLIC Armadillo::Armadillo)
     target_link_libraries(${target} PUBLIC Boost::boost) #For Boost header-only libraries
 endforeach()
