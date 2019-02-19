@@ -130,6 +130,7 @@ function(make_pkg_config_target)
                 endif()
                 string(REGEX REPLACE "-L" "" _LIB_DIRS "${_LIB_DIRS}")
                 string(REGEX REPLACE "-l" "" _LIBS "${_LIBS}")
+                message(STATUS "[MakePkgConfigTarget] TARGET:${target_name} PCNAME:${pkg_config_name} def:${_COMPILE_DEFINITIONS} opt:${_COMPILE_OPTIONS} inc:${_INCLUDES} libopt:${_LINKER_OPTS} libdir:${_LIB_DIRS} libs:${_LIBS}")
 
                 add_library(${target_name} INTERFACE IMPORTED)
                 set_target_properties(${target_name} PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${_INCLUDES}")
@@ -138,11 +139,12 @@ function(make_pkg_config_target)
                 if(${CMAKE_VERSION} VERSION_GREATER "3.13.0")
                     target_link_options(${target_name} INTERFACE ${_LINK_OPTS})
                     target_link_directories(${target_name} INTERFACE ${_LIB_DIRS})
+                    target_link_libraries(${target_name} INTERFACE ${_LIBS})
                 else()
                     set_target_properties(${target_name} PROPERTIES INTERFACE_LINK_LIBRARIES "${_LINK_OPTS}") #Older CMAKE don't have INTERFACE_LINK_OPTIONS
                     set_target_properties(${target_name} PROPERTIES INTERFACE_LINK_LIBRARIES "${_LIB_DIRS}") #Older CMAKE don't have INTERFACE_LINK_DIRECTORIES
+                    set_target_properties(${target_name} PROPERTIES INTERFACE_LINK_LIBRARIES "${_LIBS}") #Older CMAKE don't have INTERFACE_LINK_DIRECTORIES
                 endif()
-                target_link_libraries(${target_name} INTERFACE ${_LIBS})
                 set(_FOUND_PKG_CONFIG True)
                 set(${target_var_name}_PKGCONFIG_FOUND_NAME ${pkg_config_name} PARENT_SCOPE)
                 set(${target_var_name}_PKGCONFIG_FOUND_NAME ${pkg_config_name} CACHE STRING "${target_name} libraries: found using pkg-config name" FORCE)
