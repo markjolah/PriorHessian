@@ -54,9 +54,9 @@ find_package(Boost REQUIRED)
 
 # Find Blas and Lapack using pkg-config in cross-compilation aware way.  Using local FindBLAS.cmake and FindLAPACK.cmake.
 if(OPT_ARMADILLO_INT64)
-    set(ARMADILLO_BLASINT BLASINT64) #Enable INT64 interface for armadillo, Blas and Lapack
+    set(ARMADILLO_BLASINT INT64) #Enable INT64 interface for armadillo, Blas and Lapack
 else()
-    set(ARMADILLO_BLASINT BLASINT32)
+    set(ARMADILLO_BLASINT INT32)
 endif()
 find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
 find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
