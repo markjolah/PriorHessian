@@ -54,13 +54,13 @@ find_package(Boost REQUIRED)
 
 # Find Blas and Lapack using pkg-config in cross-compilation aware way.  Using local FindBLAS.cmake and FindLAPACK.cmake.
 if(OPT_ARMADILLO_INT64)
-    set(ARMADILLO_INT64_COMPONENT INT64) #Enable INT64 interface for armadillo, Blas and Lapack
+    set(ARMADILLO_BLASINT BLASINT64) #Enable INT64 interface for armadillo, Blas and Lapack
 else()
-    set(ARMADILLO_INT64_COMPONENT)
+    set(ARMADILLO_BLASINT BLASINT32)
 endif()
-find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
-find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_INT64_COMPONENT})
-find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${ARMADILLO_INT64_COMPONENT})
+find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
+find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
+find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${ARMADILLO_BLASINT})
 set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS ${ARMADILLO_PRIVATE_COMPILE_DEFINITIONS})
 
 
@@ -77,7 +77,7 @@ set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
                           cmake/UncommonCMakeModules/FindBLAS.cmake
                           cmake/UncommonCMakeModules/FindLAPACK.cmake
                           cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
-export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_INT64_COMPONENT}
+export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_BLASINT}
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
 
 ### Testing
