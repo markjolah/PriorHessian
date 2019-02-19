@@ -4,7 +4,7 @@
 # Download, configure and install armadillo.  If install prefix is omitted, defaults to root.
 #
 if [ -z "$1" ]; then
-    INSTALL_PREFIX="/"
+    INSTALL_PREFIX="/usr"
 else
     if [ ! -d "$1" ]; then
         mkdir -p $1

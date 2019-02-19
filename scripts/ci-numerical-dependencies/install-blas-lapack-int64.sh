@@ -4,7 +4,7 @@
 # Download, configure and install armadillo.  If install prefix is omitted, defaults to root.
 #
 if [ -z "$1" ]; then
-    INSTALL_PREFIX="/"
+    INSTALL_PREFIX="/usr"
 else
     if [ ! -d "$1" ]; then
         mkdir -p $1
@@ -43,6 +43,8 @@ cd $PKG_NAME
 if [ ! -d "$(pwd)/$BUILD_PATH" ]; then
     mkdir -p $BUILD_PATH
 fi
+echo "BLAS LIBS: $(pkg-config --libs blas)"
+echo "LAPCK LIBS: $(pkg-config --libs lapack)"
 cmake . -B$BUILD_PATH -DCMAKE_Fortran_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
 cd $BUILD_PATH
 make all -j$NUM_PROCS
