@@ -23,7 +23,7 @@ foreach(target IN LISTS lib_targets)
     #Boost extendend precision math has problems with older GCC compilers
     target_compile_options(${target} PUBLIC $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:${CMAKE_CXX_COMPILER_VERSION},7>,$<COMPILE_LANGUAGE:CXX>>:-fext-numeric-literals>)
 
-    if(OPT_ARMADILLO_INT64)
+    if(OPT_BLAS_INT64)
         target_link_libraries(${target} INTERFACE LAPACK::LapackInt64 BLAS::BlasInt64)
     else()
         target_link_libraries(${target} INTERFACE LAPACK::Lapack BLAS::Blas)

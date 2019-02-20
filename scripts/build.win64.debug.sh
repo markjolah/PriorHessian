@@ -9,7 +9,7 @@
 #
 # Optional environment variables:
 # OPT_DOC - enable documentation build.
-# OPT_ARMADILLO_INT64 - enable armadillo 64-bit integer support
+# OPT_BLAS_INT64 - enable armadillo 64-bit integer support
 ARCH=win64
 FULL_ARCH=x86_64-w64-mingw32
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -22,8 +22,8 @@ NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
 if [ -z $OPT_DOC ]; then
     OPT_DOC="Off"
 fi
-if [ -z $OPT_ARMADILLO_INT64 ]; then
-    OPT_ARMADILLO_INT64="Off"
+if [ -z $OPT_BLAS_INT64 ]; then
+    OPT_BLAS_INT64="Off"
 fi
 
 ARGS="-DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE"
@@ -36,7 +36,7 @@ ARGS="${ARGS} -DOPT_INSTALL_TESTING=On"
 ARGS="${ARGS} -DOPT_EXPORT_BUILD_TREE=On"
 ARGS="${ARGS} -DOPT_FIXUP_DEPENDENCIES=On"
 ARGS="${ARGS} -DOPT_FIXUP_DEPENDENCIES_BUILD_TREE=On"
-ARGS="${ARGS} -DOPT_ARMADILLO_INT64=${DOPT_ARMADILLO_INT64}"
+ARGS="${ARGS} -DOPT_BLAS_INT64=${DOPT_BLAS_INT64}"
 
 set -ex
 rm -rf $INSTALL_PATH $BUILD_PATH

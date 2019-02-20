@@ -23,7 +23,7 @@ The PriorHessian library uses CMake and is designed to be installed either to a 
 * *BLAS* - A BLAS implemenation: [Netlib BLAS reference](http://www.netlib.org/blas/) or [*OpenBlas*](https://www.openblas.net/)
 * *LAPACK* - A Lapack implemenation: [Netlib LAPACK reference](http://www.netlib.org/lapack/)
 
-Note the `OPT_ARMADILLO_INT64` CMake option controls whether Armadillo uses BLAS and LAPACK libraries that use 64-bit interger indexing.
+Note the `OPT_BLAS_INT64` CMake option controls whether Armadillo uses BLAS and LAPACK libraries that use 64-bit interger indexing.
 Matlab uses 64-bit by default, and to link PriorHessian to Matlab MEX libraries, this option must be on.  Many linux systems only provide 32-bit integer versions of BLAS and Lapack, and the option can be disabled if Matlab support is not a concern and 64-bit support is difficult to manage on
 
 ### External Projects
