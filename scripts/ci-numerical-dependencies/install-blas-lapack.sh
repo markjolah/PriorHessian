@@ -43,15 +43,17 @@ CMAKE_ARGS="${CMAKE_ARGS} ${@:2}"
 
 set -ex
 
-rm -rf $REPOS_DIR
+# rm -rf $REPOS_DIR
 mkdir -p $REPOS_DIR
 cd $WORK_DIR
-git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
+#git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
 mkdir -p $BUILD_PATH
 cmake . -B$BUILD_PATH -DCMAKE_Fortran_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
 cd $BUILD_PATH
 make all -j$NUM_PROCS
 $SUDO make install
-$SUDO mv ${PKG_CONFIG_PATH}/blas.pc ${PKG_CONFIG_PATH}/blas-reference-int64.pc
-$SUDO mv ${PKG_CONFIG_PATH}/lapack.pc ${PKG_CONFIG_PATH}/lapack-reference-int64.pc
+set +x
+echo "PKG_CONFIG: $PKG_CONFIG_PATH"
+echo "Modified: $($SUDO find $INSTALL_PREFIX/lib/pkgconfig $INSTALL_PREFIX/lib64/pkgconfig $INSTALL_PREFIX/x86_64-linux-gnu/lib/pkgconfig -type f -name blas.pc -print -exec rename blas.pc blas-reference${PC_SUFFIX}.pc {} \; 2> /dev/null)"
+echo "Modified: $($SUDO find $INSTALL_PREFIX/lib/pkgconfig $INSTALL_PREFIX/lib64/pkgconfig $INSTALL_PREFIX/x86_64-linux-gnu/lib/pkgconfig -type f -name lapack.pc -print -exec rename lapack.pc lapack-reference${PC_SUFFIX}.pc {} \; 2> /dev/null)"
