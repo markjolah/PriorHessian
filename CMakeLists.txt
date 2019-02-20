@@ -43,20 +43,20 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_LIST_DIR}/cmake/UncommonCMakeMod
 ### Dependencies
 include(AddExternalDependency)
 #BacktraceException allows for exceptions that encode a backtrace for debugging
-add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git)
+add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git VARS OPT_INSTALL_TESTING)
 
 # Boost configure.  We require boost::math
 find_package(Boost REQUIRED)
 
 # Find Blas and Lapack using pkg-config in cross-compilation aware way.  Using local FindBLAS.cmake and FindLAPACK.cmake.
 if(OPT_BLAS_INT64)
-    set(ARMADILLO_BLASINT BLAS_INT64) #Enable INT64 interface for armadillo, Blas and Lapack
+    set(BLAS_INT_COMPONENT BLAS_INT64)
 else()
-    set(ARMADILLO_BLASINT BLAS_INT32)
+    set(BLAS_INT_COMPONENT BLAS_INT32)
 endif()
-find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
-find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
-find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${ARMADILLO_BLASINT})
+find_package(BLAS REQUIRED COMPONENTS ${BLAS_INT_COMPONENT})
+find_package(LAPACK REQUIRED COMPONENTS ${BLAS_INT_COMPONENT})
+find_package(Armadillo REQUIRED COMPONENTS BLAS LAPACK CXX11 ${BLAS_INT_COMPONENT})
 set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS ${ARMADILLO_PRIVATE_COMPILE_DEFINITIONS})
 
 
@@ -73,7 +73,7 @@ set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
                           cmake/UncommonCMakeModules/FindBLAS.cmake
                           cmake/UncommonCMakeModules/FindLAPACK.cmake
                           cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
-export_package_wizzard(PROVIDED_COMPONENTS ${ARMADILLO_BLASINT}
+export_package_wizzard(PROVIDED_COMPONENTS ${BLAS_INT_COMPONENT}
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
 
 ### Testing
