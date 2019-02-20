@@ -43,10 +43,10 @@ CMAKE_ARGS="${CMAKE_ARGS} ${@:2}"
 
 set -ex
 
-# rm -rf $REPOS_DIR
+rm -rf $REPOS_DIR
 mkdir -p $REPOS_DIR
 cd $WORK_DIR
-#git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
+git clone $PKG_URL -b $PKG_BRANCH $PKG_NAME --depth 1
 cd $PKG_NAME
 mkdir -p $BUILD_PATH
 cmake . -B$BUILD_PATH -DCMAKE_Fortran_COMPILER="$FC" -DCMAKE_Fortran_FLAGS="${FFLAGS}"  ${CMAKE_ARGS}
