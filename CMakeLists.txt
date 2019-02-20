@@ -43,20 +43,16 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_LIST_DIR}/cmake/UncommonCMakeMod
 ### Dependencies
 include(AddExternalDependency)
 #BacktraceException allows for exceptions that encode a backtrace for debugging
-set(DEPENDENT_LIBRARY_TYPES SHARED)
-if(BUILD_STATIC_LIBS)
-    list(APPEND DEPENDENT_LIBRARY_TYPES STATIC)
-endif()
-add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git ${DEPENDENT_LIBRARY_TYPES})
+add_external_dependency(NAME BacktraceException URL https://github.com/markjolah/BacktraceException.git)
 
 # Boost configure.  We require boost::math
 find_package(Boost REQUIRED)
 
 # Find Blas and Lapack using pkg-config in cross-compilation aware way.  Using local FindBLAS.cmake and FindLAPACK.cmake.
 if(OPT_BLAS_INT64)
-    set(ARMADILLO_BLASINT INT64) #Enable INT64 interface for armadillo, Blas and Lapack
+    set(ARMADILLO_BLASINT BLAS_INT64) #Enable INT64 interface for armadillo, Blas and Lapack
 else()
-    set(ARMADILLO_BLASINT INT32)
+    set(ARMADILLO_BLASINT BLAS_INT32)
 endif()
 find_package(BLAS REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
 find_package(LAPACK REQUIRED COMPONENTS ${ARMADILLO_BLASINT})
