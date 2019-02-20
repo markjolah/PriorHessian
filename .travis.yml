@@ -10,7 +10,7 @@ branches:
     only:
         - master
 env:
-    golobal:
+    global:
         APT_INSTALL="sudo apt-get install -y"
 matrix:
   include:
@@ -39,13 +39,13 @@ before_install:
     - eval "${MATRIX_EVAL}"
 
 install:
-    - if [ "${DOC}" == "On" ]; then      $INSTALL doxygen graphviz; fi
-    - if [ "${DOC}" == "On" ]; then      $INSTALL gfortran; fi
-    - if [ "${PDFDOC}" == "On" ]; then   $INSTALL doxygen-latex; fi
-    - if [ "${CXX}" == "g++-4.9" ]; then $INSTALL g++-4.9 gfortran-4.9; fi
-    - if [ "${CXX}" == "g++-5" ];   then $INSTALL g++-5 gfortran-5; fi
-    - if [ "${CXX}" == "g++-6" ];   then $INSTALL g++-6 gfortran-6; fi
-    - if [ "${CXX}" == "g++-7" ];   then $INSTALL g++-7 gfortran-7; fi
+    - if [ "${DOC}" == "On" ];    then $APT_INSTALL doxygen graphviz; fi
+    - if [ "${DOC}" == "On" ];    then $APT_INSTALL gfortran; fi
+    - if [ "${PDFDOC}" == "On" ]; then $APT_INSTALL doxygen-latex; fi
+    - if [ "${CXX}" == "g++-4.9" ]; then $APT_INSTALL g++-4.9 gfortran-4.9; fi
+    - if [ "${CXX}" == "g++-5" ];   then $APT_INSTALL g++-5 gfortran-5; fi
+    - if [ "${CXX}" == "g++-6" ];   then $APT_INSTALL g++-6 gfortran-6; fi
+    - if [ "${CXX}" == "g++-7" ];   then $APT_INSTALL g++-7 gfortran-7; fi
     - if [ -z "$DOC" ]; then ./scripts/ci-numerical-dependencies/install-blas-lapack.sh; fi
     - ./scripts/ci-numerical-dependencies/install-armadillo.sh
     - sudo $INSTALL libboost-math-dev
