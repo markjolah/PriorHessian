@@ -5,8 +5,8 @@
 ;
 [subrepo]
 	remote = /nfs/olah/home/mjo/github/ci-numerical-dependencies
-	branch = master
-	commit = 4f8d9527e0c83aa4b6620c6095d1a850ae25f551
-	parent = 5fb57319081a8bc247ade731f06e220a8296c47c
+	branch = debugging
+	commit = 21f464f92e06138896bd465bf8d40b9d435b34a0
+	parent = 5234d3b622c0539fae7d06457538c9e3a313fc65
 	method = merge
 	cmdver = 0.4.0
