@@ -35,8 +35,7 @@ These packages are specialized CMake projects.  If they are not currently instal
 
 For many likelihood-based methods, they can be extended to Bayesian methods like MAP Estimation and MCMC Posterior sampling,
 by incorporating a prior.  This prior must provide fast methods for computing log-likelihood and it's derivatives over the
-parameter space.  The prior log-likelihood, as well as it's gradient and hessian are then added to the equivalent quantities from the likelihood
-to create a Bayesian objective for MAP Estimation.
+parameter space.  The prior log-likelihood, as well as it's gradient and hessian are then added to the equivalent quantities from the likelihood to create a Bayesian objective for MAP Estimation.
 
 ## Static Polymorphism
 
