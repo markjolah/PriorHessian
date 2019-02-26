@@ -1,7 +1,7 @@
 #!/bin/bash
 # build.sh <cmake-args...>
 #
-# Tracker default build script.
+# PriorHessian default build script.
 #
 # Clean release-only build to local install prefix with build-tree export support.
 # Cleans up build and install directories.  For safety, deletes the install dir
@@ -15,10 +15,11 @@ NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
 ARGS="${ARGS} -DBUILD_STATIC_LIBS=ON"
 ARGS="${ARGS} -DBUILD_SHARED_LIBS=ON"
+ARGS="${ARGS} -DOPT_DOC=Off"
 ARGS="${ARGS} -DBUILD_TESTING=On"
 ARGS="${ARGS} -DOPT_INSTALL_TESTING=On"
 ARGS="${ARGS} -DOPT_EXPORT_BUILD_TREE=On"
-ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=Off"
+ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=On" #Otherwise dependencies found in build directories won't be found in install tree unless LD_LIBRARY_PATH is modified
 ARGS="${ARGS} -DOPT_BLAS_INT64=ON"
 
 set -ex

@@ -13,7 +13,7 @@ ARGS="${ARGS} -DOPT_DOC=On"
 ARGS="${ARGS} -DBUILD_TESTING=Off"
 
 set -ex
-rm -rf $BUILD_PATH
+#rm -rf $BUILD_PATH
 
 cmake -H${SRC_PATH} -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Debug -Wdev $ARGS $@
 VERBOSE=1 cmake --build $BUILD_PATH --target doc -- -j$NUM_PROCS
