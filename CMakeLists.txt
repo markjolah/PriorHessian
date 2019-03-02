@@ -73,7 +73,7 @@ set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
                           cmake/UncommonCMakeModules/FindBLAS.cmake
                           cmake/UncommonCMakeModules/FindLAPACK.cmake
                           cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
-export_package_wizzard(PROVIDED_COMPONENTS ${BLAS_INT_COMPONENT}
+export_package_wizzard(PROVIDED_COMPONENTS ${BLAS_INT_COMPONENT} #Propogate BLAS integer size dependency
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
 
 ### Testing
