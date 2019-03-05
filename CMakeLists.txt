@@ -5,7 +5,7 @@
 # Copyright 2017-2019
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
-# See: LICENCE file
+# See: LICENSE file
 
 cmake_minimum_required( VERSION 3.9 )
 
@@ -73,7 +73,7 @@ set(EXPORTED_FIND_MODULES cmake/UncommonCMakeModules/FindArmadillo.cmake
                           cmake/UncommonCMakeModules/FindBLAS.cmake
                           cmake/UncommonCMakeModules/FindLAPACK.cmake
                           cmake/UncommonCMakeModules/MakePkgConfigTarget.cmake)
-export_package_wizzard(PROVIDED_COMPONENTS ${BLAS_INT_COMPONENT} #Propogate BLAS integer size dependency
+export_package_wizzard(PROVIDED_COMPONENTS ${BLAS_INT_COMPONENT} #Propagate BLAS integer size dependency
                        FIND_MODULES ${EXPORTED_FIND_MODULES})
 
 ### Testing
