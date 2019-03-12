@@ -224,18 +224,18 @@ public:
     VecT make_zero_grad() const { return {num_dim(),arma::fill::zeros}; }
     MatT make_zero_hess() const { return {num_dim(),num_dim(),arma::fill::zeros}; }
     
-    VecT sample(AnyRngT &rng) { return handle->sample(rng); }
-    MatT sample(AnyRngT &rng, IdxT num_samples) { return handle->sample(rng,num_samples); }
+    VecT sample(AnyRngT &rng) const { return handle->sample(rng); }
+    MatT sample(AnyRngT &rng, IdxT num_samples) const { return handle->sample(rng,num_samples); }
 
     template<class RngT>
-    VecT sample(RngT &&rng) 
+    VecT sample(RngT &&rng) const
     { 
         AnyRngT anyrng{std::forward<RngT>(rng)};
         return handle->sample(anyrng); 
     }
 
     template<class RngT>
-    MatT sample(RngT &&rng, IdxT num_samples) 
+    MatT sample(RngT &&rng, IdxT num_samples) const
     { 
         AnyRngT anyrng{std::forward<RngT>(rng)};
         return handle->sample(anyrng,num_samples); 
@@ -285,8 +285,8 @@ private:
         virtual void hess_accumulate(const VecT &u, MatT &hess) const = 0;
         virtual void grad_grad2_accumulate(const VecT &u, VecT &grad, VecT &grad2) const = 0;
         virtual void grad_hess_accumulate(const VecT &u, VecT &grad, MatT &hess) const = 0;
-        virtual VecT sample(AnyRngT &rng) = 0;
-        virtual MatT sample(AnyRngT &rng, IdxT nSamples) = 0;
+        virtual VecT sample(AnyRngT &rng) const = 0;
+        virtual MatT sample(AnyRngT &rng, IdxT nSamples) const = 0;
         virtual VecT llh_components(const VecT &u) const = 0;
         virtual VecT rllh_components(const VecT &u) const = 0;
     }; /* class DistTupleHandle */
@@ -407,14 +407,14 @@ private:
         void grad_grad2_accumulate(const VecT &u, VecT &g, VecT &g2) const override { grad_grad2_accumulate(u,g,g2,IndexT()); }
         void grad_hess_accumulate(const VecT &u, VecT &g, MatT &h) const override { grad_hess_accumulate(u,g,h,IndexT()); }
         
-        VecT sample(AnyRngT &rng) override
+        VecT sample(AnyRngT &rng) const override
         {
             VecT s(_num_dim);
             sample(rng, s.begin(), IndexT());
             return s;
         }
         
-        MatT sample(AnyRngT &rng, IdxT nSamples) override
+        MatT sample(AnyRngT &rng, IdxT nSamples) const override
         {
             MatT s(_num_dim,nSamples);
             sample(rng, s.begin(), nSamples, IndexT());
@@ -544,11 +544,11 @@ private:
         }
 
         template<class IterT, std::size_t... I> 
-        void sample(AnyRngT &rng, IterT s, std::index_sequence<I...>)
+        void sample(AnyRngT &rng, IterT s, std::index_sequence<I...>) const
         { meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} ); }
 
         template<class IterT, std::size_t... I> 
-        void sample(AnyRngT &rng, IterT s, IdxT nSamples, std::index_sequence<I...>)
+        void sample(AnyRngT &rng, IterT s, IdxT nSamples, std::index_sequence<I...>) const
         {     
             for(IdxT n=0; n<nSamples; n++) 
                 meta::call_in_order( {(std::get<I>(dists).append_sample(rng,s),0)...} );
@@ -610,8 +610,8 @@ private:
         void hess_accumulate(const VecT&, MatT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         void grad_grad2_accumulate(const VecT&, VecT&, VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         void grad_hess_accumulate(const VecT&, VecT&, MatT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        VecT sample(AnyRngT&) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
-        MatT sample(AnyRngT&, IdxT) override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        VecT sample(AnyRngT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
+        MatT sample(AnyRngT&, IdxT) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
 
         VecT llh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
         VecT rllh_components(const VecT&) const override { throw RuntimeTypeError("Empty dist cannot be evaluated."); }
@@ -684,7 +684,7 @@ public:
         }
 
         template<class RngT, class IterT> 
-        void append_sample(RngT &rng, IterT &iter) { *iter++ = this->sample(rng); }
+        void append_sample(RngT &rng, IterT &iter) const { *iter++ = this->sample(rng); }
     };
 
      /* Adaptor for MultivariateDists */
@@ -820,7 +820,7 @@ public:
         }
 
         template<class RngT, class IterT> 
-        void append_sample(RngT &rng, IterT &v) 
+        void append_sample(RngT &rng, IterT &v) const
         { v = std::copy_n(this->sample(rng).begin(), Dist::num_dim(), v); }
     };
 
