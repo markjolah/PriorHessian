@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.8)  8 MAR 2019 03:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.5.1)  1 MAY 2019 00:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3116,18 +3116,18 @@ eec_a500e09e7f9b4431f7db471bf075cdce2_cgraph.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
 >]
 <classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01met
-a_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a80260d9be429ccd533205b7ac25
-112a6_cgraph.pdf, id=4087, 385.44pt x 139.52126pt>
+a_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a5e017e68676dfa2fc439620d816
+80225_cgraph.pdf, id=4087, 385.44pt x 139.52126pt>
 File: classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_
-01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a80260d9be429ccd533205b
-7ac25112a6_cgraph.pdf Graphic file (type pdf)
+01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a5e017e68676dfa2fc43962
+0d81680225_cgraph.pdf Graphic file (type pdf)
 
 <use classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_0
-1meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a80260d9be429ccd533205b7
-ac25112a6_cgraph.pdf>
+1meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a5e017e68676dfa2fc439620
+d81680225_cgraph.pdf>
 Package pdftex.def Info: classprior__hessian_1_1CompositeDist_1_1ComponentDistA
-daptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a802
-60d9be429ccd533205b7ac25112a6_cgraph.pdf used on input line 314.
+daptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a5e0
+17e68676dfa2fc439620d81680225_cgraph.pdf used on input line 314.
 (pdftex.def)             Requested size: 350.0pt x 126.69203pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3138,12 +3138,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [71 <./classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00
 _01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a4b45af315fe88daef877e
 c564b33272a_cgraph.pdf> <./classprior__hessian_1_1CompositeDist_1_1ComponentDis
-tAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a8
-0260d9be429ccd533205b7ac25112a6_cgraph.pdf
+tAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec_a5
+e017e68676dfa2fc439620d81680225_cgraph.pdf
 
 pdfTeX warning: pdflatex (file ./classprior__hessian_1_1CompositeDist_1_1Compon
 entDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546
-eec_a80260d9be429ccd533205b7ac25112a6_cgraph.pdf): PDF inclusion: multiple pdfs
+eec_a5e017e68676dfa2fc439620d81680225_cgraph.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
 >]
 <classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01met
@@ -3606,18 +3606,18 @@ daptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a771
 (pdftex.def)             Requested size: 350.0pt x 105.73872pt.
 
 <classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01met
-a_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a1c3a065520a8c6351726f6407bc
-84f33_cgraph.pdf, id=4382, 427.5975pt x 129.48375pt>
+a_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a763e7c16902f2d6464001fb02cb
+dd929_cgraph.pdf, id=4382, 427.5975pt x 129.48375pt>
 File: classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_
-01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a1c3a065520a8c6351726f6
-407bc84f33_cgraph.pdf Graphic file (type pdf)
+01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a763e7c16902f2d6464001f
+b02cbdd929_cgraph.pdf Graphic file (type pdf)
 
 <use classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_0
-1meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a1c3a065520a8c6351726f64
-07bc84f33_cgraph.pdf>
+1meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a763e7c16902f2d6464001fb
+02cbdd929_cgraph.pdf>
 Package pdftex.def Info: classprior__hessian_1_1CompositeDist_1_1ComponentDistA
-daptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a1c3
-a065520a8c6351726f6407bc84f33_cgraph.pdf used on input line 314.
+daptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a763
+e7c16902f2d6464001fb02cbdd929_cgraph.pdf used on input line 314.
 (pdftex.def)             Requested size: 350.0pt x 105.98569pt.
 [82 <./classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00
 _01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a75bbad1826eb579d89540
@@ -3666,8 +3666,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [83 <./classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00
-_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a1c3a065520a8c6351726f
-6407bc84f33_cgraph.pdf> <./classprior__hessian_1_1CompositeDist_1_1ComponentDis
+_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_a763e7c16902f2d6464001
+fb02cbdd929_cgraph.pdf> <./classprior__hessian_1_1CompositeDist_1_1ComponentDis
 tAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3_af
 062076875843bcd913ff5f4b7b12699_cgraph.pdf
 
@@ -5116,15 +5116,15 @@ onent[]Dist[]Adaptor$\OML/cmm/m/it/10 <$ \T1/phv/m/n/10 Dist, meta[]::[]Enable[
 
 [126 <./classprior__hessian_1_1CompositeDist_a24bac25ae8c0330b8a3aacadffc9d5ae_
 cgraph.pdf>]
-<classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56_icgraph
+<classprior__hessian_1_1CompositeDist_a1c1f82106a3a330df530cced07f08171_icgraph
 .pdf, id=5583, 427.5975pt x 253.94875pt>
-File: classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56_ic
+File: classprior__hessian_1_1CompositeDist_a1c1f82106a3a330df530cced07f08171_ic
 graph.pdf Graphic file (type pdf)
 
-<use classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56_icg
+<use classprior__hessian_1_1CompositeDist_a1c1f82106a3a330df530cced07f08171_icg
 raph.pdf>
-Package pdftex.def Info: classprior__hessian_1_1CompositeDist_a175563a90cb53da4
-f3127cb8d05d0c56_icgraph.pdf used on input line 2074.
+Package pdftex.def Info: classprior__hessian_1_1CompositeDist_a1c1f82106a3a330d
+f530cced07f08171_icgraph.pdf used on input line 2074.
 (pdftex.def)             Requested size: 350.0pt x 207.86345pt.
 
 Underfull \hbox (badness 1546) in paragraph at lines 2128--2129
@@ -5144,7 +5144,7 @@ raph.pdf>
 Package pdftex.def Info: classprior__hessian_1_1CompositeDist_ae7a0e0a30b138234
 13dd1b4bea4163ca_icgraph.pdf used on input line 2136.
 (pdftex.def)             Requested size: 350.0pt x 239.71225pt.
-[127 <./classprior__hessian_1_1CompositeDist_a175563a90cb53da4f3127cb8d05d0c56_
+[127 <./classprior__hessian_1_1CompositeDist_a1c1f82106a3a330df530cced07f08171_
 icgraph.pdf>]
 <classprior__hessian_1_1CompositeDist_aa2a230c7e878eae70cb347321a95a7f3_cgraph.
 pdf, id=5600, 372.39125pt x 109.40875pt>
@@ -15025,7 +15025,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
 Here is how much of TeX's memory you used:
  23144 strings out of 494953
  693398 string characters out of 6180978
- 440570 words of memory out of 5000000
+ 440654 words of memory out of 5000000
  21823 multiletter control sequences out of 15000+600000
  61339 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -15043,7 +15043,7 @@ live/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/h
 elvetic/uhvro8a.pfb>
-Output written on refman.pdf (474 pages, 2329750 bytes).
+Output written on refman.pdf (474 pages, 2329745 bytes).
 PDF statistics:
  15345 PDF objects out of 15390 (max. 8388607)
  13290 compressed objects within 133 object streams

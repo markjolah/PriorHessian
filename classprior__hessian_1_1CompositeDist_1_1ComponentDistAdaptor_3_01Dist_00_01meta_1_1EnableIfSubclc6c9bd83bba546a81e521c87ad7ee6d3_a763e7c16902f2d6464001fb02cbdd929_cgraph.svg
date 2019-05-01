@@ -19,7 +19,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classprior__hessian_1_1CompositeDist.html#a175563a90cb53da4f3127cb8d05d0c56" target="_top" xlink:title="prior_hessian::Composite\lDist::sample">
+<g id="a_node2"><a xlink:href="classprior__hessian_1_1CompositeDist.html#a1c1f82106a3a330df530cced07f08171" target="_top" xlink:title="prior_hessian::Composite\lDist::sample">
 <polygon fill="white" stroke="black" points="224,-10.5 224,-38.5 346,-38.5 346,-10.5 224,-10.5"/>
 <text text-anchor="start" x="232" y="-27.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Composite</text>
 <text text-anchor="middle" x="285" y="-17.3" font-family="Helvetica,sans-Serif" font-size="9.00">Dist::sample</text>

@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3.html#a1c3a065520a8c6351726f6407bc84f33" target="_top" xlink:title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, UnivariateDist \&gt; \&gt;::append_sample">
+<g id="a_node2"><a xlink:href="classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubclc6c9bd83bba546a81e521c87ad7ee6d3.html#a763e7c16902f2d6464001fb02cbdd929" target="_top" xlink:title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, UnivariateDist \&gt; \&gt;::append_sample">
 <polygon fill="white" stroke="black" points="158,-124.5 158,-172.5 346,-172.5 346,-124.5 158,-124.5"/>
 <text text-anchor="start" x="166" y="-161.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Composite</text>
 <text text-anchor="start" x="166" y="-151.3" font-family="Helvetica,sans-Serif" font-size="9.00">Dist::ComponentDistAdaptor</text>
@@ -33,7 +33,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec.html#a80260d9be429ccd533205b7ac25112a6" target="_top" xlink:title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, MultivariateDist \&gt; \&gt;\l::append_sample">
+<g id="a_node3"><a xlink:href="classprior__hessian_1_1CompositeDist_1_1ComponentDistAdaptor_3_01Dist_00_01meta_1_1EnableIfSubcld67d34d533dbae21b9dad35557546eec.html#a5e017e68676dfa2fc439620d81680225" target="_top" xlink:title="prior_hessian::Composite\lDist::ComponentDistAdaptor\l\&lt; Dist, meta::EnableIfSubclassT\l\&lt; Dist, MultivariateDist \&gt; \&gt;\l::append_sample">
 <polygon fill="white" stroke="black" points="179,-47.5 179,-105.5 325,-105.5 325,-47.5 179,-47.5"/>
 <text text-anchor="start" x="187" y="-94.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Composite</text>
 <text text-anchor="start" x="187" y="-84.3" font-family="Helvetica,sans-Serif" font-size="9.00">Dist::ComponentDistAdaptor</text>

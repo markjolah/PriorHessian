@@ -497,7 +497,7 @@ var sectionId = 'dynsection-70';
 </g>
 <!-- Node44 -->
 <g id="node44" class="node"><title>Node44</title>
-<g id="a_node44"><a xlink:href="classprior__hessian_1_1CompositeDist.html#a175563a90cb53da4f3127cb8d05d0c56" target="_top" xlink:title="prior_hessian::Composite\lDist::sample">
+<g id="a_node44"><a xlink:href="classprior__hessian_1_1CompositeDist.html#a1c1f82106a3a330df530cced07f08171" target="_top" xlink:title="prior_hessian::Composite\lDist::sample">
 <polygon fill="white" stroke="black" points="165.5,-235.5 165.5,-263.5 287.5,-263.5 287.5,-235.5 165.5,-235.5"/>
 <text text-anchor="start" x="173.5" y="-252.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Composite</text>
 <text text-anchor="middle" x="226.5" y="-242.3" font-family="Helvetica,sans-Serif" font-size="9.00">Dist::sample</text>
