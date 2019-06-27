@@ -142,6 +142,7 @@ void CompositeDist::initialize_dim_variables() const
         name<<"v"<<n+1;
         _dim_variables.emplace_back(name.str());
     }
+    dim_name_idx = initialize_name_idx(_param_names);
     dim_variables_initialized = true;
 }
 
@@ -159,8 +160,43 @@ void CompositeDist::initialize_param_names() const
             _param_names.emplace_back(name.str());
         }
     }
-    param_name_idx = initialize_param_name_idx(_param_names);
+    param_name_idx = initialize_name_idx(_param_names);
     param_names_initialized = true;
+}
+
+
+
+bool CompositeDist::has_dim_variable(const std::string &name) const
+{
+    if(!dim_variables_initialized) initialize_dim_variables();
+    return dim_name_idx.find(name) != dim_name_idx.end();
+}
+
+IdxT CompositeDist::get_dim_variable_index(const std::string &name) const
+{
+    if(!dim_variables_initialized) initialize_dim_variables();
+    auto it = dim_name_idx.find(name);
+    if(it == dim_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No dimension variable found named: "<<name;
+        throw ParameterNameError(msg.str());
+    }
+    return it->second;
+}
+
+void CompositeDist::rename_dim_variable(const std::string &old_name,std::string new_name)
+{
+    if(!dim_names_initialized) initialize_dim_variables();
+    auto it = dim_name_idx.find(old_name);
+    if(it == dim_name_idx.end()) {
+        std::ostringstream msg;
+        msg << "No dimension variable found named:"<<old_name;
+        throw ParameterNameError(msg.str());
+    }
+    _dim_variables[it->second] = new_name;
+    //update name index
+    _dim_name_idx.erase(_dim_variables[it->second]);
+    _dim_name_idx[std::move(new_name)] = it->second;
 }
 
 bool CompositeDist::has_param(const std::string &name) const
@@ -175,13 +211,13 @@ double CompositeDist::get_param_value(const std::string &name) const
     auto it = param_name_idx.find(name);
     if(it == param_name_idx.end()) {
         std::ostringstream msg;
-        msg << "No parameter found named:"<<name;
+        msg << "No parameter found named: "<<name;
         throw ParameterNameError(msg.str());
     }
     return params()[it->second];
 }
 
-int CompositeDist::get_param_index(const std::string &name) const
+IdxT CompositeDist::get_param_index(const std::string &name) const
 {
     if(!param_names_initialized) initialize_param_names();
     auto it = param_name_idx.find(name);
@@ -216,9 +252,10 @@ void CompositeDist::rename_param(const std::string &old_name,std::string new_nam
         msg << "No parameter found named:"<<old_name;
         throw ParameterNameError(msg.str());
     }
-    auto ps = param_names();
-    ps[it->second] = new_name;
-    set_param_names(ps);
+    _param_names[it->second] = new_name;
+    //update name index
+    _param_name_idx.erase(_param_names[it->second]);
+    _param_name_idx[std::move(new_name)] = it->second;
 }
 
 
@@ -230,17 +267,17 @@ void CompositeDist::initialize_from_handle()
     param_names_initialized = false;
 }
 
-CompositeDist::ParamNameMapT 
+CompositeDist::NameMapT
 CompositeDist::initialize_param_name_idx(const StringVecT &names)
 {
-    ParamNameMapT name_idx;
+    NameMapT name_idx;
     for(IdxT i=0; i<names.size(); i++) name_idx[names[i]] = i;
     if(name_idx.size() < names.size()){
         std::ostringstream msg;
-        msg<<"Parameter names contain duplicate values. Got: "<<names.size()<<" name, but only "<<name_idx.size()<<" are unique. Names:";
+        msg<<"Names contain duplicate values. Got: "<<names.size()<<" name, but only "<<name_idx.size()<<" are unique. Names:";
         for(auto n: names) msg<<n<<",";
         msg<<"]";
-        throw ParameterNameUniquenessError(msg.str());
+        throw NameUniquenessError(msg.str());
     }
     return name_idx;
 }

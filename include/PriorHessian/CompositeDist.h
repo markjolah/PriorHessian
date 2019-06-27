@@ -166,17 +166,22 @@ public:
     bool check_params(const VecT &new_params) const { return handle->check_params(new_params); }
     VecT params_lbound() const { return handle->params_lbound(); }
     VecT params_ubound() const { return handle->params_ubound(); }
-    std::vector<VecT> params_components() const { return handle->params_components(); } /* Seperate parameters int a VecT for each component */
+    std::vector<VecT> params_components() const { return handle->params_components(); } /* Separate parameters in a VecT for each component */
 
     /* Distribution Parameter Descriptions (names) */
     const StringVecT& param_names() const;
     template<class StringVec> 
     void set_param_names(StringVec &&vars); 
 
+    /* Convenience functions for working with dimension variables by name */
+    bool has_dim_variable(const std::string &name) const;
+    IdxT get_dim_variable_index(const std::string &name) const;
+    void rename_dim_variable(const std::string &old_name,std::string new_name);
+
     /* Convenience functions for working with parameters by name */
     bool has_param(const std::string &name) const;
     double get_param_value(const std::string &name) const; 
-    int get_param_index(const std::string &name) const; 
+    IdxT get_param_index(const std::string &name) const;
     void set_param_value(const std::string &name, double value);
     void rename_param(const std::string &old_name,std::string new_name);
 
@@ -225,7 +230,9 @@ public:
     MatT make_zero_hess() const { return {num_dim(),num_dim(),arma::fill::zeros}; }
     
     VecT sample(AnyRngT &rng) const { return handle->sample(rng); }
+    VecT sample(AnyRngT &&rng) const { return handle->sample(rng); }
     MatT sample(AnyRngT &rng, IdxT num_samples) const { return handle->sample(rng,num_samples); }
+    MatT sample(AnyRngT &&rng, IdxT num_samples) const { return handle->sample(rng,num_samples); }
 
     template<class RngT>
     VecT sample(RngT &&rng) const
@@ -888,10 +895,11 @@ private:
     std::unique_ptr<DistTupleHandle> handle;
 
     /* Param name index */
-    using ParamNameMapT = std::unordered_map<std::string,int>;    
-    static ParamNameMapT initialize_param_name_idx(const StringVecT &names);// throw (ParameterNameUniquenessError)
-    mutable ParamNameMapT param_name_idx;
-    
+    using NameMapT = std::unordered_map<std::string,int>;
+    static NameMapT initialize_name_idx(const StringVecT &names);// throw (NameUniquenessError)
+    mutable NameMapT param_name_idx;
+    mutable NameMapT dim_name_idx;
+
     mutable StringVecT _component_names;
     mutable StringVecT _dim_variables;
     mutable StringVecT _param_names;
