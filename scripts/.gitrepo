@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/markjolah/cmake-build-scripts
 	branch = master
-	commit = 
+	commit = 043c344b3528fd9f7b22110ac79010d54289bcd1
 	method = merge
 	cmdver = 0.4.0
