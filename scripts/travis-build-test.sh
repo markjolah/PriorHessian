@@ -14,6 +14,8 @@ if [ -z "$BUILD_TYPE" ]; then
     BUILD_TYPE="Release"
 fi
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+LOCAL_SCRIPTS_CONFIG_FILE=${LOCAL_SCRIPTS_CONFIG_FILE:-${SCRIPT_DIR}/local-config/cmake-build-scripts.conf}
+[ -f ${LOCAL_SCRIPTS_CONFIG_FILE} ] && . ${LOCAL_SCRIPTS_CONFIG_FILE}
 SRC_PATH=${SCRIPT_DIR}/..
 INSTALL_PATH=${INSTALL_PATH:-$SCRIPT_DIR/../_travis.install}
 BUILD_PATH=${BUILD_PATH:-$SCRIPT_DIR/../_travis.build/$BUILD_TYPE}

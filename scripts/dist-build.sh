@@ -15,6 +15,9 @@
 #  BUILD_PATH: Directory to build under (if existing, it will be deleted) [default: ${CMAKE_SOURCE_DIR}/_build/dist]
 #  NUM_PROCS: Number of processors to build with [default: attempt to find #procs]
 #  OPT_BLAS_INT64 - enable armadillo 64-bit integer support [default: off]
+#  CMAKE_EXTRA_ARGS: Extra CMAKE arguments passed as environment variable
+#  LOCAL_SCRIPTS_CONFIG_FILE: Path to configuration file for local options for the cmake-build-scripts subrepo
+
 
 #Cross-platform get number of processors
 if [ -z "$NUM_PROCS" ] || [ -n "${NUM_PROCS//[0-9]}" ] || [ ! "$NUM_PROCS" -ge 1 ]; then
@@ -27,7 +30,8 @@ fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SRC_PATH=${SCRIPT_DIR}/..
-
+LOCAL_SCRIPTS_CONFIG_FILE=${LOCAL_SCRIPTS_CONFIG_FILE:-${SCRIPT_DIR}/local-config/cmake-build-scripts.conf}
+[ -f ${LOCAL_SCRIPTS_CONFIG_FILE} ] && . ${LOCAL_SCRIPTS_CONFIG_FILE}
 NAME=$(grep -Po "project\(\K([A-Za-z]+)" ${SRC_PATH}/CMakeLists.txt)
 VERSION=$(grep -Po "project\([A-Za-z]+ VERSION \K([0-9.]+)" ${SRC_PATH}/CMakeLists.txt)
 if [ -z $NAME ] || [ -z $VERSION ]; then
@@ -58,11 +62,14 @@ ARGS="${ARGS} -DOPT_DOC=On"
 ARGS="${ARGS} -DOPT_INSTALL_TESTING=On"
 ARGS="${ARGS} -DOPT_EXPORT_BUILD_TREE=Off"
 ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=On"  # Disable finding packages in the build-tree
+ARGS="${ARGS} ${LOCAL_CMAKE_ARGS}"
+ARGS="${ARGS} ${LOCAL_CMAKE_ARGS_RELEASE}"
+ARGS="${ARGS} ${LOCAL_CMAKE_ARGS_DIST}"
 ARGS="${ARGS} -DOPT_BLAS_INT64=$OPT_BLAS_INT64"
 
 set -ex
 #rm -rf $BUILD_PATH
-cmake -H$SRC_PATH -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release $ARGS ${@:2}
+cmake -H$SRC_PATH -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release ${ARGS} ${CMAKE_EXTRA_ARGS} ${@:2}
 cmake --build $BUILD_PATH --target doc -- -j$NUM_PROCS
 cmake --build $BUILD_PATH --target pdf -- -j$NUM_PROCS
 cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS
