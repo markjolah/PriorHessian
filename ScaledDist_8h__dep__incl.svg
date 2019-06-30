@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="SymmetricBetaDist class declaration and templated methods. ">
+<g id="a_node2"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="ScaledSymmetricBetaDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-18.5 130,-18.5 130,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="65" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledSymmetricBetaDist.h</text>
 </a>

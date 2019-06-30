@@ -5,8 +5,7 @@
 <area shape="rect" id="node5" href="$classprior__hessian_1_1CompositeDist.html#aad4dece0c6d7857cbe3e9121aa7cc040" title="prior_hessian::Composite\lDist::in_bounds" alt="" coords="261,300,424,339"/>
 <area shape="rect" id="node6" href="$classprior__hessian_1_1CompositeDist.html#ac7063be5346f042c0312d5729aa0883c" title="prior_hessian::Composite\lDist::in_bounds_all" alt="" coords="261,363,424,401"/>
 <area shape="rect" id="node7" href="$namespaceprior__hessian.html#ab26e9ddc3b6a5caccf5d75e1a1e1af1b" title="prior_hessian::operator\&lt;\&lt;" alt="" coords="261,425,424,451"/>
-<area shape="rect" id="node10" href="$classprior__hessian_1_1CompositeDist.html#a24bac25ae8c0330b8a3aacadffc9d5ae" title="prior_hessian::Composite\lDist::rllh_components" alt="" coords="1151,435,1313,473"/>
-<area shape="rect" id="node8" href="$classprior__hessian_1_1CompositeDist.html#a38c4fdacf927824117d202422b04013c" title="prior_hessian::Composite\lDist::set_param_names" alt="" coords="517,403,680,441"/>
-<area shape="rect" id="node9" href="$classprior__hessian_1_1CompositeDist.html#a927fed39b2b4e87714c728d6e7b11e8b" title="prior_hessian::Composite\lDist::params_components" alt="" coords="939,377,1103,416"/>
-<area shape="rect" id="node11" href="$classprior__hessian_1_1CompositeDist.html#ace0aaa3698d76aba6a47f9061ff98902" title="prior_hessian::Composite\lDist::rename_param" alt="" coords="728,377,891,416"/>
+<area shape="rect" id="node10" href="$classprior__hessian_1_1CompositeDist.html#a24bac25ae8c0330b8a3aacadffc9d5ae" title="prior_hessian::Composite\lDist::rllh_components" alt="" coords="940,421,1103,460"/>
+<area shape="rect" id="node8" href="$classprior__hessian_1_1CompositeDist.html#a38c4fdacf927824117d202422b04013c" title="prior_hessian::Composite\lDist::set_param_names" alt="" coords="517,415,680,453"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1CompositeDist.html#a927fed39b2b4e87714c728d6e7b11e8b" title="prior_hessian::Composite\lDist::params_components" alt="" coords="728,364,892,403"/>
 </map>

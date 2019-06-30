@@ -54,7 +54,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="PolyLog_8h.html" target="_top" xlink:title="Poly log computation for negative integer valued paramters. ">
+<g id="a_node7"><a xlink:href="PolyLog_8h.html" target="_top" xlink:title="Poly log computation for negative integer valued parameters. ">
 <polygon fill="white" stroke="black" points="302.977,-60.5 302.977,-78.5 415.977,-78.5 415.977,-60.5 302.977,-60.5"/>
 <text text-anchor="middle" x="359.477" y="-67.3" font-family="Helvetica,sans-Serif" font-size="9.00">PriorHessian/PolyLog.h</text>
 </a>

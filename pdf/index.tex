@@ -2,7 +2,7 @@
 
 \subsection*{Prior Hessian}
 
-Library for fast computation of log-\/likelihoods, and derivatives, of multivariate priors defined as composites of univariate distributions and multivariate distributions especially Archimedean copulas.
+Library for fast computation of log-\/likelihoods and derivatives of multivariate priors defined as composites of univariate multivariate distributions especially designed for support of Archimedean copulas.
 
 \subsubsection*{Documentation}
 
@@ -15,11 +15,38 @@ The Prior\+Hessian Doxygen documentation can be build with the {\ttfamily O\+P\+
 
 \subsubsection*{Installation}
 
-The Prior\+Hessian library uses C\+Make and is designed to be installed either to a base system, or run from within an arbitrary install prefix. The default build script will install to the {\ttfamily \+\_\+install} directory underneath the repository root. \begin{DoxyVerb}$ ./build.sh <cmake-extra-opts>
-\end{DoxyVerb}
+The Prior\+Hessian library uses C\+Make and is designed to be installed either as a native package, or as a relocatable package in an arbitrary install prefix. The default build script will install to the {\ttfamily \+\_\+install} directory underneath the repository root.
 
 
-\subsubsection*{Dependencies}
+\begin{DoxyItemize}
+\item {\bfseries Default release build script}
+\begin{DoxyItemize}
+\item builds to {\ttfamily \$\{B\+U\+I\+L\+D\+\_\+\+P\+A\+TH\}} if set or default of\+: {\ttfamily \$\{C\+M\+A\+K\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}\textbackslash{}\+\_\+build\textbackslash{}Release}
+\item installs to {\ttfamily \$\{I\+N\+S\+T\+A\+L\+L\+\_\+\+P\+A\+TH\}} if set or default of\+: {\ttfamily \$\{C\+M\+A\+K\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}\textbackslash{}\+\_\+install} 
+\begin{DoxyCode}
+1 $ ./build.sh <cmake-extra-opts>
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item {\bfseries Default Debug build script}
+\begin{DoxyItemize}
+\item builds to {\ttfamily \$\{B\+U\+I\+L\+D\+\_\+\+P\+A\+TH\}} if set or default of\+: {\ttfamily \$\{C\+M\+A\+K\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}\textbackslash{}\+\_\+build\textbackslash{}Debug}
+\item installs to {\ttfamily \$\{I\+N\+S\+T\+A\+L\+L\+\_\+\+P\+A\+TH\}} if set or default of\+: {\ttfamily \$\{C\+M\+A\+K\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}\textbackslash{}\+\_\+install} 
+\begin{DoxyCode}
+1 $ ./build.debug.sh <cmake-extra-opts>
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item {\bfseries Manual C\+Make Build} 
+\begin{DoxyCode}
+1 $ cmake -H. -B<build-path> -DCMAKE\_INSTALL\_PREFEX=<install-path> -DCMAKE\_BUILD\_TYPE=Release
+       <other-cmake-args>
+2 $ cd <build-path> && make -j<num-procs> install
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\paragraph*{Dependencies}
 
 
 \begin{DoxyItemize}
@@ -29,6 +56,27 @@ The Prior\+Hessian library uses C\+Make and is designed to be installed either t
 \end{DoxyItemize}
 
 Note the {\ttfamily O\+P\+T\+\_\+\+B\+L\+A\+S\+\_\+\+I\+N\+T64} C\+Make option controls whether Armadillo uses B\+L\+AS and L\+A\+P\+A\+CK libraries that use 64-\/bit interger indexing. Matlab uses 64-\/bit by default, and to link Prior\+Hessian to Matlab M\+EX libraries, this option must be on. Many linux systems only provide 32-\/bit integer versions of B\+L\+AS and Lapack, and the option can be disabled if Matlab support is not a concern and 64-\/bit support is difficult to manage on
+
+\paragraph*{C\+Make Options}
+
+\subparagraph*{Standard options}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily B\+U\+I\+L\+D\+\_\+\+S\+H\+A\+R\+E\+D\+\_\+\+L\+I\+BS} -\/ Build shared libraries \mbox{[}Default\+: On\mbox{]}
+\item {\ttfamily B\+U\+I\+L\+D\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+L\+I\+BS} -\/ Build static libraries \mbox{[}Default\+: On\mbox{]}
+\item {\ttfamily B\+U\+I\+L\+D\+\_\+\+T\+E\+S\+T\+I\+NG} -\/ Build tests \mbox{[}Default\+: On if {\ttfamily C\+M\+A\+K\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+Y\+PE=Debug}\mbox{]}
+\item {\ttfamily O\+P\+T\+\_\+\+I\+N\+S\+T\+A\+L\+L\+\_\+\+T\+E\+S\+T\+I\+NG} -\/ Install tests. \mbox{[}Default\+: Off\mbox{]}
+\item {\ttfamily O\+P\+T\+\_\+\+D\+OC} -\/ Build and install documentation (enables {\ttfamily make doc} and {\ttfamily make pdf}) \mbox{[}Default\+: Off\mbox{]}
+\item {\ttfamily O\+P\+T\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+R\+EE} -\/ Enable C\+Make export and {\ttfamily find\+\_\+package(\+Backtrace\+Exception)} support from the build-\/tree.
+\end{DoxyItemize}
+
+\subparagraph*{Dependency options}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily O\+P\+T\+\_\+\+B\+L\+A\+S\+\_\+\+I\+N\+T64} -\/ Enable 64-\/bit integer B\+L\+AS library support \mbox{[}Default\+: Off\mbox{]}
+\end{DoxyItemize}
 
 \paragraph*{External Projects}
 
@@ -49,18 +97,4 @@ The Prior\+Hessian library is designed using static polymorphism (templates), an
 
 In \href{https://github.com/markjolah/Mappel}{\tt Mappel} we use this ability to create heterogeneous priors for each Model\textquotesingle{}s parameters, (e.\+g., \mbox{[}x,y,I,bg,sigma\mbox{]}).
 
-Functionally, the Prior\+Hessian library stores sequences of distributions as {\ttfamily std\+::tuples}. Using this approach as opposed to the runtime polymorphism of using {\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$Base$>$$>$} gains several advantages. Most importantly, without the need for virtual functions, the tuple-\/based approach has the ability to inline the many small computational functions that must be combined for every call to compute the log-\/likelihood or other computationally important quantities.
-
-\subsubsection*{Computations available}
-
-
-\begin{DoxyItemize}
-\item {\ttfamily cdf} -\/ cumulative distribution function
-\item {\ttfamily pdf} -\/ probability density function
-\item {\ttfamily llh} -\/ log-\/likelihood (log of pdf)
-\item {\ttfamily rllh} -\/ relative log-\/likelihood (log of pdf without constant terms)
-\item {\ttfamily grad} -\/ derivative of log-\/likelihood (or equivalently of relative-\/llh)
-\item {\ttfamily grad2} -\/ 2nd-\/derivative of log-\/likelihood
-\end{DoxyItemize}
-
-\subsubsection*{Including Prior\+Hessian as an External\+Project}
+Functionally, the Prior\+Hessian library stores sequences of distributions as {\ttfamily std\+::tuples}. Using this approach as opposed to the runtime polymorphism of using {\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$Base$>$$>$} gains several advantages. Most importantly, without the need for virtual functions, the tuple-\/based approach has the ability to inline the many small computational functions that must be combined for every call to compute the log-\/likelihood or other computationally important quantities. 

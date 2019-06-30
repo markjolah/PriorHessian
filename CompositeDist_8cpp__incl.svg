@@ -62,7 +62,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="The Frank copula computations. ">
+<g id="a_node2"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="CompositeDist class declaration and inline and templated member function definitions. ">
 <polygon fill="white" stroke="black" points="388.837,-230.5 388.837,-248.5 528.837,-248.5 528.837,-230.5 388.837,-230.5"/>
 <text text-anchor="middle" x="458.837" y="-237.3" font-family="Helvetica,sans-Serif" font-size="9.00">PriorHessian/CompositeDist.h</text>
 </a>
@@ -341,7 +341,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node22 -->
 <g id="node22" class="node"><title>Node22</title>
-<g id="a_node22"><a xlink:href="BaseDist_8h.html" target="_top" xlink:title="The Base classes for UnivariateDist and MultivariateDist. ">
+<g id="a_node22"><a xlink:href="BaseDist_8h.html" target="_top" xlink:title="The Base class for UnivariateDist and MultivariateDist. ">
 <polygon fill="white" stroke="black" points="461.837,-110.5 461.837,-128.5 577.837,-128.5 577.837,-110.5 461.837,-110.5"/>
 <text text-anchor="middle" x="519.837" y="-117.3" font-family="Helvetica,sans-Serif" font-size="9.00">PriorHessian/BaseDist.h</text>
 </a>

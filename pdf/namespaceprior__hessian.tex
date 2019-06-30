@@ -16,7 +16,7 @@
  \hyperlink{namespaceprior__hessian_1_1mcmc}{mcmc}
 \item 
  \hyperlink{namespaceprior__hessian_1_1meta}{meta}
-\begin{DoxyCompactList}\small\item\em Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class templates to utilize sequencing behavior of std\+::initializer\+\_\+list expressions. \end{DoxyCompactList}\item 
  \hyperlink{namespaceprior__hessian_1_1polylog}{polylog}
 \end{DoxyCompactItemize}
 \subsubsection*{Classes}
@@ -35,7 +35,7 @@ struct \hyperlink{structprior__hessian_1_1eulerian__number}{eulerian\+\_\+number
 struct \hyperlink{structprior__hessian_1_1eulerian__number_3_010_00_01M_01_4}{eulerian\+\_\+number$<$ 0, M $>$}
 \item 
 class \hyperlink{classprior__hessian_1_1GammaDist}{Gamma\+Dist}
-\begin{DoxyCompactList}\small\item\em Single parameter beta distribution where  = , leading to symmetric bounded distribution. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gamma distribution. \end{DoxyCompactList}\item 
 struct \hyperlink{structprior__hessian_1_1IndexError}{Index\+Error}
 \begin{DoxyCompactList}\small\item\em Indicates a index access was out of bounds. \end{DoxyCompactList}\item 
 struct \hyperlink{structprior__hessian_1_1InvalidOperationError}{Invalid\+Operation\+Error}
@@ -71,7 +71,7 @@ struct \hyperlink{structprior__hessian_1_1RuntimeTypeError}{Runtime\+Type\+Error
 class \hyperlink{classprior__hessian_1_1ScaledDist}{Scaled\+Dist}
 \item 
 class \hyperlink{classprior__hessian_1_1SymmetricBetaDist}{Symmetric\+Beta\+Dist}
-\begin{DoxyCompactList}\small\item\em Single parameter beta distribution where  = , leading to symmetric bounded distribution. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Single parameter beta distribution where $\alpha = \beta$, leading to symmetric bounded distribution. \end{DoxyCompactList}\item 
 class \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}
 \item 
 class \hyperlink{classprior__hessian_1_1TruncatedMultivariateDist}{Truncated\+Multivariate\+Dist}
@@ -91,7 +91,7 @@ using \hyperlink{namespaceprior__hessian_ae84776b8f8ed86c14a5ce47a29b7a1be}{Scal
 \item 
 using \hyperlink{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}{Truncated\+Gamma\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}$<$ \hyperlink{classprior__hessian_1_1GammaDist}{Gamma\+Dist} $>$
 \item 
-{\footnotesize template$<$int Ndim$>$ }\\using \hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedMultivariateDist}{Truncated\+Multivariate\+Dist}$<$ \hyperlink{classprior__hessian_1_1MultivariateNormalDist}{Multivariate\+Normal\+Dist}$<$ Ndim $>$$>$
+{\footnotesize template$<$IdxT Ndim$>$ }\\using \hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedMultivariateDist}{Truncated\+Multivariate\+Dist}$<$ \hyperlink{classprior__hessian_1_1MultivariateNormalDist}{Multivariate\+Normal\+Dist}$<$ Ndim $>$$>$
 \item 
 using \hyperlink{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}{Truncated\+Normal\+Dist} = \hyperlink{classprior__hessian_1_1TruncatedDist}{Truncated\+Dist}$<$ \hyperlink{classprior__hessian_1_1NormalDist}{Normal\+Dist} $>$
 \item 
@@ -162,7 +162,7 @@ double \hyperlink{namespaceprior__hessian_a12c3a5763e9fbc82e2fb39b8c0273cda}{owe
 \item 
 \hyperlink{namespaceprior__hessian_acd158ecf6698fbe5a4430df7730d3aba}{Truncated\+Gamma\+Dist} \hyperlink{namespaceprior__hessian_abd1783a43cab6f6855e54eb1faab39d4}{make\+\_\+bounded\+\_\+gamma\+\_\+dist} (double scale, double shape, std\+::pair$<$ double, double $>$ bounds)
 \item 
-{\footnotesize template$<$int Ndim, class Vec , class Mat , class Vec2 $>$ }\\\hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist}$<$ Ndim $>$ \hyperlink{namespaceprior__hessian_a51a85cfe6ac613ed9b703e10280c1bbb}{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist} (Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)
+{\footnotesize template$<$IdxT Ndim, class Vec , class Mat , class Vec2 $>$ }\\\hyperlink{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{Truncated\+Multivariate\+Normal\+Dist}$<$ Ndim $>$ \hyperlink{namespaceprior__hessian_a51a85cfe6ac613ed9b703e10280c1bbb}{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist} (Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)
 \item 
 \hyperlink{namespaceprior__hessian_a47f38d4bb5d31fd3f01f5eb6ba6f1223}{Truncated\+Normal\+Dist} \hyperlink{namespaceprior__hessian_a14ebf8db869f2c1e45781e41e69b3420}{make\+\_\+bounded\+\_\+normal\+\_\+dist} (double mu, double sigma, std\+::pair$<$ double, double $>$ bounds)
 \item 
@@ -192,14 +192,14 @@ Definition at line 182 of file Copula\+Dist.\+h.
 \paragraph[{\texorpdfstring{IdxT}{IdxT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+IdxT} = typedef arma\+::uword}\hypertarget{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{}\label{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}
 
 
-Definition at line 30 of file util.\+h.
+Definition at line 28 of file util.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!MatT@{MatT}}
 \index{MatT@{MatT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
 \paragraph[{\texorpdfstring{MatT}{MatT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+MatT} = typedef arma\+::\+Mat$<$double$>$}\hypertarget{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}{}\label{namespaceprior__hessian_aab58331a34ed4ef22b6022564fe74be3}
 
 
-Definition at line 33 of file util.\+h.
+Definition at line 31 of file util.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}}
 \index{Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
@@ -213,7 +213,7 @@ Definition at line 15 of file Scaled\+Symmetric\+Beta\+Dist.\+h.
 \paragraph[{\texorpdfstring{String\+VecT}{StringVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+String\+VecT} = typedef std\+::vector$<$std\+::string$>$}\hypertarget{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}{}\label{namespaceprior__hessian_a61fc0176249462ee94fe3cca92cf3f8c}
 
 
-Definition at line 34 of file util.\+h.
+Definition at line 32 of file util.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}}
 \index{Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
@@ -224,7 +224,7 @@ Definition at line 15 of file Truncated\+Gamma\+Dist.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}}
 \index{Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
-\paragraph[{\texorpdfstring{Truncated\+Multivariate\+Normal\+Dist}{TruncatedMultivariateNormalDist}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Normal\+Dist} = typedef {\bf Truncated\+Multivariate\+Dist}$<${\bf Multivariate\+Normal\+Dist}$<$Ndim$>$$>$}\hypertarget{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{}\label{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}
+\paragraph[{\texorpdfstring{Truncated\+Multivariate\+Normal\+Dist}{TruncatedMultivariateNormalDist}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Truncated\+Multivariate\+Normal\+Dist} = typedef {\bf Truncated\+Multivariate\+Dist}$<${\bf Multivariate\+Normal\+Dist}$<$Ndim$>$$>$}\hypertarget{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}{}\label{namespaceprior__hessian_a99ef03c8a3e476931d451d6d944ffae5}
 
 
 Definition at line 18 of file Truncated\+Multivariate\+Normal\+Dist.\+h.
@@ -241,28 +241,28 @@ Definition at line 17 of file Truncated\+Normal\+Dist.\+h.
 \paragraph[{\texorpdfstring{Truncated\+Pareto\+Dist}{TruncatedParetoDist}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Truncated\+Pareto\+Dist} = typedef {\bf Upper\+Truncated\+Dist}$<${\bf Pareto\+Dist}$>$}\hypertarget{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}{}\label{namespaceprior__hessian_afebdccc7e1a35836f660f8a301af9cb2}
 
 
-Definition at line 16 of file Truncated\+Pareto\+Dist.\+h.
+Definition at line 15 of file Truncated\+Pareto\+Dist.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!Type\+Info\+VecT@{Type\+Info\+VecT}}
 \index{Type\+Info\+VecT@{Type\+Info\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
 \paragraph[{\texorpdfstring{Type\+Info\+VecT}{TypeInfoVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+Type\+Info\+VecT} = typedef std\+::vector$<$std\+::type\+\_\+index$>$}\hypertarget{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}{}\label{namespaceprior__hessian_acfdf544db12888f88bafb2e671841352}
 
 
-Definition at line 35 of file util.\+h.
+Definition at line 33 of file util.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!U\+VecT@{U\+VecT}}
 \index{U\+VecT@{U\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
 \paragraph[{\texorpdfstring{U\+VecT}{UVecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+U\+VecT} = typedef arma\+::\+Col$<${\bf IdxT}$>$}\hypertarget{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}{}\label{namespaceprior__hessian_a1dddd04f1dc39e5790229a485728a48f}
 
 
-Definition at line 31 of file util.\+h.
+Definition at line 29 of file util.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!VecT@{VecT}}
 \index{VecT@{VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}}
 \paragraph[{\texorpdfstring{VecT}{VecT}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf prior\+\_\+hessian\+::\+VecT} = typedef arma\+::\+Col$<$double$>$}\hypertarget{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}{}\label{namespaceprior__hessian_a0b42fc70dec525d83fb2ac155d9ab974}
 
 
-Definition at line 32 of file util.\+h.
+Definition at line 30 of file util.\+h.
 
 
 
@@ -341,7 +341,7 @@ Adapted to modern C++ with efficiency improvements by\+: Mark Olah (\href{mailto
 
 Reference\+: Thomas Donnelly, Algorithm 462\+: Bivariate Normal Distribution, Communications of the A\+CM, October 1973, Volume 16, Number 10, page 638. 
 
-Definition at line 161 of file mvn\+\_\+cdf.\+cpp.
+Definition at line 158 of file mvn\+\_\+cdf.\+cpp.
 
 
 
@@ -384,7 +384,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )}\hypertarget{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}{}\label{namespaceprior__hessian_a4479c56bffd52c8f08515da580030958}
 
 
-Definition at line 271 of file mvn\+\_\+cdf.\+cpp.
+Definition at line 268 of file mvn\+\_\+cdf.\+cpp.
 
 
 
@@ -434,7 +434,7 @@ Definition at line 33 of file Eulerian\+Polynomial.\+h.
 \item[{Dist \&\&}]{dist}
 \end{DoxyParamCaption}
 )}\hypertarget{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{}\label{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}
-\hyperlink{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{make\+\_\+adapted\+\_\+bounded\+\_\+dist()} \mbox{[}4-\/forms\mbox{]} If the given distribution is not bounded then the appropriate bounding distribution is wrapped arround it. We detect the boundedness of the distribution using detail\+::adaptable\+\_\+bounds type-\/traits class. Can be replaced with constexpr if in c++17. Uses S\+F\+I\+N\+AE in c++14. 
+\hyperlink{namespaceprior__hessian_a387cc711a6a39924943b5b20ae76bf6a}{make\+\_\+adapted\+\_\+bounded\+\_\+dist()} \mbox{[}4-\/forms\mbox{]} If the given distribution is not bounded then the appropriate bounding distribution is wrapped around it. We detect the boundedness of the distribution using detail\+::adaptable\+\_\+bounds type-\/traits class. Can be replaced with constexpr if in c++17. Uses S\+F\+I\+N\+AE in c++14. 
 
 Definition at line 99 of file Bounds\+Adapted\+Dist.\+h.
 
@@ -583,7 +583,7 @@ Definition at line 18 of file Truncated\+Gamma\+Dist.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}}
 \index{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
-\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist(\+Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)}{make_bounded_multivariate_normal_dist(Vec &&mu, Mat &&sigma, Vec2 &&lbound, Vec2 &&ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim, class Vec , class Mat , class Vec2 $>$ {\bf Truncated\+Multivariate\+Normal\+Dist}$<$Ndim$>$ prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist (
+\paragraph[{\texorpdfstring{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist(\+Vec \&\&mu, Mat \&\&sigma, Vec2 \&\&lbound, Vec2 \&\&ubound)}{make_bounded_multivariate_normal_dist(Vec &&mu, Mat &&sigma, Vec2 &&lbound, Vec2 &&ubound)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim, class Vec , class Mat , class Vec2 $>$ {\bf Truncated\+Multivariate\+Normal\+Dist}$<$Ndim$>$ prior\+\_\+hessian\+::make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist (
 \begin{DoxyParamCaption}
 \item[{Vec \&\&}]{mu, }
 \item[{Mat \&\&}]{sigma, }
@@ -618,7 +618,7 @@ Definition at line 20 of file Truncated\+Normal\+Dist.\+h.
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespaceprior__hessian_ae6d920b436127ce4698e75575581eed5}{}\label{namespaceprior__hessian_ae6d920b436127ce4698e75575581eed5}
 
 
-Definition at line 19 of file Truncated\+Pareto\+Dist.\+h.
+Definition at line 18 of file Truncated\+Pareto\+Dist.\+h.
 
 \index{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}}
 \index{make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}}
@@ -670,7 +670,7 @@ Definition at line 18 of file Scaled\+Symmetric\+Beta\+Dist.\+h.
 )}\hypertarget{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}{}\label{namespaceprior__hessian_a923402e085c726e416b02817a6d47337}
 
 
-Definition at line 171 of file mvn\+\_\+cdf.\+h.
+Definition at line 169 of file mvn\+\_\+cdf.\+h.
 
 
 
@@ -814,7 +814,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )}\hypertarget{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}{}\label{namespaceprior__hessian_a8e1226cb7a7a644fe985a8530b3df07a}
 
 
-Definition at line 110 of file mvn\+\_\+cdf.\+cpp.
+Definition at line 108 of file mvn\+\_\+cdf.\+cpp.
 
 
 
@@ -967,7 +967,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )}\hypertarget{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6}{}\label{namespaceprior__hessian_a706cb136b90f16dd920118eb59ef1ad6}
 
 
-Definition at line 46 of file util.\+h.
+Definition at line 44 of file util.\+h.
 
 
 

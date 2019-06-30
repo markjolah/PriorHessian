@@ -1,4 +1,4 @@
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{11}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{12}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Bounds\+Adapted\+DistT@{Bounds\+Adapted\+DistT}|hyperpage}{14}
 \indexentry{Bounds\+Adapted\+DistT@{Bounds\+Adapted\+DistT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{14}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Copula\+Dist@{Copula\+Dist}|hyperpage}{14}
@@ -9,10 +9,10 @@
 \indexentry{MatT@{MatT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{14}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}|hyperpage}{14}
 \indexentry{Scaled\+Symmetric\+Beta\+Dist@{Scaled\+Symmetric\+Beta\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{14}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!String\+VecT@{String\+VecT}|hyperpage}{14}
-\indexentry{String\+VecT@{String\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{14}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}|hyperpage}{14}
-\indexentry{Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{14}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!String\+VecT@{String\+VecT}|hyperpage}{15}
+\indexentry{String\+VecT@{String\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}|hyperpage}{15}
+\indexentry{Truncated\+Gamma\+Dist@{Truncated\+Gamma\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}|hyperpage}{15}
 \indexentry{Truncated\+Multivariate\+Normal\+Dist@{Truncated\+Multivariate\+Normal\+Dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!Truncated\+Normal\+Dist@{Truncated\+Normal\+Dist}|hyperpage}{15}
@@ -25,30 +25,30 @@
 \indexentry{U\+VecT@{U\+VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!VecT@{VecT}|hyperpage}{15}
 \indexentry{VecT@{VecT}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!bounded@{bounded}|hyperpage}{15}
-\indexentry{bounded@{bounded}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}|hyperpage}{15}
-\indexentry{donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{15}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!bounded@{bounded}|hyperpage}{16}
+\indexentry{bounded@{bounded}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{16}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}|hyperpage}{16}
+\indexentry{donnelly\+\_\+bvn\+\_\+cdf@{donnelly\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{16}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+integral@{donnelly\+\_\+bvn\+\_\+integral}|hyperpage}{16}
 \indexentry{donnelly\+\_\+bvn\+\_\+integral@{donnelly\+\_\+bvn\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{16}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!donnelly\+\_\+bvn\+\_\+integral\+\_\+orig@{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}|hyperpage}{17}
 \indexentry{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig@{donnelly\+\_\+bvn\+\_\+integral\+\_\+orig}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{17}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}|hyperpage}{17}
-\indexentry{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{17}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}|hyperpage}{18}
+\indexentry{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{18}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{18}
 \indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{18}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{18}
-\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{18}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{18}
-\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{18}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{18}
-\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{18}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{19}
+\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{19}
+\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}|hyperpage}{19}
+\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist@{make\+\_\+adapted\+\_\+bounded\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{19}
 \indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{19}
 \indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{19}
-\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{19}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{20}
+\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+gamma\+\_\+dist@{make\+\_\+bounded\+\_\+gamma\+\_\+dist}|hyperpage}{20}
 \indexentry{make\+\_\+bounded\+\_\+gamma\+\_\+dist@{make\+\_\+bounded\+\_\+gamma\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+multivariate\+\_\+normal\+\_\+dist}|hyperpage}{20}
@@ -57,149 +57,149 @@
 \indexentry{make\+\_\+bounded\+\_\+normal\+\_\+dist@{make\+\_\+bounded\+\_\+normal\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+bounded\+\_\+pareto\+\_\+dist@{make\+\_\+bounded\+\_\+pareto\+\_\+dist}|hyperpage}{20}
 \indexentry{make\+\_\+bounded\+\_\+pareto\+\_\+dist@{make\+\_\+bounded\+\_\+pareto\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}|hyperpage}{20}
-\indexentry{make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}|hyperpage}{20}
-\indexentry{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{20}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}|hyperpage}{21}
+\indexentry{make\+\_\+copula\+\_\+dist@{make\+\_\+copula\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{21}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}|hyperpage}{21}
+\indexentry{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist@{make\+\_\+scaled\+\_\+symmetric\+\_\+beta\+\_\+dist}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{21}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+cdf@{mc\+\_\+mvn\+\_\+cdf}|hyperpage}{21}
 \indexentry{mc\+\_\+mvn\+\_\+cdf@{mc\+\_\+mvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{21}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+cdf\+\_\+core@{mc\+\_\+mvn\+\_\+cdf\+\_\+core}|hyperpage}{21}
 \indexentry{mc\+\_\+mvn\+\_\+cdf\+\_\+core@{mc\+\_\+mvn\+\_\+cdf\+\_\+core}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{21}
 \indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!mc\+\_\+mvn\+\_\+integral@{mc\+\_\+mvn\+\_\+integral}|hyperpage}{22}
 \indexentry{mc\+\_\+mvn\+\_\+integral@{mc\+\_\+mvn\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{22}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!operator$<$$<$@{operator$<$$<$}|hyperpage}{22}
-\indexentry{operator$<$$<$@{operator$<$$<$}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{22}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}|hyperpage}{23}
-\indexentry{owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{23}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}|hyperpage}{24}
-\indexentry{owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{24}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}|hyperpage}{25}
-\indexentry{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{25}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}|hyperpage}{25}
-\indexentry{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{25}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!square@{square}|hyperpage}{26}
-\indexentry{square@{square}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{26}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}|hyperpage}{26}
-\indexentry{unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{26}
-\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}|hyperpage}{27}
-\indexentry{unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{27}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!log2pi@{log2pi}|hyperpage}{28}
-\indexentry{log2pi@{log2pi}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2@{sqrt2}|hyperpage}{28}
-\indexentry{sqrt2@{sqrt2}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2\+\_\+inv@{sqrt2\+\_\+inv}|hyperpage}{28}
-\indexentry{sqrt2\+\_\+inv@{sqrt2\+\_\+inv}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2pi@{sqrt2pi}|hyperpage}{28}
-\indexentry{sqrt2pi@{sqrt2pi}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2pi\+\_\+inv@{sqrt2pi\+\_\+inv}|hyperpage}{28}
-\indexentry{sqrt2pi\+\_\+inv@{sqrt2pi\+\_\+inv}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl}|hyperpage}{28}
-\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{29}
-\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!Dist\+TraitsT@{Dist\+TraitsT}|hyperpage}{29}
-\indexentry{Dist\+TraitsT@{Dist\+TraitsT}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{29}
-\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}|hyperpage}{29}
-\indexentry{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{29}
-\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{29}
-\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!operator$<$$<$@{operator$<$$<$}|hyperpage}{23}
+\indexentry{operator$<$$<$@{operator$<$$<$}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{23}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}|hyperpage}{24}
+\indexentry{owen\+\_\+b\+\_\+integral@{owen\+\_\+b\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{24}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}|hyperpage}{25}
+\indexentry{owen\+\_\+bvn\+\_\+cdf@{owen\+\_\+bvn\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{25}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}|hyperpage}{26}
+\indexentry{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{26}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}|hyperpage}{26}
+\indexentry{owen\+\_\+t\+\_\+integral@{owen\+\_\+t\+\_\+integral}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{26}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!square@{square}|hyperpage}{27}
+\indexentry{square@{square}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{27}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}|hyperpage}{27}
+\indexentry{unit\+\_\+normal\+\_\+cdf@{unit\+\_\+normal\+\_\+cdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{27}
+\indexentry{prior\+\_\+hessian@{prior\+\_\+hessian}!unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}|hyperpage}{28}
+\indexentry{unit\+\_\+normal\+\_\+icdf@{unit\+\_\+normal\+\_\+icdf}!prior\+\_\+hessian@{prior\+\_\+hessian}|hyperpage}{28}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!log2pi@{log2pi}|hyperpage}{29}
+\indexentry{log2pi@{log2pi}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2@{sqrt2}|hyperpage}{29}
+\indexentry{sqrt2@{sqrt2}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2\+\_\+inv@{sqrt2\+\_\+inv}|hyperpage}{29}
+\indexentry{sqrt2\+\_\+inv@{sqrt2\+\_\+inv}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2pi@{sqrt2pi}|hyperpage}{29}
+\indexentry{sqrt2pi@{sqrt2pi}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}!sqrt2pi\+\_\+inv@{sqrt2pi\+\_\+inv}|hyperpage}{29}
+\indexentry{sqrt2pi\+\_\+inv@{sqrt2pi\+\_\+inv}!prior\+\_\+hessian\+::constants@{prior\+\_\+hessian\+::constants}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl@{prior\+\_\+hessian\+::\+Copula\+Dist\+Impl}|hyperpage}{29}
+\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{30}
+\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!Dist\+TraitsT@{Dist\+TraitsT}|hyperpage}{30}
+\indexentry{Dist\+TraitsT@{Dist\+TraitsT}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{30}
+\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}|hyperpage}{30}
+\indexentry{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{30}
 \indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{30}
 \indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{30}
-\indexentry{prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}|hyperpage}{31}
-\indexentry{prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}!mvn\+\_\+cdf\+\_\+genz@{mvn\+\_\+cdf\+\_\+genz}|hyperpage}{31}
-\indexentry{mvn\+\_\+cdf\+\_\+genz@{mvn\+\_\+cdf\+\_\+genz}!prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}|hyperpage}{31}
-\indexentry{prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}|hyperpage}{32}
-\indexentry{prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}!mvndst\+\_\+@{mvndst\+\_\+}|hyperpage}{32}
-\indexentry{mvndst\+\_\+@{mvndst\+\_\+}!prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}|hyperpage}{32}
-\indexentry{prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}|hyperpage}{32}
-\indexentry{prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}!compute\+\_\+quadratic\+\_\+from\+\_\+symmetric@{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}|hyperpage}{32}
-\indexentry{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric@{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}!prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}|hyperpage}{32}
-\indexentry{prior\+\_\+hessian\+::mcmc@{prior\+\_\+hessian\+::mcmc}|hyperpage}{33}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{33}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If@{Constructable\+If}|hyperpage}{36}
-\indexentry{Constructable\+If@{Constructable\+If}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}|hyperpage}{36}
-\indexentry{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}|hyperpage}{36}
-\indexentry{Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}|hyperpage}{36}
-\indexentry{Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}|hyperpage}{36}
-\indexentry{Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}|hyperpage}{36}
-\indexentry{Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}|hyperpage}{36}
-\indexentry{Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}|hyperpage}{36}
-\indexentry{Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not@{Constructable\+If\+Not}|hyperpage}{36}
-\indexentry{Constructable\+If\+Not@{Constructable\+If\+Not}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{36}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}|hyperpage}{37}
-\indexentry{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}|hyperpage}{37}
-\indexentry{Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Derived\+From@{Derived\+From}|hyperpage}{37}
-\indexentry{Derived\+From@{Derived\+From}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}|hyperpage}{37}
-\indexentry{Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}|hyperpage}{37}
-\indexentry{Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}|hyperpage}{37}
-\indexentry{Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}|hyperpage}{37}
-\indexentry{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}|hyperpage}{37}
-\indexentry{Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}|hyperpage}{37}
-\indexentry{Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}|hyperpage}{38}
-\indexentry{Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}|hyperpage}{38}
-\indexentry{Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}|hyperpage}{38}
-\indexentry{Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}|hyperpage}{38}
-\indexentry{Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}|hyperpage}{38}
-\indexentry{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+SubclassT@{Enable\+If\+SubclassT}|hyperpage}{38}
-\indexentry{Enable\+If\+SubclassT@{Enable\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}|hyperpage}{38}
-\indexentry{Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}|hyperpage}{38}
-\indexentry{Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}|hyperpage}{38}
-\indexentry{Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}|hyperpage}{39}
-\indexentry{Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+SubclassT@{Return\+If\+SubclassT}|hyperpage}{39}
-\indexentry{Return\+If\+SubclassT@{Return\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+IfT@{Return\+IfT}|hyperpage}{39}
-\indexentry{Return\+IfT@{Return\+IfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}|hyperpage}{39}
-\indexentry{call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}|hyperpage}{39}
-\indexentry{constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}|hyperpage}{40}
-\indexentry{logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}!make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}|hyperpage}{31}
+\indexentry{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple@{make\+\_\+adapted\+\_\+bounded\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::detail@{prior\+\_\+hessian\+::detail}|hyperpage}{31}
+\indexentry{prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}|hyperpage}{32}
+\indexentry{prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}!mvn\+\_\+cdf\+\_\+genz@{mvn\+\_\+cdf\+\_\+genz}|hyperpage}{32}
+\indexentry{mvn\+\_\+cdf\+\_\+genz@{mvn\+\_\+cdf\+\_\+genz}!prior\+\_\+hessian\+::genz@{prior\+\_\+hessian\+::genz}|hyperpage}{32}
+\indexentry{prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}|hyperpage}{33}
+\indexentry{prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}!mvndst\+\_\+@{mvndst\+\_\+}|hyperpage}{33}
+\indexentry{mvndst\+\_\+@{mvndst\+\_\+}!prior\+\_\+hessian\+::genz\+::fortran@{prior\+\_\+hessian\+::genz\+::fortran}|hyperpage}{33}
+\indexentry{prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}|hyperpage}{33}
+\indexentry{prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}!compute\+\_\+quadratic\+\_\+from\+\_\+symmetric@{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}|hyperpage}{33}
+\indexentry{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric@{compute\+\_\+quadratic\+\_\+from\+\_\+symmetric}!prior\+\_\+hessian\+::helpers@{prior\+\_\+hessian\+::helpers}|hyperpage}{33}
+\indexentry{prior\+\_\+hessian\+::mcmc@{prior\+\_\+hessian\+::mcmc}|hyperpage}{34}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{34}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If@{Constructable\+If}|hyperpage}{37}
+\indexentry{Constructable\+If@{Constructable\+If}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}|hyperpage}{37}
+\indexentry{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT@{Constructable\+If\+All\+Are\+Not\+Tuple\+And\+Are\+NotT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}|hyperpage}{37}
+\indexentry{Constructable\+If\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}|hyperpage}{37}
+\indexentry{Constructable\+If\+Instantiated\+From\+NumericT@{Constructable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}|hyperpage}{37}
+\indexentry{Constructable\+If\+Is\+CopulaT@{Constructable\+If\+Is\+CopulaT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}|hyperpage}{37}
+\indexentry{Constructable\+If\+Is\+Super\+Class\+For\+AllT@{Constructable\+If\+Is\+Super\+Class\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}|hyperpage}{37}
+\indexentry{Constructable\+If\+Is\+Super\+ClassT@{Constructable\+If\+Is\+Super\+ClassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}|hyperpage}{37}
+\indexentry{Constructable\+If\+Is\+Template\+For\+AllT@{Constructable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not@{Constructable\+If\+Not}|hyperpage}{37}
+\indexentry{Constructable\+If\+Not@{Constructable\+If\+Not}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{37}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}|hyperpage}{38}
+\indexentry{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT@{Constructable\+If\+Not\+All\+Dists\+Are\+BoundedT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}|hyperpage}{38}
+\indexentry{Constructable\+If\+Not\+SelfT@{Constructable\+If\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Derived\+From@{Derived\+From}|hyperpage}{38}
+\indexentry{Derived\+From@{Derived\+From}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}|hyperpage}{38}
+\indexentry{Enable\+If\+All\+Are\+Not\+TupleT@{Enable\+If\+All\+Are\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}|hyperpage}{38}
+\indexentry{Enable\+If\+Instantiated\+From\+NumericT@{Enable\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}|hyperpage}{38}
+\indexentry{Enable\+If\+Instantiated\+FromT@{Enable\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}|hyperpage}{38}
+\indexentry{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT@{Enable\+If\+Is\+Not\+Tuple\+And\+Is\+Not\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}|hyperpage}{38}
+\indexentry{Enable\+If\+Is\+Not\+TupleT@{Enable\+If\+Is\+Not\+TupleT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}|hyperpage}{38}
+\indexentry{Enable\+If\+Is\+Superclass\+Of\+AllT@{Enable\+If\+Is\+Superclass\+Of\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{38}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}|hyperpage}{39}
+\indexentry{Enable\+If\+Is\+Template\+For\+AllT@{Enable\+If\+Is\+Template\+For\+AllT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}|hyperpage}{39}
+\indexentry{Enable\+If\+Non\+Empty@{Enable\+If\+Non\+Empty}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}|hyperpage}{39}
+\indexentry{Enable\+If\+Not\+Instantiated\+FromT@{Enable\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}|hyperpage}{39}
+\indexentry{Enable\+If\+Not\+Is\+SelfT@{Enable\+If\+Not\+Is\+SelfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}|hyperpage}{39}
+\indexentry{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT@{Enable\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Enable\+If\+SubclassT@{Enable\+If\+SubclassT}|hyperpage}{39}
+\indexentry{Enable\+If\+SubclassT@{Enable\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}|hyperpage}{39}
+\indexentry{Return\+If\+Instantiated\+From\+NumericT@{Return\+If\+Instantiated\+From\+NumericT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}|hyperpage}{39}
+\indexentry{Return\+If\+Instantiated\+FromT@{Return\+If\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}|hyperpage}{39}
+\indexentry{Return\+If\+Not\+Instantiated\+FromT@{Return\+If\+Not\+Instantiated\+FromT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{39}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}|hyperpage}{40}
+\indexentry{Return\+If\+Subclass\+Of\+Numeric\+TemplateT@{Return\+If\+Subclass\+Of\+Numeric\+TemplateT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+If\+SubclassT@{Return\+If\+SubclassT}|hyperpage}{40}
+\indexentry{Return\+If\+SubclassT@{Return\+If\+SubclassT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!Return\+IfT@{Return\+IfT}|hyperpage}{40}
+\indexentry{Return\+IfT@{Return\+IfT}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}|hyperpage}{40}
+\indexentry{call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}|hyperpage}{40}
+\indexentry{constexpr\+\_\+accumulate@{constexpr\+\_\+accumulate}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{40}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}|hyperpage}{41}
+\indexentry{logical\+\_\+and\+\_\+in\+\_\+order@{logical\+\_\+and\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{41}
 \indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!prod\+\_\+in\+\_\+order@{prod\+\_\+in\+\_\+order}|hyperpage}{41}
 \indexentry{prod\+\_\+in\+\_\+order@{prod\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{41}
-\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}|hyperpage}{41}
-\indexentry{sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{41}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{42}
+\indexentry{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}|hyperpage}{42}
+\indexentry{sum\+\_\+in\+\_\+order@{sum\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}|hyperpage}{42}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}|hyperpage}{43}
 \indexentry{eulerian\+\_\+polynomial@{eulerian\+\_\+polynomial}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 0 $>$@{eulerian\+\_\+polynomial$<$ 0 $>$}|hyperpage}{43}
 \indexentry{eulerian\+\_\+polynomial$<$ 0 $>$@{eulerian\+\_\+polynomial$<$ 0 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 1 $>$@{eulerian\+\_\+polynomial$<$ 1 $>$}|hyperpage}{43}
 \indexentry{eulerian\+\_\+polynomial$<$ 1 $>$@{eulerian\+\_\+polynomial$<$ 1 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 2 $>$@{eulerian\+\_\+polynomial$<$ 2 $>$}|hyperpage}{43}
-\indexentry{eulerian\+\_\+polynomial$<$ 2 $>$@{eulerian\+\_\+polynomial$<$ 2 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 3 $>$@{eulerian\+\_\+polynomial$<$ 3 $>$}|hyperpage}{43}
-\indexentry{eulerian\+\_\+polynomial$<$ 3 $>$@{eulerian\+\_\+polynomial$<$ 3 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 4 $>$@{eulerian\+\_\+polynomial$<$ 4 $>$}|hyperpage}{43}
-\indexentry{eulerian\+\_\+polynomial$<$ 4 $>$@{eulerian\+\_\+polynomial$<$ 4 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 5 $>$@{eulerian\+\_\+polynomial$<$ 5 $>$}|hyperpage}{43}
-\indexentry{eulerian\+\_\+polynomial$<$ 5 $>$@{eulerian\+\_\+polynomial$<$ 5 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{43}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 2 $>$@{eulerian\+\_\+polynomial$<$ 2 $>$}|hyperpage}{44}
+\indexentry{eulerian\+\_\+polynomial$<$ 2 $>$@{eulerian\+\_\+polynomial$<$ 2 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 3 $>$@{eulerian\+\_\+polynomial$<$ 3 $>$}|hyperpage}{44}
+\indexentry{eulerian\+\_\+polynomial$<$ 3 $>$@{eulerian\+\_\+polynomial$<$ 3 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 4 $>$@{eulerian\+\_\+polynomial$<$ 4 $>$}|hyperpage}{44}
+\indexentry{eulerian\+\_\+polynomial$<$ 4 $>$@{eulerian\+\_\+polynomial$<$ 4 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 5 $>$@{eulerian\+\_\+polynomial$<$ 5 $>$}|hyperpage}{44}
+\indexentry{eulerian\+\_\+polynomial$<$ 5 $>$@{eulerian\+\_\+polynomial$<$ 5 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 6 $>$@{eulerian\+\_\+polynomial$<$ 6 $>$}|hyperpage}{44}
 \indexentry{eulerian\+\_\+polynomial$<$ 6 $>$@{eulerian\+\_\+polynomial$<$ 6 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!eulerian\+\_\+polynomial$<$ 7 $>$@{eulerian\+\_\+polynomial$<$ 7 $>$}|hyperpage}{44}
@@ -210,20 +210,20 @@
 \indexentry{eulerian\+\_\+polynomial$<$ 9 $>$@{eulerian\+\_\+polynomial$<$ 9 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
 \indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!polylog@{polylog}|hyperpage}{44}
 \indexentry{polylog@{polylog}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
-\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!polylog$<$ 1 $>$@{polylog$<$ 1 $>$}|hyperpage}{44}
-\indexentry{polylog$<$ 1 $>$@{polylog$<$ 1 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{44}
+\indexentry{prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}!polylog$<$ 1 $>$@{polylog$<$ 1 $>$}|hyperpage}{45}
+\indexentry{polylog$<$ 1 $>$@{polylog$<$ 1 $>$}!prior\+\_\+hessian\+::polylog@{prior\+\_\+hessian\+::polylog}|hyperpage}{45}
 \indexentry{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts $>$@{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded$<$ Dist\+Ts $>$}|hyperpage}{45}
-\indexentry{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded@{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}!value@{value}|hyperpage}{45}
-\indexentry{value@{value}!prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded@{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}|hyperpage}{45}
+\indexentry{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded@{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}!value@{value}|hyperpage}{46}
+\indexentry{value@{value}!prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded@{prior\+\_\+hessian\+::meta\+::all\+\_\+dists\+\_\+are\+\_\+bounded}|hyperpage}{46}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula$<$ Ndim $>$}|hyperpage}{46}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!Ndim\+MatT@{Ndim\+MatT}|hyperpage}{48}
 \indexentry{Ndim\+MatT@{Ndim\+MatT}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{48}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!Ndim\+VecT@{Ndim\+VecT}|hyperpage}{48}
 \indexentry{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{48}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}|hyperpage}{48}
-\indexentry{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{48}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}|hyperpage}{48}
-\indexentry{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{48}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}|hyperpage}{49}
+\indexentry{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{49}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!A\+M\+H\+Copula@{A\+M\+H\+Copula}|hyperpage}{49}
+\indexentry{A\+M\+H\+Copula@{A\+M\+H\+Copula}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{49}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!append\+\_\+params@{append\+\_\+params}|hyperpage}{49}
 \indexentry{append\+\_\+params@{append\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{49}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!cdf@{cdf}|hyperpage}{49}
@@ -232,18 +232,18 @@
 \indexentry{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{50}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}|hyperpage}{50}
 \indexentry{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{50}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+theta@{check\+\_\+theta}|hyperpage}{50}
-\indexentry{check\+\_\+theta@{check\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{50}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!check\+\_\+theta@{check\+\_\+theta}|hyperpage}{51}
+\indexentry{check\+\_\+theta@{check\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{51}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!d1\+\_\+igen@{d1\+\_\+igen}|hyperpage}{51}
 \indexentry{d1\+\_\+igen@{d1\+\_\+igen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{51}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!ddim\+\_\+gen@{ddim\+\_\+gen}|hyperpage}{52}
 \indexentry{ddim\+\_\+gen@{ddim\+\_\+gen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{52}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!gen@{gen}|hyperpage}{52}
-\indexentry{gen@{gen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{52}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!gen@{gen}|hyperpage}{53}
+\indexentry{gen@{gen}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{53}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!grad@{grad}|hyperpage}{53}
 \indexentry{grad@{grad}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{53}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!grad2@{grad2}|hyperpage}{53}
-\indexentry{grad2@{grad2}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{53}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!grad2@{grad2}|hyperpage}{54}
+\indexentry{grad2@{grad2}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{54}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!hess@{hess}|hyperpage}{54}
 \indexentry{hess@{hess}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{54}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!igen@{igen}|hyperpage}{55}
@@ -252,16 +252,16 @@
 \indexentry{igen\+\_\+sum@{igen\+\_\+sum}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{55}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!llh@{llh}|hyperpage}{56}
 \indexentry{llh@{llh}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{56}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!num\+\_\+dim@{num\+\_\+dim}|hyperpage}{56}
-\indexentry{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{56}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!num\+\_\+dim@{num\+\_\+dim}|hyperpage}{57}
+\indexentry{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{57}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!num\+\_\+params@{num\+\_\+params}|hyperpage}{57}
 \indexentry{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{57}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!operator"!=@{operator"!=}|hyperpage}{57}
 \indexentry{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{57}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!operator==@{operator==}|hyperpage}{57}
 \indexentry{operator==@{operator==}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{57}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+lbound@{param\+\_\+lbound}|hyperpage}{57}
-\indexentry{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{57}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+lbound@{param\+\_\+lbound}|hyperpage}{58}
+\indexentry{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{58}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+names@{param\+\_\+names}|hyperpage}{58}
 \indexentry{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{58}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!param\+\_\+ubound@{param\+\_\+ubound}|hyperpage}{58}
@@ -272,77 +272,77 @@
 \indexentry{rllh@{rllh}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{59}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+const@{rllh\+\_\+const}|hyperpage}{59}
 \indexentry{rllh\+\_\+const@{rllh\+\_\+const}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{59}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}|hyperpage}{59}
-\indexentry{rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{59}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}|hyperpage}{60}
+\indexentry{rllh\+\_\+d2theta\+\_\+accumulate@{rllh\+\_\+d2theta\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{60}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+dtheta\+\_\+accumulate@{rllh\+\_\+dtheta\+\_\+accumulate}|hyperpage}{60}
 \indexentry{rllh\+\_\+dtheta\+\_\+accumulate@{rllh\+\_\+dtheta\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{60}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+accumulate@{rllh\+\_\+grad\+\_\+accumulate}|hyperpage}{60}
 \indexentry{rllh\+\_\+grad\+\_\+accumulate@{rllh\+\_\+grad\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{60}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}|hyperpage}{60}
-\indexentry{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{60}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}|hyperpage}{61}
+\indexentry{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate@{rllh\+\_\+grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{61}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!rllh\+\_\+grad\+\_\+hess\+\_\+accumulate@{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}|hyperpage}{61}
 \indexentry{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate@{rllh\+\_\+grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{61}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!sample@{sample}|hyperpage}{61}
 \indexentry{sample@{sample}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{61}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+params@{set\+\_\+params}|hyperpage}{61}
-\indexentry{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{61}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+params@{set\+\_\+params}|hyperpage}{62}
+\indexentry{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{62}
 \indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}|hyperpage}{62}
 \indexentry{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{62}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+theta@{set\+\_\+theta}|hyperpage}{62}
-\indexentry{set\+\_\+theta@{set\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{62}
-\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!theta@{theta}|hyperpage}{63}
-\indexentry{theta@{theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{63}
-\indexentry{prior\+\_\+hessian\+::\+Archimedean\+Copula@{prior\+\_\+hessian\+::\+Archimedean\+Copula}|hyperpage}{64}
-\indexentry{prior\+\_\+hessian\+::\+Base\+Dist@{prior\+\_\+hessian\+::\+Base\+Dist}|hyperpage}{65}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{66}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+DistT@{Component\+DistT}|hyperpage}{68}
-\indexentry{Component\+DistT@{Component\+DistT}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{68}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{68}
-\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{68}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{68}
-\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{68}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{68}
-\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{68}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!set\+\_\+theta@{set\+\_\+theta}|hyperpage}{63}
+\indexentry{set\+\_\+theta@{set\+\_\+theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{63}
+\indexentry{prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}!theta@{theta}|hyperpage}{64}
+\indexentry{theta@{theta}!prior\+\_\+hessian\+::\+A\+M\+H\+Copula@{prior\+\_\+hessian\+::\+A\+M\+H\+Copula}|hyperpage}{64}
+\indexentry{prior\+\_\+hessian\+::\+Archimedean\+Copula@{prior\+\_\+hessian\+::\+Archimedean\+Copula}|hyperpage}{65}
+\indexentry{prior\+\_\+hessian\+::\+Base\+Dist@{prior\+\_\+hessian\+::\+Base\+Dist}|hyperpage}{66}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{67}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+DistT@{Component\+DistT}|hyperpage}{69}
+\indexentry{Component\+DistT@{Component\+DistT}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{69}
+\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{69}
+\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}|hyperpage}{69}
+\indexentry{Component\+Dist\+Adaptor@{Component\+Dist\+Adaptor}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+global\+\_\+lbound@{append\+\_\+global\+\_\+lbound}|hyperpage}{69}
 \indexentry{append\+\_\+global\+\_\+lbound@{append\+\_\+global\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+global\+\_\+ubound@{append\+\_\+global\+\_\+ubound}|hyperpage}{69}
 \indexentry{append\+\_\+global\+\_\+ubound@{append\+\_\+global\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+lbound@{append\+\_\+lbound}|hyperpage}{69}
-\indexentry{append\+\_\+lbound@{append\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{69}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+lbound@{append\+\_\+lbound}|hyperpage}{70}
+\indexentry{append\+\_\+lbound@{append\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{70}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+param\+\_\+names@{append\+\_\+param\+\_\+names}|hyperpage}{70}
 \indexentry{append\+\_\+param\+\_\+names@{append\+\_\+param\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{70}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+params@{append\+\_\+params}|hyperpage}{70}
-\indexentry{append\+\_\+params@{append\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{70}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+params@{append\+\_\+params}|hyperpage}{71}
+\indexentry{append\+\_\+params@{append\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{71}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+params\+\_\+lbound@{append\+\_\+params\+\_\+lbound}|hyperpage}{71}
 \indexentry{append\+\_\+params\+\_\+lbound@{append\+\_\+params\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{71}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+params\+\_\+ubound@{append\+\_\+params\+\_\+ubound}|hyperpage}{71}
 \indexentry{append\+\_\+params\+\_\+ubound@{append\+\_\+params\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{71}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+sample@{append\+\_\+sample}|hyperpage}{71}
-\indexentry{append\+\_\+sample@{append\+\_\+sample}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{71}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+ubound@{append\+\_\+ubound}|hyperpage}{71}
-\indexentry{append\+\_\+ubound@{append\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{71}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+sample@{append\+\_\+sample}|hyperpage}{72}
+\indexentry{append\+\_\+sample@{append\+\_\+sample}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{72}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!append\+\_\+ubound@{append\+\_\+ubound}|hyperpage}{72}
+\indexentry{append\+\_\+ubound@{append\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{72}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!cdf\+\_\+from\+\_\+iter@{cdf\+\_\+from\+\_\+iter}|hyperpage}{72}
 \indexentry{cdf\+\_\+from\+\_\+iter@{cdf\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{72}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad2\+\_\+accumulate\+\_\+idx@{grad2\+\_\+accumulate\+\_\+idx}|hyperpage}{72}
-\indexentry{grad2\+\_\+accumulate\+\_\+idx@{grad2\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{72}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad2\+\_\+accumulate\+\_\+idx@{grad2\+\_\+accumulate\+\_\+idx}|hyperpage}{73}
+\indexentry{grad2\+\_\+accumulate\+\_\+idx@{grad2\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{73}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad\+\_\+accumulate\+\_\+idx@{grad\+\_\+accumulate\+\_\+idx}|hyperpage}{73}
 \indexentry{grad\+\_\+accumulate\+\_\+idx@{grad\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{73}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad\+\_\+grad2\+\_\+accumulate\+\_\+idx@{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}|hyperpage}{73}
-\indexentry{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx@{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{73}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad\+\_\+grad2\+\_\+accumulate\+\_\+idx@{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}|hyperpage}{74}
+\indexentry{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx@{grad\+\_\+grad2\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{74}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!grad\+\_\+hess\+\_\+accumulate\+\_\+idx@{grad\+\_\+hess\+\_\+accumulate\+\_\+idx}|hyperpage}{74}
 \indexentry{grad\+\_\+hess\+\_\+accumulate\+\_\+idx@{grad\+\_\+hess\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{74}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!hess\+\_\+accumulate\+\_\+idx@{hess\+\_\+accumulate\+\_\+idx}|hyperpage}{74}
 \indexentry{hess\+\_\+accumulate\+\_\+idx@{hess\+\_\+accumulate\+\_\+idx}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{74}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!llh\+\_\+from\+\_\+iter@{llh\+\_\+from\+\_\+iter}|hyperpage}{74}
-\indexentry{llh\+\_\+from\+\_\+iter@{llh\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{74}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!llh\+\_\+from\+\_\+iter@{llh\+\_\+from\+\_\+iter}|hyperpage}{75}
+\indexentry{llh\+\_\+from\+\_\+iter@{llh\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{75}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!pdf\+\_\+from\+\_\+iter@{pdf\+\_\+from\+\_\+iter}|hyperpage}{75}
 \indexentry{pdf\+\_\+from\+\_\+iter@{pdf\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{75}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!rllh\+\_\+from\+\_\+iter@{rllh\+\_\+from\+\_\+iter}|hyperpage}{75}
-\indexentry{rllh\+\_\+from\+\_\+iter@{rllh\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{75}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!rllh\+\_\+from\+\_\+iter@{rllh\+\_\+from\+\_\+iter}|hyperpage}{76}
+\indexentry{rllh\+\_\+from\+\_\+iter@{rllh\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{76}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!set\+\_\+bounds\+\_\+from\+\_\+iter@{set\+\_\+bounds\+\_\+from\+\_\+iter}|hyperpage}{76}
 \indexentry{set\+\_\+bounds\+\_\+from\+\_\+iter@{set\+\_\+bounds\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{76}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!set\+\_\+lbound\+\_\+from\+\_\+iter@{set\+\_\+lbound\+\_\+from\+\_\+iter}|hyperpage}{76}
-\indexentry{set\+\_\+lbound\+\_\+from\+\_\+iter@{set\+\_\+lbound\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{76}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!set\+\_\+lbound\+\_\+from\+\_\+iter@{set\+\_\+lbound\+\_\+from\+\_\+iter}|hyperpage}{77}
+\indexentry{set\+\_\+lbound\+\_\+from\+\_\+iter@{set\+\_\+lbound\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{77}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}!set\+\_\+ubound\+\_\+from\+\_\+iter@{set\+\_\+ubound\+\_\+from\+\_\+iter}|hyperpage}{77}
 \indexentry{set\+\_\+ubound\+\_\+from\+\_\+iter@{set\+\_\+ubound\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Multivariate\+Dist $>$ $>$}|hyperpage}{77}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}|hyperpage}{78}
@@ -398,10 +398,10 @@
 \indexentry{set\+\_\+ubound\+\_\+from\+\_\+iter@{set\+\_\+ubound\+\_\+from\+\_\+iter}!prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor$<$ Dist, meta\+::\+Enable\+If\+Subclass\+T$<$ Dist, Univariate\+Dist $>$ $>$}|hyperpage}{88}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{89}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor}|hyperpage}{92}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Any\+RngT@{Any\+RngT}|hyperpage}{92}
-\indexentry{Any\+RngT@{Any\+RngT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{92}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Component\+DistT@{Component\+DistT}|hyperpage}{92}
-\indexentry{Component\+DistT@{Component\+DistT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{92}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Any\+RngT@{Any\+RngT}|hyperpage}{93}
+\indexentry{Any\+RngT@{Any\+RngT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{93}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Component\+DistT@{Component\+DistT}|hyperpage}{93}
+\indexentry{Component\+DistT@{Component\+DistT}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{93}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}|hyperpage}{93}
 \indexentry{Composite\+Dist@{Composite\+Dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{93}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!Composite\+Dist@{Composite\+Dist}|hyperpage}{93}
@@ -426,8 +426,10 @@
 \indexentry{component\+\_\+types@{component\+\_\+types}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{96}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!dim\+\_\+variables@{dim\+\_\+variables}|hyperpage}{97}
 \indexentry{dim\+\_\+variables@{dim\+\_\+variables}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{97}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}|hyperpage}{97}
-\indexentry{get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{97}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+dim\+\_\+variable\+\_\+index@{get\+\_\+dim\+\_\+variable\+\_\+index}|hyperpage}{97}
+\indexentry{get\+\_\+dim\+\_\+variable\+\_\+index@{get\+\_\+dim\+\_\+variable\+\_\+index}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{97}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}|hyperpage}{98}
+\indexentry{get\+\_\+dist\+\_\+tuple@{get\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{98}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+param\+\_\+index@{get\+\_\+param\+\_\+index}|hyperpage}{98}
 \indexentry{get\+\_\+param\+\_\+index@{get\+\_\+param\+\_\+index}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{98}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!get\+\_\+param\+\_\+value@{get\+\_\+param\+\_\+value}|hyperpage}{98}
@@ -436,8 +438,8 @@
 \indexentry{global\+\_\+lbound@{global\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{99}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!global\+\_\+ubound@{global\+\_\+ubound}|hyperpage}{99}
 \indexentry{global\+\_\+ubound@{global\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{99}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad@{grad}|hyperpage}{99}
-\indexentry{grad@{grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{99}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad@{grad}|hyperpage}{100}
+\indexentry{grad@{grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{100}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad2@{grad2}|hyperpage}{101}
 \indexentry{grad2@{grad2}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{101}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad2\+\_\+accumulate@{grad2\+\_\+accumulate}|hyperpage}{102}
@@ -448,72 +450,74 @@
 \indexentry{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{103}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}|hyperpage}{104}
 \indexentry{grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{104}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!has\+\_\+param@{has\+\_\+param}|hyperpage}{104}
-\indexentry{has\+\_\+param@{has\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{104}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!has\+\_\+dim\+\_\+variable@{has\+\_\+dim\+\_\+variable}|hyperpage}{104}
+\indexentry{has\+\_\+dim\+\_\+variable@{has\+\_\+dim\+\_\+variable}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{104}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!has\+\_\+param@{has\+\_\+param}|hyperpage}{105}
+\indexentry{has\+\_\+param@{has\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{105}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!hess@{hess}|hyperpage}{105}
 \indexentry{hess@{hess}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{105}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!hess\+\_\+accumulate@{hess\+\_\+accumulate}|hyperpage}{106}
 \indexentry{hess\+\_\+accumulate@{hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{106}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}|hyperpage}{106}
 \indexentry{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{106}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}|hyperpage}{106}
-\indexentry{in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{106}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}|hyperpage}{107}
+\indexentry{in\+\_\+bounds\+\_\+all@{in\+\_\+bounds\+\_\+all}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{107}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{107}
 \indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{107}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{107}
-\indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{107}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{107}
-\indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{107}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{108}
+\indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{108}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{108}
 \indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{108}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{108}
 \indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{108}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{109}
 \indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{109}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!is\+\_\+empty@{is\+\_\+empty}|hyperpage}{109}
-\indexentry{is\+\_\+empty@{is\+\_\+empty}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{109}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!initialize@{initialize}|hyperpage}{109}
+\indexentry{initialize@{initialize}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{109}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!is\+\_\+empty@{is\+\_\+empty}|hyperpage}{110}
+\indexentry{is\+\_\+empty@{is\+\_\+empty}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{110}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!lbound@{lbound}|hyperpage}{110}
 \indexentry{lbound@{lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{110}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!llh@{llh}|hyperpage}{110}
-\indexentry{llh@{llh}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{110}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!llh@{llh}|hyperpage}{111}
+\indexentry{llh@{llh}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{111}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!llh\+\_\+components@{llh\+\_\+components}|hyperpage}{111}
 \indexentry{llh\+\_\+components@{llh\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{111}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}|hyperpage}{111}
-\indexentry{make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{111}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}|hyperpage}{112}
 \indexentry{make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{112}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}|hyperpage}{112}
-\indexentry{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{112}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}|hyperpage}{112}
+\indexentry{make\+\_\+component\+\_\+dist@{make\+\_\+component\+\_\+dist}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{112}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}|hyperpage}{113}
 \indexentry{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{113}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}|hyperpage}{113}
 \indexentry{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{113}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}|hyperpage}{114}
 \indexentry{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{114}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}|hyperpage}{114}
-\indexentry{make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{114}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}|hyperpage}{114}
-\indexentry{make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{114}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}|hyperpage}{114}
+\indexentry{make\+\_\+component\+\_\+dist\+\_\+tuple@{make\+\_\+component\+\_\+dist\+\_\+tuple}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{114}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}|hyperpage}{115}
+\indexentry{make\+\_\+zero\+\_\+grad@{make\+\_\+zero\+\_\+grad}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{115}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}|hyperpage}{115}
+\indexentry{make\+\_\+zero\+\_\+hess@{make\+\_\+zero\+\_\+hess}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{115}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+components@{num\+\_\+components}|hyperpage}{115}
 \indexentry{num\+\_\+components@{num\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{115}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim@{num\+\_\+dim}|hyperpage}{115}
-\indexentry{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{115}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}|hyperpage}{116}
-\indexentry{num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{116}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim@{num\+\_\+dim}|hyperpage}{116}
+\indexentry{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{116}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}|hyperpage}{117}
+\indexentry{num\+\_\+dim\+\_\+components@{num\+\_\+dim\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{117}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+params@{num\+\_\+params}|hyperpage}{117}
 \indexentry{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{117}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!num\+\_\+params\+\_\+components@{num\+\_\+params\+\_\+components}|hyperpage}{117}
 \indexentry{num\+\_\+params\+\_\+components@{num\+\_\+params\+\_\+components}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{117}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator bool@{operator bool}|hyperpage}{117}
-\indexentry{operator bool@{operator bool}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{117}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator"!=@{operator"!=}|hyperpage}{117}
-\indexentry{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{117}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator bool@{operator bool}|hyperpage}{118}
+\indexentry{operator bool@{operator bool}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{118}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator"!=@{operator"!=}|hyperpage}{118}
+\indexentry{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{118}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator=@{operator=}|hyperpage}{118}
 \indexentry{operator=@{operator=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{118}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator=@{operator=}|hyperpage}{118}
-\indexentry{operator=@{operator=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{118}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator==@{operator==}|hyperpage}{118}
-\indexentry{operator==@{operator==}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{118}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator=@{operator=}|hyperpage}{119}
+\indexentry{operator=@{operator=}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{119}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!operator==@{operator==}|hyperpage}{119}
+\indexentry{operator==@{operator==}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{119}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!param\+\_\+names@{param\+\_\+names}|hyperpage}{119}
 \indexentry{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{119}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params@{params}|hyperpage}{120}
@@ -524,10 +528,12 @@
 \indexentry{params\+\_\+lbound@{params\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{122}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!params\+\_\+ubound@{params\+\_\+ubound}|hyperpage}{122}
 \indexentry{params\+\_\+ubound@{params\+\_\+ubound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{122}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!pdf@{pdf}|hyperpage}{122}
-\indexentry{pdf@{pdf}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{122}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rename\+\_\+param@{rename\+\_\+param}|hyperpage}{123}
-\indexentry{rename\+\_\+param@{rename\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{123}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!pdf@{pdf}|hyperpage}{123}
+\indexentry{pdf@{pdf}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{123}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rename\+\_\+dim\+\_\+variable@{rename\+\_\+dim\+\_\+variable}|hyperpage}{123}
+\indexentry{rename\+\_\+dim\+\_\+variable@{rename\+\_\+dim\+\_\+variable}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{123}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rename\+\_\+param@{rename\+\_\+param}|hyperpage}{124}
+\indexentry{rename\+\_\+param@{rename\+\_\+param}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{124}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rllh@{rllh}|hyperpage}{124}
 \indexentry{rllh@{rllh}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{124}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!rllh\+\_\+components@{rllh\+\_\+components}|hyperpage}{125}
@@ -540,12 +546,16 @@
 \indexentry{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{127}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}|hyperpage}{127}
 \indexentry{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{127}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}|hyperpage}{127}
+\indexentry{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{127}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!sample@{sample}|hyperpage}{127}
+\indexentry{sample@{sample}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{127}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+bounds@{set\+\_\+bounds}|hyperpage}{127}
 \indexentry{set\+\_\+bounds@{set\+\_\+bounds}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{127}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+component\+\_\+names@{set\+\_\+component\+\_\+names}|hyperpage}{128}
 \indexentry{set\+\_\+component\+\_\+names@{set\+\_\+component\+\_\+names}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{128}
-\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}|hyperpage}{128}
-\indexentry{set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{128}
+\indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}|hyperpage}{129}
+\indexentry{set\+\_\+dim\+\_\+variables@{set\+\_\+dim\+\_\+variables}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{129}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+lbound@{set\+\_\+lbound}|hyperpage}{129}
 \indexentry{set\+\_\+lbound@{set\+\_\+lbound}!prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}|hyperpage}{129}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist@{prior\+\_\+hessian\+::\+Composite\+Dist}!set\+\_\+param\+\_\+names@{set\+\_\+param\+\_\+names}|hyperpage}{130}
@@ -909,8 +919,8 @@
 \indexentry{Ndim\+MatT@{Ndim\+MatT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}|hyperpage}{222}
 \indexentry{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Ndim\+VecT@{Ndim\+VecT}|hyperpage}{222}
 \indexentry{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}|hyperpage}{222}
-\indexentry{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Nparams\+VecT@{Nparams\+VecT}|hyperpage}{223}
-\indexentry{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}|hyperpage}{223}
+\indexentry{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Nparams\+VecT@{Nparams\+VecT}|hyperpage}{222}
+\indexentry{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}|hyperpage}{222}
 \indexentry{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}|hyperpage}{223}
 \indexentry{Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}|hyperpage}{223}
 \indexentry{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}|hyperpage}{223}
@@ -1582,17 +1592,17 @@
 \indexentry{prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist@{prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}!ubound@{ubound}|hyperpage}{394}
 \indexentry{ubound@{ubound}!prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist@{prior\+\_\+hessian\+::\+Upper\+Truncated\+Dist}|hyperpage}{394}
 \indexentry{A\+M\+H\+Copula.\+h@{A\+M\+H\+Copula.\+h}|hyperpage}{395}
-\indexentry{Archimedean\+Copula.\+h@{Archimedean\+Copula.\+h}|hyperpage}{395}
+\indexentry{Archimedean\+Copula.\+h@{Archimedean\+Copula.\+h}|hyperpage}{396}
 \indexentry{Base\+Dist.\+h@{Base\+Dist.\+h}|hyperpage}{397}
-\indexentry{Bounds\+Adapted\+Dist.\+h@{Bounds\+Adapted\+Dist.\+h}|hyperpage}{397}
+\indexentry{Bounds\+Adapted\+Dist.\+h@{Bounds\+Adapted\+Dist.\+h}|hyperpage}{398}
 \indexentry{Composite\+Dist.\+cpp@{Composite\+Dist.\+cpp}|hyperpage}{400}
 \indexentry{Composite\+Dist.\+h@{Composite\+Dist.\+h}|hyperpage}{401}
 \indexentry{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor@{prior\+\_\+hessian\+::\+Composite\+Dist\+::\+Component\+Dist\+Adaptor}|hyperpage}{403}
 \indexentry{copula.\+h@{copula.\+h}|hyperpage}{403}
-\indexentry{Copula\+Dist.\+h@{Copula\+Dist.\+h}|hyperpage}{403}
-\indexentry{Eulerian\+Polynomial.\+h@{Eulerian\+Polynomial.\+h}|hyperpage}{404}
-\indexentry{Gamma\+Dist.\+cpp@{Gamma\+Dist.\+cpp}|hyperpage}{405}
-\indexentry{Gamma\+Dist.\+h@{Gamma\+Dist.\+h}|hyperpage}{406}
+\indexentry{Copula\+Dist.\+h@{Copula\+Dist.\+h}|hyperpage}{404}
+\indexentry{Eulerian\+Polynomial.\+h@{Eulerian\+Polynomial.\+h}|hyperpage}{405}
+\indexentry{Gamma\+Dist.\+cpp@{Gamma\+Dist.\+cpp}|hyperpage}{406}
+\indexentry{Gamma\+Dist.\+h@{Gamma\+Dist.\+h}|hyperpage}{407}
 \indexentry{Meta.\+h@{Meta.\+h}|hyperpage}{408}
 \indexentry{Meta.\+h@{Meta.\+h}!G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON@{G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON}|hyperpage}{411}
 \indexentry{G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON@{G\+C\+C\+\_\+\+V\+E\+R\+S\+I\+ON}!Meta.\+h@{Meta.\+h}|hyperpage}{411}
@@ -1628,5 +1638,5 @@
 \indexentry{Univariate\+Dist.\+cpp@{Univariate\+Dist.\+cpp}|hyperpage}{436}
 \indexentry{Univariate\+Dist.\+h@{Univariate\+Dist.\+h}|hyperpage}{437}
 \indexentry{Upper\+Truncated\+Dist.\+h@{Upper\+Truncated\+Dist.\+h}|hyperpage}{438}
-\indexentry{util.\+cpp@{util.\+cpp}|hyperpage}{440}
+\indexentry{util.\+cpp@{util.\+cpp}|hyperpage}{439}
 \indexentry{util.\+h@{util.\+h}|hyperpage}{441}

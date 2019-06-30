@@ -146,8 +146,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a50243ac0981ffdd3e6bb3566e8b3afc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bdf1c751f8da8a9043542ed080bb230"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a5bdf1c751f8da8a9043542ed080bb230">operator!=</a> (const <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a>&lt; Ndim &gt; &amp;o) const </td></tr>
 <tr class="separator:a5bdf1c751f8da8a9043542ed080bb230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25c40d83b7b1c09b0a049326c7c7545e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a25c40d83b7b1c09b0a049326c7c7545e">get_param</a> (int idx) const </td></tr>
-<tr class="separator:a25c40d83b7b1c09b0a049326c7c7545e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5428f037acfa512f7f28747bfa8ff6d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#ad5428f037acfa512f7f28747bfa8ff6d">get_param</a> (<a class="el" href="namespaceprior__hessian.html#aa8d589f74e88bfa3b5750118acd1ab78">IdxT</a> idx) const </td></tr>
+<tr class="separator:ad5428f037acfa512f7f28747bfa8ff6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55a53ff4ea86375a8971a5334c000c9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#ac690a8a9b00e4e0e159a15bb9c212852">NparamsVecT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a55a53ff4ea86375a8971a5334c000c9c">params</a> () const </td></tr>
 <tr class="separator:a55a53ff4ea86375a8971a5334c000c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af968e071050a9b2ba4b4ef96b206602b"><td class="memTemplParams" colspan="2">template&lt;class Vec &gt; </td></tr>
@@ -242,24 +242,18 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="separator:afdc57126708d3ef19be759496aceeda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int Ndim&gt;<br />
+<div class="textblock"><h3>template&lt;IdxT Ndim&gt;<br />
 class prior_hessian::MultivariateNormalDist&lt; Ndim &gt;</h3>
 
 <p>Multivariate Normal distribution. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Ndim</td><td>Number of dimensions &gt;=2 </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00020">20</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00018">18</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="a2aa1e12ff8819a2cc3a8d3f33bcf8de2"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a2aa1e12ff8819a2cc3a8d3f33bcf8de2">NdimMatT</a> =  arma::Mat&lt;double&gt;::fixed&lt;Ndim,Ndim&gt;</td>
@@ -267,7 +261,7 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00026">26</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00024">24</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
 </div>
 </div>
@@ -275,10 +269,26 @@ template&lt;int Ndim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a0f5725cbbfa47be45b2741467dcd5615">NdimVecT</a> =  arma::Col&lt;double&gt;::fixed&lt;Ndim&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00023">23</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac690a8a9b00e4e0e159a15bb9c212852"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IdxT Ndim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#ac690a8a9b00e4e0e159a15bb9c212852">NparamsVecT</a> =  arma::Col&lt;double&gt;::fixed&lt;_num_params&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -287,28 +297,12 @@ template&lt;int Ndim&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac690a8a9b00e4e0e159a15bb9c212852"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int Ndim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#ac690a8a9b00e4e0e159a15bb9c212852">NparamsVecT</a> =  arma::Col&lt;double&gt;::fixed&lt;_num_params&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">27</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9347495e045f105c79a13db3422c6391"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a> </td>
@@ -319,9 +313,9 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00174">174</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00172">172</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -336,7 +330,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec , class Mat &gt; </div>
       <table class="memname">
@@ -360,9 +354,9 @@ template&lt;class Vec , class Mat &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00187">187</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00185">185</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00401">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00399">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -378,7 +372,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class IterT &gt; </div>
       <table class="memname">
@@ -392,7 +386,7 @@ template&lt;class IterT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -407,7 +401,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -421,11 +415,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00481">481</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00480">480</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="mvn__cdf_8h_source.html#l00219">prior_hessian::genz::mvn_cdf_genz()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="mvn__cdf_8h_source.html#l00217">prior_hessian::genz::mvn_cdf_genz()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -459,9 +453,9 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00490">490</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00489">489</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="mvn__cdf_8h_source.html#l00067">prior_hessian::owen_bvn_cdf()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="mvn__cdf_8h_source.html#l00067">prior_hessian::owen_bvn_cdf()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -514,7 +508,7 @@ template&lt;class Vec &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
 <table class="mlabels">
@@ -536,9 +530,9 @@ template&lt;class Vec &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00196">196</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00194">194</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00213">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00211">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -553,7 +547,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec , class Mat &gt; </div>
 <table class="mlabels">
@@ -585,11 +579,11 @@ template&lt;class Vec , class Mat &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00213">213</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00211">211</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00196">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00203">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00194">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00201">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -611,7 +605,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
 <table class="mlabels">
@@ -633,9 +627,9 @@ template&lt;class Vec &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00220">220</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00218">218</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00196">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00203">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00194">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00201">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -650,7 +644,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class IterT &gt; </div>
 <table class="mlabels">
@@ -672,11 +666,11 @@ template&lt;class IterT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00228">228</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00226">226</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00203">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00201">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -698,7 +692,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Mat &gt; </div>
 <table class="mlabels">
@@ -720,9 +714,9 @@ template&lt;class Mat &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00203">203</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00201">201</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00213">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00228">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00211">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00226">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -733,30 +727,30 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a25c40d83b7b1c09b0a049326c7c7545e"></a>
+<a class="anchor" id="ad5428f037acfa512f7f28747bfa8ff6d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">double <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::get_param </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceprior__hessian.html#aa8d589f74e88bfa3b5750118acd1ab78">IdxT</a>&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00441">441</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00440">440</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00061">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00059">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classprior__hessian_1_1MultivariateNormalDist_a25c40d83b7b1c09b0a049326c7c7545e_icgraph.svg" width="392" height="50"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classprior__hessian_1_1MultivariateNormalDist_ad5428f037acfa512f7f28747bfa8ff6d_icgraph.svg" width="392" height="50"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -766,7 +760,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -780,11 +774,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00523">523</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00522">522</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -806,7 +800,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -820,11 +814,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00531">531</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00530">530</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -846,7 +840,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec , class Vec2 &gt; </div>
       <table class="memname">
@@ -876,11 +870,11 @@ template&lt;class Vec , class Vec2 &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00546">546</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00545">545</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -902,7 +896,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec , class Vec2 , class Mat &gt; </div>
       <table class="memname">
@@ -932,11 +926,11 @@ template&lt;class Vec , class Vec2 , class Mat &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00554">554</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00553">553</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -958,7 +952,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -972,11 +966,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00539">539</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00538">538</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -998,7 +992,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
 <table class="mlabels">
@@ -1020,9 +1014,9 @@ template&lt;class Vec &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">34</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">32</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00196">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00213">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00203">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00298">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::lbound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00174">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00425">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00280">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_lbound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00271">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_names()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00289">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_ubound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00401">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00307">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00194">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00211">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00201">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00296">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::lbound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00172">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00424">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00278">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_lbound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00269">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_names()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00287">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::param_ubound()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00399">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00305">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1037,7 +1031,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1056,9 +1050,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00298">298</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00296">296</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00030">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00028">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1073,7 +1067,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -1087,11 +1081,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00507">507</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00506">506</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00497">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::pdf()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00496">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::pdf()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1113,7 +1107,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1132,9 +1126,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00073">73</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00071">71</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1149,7 +1143,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1168,9 +1162,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">74</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">72</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a58cde72a7fb9ee4c517149cdb25de76d">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::append_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00481">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00228">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00523">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00531">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad2()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00546">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00554">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00539">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::hess()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00507">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00497">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::pdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00563">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00469">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params_iter()</a>.</p>
+<p>References <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a58cde72a7fb9ee4c517149cdb25de76d">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::append_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00480">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00226">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00522">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00530">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad2()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00545">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00553">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00538">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::hess()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00506">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00496">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::pdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00562">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00468">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params_iter()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1185,7 +1179,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a0f5725cbbfa47be45b2741467dcd5615">NdimVecT</a> &amp; <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::mu </td>
@@ -1196,9 +1190,9 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">376</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">374</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00481">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00523">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00546">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00554">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00073">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mean()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00187">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00425">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00563">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00480">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00522">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00545">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00553">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00071">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mean()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00185">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00424">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00562">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1213,7 +1207,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1232,11 +1226,11 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00030">30</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00028">28</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00298">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::lbound()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00307">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00296">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::lbound()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00305">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1258,7 +1252,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1277,9 +1271,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">29</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">27</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00220">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00228">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00307">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00218">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00226">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_params_iter()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00305">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::ubound()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1294,7 +1288,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1314,9 +1308,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00061">61</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00059">59</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00441">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::get_param()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00425">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00440">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::get_param()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00424">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1331,7 +1325,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::operator== </td>
@@ -1343,11 +1337,11 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00425">425</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00424">424</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00061">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00059">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1369,7 +1363,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1388,9 +1382,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00280">280</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00278">278</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1405,7 +1399,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1424,9 +1418,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00271">271</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00269">269</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1441,7 +1435,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1460,9 +1454,9 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00289">289</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00287">287</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1477,7 +1471,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#ac690a8a9b00e4e0e159a15bb9c212852">NparamsVecT</a> <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::params </td>
@@ -1488,11 +1482,11 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">432</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">431</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00061">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00059">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1514,7 +1508,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -1528,11 +1522,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00497">497</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00496">496</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00507">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00506">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1554,7 +1548,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -1568,11 +1562,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">515</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">514</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00139">prior_hessian::helpers::compute_quadratic_from_symmetric()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00030">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00137">prior_hessian::helpers::compute_quadratic_from_symmetric()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00028">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma_inv()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00507">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00506">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::llh()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1594,7 +1588,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class RngT &gt; </div>
       <table class="memname">
@@ -1608,11 +1602,11 @@ template&lt;class RngT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00563">563</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00562">562</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="util_8cpp_source.html#l00019">prior_hessian::constants::log2pi</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00376">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
+<p>References <a class="el" href="util_8cpp_source.html#l00016">prior_hessian::constants::log2pi</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00374">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1634,7 +1628,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -1648,11 +1642,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">396</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">394</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00196">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00194">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::check_mu()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00187">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00185">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1674,7 +1668,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec &gt; </div>
       <table class="memname">
@@ -1688,11 +1682,11 @@ template&lt;class Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">453</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">452</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00401">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00399">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00061">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00469">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params_iter()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00059">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator!=()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00468">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params_iter()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1714,7 +1708,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Vec , class Mat &gt; </div>
       <table class="memname">
@@ -1738,9 +1732,9 @@ template&lt;class Vec , class Mat &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00461">461</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00460">460</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00396">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00401">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00394">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_mu()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00399">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_sigma()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1755,7 +1749,7 @@ Here is the call graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class IterT &gt; </div>
       <table class="memname">
@@ -1769,11 +1763,11 @@ template&lt;class IterT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00469">469</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00468">468</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00074">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00072">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::mode()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1795,7 +1789,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <div class="memtemplate">
 template&lt;class Mat &gt; </div>
       <table class="memname">
@@ -1809,9 +1803,9 @@ template&lt;class Mat &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00401">401</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00399">399</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00187">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00453">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00185">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00452">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::set_params()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1826,7 +1820,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a2aa1e12ff8819a2cc3a8d3f33bcf8de2">NdimMatT</a> &amp; <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::sigma </td>
@@ -1837,9 +1831,9 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00381">381</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00379">379</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00481">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00187">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00425">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00432">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00563">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00480">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::cdf()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00185">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::MultivariateNormalDist()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00424">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::operator==()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00431">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::params()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00562">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::sample()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1854,7 +1848,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">MultivariateNormalDist</a>&lt; Ndim &gt;::<a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html#a2aa1e12ff8819a2cc3a8d3f33bcf8de2">NdimMatT</a> &amp; <a class="el" href="classprior__hessian_1_1MultivariateNormalDist.html">prior_hessian::MultivariateNormalDist</a>&lt; Ndim &gt;::sigma_inv </td>
@@ -1865,9 +1859,9 @@ template&lt;int Ndim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00386">386</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00384">384</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00523">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00531">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad2()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00546">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00554">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00539">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::hess()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00515">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00522">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00530">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad2()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00545">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_grad2_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00553">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::grad_hess_accumulate()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00538">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::hess()</a>, <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00514">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::rllh()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1882,7 +1876,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int Ndim&gt; </div>
+template&lt;IdxT Ndim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1901,11 +1895,11 @@ template&lt;int Ndim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00307">307</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
+<p>Definition at line <a class="el" href="MultivariateNormalDist_8h_source.html#l00305">305</a> of file <a class="el" href="MultivariateNormalDist_8h_source.html">MultivariateNormalDist.h</a>.</p>
 
-<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00029">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
+<p>References <a class="el" href="MultivariateNormalDist_8h_source.html#l00027">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_params()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00034">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00030">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>.</p>
+<p>Referenced by <a class="el" href="MultivariateNormalDist_8h_source.html#l00032">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::in_bounds()</a>, and <a class="el" href="MultivariateNormalDist_8h_source.html#l00028">prior_hessian::MultivariateNormalDist&lt; Ndim &gt;::num_dim()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>

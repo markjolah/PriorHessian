@@ -5,5 +5,5 @@
 <area shape="rect" id="node20" href="$UnivariateDist_8h.html" title="UnivariateDist base class. " alt="" coords="526,85,708,111"/>
 <area shape="rect" id="node22" href="$MultivariateDist_8h.html" title="MultivariateDist base class. " alt="" coords="732,79,891,117"/>
 <area shape="rect" id="node23" href="$BoundsAdaptedDist_8h.html" title="Functions and type&#45;traits to enable easy wrapping of distributions in bounds&#45;modifiable adapters..." alt="" coords="1017,79,1201,117"/>
-<area shape="rect" id="node21" href="$BaseDist_8h.html" title="The Base classes for UnivariateDist and MultivariateDist. " alt="" coords="621,165,776,191"/>
+<area shape="rect" id="node21" href="$BaseDist_8h.html" title="The Base class for UnivariateDist and MultivariateDist. " alt="" coords="621,165,776,191"/>
 </map>

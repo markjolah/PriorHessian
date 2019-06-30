@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="classprior__hessian_1_1MultivariateNormalDist.html#a25c40d83b7b1c09b0a049326c7c7545e" target="_top" xlink:title="prior_hessian::Multivariate\lNormalDist::get_param">
+<g id="a_node2"><a xlink:href="classprior__hessian_1_1MultivariateNormalDist.html#ad5428f037acfa512f7f28747bfa8ff6d" target="_top" xlink:title="prior_hessian::Multivariate\lNormalDist::get_param">
 <polygon fill="white" stroke="black" points="161,-211.5 161,-239.5 286,-239.5 286,-211.5 161,-211.5"/>
 <text text-anchor="start" x="169" y="-228.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Multivariate</text>
 <text text-anchor="middle" x="223.5" y="-218.3" font-family="Helvetica,sans-Serif" font-size="9.00">NormalDist::get_param</text>

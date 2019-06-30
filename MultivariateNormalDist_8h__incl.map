@@ -3,6 +3,6 @@
 <area shape="rect" id="node12" href="$Meta_8h.html" title="Enables the use of variadic templates in interesting ways. " alt="" coords="626,165,759,191"/>
 <area shape="rect" id="node17" href="$mvn__cdf_8h.html" title="Numerical computation of multivariate normal cdfs in 2,3 and higher dims. " alt="" coords="111,85,263,111"/>
 <area shape="rect" id="node3" href="$util_8h.html" title="Utilities and namespace globals. " alt="" coords="245,165,367,191"/>
-<area shape="rect" id="node16" href="$BaseDist_8h.html" title="The Base classes for UnivariateDist and MultivariateDist. " alt="" coords="419,165,574,191"/>
+<area shape="rect" id="node16" href="$BaseDist_8h.html" title="The Base class for UnivariateDist and MultivariateDist. " alt="" coords="419,165,574,191"/>
 <area shape="rect" id="node10" href="$PriorHessianError_8h.html" title="The Exception classes for the PriorHessian library. " alt="" coords="223,239,354,264"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="util.h" name="util.h">
-<area shape="rect" id="node2" href="$GammaDist_8cpp.html" title="GammaDist class defintion. " alt="" coords="416,232,525,257"/>
-<area shape="rect" id="node3" href="$util_8cpp.html" title="util.cpp" alt="" coords="748,79,809,104"/>
-<area shape="rect" id="node4" href="$CompositeDist_8h.html" title="The Frank copula computations. " alt="" coords="21,152,133,177"/>
+<area shape="rect" id="node2" href="$GammaDist_8cpp.html" title="GammaDist class definition. " alt="" coords="416,232,525,257"/>
+<area shape="rect" id="node3" href="$util_8cpp.html" title="Utilities. " alt="" coords="748,79,809,104"/>
+<area shape="rect" id="node4" href="$CompositeDist_8h.html" title="CompositeDist class declaration and inline and templated member function definitions. " alt="" coords="21,152,133,177"/>
 <area shape="rect" id="node6" href="$CopulaDist_8h.html" title="CopulaDist base class. " alt="" coords="504,152,597,177"/>
 <area shape="rect" id="node7" href="$MultivariateDist_8h.html" title="MultivariateDist base class. " alt="" coords="191,79,307,104"/>
 <area shape="rect" id="node10" href="$mvn__cdf_8h.html" title="Numerical computation of multivariate normal cdfs in 2,3 and higher dims. " alt="" coords="345,79,423,104"/>
@@ -9,17 +9,17 @@
 <area shape="rect" id="node5" href="$CompositeDist_8cpp.html" title="CompositeDist and associated classes and nested classes. " alt="" coords="5,232,131,257"/>
 <area shape="rect" id="node8" href="$MultivariateNormalDist_8h.html" title="MultivariateNormalDist base class. " alt="" coords="158,152,314,177"/>
 <area shape="rect" id="node9" href="$TruncatedMultivariateNormalDist_8h.html" title="TruncatedMultivariateNormalDist class declaration. " alt="" coords="155,225,335,264"/>
-<area shape="rect" id="node11" href="$mvn__cdf_8cpp.html" title="NormalDist class defintion. " alt="" coords="339,152,429,177"/>
+<area shape="rect" id="node11" href="$mvn__cdf_8cpp.html" title="mvn_cdf.cpp" alt="" coords="339,152,429,177"/>
 <area shape="rect" id="node13" href="$UnivariateDist_8cpp.html" title="UnivariateDist base class method definition. " alt="" coords="741,152,864,177"/>
 <area shape="rect" id="node14" href="$GammaDist_8h.html" title="GammaDist class declaration and templated methods. " alt="" coords="621,152,717,177"/>
 <area shape="rect" id="node16" href="$NormalDist_8h.html" title="NormalDist class declaration and templated methods. " alt="" coords="888,152,981,177"/>
 <area shape="rect" id="node19" href="$ParetoDist_8h.html" title="ParetoDist class declaration and templated methods. " alt="" coords="1039,152,1129,177"/>
 <area shape="rect" id="node22" href="$SymmetricBetaDist_8h.html" title="SymmetricBetaDist class declaration and templated methods. " alt="" coords="1335,152,1470,177"/>
 <area shape="rect" id="node15" href="$TruncatedGammaDist_8h.html" title="TruncatedGammaDist class declaration and templated methods. " alt="" coords="554,232,705,257"/>
-<area shape="rect" id="node17" href="$NormalDist_8cpp.html" title="NormalDist class defintion. " alt="" coords="729,232,836,257"/>
+<area shape="rect" id="node17" href="$NormalDist_8cpp.html" title="NormalDist class definition. " alt="" coords="729,232,836,257"/>
 <area shape="rect" id="node18" href="$TruncatedNormalDist_8h.html" title="TruncatedNormalDist class declaration. " alt="" coords="861,232,1009,257"/>
-<area shape="rect" id="node20" href="$ParetoDist_8cpp.html" title="ParetoDist class defintion. " alt="" coords="1033,232,1135,257"/>
-<area shape="rect" id="node21" href="$TruncatedParetoDist_8h.html" title="ParetoDist class declaration and templated methods. " alt="" coords="1160,232,1304,257"/>
-<area shape="rect" id="node23" href="$SymmetricBetaDist_8cpp.html" title="SymmetricBetaDist class defintion. " alt="" coords="1329,232,1477,257"/>
-<area shape="rect" id="node24" href="$ScaledSymmetricBetaDist_8h.html" title="SymmetricBetaDist class declaration and templated methods. " alt="" coords="1501,232,1675,257"/>
+<area shape="rect" id="node20" href="$ParetoDist_8cpp.html" title="ParetoDist class definition. " alt="" coords="1033,232,1135,257"/>
+<area shape="rect" id="node21" href="$TruncatedParetoDist_8h.html" title="TruncatedParetoDist class declaration and templated methods. " alt="" coords="1160,232,1304,257"/>
+<area shape="rect" id="node23" href="$SymmetricBetaDist_8cpp.html" title="SymmetricBetaDist class definition. " alt="" coords="1329,232,1477,257"/>
+<area shape="rect" id="node24" href="$ScaledSymmetricBetaDist_8h.html" title="ScaledSymmetricBetaDist class declaration and templated methods. " alt="" coords="1501,232,1675,257"/>
 </map>

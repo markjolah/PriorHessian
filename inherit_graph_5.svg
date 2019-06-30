@@ -74,7 +74,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="classprior__hessian_1_1GammaDist.html" target="_top" xlink:title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. ">
+<g id="a_node6"><a xlink:href="classprior__hessian_1_1GammaDist.html" target="_top" xlink:title="Gamma distribution. ">
 <polygon fill="white" stroke="black" points="344.5,-121.5 344.5,-139.5 469.5,-139.5 469.5,-121.5 344.5,-121.5"/>
 <text text-anchor="middle" x="407" y="-128.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::GammaDist</text>
 </a>
@@ -113,7 +113,7 @@
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="classprior__hessian_1_1SymmetricBetaDist.html" target="_top" xlink:title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. ">
+<g id="a_node9"><a xlink:href="classprior__hessian_1_1SymmetricBetaDist.html" target="_top" xlink:title="Single parameter beta distribution where , leading to symmetric bounded distribution. ">
 <polygon fill="white" stroke="black" points="347,-0.5 347,-28.5 467,-28.5 467,-0.5 347,-0.5"/>
 <text text-anchor="start" x="355" y="-17.3" font-family="Helvetica,sans-Serif" font-size="9.00">prior_hessian::Symmetric</text>
 <text text-anchor="middle" x="407" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">BetaDist</text>

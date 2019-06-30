@@ -2,7 +2,7 @@
 \label{namespaceprior__hessian_1_1meta}\index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
 
 
-Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions.  
+Class templates to utilize sequencing behavior of std\+::initializer\+\_\+list expressions.  
 
 
 \subsubsection*{Classes}
@@ -100,7 +100,7 @@ struct \hyperlink{structprior__hessian_1_1meta_1_1is__template__of_3_01ClassTemp
 \subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class T $>$ }\\void \hyperlink{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2}{call\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ T $>$)
+{\footnotesize template$<$class T  = int$>$ }\\void \hyperlink{namespaceprior__hessian_1_1meta_a179314ad7ba735849c4095e735374ab2}{call\+\_\+in\+\_\+order} (std\+::initializer\+\_\+list$<$ T $>$)
 \item 
 {\footnotesize template$<$class Input\+Iterator , class ResultT , class Binary\+Operation $>$ }\\\hyperlink{Meta_8h_a4f9105f0c435f5a50cc6000252e92575}{P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+A\+N\+\_\+\+M\+E\+T\+A\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR} ResultT \hyperlink{namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041}{constexpr\+\_\+accumulate} (Input\+Iterator first, Input\+Iterator last, ResultT init, Binary\+Operation op)
 \item 
@@ -113,7 +113,7 @@ struct \hyperlink{structprior__hessian_1_1meta_1_1is__template__of_3_01ClassTemp
 
 
 \subsubsection{Detailed Description}
-Class templates to utilize sequencing behaviour of std\+::initializer\+\_\+list expressions. 
+Class templates to utilize sequencing behavior of std\+::initializer\+\_\+list expressions. 
 
 These class templates are intended to be used in variadic template functions to sequence the order of calls as a std\+::initializer\+\_\+list. 
 
@@ -333,7 +333,7 @@ Definition at line 114 of file Meta.\+h.
 \subsubsection{Function Documentation}
 \index{prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}!call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}}
 \index{call\+\_\+in\+\_\+order@{call\+\_\+in\+\_\+order}!prior\+\_\+hessian\+::meta@{prior\+\_\+hessian\+::meta}}
-\paragraph[{\texorpdfstring{call\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ T $>$)}{call_in_order(std::initializer_list< T >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void prior\+\_\+hessian\+::meta\+::call\+\_\+in\+\_\+order (
+\paragraph[{\texorpdfstring{call\+\_\+in\+\_\+order(std\+::initializer\+\_\+list$<$ T $>$)}{call_in_order(std::initializer_list< T >)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = int$>$ void prior\+\_\+hessian\+::meta\+::call\+\_\+in\+\_\+order (
 \begin{DoxyParamCaption}
 \item[{std\+::initializer\+\_\+list$<$ T $>$}]{}
 \end{DoxyParamCaption}
@@ -452,26 +452,11 @@ References constexpr\+\_\+accumulate().
 
 
 
-Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
-
-
-
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=327pt]{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=336pt]{namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_icgraph}
 \end{center}
 \end{figure}
 
@@ -493,7 +478,7 @@ References constexpr\+\_\+accumulate(), and P\+R\+I\+O\+R\+\_\+\+H\+E\+S\+S\+I\+
 
 
 
-Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple(), prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=(), and prior\+\_\+hessian\+::\+Composite\+Dist\+::rllh\+\_\+components().
+Referenced by prior\+\_\+hessian\+::\+Composite\+Dist\+::make\+\_\+component\+\_\+dist\+\_\+tuple(), and prior\+\_\+hessian\+::\+Copula\+Dist\+Impl\+::\+Copula\+Dist$<$ Copula\+Template, Marginal\+Dist\+Ts $>$\+::operator!=().
 
 
 

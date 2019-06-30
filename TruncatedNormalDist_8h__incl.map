@@ -4,7 +4,7 @@
 <area shape="rect" id="node5" href="$UnivariateDist_8h.html" title="UnivariateDist base class. " alt="" coords="250,159,433,184"/>
 <area shape="rect" id="node6" href="$util_8h.html" title="Utilities and namespace globals. " alt="" coords="355,239,477,264"/>
 <area shape="rect" id="node13" href="$Meta_8h.html" title="Enables the use of variadic templates in interesting ways. " alt="" coords="620,239,753,264"/>
-<area shape="rect" id="node17" href="$BaseDist_8h.html" title="The Base classes for UnivariateDist and MultivariateDist. " alt="" coords="176,239,331,264"/>
+<area shape="rect" id="node17" href="$BaseDist_8h.html" title="The Base class for UnivariateDist and MultivariateDist. " alt="" coords="176,239,331,264"/>
 <area shape="rect" id="node11" href="$PriorHessianError_8h.html" title="The Exception classes for the PriorHessian library. " alt="" coords="501,312,632,337"/>
 <area shape="rect" id="node19" href="$BoundsAdaptedDist_8h.html" title="Functions and type&#45;traits to enable easy wrapping of distributions in bounds&#45;modifiable adapters..." alt="" coords="711,152,895,191"/>
 </map>

@@ -57,7 +57,7 @@ bool \hyperlink{classprior__hessian_1_1MultivariateNormalDist_a50243ac0981ffdd3e
 \item 
 bool \hyperlink{classprior__hessian_1_1MultivariateNormalDist_a5bdf1c751f8da8a9043542ed080bb230}{operator!=} (const \hyperlink{classprior__hessian_1_1MultivariateNormalDist}{Multivariate\+Normal\+Dist}$<$ Ndim $>$ \&o) const 
 \item 
-double \hyperlink{classprior__hessian_1_1MultivariateNormalDist_a25c40d83b7b1c09b0a049326c7c7545e}{get\+\_\+param} (int idx) const 
+double \hyperlink{classprior__hessian_1_1MultivariateNormalDist_ad5428f037acfa512f7f28747bfa8ff6d}{get\+\_\+param} (\hyperlink{namespaceprior__hessian_aa8d589f74e88bfa3b5750118acd1ab78}{IdxT} idx) const 
 \item 
 \hyperlink{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b00e4e0e159a15bb9c212852}{Nparams\+VecT} \hyperlink{classprior__hessian_1_1MultivariateNormalDist_a55a53ff4ea86375a8971a5334c000c9c}{params} () const 
 \item 
@@ -132,57 +132,50 @@ static const \hyperlink{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b
 
 
 \subsubsection{Detailed Description}
-\subsubsection*{template$<$int Ndim$>$\\*
+\subsubsection*{template$<$IdxT Ndim$>$\\*
 class prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist$<$ Ndim $>$}
 
 Multivariate Normal distribution. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em Ndim} & Number of dimensions $>$=2 \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 20 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 18 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
 \subsubsection{Member Typedef Documentation}
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Ndim\+MatT@{Ndim\+MatT}}
 \index{Ndim\+MatT@{Ndim\+MatT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{Ndim\+MatT}{NdimMatT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} =  arma\+::\+Mat$<$double$>$\+::fixed$<$Ndim,Ndim$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a2aa1e12ff8819a2cc3a8d3f33bcf8de2}{}\label{classprior__hessian_1_1MultivariateNormalDist_a2aa1e12ff8819a2cc3a8d3f33bcf8de2}
+\paragraph[{\texorpdfstring{Ndim\+MatT}{NdimMatT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} =  arma\+::\+Mat$<$double$>$\+::fixed$<$Ndim,Ndim$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a2aa1e12ff8819a2cc3a8d3f33bcf8de2}{}\label{classprior__hessian_1_1MultivariateNormalDist_a2aa1e12ff8819a2cc3a8d3f33bcf8de2}
 
 
-Definition at line 26 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 24 of file Multivariate\+Normal\+Dist.\+h.
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Ndim\+VecT@{Ndim\+VecT}}
 \index{Ndim\+VecT@{Ndim\+VecT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{Ndim\+VecT}{NdimVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$Ndim$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a0f5725cbbfa47be45b2741467dcd5615}{}\label{classprior__hessian_1_1MultivariateNormalDist_a0f5725cbbfa47be45b2741467dcd5615}
+\paragraph[{\texorpdfstring{Ndim\+VecT}{NdimVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$Ndim$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a0f5725cbbfa47be45b2741467dcd5615}{}\label{classprior__hessian_1_1MultivariateNormalDist_a0f5725cbbfa47be45b2741467dcd5615}
 
 
-Definition at line 25 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 23 of file Multivariate\+Normal\+Dist.\+h.
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Nparams\+VecT@{Nparams\+VecT}}
 \index{Nparams\+VecT@{Nparams\+VecT}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+params$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b00e4e0e159a15bb9c212852}{}\label{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b00e4e0e159a15bb9c212852}
+\paragraph[{\texorpdfstring{Nparams\+VecT}{NparamsVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ using {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} =  arma\+::\+Col$<$double$>$\+::fixed$<$\+\_\+num\+\_\+params$>$}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b00e4e0e159a15bb9c212852}{}\label{classprior__hessian_1_1MultivariateNormalDist_ac690a8a9b00e4e0e159a15bb9c212852}
 
 
-Definition at line 27 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 25 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
 \subsubsection{Constructor \& Destructor Documentation}
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}}
 \index{Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{Multivariate\+Normal\+Dist()}{MultivariateNormalDist()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Multivariate\+Normal\+Dist} (
+\paragraph[{\texorpdfstring{Multivariate\+Normal\+Dist()}{MultivariateNormalDist()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Multivariate\+Normal\+Dist} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a9347495e045f105c79a13db3422c6391}{}\label{classprior__hessian_1_1MultivariateNormalDist_a9347495e045f105c79a13db3422c6391}
 
 
-Definition at line 174 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 172 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -201,7 +194,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}}
 \index{Multivariate\+Normal\+Dist@{Multivariate\+Normal\+Dist}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{Multivariate\+Normal\+Dist(\+Vec \&\&mu, Mat \&\&sigma)}{MultivariateNormalDist(Vec &&mu, Mat &&sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Mat $>$ {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Multivariate\+Normal\+Dist} (
+\paragraph[{\texorpdfstring{Multivariate\+Normal\+Dist(\+Vec \&\&mu, Mat \&\&sigma)}{MultivariateNormalDist(Vec &&mu, Mat &&sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec , class Mat $>$ {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Multivariate\+Normal\+Dist} (
 \begin{DoxyParamCaption}
 \item[{Vec \&\&}]{mu, }
 \item[{Mat \&\&}]{sigma}
@@ -209,7 +202,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ab97d0301af152e72c9e6f6d3672d30e0}{}\label{classprior__hessian_1_1MultivariateNormalDist_ab97d0301af152e72c9e6f6d3672d30e0}
 
 
-Definition at line 187 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 185 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -231,7 +224,7 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{Member Function Documentation}
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!append\+\_\+params@{append\+\_\+params}}
 \index{append\+\_\+params@{append\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{append\+\_\+params(\+Iter\+T \&params) const }{append_params(IterT &params) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::append\+\_\+params (
+\paragraph[{\texorpdfstring{append\+\_\+params(\+Iter\+T \&params) const }{append_params(IterT &params) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::append\+\_\+params (
 \begin{DoxyParamCaption}
 \item[{IterT \&}]{params}
 \end{DoxyParamCaption}
@@ -253,14 +246,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!cdf@{cdf}}
 \index{cdf@{cdf}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{cdf(\+Vec x) const }{cdf(Vec x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::cdf (
+\paragraph[{\texorpdfstring{cdf(\+Vec x) const }{cdf(Vec x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::cdf (
 \begin{DoxyParamCaption}
 \item[{Vec}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a41f15a93e291cc18bf28c1c0118efa6a}{}\label{classprior__hessian_1_1MultivariateNormalDist_a41f15a93e291cc18bf28c1c0118efa6a}
 
 
-Definition at line 481 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 480 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -301,7 +294,7 @@ Here is the caller graph for this function\+:\nopagebreak
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aa6e75faa3fd9a23d7194760a713d1563}{}\label{classprior__hessian_1_1MultivariateNormalDist_aa6e75faa3fd9a23d7194760a713d1563}
 
 
-Definition at line 490 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 489 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -332,14 +325,14 @@ Definition at line 57 of file Multivariate\+Dist.\+h.
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!check\+\_\+mu@{check\+\_\+mu}}
 \index{check\+\_\+mu@{check\+\_\+mu}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{check\+\_\+mu(const Vec \&mu)}{check_mu(const Vec &mu)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+mu (
+\paragraph[{\texorpdfstring{check\+\_\+mu(const Vec \&mu)}{check_mu(const Vec &mu)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+mu (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{mu}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_af202c613f03a8d07d9ab80ead9f4064b}{}\label{classprior__hessian_1_1MultivariateNormalDist_af202c613f03a8d07d9ab80ead9f4064b}
 
 
-Definition at line 196 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 194 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -358,7 +351,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!check\+\_\+params@{check\+\_\+params}}
 \index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&mu, const Mat \&sigma)}{check_params(const Vec &mu, const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Mat $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params (
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&mu, const Mat \&sigma)}{check_params(const Vec &mu, const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec , class Mat $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{mu, }
 \item[{const Mat \&}]{sigma}
@@ -366,7 +359,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a820f14758b3a02e29e0498e02fca7e07}{}\label{classprior__hessian_1_1MultivariateNormalDist_a820f14758b3a02e29e0498e02fca7e07}
 
 
-Definition at line 213 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 211 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -400,14 +393,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!check\+\_\+params@{check\+\_\+params}}
 \index{check\+\_\+params@{check\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&params)}{check_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params (
+\paragraph[{\texorpdfstring{check\+\_\+params(const Vec \&params)}{check_params(const Vec &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{params}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a5614521dfb960dc16906c02b21e6e472}{}\label{classprior__hessian_1_1MultivariateNormalDist_a5614521dfb960dc16906c02b21e6e472}
 
 
-Definition at line 220 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 218 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -426,14 +419,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}}
 \index{check\+\_\+params\+\_\+iter@{check\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params\+\_\+iter (
+\paragraph[{\texorpdfstring{check\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{check_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class IterT $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+params\+\_\+iter (
 \begin{DoxyParamCaption}
 \item[{IterT \&}]{params}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a894120a427347c2bd834ae0abab32e29}{}\label{classprior__hessian_1_1MultivariateNormalDist_a894120a427347c2bd834ae0abab32e29}
 
 
-Definition at line 228 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 226 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -467,14 +460,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!check\+\_\+sigma@{check\+\_\+sigma}}
 \index{check\+\_\+sigma@{check\+\_\+sigma}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{check\+\_\+sigma(const Mat \&sigma)}{check_sigma(const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Mat $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+sigma (
+\paragraph[{\texorpdfstring{check\+\_\+sigma(const Mat \&sigma)}{check_sigma(const Mat &sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Mat $>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::check\+\_\+sigma (
 \begin{DoxyParamCaption}
 \item[{const Mat \&}]{sigma}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ad0117306c61bf5b4615d40113dc27c83}{}\label{classprior__hessian_1_1MultivariateNormalDist_ad0117306c61bf5b4615d40113dc27c83}
 
 
-Definition at line 203 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 201 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -493,14 +486,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!get\+\_\+param@{get\+\_\+param}}
 \index{get\+\_\+param@{get\+\_\+param}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{get\+\_\+param(int idx) const }{get_param(int idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::get\+\_\+param (
+\paragraph[{\texorpdfstring{get\+\_\+param(\+Idx\+T idx) const }{get_param(IdxT idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::get\+\_\+param (
 \begin{DoxyParamCaption}
-\item[{int}]{idx}
+\item[{{\bf IdxT}}]{idx}
 \end{DoxyParamCaption}
-) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a25c40d83b7b1c09b0a049326c7c7545e}{}\label{classprior__hessian_1_1MultivariateNormalDist_a25c40d83b7b1c09b0a049326c7c7545e}
+) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ad5428f037acfa512f7f28747bfa8ff6d}{}\label{classprior__hessian_1_1MultivariateNormalDist_ad5428f037acfa512f7f28747bfa8ff6d}
 
 
-Definition at line 441 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 440 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -512,21 +505,21 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classprior__hessian_1_1MultivariateNormalDist_a25c40d83b7b1c09b0a049326c7c7545e_icgraph}
+\includegraphics[width=350pt]{classprior__hessian_1_1MultivariateNormalDist_ad5428f037acfa512f7f28747bfa8ff6d_icgraph}
 \end{center}
 \end{figure}
 
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!grad@{grad}}
 \index{grad@{grad}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{grad(const Vec \&x) const }{grad(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad (
+\paragraph[{\texorpdfstring{grad(const Vec \&x) const }{grad(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a300193a7fac39d098eafd7b4fef86d05}{}\label{classprior__hessian_1_1MultivariateNormalDist_a300193a7fac39d098eafd7b4fef86d05}
 
 
-Definition at line 523 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 522 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -560,14 +553,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!grad2@{grad2}}
 \index{grad2@{grad2}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{grad2(const Vec \&x) const }{grad2(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad2 (
+\paragraph[{\texorpdfstring{grad2(const Vec \&x) const }{grad2(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad2 (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_abddd70ca592cc71d9269f227ef53f90a}{}\label{classprior__hessian_1_1MultivariateNormalDist_abddd70ca592cc71d9269f227ef53f90a}
 
 
-Definition at line 531 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 530 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -601,7 +594,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}}
 \index{grad\+\_\+grad2\+\_\+accumulate@{grad\+\_\+grad2\+\_\+accumulate}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(const Vec \&x, Vec2 \&g, Vec2 \&g2) const }{grad_grad2_accumulate(const Vec &x, Vec2 &g, Vec2 &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad\+\_\+grad2\+\_\+accumulate (
+\paragraph[{\texorpdfstring{grad\+\_\+grad2\+\_\+accumulate(const Vec \&x, Vec2 \&g, Vec2 \&g2) const }{grad_grad2_accumulate(const Vec &x, Vec2 &g, Vec2 &g2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec , class Vec2 $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad\+\_\+grad2\+\_\+accumulate (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x, }
 \item[{Vec2 \&}]{g, }
@@ -610,7 +603,7 @@ Here is the caller graph for this function\+:\nopagebreak
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ae51a2d1024d5048d0631929092b26cc7}{}\label{classprior__hessian_1_1MultivariateNormalDist_ae51a2d1024d5048d0631929092b26cc7}
 
 
-Definition at line 546 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 545 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -644,7 +637,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}}
 \index{grad\+\_\+hess\+\_\+accumulate@{grad\+\_\+hess\+\_\+accumulate}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{grad\+\_\+hess\+\_\+accumulate(const Vec \&x, Vec2 \&g, Mat \&hess) const }{grad_hess_accumulate(const Vec &x, Vec2 &g, Mat &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Vec2 , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad\+\_\+hess\+\_\+accumulate (
+\paragraph[{\texorpdfstring{grad\+\_\+hess\+\_\+accumulate(const Vec \&x, Vec2 \&g, Mat \&hess) const }{grad_hess_accumulate(const Vec &x, Vec2 &g, Mat &hess) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec , class Vec2 , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::grad\+\_\+hess\+\_\+accumulate (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x, }
 \item[{Vec2 \&}]{g, }
@@ -653,7 +646,7 @@ Here is the caller graph for this function\+:\nopagebreak
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a8cd22c12a8c039623589cc947aba25f0}{}\label{classprior__hessian_1_1MultivariateNormalDist_a8cd22c12a8c039623589cc947aba25f0}
 
 
-Definition at line 554 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 553 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -687,14 +680,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!hess@{hess}}
 \index{hess@{hess}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{hess(const Vec \&x) const }{hess(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::hess (
+\paragraph[{\texorpdfstring{hess(const Vec \&x) const }{hess(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::hess (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aaf8d6241c639ee69c7854f392ba85480}{}\label{classprior__hessian_1_1MultivariateNormalDist_aaf8d6241c639ee69c7854f392ba85480}
 
 
-Definition at line 539 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 538 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -728,14 +721,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!in\+\_\+bounds@{in\+\_\+bounds}}
 \index{in\+\_\+bounds@{in\+\_\+bounds}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{in\+\_\+bounds(const Vec \&u)}{in_bounds(const Vec &u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ static bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::in\+\_\+bounds (
+\paragraph[{\texorpdfstring{in\+\_\+bounds(const Vec \&u)}{in_bounds(const Vec &u)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ static bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::in\+\_\+bounds (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{u}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aedb257f189a46f8b1ee36a1b344648c3}{}\label{classprior__hessian_1_1MultivariateNormalDist_aedb257f189a46f8b1ee36a1b344648c3}
 
 
-Definition at line 34 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 32 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -754,14 +747,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!lbound@{lbound}}
 \index{lbound@{lbound}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{lbound()}{lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::lbound (
+\paragraph[{\texorpdfstring{lbound()}{lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::lbound (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a492a872d5cfb8838225ac782b801a865}{}\label{classprior__hessian_1_1MultivariateNormalDist_a492a872d5cfb8838225ac782b801a865}
 
 
-Definition at line 298 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 296 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -780,14 +773,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!llh@{llh}}
 \index{llh@{llh}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{llh(const Vec \&x) const }{llh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::llh (
+\paragraph[{\texorpdfstring{llh(const Vec \&x) const }{llh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::llh (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a3540b1bcafd58fe26de858c0a4aef3db}{}\label{classprior__hessian_1_1MultivariateNormalDist_a3540b1bcafd58fe26de858c0a4aef3db}
 
 
-Definition at line 507 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 506 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -821,14 +814,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!mean@{mean}}
 \index{mean@{mean}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{mean() const }{mean() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mean (
+\paragraph[{\texorpdfstring{mean() const }{mean() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mean (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_af6e3b749b02b2afafadb01d76f96e334}{}\label{classprior__hessian_1_1MultivariateNormalDist_af6e3b749b02b2afafadb01d76f96e334}
 
 
-Definition at line 73 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 71 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -847,14 +840,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!mode@{mode}}
 \index{mode@{mode}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{mode() const }{mode() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mode (
+\paragraph[{\texorpdfstring{mode() const }{mode() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ {\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mode (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_afdec8e6a453a2c69e0d84833d6b3e5ae}{}\label{classprior__hessian_1_1MultivariateNormalDist_afdec8e6a453a2c69e0d84833d6b3e5ae}
 
 
-Definition at line 74 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 72 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -873,14 +866,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!mu@{mu}}
 \index{mu@{mu}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{mu() const }{mu() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mu (
+\paragraph[{\texorpdfstring{mu() const }{mu() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::mu (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a53e894d82ca08f285fc004b77301495d}{}\label{classprior__hessian_1_1MultivariateNormalDist_a53e894d82ca08f285fc004b77301495d}
 
 
-Definition at line 376 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 374 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -899,14 +892,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!num\+\_\+dim@{num\+\_\+dim}}
 \index{num\+\_\+dim@{num\+\_\+dim}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::num\+\_\+dim (
+\paragraph[{\texorpdfstring{num\+\_\+dim()}{num_dim()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::num\+\_\+dim (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a99b496bd355946a89e6563375dcf5d7a}{}\label{classprior__hessian_1_1MultivariateNormalDist_a99b496bd355946a89e6563375dcf5d7a}
 
 
-Definition at line 30 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 28 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -940,14 +933,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!num\+\_\+params@{num\+\_\+params}}
 \index{num\+\_\+params@{num\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::num\+\_\+params (
+\paragraph[{\texorpdfstring{num\+\_\+params()}{num_params()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ static constexpr {\bf IdxT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::num\+\_\+params (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a9a2d3e50448adb594ed60a92d2942943}{}\label{classprior__hessian_1_1MultivariateNormalDist_a9a2d3e50448adb594ed60a92d2942943}
 
 
-Definition at line 29 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 27 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -966,14 +959,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{operator"!=(const Multivariate\+Normal\+Dist$<$ Ndim $>$ \&o) const }{operator!=(const MultivariateNormalDist< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::operator!= (
+\paragraph[{\texorpdfstring{operator"!=(const Multivariate\+Normal\+Dist$<$ Ndim $>$ \&o) const }{operator!=(const MultivariateNormalDist< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::operator!= (
 \begin{DoxyParamCaption}
 \item[{const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$ \&}]{o}
 \end{DoxyParamCaption}
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a5bdf1c751f8da8a9043542ed080bb230}{}\label{classprior__hessian_1_1MultivariateNormalDist_a5bdf1c751f8da8a9043542ed080bb230}
 
 
-Definition at line 61 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 59 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -992,14 +985,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!operator==@{operator==}}
 \index{operator==@{operator==}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{operator==(const Multivariate\+Normal\+Dist$<$ Ndim $>$ \&o) const }{operator==(const MultivariateNormalDist< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::operator== (
+\paragraph[{\texorpdfstring{operator==(const Multivariate\+Normal\+Dist$<$ Ndim $>$ \&o) const }{operator==(const MultivariateNormalDist< Ndim > &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ bool {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::operator== (
 \begin{DoxyParamCaption}
 \item[{const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$ \&}]{o}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a50243ac0981ffdd3e6bb3566e8b3afc0}{}\label{classprior__hessian_1_1MultivariateNormalDist_a50243ac0981ffdd3e6bb3566e8b3afc0}
 
 
-Definition at line 425 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 424 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1033,14 +1026,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!param\+\_\+lbound@{param\+\_\+lbound}}
 \index{param\+\_\+lbound@{param\+\_\+lbound}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+lbound (
+\paragraph[{\texorpdfstring{param\+\_\+lbound()}{param_lbound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+lbound (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a4d070bbd6455931c57ac1bb924f32777}{}\label{classprior__hessian_1_1MultivariateNormalDist_a4d070bbd6455931c57ac1bb924f32777}
 
 
-Definition at line 280 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 278 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1059,14 +1052,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!param\+\_\+names@{param\+\_\+names}}
 \index{param\+\_\+names@{param\+\_\+names}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf String\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+names (
+\paragraph[{\texorpdfstring{param\+\_\+names()}{param_names()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf String\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+names (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ad9330423616166e7062b9c70c1d54358}{}\label{classprior__hessian_1_1MultivariateNormalDist_ad9330423616166e7062b9c70c1d54358}
 
 
-Definition at line 271 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 269 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1085,14 +1078,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!param\+\_\+ubound@{param\+\_\+ubound}}
 \index{param\+\_\+ubound@{param\+\_\+ubound}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+ubound (
+\paragraph[{\texorpdfstring{param\+\_\+ubound()}{param_ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::param\+\_\+ubound (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aa0eeb70f83993bb6553b36d01aadec17}{}\label{classprior__hessian_1_1MultivariateNormalDist_aa0eeb70f83993bb6553b36d01aadec17}
 
 
-Definition at line 289 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 287 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1111,14 +1104,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!params@{params}}
 \index{params@{params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::params (
+\paragraph[{\texorpdfstring{params() const }{params() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Nparams\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::params (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a55a53ff4ea86375a8971a5334c000c9c}{}\label{classprior__hessian_1_1MultivariateNormalDist_a55a53ff4ea86375a8971a5334c000c9c}
 
 
-Definition at line 432 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 431 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1152,14 +1145,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!pdf@{pdf}}
 \index{pdf@{pdf}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{pdf(const Vec \&x) const }{pdf(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::pdf (
+\paragraph[{\texorpdfstring{pdf(const Vec \&x) const }{pdf(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::pdf (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a67cba536341528564330b17dcbe5faff}{}\label{classprior__hessian_1_1MultivariateNormalDist_a67cba536341528564330b17dcbe5faff}
 
 
-Definition at line 497 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 496 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1193,14 +1186,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!rllh@{rllh}}
 \index{rllh@{rllh}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{rllh(const Vec \&x) const }{rllh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::rllh (
+\paragraph[{\texorpdfstring{rllh(const Vec \&x) const }{rllh(const Vec &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ double {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::rllh (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{x}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a4512a641c493e33dfb93b5087e473c76}{}\label{classprior__hessian_1_1MultivariateNormalDist_a4512a641c493e33dfb93b5087e473c76}
 
 
-Definition at line 515 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 514 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1234,14 +1227,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!sample@{sample}}
 \index{sample@{sample}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class RngT $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sample (
+\paragraph[{\texorpdfstring{sample(\+Rng\+T \&rng) const }{sample(RngT &rng) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class RngT $>$ {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sample (
 \begin{DoxyParamCaption}
 \item[{RngT \&}]{rng}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ad17199c0b81608efff2d1e28714992e8}{}\label{classprior__hessian_1_1MultivariateNormalDist_ad17199c0b81608efff2d1e28714992e8}
 
 
-Definition at line 563 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 562 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1275,14 +1268,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!set\+\_\+mu@{set\+\_\+mu}}
 \index{set\+\_\+mu@{set\+\_\+mu}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{set\+\_\+mu(\+Vec \&\&val)}{set_mu(Vec &&val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+mu (
+\paragraph[{\texorpdfstring{set\+\_\+mu(\+Vec \&\&val)}{set_mu(Vec &&val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+mu (
 \begin{DoxyParamCaption}
 \item[{Vec \&\&}]{val}
 \end{DoxyParamCaption}
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a3a232f67a79457c91ce1c061a19d18bc}{}\label{classprior__hessian_1_1MultivariateNormalDist_a3a232f67a79457c91ce1c061a19d18bc}
 
 
-Definition at line 396 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 394 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1316,14 +1309,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!set\+\_\+params@{set\+\_\+params}}
 \index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&p)}{set_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params (
+\paragraph[{\texorpdfstring{set\+\_\+params(const Vec \&p)}{set_params(const Vec &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params (
 \begin{DoxyParamCaption}
 \item[{const Vec \&}]{p}
 \end{DoxyParamCaption}
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_af968e071050a9b2ba4b4ef96b206602b}{}\label{classprior__hessian_1_1MultivariateNormalDist_af968e071050a9b2ba4b4ef96b206602b}
 
 
-Definition at line 453 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 452 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1357,7 +1350,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!set\+\_\+params@{set\+\_\+params}}
 \index{set\+\_\+params@{set\+\_\+params}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{set\+\_\+params(\+Vec \&\&mu, Mat \&\&sigma)}{set_params(Vec &&mu, Mat &&sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Vec , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params (
+\paragraph[{\texorpdfstring{set\+\_\+params(\+Vec \&\&mu, Mat \&\&sigma)}{set_params(Vec &&mu, Mat &&sigma)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Vec , class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params (
 \begin{DoxyParamCaption}
 \item[{Vec \&\&}]{mu, }
 \item[{Mat \&\&}]{sigma}
@@ -1365,7 +1358,7 @@ Here is the caller graph for this function\+:\nopagebreak
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_acd8f1638afb49a52bcb341f3a439574d}{}\label{classprior__hessian_1_1MultivariateNormalDist_acd8f1638afb49a52bcb341f3a439574d}
 
 
-Definition at line 461 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 460 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1384,14 +1377,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}}
 \index{set\+\_\+params\+\_\+iter@{set\+\_\+params\+\_\+iter}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter (
+\paragraph[{\texorpdfstring{set\+\_\+params\+\_\+iter(\+Iter\+T \&params)}{set_params_iter(IterT &params)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class IterT $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+params\+\_\+iter (
 \begin{DoxyParamCaption}
 \item[{IterT \&}]{params}
 \end{DoxyParamCaption}
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_ad4842325329050c2fc4386096b3496dd}{}\label{classprior__hessian_1_1MultivariateNormalDist_ad4842325329050c2fc4386096b3496dd}
 
 
-Definition at line 469 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 468 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1425,14 +1418,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!set\+\_\+sigma@{set\+\_\+sigma}}
 \index{set\+\_\+sigma@{set\+\_\+sigma}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{set\+\_\+sigma(\+Mat \&\&val)}{set_sigma(Mat &&val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ template$<$class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+sigma (
+\paragraph[{\texorpdfstring{set\+\_\+sigma(\+Mat \&\&val)}{set_sigma(Mat &&val)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ template$<$class Mat $>$ void {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::set\+\_\+sigma (
 \begin{DoxyParamCaption}
 \item[{Mat \&\&}]{val}
 \end{DoxyParamCaption}
 )}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aecd463f33fd68330ae245c2ad05e7b2f}{}\label{classprior__hessian_1_1MultivariateNormalDist_aecd463f33fd68330ae245c2ad05e7b2f}
 
 
-Definition at line 401 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 399 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1451,14 +1444,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!sigma@{sigma}}
 \index{sigma@{sigma}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{sigma() const }{sigma() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sigma (
+\paragraph[{\texorpdfstring{sigma() const }{sigma() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sigma (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_aa4e86dd2b8e088553aac8c6b0fa50832}{}\label{classprior__hessian_1_1MultivariateNormalDist_aa4e86dd2b8e088553aac8c6b0fa50832}
 
 
-Definition at line 381 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 379 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1477,14 +1470,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!sigma\+\_\+inv@{sigma\+\_\+inv}}
 \index{sigma\+\_\+inv@{sigma\+\_\+inv}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{sigma\+\_\+inv() const }{sigma_inv() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sigma\+\_\+inv (
+\paragraph[{\texorpdfstring{sigma\+\_\+inv() const }{sigma_inv() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+MatT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::sigma\+\_\+inv (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a38fa22fd87e3603397c433e33ce0c2be}{}\label{classprior__hessian_1_1MultivariateNormalDist_a38fa22fd87e3603397c433e33ce0c2be}
 
 
-Definition at line 386 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 384 of file Multivariate\+Normal\+Dist.\+h.
 
 
 
@@ -1503,14 +1496,14 @@ Here is the caller graph for this function\+:\nopagebreak
 
 \index{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}!ubound@{ubound}}
 \index{ubound@{ubound}!prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist@{prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}}
-\paragraph[{\texorpdfstring{ubound()}{ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::ubound (
+\paragraph[{\texorpdfstring{ubound()}{ubound()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$IdxT Ndim$>$ const {\bf Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::{\bf Ndim\+VecT} \& {\bf prior\+\_\+hessian\+::\+Multivariate\+Normal\+Dist}$<$ Ndim $>$\+::ubound (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classprior__hessian_1_1MultivariateNormalDist_a80a35218c42430f7a5162229779f1492}{}\label{classprior__hessian_1_1MultivariateNormalDist_a80a35218c42430f7a5162229779f1492}
 
 
-Definition at line 307 of file Multivariate\+Normal\+Dist.\+h.
+Definition at line 305 of file Multivariate\+Normal\+Dist.\+h.
 
 
 

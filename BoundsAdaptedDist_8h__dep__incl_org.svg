@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="The Frank copula computations. ">
+<g id="a_node2"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="CompositeDist class declaration and inline and templated member function definitions. ">
 <polygon fill="white" stroke="black" points="14,-65.5 14,-83.5 98,-83.5 98,-65.5 14,-65.5"/>
 <text text-anchor="middle" x="56" y="-72.3" font-family="Helvetica,sans-Serif" font-size="9.00">CompositeDist.h</text>
 </a>
@@ -42,7 +42,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="ScaledDist_8h.html" target="_top" xlink:title="SemiInfiniteDist class declaration and templated methods. ">
+<g id="a_node5"><a xlink:href="ScaledDist_8h.html" target="_top" xlink:title="ScaledDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="222,-65.5 222,-83.5 290,-83.5 290,-65.5 222,-65.5"/>
 <text text-anchor="middle" x="256" y="-72.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledDist.h</text>
 </a>
@@ -107,7 +107,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="SymmetricBetaDist class declaration and templated methods. ">
+<g id="a_node6"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="ScaledSymmetricBetaDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="112,-5.5 112,-23.5 242,-23.5 242,-5.5 112,-5.5"/>
 <text text-anchor="middle" x="177" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledSymmetricBetaDist.h</text>
 </a>
@@ -160,7 +160,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="ParetoDist class declaration and templated methods. ">
+<g id="a_node13"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="TruncatedParetoDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="674,-5.5 674,-23.5 782,-23.5 782,-5.5 674,-5.5"/>
 <text text-anchor="middle" x="728" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">TruncatedParetoDist.h</text>
 </a>

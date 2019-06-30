@@ -1,5 +1,4 @@
 <map id="prior_hessian::CompositeDist::set_param_names" name="prior_hessian::CompositeDist::set_param_names">
-<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#a927fed39b2b4e87714c728d6e7b11e8b" title="prior_hessian::Composite\lDist::params_components" alt="" coords="427,25,591,63"/>
-<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#a24bac25ae8c0330b8a3aacadffc9d5ae" title="prior_hessian::Composite\lDist::rllh_components" alt="" coords="639,54,801,93"/>
-<area shape="rect" id="node4" href="$classprior__hessian_1_1CompositeDist.html#ace0aaa3698d76aba6a47f9061ff98902" title="prior_hessian::Composite\lDist::rename_param" alt="" coords="216,25,379,63"/>
+<area shape="rect" id="node2" href="$classprior__hessian_1_1CompositeDist.html#a927fed39b2b4e87714c728d6e7b11e8b" title="prior_hessian::Composite\lDist::params_components" alt="" coords="216,5,380,44"/>
+<area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#a24bac25ae8c0330b8a3aacadffc9d5ae" title="prior_hessian::Composite\lDist::rllh_components" alt="" coords="428,35,591,73"/>
 </map>

@@ -5,5 +5,5 @@
 <area shape="rect" id="node17" href="$MultivariateDist_8h.html" title="MultivariateDist base class. " alt="" coords="393,79,551,117"/>
 <area shape="rect" id="node18" href="$BoundsAdaptedDist_8h.html" title="Functions and type&#45;traits to enable easy wrapping of distributions in bounds&#45;modifiable adapters..." alt="" coords="833,79,1017,117"/>
 <area shape="rect" id="node9" href="$PriorHessianError_8h.html" title="The Exception classes for the PriorHessian library. " alt="" coords="5,239,136,264"/>
-<area shape="rect" id="node16" href="$BaseDist_8h.html" title="The Base classes for UnivariateDist and MultivariateDist. " alt="" coords="508,165,663,191"/>
+<area shape="rect" id="node16" href="$BaseDist_8h.html" title="The Base class for UnivariateDist and MultivariateDist. " alt="" coords="508,165,663,191"/>
 </map>

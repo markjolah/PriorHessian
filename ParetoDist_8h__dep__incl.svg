@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class defintion. ">
+<g id="a_node2"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class definition. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-18.5 77,-18.5 77,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="38.5" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">ParetoDist.cpp</text>
 </a>
@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="ParetoDist class declaration and templated methods. ">
+<g id="a_node3"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="TruncatedParetoDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="95.5,-0.5 95.5,-18.5 203.5,-18.5 203.5,-0.5 95.5,-0.5"/>
 <text text-anchor="middle" x="149.5" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">TruncatedParetoDist.h</text>
 </a>

@@ -62,7 +62,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class defintion. ">
+<g id="a_node2"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class definition. ">
 <polygon fill="white" stroke="black" points="154.5,-5.5 154.5,-23.5 236.5,-23.5 236.5,-5.5 154.5,-5.5"/>
 <text text-anchor="middle" x="195.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">GammaDist.cpp</text>
 </a>
@@ -75,7 +75,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class defintion. ">
+<g id="a_node3"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class definition. ">
 <polygon fill="white" stroke="black" points="687.5,-5.5 687.5,-23.5 767.5,-23.5 767.5,-5.5 687.5,-5.5"/>
 <text text-anchor="middle" x="727.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">NormalDist.cpp</text>
 </a>
@@ -88,7 +88,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class defintion. ">
+<g id="a_node4"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class definition. ">
 <polygon fill="white" stroke="black" points="1324,-5.5 1324,-23.5 1401,-23.5 1401,-5.5 1324,-5.5"/>
 <text text-anchor="middle" x="1362.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">ParetoDist.cpp</text>
 </a>
@@ -101,7 +101,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class defintion. ">
+<g id="a_node5"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class definition. ">
 <polygon fill="white" stroke="black" points="1046,-5.5 1046,-23.5 1157,-23.5 1157,-5.5 1046,-5.5"/>
 <text text-anchor="middle" x="1101.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">SymmetricBetaDist.cpp</text>
 </a>
@@ -127,7 +127,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="AMHCopula_8h.html" target="_top" xlink:title="AMHCopula.h">
+<g id="a_node7"><a xlink:href="AMHCopula_8h.html" target="_top" xlink:title="Ali&#45;Mikhail&#45;Haq Archimedean Copula. ">
 <polygon fill="white" stroke="black" points="1429.5,-175.5 1429.5,-193.5 1503.5,-193.5 1503.5,-175.5 1429.5,-175.5"/>
 <text text-anchor="middle" x="1466.5" y="-182.3" font-family="Helvetica,sans-Serif" font-size="9.00">AMHCopula.h</text>
 </a>
@@ -140,7 +140,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="The Frank copula computations. ">
+<g id="a_node8"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="CompositeDist class declaration and inline and templated member function definitions. ">
 <polygon fill="white" stroke="black" points="533.5,-65.5 533.5,-83.5 617.5,-83.5 617.5,-65.5 533.5,-65.5"/>
 <text text-anchor="middle" x="575.5" y="-72.3" font-family="Helvetica,sans-Serif" font-size="9.00">CompositeDist.h</text>
 </a>
@@ -153,7 +153,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="ScaledDist_8h.html" target="_top" xlink:title="SemiInfiniteDist class declaration and templated methods. ">
+<g id="a_node10"><a xlink:href="ScaledDist_8h.html" target="_top" xlink:title="ScaledDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="1218.5,-175.5 1218.5,-193.5 1286.5,-193.5 1286.5,-175.5 1218.5,-175.5"/>
 <text text-anchor="middle" x="1252.5" y="-182.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledDist.h</text>
 </a>
@@ -231,7 +231,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="SymmetricBetaDist class declaration and templated methods. ">
+<g id="a_node11"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="ScaledSymmetricBetaDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="1175.5,-5.5 1175.5,-23.5 1305.5,-23.5 1305.5,-5.5 1175.5,-5.5"/>
 <text text-anchor="middle" x="1240.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledSymmetricBetaDist.h</text>
 </a>
@@ -284,7 +284,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node18 -->
 <g id="node18" class="node"><title>Node18</title>
-<g id="a_node18"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="ParetoDist class declaration and templated methods. ">
+<g id="a_node18"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="TruncatedParetoDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="1419.5,-5.5 1419.5,-23.5 1527.5,-23.5 1527.5,-5.5 1419.5,-5.5"/>
 <text text-anchor="middle" x="1473.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">TruncatedParetoDist.h</text>
 </a>
@@ -307,7 +307,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node20 -->
 <g id="node20" class="node"><title>Node20</title>
-<g id="a_node20"><a xlink:href="util_8cpp.html" target="_top" xlink:title="util.cpp">
+<g id="a_node20"><a xlink:href="util_8cpp.html" target="_top" xlink:title="Utilities. ">
 <polygon fill="white" stroke="black" points="547.5,-120.5 547.5,-138.5 593.5,-138.5 593.5,-120.5 547.5,-120.5"/>
 <text text-anchor="middle" x="570.5" y="-127.3" font-family="Helvetica,sans-Serif" font-size="9.00">util.cpp</text>
 </a>
@@ -405,7 +405,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node25 -->
 <g id="node25" class="node"><title>Node25</title>
-<g id="a_node25"><a xlink:href="mvn__cdf_8cpp.html" target="_top" xlink:title="NormalDist class defintion. ">
+<g id="a_node25"><a xlink:href="mvn__cdf_8cpp.html" target="_top" xlink:title="mvn_cdf.cpp">
 <polygon fill="white" stroke="black" points="223.5,-65.5 223.5,-83.5 291.5,-83.5 291.5,-65.5 223.5,-65.5"/>
 <text text-anchor="middle" x="257.5" y="-72.3" font-family="Helvetica,sans-Serif" font-size="9.00">mvn_cdf.cpp</text>
 </a>

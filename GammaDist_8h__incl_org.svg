@@ -120,7 +120,7 @@
 </g>
 <!-- Node17 -->
 <g id="node17" class="node"><title>Node17</title>
-<g id="a_node17"><a xlink:href="BaseDist_8h.html" target="_top" xlink:title="The Base classes for UnivariateDist and MultivariateDist. ">
+<g id="a_node17"><a xlink:href="BaseDist_8h.html" target="_top" xlink:title="The Base class for UnivariateDist and MultivariateDist. ">
 <polygon fill="white" stroke="black" points="140,-110.5 140,-128.5 256,-128.5 256,-110.5 140,-110.5"/>
 <text text-anchor="middle" x="198" y="-117.3" font-family="Helvetica,sans-Serif" font-size="9.00">PriorHessian/BaseDist.h</text>
 </a>

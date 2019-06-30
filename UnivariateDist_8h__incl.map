@@ -1,6 +1,6 @@
 <map id="UnivariateDist.h" name="UnivariateDist.h">
 <area shape="rect" id="node2" href="$util_8h.html" title="Utilities and namespace globals. " alt="" coords="235,79,358,104"/>
 <area shape="rect" id="node11" href="$Meta_8h.html" title="Enables the use of variadic templates in interesting ways. " alt="" coords="679,79,813,104"/>
-<area shape="rect" id="node15" href="$BaseDist_8h.html" title="The Base classes for UnivariateDist and MultivariateDist. " alt="" coords="837,79,991,104"/>
+<area shape="rect" id="node15" href="$BaseDist_8h.html" title="The Base class for UnivariateDist and MultivariateDist. " alt="" coords="837,79,991,104"/>
 <area shape="rect" id="node9" href="$PriorHessianError_8h.html" title="The Exception classes for the PriorHessian library. " alt="" coords="501,152,631,177"/>
 </map>

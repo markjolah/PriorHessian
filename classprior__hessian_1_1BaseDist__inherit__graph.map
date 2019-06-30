@@ -3,8 +3,8 @@
 <area shape="rect" id="node5" href="$classprior__hessian_1_1UnivariateDist.html" title="prior_hessian::UnivariateDist" alt="" coords="209,193,389,219"/>
 <area shape="rect" id="node3" href="$classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html" title="prior_hessian::CopulaDist\lImpl::CopulaDist\&lt; CopulaTemplate,\l MarginalDistTs \&gt;" alt="" coords="440,5,656,57"/>
 <area shape="rect" id="node4" href="$classprior__hessian_1_1MultivariateNormalDist.html" title="Multivariate Normal distribution. " alt="" coords="465,81,631,120"/>
-<area shape="rect" id="node6" href="$classprior__hessian_1_1GammaDist.html" title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. " alt="" coords="465,144,631,169"/>
+<area shape="rect" id="node6" href="$classprior__hessian_1_1GammaDist.html" title="Gamma distribution. " alt="" coords="465,144,631,169"/>
 <area shape="rect" id="node7" href="$classprior__hessian_1_1NormalDist.html" title="Normal distribution with truncation. " alt="" coords="466,193,630,219"/>
 <area shape="rect" id="node8" href="$classprior__hessian_1_1ParetoDist.html" title="Pareto dist with infinite upper bound. " alt="" coords="468,243,628,268"/>
-<area shape="rect" id="node9" href="$classprior__hessian_1_1SymmetricBetaDist.html" title="Single parameter beta distribution where &#160;= , leading to symmetric bounded distribution. " alt="" coords="468,292,628,331"/>
+<area shape="rect" id="node9" href="$classprior__hessian_1_1SymmetricBetaDist.html" title="Single parameter beta distribution where , leading to symmetric bounded distribution. " alt="" coords="468,292,628,331"/>
 </map>

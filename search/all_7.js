@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['has_5fdim_5fvariable',['has_dim_variable',['../classprior__hessian_1_1CompositeDist.html#a0703fef1b4c1c1a20629a4d6fd12b8a4',1,'prior_hessian::CompositeDist']]],
   ['has_5fparam',['has_param',['../classprior__hessian_1_1CompositeDist.html#a6216610bfbcc92a40c7fa43ae60bd5af',1,'prior_hessian::CompositeDist']]],
   ['hess',['hess',['../classprior__hessian_1_1AMHCopula.html#a324c075c80fb95ed8b69bd601e6a4de6',1,'prior_hessian::AMHCopula::hess()'],['../classprior__hessian_1_1CompositeDist.html#ab8c1ff058081ab81620e24b0e3e85f5d',1,'prior_hessian::CompositeDist::hess()'],['../classprior__hessian_1_1CopulaDistImpl_1_1CopulaDist.html#a9053b04a2b0dd8eab62e407307f77a86',1,'prior_hessian::CopulaDistImpl::CopulaDist::hess()'],['../classprior__hessian_1_1MultivariateNormalDist.html#aaf8d6241c639ee69c7854f392ba85480',1,'prior_hessian::MultivariateNormalDist::hess()']]],
   ['hess_5faccumulate',['hess_accumulate',['../classprior__hessian_1_1CompositeDist.html#ade8ffdd5d98d1d299eec50fa0b95b867',1,'prior_hessian::CompositeDist']]],

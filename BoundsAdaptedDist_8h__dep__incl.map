@@ -1,14 +1,14 @@
 <map id="BoundsAdaptedDist.h" name="BoundsAdaptedDist.h">
-<area shape="rect" id="node2" href="$CompositeDist_8h.html" title="The Frank copula computations. " alt="" coords="24,79,136,104"/>
+<area shape="rect" id="node2" href="$CompositeDist_8h.html" title="CompositeDist class declaration and inline and templated member function definitions. " alt="" coords="24,79,136,104"/>
 <area shape="rect" id="node4" href="$CopulaDist_8h.html" title="CopulaDist base class. " alt="" coords="184,79,277,104"/>
-<area shape="rect" id="node5" href="$ScaledDist_8h.html" title="SemiInfiniteDist class declaration and templated methods. " alt="" coords="301,79,392,104"/>
+<area shape="rect" id="node5" href="$ScaledDist_8h.html" title="ScaledDist class declaration and templated methods. " alt="" coords="301,79,392,104"/>
 <area shape="rect" id="node7" href="$TruncatedDist_8h.html" title="TruncatedDist declaration and templated methods definitions. " alt="" coords="417,79,525,104"/>
 <area shape="rect" id="node10" href="$TruncatedMultivariateDist_8h.html" title="TruncatedMultivariateDist declaration and templated methods definitions. " alt="" coords="599,79,769,104"/>
 <area shape="rect" id="node12" href="$UpperTruncatedDist_8h.html" title="UpperTruncatedDist declaration and templated methods definitions. " alt="" coords="891,79,1034,104"/>
 <area shape="rect" id="node3" href="$CompositeDist_8cpp.html" title="CompositeDist and associated classes and nested classes. " alt="" coords="5,159,131,184"/>
-<area shape="rect" id="node6" href="$ScaledSymmetricBetaDist_8h.html" title="SymmetricBetaDist class declaration and templated methods. " alt="" coords="155,159,328,184"/>
+<area shape="rect" id="node6" href="$ScaledSymmetricBetaDist_8h.html" title="ScaledSymmetricBetaDist class declaration and templated methods. " alt="" coords="155,159,328,184"/>
 <area shape="rect" id="node8" href="$TruncatedGammaDist_8h.html" title="TruncatedGammaDist class declaration and templated methods. " alt="" coords="353,159,503,184"/>
 <area shape="rect" id="node9" href="$TruncatedNormalDist_8h.html" title="TruncatedNormalDist class declaration. " alt="" coords="527,159,675,184"/>
 <area shape="rect" id="node11" href="$TruncatedMultivariateNormalDist_8h.html" title="TruncatedMultivariateNormalDist class declaration. " alt="" coords="699,152,879,191"/>
-<area shape="rect" id="node13" href="$TruncatedParetoDist_8h.html" title="ParetoDist class declaration and templated methods. " alt="" coords="904,159,1048,184"/>
+<area shape="rect" id="node13" href="$TruncatedParetoDist_8h.html" title="TruncatedParetoDist class declaration and templated methods. " alt="" coords="904,159,1048,184"/>
 </map>

@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="The Frank copula computations. ">
+<g id="a_node3"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="CompositeDist class declaration and inline and templated member function definitions. ">
 <polygon fill="white" stroke="black" points="110,-55.5 110,-73.5 194,-73.5 194,-55.5 110,-55.5"/>
 <text text-anchor="middle" x="152" y="-62.3" font-family="Helvetica,sans-Serif" font-size="9.00">CompositeDist.h</text>
 </a>
@@ -120,7 +120,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class defintion. ">
+<g id="a_node7"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class definition. ">
 <polygon fill="white" stroke="black" points="166,-0.5 166,-18.5 248,-18.5 248,-0.5 166,-0.5"/>
 <text text-anchor="middle" x="207" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">GammaDist.cpp</text>
 </a>
@@ -146,7 +146,7 @@
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class defintion. ">
+<g id="a_node10"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class definition. ">
 <polygon fill="white" stroke="black" points="398,-0.5 398,-18.5 478,-18.5 478,-0.5 398,-0.5"/>
 <text text-anchor="middle" x="438" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">NormalDist.cpp</text>
 </a>
@@ -172,7 +172,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class defintion. ">
+<g id="a_node13"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class definition. ">
 <polygon fill="white" stroke="black" points="625.5,-0.5 625.5,-18.5 702.5,-18.5 702.5,-0.5 625.5,-0.5"/>
 <text text-anchor="middle" x="664" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">ParetoDist.cpp</text>
 </a>
@@ -185,7 +185,7 @@
 </g>
 <!-- Node14 -->
 <g id="node14" class="node"><title>Node14</title>
-<g id="a_node14"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="ParetoDist class declaration and templated methods. ">
+<g id="a_node14"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="TruncatedParetoDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="721,-0.5 721,-18.5 829,-18.5 829,-0.5 721,-0.5"/>
 <text text-anchor="middle" x="775" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">TruncatedParetoDist.h</text>
 </a>
@@ -198,7 +198,7 @@
 </g>
 <!-- Node16 -->
 <g id="node16" class="node"><title>Node16</title>
-<g id="a_node16"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class defintion. ">
+<g id="a_node16"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class definition. ">
 <polygon fill="white" stroke="black" points="847.5,-0.5 847.5,-18.5 958.5,-18.5 958.5,-0.5 847.5,-0.5"/>
 <text text-anchor="middle" x="903" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">SymmetricBetaDist.cpp</text>
 </a>
@@ -211,7 +211,7 @@
 </g>
 <!-- Node17 -->
 <g id="node17" class="node"><title>Node17</title>
-<g id="a_node17"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="SymmetricBetaDist class declaration and templated methods. ">
+<g id="a_node17"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="ScaledSymmetricBetaDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="977,-0.5 977,-18.5 1107,-18.5 1107,-0.5 977,-0.5"/>
 <text text-anchor="middle" x="1042" y="-7.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledSymmetricBetaDist.h</text>
 </a>

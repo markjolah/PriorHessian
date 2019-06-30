@@ -42,7 +42,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="The Frank copula computations. ">
+<g id="a_node3"><a xlink:href="CompositeDist_8h.html" target="_top" xlink:title="CompositeDist class declaration and inline and templated member function definitions. ">
 <polygon fill="white" stroke="black" points="188.5,-65.5 188.5,-83.5 272.5,-83.5 272.5,-65.5 188.5,-65.5"/>
 <text text-anchor="middle" x="230.5" y="-72.3" font-family="Helvetica,sans-Serif" font-size="9.00">CompositeDist.h</text>
 </a>
@@ -183,7 +183,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class defintion. ">
+<g id="a_node11"><a xlink:href="GammaDist_8cpp.html" target="_top" xlink:title="GammaDist class definition. ">
 <polygon fill="white" stroke="black" points="543.5,-5.5 543.5,-23.5 625.5,-23.5 625.5,-5.5 543.5,-5.5"/>
 <text text-anchor="middle" x="584.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">GammaDist.cpp</text>
 </a>
@@ -209,7 +209,7 @@
 </g>
 <!-- Node14 -->
 <g id="node14" class="node"><title>Node14</title>
-<g id="a_node14"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class defintion. ">
+<g id="a_node14"><a xlink:href="NormalDist_8cpp.html" target="_top" xlink:title="NormalDist class definition. ">
 <polygon fill="white" stroke="black" points="775.5,-5.5 775.5,-23.5 855.5,-23.5 855.5,-5.5 775.5,-5.5"/>
 <text text-anchor="middle" x="815.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">NormalDist.cpp</text>
 </a>
@@ -235,7 +235,7 @@
 </g>
 <!-- Node17 -->
 <g id="node17" class="node"><title>Node17</title>
-<g id="a_node17"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class defintion. ">
+<g id="a_node17"><a xlink:href="ParetoDist_8cpp.html" target="_top" xlink:title="ParetoDist class definition. ">
 <polygon fill="white" stroke="black" points="1003,-5.5 1003,-23.5 1080,-23.5 1080,-5.5 1003,-5.5"/>
 <text text-anchor="middle" x="1041.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">ParetoDist.cpp</text>
 </a>
@@ -248,7 +248,7 @@
 </g>
 <!-- Node18 -->
 <g id="node18" class="node"><title>Node18</title>
-<g id="a_node18"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="ParetoDist class declaration and templated methods. ">
+<g id="a_node18"><a xlink:href="TruncatedParetoDist_8h.html" target="_top" xlink:title="TruncatedParetoDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="1098.5,-5.5 1098.5,-23.5 1206.5,-23.5 1206.5,-5.5 1098.5,-5.5"/>
 <text text-anchor="middle" x="1152.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">TruncatedParetoDist.h</text>
 </a>
@@ -261,7 +261,7 @@
 </g>
 <!-- Node20 -->
 <g id="node20" class="node"><title>Node20</title>
-<g id="a_node20"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class defintion. ">
+<g id="a_node20"><a xlink:href="SymmetricBetaDist_8cpp.html" target="_top" xlink:title="SymmetricBetaDist class definition. ">
 <polygon fill="white" stroke="black" points="266,-5.5 266,-23.5 377,-23.5 377,-5.5 266,-5.5"/>
 <text text-anchor="middle" x="321.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">SymmetricBetaDist.cpp</text>
 </a>
@@ -274,7 +274,7 @@
 </g>
 <!-- Node21 -->
 <g id="node21" class="node"><title>Node21</title>
-<g id="a_node21"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="SymmetricBetaDist class declaration and templated methods. ">
+<g id="a_node21"><a xlink:href="ScaledSymmetricBetaDist_8h.html" target="_top" xlink:title="ScaledSymmetricBetaDist class declaration and templated methods. ">
 <polygon fill="white" stroke="black" points="395.5,-5.5 395.5,-23.5 525.5,-23.5 525.5,-5.5 395.5,-5.5"/>
 <text text-anchor="middle" x="460.5" y="-12.3" font-family="Helvetica,sans-Serif" font-size="9.00">ScaledSymmetricBetaDist.h</text>
 </a>

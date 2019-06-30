@@ -1,6 +1,7 @@
 var searchData=
 [
   ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
+  ['rename_5fdim_5fvariable',['rename_dim_variable',['../classprior__hessian_1_1CompositeDist.html#ab6aeadd029eacc9f9e35d6fbba746098',1,'prior_hessian::CompositeDist']]],
   ['rename_5fparam',['rename_param',['../classprior__hessian_1_1CompositeDist.html#ace0aaa3698d76aba6a47f9061ff98902',1,'prior_hessian::CompositeDist']]],
   ['returnifinstantiatedfromnumerict',['ReturnIfInstantiatedFromNumericT',['../namespaceprior__hessian_1_1meta.html#a408d81bee769664002f490e4a08b9944',1,'prior_hessian::meta']]],
   ['returnifinstantiatedfromt',['ReturnIfInstantiatedFromT',['../namespaceprior__hessian_1_1meta.html#ab7bb340f7fc79b7a874c3d407fca091d',1,'prior_hessian::meta']]],
@@ -17,10 +18,10 @@ var searchData=
   ['rllh_5fgrad_5faccumulate',['rllh_grad_accumulate',['../classprior__hessian_1_1AMHCopula.html#ad86ca50954d51be0a25a9523f4d7ff5a',1,'prior_hessian::AMHCopula']]],
   ['rllh_5fgrad_5fgrad2_5faccumulate',['rllh_grad_grad2_accumulate',['../classprior__hessian_1_1AMHCopula.html#ae6aab20b3c845dfe2dd699df724755eb',1,'prior_hessian::AMHCopula']]],
   ['rllh_5fgrad_5fhess_5faccumulate',['rllh_grad_hess_accumulate',['../classprior__hessian_1_1AMHCopula.html#ab869b33caebfb6ae4e94f180c8f851bb',1,'prior_hessian::AMHCopula']]],
-  ['runtimeconvergenceerror',['RuntimeConvergenceError',['../structprior__hessian_1_1RuntimeConvergenceError.html',1,'prior_hessian']]],
   ['runtimeconvergenceerror',['RuntimeConvergenceError',['../structprior__hessian_1_1RuntimeConvergenceError.html#ac6fc04608eb985d12cedefa9d02b20ee',1,'prior_hessian::RuntimeConvergenceError']]],
-  ['runtimesamplingerror',['RuntimeSamplingError',['../structprior__hessian_1_1RuntimeSamplingError.html#aef3973f12c8e1c7c5e21c50e3ce3091e',1,'prior_hessian::RuntimeSamplingError']]],
+  ['runtimeconvergenceerror',['RuntimeConvergenceError',['../structprior__hessian_1_1RuntimeConvergenceError.html',1,'prior_hessian']]],
   ['runtimesamplingerror',['RuntimeSamplingError',['../structprior__hessian_1_1RuntimeSamplingError.html',1,'prior_hessian']]],
-  ['runtimetypeerror',['RuntimeTypeError',['../structprior__hessian_1_1RuntimeTypeError.html',1,'prior_hessian']]],
-  ['runtimetypeerror',['RuntimeTypeError',['../structprior__hessian_1_1RuntimeTypeError.html#aba526d924e22940e62b2560b83d943d6',1,'prior_hessian::RuntimeTypeError']]]
+  ['runtimesamplingerror',['RuntimeSamplingError',['../structprior__hessian_1_1RuntimeSamplingError.html#aef3973f12c8e1c7c5e21c50e3ce3091e',1,'prior_hessian::RuntimeSamplingError']]],
+  ['runtimetypeerror',['RuntimeTypeError',['../structprior__hessian_1_1RuntimeTypeError.html#aba526d924e22940e62b2560b83d943d6',1,'prior_hessian::RuntimeTypeError']]],
+  ['runtimetypeerror',['RuntimeTypeError',['../structprior__hessian_1_1RuntimeTypeError.html',1,'prior_hessian']]]
 ];

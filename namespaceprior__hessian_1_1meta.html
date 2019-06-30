@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Class templates to utilize sequencing behaviour of std::initializer_list expressions.  
+<p>Class templates to utilize sequencing behavior of std::initializer_list expressions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -222,7 +222,7 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a179314ad7ba735849c4095e735374ab2"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a179314ad7ba735849c4095e735374ab2"><td class="memTemplParams" colspan="2">template&lt;class T  = int&gt; </td></tr>
 <tr class="memitem:a179314ad7ba735849c4095e735374ab2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceprior__hessian_1_1meta.html#a179314ad7ba735849c4095e735374ab2">call_in_order</a> (std::initializer_list&lt; T &gt;)</td></tr>
 <tr class="separator:a179314ad7ba735849c4095e735374ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dd1d78533f7011bebda7009c0591041"><td class="memTemplParams" colspan="2">template&lt;class InputIterator , class ResultT , class BinaryOperation &gt; </td></tr>
@@ -238,7 +238,7 @@ Functions</h2></td></tr>
 <tr class="separator:a32068030d513a09bf78340f87be83639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class templates to utilize sequencing behaviour of std::initializer_list expressions. </p>
+<div class="textblock"><p>Class templates to utilize sequencing behavior of std::initializer_list expressions. </p>
 <p>These class templates are intended to be used in variadic template functions to sequence the order of calls as a std::initializer_list. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="aa8f9847c6c56ca1f8530657d74bb9a99"></a>
@@ -726,7 +726,7 @@ template&lt;class ReturnT , class BoolT &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T  = int&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void prior_hessian::meta::call_in_order </td>
@@ -743,7 +743,7 @@ template&lt;class T &gt; </div>
 
 <p>References <a class="el" href="Meta_8h_source.html#l00019">PRIOR_HESSIAN_META_CONSTEXPR</a>.</p>
 
-<p>Referenced by <a class="el" href="CopulaDist_8h_source.html#l00545">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::global_ubound()</a>, and <a class="el" href="CompositeDist_8h_source.html#l00246">prior_hessian::CompositeDist::rllh_components()</a>.</p>
+<p>Referenced by <a class="el" href="CopulaDist_8h_source.html#l00545">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::global_ubound()</a>, and <a class="el" href="CompositeDist_8h_source.html#l00250">prior_hessian::CompositeDist::rllh_components()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -801,7 +801,7 @@ template&lt;class InputIterator , class ResultT , class BinaryOperation &gt; </d
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041_icgraph.svg" width="100%" height="568"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_a8dd1d78533f7011bebda7009c0591041_icgraph.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -833,7 +833,7 @@ Here is the caller graph for this function:</div>
 
 <p>References <a class="el" href="Meta_8h_source.html#l00046">constexpr_accumulate()</a>, and <a class="el" href="Meta_8h_source.html#l00019">PRIOR_HESSIAN_META_CONSTEXPR</a>.</p>
 
-<p>Referenced by <a class="el" href="CopulaDist_8h_source.html#l00545">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::global_ubound()</a>, and <a class="el" href="CompositeDist_8h_source.html#l00246">prior_hessian::CompositeDist::rllh_components()</a>.</p>
+<p>Referenced by <a class="el" href="CopulaDist_8h_source.html#l00545">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::global_ubound()</a>, and <a class="el" href="CompositeDist_8h_source.html#l00250">prior_hessian::CompositeDist::rllh_components()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -871,19 +871,10 @@ template&lt;class T &gt; </div>
 
 <p>References <a class="el" href="Meta_8h_source.html#l00046">constexpr_accumulate()</a>.</p>
 
-<p>Referenced by <a class="el" href="CompositeDist_8h_source.html#l00246">prior_hessian::CompositeDist::rllh_components()</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_cgraph.svg" width="340" height="50"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_a32068030d513a09bf78340f87be83639_icgraph.svg" width="352" height="50"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -909,7 +900,7 @@ template&lt;class T &gt; </div>
 
 <p>References <a class="el" href="Meta_8h_source.html#l00046">constexpr_accumulate()</a>, and <a class="el" href="Meta_8h_source.html#l00019">PRIOR_HESSIAN_META_CONSTEXPR</a>.</p>
 
-<p>Referenced by <a class="el" href="CompositeDist_8h_source.html#l00883">prior_hessian::CompositeDist::make_component_dist_tuple()</a>, <a class="el" href="CopulaDist_8h_source.html#l00080">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::operator!=()</a>, and <a class="el" href="CompositeDist_8h_source.html#l00246">prior_hessian::CompositeDist::rllh_components()</a>.</p>
+<p>Referenced by <a class="el" href="CompositeDist_8h_source.html#l00887">prior_hessian::CompositeDist::make_component_dist_tuple()</a>, and <a class="el" href="CopulaDist_8h_source.html#l00080">prior_hessian::CopulaDistImpl::CopulaDist&lt; CopulaTemplate, MarginalDistTs &gt;::operator!=()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -921,7 +912,7 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f_icgraph.svg" width="396" height="175"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceprior__hessian_1_1meta_ab09470f06d05f5c58e249a03ef19242f_icgraph.svg" width="396" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
