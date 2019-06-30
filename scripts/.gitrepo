@@ -4,7 +4,7 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/markjolah/build-scripts
+	remote = https://github.com/markjolah/cmake-build-scripts
 	branch = master
 	commit = 
 	method = merge
