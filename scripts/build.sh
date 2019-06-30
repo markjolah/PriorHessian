@@ -10,7 +10,7 @@
 #  BUILD_PATH: Directory to build under (if existing, it will be deleted) [default: _build/Release]
 #  INSTALL_PATH: Directory (prefix) to install to [default: _install]
 #  NUM_PROCS: Number of processors to build with: [default: attempt to find #procs]
-#
+#  CMAKE_EXTRA_ARGS: Extra CMAKE arguments passed as environment variable
 
 #Cross-platform get number of processors
 if [ -z "$NUM_PROCS" ] || [ -n "${NUM_PROCS//[0-9]}" ] || [ ! "$NUM_PROCS" -ge 1 ]; then
@@ -21,8 +21,10 @@ if [ -z "$NUM_PROCS" ] || [ -n "${NUM_PROCS//[0-9]}" ] || [ ! "$NUM_PROCS" -ge 1
     esac
 fi
 
-INSTALL_PATH=${INSTALL_PATH:-_install}
-BUILD_PATH=${BUILD_PATH:-_build/Release}
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+SRC_PATH=${SCRIPT_DIR}/..
+INSTALL_PATH=${INSTALL_PATH:-${SRC_PATH}/_install}
+BUILD_PATH=${BUILD_PATH:-${SRC_PATH}/_build/Release}
 
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
 ARGS="${ARGS} -DBUILD_STATIC_LIBS=ON"
@@ -35,6 +37,6 @@ ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=On" #Otherwise dependenci
 ARGS="${ARGS} -DOPT_BLAS_INT64=ON"
 
 set -ex
-rm -rf $BUILD_PATH
-cmake -H. -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release ${ARGS}
+# rm -rf $BUILD_PATH
+cmake -H${SRC_PATH} -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release ${ARGS} ${CMAKE_EXTRA_ARGS} $@
 cmake --build $BUILD_PATH --target install -- -j${NUM_PROCS}
