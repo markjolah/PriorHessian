@@ -47,7 +47,7 @@ using CopulaDistTestTs = ::testing::Types<
     CopulaDist<AMHCopula, TruncatedNormalDist, TruncatedNormalDist>>;
 //     CopulaDist<AMHCopula, TruncatedGammaDist, TruncatedGammaDist>>;
     
-TYPED_TEST_SUITE(CopulaDistTest, CopulaDistTestTs);
+TYPED_TEST_SUITE_COMPAT(CopulaDistTest, CopulaDistTestTs);
 
 TYPED_TEST(CopulaDistTest, num_components) 
 {

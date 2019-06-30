@@ -13,10 +13,8 @@
 namespace prior_hessian {
 
 /** @brief Multivariate Normal distribution
- * @param Ndim Number of dimensions >=2
- *
  */
-template<IdxT Ndim> //, meta::ConstructableIf< (Ndim>=2) > = true>
+template<IdxT Ndim>
 class MultivariateNormalDist : public MultivariateDist
 {
     static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
@@ -89,7 +87,7 @@ public:
     template<class RngT>
     NdimVecT sample(RngT &rng) const;
   
-    /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+    /* Specialized iterator-based adapter methods for efficient use by CompositeDist::ComponentDistAdaptor */
     template<class IterT>
     static bool check_params_iter(IterT &params);
 
@@ -100,7 +98,7 @@ public:
     void set_params_iter(IterT &params);
 
 private:    
-    static StringVecT _param_names; //Cannonical names for parameters
+    static StringVecT _param_names; //Canonical names for parameters
     static NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static NparamsVecT _param_ubound; //Upper bound on valid parameter values
     static NdimVecT _lbound;
@@ -124,7 +122,7 @@ private:
     NdimVecT _mu;
     NdimMatT _sigma;
     NdimMatT _sigma_inv;
-    NdimMatT _sigma_chol; //cholesky decoposition of sigma (lower triangular form s.t. A*A.t()=sigma)
+    NdimMatT _sigma_chol; //Cholesky decomposition of sigma (lower triangular form s.t. A*A.t()=sigma)
 
     //Lazy computation of llh_const.  Most use-cases do not need it.
     mutable double llh_const;
@@ -141,7 +139,7 @@ namespace helpers
         double z=0;
         for(IdxT c=0; c<Ndim; c++) {
             double vc = v(c);
-            for(IdxT r=0; r<c; r++) z+= 2*vc*v(r)*A(r,c); //Account for both off-diagonal elements simultantously.
+            for(IdxT r=0; r<c; r++) z+= 2*vc*v(r)*A(r,c); //Account for both off-diagonal elements simultaneously.
             z+=square(vc)*A(c,c);
         }
         return z;
@@ -387,8 +385,8 @@ MultivariateNormalDist<Ndim>::sigma_inv() const
 { return _sigma_inv; }
 
 // template<IdxT Ndim>
-// const typename MultivariateNormalDist<Ndim>::NdimMatT& 
-// MultivariateNormalDist<Ndim>::sigma_chol() const 
+// const typename MultivariateNormalDist<Ndim>::NdimMatT&
+// MultivariateNormalDist<Ndim>::sigma_chol() const
 // { return _sigma_chol; }
 
 template<IdxT Ndim>
@@ -401,6 +399,7 @@ template<class Mat>
 void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val) 
 { 
     //Mat is upper-triangular symmetric, positive definite.
+//     std::cout<<"sigma: "<<val<<std::endl;
     if(!val.is_finite()) throw ParameterValueError("Sigma matrix is not-finite.");
     if(arma::any(val.diag()<=0)) throw ParameterValueError("Sigma matrix is not positive definite.");
     try{
@@ -496,7 +495,7 @@ template<IdxT Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::pdf(const Vec &x) const
 {
-    // ((2*pi)^Ndim * det(Sigma))^{-1/2} * exp(-1/2*(x-mu)'*Sigma^{-1}*(x-mu))
+// ((2*pi)^Ndim * det(Sigma))^{-1/2} * exp(-1/2*(x-mu)'*Sigma^{-1}*(x-mu))
 //     NdimVecT delta = x-mu();
 //     return 1./sqrt(arma::det(sigma)) * pow(2*arma::datum::pi,-Ndim/2.) * exp(-.5*delta.t()*arma::inv(sigma)*delta);
     return exp(llh(x));

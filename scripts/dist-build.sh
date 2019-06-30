@@ -6,13 +6,24 @@
 # Creates a .zip and .tar.gz archives.
 #
 # Args:
-#  <INSTALL_DIR> - path to distribution install directory [Default: ${SRC_PATH}/_dist].
+#  <INSTALL_DIR> - path to distribution install directory [Default: ${CMAKE_SOURCE_DIR}/_dist].
 #                  The distribution files will be created under this directory with names based on
 #                  package and versions.
 #  <cmake_args...> - additional cmake arguments.
 #
-# Optional environment variables:
-# OPT_BLAS_INT64 - enable armadillo 64-bit integer support
+# Controlling Environment Variables:
+#  BUILD_PATH: Directory to build under (if existing, it will be deleted) [default: ${CMAKE_SOURCE_DIR}/_build/dist]
+#  NUM_PROCS: Number of processors to build with [default: attempt to find #procs]
+#  OPT_BLAS_INT64 - enable armadillo 64-bit integer support [default: off]
+
+#Cross-platform get number of processors
+if [ -z "$NUM_PROCS" ] || [ -n "${NUM_PROCS//[0-9]}" ] || [ ! "$NUM_PROCS" -ge 1 ]; then
+    case $(uname -s) in
+        Linux*) NUM_PROCS=$(grep -c ^processor /proc/cpuinfo);;
+        Darwin*) NUM_PROCS=$(sysctl -n hw.logicalcpu);;
+        *) NUM_PROCS=1
+    esac
+fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SRC_PATH=${SCRIPT_DIR}/..
@@ -23,21 +34,20 @@ if [ -z $NAME ] || [ -z $VERSION ]; then
     echo "Unable to find package name and version from: ${SRC_PATH}/CMakeLists.txt"
     exit 1
 fi
+
 DIST_DIR_NAME=${NAME}-${VERSION}
 if [ -z $1 ]; then
     INSTALL_PATH=${SRC_PATH}/_dist/$DIST_DIR_NAME
 else
-    INSTALL_PATH=$1/$DIST_DIR_NAME
+    INSTALL_PATH=${INSTALL_PATH:-$1/$DIST_DIR_NAME}
 fi
 
-if [ -z $OPT_BLAS_INT64 ]; then
-    OPT_BLAS_INT64="Off"
-fi
+OPT_BLAS_INT64=${OPT_BLAS_INT64:-Off}
 
 ZIP_FILE=${NAME}-${VERSION}.zip
 TAR_FILE=${NAME}-${VERSION}.tbz2
 
-BUILD_PATH=${SRC_PATH}/_build/dist
+BUILD_PATH=${BUILD_PATH:-${SRC_PATH}/_build/dist}
 NUM_PROCS=$(grep -c ^processor /proc/cpuinfo)
 
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
@@ -48,13 +58,11 @@ ARGS="${ARGS} -DOPT_DOC=On"
 ARGS="${ARGS} -DOPT_INSTALL_TESTING=On"
 ARGS="${ARGS} -DOPT_EXPORT_BUILD_TREE=Off"
 ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=On"  # Disable finding packages in the build-tree
-ARGS="${ARGS} -DOPT_BLAS_INT64=${OPT_BLAS_INT64}"
+ARGS="${ARGS} -DOPT_BLAS_INT64=$OPT_BLAS_INT64"
 
 set -ex
-rm -rf $BUILD_PATH
-rm -rf $INSTALL_PATH
-
-cmake -H${SRC_PATH} -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release $ARGS ${@:2}
+#rm -rf $BUILD_PATH
+cmake -H$SRC_PATH -B$BUILD_PATH -DCMAKE_BUILD_TYPE=Release $ARGS ${@:2}
 cmake --build $BUILD_PATH --target doc -- -j$NUM_PROCS
 cmake --build $BUILD_PATH --target pdf -- -j$NUM_PROCS
 cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS

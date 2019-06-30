@@ -16,7 +16,7 @@
 
 namespace prior_hessian {
 
-/** @brief Single parameter beta distribution where \alpha = \beta, leading to symmetric bounded distribution.  
+/** @brief Gamma distribution
  * 
  */
 class GammaDist : public UnivariateDist
@@ -73,7 +73,7 @@ public:
     template<class RngT>
     double sample(RngT &rng) const;
 
-     /* Specialized iterator-based adaptor methods for efficient use by CompositeDist::ComponentDistAdaptor */    
+     /* Specialized iterator-based adapter methods for efficient use by CompositeDist::ComponentDistAdaptor */
     template<class IterT>
     static bool check_params_iter(IterT &params);   
     
@@ -86,7 +86,7 @@ private:
     /* These paramter vectors are constant sized, but are handled by accessor functions
      * so as to work generically together with multivariate distributions.
      */
-    static const StringVecT _param_names; //Cannonical names for parameters
+    static const StringVecT _param_names; //Canonical names for parameters
     static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
 

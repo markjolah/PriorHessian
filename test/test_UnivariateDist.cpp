@@ -6,7 +6,7 @@
 using namespace prior_hessian;
 
 
-TYPED_TEST_SUITE(UnivariateDistTest, UnivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(UnivariateDistTest, UnivariateDistTs);
 
 
 TYPED_TEST(UnivariateDistTest, copy_assignment) {

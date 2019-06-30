@@ -83,7 +83,7 @@ public:
     void set_params_iter(IterT &params);
    
 private:
-    static const StringVecT _param_names; //Cannonical names for parameters
+    static const StringVecT _param_names; //Canonical names for parameters
     static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
 

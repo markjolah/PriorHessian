@@ -1,7 +1,7 @@
 /** @file ParetoDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
- * @brief ParetoDist class defintion
+ * @date 2017-2019
+ * @brief ParetoDist class definition
  * 
  */
 #include "PriorHessian/ParetoDist.h"

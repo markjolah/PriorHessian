@@ -1,7 +1,7 @@
 /** @file ScaledSymmetricBetaDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2017-2019
- * @brief SymmetricBetaDist class declaration and templated methods
+ * @brief ScaledSymmetricBetaDist class declaration and templated methods
  * 
  */
 #ifndef PRIOR_HESSIAN_SCALEDSYMMETRICBETADIST_H

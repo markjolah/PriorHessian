@@ -1,6 +1,6 @@
 /** @file SymmetricBetaDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
+ * @date 2017-2019
  * @brief SymmetricBetaDist class declaration and templated methods
  * 
  */
@@ -16,7 +16,7 @@
 
 namespace prior_hessian {
 
-/** @brief Single parameter beta distribution where \alpha = \beta, leading to symmetric bounded distribution.  
+/** @brief Single parameter beta distribution where \f$\alpha = \beta\f$, leading to symmetric bounded distribution.
  * 
  */
 class SymmetricBetaDist : public UnivariateDist
@@ -82,7 +82,7 @@ public:
 private:
     using RngDistT = boost::math::beta_distribution<double>;//Used for RNG
 
-    static const StringVecT _param_names; //Cannonical names for parameters
+    static const StringVecT _param_names; //Canonical names for parameters
     static const NparamsVecT _param_lbound; //Lower bound on valid parameter values 
     static const NparamsVecT _param_ubound; //Upper bound on valid parameter values
 

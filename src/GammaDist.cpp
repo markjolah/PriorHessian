@@ -1,7 +1,7 @@
 /** @file GammaDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
- * @brief GammaDist class defintion
+ * @date 2017-2019
+ * @brief GammaDist class definition
  * 
  */
 #include "PriorHessian/GammaDist.h"

@@ -1,7 +1,7 @@
 /** @file CompositeDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 10-2017
- * @brief The Frank copula computations
+ * @date 2017-2019
+ * @brief CompositeDist class declaration and inline and templated member function definitions
  * 
  * 
  */
@@ -209,7 +209,7 @@ public:
         return h;
     }
     
-    /* Accumulate methods add thier contributions to respective grad, grad2 or hess arguments 
+    /* Accumulate methods add their contributions to respective grad, grad2 or hess arguments
      * These are more efficient.  They use the Dist.xxx_acumulate methods, which are intern provided by the
      * CRTP UnivariateDist and MulitvariateDists base class templates.
      * 
@@ -893,7 +893,7 @@ private:
 
     /* Param name index */
     using NameMapT = std::unordered_map<std::string,int>;
-    static NameMapT initialize_name_idx(const StringVecT &names);// throw (NameUniquenessError)
+    static NameMapT initialize_name_idx(const StringVecT &names);// throw (ParameterNameUniquenessError)
     mutable NameMapT param_name_idx;
     mutable NameMapT dim_name_idx;
 

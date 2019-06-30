@@ -1,7 +1,7 @@
 /** @file NormalDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
- * @brief NormalDist class defintion
+ * @date 2017-2019
+ * @brief NormalDist class definition
  * 
  */
 #include "PriorHessian/NormalDist.h"

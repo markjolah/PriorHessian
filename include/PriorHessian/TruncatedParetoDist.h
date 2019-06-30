@@ -1,7 +1,7 @@
 /** @file TruncatedParetoDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2017-2019
- * @brief ParetoDist class declaration and templated methods
+ * @brief TruncatedParetoDist class declaration and templated methods
  * 
  */
 #ifndef PRIOR_HESSIAN_TRUNCATEDPARETODIST_H
@@ -12,7 +12,6 @@
 
 namespace prior_hessian {
 
-/* A bounded normal dist uses the TruncatedDist adaptor */
 using TruncatedParetoDist = UpperTruncatedDist<ParetoDist>;
 
 inline
@@ -42,4 +41,4 @@ namespace detail
     
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_TUNCATEDPARETODIST_H */
+#endif /* PRIOR_HESSIAN_TUNCATEDPARETODIST_H */

@@ -1,6 +1,6 @@
-/** @file ArchimedeanCopula.h
+/** @file copula.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
+ * @date 2017-2019
  * @brief CopulaDist base class.
  */
 #ifndef PRIOR_HESSIAN_ARCHIMEDEANCOPULA_H

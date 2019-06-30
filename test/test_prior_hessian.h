@@ -16,6 +16,13 @@
 
 #include "PriorHessian/Meta.h"
 
+#if defined(GTEST_USE_TYPED_TEST_SUITE) && !GTEST_USE_TYPED_TEST_SUITE
+#define TYPED_TEST_SUITE_COMPAT TYPED_TEST_CASE
+#else
+#define TYPED_TEST_SUITE_COMPAT TYPED_TEST_SUITE
+#endif
+
+
 /* Globals */
 extern test_helper::RngEnvironment *env;
 

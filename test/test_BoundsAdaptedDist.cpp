@@ -1,6 +1,6 @@
 /** @file test_BoundsAdaptedDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2018
+ * @date 2018-2019
  */
 #include "test_univariate.h"
 
@@ -21,7 +21,7 @@ public:
 };
 
                                 
-TYPED_TEST_SUITE(BoundsAdaptedDistTest, UnivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(BoundsAdaptedDistTest, UnivariateDistTs);
 
 TYPED_TEST(BoundsAdaptedDistTest, copy_assignment) {
     SCOPED_TRACE("copy_assignment");

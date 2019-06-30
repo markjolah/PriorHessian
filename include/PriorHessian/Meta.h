@@ -1,6 +1,6 @@
 /** @file Meta.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
+ * @date 2017-2019
  * @brief Enables the use of variadic templates in interesting ways.
  * 
  * 
@@ -26,7 +26,7 @@
 
 namespace prior_hessian {
     
-/** @brief Class templates to utilize sequencing behaviour of std::initializer_list expressions.
+/** @brief Class templates to utilize sequencing behavior of std::initializer_list expressions.
  * 
  * These class templates are intended to be used in variadic template functions to sequence the order of calls as
  * a std::initializer_list.
@@ -114,13 +114,13 @@ namespace meta {
     using ReturnIfT = std::enable_if_t<BoolT::value,ReturnT>;
 
     template<bool val>
-    using ConstructableIf = std::enable_if_t<val,bool>; /* Uses a non-type template paramter for SFINAE */
+    using ConstructableIf = std::enable_if_t<val,bool>; /* Uses a non-type template parameter for SFINAE */
     
     template<bool val>
-    using ConstructableIfNot = std::enable_if_t<!val,bool>; /* Uses a non-type template paramter for SFINAE */
+    using ConstructableIfNot = std::enable_if_t<!val,bool>; /* Uses a non-type template parameter for SFINAE */
     
     template<class T, class SelfT>
-    using ConstructableIfNotSelfT = std::enable_if_t<!std::is_same<std::decay_t<T>,SelfT>::value,bool>; /* Uses a non-type template paramter for SFINAE */
+    using ConstructableIfNotSelfT = std::enable_if_t<!std::is_same<std::decay_t<T>,SelfT>::value,bool>; /* Uses a non-type template parameter for SFINAE */
     
     template<class T,class BaseT> 
     using EnableIfSubclassT = std::enable_if_t<

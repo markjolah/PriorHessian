@@ -11,7 +11,7 @@ cmake_minimum_required( VERSION 3.9 )
 
 message(STATUS "ENV{FC}:$ENV{FC}")
 message(STATUS "CMAKE_Fortran_COMPILER:${CMAKE_Fortran_COMPILER}")
-project(PriorHessian VERSION 0.2 LANGUAGES CXX Fortran)
+project(PriorHessian VERSION 0.2.1 LANGUAGES CXX Fortran)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_STATIC_LIBS "Build static libraries" ON)
@@ -20,10 +20,11 @@ if(${CMAKE_BUILD_TYPE} MATCHES Debug)
 else()
     option(BUILD_TESTING "Build testing framework" OFF)
 endif()
-option(OPT_DOC "Build documentation" OFF)
 option(OPT_INSTALL_TESTING "Install testing executables" OFF)
+option(OPT_DOC "Build documentation" OFF)
 option(OPT_EXPORT_BUILD_TREE "Configure the package so it is usable from the build tree.  Useful for development." OFF)
 option(OPT_BLAS_INT64 "Use 64-bit integers for Armadillo, BLAS, and LAPACK." OFF)
+option(OPT_IPO "Enable interproceedural optimization if availible." ON)
 
 if(NOT BUILD_SHARED_LIBS AND NOT BUILD_STATIC_LIBS)
   set (BUILD_SHARED_LIBS ON)  #Must build at least one of SHARED_ and STATIC_LIBS.  Default SHARED_
@@ -32,10 +33,11 @@ endif()
 message(STATUS "OPTION: BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 message(STATUS "OPTION: BUILD_STATIC_LIBS: ${BUILD_STATIC_LIBS}")
 message(STATUS "OPTION: BUILD_TESTING: ${BUILD_TESTING}")
-message(STATUS "OPTION: OPT_DOC: ${OPT_DOC}")
 message(STATUS "OPTION: OPT_INSTALL_TESTING: ${OPT_INSTALL_TESTING}")
+message(STATUS "OPTION: OPT_DOC: ${OPT_DOC}")
 message(STATUS "OPTION: OPT_EXPORT_BUILD_TREE: ${OPT_EXPORT_BUILD_TREE}")
 message(STATUS "OPTION: OPT_BLAS_INT64: ${OPT_BLAS_INT64}")
+message(STATUS "Option: OPT_IPO: ${OPT_IPO}")
 
 #Add UcommonCmakeModules git subpreo to path.
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_LIST_DIR}/cmake/UncommonCMakeModules)
@@ -63,6 +65,22 @@ set_property(DIRECTORY APPEND PROPERTY COMPILE_DEFINITIONS ${ARMADILLO_PRIVATE_C
 ### CFLAGS
 #Configure standard CFlags and definitions for debug builds
 include(ConfigureDebugBuilds)
+
+#Enable interproceedural optimization if available
+include(CheckIPOSupported)
+check_ipo_supported(RESULT _result OUTPUT _output)
+if(_result)
+    if(OPT_IPO)
+        set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+        message(STATUS "Interproceedural optimization: Enabled")
+    else()
+        set(CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF)
+        message(STATUS "Interproceedural optimization: Disabled")
+    endif()
+else()
+    message(STATUS "Interproceedural optimization: Not availible")
+endif()
+
 
 ### Source directories
 add_subdirectory(src)

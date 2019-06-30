@@ -1,6 +1,6 @@
 /** @file TruncatedMultivariateNormalDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
+ * @date 2017-2019
  * @brief TruncatedMultivariateNormalDist class declaration.
  * 
  */
@@ -13,7 +13,7 @@
 
 namespace prior_hessian {
 
-/* A bounded normal dist uses the TruncatedMultivariateDist adaptor */
+/* A bounded normal dist uses the TruncatedMultivariateDist adapter */
 template<IdxT Ndim>
 using TruncatedMultivariateNormalDist = TruncatedMultivariateDist<MultivariateNormalDist<Ndim>>;
 

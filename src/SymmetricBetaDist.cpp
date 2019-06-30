@@ -1,7 +1,7 @@
 /** @file SymmetricBetaDist.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
- * @brief SymmetricBetaDist class defintion
+ * @date 2017-2019
+ * @brief SymmetricBetaDist class definition
  * 
  */
 #include "PriorHessian/SymmetricBetaDist.h"

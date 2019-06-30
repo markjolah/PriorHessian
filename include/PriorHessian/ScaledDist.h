@@ -1,7 +1,7 @@
 /** @file ScaledDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
- * @brief SemiInfiniteDist class declaration and templated methods
+ * @date 2017-2019
+ * @brief ScaledDist class declaration and templated methods
  * 
  */
 #ifndef PRIOR_HESSIAN_SCALEDDIST_H

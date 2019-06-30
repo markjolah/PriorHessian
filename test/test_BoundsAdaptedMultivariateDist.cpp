@@ -21,7 +21,7 @@ public:
 };
 
                                 
-TYPED_TEST_SUITE(BoundsAdaptedMultivariateDistTest, MultivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(BoundsAdaptedMultivariateDistTest, MultivariateDistTs);
 
 TYPED_TEST(BoundsAdaptedMultivariateDistTest, copy_assignment) {
     SCOPED_TRACE("copy_assignment");

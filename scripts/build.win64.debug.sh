@@ -7,24 +7,36 @@
 # Required environment variables:
 # MXE_ROOT=<mxe-root-dir>
 #
-# Optional environment variables:
-# OPT_DOC - enable documentation build.
-# OPT_BLAS_INT64 - enable armadillo 64-bit integer support
+# Controlling Environment Variables:
+#  BUILD_PATH: Directory to build under (if existing, it will be deleted) [default: ${CMAKE_SOURCE_DIR}/_${ARCH}.build/Debug]
+#  INSTALL_PATH: Directory (prefix) to install to [default: ${CMAKE_SOURCE_DIR}/_${ARCH}.install]
+#  NUM_PROCS: Number of processors to build with [default: attempt to find #procs]
+#  OPT_DOC - enable documentation build [default: off].
+#  OPT_BLAS_INT64 - enable armadillo 64-bit integer support [default: off]
+
+#Cross-platform get number of processors
+if [ -z "$NUM_PROCS" ] || [ -n "${NUM_PROCS//[0-9]}" ] || [ ! "$NUM_PROCS" -ge 1 ]; then
+    case $(uname -s) in
+        Linux*) NUM_PROCS=$(grep -c ^processor /proc/cpuinfo);;
+        Darwin*) NUM_PROCS=$(sysctl -n hw.logicalcpu);;
+        *) NUM_PROCS=1
+    esac
+fi
+
 ARCH=win64
 FULL_ARCH=x86_64-w64-mingw32
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SRC_PATH=${SCRIPT_DIR}/..
 TOOLCHAIN_FILE=${SRC_PATH}/cmake/UncommonCMakeModules/Toolchains/Toolchain-MXE-${FULL_ARCH}.cmake
-INSTALL_PATH=${SRC_PATH}/_${ARCH}.install
-BUILD_PATH=${SRC_PATH}/_${ARCH}.build/Debug
-NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
-#Controllable environment variables
-if [ -z $OPT_DOC ]; then
-    OPT_DOC="Off"
+if [ ! -f $TOOLCHAIN_FILE ]; then
+    echo "Unable to find toolchain file: '$TOOLCHAIN_FILE' for arch '$ARCH'"
+    exit 1
 fi
-if [ -z $OPT_BLAS_INT64 ]; then
-    OPT_BLAS_INT64="Off"
-fi
+
+INSTALL_PATH=${INSTALL_PATH:-${SRC_PATH}/_${ARCH}.install}
+BUILD_PATH=${BUILD_PATH:-${SRC_PATH}/_${ARCH}.build/Debug}
+OPT_DOC=${OPT_DOC:-Off}
+OPT_BLAS_INT64=${OPT_BLAS_INT64:-Off}
 
 ARGS="-DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE"
 ARGS="${ARGS} -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
@@ -39,10 +51,10 @@ ARGS="${ARGS} -DOPT_FIXUP_DEPENDENCIES_BUILD_TREE=On"
 ARGS="${ARGS} -DOPT_BLAS_INT64=${OPT_BLAS_INT64}"
 
 set -ex
-rm -rf $INSTALL_PATH $BUILD_PATH
+#rm -rf $BUILD_PATH
 cmake -H${SRC_PATH} -B$BUILD_PATH  -DCMAKE_BUILD_TYPE=Debug $ARGS $@
 VERBOSE=1 cmake --build $BUILD_PATH --target all -- -j$NUM_PROCS
 if [ "${OPT_DOC,,}" == "on" ] || [ $OPT_DOC -eq 1 ]; then
     VERBOSE=1 cmake --build $BUILD_PATH --target pdf -- -j$NUM_PROCS
 fi
-VERBOSE=1 cmake --build $BUILD_PATH --target install -- -j${NUM_PROCS}
+VERBOSE=1 cmake --build $BUILD_PATH --target install -- -j$NUM_PROCS

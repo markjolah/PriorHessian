@@ -1,6 +1,6 @@
 /** @file PriorHessianError.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
+ * @date 2017-2019
  * @brief The Exception classes for the PriorHessian library
  * 
  * 
@@ -48,7 +48,7 @@ protected:
     std::string what_;
 public:
     PriorHessianError(std::string condition, std::string what) 
-        : condition{std::string{"PriorHessianr:"} + condition},
+        : condition{std::string{"PriorHessian:"} + condition},
           what_str{condition+" :: \""+what+"\""},
           what_{what} 
     { }
@@ -88,7 +88,7 @@ struct ParameterNameError : public PriorHessianError
 };
 struct ParameterNameUniquenessError : public PriorHessianError 
 {
-    ParameterNameUniquenessError(std::string message) : PriorHessianError("ParameterNameError",message) {}
+    ParameterNameUniquenessError(std::string message) : PriorHessianError("ParameterNameUniquenessError",message) {}
 };
 
 struct RuntimeConvergenceError : public PriorHessianError 
@@ -100,7 +100,6 @@ struct RuntimeSamplingError : public PriorHessianError
 {
     RuntimeSamplingError(std::string message) : PriorHessianError("RuntimeSamplingError",message) {}
 };
-
 
 struct RuntimeTypeError : public PriorHessianError 
 {

@@ -59,7 +59,7 @@ public:
     }
 };
 
-TYPED_TEST_SUITE(UnivariateCompositeComponentTest, UnivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(UnivariateCompositeComponentTest, UnivariateDistTs);
 
 TYPED_TEST(UnivariateCompositeComponentTest, make_component_dist)
 {
@@ -79,7 +79,7 @@ public:
     }
 };
 
-TYPED_TEST_SUITE(MultivariateCompositeComponentTest, MultivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(MultivariateCompositeComponentTest, MultivariateDistTs);
 
 TYPED_TEST(MultivariateCompositeComponentTest, make_adapted_bounded_dist)
 {
@@ -163,7 +163,7 @@ using CompositeDistTestTs = ::testing::Types<
     std::tuple<NormalDist,MultivariateNormalDist<2>,TruncatedGammaDist,TruncatedMultivariateNormalDist<2>>
     >;
                                           
-TYPED_TEST_SUITE(CompositeDistTest, CompositeDistTestTs);
+TYPED_TEST_SUITE_COMPAT(CompositeDistTest, CompositeDistTestTs);
 
 TYPED_TEST(CompositeDistTest, copy_construction) {
     CompositeDist &composite = this->composite;
@@ -749,6 +749,8 @@ TYPED_TEST(CompositeDistTest, check_params) {
 TYPED_TEST(CompositeDistTest, set_params_idempotent) {
     CompositeDist &composite = this->composite;
     auto params = composite.params();
+//     std::cout<<"params: "<<params<<std::endl;
+//     std::cout<<"CompositeDist:"<<composite<<std::endl;
     ASSERT_TRUE(composite.check_params(params));
     composite.set_params(params);
     auto params2 = composite.params();

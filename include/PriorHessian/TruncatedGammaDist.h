@@ -41,4 +41,4 @@ namespace detail
     
 } /* namespace prior_hessian */
 
-#endif /* _PRIOR_HESSIAN_TUNCATEDGAMMADIST_H */
+#endif /* PRIOR_HESSIAN_TUNCATEDGAMMADIST_H */

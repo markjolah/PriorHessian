@@ -1,6 +1,6 @@
 /** @file BoundsAdaptedDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2018
+ * @date 2018-2019
  * @brief Functions and type-traits to enable easy wrapping of distributions in bounds-modifiable adapters.
  * 
  * The bounds-adapted version of a distribution is a distribution that has been wrapped by an adapter-class
@@ -90,7 +90,7 @@ namespace meta {
 } /* namespace prior_hessian::meta */
 
 /** make_adapted_bounded_dist() [4-forms]
- * If the given distribution is not bounded then the appropriate bounding distribution is wrapped arround it.
+ * If the given distribution is not bounded then the appropriate bounding distribution is wrapped around it.
  * We detect the boundedness of the distribution using detail::adaptable_bounds type-traits class.
  * Can be replaced with constexpr if in c++17.  Uses SFINAE in c++14.
  */

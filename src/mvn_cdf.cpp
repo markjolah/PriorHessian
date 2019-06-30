@@ -1,7 +1,7 @@
 /** @file mvn_cdf.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017-2018
- * @brief NormalDist class defintion
+ * @date 2017-2019
+ * @brief
  * 
  */
 #include "PriorHessian/mvn_cdf.h"
@@ -75,7 +75,6 @@ double owen_t_integral(double h, double a, double gh)
         double ah = a*h;
         double gah = unit_normal_cdf(ah);
         double v1 = owen_t_integral(ah,1/a,gah);
-//         std::cout<<std::setprecision(15)<<"Inversion: "<<"h:"<<h<<" a:"<<a<<" ah:"<<ah<<" gh:"<<gh<<" gah:"<<gah<<" v:"<<v1<<" v2:"<<.5*(gh+gah) -gh*gah<<" val: "<<.5*(gh+gah) -gh*gah-v1<<std::endl;
         return .5*(gh+gah) -gh*gah - v1;
     }
     
@@ -92,7 +91,6 @@ double owen_t_integral(double h, double a, double gh)
     double Qj = 1;
     double Sj = Qj;
     double s = 1 - e2h; //First term of series.
-//     std::cout<<std::setprecision(15)<<"T(h,a)Normal: "<<"h:"<<h<<" a:"<<a<<" theta:"<<theta<<" e2h:"<<e2h<<std::endl;
     for(int j=1; j<max_iter; j++) {
         Qj *= h2/j;
         Sj += Qj;
@@ -135,7 +133,6 @@ double owen_b_integral(double h,double k, double r)
         double t1 = owen_t_integral(h,ah,gh);
         double t2 = owen_t_integral(k,ak,gk);
         bint = .5*(gh+gk) - t1 - t2;
-//         std::cout<<std::setprecision(15)<<"h:"<<h<<" k:"<<k<<" r:"<<r<<" ah: "<<ah<<" ak:"<<ak<<" gh:"<<gh<<" gk:"<<gk<<" q:"<<.5*(gh+gk)<<" t1:"<<t1<<" t2:"<<t2<<" bint:"<<.5*(gh+gk) - t1 - t2<<std::endl;
     }
     if( h*k < 0 || (h*k == 0 && (h<0 || k<0))) bint -= .5;
     return std::min(std::max(bint,0.0),1.0);

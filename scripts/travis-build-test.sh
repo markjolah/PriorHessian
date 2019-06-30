@@ -5,6 +5,9 @@
 #
 # Environment variables to be set:
 #  BUILD_TYPE
+# Controlling Environment Variables:
+#  BUILD_PATH: Directory to build under (if existing, it will be deleted) [default: ${CMAKE_SOURCE_DIR}/_travis.build/$BUILD_TYPE]
+#  INSTALL_PATH: Directory (prefix) to install to [default: ${CMAKE_SOURCE_DIR}/_travis.install]
 #
 PACKAGE_NAME=PriorHessian
 if [ -z "$BUILD_TYPE" ]; then
@@ -12,8 +15,8 @@ if [ -z "$BUILD_TYPE" ]; then
 fi
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SRC_PATH=${SCRIPT_DIR}/..
-INSTALL_PATH=${SCRIPT_DIR}/../_travis.install
-BUILD_PATH=${SCRIPT_DIR}/../_travis.build/${BUILD_TYPE}
+INSTALL_PATH=${INSTALL_PATH:-$SCRIPT_DIR/../_travis.install}
+BUILD_PATH=${BUILD_PATH:-$SCRIPT_DIR/../_travis.build/$BUILD_TYPE}
 NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
 
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"

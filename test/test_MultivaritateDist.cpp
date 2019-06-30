@@ -19,7 +19,7 @@ public:
     }
 };
 
-TYPED_TEST_SUITE(MultivariateDistTest, MultivariateDistTs);
+TYPED_TEST_SUITE_COMPAT(MultivariateDistTest, MultivariateDistTs);
 
 TYPED_TEST(MultivariateDistTest, copy_assignment) {
     SCOPED_TRACE("copy_assignment");

@@ -1,6 +1,6 @@
 /** @file mvn_cdf.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 10-2017
+ * @date 2017-2019
  * @brief Numerical computation of multivariate normal cdfs in 2,3 and higher dims.
  * 
  * 
@@ -59,7 +59,7 @@ double donnelly_bvn_cdf(const Vec &b, const Mat &sigma)
     double rho = sigma(0,1)/(s0*s1);
     double z0 = b(0)/s0;
     double z1 = b(1)/s1;
-    double integral = donnelly_bvn_integral(-z0,-z1,rho);//Itergation of x,y coordinates in bvn_integral is inverted from normal CDF
+    double integral = donnelly_bvn_integral(-z0,-z1,rho);//Integration of x,y coordinates in bvn_integral is inverted from normal CDF
     return integral;
 }
 
@@ -144,7 +144,6 @@ double mc_mvn_cdf_core(const Vec &b, const Mat &U, double &error, int &niter)
     std::default_random_engine rng{R()};
     std::uniform_real_distribution<double> uniform(0, 1);
     VecT ys(Ndim-1);
-//     std::cout<<" e1:"<<e1<<" f1:"<<f1<<"\n";
     error = eps;
     for(niter=0; niter<Nmax; niter++){
         double e = e1;
@@ -161,7 +160,6 @@ double mc_mvn_cdf_core(const Vec &b, const Mat &U, double &error, int &niter)
         int_sum += delta;
         var_sum = (niter-1)*var_sum/(niter+1) + delta*delta;
         error = alpha * sqrt(var_sum);
-//         std::cout<<"n:"<<niter<<" f:"<<f<<" int_sum:"<<int_sum<<" var_sum:"<<var_sum<<" error:"<<error<<"\n";
         if(error < eps) break;
     }
     return int_sum;
@@ -228,7 +226,7 @@ namespace genz
     
         MatT U = S / (s*s.t());
         VecT upper = b / s;
-        //Fill correlation matrix while normalizing eachj column by the sigma on diagonal of U.
+        //Fill correlation matrix while normalizing each column by the sigma on diagonal of U.
         VecT correl(N*(N-1)/2);
         int k=0;
         for(int j=1; j<N; j++) for(int i=0; i<j; i++) correl(k++) = U(i,j);

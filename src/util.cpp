@@ -1,13 +1,10 @@
 /** @file util.cpp
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
- * @brief
- * 
- * 
+ * @date 2017-2019
+ * @brief Utilities
  */
 
 #include "PriorHessian/util.h"
-
 
 namespace prior_hessian {
     

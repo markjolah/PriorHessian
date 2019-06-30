@@ -1,12 +1,12 @@
-/** @file AMCopula.h
+/** @file AMHCopula.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
  * @date 2017-2019
- * @brief Ali-Mikhail0-Haq Archimedean Copula
+ * @brief Ali-Mikhail-Haq Archimedean Copula
  */
 
 #ifndef PRIOR_HESSIAN_AMHCOPULA_H
 #define PRIOR_HESSIAN_AMHCOPULA_H
-#include<limits>
+#include <limits>
 
 #include "PriorHessian/PriorHessianError.h"
 #include "PriorHessian/ArchimedeanCopula.h"

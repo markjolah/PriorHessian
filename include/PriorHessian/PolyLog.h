@@ -1,7 +1,7 @@
 /** @file PolyLog.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017 - 2018
- * @brief Poly log computation for negative integer valued paramters.
+ * @date 2017-2019
+ * @brief Poly log computation for negative integer valued parameters.
  */
 
 #ifndef PRIOR_HESSIAN_POLYLOG_H

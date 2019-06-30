@@ -19,7 +19,7 @@ public:
     }
 };
 
-TYPED_TEST_SUITE(MultivariateNormalDistTest, MultivariateNormalDistTs);
+TYPED_TEST_SUITE_COMPAT(MultivariateNormalDistTest, MultivariateNormalDistTs);
 
 TYPED_TEST(MultivariateNormalDistTest, set_mu) {
     auto &dist = this->dist;

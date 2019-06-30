@@ -1,7 +1,7 @@
 <a href="https://travis-ci.org/markjolah/PriorHessian"><img src="https://travis-ci.org/markjolah/PriorHessian.svg?branch=master"/></a>
 
 # Prior Hessian
-Library for fast computation of log-likelihoods, and derivatives, of multivariate priors defined as composites of univariate distributions and multivariate distributions especially
+Library for fast computation of log-likelihoods and derivatives of multivariate priors defined as composites of univariate  multivariate distributions especially designed for support of
 Archimedean copulas.
 
 ## Documentation
@@ -12,12 +12,27 @@ The PriorHessian Doxygen documentation can be build with the `OPT_DOC` CMake opt
 
 ## Installation
 
-The PriorHessian library uses CMake and is designed to be installed either to a base system, or run from within an arbitrary install prefix.  The default build script will install to the `_install` directory underneath the repository root.
+The PriorHessian library uses CMake and is designed to be installed either as a native package, or as a relocatable package in an arbitrary install prefix.  The default build script will install to the `_install` directory underneath the repository root.
 
-    $ ./build.sh <cmake-extra-opts>
+ * **Default release build script**
+    * builds to `${BUILD_PATH}` if set or default of: `${CMAKE_SOURCE_DIR}\_build\Release`
+    * installs to `${INSTALL_PATH}` if set or default of: `${CMAKE_SOURCE_DIR}\_install`
+```
+$ ./build.sh <cmake-extra-opts>
+```
+ * **Default Debug build script**
+    * builds to `${BUILD_PATH}` if set or default of: `${CMAKE_SOURCE_DIR}\_build\Debug`
+    * installs to `${INSTALL_PATH}` if set or default of: `${CMAKE_SOURCE_DIR}\_install`
+```
+$ ./build.debug.sh <cmake-extra-opts>
+```
+ * **Manual CMake Build**
+```
+$ cmake -H. -B<build-path> -DCMAKE_INSTALL_PREFEX=<install-path> -DCMAKE_BUILD_TYPE=Release <other-cmake-args>
+$ cd <build-path> && make -j<num-procs> install
+```
 
-
-## Dependencies
+### Dependencies
 
 * [*Armadillo*](http://arma.sourceforge.net/docs.html) - A high-performance array library for C++.
 * *BLAS* - A BLAS implemenation: [Netlib BLAS reference](http://www.netlib.org/blas/) or [*OpenBlas*](https://www.openblas.net/)
@@ -25,6 +40,20 @@ The PriorHessian library uses CMake and is designed to be installed either to a 
 
 Note the `OPT_BLAS_INT64` CMake option controls whether Armadillo uses BLAS and LAPACK libraries that use 64-bit interger indexing.
 Matlab uses 64-bit by default, and to link PriorHessian to Matlab MEX libraries, this option must be on.  Many linux systems only provide 32-bit integer versions of BLAS and Lapack, and the option can be disabled if Matlab support is not a concern and 64-bit support is difficult to manage on
+
+### CMake Options
+
+#### Standard options
+ * `BUILD_SHARED_LIBS` - Build shared libraries [Default: On]
+ * `BUILD_STATIC_LIBS` - Build static libraries [Default: On]
+ * `BUILD_TESTING` - Build tests [Default: On if `CMAKE_BUILD_TYPE=Debug`]
+ * `OPT_INSTALL_TESTING` - Install tests. [Default: Off]
+ * `OPT_DOC` - Build and install documentation (enables `make doc` and `make pdf`) [Default: Off]
+ * `OPT_EXPORT_BUILD_TREE` - Enable CMake export and `find_package(BacktraceException)` support from the build-tree.
+
+#### Dependency options
+ * `OPT_BLAS_INT64` - Enable 64-bit integer BLAS library support [Default: Off]
+
 
 ### External Projects
 These packages are specialized CMake projects.  If they are not currently installed on the development machines we use the [AddExternalDependency.cmake](https://github.com/markjolah/UncommonCMakeModules/blob/master/AddExternalDependency.cmake) which will automatically download, configure, build and install to the `CMAKE_INSTALL_PREFIX`, enabling their use through the normal CMake `find_package()` system.
@@ -48,7 +77,7 @@ the runtime polymorphism of using `std::vector<std::unique_ptr<Base>>` gains sev
 Most importantly, without the need for virtual functions, the tuple-based approach has the ability to inline the many
 small computational functions that must be combined for every call to compute the log-likelihood or other computationally important quantities.
 
-## Computations available
+<!--## Computations available
 
  * `cdf` - cumulative distribution function
  * `pdf` - probability density function
@@ -58,4 +87,4 @@ small computational functions that must be combined for every call to compute th
  * `grad2` - 2nd-derivative of log-likelihood
 
 ## Including PriorHessian as an ExternalProject
-
+-->

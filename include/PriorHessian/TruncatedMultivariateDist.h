@@ -1,6 +1,6 @@
 /** @file TruncatedMultivariateDist.h
  * @author Mark J. Olah (mjo\@cs.unm DOT edu)
- * @date 2017
+ * @date 2017-2019
  * @brief TruncatedMultivariateDist declaration and templated methods definitions
  * 
  */
@@ -159,9 +159,7 @@ double TruncatedMultivariateDist<Dist>::compute_truncated_pdf_integral(const Ndi
         IdxT k=0; //k is index we are considering
         IdxT flips=0;
         NdimVecT v = ubound;
-//         std::cout<<"N:"<<N<<" n:"<<n<<" ["<<std::bitset<8>(n)<<"]\n";
         while(b && k<N) {
-//             std::cout<<"k:"<<k<<" b:"<<std::bitset<8>(b)<<"\n";
             if(b&0x1) {
                 v(k) = lbound(k);
                 flips++;
@@ -169,12 +167,7 @@ double TruncatedMultivariateDist<Dist>::compute_truncated_pdf_integral(const Ndi
             k++;
             b>>=1;
         }
-//         std::cout<<"Ubound:"<<ubound.t();
-//         std::cout<<"     v:"<<v.t();
-//         std::cout<<"Lbound:"<<lbound.t();
         double cdf_val = arma::any(v==-INFINITY) ? 0 : this->Dist::cdf(v);
-//         std::cout<<"   cdf:"<<cdf_val<<"\n";
-//         std::cout<<" flips:"<<flips<<"\n";
         if(flips%2==1) cdf_val = -cdf_val; //odd number of flips
         pdf_integral += cdf_val;
     }
@@ -212,8 +205,6 @@ void TruncatedMultivariateDist<Dist>::set_bounds(const Vec &lbound, const Vec2 &
             throw ParameterValueError(msg.str());
         }
         llh_truncation_const = -log(bounds_pdf_integral);
-//         std::cout<<"trunc?:"<<truncated<<" lbound:"<<lbound.t()<<" ubound:"<<ubound.t()<<" lboundcdf:"<<this->Dist::cdf(lbound)<<" internal lbound_cdf:"<<lbound_cdf<<" uboundcdf:"<<this->Dist::cdf(ubound)
-//         <<" bounds_pdf_integral:"<<bounds_pdf_integral<<" llh_trunc:"<<llh_truncation_const<<"\n";
     } else {
         bounds_pdf_integral = 1;
         llh_truncation_const = 0;
@@ -276,14 +267,12 @@ typename TruncatedMultivariateDist<Dist>::NdimVecT
 TruncatedMultivariateDist<Dist>::rejection_sample(RngT &rng) const
 {
     if(!truncated()) return Dist::sample(rng);
-    //If truncated, rejection sampling is the only universal multidimensionsal distribution.
+    //If truncated, rejection sampling is the only universal multi-dimensional distribution.
     const int MaxIter = 1000;
     NdimVecT s;
     for(int n=0;n<MaxIter; n++){
         s=Dist::sample(rng);
-//         std::cout<<"N:"<<n<<"Sample: "<<s.t();
         if(this->in_bounds(s)) {
-//             std::cout<<"Nsamples: "<<n<<"\n";
             return s;
         }
     }
@@ -316,10 +305,8 @@ TruncatedMultivariateDist<Dist>::mcmc_sample(RngT &rng) const
         for(IdxT k=0;k<this->num_dim();k++) can_sample(k) = uniform(rng)*(ub(k)-lb(k)) + lb(k);
         double can_rllh = this->rllh(can_sample);
         double alpha = std::min(1., exp(can_rllh - sample_rllh));
-//         std::cout<<"N:"<<N<<" alpha:"<<alpha<<" rllh: "<<can_rllh<<" can_sample "<< can_sample.t();
         if(uniform(rng) < alpha) {
             //Accept
-//             std::cout<<"Accept!\n";
             sample = can_sample;
             sample_rllh = can_rllh;
         }
