@@ -19,7 +19,9 @@ add_shared_static_libraries(SOURCES ${SRCS}
 
 #Custom target settings for each lib_target from add_shared_static_libraries
 foreach(target IN LISTS lib_targets)
-    target_compile_options(${target} INTERFACE $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-parameter>)
+    target_compile_options(${target} INTERFACE $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-parameter>
+                                                   $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-but-set-parameter>
+                                                   $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-but-set-variable> )
     #Boost extendend precision math has problems with older GCC compilers
     target_compile_options(${target} PUBLIC $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:${CMAKE_CXX_COMPILER_VERSION},7>,$<COMPILE_LANGUAGE:CXX>>:-fext-numeric-literals>)
 

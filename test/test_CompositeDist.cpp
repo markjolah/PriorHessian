@@ -59,7 +59,7 @@ public:
     }
 };
 
-TYPED_TEST_CASE(UnivariateCompositeComponentTest, UnivariateDistTs);
+TYPED_TEST_SUITE(UnivariateCompositeComponentTest, UnivariateDistTs);
 
 TYPED_TEST(UnivariateCompositeComponentTest, make_component_dist)
 {
@@ -79,7 +79,7 @@ public:
     }
 };
 
-TYPED_TEST_CASE(MultivariateCompositeComponentTest, MultivariateDistTs);
+TYPED_TEST_SUITE(MultivariateCompositeComponentTest, MultivariateDistTs);
 
 TYPED_TEST(MultivariateCompositeComponentTest, make_adapted_bounded_dist)
 {
@@ -137,7 +137,7 @@ class CompositeDistTest : public ::testing::Test {
 public:    
     TupleT dists;
     CompositeDist composite;
-    static constexpr int Ntest = 100;
+    static constexpr IdxT Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         initialize_distribution_tuple(dists);
@@ -163,7 +163,7 @@ using CompositeDistTestTs = ::testing::Types<
     std::tuple<NormalDist,MultivariateNormalDist<2>,TruncatedGammaDist,TruncatedMultivariateNormalDist<2>>
     >;
                                           
-TYPED_TEST_CASE(CompositeDistTest, CompositeDistTestTs);
+TYPED_TEST_SUITE(CompositeDistTest, CompositeDistTestTs);
 
 TYPED_TEST(CompositeDistTest, copy_construction) {
     CompositeDist &composite = this->composite;
@@ -802,22 +802,83 @@ TYPED_TEST(CompositeDistTest, param_value_and_index) {
         ASSERT_EQ(params(k),v)<<"Param index and value do not match";
     }
 }
-/*
+
+
 TYPED_TEST(CompositeDistTest, param_set_by_name) {
     CompositeDist &composite = this->composite;
-    std::cout<<composite<<"\n";
 
-    TypeParam new_dists;
-    initialize_distribution_tuple(new_dists);
-    CompositeDist new_composite(new_dists);
+    //The new composite must have the same parameters or else for models with covariance,
+    //the result of changing element-by-element will lead to non-positive definite covariance matrices
+    CompositeDist new_composite(composite);
     auto new_params = new_composite.params();
     
     auto names = composite.param_names();
     IdxT k=0;
     for(auto &n:names) composite.set_param_value(n,new_params[k++]);
-    std::cout<<composite<<"\n";
     ASSERT_TRUE(arma::all(new_params == composite.params()))<<"Individual param setting did not work.";
-}*/
+}
+
+TYPED_TEST(CompositeDistTest, has_param) {
+    CompositeDist &composite = this->composite;
+    auto names = composite.param_names();
+    ASSERT_TRUE(names.size()==composite.num_params());
+    for(auto &n:names) {
+        EXPECT_TRUE(composite.has_param(n));
+        EXPECT_FALSE(composite.has_param(n+"FOOO"));
+    }
+}
+
+TYPED_TEST(CompositeDistTest, rename_param) {
+    CompositeDist &composite = this->composite;
+    auto names = composite.param_names();
+    ASSERT_EQ(names.size(), composite.num_params());
+    for(auto &n:names) {
+        double val = composite.get_param_value(n);
+        double idx = composite.get_param_index(n);
+        EXPECT_TRUE(composite.has_param(n));
+        std::string new_n = n+"FOOO";
+        EXPECT_FALSE(composite.has_param(new_n));
+        composite.rename_param(n,new_n);
+        EXPECT_TRUE(composite.has_param(new_n));
+        double new_val = composite.get_param_value(new_n);
+        EXPECT_EQ(val,new_val) << "Param values have changed.";
+        EXPECT_THROW( composite.get_param_value(n), prior_hessian::ParameterNameError );
+        double new_idx = composite.get_param_index(new_n);
+        EXPECT_EQ(idx,new_idx) << "Param indexes have changed.";
+        EXPECT_THROW( composite.get_param_index(n), prior_hessian::ParameterNameError );
+        EXPECT_FALSE(composite.has_param(n));
+        EXPECT_TRUE(composite.has_param(new_n));
+    }
+}
+
+TYPED_TEST(CompositeDistTest, has_dim_variable) {
+    CompositeDist &composite = this->composite;
+    auto names = composite.dim_variables();
+    ASSERT_TRUE(names.size()==composite.num_dim());
+    for(auto &n:names) {
+        EXPECT_TRUE(composite.has_dim_variable(n));
+        EXPECT_FALSE(composite.has_dim_variable(n+"FOOO"));
+    }
+}
+
+TYPED_TEST(CompositeDistTest, rename_dim_variable) {
+    CompositeDist &composite = this->composite;
+    auto names = composite.dim_variables();
+    ASSERT_EQ(names.size(), composite.num_dim());
+    for(auto &n:names) {
+        double idx = composite.get_dim_variable_index(n);
+        EXPECT_TRUE(composite.has_dim_variable(n));
+        std::string new_n = n+"FOOO";
+        EXPECT_FALSE(composite.has_dim_variable(new_n));
+        composite.rename_dim_variable(n,new_n);
+        EXPECT_TRUE(composite.has_dim_variable(new_n));
+        double new_idx = composite.get_dim_variable_index(new_n);
+        EXPECT_EQ(idx,new_idx) << "Dim variable indexes have changed.";
+        EXPECT_THROW( composite.get_dim_variable_index(n), prior_hessian::ParameterNameError );
+        EXPECT_FALSE(composite.has_dim_variable(n));
+        EXPECT_TRUE(composite.has_dim_variable(new_n));
+    }
+}
 
 TYPED_TEST(CompositeDistTest, cdf) {
     CompositeDist &composite = this->composite;

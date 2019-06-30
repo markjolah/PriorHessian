@@ -99,7 +99,7 @@ template<class Dist>
 class UnivariateDistTest : public ::testing::Test {
 public:    
     Dist dist;
-    static constexpr int Ntest = 100;
+    static constexpr IdxT Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         dist = make_dist<Dist>();
@@ -107,9 +107,9 @@ public:
 };
 
 namespace detail {
-    template<class... Ts, size_t... Is>
+    template<class... Ts, std::size_t... Is>
     void initialize_distribution_tuple(std::tuple<Ts...> &t, std::index_sequence<Is...> )
-    { prior_hessian::meta::call_in_order<int>({(initialize_dist<Ts>(std::get<Is>(t)),0)... }); }    
+    { prior_hessian::meta::call_in_order<IdxT>({(initialize_dist<Ts>(std::get<Is>(t)),IdxT{0})... }); }
 }
 
 template<class... Ts>

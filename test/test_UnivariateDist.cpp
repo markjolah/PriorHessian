@@ -6,7 +6,7 @@
 using namespace prior_hessian;
 
 
-TYPED_TEST_CASE(UnivariateDistTest, UnivariateDistTs);
+TYPED_TEST_SUITE(UnivariateDistTest, UnivariateDistTs);
 
 
 TYPED_TEST(UnivariateDistTest, copy_assignment) {
@@ -140,7 +140,7 @@ TYPED_TEST(UnivariateDistTest, param_names) {
 
 TYPED_TEST(UnivariateDistTest, cdf) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double cdf = dist.cdf(v);
         EXPECT_TRUE(std::isfinite(cdf));
@@ -151,7 +151,7 @@ TYPED_TEST(UnivariateDistTest, cdf) {
 
 TYPED_TEST(UnivariateDistTest, pdf) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double pdf = dist.pdf(v);
         EXPECT_TRUE(std::isfinite(pdf));
@@ -161,7 +161,7 @@ TYPED_TEST(UnivariateDistTest, pdf) {
 
 TYPED_TEST(UnivariateDistTest, rllh) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double rllh = dist.rllh(v);
         EXPECT_TRUE(std::isfinite(rllh));
@@ -170,7 +170,7 @@ TYPED_TEST(UnivariateDistTest, rllh) {
 
 TYPED_TEST(UnivariateDistTest, llh) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double llh = dist.llh(v);
         EXPECT_TRUE(std::isfinite(llh));
@@ -179,7 +179,7 @@ TYPED_TEST(UnivariateDistTest, llh) {
 
 TYPED_TEST(UnivariateDistTest, rllh_constant) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         auto v1 = dist.sample(env->get_rng());
         auto v2 = dist.sample(env->get_rng());
         double rllh1 = dist.rllh(v1);
@@ -198,7 +198,7 @@ TYPED_TEST(UnivariateDistTest, rllh_constant) {
 
 TYPED_TEST(UnivariateDistTest, grad) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad = dist.grad(v);
         EXPECT_TRUE(std::isfinite(grad));
@@ -207,7 +207,7 @@ TYPED_TEST(UnivariateDistTest, grad) {
 
 TYPED_TEST(UnivariateDistTest, grad2) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad2 = dist.grad2(v);
         EXPECT_TRUE(std::isfinite(grad2));
@@ -216,7 +216,7 @@ TYPED_TEST(UnivariateDistTest, grad2) {
 
 TYPED_TEST(UnivariateDistTest, grad_grad2_accumulate) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad = dist.grad(v);
         double grad2 = dist.grad2(v);
@@ -232,7 +232,7 @@ TYPED_TEST(UnivariateDistTest, grad_grad2_accumulate) {
 
 TYPED_TEST(UnivariateDistTest, sample_in_bounds) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         EXPECT_TRUE(std::isfinite(v));
         EXPECT_TRUE(dist.in_bounds(v));

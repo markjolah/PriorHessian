@@ -593,7 +593,7 @@ AMHCopula<Ndim>::compute_pdf_terms(double theta, const Vec &u)
 template<int Ndim>
 template<class RngT>
 typename AMHCopula<Ndim>::NdimVecT 
-AMHCopula<Ndim>::sample(RngT &rng) const
+AMHCopula<Ndim>::sample(RngT &) const
 {
     return {};
 }

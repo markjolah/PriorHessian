@@ -71,19 +71,19 @@ public:
     /** @brief Construct from a variadic list of subclasses of UnivariateDist's or MulitvariateDist's */
     template<class... Ts, meta::ConstructableIfAllAreNotTupleAndAreNotT<CompositeDist, Ts...> = true>
     explicit CompositeDist(Ts&&... dists)
-        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} }
+        : handle{ std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist(std::forward<Ts>(dists))...) }
     { initialize_from_handle(); }
 
     /** @brief Construct from a rvalue tuple of subclasses of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
     explicit CompositeDist(std::tuple<Ts...>&& dist_tuple)
-        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} }
+        : handle{ std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist_tuple(std::move(dist_tuple))) }
     { initialize_from_handle(); }
 
     /** @brief Construct from a lvalue tuple of subclasses of UnivariateDist's or MulitvariateDist's */
     template<class... Ts>
     explicit CompositeDist(const std::tuple<Ts...>& dist_tuple)
-        : handle{ new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} }
+        : handle{ std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist_tuple(dist_tuple)) }
     { initialize_from_handle(); }
     
     void initialize() { clear(); } /** @brief Initialize to the empty state. */
@@ -92,24 +92,21 @@ public:
     template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
     void initialize(Ts&&... dists)
     {
-        handle = std::unique_ptr<DistTupleHandle>{
-                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist(std::forward<Ts>(dists))...} };
+        handle = std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist(std::forward<Ts>(dists))...);
         initialize_from_handle();
     }
 
     template<class... Ts, typename=meta::EnableIfAllAreNotTupleT<Ts...>>
     void initialize(std::tuple<Ts...>&& dist_tuple)
     {
-        handle = std::unique_ptr<DistTupleHandle>{
-                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(std::move(dist_tuple))} };
+        handle = std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist_tuple(std::move(dist_tuple)));
         initialize_from_handle();
     }
 
     template<class... Ts, typename=meta::EnableIfNonEmpty<Ts...>>
     void initialize(const std::tuple<Ts...>& dist_tuple)
     {
-        handle = std::unique_ptr<DistTupleHandle>{
-                    new DistTuple<ComponentDistT<Ts>...>{make_component_dist_tuple(dist_tuple)} };
+        handle = std::make_unique<DistTuple<ComponentDistT<Ts>...>>(make_component_dist_tuple(dist_tuple));
         initialize_from_handle();
     }
 
@@ -306,8 +303,8 @@ private:
         using StaticSizeArrayT = std::array<IdxT,_num_dists>;
 
 #if PRIOR_HESSIAN_META_HAS_CONSTEXPR
-        constexpr static IdxT _num_dim = meta::sum_in_order({Ts::num_dim()...});
-        constexpr static IdxT _num_params = meta::sum_in_order({Ts::num_params()...});
+        constexpr static IdxT _num_dim = meta::sum_in_order<IdxT>({Ts::num_dim()...});
+        constexpr static IdxT _num_params = meta::sum_in_order<IdxT>({Ts::num_params()...});
         constexpr static StaticSizeArrayT _component_num_dim = {{Ts::num_dim()...}};
         constexpr static StaticSizeArrayT _component_num_params = {{Ts::num_params()...}};
 #else
@@ -449,7 +446,7 @@ private:
         
         template<class IterT, std::size_t... I> 
         void append_global_lbound(IterT p, std::index_sequence<I...>) const
-        { meta::call_in_order( {(std::get<I>(dists).append_global_lbound(p),0)...} ); }
+        { meta::call_in_order( {(std::get<I>(dists).append_global_lbound(p),std::size_t{0})...} ); }
         
         template<class IterT, std::size_t... I> 
         void append_global_ubound(IterT p, std::index_sequence<I...>) const
@@ -501,19 +498,19 @@ private:
                 
         template<class IterT, std::size_t... I> 
         double cdf(IterT u,std::index_sequence<I...>) const
-        { return meta::prod_in_order( {std::get<I>(dists).cdf_from_iter(u)...} ); }
+        { return meta::prod_in_order<double>( {std::get<I>(dists).cdf_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
         double pdf(IterT u,std::index_sequence<I...>) const
-        { return meta::prod_in_order( {std::get<I>(dists).pdf_from_iter(u)...} ); }
+        { return meta::prod_in_order<double>( {std::get<I>(dists).pdf_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
         double llh(IterT u,std::index_sequence<I...>) const
-        { return meta::sum_in_order( {std::get<I>(dists).llh_from_iter(u)...} ); }
+        { return meta::sum_in_order<double>( {std::get<I>(dists).llh_from_iter(u)...} ); }
         
         template<class IterT, std::size_t... I> 
         double rllh(IterT u,std::index_sequence<I...>) const
-        { return meta::sum_in_order( {std::get<I>(dists).rllh_from_iter(u)...} ); }
+        { return meta::sum_in_order<double>( {std::get<I>(dists).rllh_from_iter(u)...} ); }
                         
         template<std::size_t... I> 
         void grad_accumulate(const VecT &u, VecT &g,std::index_sequence<I...>) const
@@ -891,7 +888,7 @@ public:
     { return std::make_tuple(make_component_dist(make_adapted_bounded_dist(std::get<I>(dists)))...); }    
 
 private:     
-    /* Private Memeber variables */
+    /* Private Member variables */
     std::unique_ptr<DistTupleHandle> handle;
 
     /* Param name index */
@@ -975,7 +972,7 @@ void CompositeDist::set_param_names(StringVec &&names)
         throw ParameterSizeError(msg.str());
     }
     _param_names = std::forward<StringVec>(names);
-    param_name_idx = initialize_param_name_idx(param_names());
+    param_name_idx = initialize_name_idx(param_names());
     param_names_initialized = true;
 }
 

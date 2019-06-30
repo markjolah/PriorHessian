@@ -12,7 +12,7 @@ public:
     Dist orig_dist;
     using BoundedDistT = BoundsAdaptedDistT<Dist>;
     BoundedDistT dist;
-    static constexpr int Ntest = 100;
+    static constexpr IdxT Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         orig_dist = make_dist<Dist>();
@@ -21,7 +21,7 @@ public:
 };
 
                                 
-TYPED_TEST_CASE(BoundsAdaptedDistTest, UnivariateDistTs);
+TYPED_TEST_SUITE(BoundsAdaptedDistTest, UnivariateDistTs);
 
 TYPED_TEST(BoundsAdaptedDistTest, copy_assignment) {
     SCOPED_TRACE("copy_assignment");
@@ -144,7 +144,7 @@ TYPED_TEST(BoundsAdaptedDistTest, param_names) {
 
 TYPED_TEST(BoundsAdaptedDistTest, cdf) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double cdf = dist.cdf(v);
         EXPECT_TRUE(std::isfinite(cdf));
@@ -155,7 +155,7 @@ TYPED_TEST(BoundsAdaptedDistTest, cdf) {
 
 TYPED_TEST(BoundsAdaptedDistTest, pdf) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double pdf = dist.pdf(v);
         EXPECT_TRUE(std::isfinite(pdf));
@@ -165,7 +165,7 @@ TYPED_TEST(BoundsAdaptedDistTest, pdf) {
 
 TYPED_TEST(BoundsAdaptedDistTest, rllh) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double rllh = dist.rllh(v);
         EXPECT_TRUE(std::isfinite(rllh));
@@ -174,7 +174,7 @@ TYPED_TEST(BoundsAdaptedDistTest, rllh) {
 
 TYPED_TEST(BoundsAdaptedDistTest, llh) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double llh = dist.llh(v);
         EXPECT_TRUE(std::isfinite(llh));
@@ -183,7 +183,7 @@ TYPED_TEST(BoundsAdaptedDistTest, llh) {
 
 TYPED_TEST(BoundsAdaptedDistTest, grad) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad = dist.grad(v);
         EXPECT_TRUE(std::isfinite(grad));
@@ -192,7 +192,7 @@ TYPED_TEST(BoundsAdaptedDistTest, grad) {
 
 TYPED_TEST(BoundsAdaptedDistTest, grad2) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad2 = dist.grad2(v);
         EXPECT_TRUE(std::isfinite(grad2));
@@ -201,7 +201,7 @@ TYPED_TEST(BoundsAdaptedDistTest, grad2) {
 
 TYPED_TEST(BoundsAdaptedDistTest, grad_grad_accumulate) {
     auto &dist = this->dist;
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         double grad = dist.grad(v);
         double grad2 = dist.grad2(v);
@@ -245,7 +245,7 @@ TYPED_TEST(BoundsAdaptedDistTest, sample_bounds) {
     double lbound = env->sample_real(dist.icdf(0.01), dist.icdf(0.499));
     double ubound = env->sample_real(dist.icdf(0.501), dist.icdf(0.999));
     dist.set_bounds(lbound,ubound);
-    for(int n=0; n < this->Ntest; n++){
+    for(IdxT n=0; n < this->Ntest; n++){
         double v = dist.sample(env->get_rng());
         EXPECT_LE(lbound,v);
         EXPECT_LE(v,ubound);

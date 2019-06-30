@@ -14,10 +14,10 @@
 namespace prior_hessian {
 
 /* A bounded normal dist uses the TruncatedMultivariateDist adaptor */
-template<int Ndim>
+template<IdxT Ndim>
 using TruncatedMultivariateNormalDist = TruncatedMultivariateDist<MultivariateNormalDist<Ndim>>;
 
-template<int Ndim, class Vec, class Mat, class Vec2>
+template<IdxT Ndim, class Vec, class Mat, class Vec2>
 TruncatedMultivariateNormalDist<Ndim> 
 make_bounded_multivariate_normal_dist(Vec &&mu, Mat &&sigma, Vec2 &&lbound, Vec2 &&ubound)
 {
@@ -29,14 +29,14 @@ namespace detail
 {
     /* Type traits for a bounded and non-bounded versions of distribution expose properties 
      * of the class useful for SFINAE techniques. */
-    template<int Ndim>
+    template<IdxT Ndim>
     struct dist_adaptor_traits<MultivariateNormalDist<Ndim>> 
     {
         using bounds_adapted_dist = TruncatedMultivariateNormalDist<Ndim>;
         static constexpr bool adaptable_bounds = false;
     };
     
-    template<int Ndim>
+    template<IdxT Ndim>
     struct dist_adaptor_traits<TruncatedMultivariateNormalDist<Ndim>> 
     {
         using bounds_adapted_dist = TruncatedMultivariateNormalDist<Ndim>;

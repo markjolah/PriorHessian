@@ -32,7 +32,7 @@ public:
     CopulaT copula;
     CopulaDistT dist;
     CompositeDist composite; //To be used for comparaison
-    static constexpr int Ntest = 100;
+    static constexpr IdxT Ntest = 100;
     virtual void SetUp() override {
         env->reset_rng();
         initialize_distribution_tuple(marginals);
@@ -47,7 +47,7 @@ using CopulaDistTestTs = ::testing::Types<
     CopulaDist<AMHCopula, TruncatedNormalDist, TruncatedNormalDist>>;
 //     CopulaDist<AMHCopula, TruncatedGammaDist, TruncatedGammaDist>>;
     
-TYPED_TEST_CASE(CopulaDistTest, CopulaDistTestTs);
+TYPED_TEST_SUITE(CopulaDistTest, CopulaDistTestTs);
 
 TYPED_TEST(CopulaDistTest, num_components) 
 {

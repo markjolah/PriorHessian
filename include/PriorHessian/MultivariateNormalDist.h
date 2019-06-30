@@ -16,7 +16,7 @@ namespace prior_hessian {
  * @param Ndim Number of dimensions >=2
  *
  */
-template<int Ndim> //, meta::ConstructableIf< (Ndim>=2) > = true>
+template<IdxT Ndim> //, meta::ConstructableIf< (Ndim>=2) > = true>
 class MultivariateNormalDist : public MultivariateDist
 {
     static constexpr IdxT _num_params= Ndim+(Ndim*Ndim+Ndim)/2;
@@ -60,7 +60,7 @@ public:
     bool operator==(const MultivariateNormalDist<Ndim> &o) const;    
     bool operator!=(const MultivariateNormalDist<Ndim> &o) const { return !this->operator==(o); }
             
-    double get_param(int idx) const;
+    double get_param(IdxT idx) const;
  
     NparamsVecT params() const;
     template<class Vec>
@@ -112,7 +112,7 @@ private:
     template<class Mat>
     static VecT full_matrix_to_compressed_upper_triangular(const Mat &m);
 
-    static void idx_to_row_col(int idx, int &row, int &col);
+    static void idx_to_row_col(IdxT idx, IdxT &row, IdxT &col);
     static bool init_param_names();
     static bool init_param_lbound();
     static bool init_param_ubound();
@@ -150,27 +150,27 @@ namespace helpers
 
 
 /* Templated static member variables */
-template<int Ndim>
+template<IdxT Ndim>
 StringVecT MultivariateNormalDist<Ndim>::_param_names;
 
-template<int Ndim>
+template<IdxT Ndim>
 typename MultivariateNormalDist<Ndim>::NparamsVecT 
 MultivariateNormalDist<Ndim>::_param_lbound;
 
-template<int Ndim>
+template<IdxT Ndim>
 typename MultivariateNormalDist<Ndim>::NparamsVecT 
 MultivariateNormalDist<Ndim>::_param_ubound;
 
-template<int Ndim>
+template<IdxT Ndim>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
 MultivariateNormalDist<Ndim>::_lbound;
 
-template<int Ndim>
+template<IdxT Ndim>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
 MultivariateNormalDist<Ndim>::_ubound;
 /* Constructors */
 
-template<int Ndim>
+template<IdxT Ndim>
 MultivariateNormalDist<Ndim>::MultivariateNormalDist() : 
         MultivariateDist(),
         _mu(arma::fill::zeros), 
@@ -182,7 +182,7 @@ MultivariateNormalDist<Ndim>::MultivariateNormalDist() :
     llh_const_initialized = false;
 }
     
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec, class Mat>
 MultivariateNormalDist<Ndim>::MultivariateNormalDist(Vec &&mu, Mat &&sigma) 
 {
@@ -191,14 +191,14 @@ MultivariateNormalDist<Ndim>::MultivariateNormalDist(Vec &&mu, Mat &&sigma)
 }
     
 /* public static methods */
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 bool MultivariateNormalDist<Ndim>::check_mu(const Vec &mu)
 {
     return mu.is_finite();
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Mat>
 bool MultivariateNormalDist<Ndim>::check_sigma(const Mat &sigma)
 {
@@ -208,14 +208,14 @@ bool MultivariateNormalDist<Ndim>::check_sigma(const Mat &sigma)
     return arma::chol(R,arma::symmatu(sigma));//sigma is upper triangular.
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec, class Mat>
 bool MultivariateNormalDist<Ndim>::check_params(const Vec &mu, const Mat &sigma)
 {
     return check_mu(mu) && check_sigma(sigma);
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 bool MultivariateNormalDist<Ndim>::check_params(const Vec &params)
 {
@@ -223,51 +223,51 @@ bool MultivariateNormalDist<Ndim>::check_params(const Vec &params)
             check_sigma(compressed_upper_triangular_to_full_matrix(params.tail(num_params()-Ndim)));
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class IterT>
 bool MultivariateNormalDist<Ndim>::check_params_iter(IterT &params)
 {
-    for(int k = 0; k<Ndim; k++) if( !std::isfinite(*params++)) return false;
+    for(IdxT k = 0; k<Ndim; k++) if( !std::isfinite(*params++)) return false;
     NdimMatT S;
-    for(int j=0;j<Ndim;j++) for(int i=0;i<=j;i++) S(i,j) = *params++;
+    for(IdxT j=0;j<Ndim;j++) for(IdxT i=0;i<=j;i++) S(i,j) = *params++;
     return check_sigma(S);
 }
 
 
 /* private static methods */
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimMatT 
 MultivariateNormalDist<Ndim>::compressed_upper_triangular_to_full_matrix(const Vec &v)
 {
-    int Z = v.n_elem;
-    if(Z!=num_params()-Ndim) {
+    IdxT Z = v.n_elem;
+    if(Z != num_params()-Ndim) {
         std::ostringstream msg;
         msg<<"Invalid vector size Z:"<<Z<<" should be:"<<num_params()-Ndim;
         throw ParameterSizeError(msg.str());
     }
     NdimMatT m;
     IdxT n=0;
-    for(int j=0;j<Ndim;j++) for(int i=0;i<=j; i++) m(i,j) = v(n++);
-    for(int j=0;j<Ndim-1;j++) for(int i=j+1;i<Ndim; i++) m(i,j) = m(j,i); //copy upper triangle to lower.
+    for(IdxT j=0;j<Ndim;j++) for(IdxT i=0;i<=j; i++) m(i,j) = v(n++);
+    for(IdxT j=0;j<Ndim-1;j++) for(IdxT i=j+1;i<Ndim; i++) m(i,j) = m(j,i); //copy upper triangle to lower.
     return m;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Mat>
 VecT
 MultivariateNormalDist<Ndim>::full_matrix_to_compressed_upper_triangular(const Mat &m)
 {
-    int Z = num_params()-Ndim;
+    IdxT Z = num_params()-Ndim;
     VecT v(Z);
     auto it = v.begin();
-    for(int j=0;j<Ndim;j++) for(int i=0;i<=j;i++) *it++ = m(i,j);
+    for(IdxT j=0;j<Ndim;j++) for(IdxT i=0;i<=j;i++) *it++ = m(i,j);
     return v;
 }
 
 
-template<int Ndim>
+template<IdxT Ndim>
 const StringVecT& MultivariateNormalDist<Ndim>::param_names()
 { 
     static bool initialized = init_param_names(); //Run initialization only once
@@ -275,7 +275,7 @@ const StringVecT& MultivariateNormalDist<Ndim>::param_names()
     return _param_names; 
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NparamsVecT& 
 MultivariateNormalDist<Ndim>::param_lbound()
 { 
@@ -284,7 +284,7 @@ MultivariateNormalDist<Ndim>::param_lbound()
     return _param_lbound;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NparamsVecT& 
 MultivariateNormalDist<Ndim>::param_ubound()
 { 
@@ -293,7 +293,7 @@ MultivariateNormalDist<Ndim>::param_ubound()
     return _param_ubound;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NdimVecT& 
 MultivariateNormalDist<Ndim>::lbound()
 { 
@@ -302,7 +302,7 @@ MultivariateNormalDist<Ndim>::lbound()
     return _lbound;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NdimVecT& 
 MultivariateNormalDist<Ndim>::ubound()
 { 
@@ -314,25 +314,25 @@ MultivariateNormalDist<Ndim>::ubound()
 
 //translate linear idx into covariance matrix sigma using the ordering of an upper-triangular 
 // matrix in col-major form.
-template<int Ndim>
-void  MultivariateNormalDist<Ndim>::idx_to_row_col(int idx, int &row, int &col)
+template<IdxT Ndim>
+void  MultivariateNormalDist<Ndim>::idx_to_row_col(IdxT idx, IdxT &row, IdxT &col)
 {
     col = 0;
-    int s = 0;
+    IdxT s = 0;
     while(s+col < idx) s+= ++col; //Find the column, keeping truck of the total s of previous elements in previous columns
     row = idx-s;        
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::init_param_names()
 {
     _param_names.reserve(num_params());
-    for(int k=0;k<Ndim;k++) {
+    for(IdxT k=0;k<Ndim;k++) {
         std::ostringstream name;
         name<<"mu_"<<k+1;
         _param_names.emplace_back(name.str());
     }
-    for(int c=0;c<Ndim;c++) for(int r=0;r<=c;r++) {
+    for(IdxT c=0;c<Ndim;c++) for(IdxT r=0;r<=c;r++) {
         std::ostringstream name;
         name<<"sigma_"<<r<<"_"<<c;
         _param_names.emplace_back(name.str());
@@ -340,7 +340,7 @@ bool MultivariateNormalDist<Ndim>::init_param_names()
     return true;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::init_param_lbound()
 { 
     _param_lbound.fill(-INFINITY);    
@@ -348,21 +348,21 @@ bool MultivariateNormalDist<Ndim>::init_param_lbound()
     return true;
 }
     
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::init_param_ubound()
 { 
     _param_ubound.fill(INFINITY);
     return true;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::init_lbound()
 { 
     _lbound.fill(-INFINITY);
     return true;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::init_ubound()
 { 
     _ubound.fill(INFINITY);
@@ -371,32 +371,32 @@ bool MultivariateNormalDist<Ndim>::init_ubound()
 
 /* Non-static methods */
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NdimVecT& 
 MultivariateNormalDist<Ndim>::mu() const 
 { return _mu; }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NdimMatT& 
 MultivariateNormalDist<Ndim>::sigma() const 
 { return _sigma; }
 
-template<int Ndim>
+template<IdxT Ndim>
 const typename MultivariateNormalDist<Ndim>::NdimMatT& 
 MultivariateNormalDist<Ndim>::sigma_inv() const 
 { return _sigma_inv; }
 
-// template<int Ndim>
+// template<IdxT Ndim>
 // const typename MultivariateNormalDist<Ndim>::NdimMatT& 
 // MultivariateNormalDist<Ndim>::sigma_chol() const 
 // { return _sigma_chol; }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 void MultivariateNormalDist<Ndim>::set_mu(Vec&& val) 
 { if(check_mu(val)) _mu = std::forward<Vec>(val); }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Mat>
 void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val) 
 { 
@@ -421,13 +421,13 @@ void MultivariateNormalDist<Ndim>::set_sigma(Mat&& val)
     llh_const_initialized = false;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 bool MultivariateNormalDist<Ndim>::operator==(const MultivariateNormalDist<Ndim> &o) const 
 { 
     return arma::all(mu() == o.mu()) && arma::all(arma::all(sigma() == o.sigma())); 
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 typename MultivariateNormalDist<Ndim>::NparamsVecT 
 MultivariateNormalDist<Ndim>::params() const
 {
@@ -437,18 +437,18 @@ MultivariateNormalDist<Ndim>::params() const
     return p;
 }
 
-template<int Ndim>
-double MultivariateNormalDist<Ndim>::get_param(int idx) const
+template<IdxT Ndim>
+double MultivariateNormalDist<Ndim>::get_param(IdxT idx) const
 {
     if(idx<Ndim) return _mu[idx];
     //otherwise pram is a sigma index as an upper-triangular matrix in col-major form.
     idx -= Ndim;
-    int row,col;
+    IdxT row,col;
     idx_to_row_col(idx,row,col);
     return _sigma(row,col);
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 void MultivariateNormalDist<Ndim>::set_params(const Vec &p)
 { 
@@ -456,7 +456,7 @@ void MultivariateNormalDist<Ndim>::set_params(const Vec &p)
     set_sigma(compressed_upper_triangular_to_full_matrix(p.tail(num_params()-Ndim)));
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec,class Mat>
 void MultivariateNormalDist<Ndim>::set_params(Vec &&mu_val, Mat &&sigma_val)
 { 
@@ -464,7 +464,7 @@ void MultivariateNormalDist<Ndim>::set_params(Vec &&mu_val, Mat &&sigma_val)
     set_sigma(std::forward<Mat>(sigma_val));
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class IterT>
 void MultivariateNormalDist<Ndim>::set_params_iter(IterT &params)
 {
@@ -472,11 +472,11 @@ void MultivariateNormalDist<Ndim>::set_params_iter(IterT &params)
     std::copy_n(params,Ndim,m.begin());
     params+=Ndim;
     NdimMatT S;
-    for(int j=0;j<Ndim;j++) for(int i=0;i<=j;i++) S(i,j) = *params++;
+    for(IdxT j=0;j<Ndim;j++) for(IdxT i=0;i<=j;i++) S(i,j) = *params++;
     set_params(std::move(m),std::move(S));
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::cdf(Vec x) const
 {
@@ -492,7 +492,7 @@ double MultivariateNormalDist<2>::cdf(Vec x) const
     return owen_bvn_cdf((x-mu()).eval(), sigma());
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::pdf(const Vec &x) const
 {
@@ -502,7 +502,7 @@ double MultivariateNormalDist<Ndim>::pdf(const Vec &x) const
     return exp(llh(x));
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::llh(const Vec &x) const
 {
@@ -510,14 +510,14 @@ double MultivariateNormalDist<Ndim>::llh(const Vec &x) const
     return rllh(x) + llh_const;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 double MultivariateNormalDist<Ndim>::rllh(const Vec &x) const
 {
     return -.5*helpers::compute_quadratic_from_symmetric(num_dim(), (x-mu()).eval(), sigma_inv());
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
 MultivariateNormalDist<Ndim>::grad(const Vec &x) const
@@ -525,7 +525,7 @@ MultivariateNormalDist<Ndim>::grad(const Vec &x) const
     return -sigma_inv()*(x-mu()); //Ignore row-vs-col vector ambiguity
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
 MultivariateNormalDist<Ndim>::grad2(const Vec &) const
@@ -533,7 +533,7 @@ MultivariateNormalDist<Ndim>::grad2(const Vec &) const
     return -sigma_inv().diag();
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec>
 typename MultivariateNormalDist<Ndim>::NdimMatT 
 MultivariateNormalDist<Ndim>::hess(const Vec &) const
@@ -541,7 +541,7 @@ MultivariateNormalDist<Ndim>::hess(const Vec &) const
     return -sigma_inv();
 }
     
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec,class Vec2> //Allow different vector types for flexibility between fixed and non-fixed
 void MultivariateNormalDist<Ndim>::grad_grad2_accumulate(const Vec &x, Vec2 &g, Vec2 &g2) const
 {
@@ -549,7 +549,7 @@ void MultivariateNormalDist<Ndim>::grad_grad2_accumulate(const Vec &x, Vec2 &g, 
     g2 += -sigma_inv().diag();
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 template<class Vec,class Vec2,class Mat> //Allow different vector/mat types for flexibility between fixed and non-fixed
 void MultivariateNormalDist<Ndim>::grad_hess_accumulate(const Vec &x, Vec2 &g, Mat &hess) const
 {
@@ -557,18 +557,18 @@ void MultivariateNormalDist<Ndim>::grad_hess_accumulate(const Vec &x, Vec2 &g, M
     hess += -sigma_inv();
 }
     
-template<int Ndim>
+template<IdxT Ndim>
 template<class RngT>
 typename MultivariateNormalDist<Ndim>::NdimVecT 
 MultivariateNormalDist<Ndim>::sample(RngT &rng) const
 {
     std::normal_distribution<double> unit_normal;
     NdimVecT s;
-    for(int i=0;i<Ndim;i++) s(i) = unit_normal(rng);
+    for(IdxT i=0;i<Ndim;i++) s(i) = unit_normal(rng);
     return mu()+_sigma_chol*s;
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 double MultivariateNormalDist<Ndim>::compute_llh_const(const NdimMatT &sigma)
 {
     double sign;
@@ -578,7 +578,7 @@ double MultivariateNormalDist<Ndim>::compute_llh_const(const NdimMatT &sigma)
     return .5*(logdet_sigma + Ndim*constants::log2pi);
 }
 
-template<int Ndim>
+template<IdxT Ndim>
 void MultivariateNormalDist<Ndim>::initialize_llh_const() const
 {
     llh_const = compute_llh_const(sigma());

@@ -37,8 +37,8 @@ namespace meta {
     /** NOOP function which is used to ensure call order on a variadic sequence of function calls 
      *
      */
-    template<class T>
-    void call_in_order(std::initializer_list<T>) 
+    template<class T=int>
+    void call_in_order(std::initializer_list<T>)
     { }
 
     template <class InputIterator, class ResultT, class BinaryOperation>
