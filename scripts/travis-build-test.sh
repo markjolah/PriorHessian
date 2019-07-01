@@ -14,12 +14,17 @@ if [ -z "$BUILD_TYPE" ]; then
     BUILD_TYPE="Release"
 fi
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-LOCAL_SCRIPTS_CONFIG_FILE=${LOCAL_SCRIPTS_CONFIG_FILE:-${SCRIPT_DIR}/local-config/cmake-build-scripts.conf}
+LOCAL_SCRIPTS_CONFIG_FILE=${LOCAL_SCRIPTS_CONFIG_FILE:-${SCRIPT_DIR}/../config/cmake-build-scripts.conf}
 [ -f ${LOCAL_SCRIPTS_CONFIG_FILE} ] && . ${LOCAL_SCRIPTS_CONFIG_FILE}
 SRC_PATH=${SCRIPT_DIR}/..
 INSTALL_PATH=${INSTALL_PATH:-$SCRIPT_DIR/../_travis.install}
 BUILD_PATH=${BUILD_PATH:-$SCRIPT_DIR/../_travis.build/$BUILD_TYPE}
 NUM_PROCS=`grep -c ^processor /proc/cpuinfo`
+if [ ${BLAS_INT64,,} == "on" ] || [ ${OPT_BLAS_INT64,,} == "on" ]; then
+    OPT_BLAS_INT64="On"
+else
+    OPT_BLAS_INT64="Off"
+fi
 
 ARGS="-DCMAKE_INSTALL_PREFIX=$INSTALL_PATH"
 ARGS="${ARGS} -DBUILD_STATIC_LIBS=OFF"
@@ -28,6 +33,7 @@ ARGS="${ARGS} -DBUILD_TESTING=On"
 ARGS="${ARGS} -DOPT_INSTALL_TESTING=On"
 ARGS="${ARGS} -DOPT_EXPORT_BUILD_TREE=Off"
 ARGS="${ARGS} -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=On"  # Disable finding packages in the build-tree
+ARGS="${ARGS} -DOPT_BLAS_INT64=${OPT_BLAS_INT64}"
 
 set -ex
 rm -rf $BUILD_PATH

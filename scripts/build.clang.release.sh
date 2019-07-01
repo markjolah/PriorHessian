@@ -24,6 +24,8 @@ fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SRC_PATH=${SCRIPT_DIR}/..
+LOCAL_SCRIPTS_CONFIG_FILE=${LOCAL_SCRIPTS_CONFIG_FILE:-${SCRIPT_DIR}/../config/cmake-build-scripts.conf}
+[ -f ${LOCAL_SCRIPTS_CONFIG_FILE} ] && . ${LOCAL_SCRIPTS_CONFIG_FILE}
 INSTALL_PATH=${INSTALL_PATH:-${SRC_PATH}/_install}
 BUILD_PATH=${BUILD_PATH:-${SRC_PATH}/_build/ClangRelease}
 CLANG_PATH=${CLANG_PATH:-$(dirname $(which clang++))}
