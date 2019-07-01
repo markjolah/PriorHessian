@@ -24,6 +24,8 @@ foreach(target IN LISTS lib_targets)
                                                    $<$<CXX_COMPILER_ID:GNU>:-Wno-unused-but-set-variable> )
     #Boost extendend precision math has problems with older GCC compilers
     target_compile_options(${target} PUBLIC $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:${CMAKE_CXX_COMPILER_VERSION},7>,$<COMPILE_LANGUAGE:CXX>>:-fext-numeric-literals>)
+    #Disable constexpr useage for older compilers
+    target_compile_definitions(${target} PUBLIC $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:${CMAKE_CXX_COMPILER_VERSION},5>,$<COMPILE_LANGUAGE:CXX>>:PRIOR_HESSIAN_META_HAS_CONSTEXPR=0>)
 
     if(OPT_BLAS_INT64)
         target_link_libraries(${target} INTERFACE LAPACK::LapackInt64 BLAS::BlasInt64)

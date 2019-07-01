@@ -913,9 +913,9 @@ private:
 
 #if !PRIOR_HESSIAN_META_HAS_CONSTEXPR
 template<class... Ts>
-const IdxT CompositeDist::DistTuple<Ts...>::_num_dim = meta::sum_in_order({Ts::num_dim()...});
+const IdxT CompositeDist::DistTuple<Ts...>::_num_dim = meta::sum_in_order<IdxT>({Ts::num_dim()...});
 template<class... Ts>
-const IdxT CompositeDist::DistTuple<Ts...>::_num_params = meta::sum_in_order({Ts::num_params()...});
+const IdxT CompositeDist::DistTuple<Ts...>::_num_params = meta::sum_in_order<IdxT>({Ts::num_params()...});
 template<class... Ts>
 const typename CompositeDist::DistTuple<Ts...>::StaticSizeArrayT
 CompositeDist::DistTuple<Ts...>::_component_num_dim = {{Ts::num_dim()...}};

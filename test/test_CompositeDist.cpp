@@ -743,14 +743,13 @@ TYPED_TEST(CompositeDistTest, params_equal_params_components) {
 TYPED_TEST(CompositeDistTest, check_params) {
     CompositeDist &composite = this->composite;
     auto params = composite.params();
-    ASSERT_TRUE(composite.check_params(params));
+    bool check_ok = composite.check_params(params);
+    ASSERT_TRUE(check_ok);
 }
 
 TYPED_TEST(CompositeDistTest, set_params_idempotent) {
     CompositeDist &composite = this->composite;
     auto params = composite.params();
-//     std::cout<<"params: "<<params<<std::endl;
-//     std::cout<<"CompositeDist:"<<composite<<std::endl;
     ASSERT_TRUE(composite.check_params(params));
     composite.set_params(params);
     auto params2 = composite.params();

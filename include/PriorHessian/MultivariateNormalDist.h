@@ -200,7 +200,7 @@ template<IdxT Ndim>
 template<class Mat>
 bool MultivariateNormalDist<Ndim>::check_sigma(const Mat &sigma)
 {
-    if(!sigma.is_finite()) return false;
+    if(!arma::symmatu(sigma).is_finite()) return false;
     if(arma::any(sigma.diag()<=0)) return false;
     NdimMatT R; 
     return arma::chol(R,arma::symmatu(sigma));//sigma is upper triangular.

@@ -7,7 +7,7 @@ Archimedean copulas.
 ## Documentation
 The PriorHessian Doxygen documentation can be build with the `OPT_DOC` CMake option and is also available on online:
   * [PriorHessian HTML Manual](https://markjolah.github.io/PriorHessian/index.html)
-  * [PriorHessian PDF Manual](https://markjolah.github.io/PriorHessian/pdf/PriorHessian-0.2-reference.pdf)
+  * [PriorHessian PDF Manual](https://markjolah.github.io/PriorHessian/pdf/PriorHessian-0.2.1-reference.pdf)
   * [PriorHessian github repository](https://github.com/markjolah/PriorHessian)
 
 ## Installation
