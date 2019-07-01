@@ -1,6 +1,4 @@
 <map id="prior_hessian::CompositeDist::make_component_dist_tuple" name="prior_hessian::CompositeDist::make_component_dist_tuple">
 <area shape="rect" id="node2" href="$namespaceprior__hessian.html#a387cc711a6a39924943b5b20ae76bf6a" title="prior_hessian::make\l_adapted_bounded_dist" alt="" coords="269,5,425,44"/>
 <area shape="rect" id="node3" href="$classprior__hessian_1_1CompositeDist.html#a9473495959c5c652e0eb20fe33545441" title="prior_hessian::Composite\lDist::make_component_dist" alt="" coords="260,68,433,107"/>
-<area shape="rect" id="node4" href="$namespaceprior__hessian_1_1meta.html#ab09470f06d05f5c58e249a03ef19242f" title="prior_hessian::meta\l::sum_in_order" alt="" coords="281,131,412,169"/>
-<area shape="rect" id="node5" href="$namespaceprior__hessian_1_1meta.html#a8dd1d78533f7011bebda7009c0591041" title="prior_hessian::meta\l::constexpr_accumulate" alt="" coords="481,131,632,169"/>
 </map>

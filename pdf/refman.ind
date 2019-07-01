@@ -387,9 +387,9 @@
   \item {eulerian\+\_\+polynomial$<$ 1 $>$}
     \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
   \item {eulerian\+\_\+polynomial$<$ 2 $>$}
-    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
   \item {eulerian\+\_\+polynomial$<$ 3 $>$}
-    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
+    \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{43}
   \item {eulerian\+\_\+polynomial$<$ 4 $>$}
     \subitem {prior\+\_\+hessian\+::polylog}, \hyperpage{44}
   \item {eulerian\+\_\+polynomial$<$ 5 $>$}
@@ -1839,8 +1839,8 @@
     \subitem {eulerian\+\_\+polynomial}, \hyperpage{43}
     \subitem {eulerian\+\_\+polynomial$<$ 0 $>$}, \hyperpage{43}
     \subitem {eulerian\+\_\+polynomial$<$ 1 $>$}, \hyperpage{43}
-    \subitem {eulerian\+\_\+polynomial$<$ 2 $>$}, \hyperpage{44}
-    \subitem {eulerian\+\_\+polynomial$<$ 3 $>$}, \hyperpage{44}
+    \subitem {eulerian\+\_\+polynomial$<$ 2 $>$}, \hyperpage{43}
+    \subitem {eulerian\+\_\+polynomial$<$ 3 $>$}, \hyperpage{43}
     \subitem {eulerian\+\_\+polynomial$<$ 4 $>$}, \hyperpage{44}
     \subitem {eulerian\+\_\+polynomial$<$ 5 $>$}, \hyperpage{44}
     \subitem {eulerian\+\_\+polynomial$<$ 6 $>$}, \hyperpage{44}
